@@ -1,0 +1,106 @@
+\hypertarget{class_domain_cell_do_f_iterator}{}\section{Domain\+Cell\+Do\+F\+Iterator$<$ spacedim $>$ Class Template Reference}
+\label{class_domain_cell_do_f_iterator}\index{Domain\+Cell\+Do\+F\+Iterator$<$ spacedim $>$@{Domain\+Cell\+Do\+F\+Iterator$<$ spacedim $>$}}
+
+
+{\ttfamily \#include $<$dof\+\_\+handler\+\_\+system.\+h$>$}
+
+
+
+Inheritance diagram for Domain\+Cell\+Do\+F\+Iterator$<$ spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_domain_cell_do_f_iterator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Domain\+Cell\+Do\+F\+Iterator$<$ spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_domain_cell_do_f_iterator__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_domain_cell_do_f_iterator_a36416883d4c91dd0849520d3e205dba1}{Domain\+Cell\+Do\+F\+Iterator} (const {\bf Tria\+Iterator}$<$ {\bf Cell\+Accessor}$<$ spacedim, spacedim $>$$>$ \&domain\+\_\+cell, const \hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}$<$ spacedim $>$ \&\hyperlink{class_domain_cell_do_f_iterator_a7431a0505f1e5b0b796c7f58cf9a060c}{dof\+\_\+handler\+\_\+system})
+\item 
+\hyperlink{class_domain_cell_do_f_iterator_a4e987bc73bb2c8ec6974cc6427505091}{Domain\+Cell\+Do\+F\+Iterator} (const \hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}$<$ spacedim $>$ \&\hyperlink{class_domain_cell_do_f_iterator_a7431a0505f1e5b0b796c7f58cf9a060c}{dof\+\_\+handler\+\_\+system})
+\item 
+void \hyperlink{class_domain_cell_do_f_iterator_ad93f1a26a4efd4ca94af45d13e250aba}{get\+\_\+dof\+\_\+indices} (std\+::vector$<$ {\bf types\+::global\+\_\+dof\+\_\+index} $>$ \&dof\+\_\+indices) const 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}$<$ spacedim $>$ \& \hyperlink{class_domain_cell_do_f_iterator_a7431a0505f1e5b0b796c7f58cf9a060c}{dof\+\_\+handler\+\_\+system}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$unsigned int spacedim$>$\\*
+class Domain\+Cell\+Do\+F\+Iterator$<$ spacedim $>$}
+
+This is an active cell iterator (for domain cells) pretty much like the active\+\_\+cell\+\_\+iterator of deal.\+II. However, the difference is that it provides the function \hyperlink{class_domain_cell_do_f_iterator_ad93f1a26a4efd4ca94af45d13e250aba}{Domain\+Cell\+Do\+F\+Iterator\+::get\+\_\+dof\+\_\+indices()}, which returns the dof indices of the cells in the global ordering of the \hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System} instead of the dof ordering of the deal.\+II dof handler. By using the function domain\+\_\+cell\+\_\+dof\+\_\+iterator.\+get\+\_\+dof\+\_\+indices() you will get the indices in the global ordering of the \hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}. In contrast, if you use domain\+\_\+cell\+\_\+dof\+\_\+iterator-\/$>$\hyperlink{class_domain_cell_do_f_iterator_ad93f1a26a4efd4ca94af45d13e250aba}{get\+\_\+dof\+\_\+indices()}, you get the indices in the ordering of the deal.\+II dof handler. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Domain\+Cell\+Do\+F\+Iterator@{Domain\+Cell\+Do\+F\+Iterator}!Domain\+Cell\+Do\+F\+Iterator@{Domain\+Cell\+Do\+F\+Iterator}}
+\index{Domain\+Cell\+Do\+F\+Iterator@{Domain\+Cell\+Do\+F\+Iterator}!Domain\+Cell\+Do\+F\+Iterator@{Domain\+Cell\+Do\+F\+Iterator}}
+\subsubsection[{\texorpdfstring{Domain\+Cell\+Do\+F\+Iterator(const Tria\+Iterator$<$ Cell\+Accessor$<$ spacedim, spacedim $>$$>$ \&domain\+\_\+cell, const Do\+F\+Handler\+System$<$ spacedim $>$ \&dof\+\_\+handler\+\_\+system)}{DomainCellDoFIterator(const TriaIterator< CellAccessor< spacedim, spacedim >> &domain_cell, const DoFHandlerSystem< spacedim > &dof_handler_system)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ {\bf Domain\+Cell\+Do\+F\+Iterator}$<$ spacedim $>$\+::{\bf Domain\+Cell\+Do\+F\+Iterator} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tria\+Iterator}$<$ {\bf Cell\+Accessor}$<$ spacedim, spacedim $>$$>$ \&}]{domain\+\_\+cell, }
+\item[{const {\bf Do\+F\+Handler\+System}$<$ spacedim $>$ \&}]{dof\+\_\+handler\+\_\+system}
+\end{DoxyParamCaption}
+)}\hypertarget{class_domain_cell_do_f_iterator_a36416883d4c91dd0849520d3e205dba1}{}\label{class_domain_cell_do_f_iterator_a36416883d4c91dd0849520d3e205dba1}
+Constructor
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em domain\+\_\+cell} & The domain cell of the triangulation\\
+\hline
+\mbox{\tt in}  & {\em dof\+\_\+handler\+\_\+system} & The underlying \hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System} \\
+\hline
+\end{DoxyParams}
+\index{Domain\+Cell\+Do\+F\+Iterator@{Domain\+Cell\+Do\+F\+Iterator}!Domain\+Cell\+Do\+F\+Iterator@{Domain\+Cell\+Do\+F\+Iterator}}
+\index{Domain\+Cell\+Do\+F\+Iterator@{Domain\+Cell\+Do\+F\+Iterator}!Domain\+Cell\+Do\+F\+Iterator@{Domain\+Cell\+Do\+F\+Iterator}}
+\subsubsection[{\texorpdfstring{Domain\+Cell\+Do\+F\+Iterator(const Do\+F\+Handler\+System$<$ spacedim $>$ \&dof\+\_\+handler\+\_\+system)}{DomainCellDoFIterator(const DoFHandlerSystem< spacedim > &dof_handler_system)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ {\bf Domain\+Cell\+Do\+F\+Iterator}$<$ spacedim $>$\+::{\bf Domain\+Cell\+Do\+F\+Iterator} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Do\+F\+Handler\+System}$<$ spacedim $>$ \&}]{dof\+\_\+handler\+\_\+system}
+\end{DoxyParamCaption}
+)}\hypertarget{class_domain_cell_do_f_iterator_a4e987bc73bb2c8ec6974cc6427505091}{}\label{class_domain_cell_do_f_iterator_a4e987bc73bb2c8ec6974cc6427505091}
+Constructor for the end() element
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dof\+\_\+handler\+\_\+system} & The underlying \hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Domain\+Cell\+Do\+F\+Iterator@{Domain\+Cell\+Do\+F\+Iterator}!get\+\_\+dof\+\_\+indices@{get\+\_\+dof\+\_\+indices}}
+\index{get\+\_\+dof\+\_\+indices@{get\+\_\+dof\+\_\+indices}!Domain\+Cell\+Do\+F\+Iterator@{Domain\+Cell\+Do\+F\+Iterator}}
+\subsubsection[{\texorpdfstring{get\+\_\+dof\+\_\+indices(std\+::vector$<$ types\+::global\+\_\+dof\+\_\+index $>$ \&dof\+\_\+indices) const }{get_dof_indices(std::vector< types::global_dof_index > &dof_indices) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Domain\+Cell\+Do\+F\+Iterator}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf types\+::global\+\_\+dof\+\_\+index} $>$ \&}]{dof\+\_\+indices}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_domain_cell_do_f_iterator_ad93f1a26a4efd4ca94af45d13e250aba}{}\label{class_domain_cell_do_f_iterator_ad93f1a26a4efd4ca94af45d13e250aba}
+Function returning the dof indices in the global ordering of the dof handler system \hyperlink{class_domain_cell_do_f_iterator_a7431a0505f1e5b0b796c7f58cf9a060c}{Domain\+Cell\+Do\+F\+Iterator\+::dof\+\_\+handler\+\_\+system}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em dof\+\_\+indices} & The returned dof indices \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{Domain\+Cell\+Do\+F\+Iterator@{Domain\+Cell\+Do\+F\+Iterator}!dof\+\_\+handler\+\_\+system@{dof\+\_\+handler\+\_\+system}}
+\index{dof\+\_\+handler\+\_\+system@{dof\+\_\+handler\+\_\+system}!Domain\+Cell\+Do\+F\+Iterator@{Domain\+Cell\+Do\+F\+Iterator}}
+\subsubsection[{\texorpdfstring{dof\+\_\+handler\+\_\+system}{dof_handler_system}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const {\bf Do\+F\+Handler\+System}$<$spacedim$>$\& {\bf Domain\+Cell\+Do\+F\+Iterator}$<$ spacedim $>$\+::dof\+\_\+handler\+\_\+system\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_domain_cell_do_f_iterator_a7431a0505f1e5b0b796c7f58cf9a060c}{}\label{class_domain_cell_do_f_iterator_a7431a0505f1e5b0b796c7f58cf9a060c}
+The underlying \hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System} 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/\hyperlink{dof__handler__system_8h}{dof\+\_\+handler\+\_\+system.\+h}\end{DoxyCompactItemize}

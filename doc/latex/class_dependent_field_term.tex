@@ -1,0 +1,140 @@
+\hypertarget{class_dependent_field_term}{}\section{Dependent\+Field\+Term$<$ dim, spacedim $>$ Class Template Reference}
+\label{class_dependent_field_term}\index{Dependent\+Field\+Term$<$ dim, spacedim $>$@{Dependent\+Field\+Term$<$ dim, spacedim $>$}}
+
+
+{\ttfamily \#include $<$dependent\+\_\+field.\+h$>$}
+
+
+
+Collaboration diagram for Dependent\+Field\+Term$<$ dim, spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_dependent_field_term__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_dependent_field_term_a149a09f602b0baadba9033d6a8da448c}{Dependent\+Field\+Term} (const double \hyperlink{class_dependent_field_term_a59a9183a32ac55fb728f3797b68a9f8f}{coefficient}, const \hyperlink{class_independent_field}{Independent\+Field}$<$ dim, spacedim $>$ \&\hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{independent\+\_\+field}, const unsigned int \hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{component}=0, const std\+::vector$<$ unsigned int $>$ \hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{derivatives}=std\+::vector$<$ unsigned int $>$())
+\item 
+double \hyperlink{class_dependent_field_term_a9c477ae87acdea43960f399ca2dd10b9}{first\+\_\+derivative} () const 
+\item 
+unsigned int \hyperlink{class_dependent_field_term_aa1c7aeb391135d4cafa1f208c15517ec}{n\+\_\+derivatives} () const 
+\item 
+bool \hyperlink{class_dependent_field_term_ab9934d7ad41e3a52073cc11293e7178b}{operator$<$} (const \hyperlink{class_dependent_field_term}{Dependent\+Field\+Term} \&dependent\+\_\+field\+\_\+2) const 
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const double \hyperlink{class_dependent_field_term_a59a9183a32ac55fb728f3797b68a9f8f}{coefficient}
+\item 
+const {\bf Smart\+Pointer}$<$ const \hyperlink{class_independent_field}{Independent\+Field}$<$ dim, spacedim $>$ $>$ \hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{independent\+\_\+field}
+\item 
+const unsigned int \hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{component}
+\item 
+const std\+::vector$<$ unsigned int $>$ \hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{derivatives}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$unsigned int dim, unsigned int spacedim$>$\\*
+class Dependent\+Field\+Term$<$ dim, spacedim $>$}
+
+This class allows for the definition of a term of the form $a \dfrac{\partial^N f}{\partial x_{i_0} \hdots \partial x_{i_{N-1}}} $, where $a$ is a constant coefficient, and $f$ is a function of the spatial location $\boldsymbol{x}$. The function $f$ is derived $N$ times with respect to particular spatial coordinates, which is indicated by the notation $\dfrac{\partial^N f}{\partial x_{i_0} \hdots \partial x_{i_{N-1}}}$. It is noted that the $i_k$ in the latter expression refer to fixed numbers. I.\+e., $\dfrac{\partial^N f}{\partial x_{i_0} \hdots \partial x_{i_{N-1}}}$ is scalar valued, with examples being $\dfrac{\partial f}{\partial x_2}$ and $\dfrac{\partial^2 f}{\partial x_2 \partial x_1}$. \char`\"{}\+Zeroth\char`\"{} derivatives are also allowed by this class (i.\+e., terms of the form $a f$).
+
+In particular, the function $f$ may either be a domain related independent field $u^\Omega_\epsilon$ or an interface related independent field $u^\Sigma_\eta$.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em dim} & The dimension of the object on which the function $f$ lives\\
+\hline
+{\em spacedim} & The spatial dimension of the problem \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Dependent\+Field\+Term@{Dependent\+Field\+Term}!Dependent\+Field\+Term@{Dependent\+Field\+Term}}
+\index{Dependent\+Field\+Term@{Dependent\+Field\+Term}!Dependent\+Field\+Term@{Dependent\+Field\+Term}}
+\subsubsection[{\texorpdfstring{Dependent\+Field\+Term(const double coefficient, const Independent\+Field$<$ dim, spacedim $>$ \&independent\+\_\+field, const unsigned int component=0, const std\+::vector$<$ unsigned int $>$ derivatives=std\+::vector$<$ unsigned int $>$())}{DependentFieldTerm(const double coefficient, const IndependentField< dim, spacedim > &independent_field, const unsigned int component=0, const std::vector< unsigned int > derivatives=std::vector< unsigned int >())}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ {\bf Dependent\+Field\+Term}$<$ dim, spacedim $>$\+::{\bf Dependent\+Field\+Term} (
+\begin{DoxyParamCaption}
+\item[{const double}]{coefficient, }
+\item[{const {\bf Independent\+Field}$<$ dim, spacedim $>$ \&}]{independent\+\_\+field, }
+\item[{const unsigned int}]{component = {\ttfamily 0}, }
+\item[{const std\+::vector$<$ unsigned int $>$}]{derivatives = {\ttfamily std\+:\+:vector$<$~unsigned~int~$>$()}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_dependent_field_term_a149a09f602b0baadba9033d6a8da448c}{}\label{class_dependent_field_term_a149a09f602b0baadba9033d6a8da448c}
+The constructor of the class.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em coefficient} & \hyperlink{class_dependent_field_term_a59a9183a32ac55fb728f3797b68a9f8f}{Dependent\+Field\+Term\+::coefficient} \\
+\hline
+\mbox{\tt in}  & {\em independent\+\_\+field} & \hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field} \\
+\hline
+\mbox{\tt in}  & {\em component} & \hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{Dependent\+Field\+Term\+::component} \\
+\hline
+\mbox{\tt in}  & {\em derivatives} & \hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{Dependent\+Field\+Term\+::derivatives} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Dependent\+Field\+Term@{Dependent\+Field\+Term}!first\+\_\+derivative@{first\+\_\+derivative}}
+\index{first\+\_\+derivative@{first\+\_\+derivative}!Dependent\+Field\+Term@{Dependent\+Field\+Term}}
+\subsubsection[{\texorpdfstring{first\+\_\+derivative() const }{first_derivative() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ double {\bf Dependent\+Field\+Term}$<$ dim, spacedim $>$\+::first\+\_\+derivative (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_dependent_field_term_a9c477ae87acdea43960f399ca2dd10b9}{}\label{class_dependent_field_term_a9c477ae87acdea43960f399ca2dd10b9}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{Dependent\+Field\+Term\+::derivatives}\mbox{[}0\mbox{]} 
+\end{DoxyReturn}
+\index{Dependent\+Field\+Term@{Dependent\+Field\+Term}!n\+\_\+derivatives@{n\+\_\+derivatives}}
+\index{n\+\_\+derivatives@{n\+\_\+derivatives}!Dependent\+Field\+Term@{Dependent\+Field\+Term}}
+\subsubsection[{\texorpdfstring{n\+\_\+derivatives() const }{n_derivatives() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ unsigned int {\bf Dependent\+Field\+Term}$<$ dim, spacedim $>$\+::n\+\_\+derivatives (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_dependent_field_term_aa1c7aeb391135d4cafa1f208c15517ec}{}\label{class_dependent_field_term_aa1c7aeb391135d4cafa1f208c15517ec}
+\begin{DoxyReturn}{Returns}
+The size of \hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{Dependent\+Field\+Term\+::derivatives} (i.\+e. $N$) 
+\end{DoxyReturn}
+\index{Dependent\+Field\+Term@{Dependent\+Field\+Term}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Dependent\+Field\+Term@{Dependent\+Field\+Term}}
+\subsubsection[{\texorpdfstring{operator$<$(const Dependent\+Field\+Term \&dependent\+\_\+field\+\_\+2) const }{operator<(const DependentFieldTerm &dependent_field_2) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ bool {\bf Dependent\+Field\+Term}$<$ dim, spacedim $>$\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Dependent\+Field\+Term}$<$ dim, spacedim $>$ \&}]{dependent\+\_\+field\+\_\+2}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_dependent_field_term_ab9934d7ad41e3a52073cc11293e7178b}{}\label{class_dependent_field_term_ab9934d7ad41e3a52073cc11293e7178b}
+A comparison operator, which allows to use \hyperlink{class_dependent_field_term}{Dependent\+Field\+Term} in {\ttfamily std\+::map} and {\ttfamily std\+::set}. The comparison operator is based on a lexicographic ordering according to the members \hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field}, \hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{Dependent\+Field\+Term\+::component}, \hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{Dependent\+Field\+Term\+::derivatives}. This means that the member \hyperlink{class_dependent_field_term_a59a9183a32ac55fb728f3797b68a9f8f}{Dependent\+Field\+Term\+::coefficient} does not factor into the comparison, which effectively means that two \hyperlink{class_dependent_field_term}{Dependent\+Field\+Term} objects are considered equal if they are associated with the same \hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field}, \hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{Dependent\+Field\+Term\+::component}, \hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{Dependent\+Field\+Term\+::derivatives} (the same \hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field} here really means \char`\"{}exactly the same object\char`\"{}).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dependent\+\_\+field\+\_\+2} & The \hyperlink{class_dependent_field_term}{Dependent\+Field\+Term} to compare with\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean indicating result of comparison 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Dependent\+Field\+Term@{Dependent\+Field\+Term}!coefficient@{coefficient}}
+\index{coefficient@{coefficient}!Dependent\+Field\+Term@{Dependent\+Field\+Term}}
+\subsubsection[{\texorpdfstring{coefficient}{coefficient}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ const double {\bf Dependent\+Field\+Term}$<$ dim, spacedim $>$\+::coefficient}\hypertarget{class_dependent_field_term_a59a9183a32ac55fb728f3797b68a9f8f}{}\label{class_dependent_field_term_a59a9183a32ac55fb728f3797b68a9f8f}
+The coefficient $a$ \index{Dependent\+Field\+Term@{Dependent\+Field\+Term}!component@{component}}
+\index{component@{component}!Dependent\+Field\+Term@{Dependent\+Field\+Term}}
+\subsubsection[{\texorpdfstring{component}{component}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ const unsigned int {\bf Dependent\+Field\+Term}$<$ dim, spacedim $>$\+::component}\hypertarget{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{}\label{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}
+A component of the (possibly vector valued) \hyperlink{class_independent_field}{Independent\+Field} \hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field}, which defines together with \hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field} the independent field $f$. If \hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field} is scalar valued, \hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{Dependent\+Field\+Term\+::component} can only be zero. \index{Dependent\+Field\+Term@{Dependent\+Field\+Term}!derivatives@{derivatives}}
+\index{derivatives@{derivatives}!Dependent\+Field\+Term@{Dependent\+Field\+Term}}
+\subsubsection[{\texorpdfstring{derivatives}{derivatives}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ const std\+::vector$<$unsigned int$>$ {\bf Dependent\+Field\+Term}$<$ dim, spacedim $>$\+::derivatives}\hypertarget{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{}\label{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}
+A list of the spatial derivatives. The first element in the vector is $i_0$, the second element the derivative $i_1$, etc. The length of the vector is thus equal to the number of derivatives $N$; and in the special case that there are no derivatives, this vector will have the size zero. \index{Dependent\+Field\+Term@{Dependent\+Field\+Term}!independent\+\_\+field@{independent\+\_\+field}}
+\index{independent\+\_\+field@{independent\+\_\+field}!Dependent\+Field\+Term@{Dependent\+Field\+Term}}
+\subsubsection[{\texorpdfstring{independent\+\_\+field}{independent_field}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ const {\bf Smart\+Pointer}$<$const {\bf Independent\+Field}$<$dim, spacedim$>$ $>$ {\bf Dependent\+Field\+Term}$<$ dim, spacedim $>$\+::independent\+\_\+field}\hypertarget{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{}\label{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}
+An \hyperlink{class_independent_field}{Independent\+Field} object, which defines together with \hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{Dependent\+Field\+Term\+::component}, the function $f$ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/\hyperlink{dependent__field_8h}{dependent\+\_\+field.\+h}\end{DoxyCompactItemize}

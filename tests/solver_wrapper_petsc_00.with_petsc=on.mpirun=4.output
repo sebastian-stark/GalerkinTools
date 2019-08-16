@@ -1,0 +1,61 @@
+
+DEAL:0::### 2D-Case, Cube ###
+DEAL:0::
+DEAL:0::START PARALLEL MUMPS SOLVE
+DEAL:0::Convergence step 1 value 0.00000
+DEAL:0::Convergence step 1 value 0.00000
+DEAL:0::END PARALLEL MUMPS SOLVE
+DEAL:0::OK
+DEAL:0::
+### 3D-Case, Cube ###
+DEAL:0::
+DEAL:0::START PARALLEL MUMPS SOLVE
+DEAL:0::Convergence step 1 value 0.00000
+DEAL:0::Convergence step 1 value 0.00000
+DEAL:0::END PARALLEL MUMPS SOLVE
+DEAL:0::OK
+
+DEAL:1::### 2D-Case, Cube ###
+DEAL:1::
+DEAL:1::START PARALLEL MUMPS SOLVE
+DEAL:1::Convergence step 1 value 0.00000
+DEAL:1::Convergence step 1 value 0.00000
+DEAL:1::END PARALLEL MUMPS SOLVE
+DEAL:1::
+### 3D-Case, Cube ###
+DEAL:1::
+DEAL:1::START PARALLEL MUMPS SOLVE
+DEAL:1::Convergence step 1 value 0.00000
+DEAL:1::Convergence step 1 value 0.00000
+DEAL:1::END PARALLEL MUMPS SOLVE
+
+
+DEAL:2::### 2D-Case, Cube ###
+DEAL:2::
+DEAL:2::START PARALLEL MUMPS SOLVE
+DEAL:2::Convergence step 1 value 0.00000
+DEAL:2::Convergence step 1 value 0.00000
+DEAL:2::END PARALLEL MUMPS SOLVE
+DEAL:2::
+### 3D-Case, Cube ###
+DEAL:2::
+DEAL:2::START PARALLEL MUMPS SOLVE
+DEAL:2::Convergence step 1 value 0.00000
+DEAL:2::Convergence step 1 value 0.00000
+DEAL:2::END PARALLEL MUMPS SOLVE
+
+
+DEAL:3::### 2D-Case, Cube ###
+DEAL:3::
+DEAL:3::START PARALLEL MUMPS SOLVE
+DEAL:3::Convergence step 1 value 0.00000
+DEAL:3::Convergence step 1 value 0.00000
+DEAL:3::END PARALLEL MUMPS SOLVE
+DEAL:3::
+### 3D-Case, Cube ###
+DEAL:3::
+DEAL:3::START PARALLEL MUMPS SOLVE
+DEAL:3::Convergence step 1 value 0.00000
+DEAL:3::Convergence step 1 value 0.00000
+DEAL:3::END PARALLEL MUMPS SOLVE
+

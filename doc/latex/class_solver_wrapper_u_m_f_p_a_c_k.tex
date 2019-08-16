@@ -1,0 +1,71 @@
+\hypertarget{class_solver_wrapper_u_m_f_p_a_c_k}{}\section{Solver\+Wrapper\+U\+M\+F\+P\+A\+CK Class Reference}
+\label{class_solver_wrapper_u_m_f_p_a_c_k}\index{Solver\+Wrapper\+U\+M\+F\+P\+A\+CK@{Solver\+Wrapper\+U\+M\+F\+P\+A\+CK}}
+
+
+{\ttfamily \#include $<$solver\+\_\+wrapper.\+h$>$}
+
+
+
+Inheritance diagram for Solver\+Wrapper\+U\+M\+F\+P\+A\+CK\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_solver_wrapper_u_m_f_p_a_c_k__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Solver\+Wrapper\+U\+M\+F\+P\+A\+CK\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_solver_wrapper_u_m_f_p_a_c_k__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_solver_wrapper_u_m_f_p_a_c_k_a80ed8c6186251e670960945e9ebc0c5b}{solve} (const {\bf dealii\+::\+Sparse\+Matrix}$<$ double $>$ \&K\+\_\+stretched, {\bf dealii\+::\+Vector}$<$ double $>$ \&solution, const {\bf dealii\+::\+Vector}$<$ double $>$ \&f\+\_\+stretched, const bool symmetric=false) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A \hyperlink{class_solver_wrapper}{Solver\+Wrapper} for the direct solver from U\+M\+F\+P\+A\+CK 
+
+\subsection{Member Function Documentation}
+\index{Solver\+Wrapper\+U\+M\+F\+P\+A\+CK@{Solver\+Wrapper\+U\+M\+F\+P\+A\+CK}!solve@{solve}}
+\index{solve@{solve}!Solver\+Wrapper\+U\+M\+F\+P\+A\+CK@{Solver\+Wrapper\+U\+M\+F\+P\+A\+CK}}
+\subsubsection[{\texorpdfstring{solve(const dealii\+::\+Sparse\+Matrix$<$ double $>$ \&\+K\+\_\+stretched, dealii\+::\+Vector$<$ double $>$ \&solution, const dealii\+::\+Vector$<$ double $>$ \&f\+\_\+stretched, const bool symmetric=false) const }{solve(const dealii::SparseMatrix< double > &K_stretched, dealii::Vector< double > &solution, const dealii::Vector< double > &f_stretched, const bool symmetric=false) const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Solver\+Wrapper\+U\+M\+F\+P\+A\+C\+K\+::solve (
+\begin{DoxyParamCaption}
+\item[{const {\bf dealii\+::\+Sparse\+Matrix}$<$ double $>$ \&}]{K\+\_\+stretched, }
+\item[{{\bf dealii\+::\+Vector}$<$ double $>$ \&}]{solution, }
+\item[{const {\bf dealii\+::\+Vector}$<$ double $>$ \&}]{f\+\_\+stretched, }
+\item[{const bool}]{symmetric = {\ttfamily false}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_solver_wrapper_u_m_f_p_a_c_k_a80ed8c6186251e670960945e9ebc0c5b}{}\label{class_solver_wrapper_u_m_f_p_a_c_k_a80ed8c6186251e670960945e9ebc0c5b}
+
+
+
+
+The solve function for the system of linear equations in the stretched form
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em K\+\_\+stretched} & The stretched system\+\_\+matrix\\
+\hline
+\mbox{\tt out}  & {\em solution} & The stretched solution vector\\
+\hline
+\mbox{\tt in}  & {\em f\+\_\+stretched} & The stretched right hand side vector\\
+\hline
+\mbox{\tt in}  & {\em symmetric} & A bool indicating whether {\ttfamily system\+\_\+matrix} is symmetric \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_solver_wrapper_a75a599630086e2edee14eb43ae071733}{Solver\+Wrapper$<$ dealii\+::\+Vector$<$ double $>$, dealii\+::\+Vector$<$ double $>$, dealii\+::\+Sparse\+Matrix$<$ double $>$, Sparsity\+Pattern $>$}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/\hyperlink{solver__wrapper_8h}{solver\+\_\+wrapper.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,73 @@
+\hypertarget{class_total_potential}{}\section{Total\+Potential$<$ spacedim $>$ Class Template Reference}
+\label{class_total_potential}\index{Total\+Potential$<$ spacedim $>$@{Total\+Potential$<$ spacedim $>$}}
+
+
+{\ttfamily \#include $<$total\+\_\+potential.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_total_potential_ace8b22eef7789f5c7eb78606ba1f110c}{add\+\_\+total\+\_\+potential\+\_\+contribution} (const \hyperlink{class_total_potential_contribution}{Total\+Potential\+Contribution}$<$ spacedim $>$ \&total\+\_\+potential\+\_\+contribution)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ {\bf Smart\+Pointer}$<$ const \hyperlink{class_total_potential_contribution}{Total\+Potential\+Contribution}$<$ spacedim $>$ $>$ $>$ \hyperlink{class_total_potential_a5a14ce0e2fabf8116566aa67fb11db35}{total\+\_\+potential\+\_\+contributions}
+\item 
+unsigned int \hyperlink{class_total_potential_a800f9366116679fd0f7d3173a3bfc539}{max\+\_\+dependent\+\_\+vars} = 0
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$unsigned int$>$ }\\class \hyperlink{class_total_potential_af4019c2e39cc934d646aaa35c3c52773}{Assembly\+Helper}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$unsigned int spacedim$>$\\*
+class Total\+Potential$<$ spacedim $>$}
+
+Class collecting all \hyperlink{class_total_potential_contribution}{Total\+Potential\+Contribution} objects $\Pi_i$ in the total potential $\Pi$ according to \begin{equation*} \Pi = \Pi(H^\Omega_\rho, H^\Sigma_\tau, C_\iota) = \sum_i \Pi_i(H^\Omega_\rho, H^\Sigma_\tau, C_\iota). \end{equation*}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em spacedim} & Spatial dimension \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Function Documentation}
+\index{Total\+Potential@{Total\+Potential}!add\+\_\+total\+\_\+potential\+\_\+contribution@{add\+\_\+total\+\_\+potential\+\_\+contribution}}
+\index{add\+\_\+total\+\_\+potential\+\_\+contribution@{add\+\_\+total\+\_\+potential\+\_\+contribution}!Total\+Potential@{Total\+Potential}}
+\subsubsection[{\texorpdfstring{add\+\_\+total\+\_\+potential\+\_\+contribution(const Total\+Potential\+Contribution$<$ spacedim $>$ \&total\+\_\+potential\+\_\+contribution)}{add_total_potential_contribution(const TotalPotentialContribution< spacedim > &total_potential_contribution)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Total\+Potential}$<$ spacedim $>$\+::add\+\_\+total\+\_\+potential\+\_\+contribution (
+\begin{DoxyParamCaption}
+\item[{const {\bf Total\+Potential\+Contribution}$<$ spacedim $>$ \&}]{total\+\_\+potential\+\_\+contribution}
+\end{DoxyParamCaption}
+)}\hypertarget{class_total_potential_ace8b22eef7789f5c7eb78606ba1f110c}{}\label{class_total_potential_ace8b22eef7789f5c7eb78606ba1f110c}
+Add a contribution $\Pi_i$ to the total potential (i.\+e. to \hyperlink{class_total_potential_a5a14ce0e2fabf8116566aa67fb11db35}{Total\+Potential\+::total\+\_\+potential\+\_\+contributions})
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em total\+\_\+potential\+\_\+contribution} & A contribution $\Pi_i$ \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Total\+Potential@{Total\+Potential}!Assembly\+Helper@{Assembly\+Helper}}
+\index{Assembly\+Helper@{Assembly\+Helper}!Total\+Potential@{Total\+Potential}}
+\subsubsection[{\texorpdfstring{Assembly\+Helper}{AssemblyHelper}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ template$<$unsigned int$>$ friend class {\bf Assembly\+Helper}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{class_total_potential_af4019c2e39cc934d646aaa35c3c52773}{}\label{class_total_potential_af4019c2e39cc934d646aaa35c3c52773}
+\hyperlink{class_assembly_helper}{Assembly\+Helper} is a friend of \hyperlink{class_total_potential}{Total\+Potential} to get direct access to \hyperlink{class_total_potential_a5a14ce0e2fabf8116566aa67fb11db35}{Total\+Potential\+::total\+\_\+potential\+\_\+contributions} and \hyperlink{class_total_potential_a800f9366116679fd0f7d3173a3bfc539}{Total\+Potential\+::max\+\_\+dependent\+\_\+vars} 
+
+\subsection{Member Data Documentation}
+\index{Total\+Potential@{Total\+Potential}!max\+\_\+dependent\+\_\+vars@{max\+\_\+dependent\+\_\+vars}}
+\index{max\+\_\+dependent\+\_\+vars@{max\+\_\+dependent\+\_\+vars}!Total\+Potential@{Total\+Potential}}
+\subsubsection[{\texorpdfstring{max\+\_\+dependent\+\_\+vars}{max_dependent_vars}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ unsigned int {\bf Total\+Potential}$<$ spacedim $>$\+::max\+\_\+dependent\+\_\+vars = 0\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_total_potential_a800f9366116679fd0f7d3173a3bfc539}{}\label{class_total_potential_a800f9366116679fd0f7d3173a3bfc539}
+Maximum number of dependent variables in a \hyperlink{class_scalar_functional}{Scalar\+Functional} (or \hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4}{Scalar\+Functional$<$spacedim, spacedim$>$}, respectively). This information is used internally to reserve an appropriate amount of memory for certain vectors and matrices. \index{Total\+Potential@{Total\+Potential}!total\+\_\+potential\+\_\+contributions@{total\+\_\+potential\+\_\+contributions}}
+\index{total\+\_\+potential\+\_\+contributions@{total\+\_\+potential\+\_\+contributions}!Total\+Potential@{Total\+Potential}}
+\subsubsection[{\texorpdfstring{total\+\_\+potential\+\_\+contributions}{total_potential_contributions}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::vector$<$ {\bf Smart\+Pointer}$<$const {\bf Total\+Potential\+Contribution}$<$spacedim$>$ $>$ $>$ {\bf Total\+Potential}$<$ spacedim $>$\+::total\+\_\+potential\+\_\+contributions\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_total_potential_a5a14ce0e2fabf8116566aa67fb11db35}{}\label{class_total_potential_a5a14ce0e2fabf8116566aa67fb11db35}
+Collection of the \hyperlink{class_total_potential_contribution}{Total\+Potential\+Contribution} objects corresponding to the $\Pi_i$ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/\hyperlink{total__potential_8h}{total\+\_\+potential.\+h}\end{DoxyCompactItemize}

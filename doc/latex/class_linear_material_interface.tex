@@ -1,0 +1,137 @@
+\hypertarget{class_linear_material_interface}{}\section{Linear\+Material\+Interface$<$ spacedim $>$ Class Template Reference}
+\label{class_linear_material_interface}\index{Linear\+Material\+Interface$<$ spacedim $>$@{Linear\+Material\+Interface$<$ spacedim $>$}}
+
+
+{\ttfamily \#include $<$linear\+\_\+material.\+h$>$}
+
+
+
+Inheritance diagram for Linear\+Material\+Interface$<$ spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{class_linear_material_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Linear\+Material\+Interface$<$ spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_linear_material_interface__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_linear_material_interface_ac10a5c148dd81edab41d22dd207c78a2}{Linear\+Material\+Interface} (const std\+::vector$<$ \hyperlink{class_dependent_field}{Dependent\+Field}$<$ spacedim-\/1, spacedim $>$$>$ e\+\_\+sigma, const std\+::set$<$ {\bf types\+::material\+\_\+id} $>$ domain\+\_\+of\+\_\+integration, const {\bf Quadrature}$<$ spacedim-\/1 $>$ quadrature, const {\bf Full\+Matrix}$<$ double $>$ \hyperlink{class_linear_material_interface_ae0b1ef211453e5fd3e1416ff37c315db}{C}, const {\bf Vector}$<$ double $>$ \hyperlink{class_linear_material_interface_a3864513d7662e4d1c91e606467befd59}{y}, const std\+::string name=\char`\"{}Linear\+Material\+Interface\char`\"{})
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_linear_material_interface_a5c7730aa5b8b175950ba6ce670419450}{get\+\_\+h\+\_\+sigma} (const {\bf Vector}$<$ double $>$ \&e\+\_\+sigma, const std\+::vector$<$ {\bf Vector}$<$ double $>$$>$ \&e\+\_\+sigma\+\_\+ref\+\_\+sets, {\bf Vector}$<$ double $>$ \&hidden\+\_\+vars, const {\bf Point}$<$ spacedim $>$ \&x, const {\bf Tensor}$<$ 1, spacedim $>$ \&n, double \&h\+\_\+sigma, {\bf Vector}$<$ double $>$ \&h\+\_\+sigma\+\_\+1, {\bf Full\+Matrix}$<$ double $>$ \&h\+\_\+sigma\+\_\+2, const std\+::tuple$<$ bool, bool, bool $>$ requested\+\_\+quantities) const 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf Full\+Matrix}$<$ double $>$ \hyperlink{class_linear_material_interface_ae0b1ef211453e5fd3e1416ff37c315db}{C}
+\item 
+const {\bf Vector}$<$ double $>$ \hyperlink{class_linear_material_interface_a3864513d7662e4d1c91e606467befd59}{y}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$unsigned int spacedim$>$\\*
+class Linear\+Material\+Interface$<$ spacedim $>$}
+
+Class defining the scalar functional $H^\Sigma_\tau$ according to $H^\Sigma_\tau=\int_\Sigma \left[ \dfrac{1}{2} {\boldsymbol{e}^\Sigma}^\top \boldsymbol{C} {\boldsymbol{e}^\Sigma} + \boldsymbol{y}^\top \boldsymbol{e}^\Sigma \right] \mathrm{d}S$, where $\boldsymbol{e}^\Sigma$ is a vector with a selection of dependent fields $e^\Sigma_\nu$, $\boldsymbol{C}$ is a matrix, and $\boldsymbol{y}$ is a vector. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Linear\+Material\+Interface@{Linear\+Material\+Interface}!Linear\+Material\+Interface@{Linear\+Material\+Interface}}
+\index{Linear\+Material\+Interface@{Linear\+Material\+Interface}!Linear\+Material\+Interface@{Linear\+Material\+Interface}}
+\subsubsection[{\texorpdfstring{Linear\+Material\+Interface(const std\+::vector$<$ Dependent\+Field$<$ spacedim-\/1, spacedim $>$$>$ e\+\_\+sigma, const std\+::set$<$ types\+::material\+\_\+id $>$ domain\+\_\+of\+\_\+integration, const Quadrature$<$ spacedim-\/1 $>$ quadrature, const Full\+Matrix$<$ double $>$ C, const Vector$<$ double $>$ y, const std\+::string name=""Linear\+Material\+Interface"")}{LinearMaterialInterface(const std::vector< DependentField< spacedim-1, spacedim >> e_sigma, const std::set< types::material_id > domain_of_integration, const Quadrature< spacedim-1 > quadrature, const FullMatrix< double > C, const Vector< double > y, const std::string name="LinearMaterialInterface")}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ {\bf Linear\+Material\+Interface}$<$ spacedim $>$\+::{\bf Linear\+Material\+Interface} (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ {\bf Dependent\+Field}$<$ spacedim-\/1, spacedim $>$$>$}]{e\+\_\+sigma, }
+\item[{const std\+::set$<$ {\bf types\+::material\+\_\+id} $>$}]{domain\+\_\+of\+\_\+integration, }
+\item[{const {\bf Quadrature}$<$ spacedim-\/1 $>$}]{quadrature, }
+\item[{const {\bf Full\+Matrix}$<$ double $>$}]{C, }
+\item[{const {\bf Vector}$<$ double $>$}]{y, }
+\item[{const std\+::string}]{name = {\ttfamily \char`\"{}LinearMaterialInterface$<$~spacedim~$>$\char`\"{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_linear_material_interface_ac10a5c148dd81edab41d22dd207c78a2}{}\label{class_linear_material_interface_ac10a5c148dd81edab41d22dd207c78a2}
+The constructor of the class.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em e\+\_\+sigma} & \hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{Scalar\+Functional\+::e\+\_\+sigma}\\
+\hline
+\mbox{\tt in}  & {\em domain\+\_\+of\+\_\+integration} & \hyperlink{class_scalar_functional_ae3b6dd6934e1cd55fcc55cf344179407}{Scalar\+Functional\+::domain\+\_\+of\+\_\+integration}\\
+\hline
+\mbox{\tt in}  & {\em quadrature} & \hyperlink{class_scalar_functional_adea9ff214aeb2a1d8c3712a9d2433883}{Scalar\+Functional\+::quadrature}\\
+\hline
+\mbox{\tt in}  & {\em C} & \hyperlink{class_linear_material_interface_ae0b1ef211453e5fd3e1416ff37c315db}{Linear\+Material\+Interface\+::C}\\
+\hline
+\mbox{\tt in}  & {\em y} & \hyperlink{class_linear_material_interface_a3864513d7662e4d1c91e606467befd59}{Linear\+Material\+Interface\+::y}\\
+\hline
+\mbox{\tt in}  & {\em name} & \hyperlink{class_scalar_functional_a4d184688053b3443d10e228e4a8eba60}{Scalar\+Functional\+::name} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Linear\+Material\+Interface@{Linear\+Material\+Interface}!get\+\_\+h\+\_\+sigma@{get\+\_\+h\+\_\+sigma}}
+\index{get\+\_\+h\+\_\+sigma@{get\+\_\+h\+\_\+sigma}!Linear\+Material\+Interface@{Linear\+Material\+Interface}}
+\subsubsection[{\texorpdfstring{get\+\_\+h\+\_\+sigma(const Vector$<$ double $>$ \&e\+\_\+sigma, const std\+::vector$<$ Vector$<$ double $>$$>$ \&e\+\_\+sigma\+\_\+ref\+\_\+sets, Vector$<$ double $>$ \&hidden\+\_\+vars, const Point$<$ spacedim $>$ \&x, const Tensor$<$ 1, spacedim $>$ \&n, double \&h\+\_\+sigma, Vector$<$ double $>$ \&h\+\_\+sigma\+\_\+1, Full\+Matrix$<$ double $>$ \&h\+\_\+sigma\+\_\+2, const std\+::tuple$<$ bool, bool, bool $>$ requested\+\_\+quantities) const }{get_h_sigma(const Vector< double > &e_sigma, const std::vector< Vector< double >> &e_sigma_ref_sets, Vector< double > &hidden_vars, const Point< spacedim > &x, const Tensor< 1, spacedim > &n, double &h_sigma, Vector< double > &h_sigma_1, FullMatrix< double > &h_sigma_2, const std::tuple< bool, bool, bool > requested_quantities) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ bool {\bf Linear\+Material\+Interface}$<$ spacedim $>$\+::get\+\_\+h\+\_\+sigma (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ double $>$ \&}]{e\+\_\+sigma, }
+\item[{const std\+::vector$<$ {\bf Vector}$<$ double $>$$>$ \&}]{e\+\_\+sigma\+\_\+ref\+\_\+sets, }
+\item[{{\bf Vector}$<$ double $>$ \&}]{hidden\+\_\+vars, }
+\item[{const {\bf Point}$<$ spacedim $>$ \&}]{x, }
+\item[{const {\bf Tensor}$<$ 1, spacedim $>$ \&}]{n, }
+\item[{double \&}]{h\+\_\+sigma, }
+\item[{{\bf Vector}$<$ double $>$ \&}]{h\+\_\+sigma\+\_\+1, }
+\item[{{\bf Full\+Matrix}$<$ double $>$ \&}]{h\+\_\+sigma\+\_\+2, }
+\item[{const std\+::tuple$<$ bool, bool, bool $>$}]{requested\+\_\+quantities}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_linear_material_interface_a5c7730aa5b8b175950ba6ce670419450}{}\label{class_linear_material_interface_a5c7730aa5b8b175950ba6ce670419450}
+See \hyperlink{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma} for detailed information on this method.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em e\+\_\+sigma} & $\boldsymbol{e}^\Sigma$\\
+\hline
+\mbox{\tt in}  & {\em e\+\_\+sigma\+\_\+ref\+\_\+sets} & Sets of reference values of $\boldsymbol{e}^\Sigma$. None are required here.\\
+\hline
+\mbox{\tt in,out}  & {\em hidden\+\_\+vars} & Values of \char`\"{}hidden\char`\"{} variables associated with the integrand $h^\Sigma_\tau$. Here, no hidden variables are present.\\
+\hline
+\mbox{\tt in}  & {\em x} & Location of material point\\
+\hline
+\mbox{\tt in}  & {\em n} & Normal vector pointing from -\/ to + side of the interface $\Sigma$ at {\ttfamily x}. Not required for this particular scalar functional.\\
+\hline
+\mbox{\tt out}  & {\em h\+\_\+sigma} & $\dfrac{1}{2} {\boldsymbol{e}^\Sigma}^\top \boldsymbol{C} {\boldsymbol{e}^\Sigma} + \boldsymbol{y}^\top \boldsymbol{e}^\Sigma$\\
+\hline
+\mbox{\tt out}  & {\em h\+\_\+sigma\+\_\+1} & $\boldsymbol{C} {\boldsymbol{e}^\Sigma} + \boldsymbol{y}^\top$\\
+\hline
+\mbox{\tt out}  & {\em h\+\_\+sigma\+\_\+2} & $\boldsymbol{C}$\\
+\hline
+\mbox{\tt in}  & {\em requested\+\_\+quantities} & A tuple indicating which quantities are actually to be computed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily false} if the evaluation of {\ttfamily h\+\_\+sigma}, {\ttfamily h\+\_\+sigma\+\_\+1}, and {\ttfamily h\+\_\+sigma\+\_\+2} was successful, and {\ttfamily true} if an error prevented the proper calculation of these quantities 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Linear\+Material\+Interface@{Linear\+Material\+Interface}!C@{C}}
+\index{C@{C}!Linear\+Material\+Interface@{Linear\+Material\+Interface}}
+\subsubsection[{\texorpdfstring{C}{C}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const {\bf Full\+Matrix}$<$double$>$ {\bf Linear\+Material\+Interface}$<$ spacedim $>$\+::C\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_linear_material_interface_ae0b1ef211453e5fd3e1416ff37c315db}{}\label{class_linear_material_interface_ae0b1ef211453e5fd3e1416ff37c315db}
+$\boldsymbol{C}$ \index{Linear\+Material\+Interface@{Linear\+Material\+Interface}!y@{y}}
+\index{y@{y}!Linear\+Material\+Interface@{Linear\+Material\+Interface}}
+\subsubsection[{\texorpdfstring{y}{y}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const {\bf Vector}$<$double$>$ {\bf Linear\+Material\+Interface}$<$ spacedim $>$\+::y\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_linear_material_interface_a3864513d7662e4d1c91e606467befd59}{}\label{class_linear_material_interface_a3864513d7662e4d1c91e606467befd59}
+$\boldsymbol{y}$ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/\hyperlink{linear__material_8h}{linear\+\_\+material.\+h}\end{DoxyCompactItemize}

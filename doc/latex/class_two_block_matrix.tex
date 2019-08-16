@@ -1,0 +1,440 @@
+\hypertarget{class_two_block_matrix}{}\section{Two\+Block\+Matrix$<$ Matrix\+Type $>$ Class Template Reference}
+\label{class_two_block_matrix}\index{Two\+Block\+Matrix$<$ Matrix\+Type $>$@{Two\+Block\+Matrix$<$ Matrix\+Type $>$}}
+
+
+{\ttfamily \#include $<$two\+\_\+block\+\_\+matrix.\+h$>$}
+
+
+
+Collaboration diagram for Two\+Block\+Matrix$<$ Matrix\+Type $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{class_two_block_matrix__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{class_two_block_matrix_a9f50fb1f98df3ae0048c3c5220aa265f}{value\+\_\+type} = double
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_two_block_matrix_aa74bb5722415e61241b5f38c9df29d39}{Two\+Block\+Matrix} ()=default
+\item 
+\hyperlink{class_two_block_matrix_a861cdc13c0fc6a65ec7d99e4d2349a92}{Two\+Block\+Matrix} (const \hyperlink{class_two_block_sparsity_pattern}{Two\+Block\+Sparsity\+Pattern} \&sp)
+\item 
+virtual \hyperlink{class_two_block_matrix_a0674b188ebc7bde3ee8f5eb9a94d6265}{$\sim$\+Two\+Block\+Matrix} ()=default
+\item 
+void \hyperlink{class_two_block_matrix_a5eaa76e9909c600aaa256aa77b577391}{reinit} (const \hyperlink{class_two_block_sparsity_pattern}{Two\+Block\+Sparsity\+Pattern} \&sp)
+\item 
+unsigned int \hyperlink{class_two_block_matrix_ab15732600f7e6917f961dce5e24b61a6}{m} () const 
+\item 
+unsigned int \hyperlink{class_two_block_matrix_a7675abf4c2532f48eb3b6bf153755a26}{n} () const 
+\item 
+void \hyperlink{class_two_block_matrix_a9b5d922689d1f60cbc59d2e424df2dc4}{add} (const unsigned int i, const unsigned int j, const double {\bf value})
+\item 
+void \hyperlink{class_two_block_matrix_a7373229281e1c3712681c1ac742dffb7}{add} (const unsigned int row, const unsigned int n\+\_\+cols, const unsigned int $\ast$col\+\_\+indices, const double $\ast${\bf values}, const bool elide\+\_\+zero\+\_\+values=false, const bool col\+\_\+indices\+\_\+are\+\_\+sorted=false)
+\item 
+void \hyperlink{class_two_block_matrix_a5457fd3b6228bed7a731bab2569a17a0}{set} (const unsigned int i, const unsigned int j, const double {\bf value})
+\item 
+double \hyperlink{class_two_block_matrix_a618495b0ad4cef72d95db7a1f380c20f}{operator()} (const unsigned int i, const unsigned int j) const 
+\item 
+double \hyperlink{class_two_block_matrix_a67a13d33b3110985bfc604969fc454c9}{el} (const unsigned int i, const unsigned int j) const 
+\item 
+\hyperlink{class_two_block_matrix}{Two\+Block\+Matrix}$<$ Matrix\+Type $>$ \& \hyperlink{class_two_block_matrix_ac008679a935fb6577931058ac0a6be36}{operator=} (const double {\bf value})
+\item 
+void \hyperlink{class_two_block_matrix_a8de26ebbb410811059d162fb164cedce}{compress} (const {\bf Vector\+Operation\+::values} operation)
+\item 
+const Matrix\+Type \& \hyperlink{class_two_block_matrix_a304eac57c72f23cbcf18a04e5bc64508}{get\+\_\+A} () const 
+\item 
+const Matrix\+Type \& \hyperlink{class_two_block_matrix_ab3807e975c3a5de9779a80c8d61fad96}{get\+\_\+B} () const 
+\item 
+const Matrix\+Type \& \hyperlink{class_two_block_matrix_ac0b0e0bc16412dfd73a8c6a3f782b8d9}{get\+\_\+C} () const 
+\item 
+const Matrix\+Type \& \hyperlink{class_two_block_matrix_af905a0e4b0504e45937a06df768a2ae2}{get\+\_\+D} () const 
+\item 
+Matrix\+Type \& \hyperlink{class_two_block_matrix_ab30f0e3b8f803456c3a2f1ce4f753081}{get\+\_\+A} ()
+\item 
+Matrix\+Type \& \hyperlink{class_two_block_matrix_ae41ca5bbc0495c8ffb1604da488a33b7}{get\+\_\+B} ()
+\item 
+Matrix\+Type \& \hyperlink{class_two_block_matrix_aeaa4102bb137700d7bbe0262ee16e8ee}{get\+\_\+C} ()
+\item 
+Matrix\+Type \& \hyperlink{class_two_block_matrix_a3725800849e26e2192c0ac6520777dab}{get\+\_\+D} ()
+\item 
+unsigned int \hyperlink{class_two_block_matrix_a688b1a69284ec154c493a99ec7cad704}{get\+\_\+block\+\_\+0\+\_\+size} () const 
+\item 
+unsigned int \hyperlink{class_two_block_matrix_a9ecb16be5aa5ebbb916d256a9ded7c3e}{get\+\_\+block\+\_\+1\+\_\+size} () const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Matrix\+Type \hyperlink{class_two_block_matrix_a91b02f00cf56b398e1624227e6efc8c6}{A}
+\item 
+Matrix\+Type \hyperlink{class_two_block_matrix_ae8edfe1cd2298741586dcc46a4d09ebf}{B}
+\item 
+Matrix\+Type \hyperlink{class_two_block_matrix_a847505a77448124928540be0367d8747}{C}
+\item 
+Matrix\+Type \hyperlink{class_two_block_matrix_a72c598f36d3e8cce12821a09920ded2d}{D}
+\item 
+{\bf Sparsity\+Pattern} \hyperlink{class_two_block_matrix_af40216911c197c73687f7d3a1ff4e68e}{sp\+\_\+A}
+\item 
+{\bf Sparsity\+Pattern} \hyperlink{class_two_block_matrix_a854c7e77623a7c0012aa0ceeb60c147a}{sp\+\_\+B}
+\item 
+{\bf Sparsity\+Pattern} \hyperlink{class_two_block_matrix_a45d6e534ad775577c86e9ac9a116014e}{sp\+\_\+C}
+\item 
+{\bf Sparsity\+Pattern} \hyperlink{class_two_block_matrix_adb1833352096be79279134b218659665}{sp\+\_\+D}
+\item 
+unsigned int \hyperlink{class_two_block_matrix_ae862db333ed43f1650d4926f237cfc43}{block\+\_\+0\+\_\+size} = 0
+\item 
+unsigned int \hyperlink{class_two_block_matrix_a60ddea1d26313aac35cfb2ae9f192cb2}{block\+\_\+1\+\_\+size} = 0
+\item 
+unsigned int \hyperlink{class_two_block_matrix_a7d63b4c4c1e499c9f9913444dc5fd6b6}{total\+\_\+dimension} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class Matrix\+Type$>$\\*
+class Two\+Block\+Matrix$<$ Matrix\+Type $>$}
+
+This class implements a block matrix of the form \begin{equation*} \begin{pmatrix} \boldsymbol{A} & \boldsymbol{B} \\ \boldsymbol{C}^\top & \boldsymbol{D} \end{pmatrix} \end{equation*}
+
+The main difference to the deal.\+II block matrices is that internally $\boldsymbol{C}$ is stored instead of the transpose of it. This is useful for parallel applications where finite element related dofs are coupled to \char`\"{}global\char`\"{} unknowns which are not related to any mesh.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Matrix\+Type} & The internal type of the matrix blocks \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Typedef Documentation}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!value\+\_\+type@{value\+\_\+type}}
+\index{value\+\_\+type@{value\+\_\+type}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{value\+\_\+type}{value_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ using {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::{\bf value\+\_\+type} =  double}\hypertarget{class_two_block_matrix_a9f50fb1f98df3ae0048c3c5220aa265f}{}\label{class_two_block_matrix_a9f50fb1f98df3ae0048c3c5220aa265f}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{Two\+Block\+Matrix()=default}{TwoBlockMatrix()=default}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::{\bf Two\+Block\+Matrix} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}\hypertarget{class_two_block_matrix_aa74bb5722415e61241b5f38c9df29d39}{}\label{class_two_block_matrix_aa74bb5722415e61241b5f38c9df29d39}
+Default constructor \index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{Two\+Block\+Matrix(const Two\+Block\+Sparsity\+Pattern \&sp)}{TwoBlockMatrix(const TwoBlockSparsityPattern &sp)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::{\bf Two\+Block\+Matrix} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Two\+Block\+Sparsity\+Pattern} \&}]{sp}
+\end{DoxyParamCaption}
+)}\hypertarget{class_two_block_matrix_a861cdc13c0fc6a65ec7d99e4d2349a92}{}\label{class_two_block_matrix_a861cdc13c0fc6a65ec7d99e4d2349a92}
+Constructor for the sequential case
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em sp} & The sparsity pattern for the matrix \\
+\hline
+\end{DoxyParams}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!````~Two\+Block\+Matrix@{$\sim$\+Two\+Block\+Matrix}}
+\index{````~Two\+Block\+Matrix@{$\sim$\+Two\+Block\+Matrix}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{$\sim$\+Two\+Block\+Matrix()=default}{~TwoBlockMatrix()=default}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ virtual {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::$\sim${\bf Two\+Block\+Matrix} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}\hypertarget{class_two_block_matrix_a0674b188ebc7bde3ee8f5eb9a94d6265}{}\label{class_two_block_matrix_a0674b188ebc7bde3ee8f5eb9a94d6265}
+Virtual destructor to make the class polymorphic and allow dynamic casts. 
+
+\subsection{Member Function Documentation}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!add@{add}}
+\index{add@{add}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{add(const unsigned int i, const unsigned int j, const double value)}{add(const unsigned int i, const unsigned int j, const double value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ void {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::add (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{i, }
+\item[{const unsigned int}]{j, }
+\item[{const double}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{class_two_block_matrix_a9b5d922689d1f60cbc59d2e424df2dc4}{}\label{class_two_block_matrix_a9b5d922689d1f60cbc59d2e424df2dc4}
+Function adding to an element of the matrix
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i} & row\\
+\hline
+\mbox{\tt in}  & {\em j} & column\\
+\hline
+\mbox{\tt in}  & {\em value} & the number to be added \\
+\hline
+\end{DoxyParams}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!add@{add}}
+\index{add@{add}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{add(const unsigned int row, const unsigned int n\+\_\+cols, const unsigned int $\ast$col\+\_\+indices, const double $\ast$values, const bool elide\+\_\+zero\+\_\+values=false, const bool col\+\_\+indices\+\_\+are\+\_\+sorted=false)}{add(const unsigned int row, const unsigned int n_cols, const unsigned int *col_indices, const double *values, const bool elide_zero_values=false, const bool col_indices_are_sorted=false)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ void {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::add (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{row, }
+\item[{const unsigned int}]{n\+\_\+cols, }
+\item[{const unsigned int $\ast$}]{col\+\_\+indices, }
+\item[{const double $\ast$}]{values, }
+\item[{const bool}]{elide\+\_\+zero\+\_\+values = {\ttfamily false}, }
+\item[{const bool}]{col\+\_\+indices\+\_\+are\+\_\+sorted = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_two_block_matrix_a7373229281e1c3712681c1ac742dffb7}{}\label{class_two_block_matrix_a7373229281e1c3712681c1ac742dffb7}
+Add an array of values given by {\ttfamily values} in the given global matrix row at columns specified by {\ttfamily col\+\_\+indices} in the sparse matrix.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em row} & The row to add to\\
+\hline
+\mbox{\tt in}  & {\em n\+\_\+cols} & The number of values\\
+\hline
+\mbox{\tt in}  & {\em col\+\_\+indices} & The column indices\\
+\hline
+\mbox{\tt in}  & {\em values} & The values\\
+\hline
+\mbox{\tt in}  & {\em elide\+\_\+zero\+\_\+values} & This only exists for compatibility with deal.\+II and does not affect what\textquotesingle{}s going on in this function\\
+\hline
+\mbox{\tt in}  & {\em col\+\_\+indices\+\_\+are\+\_\+sorted} & This only exists for compatibility with deal.\+II and does not affect what\textquotesingle{}s going on in this function \\
+\hline
+\end{DoxyParams}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!compress@{compress}}
+\index{compress@{compress}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{compress(const Vector\+Operation\+::values operation)}{compress(const VectorOperation::values operation)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ void {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::compress (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Operation\+::values}}]{operation}
+\end{DoxyParamCaption}
+)}\hypertarget{class_two_block_matrix_a8de26ebbb410811059d162fb164cedce}{}\label{class_two_block_matrix_a8de26ebbb410811059d162fb164cedce}
+Function compressing this matrix
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em operation} & The operation (typically add or insert) \\
+\hline
+\end{DoxyParams}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!el@{el}}
+\index{el@{el}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{el(const unsigned int i, const unsigned int j) const }{el(const unsigned int i, const unsigned int j) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ double {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::el (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{i, }
+\item[{const unsigned int}]{j}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_two_block_matrix_a67a13d33b3110985bfc604969fc454c9}{}\label{class_two_block_matrix_a67a13d33b3110985bfc604969fc454c9}
+Return an element of the matrix (if the entry does not exist in the sparsity pattern, 0 is returned) \index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!get\+\_\+A@{get\+\_\+A}}
+\index{get\+\_\+A@{get\+\_\+A}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{get\+\_\+\+A() const }{get_A() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ const Matrix\+Type\& {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::get\+\_\+A (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_two_block_matrix_a304eac57c72f23cbcf18a04e5bc64508}{}\label{class_two_block_matrix_a304eac57c72f23cbcf18a04e5bc64508}
+\begin{DoxyReturn}{Returns}
+const reference to A 
+\end{DoxyReturn}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!get\+\_\+A@{get\+\_\+A}}
+\index{get\+\_\+A@{get\+\_\+A}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{get\+\_\+\+A()}{get_A()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ Matrix\+Type\& {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::get\+\_\+A (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_two_block_matrix_ab30f0e3b8f803456c3a2f1ce4f753081}{}\label{class_two_block_matrix_ab30f0e3b8f803456c3a2f1ce4f753081}
+\begin{DoxyReturn}{Returns}
+reference to A 
+\end{DoxyReturn}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!get\+\_\+B@{get\+\_\+B}}
+\index{get\+\_\+B@{get\+\_\+B}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{get\+\_\+\+B() const }{get_B() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ const Matrix\+Type\& {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::get\+\_\+B (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_two_block_matrix_ab3807e975c3a5de9779a80c8d61fad96}{}\label{class_two_block_matrix_ab3807e975c3a5de9779a80c8d61fad96}
+\begin{DoxyReturn}{Returns}
+const reference to B 
+\end{DoxyReturn}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!get\+\_\+B@{get\+\_\+B}}
+\index{get\+\_\+B@{get\+\_\+B}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{get\+\_\+\+B()}{get_B()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ Matrix\+Type\& {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::get\+\_\+B (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_two_block_matrix_ae41ca5bbc0495c8ffb1604da488a33b7}{}\label{class_two_block_matrix_ae41ca5bbc0495c8ffb1604da488a33b7}
+\begin{DoxyReturn}{Returns}
+reference to B 
+\end{DoxyReturn}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!get\+\_\+block\+\_\+0\+\_\+size@{get\+\_\+block\+\_\+0\+\_\+size}}
+\index{get\+\_\+block\+\_\+0\+\_\+size@{get\+\_\+block\+\_\+0\+\_\+size}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{get\+\_\+block\+\_\+0\+\_\+size() const }{get_block_0_size() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ unsigned int {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::get\+\_\+block\+\_\+0\+\_\+size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_two_block_matrix_a688b1a69284ec154c493a99ec7cad704}{}\label{class_two_block_matrix_a688b1a69284ec154c493a99ec7cad704}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_two_block_matrix_ae862db333ed43f1650d4926f237cfc43}{Two\+Block\+Matrix\+::block\+\_\+0\+\_\+size} 
+\end{DoxyReturn}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!get\+\_\+block\+\_\+1\+\_\+size@{get\+\_\+block\+\_\+1\+\_\+size}}
+\index{get\+\_\+block\+\_\+1\+\_\+size@{get\+\_\+block\+\_\+1\+\_\+size}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{get\+\_\+block\+\_\+1\+\_\+size() const }{get_block_1_size() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ unsigned int {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::get\+\_\+block\+\_\+1\+\_\+size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_two_block_matrix_a9ecb16be5aa5ebbb916d256a9ded7c3e}{}\label{class_two_block_matrix_a9ecb16be5aa5ebbb916d256a9ded7c3e}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_two_block_matrix_a60ddea1d26313aac35cfb2ae9f192cb2}{Two\+Block\+Matrix\+::block\+\_\+1\+\_\+size} 
+\end{DoxyReturn}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!get\+\_\+C@{get\+\_\+C}}
+\index{get\+\_\+C@{get\+\_\+C}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{get\+\_\+\+C() const }{get_C() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ const Matrix\+Type\& {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::get\+\_\+C (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_two_block_matrix_ac0b0e0bc16412dfd73a8c6a3f782b8d9}{}\label{class_two_block_matrix_ac0b0e0bc16412dfd73a8c6a3f782b8d9}
+\begin{DoxyReturn}{Returns}
+const reference to C 
+\end{DoxyReturn}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!get\+\_\+C@{get\+\_\+C}}
+\index{get\+\_\+C@{get\+\_\+C}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{get\+\_\+\+C()}{get_C()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ Matrix\+Type\& {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::get\+\_\+C (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_two_block_matrix_aeaa4102bb137700d7bbe0262ee16e8ee}{}\label{class_two_block_matrix_aeaa4102bb137700d7bbe0262ee16e8ee}
+\begin{DoxyReturn}{Returns}
+reference to C 
+\end{DoxyReturn}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!get\+\_\+D@{get\+\_\+D}}
+\index{get\+\_\+D@{get\+\_\+D}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{get\+\_\+\+D() const }{get_D() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ const Matrix\+Type\& {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::get\+\_\+D (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_two_block_matrix_af905a0e4b0504e45937a06df768a2ae2}{}\label{class_two_block_matrix_af905a0e4b0504e45937a06df768a2ae2}
+\begin{DoxyReturn}{Returns}
+const reference to D 
+\end{DoxyReturn}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!get\+\_\+D@{get\+\_\+D}}
+\index{get\+\_\+D@{get\+\_\+D}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{get\+\_\+\+D()}{get_D()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ Matrix\+Type\& {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::get\+\_\+D (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_two_block_matrix_a3725800849e26e2192c0ac6520777dab}{}\label{class_two_block_matrix_a3725800849e26e2192c0ac6520777dab}
+\begin{DoxyReturn}{Returns}
+reference to D 
+\end{DoxyReturn}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!m@{m}}
+\index{m@{m}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{m() const }{m() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ unsigned int {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::m (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_two_block_matrix_ab15732600f7e6917f961dce5e24b61a6}{}\label{class_two_block_matrix_ab15732600f7e6917f961dce5e24b61a6}
+The total number of rows \index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!n@{n}}
+\index{n@{n}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{n() const }{n() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ unsigned int {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::n (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_two_block_matrix_a7675abf4c2532f48eb3b6bf153755a26}{}\label{class_two_block_matrix_a7675abf4c2532f48eb3b6bf153755a26}
+The total number of columns \index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!operator()@{operator()}}
+\index{operator()@{operator()}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{operator()(const unsigned int i, const unsigned int j) const }{operator()(const unsigned int i, const unsigned int j) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ double {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::operator() (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{i, }
+\item[{const unsigned int}]{j}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_two_block_matrix_a618495b0ad4cef72d95db7a1f380c20f}{}\label{class_two_block_matrix_a618495b0ad4cef72d95db7a1f380c20f}
+read access to element
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i} & row\\
+\hline
+\mbox{\tt in}  & {\em j} & column \\
+\hline
+\end{DoxyParams}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!operator=@{operator=}}
+\index{operator=@{operator=}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{operator=(const double value)}{operator=(const double value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ {\bf Two\+Block\+Matrix}$<$Matrix\+Type$>$\& {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const double}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{class_two_block_matrix_ac008679a935fb6577931058ac0a6be36}{}\label{class_two_block_matrix_ac008679a935fb6577931058ac0a6be36}
+Function setting all elements of the matrix to {\ttfamily value} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em value} & Only 0 is allowed for the value. \\
+\hline
+\end{DoxyParams}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!reinit@{reinit}}
+\index{reinit@{reinit}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{reinit(const Two\+Block\+Sparsity\+Pattern \&sp)}{reinit(const TwoBlockSparsityPattern &sp)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ void {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::reinit (
+\begin{DoxyParamCaption}
+\item[{const {\bf Two\+Block\+Sparsity\+Pattern} \&}]{sp}
+\end{DoxyParamCaption}
+)}\hypertarget{class_two_block_matrix_a5eaa76e9909c600aaa256aa77b577391}{}\label{class_two_block_matrix_a5eaa76e9909c600aaa256aa77b577391}
+Reinitialize the object
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em sp} & The sparsity pattern for the matrix \\
+\hline
+\end{DoxyParams}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!set@{set}}
+\index{set@{set}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{set(const unsigned int i, const unsigned int j, const double value)}{set(const unsigned int i, const unsigned int j, const double value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ void {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::set (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{i, }
+\item[{const unsigned int}]{j, }
+\item[{const double}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{class_two_block_matrix_a5457fd3b6228bed7a731bab2569a17a0}{}\label{class_two_block_matrix_a5457fd3b6228bed7a731bab2569a17a0}
+Function setting an element of the matrix
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i} & row\\
+\hline
+\mbox{\tt in}  & {\em j} & column\\
+\hline
+\mbox{\tt in}  & {\em value} & the number to be added \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!A@{A}}
+\index{A@{A}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{A}{A}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ Matrix\+Type {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::A\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_two_block_matrix_a91b02f00cf56b398e1624227e6efc8c6}{}\label{class_two_block_matrix_a91b02f00cf56b398e1624227e6efc8c6}
+The matrix A \index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!B@{B}}
+\index{B@{B}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{B}{B}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ Matrix\+Type {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::B\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_two_block_matrix_ae8edfe1cd2298741586dcc46a4d09ebf}{}\label{class_two_block_matrix_ae8edfe1cd2298741586dcc46a4d09ebf}
+The matrix B \index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!block\+\_\+0\+\_\+size@{block\+\_\+0\+\_\+size}}
+\index{block\+\_\+0\+\_\+size@{block\+\_\+0\+\_\+size}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{block\+\_\+0\+\_\+size}{block_0_size}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ unsigned int {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::block\+\_\+0\+\_\+size = 0\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_two_block_matrix_ae862db333ed43f1650d4926f237cfc43}{}\label{class_two_block_matrix_ae862db333ed43f1650d4926f237cfc43}
+The dimension of A \index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!block\+\_\+1\+\_\+size@{block\+\_\+1\+\_\+size}}
+\index{block\+\_\+1\+\_\+size@{block\+\_\+1\+\_\+size}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{block\+\_\+1\+\_\+size}{block_1_size}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ unsigned int {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::block\+\_\+1\+\_\+size = 0\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_two_block_matrix_a60ddea1d26313aac35cfb2ae9f192cb2}{}\label{class_two_block_matrix_a60ddea1d26313aac35cfb2ae9f192cb2}
+The dimension of D \index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!C@{C}}
+\index{C@{C}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{C}{C}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ Matrix\+Type {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::C\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_two_block_matrix_a847505a77448124928540be0367d8747}{}\label{class_two_block_matrix_a847505a77448124928540be0367d8747}
+The matrix C \index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!D@{D}}
+\index{D@{D}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{D}{D}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ Matrix\+Type {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::D\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_two_block_matrix_a72c598f36d3e8cce12821a09920ded2d}{}\label{class_two_block_matrix_a72c598f36d3e8cce12821a09920ded2d}
+The matrix D \index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!sp\+\_\+A@{sp\+\_\+A}}
+\index{sp\+\_\+A@{sp\+\_\+A}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{sp\+\_\+A}{sp_A}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ {\bf Sparsity\+Pattern} {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::sp\+\_\+A\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_two_block_matrix_af40216911c197c73687f7d3a1ff4e68e}{}\label{class_two_block_matrix_af40216911c197c73687f7d3a1ff4e68e}
+The sparsity pattern of A \index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!sp\+\_\+B@{sp\+\_\+B}}
+\index{sp\+\_\+B@{sp\+\_\+B}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{sp\+\_\+B}{sp_B}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ {\bf Sparsity\+Pattern} {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::sp\+\_\+B\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_two_block_matrix_a854c7e77623a7c0012aa0ceeb60c147a}{}\label{class_two_block_matrix_a854c7e77623a7c0012aa0ceeb60c147a}
+The sparsity pattern of B \index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!sp\+\_\+C@{sp\+\_\+C}}
+\index{sp\+\_\+C@{sp\+\_\+C}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{sp\+\_\+C}{sp_C}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ {\bf Sparsity\+Pattern} {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::sp\+\_\+C\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_two_block_matrix_a45d6e534ad775577c86e9ac9a116014e}{}\label{class_two_block_matrix_a45d6e534ad775577c86e9ac9a116014e}
+The sparsity pattern of C \index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!sp\+\_\+D@{sp\+\_\+D}}
+\index{sp\+\_\+D@{sp\+\_\+D}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{sp\+\_\+D}{sp_D}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ {\bf Sparsity\+Pattern} {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::sp\+\_\+D\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_two_block_matrix_adb1833352096be79279134b218659665}{}\label{class_two_block_matrix_adb1833352096be79279134b218659665}
+The sparsity pattern of D \index{Two\+Block\+Matrix@{Two\+Block\+Matrix}!total\+\_\+dimension@{total\+\_\+dimension}}
+\index{total\+\_\+dimension@{total\+\_\+dimension}!Two\+Block\+Matrix@{Two\+Block\+Matrix}}
+\subsubsection[{\texorpdfstring{total\+\_\+dimension}{total_dimension}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Matrix\+Type$>$ unsigned int {\bf Two\+Block\+Matrix}$<$ Matrix\+Type $>$\+::total\+\_\+dimension = 0\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_two_block_matrix_a7d63b4c4c1e499c9f9913444dc5fd6b6}{}\label{class_two_block_matrix_a7d63b4c4c1e499c9f9913444dc5fd6b6}
+The total dimension 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/\hyperlink{two__block__matrix_8h}{two\+\_\+block\+\_\+matrix.\+h}\end{DoxyCompactItemize}

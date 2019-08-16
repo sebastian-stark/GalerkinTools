@@ -1,0 +1,33 @@
+### 2D-Case, Cube ###
+
+Independent fields defined on domain:
+u (global index=0)
+
+Independent fields defined on interfaces:
+None
+
+Scalar independent variables:
+None
+
+START CHECKING DERIVATIVES
+  Maximum relative deviation between numerical first derivative and directly computed first derivative (in infinity norm)   =  0.00000002
+  Maximum relative deviation between numerical second derivative and directly computed second derivative (in infinity norm) =  0.00000001
+                                                                                                   Value of total potential =  0.50000000
+FINISHED CHECKING DERIVATIVES
+
+### 3D-Case, Cube ###
+
+Independent fields defined on domain:
+u (global index=0)
+
+Independent fields defined on interfaces:
+None
+
+Scalar independent variables:
+None
+
+START CHECKING DERIVATIVES
+  Maximum relative deviation between numerical first derivative and directly computed first derivative (in infinity norm)   =  0.00000014
+  Maximum relative deviation between numerical second derivative and directly computed second derivative (in infinity norm) =  0.00000001
+                                                                                                   Value of total potential =  0.50000000
+FINISHED CHECKING DERIVATIVES

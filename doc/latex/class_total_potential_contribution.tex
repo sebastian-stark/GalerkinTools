@@ -1,0 +1,189 @@
+\hypertarget{class_total_potential_contribution}{}\section{Total\+Potential\+Contribution$<$ spacedim $>$ Class Template Reference}
+\label{class_total_potential_contribution}\index{Total\+Potential\+Contribution$<$ spacedim $>$@{Total\+Potential\+Contribution$<$ spacedim $>$}}
+
+
+{\ttfamily \#include $<$total\+\_\+potential\+\_\+contribution.\+h$>$}
+
+
+
+Inheritance diagram for Total\+Potential\+Contribution$<$ spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{class_total_potential_contribution__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Total\+Potential\+Contribution$<$ spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{class_total_potential_contribution__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{class_total_potential_contribution_a0d281fceeb90ece5c4d2655df5eb9948}{get\+\_\+potential\+\_\+contribution} (const {\bf Vector}$<$ double $>$ \&H\+\_\+omega\+\_\+\+H\+\_\+sigma\+\_\+C, const std\+::vector$<$ {\bf Vector}$<$ double $>$$>$ \&C\+\_\+ref\+\_\+sets, double \&Pi, {\bf Vector}$<$ double $>$ \&Pi\+\_\+1, {\bf Full\+Matrix}$<$ double $>$ \&Pi\+\_\+2, const std\+::tuple$<$ bool, bool, bool $>$ \&requested\+\_\+quantities) const 
+\item 
+\hyperlink{class_total_potential_contribution_a1932d6d7c269344542fc8e9221de4448}{Total\+Potential\+Contribution} (const std\+::vector$<$ const \hyperlink{class_scalar_functional}{Scalar\+Functional}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&\hyperlink{class_total_potential_contribution_a15191539345978a3d0c7293bd7ecaa91}{H\+\_\+omega}, const std\+::vector$<$ const \hyperlink{class_scalar_functional}{Scalar\+Functional}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&\hyperlink{class_total_potential_contribution_aac404e3a8493d9170541e34bd96673d3}{H\+\_\+sigma}, const std\+::vector$<$ const \hyperlink{class_independent_field}{Independent\+Field}$<$ 0, spacedim $>$ $\ast$ $>$ \&\hyperlink{class_total_potential_contribution_adea8f8f88243adec43df300e8c8d4593}{C})
+\item 
+\hyperlink{class_total_potential_contribution_ad64c449f4cae79fb8462f4679c50d606}{Total\+Potential\+Contribution} (const \hyperlink{class_scalar_functional}{Scalar\+Functional}$<$ spacedim, spacedim $>$ \&\hyperlink{class_total_potential_contribution_a15191539345978a3d0c7293bd7ecaa91}{H\+\_\+omega})
+\item 
+\hyperlink{class_total_potential_contribution_a4625ad0c798469b9da9bcb62cc0d00f6}{Total\+Potential\+Contribution} (const \hyperlink{class_scalar_functional}{Scalar\+Functional}$<$ spacedim-\/1, spacedim $>$ \&\hyperlink{class_total_potential_contribution_aac404e3a8493d9170541e34bd96673d3}{H\+\_\+sigma})
+\item 
+virtual \hyperlink{class_total_potential_contribution_af9ecccfc930f6826be4a903194541d5f}{$\sim$\+Total\+Potential\+Contribution} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const bool \hyperlink{class_total_potential_contribution_a45bfb25a7693c949c26e223cf4a1a1e7}{is\+\_\+primitive}
+\item 
+const std\+::vector$<$ const \hyperlink{class_scalar_functional}{Scalar\+Functional}$<$ spacedim, spacedim $>$ $\ast$ $>$ \hyperlink{class_total_potential_contribution_a15191539345978a3d0c7293bd7ecaa91}{H\+\_\+omega}
+\item 
+const std\+::vector$<$ const \hyperlink{class_scalar_functional}{Scalar\+Functional}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \hyperlink{class_total_potential_contribution_aac404e3a8493d9170541e34bd96673d3}{H\+\_\+sigma}
+\item 
+const std\+::vector$<$ const \hyperlink{class_independent_field}{Independent\+Field}$<$ 0, spacedim $>$ $\ast$ $>$ \hyperlink{class_total_potential_contribution_adea8f8f88243adec43df300e8c8d4593}{C}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$unsigned int spacedim$>$\\*
+class Total\+Potential\+Contribution$<$ spacedim $>$}
+
+Objects of this class are used to define contributions to the total potential.
+
+It is assumed that the total potential can be written as \begin{equation*} \Pi = \Pi(H^\Omega_\rho, H^\Sigma_\tau, C_\iota) = \sum_i \Pi_i(H^\Omega_\rho, H^\Sigma_\tau, C_\iota), \end{equation*} where the task of this class is to define a single contribution $\Pi_i$.
+
+The function $\Pi_i$ may, besides the current values of $C_\iota$, also depend on an arbitrary number of sets of \char`\"{}reference values\char`\"{} of $C_\iota$. These reference values can e.\+g. be the values of the $C_\iota$ at previous instants of time. When derivatives of $\Pi_i$ w.\+r.\+t. its arguments $H^\Omega_\rho$, $H^\Sigma_\tau$, $C_\iota$ are calculated, these reference values are generally regarded as fixed. \char`\"{}\+Reference values\char`\"{} of the domain and interface related scalar functionals are currently not allowed for.
+
+In the general case, the user must implement a class inheriting from \hyperlink{class_total_potential_contribution}{Total\+Potential\+Contribution}, which in particular overwrites the method \hyperlink{class_total_potential_contribution_a0d281fceeb90ece5c4d2655df5eb9948}{Total\+Potential\+Contribution\+::get\+\_\+potential\+\_\+contribution()} defining the the form of the function $\Pi_i$. However, for two special (but very common) cases the class \hyperlink{class_total_potential_contribution}{Total\+Potential\+Contribution} can be used straight away\+:
+
+(1) $\Pi_i=H^\Omega_\rho$ -\/ i.\+e., the total potential contribution is equal to a particular domain related scalar functional.
+
+(2) $\Pi_i=H^\Sigma_\tau$ -\/ i.\+e., the total potential contribution is equal to a particular interface related scalar functional.
+
+In principle, it is sufficient that the first and second derivatives of $\Pi_i$ are known, as the values themselves do not factor into the finite element system. Also, the class can still be used if the function $\Pi_i$ does not even exist (then, the problem is simply defined in the sense of a weak form by the \char`\"{}first derivative\char`\"{} of $\Pi_i$).
+
+The \hyperlink{class_total_potential_contribution}{Total\+Potential\+Contribution} class inherits from {\bf Subscriptor} in order to be able to check that \hyperlink{class_total_potential_contribution}{Total\+Potential\+Contribution} objects are only destroyed when they are not needed anymore by other objects.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em spacedim} & Spatial dimension \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Total\+Potential\+Contribution@{Total\+Potential\+Contribution}!Total\+Potential\+Contribution@{Total\+Potential\+Contribution}}
+\index{Total\+Potential\+Contribution@{Total\+Potential\+Contribution}!Total\+Potential\+Contribution@{Total\+Potential\+Contribution}}
+\subsubsection[{\texorpdfstring{Total\+Potential\+Contribution(const std\+::vector$<$ const Scalar\+Functional$<$ spacedim, spacedim $>$ $\ast$ $>$ \&\+H\+\_\+omega, const std\+::vector$<$ const Scalar\+Functional$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&\+H\+\_\+sigma, const std\+::vector$<$ const Independent\+Field$<$ 0, spacedim $>$ $\ast$ $>$ \&\+C)}{TotalPotentialContribution(const std::vector< const ScalarFunctional< spacedim, spacedim > * > &H_omega, const std::vector< const ScalarFunctional< spacedim-1, spacedim > * > &H_sigma, const std::vector< const IndependentField< 0, spacedim > * > &C)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ {\bf Total\+Potential\+Contribution}$<$ spacedim $>$\+::{\bf Total\+Potential\+Contribution} (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ const {\bf Scalar\+Functional}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&}]{H\+\_\+omega, }
+\item[{const std\+::vector$<$ const {\bf Scalar\+Functional}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&}]{H\+\_\+sigma, }
+\item[{const std\+::vector$<$ const {\bf Independent\+Field}$<$ 0, spacedim $>$ $\ast$ $>$ \&}]{C}
+\end{DoxyParamCaption}
+)}\hypertarget{class_total_potential_contribution_a1932d6d7c269344542fc8e9221de4448}{}\label{class_total_potential_contribution_a1932d6d7c269344542fc8e9221de4448}
+Constructor, which is to be used in case that the potential contribution is neither of the form $\Pi_i=H^\Omega_\rho$ nor $\Pi_i=H^\Sigma_\tau$. This will set \hyperlink{class_total_potential_contribution_a45bfb25a7693c949c26e223cf4a1a1e7}{Total\+Potential\+Contribution\+::is\+\_\+primitive} to false, which means that you\textquotesingle{}ll have to implement \hyperlink{class_total_potential_contribution_a0d281fceeb90ece5c4d2655df5eb9948}{Total\+Potential\+Contribution\+::get\+\_\+potential\+\_\+contribution()} in a derived class.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em H\+\_\+omega} & \hyperlink{class_total_potential_contribution_a15191539345978a3d0c7293bd7ecaa91}{Total\+Potential\+Contribution\+::\+H\+\_\+omega}\\
+\hline
+\mbox{\tt in}  & {\em H\+\_\+sigma} & \hyperlink{class_total_potential_contribution_aac404e3a8493d9170541e34bd96673d3}{Total\+Potential\+Contribution\+::\+H\+\_\+sigma}\\
+\hline
+\mbox{\tt in}  & {\em C} & \hyperlink{class_total_potential_contribution_adea8f8f88243adec43df300e8c8d4593}{Total\+Potential\+Contribution\+::C} \\
+\hline
+\end{DoxyParams}
+\index{Total\+Potential\+Contribution@{Total\+Potential\+Contribution}!Total\+Potential\+Contribution@{Total\+Potential\+Contribution}}
+\index{Total\+Potential\+Contribution@{Total\+Potential\+Contribution}!Total\+Potential\+Contribution@{Total\+Potential\+Contribution}}
+\subsubsection[{\texorpdfstring{Total\+Potential\+Contribution(const Scalar\+Functional$<$ spacedim, spacedim $>$ \&\+H\+\_\+omega)}{TotalPotentialContribution(const ScalarFunctional< spacedim, spacedim > &H_omega)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ {\bf Total\+Potential\+Contribution}$<$ spacedim $>$\+::{\bf Total\+Potential\+Contribution} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Scalar\+Functional}$<$ spacedim, spacedim $>$ \&}]{H\+\_\+omega}
+\end{DoxyParamCaption}
+)}\hypertarget{class_total_potential_contribution_ad64c449f4cae79fb8462f4679c50d606}{}\label{class_total_potential_contribution_ad64c449f4cae79fb8462f4679c50d606}
+Constructor for the special case $\Pi_i=H^\Omega_\rho$
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em H\+\_\+omega} & $H^\Omega_\rho$ \\
+\hline
+\end{DoxyParams}
+\index{Total\+Potential\+Contribution@{Total\+Potential\+Contribution}!Total\+Potential\+Contribution@{Total\+Potential\+Contribution}}
+\index{Total\+Potential\+Contribution@{Total\+Potential\+Contribution}!Total\+Potential\+Contribution@{Total\+Potential\+Contribution}}
+\subsubsection[{\texorpdfstring{Total\+Potential\+Contribution(const Scalar\+Functional$<$ spacedim-\/1, spacedim $>$ \&\+H\+\_\+sigma)}{TotalPotentialContribution(const ScalarFunctional< spacedim-1, spacedim > &H_sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ {\bf Total\+Potential\+Contribution}$<$ spacedim $>$\+::{\bf Total\+Potential\+Contribution} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Scalar\+Functional}$<$ spacedim-\/1, spacedim $>$ \&}]{H\+\_\+sigma}
+\end{DoxyParamCaption}
+)}\hypertarget{class_total_potential_contribution_a4625ad0c798469b9da9bcb62cc0d00f6}{}\label{class_total_potential_contribution_a4625ad0c798469b9da9bcb62cc0d00f6}
+Constructor for the special case $\Pi_i=H^\Sigma_\tau$
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em H\+\_\+sigma} & $H^\Sigma_\tau$ \\
+\hline
+\end{DoxyParams}
+\index{Total\+Potential\+Contribution@{Total\+Potential\+Contribution}!````~Total\+Potential\+Contribution@{$\sim$\+Total\+Potential\+Contribution}}
+\index{````~Total\+Potential\+Contribution@{$\sim$\+Total\+Potential\+Contribution}!Total\+Potential\+Contribution@{Total\+Potential\+Contribution}}
+\subsubsection[{\texorpdfstring{$\sim$\+Total\+Potential\+Contribution()}{~TotalPotentialContribution()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual {\bf Total\+Potential\+Contribution}$<$ spacedim $>$\+::$\sim${\bf Total\+Potential\+Contribution} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_total_potential_contribution_af9ecccfc930f6826be4a903194541d5f}{}\label{class_total_potential_contribution_af9ecccfc930f6826be4a903194541d5f}
+The destructor of \hyperlink{class_total_potential_contribution}{Total\+Potential\+Contribution} essentially checks before destruction that the \hyperlink{class_total_potential_contribution}{Total\+Potential\+Contribution} object is not used by other objects. If this is the case, the program will be aborted. 
+
+\subsection{Member Function Documentation}
+\index{Total\+Potential\+Contribution@{Total\+Potential\+Contribution}!get\+\_\+potential\+\_\+contribution@{get\+\_\+potential\+\_\+contribution}}
+\index{get\+\_\+potential\+\_\+contribution@{get\+\_\+potential\+\_\+contribution}!Total\+Potential\+Contribution@{Total\+Potential\+Contribution}}
+\subsubsection[{\texorpdfstring{get\+\_\+potential\+\_\+contribution(const Vector$<$ double $>$ \&\+H\+\_\+omega\+\_\+\+H\+\_\+sigma\+\_\+\+C, const std\+::vector$<$ Vector$<$ double $>$$>$ \&\+C\+\_\+ref\+\_\+sets, double \&\+Pi, Vector$<$ double $>$ \&\+Pi\+\_\+1, Full\+Matrix$<$ double $>$ \&\+Pi\+\_\+2, const std\+::tuple$<$ bool, bool, bool $>$ \&requested\+\_\+quantities) const }{get_potential_contribution(const Vector< double > &H_omega_H_sigma_C, const std::vector< Vector< double >> &C_ref_sets, double &Pi, Vector< double > &Pi_1, FullMatrix< double > &Pi_2, const std::tuple< bool, bool, bool > &requested_quantities) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual bool {\bf Total\+Potential\+Contribution}$<$ spacedim $>$\+::get\+\_\+potential\+\_\+contribution (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ double $>$ \&}]{H\+\_\+omega\+\_\+\+H\+\_\+sigma\+\_\+C, }
+\item[{const std\+::vector$<$ {\bf Vector}$<$ double $>$$>$ \&}]{C\+\_\+ref\+\_\+sets, }
+\item[{double \&}]{Pi, }
+\item[{{\bf Vector}$<$ double $>$ \&}]{Pi\+\_\+1, }
+\item[{{\bf Full\+Matrix}$<$ double $>$ \&}]{Pi\+\_\+2, }
+\item[{const std\+::tuple$<$ bool, bool, bool $>$ \&}]{requested\+\_\+quantities}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_total_potential_contribution_a0d281fceeb90ece5c4d2655df5eb9948}{}\label{class_total_potential_contribution_a0d281fceeb90ece5c4d2655df5eb9948}
+This function defines the form of $\Pi_i(H^\Omega_\rho, H^\Sigma_\tau, C_\iota)$ as well as the derivatives w.\+r.\+t. its arguments. It must be overwritten by the user in classes inheriting from \hyperlink{class_total_potential_contribution}{Total\+Potential\+Contribution}. The standard implementation of the function will just terminate the program because it should be called under no circumstances (for cases with \hyperlink{class_total_potential_contribution_a45bfb25a7693c949c26e223cf4a1a1e7}{Total\+Potential\+Contribution\+::is\+\_\+primitive} == {\ttfamily true} there is no necessity to call the function; and for all other cases the fact that the function is called indicates that the user has forgotten to overwrite it in a derived class).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em H\+\_\+omega\+\_\+\+H\+\_\+sigma\+\_\+C} & This vector contains the values of $H^\Omega_\rho$, $H^\Sigma_\tau$, $C_\iota$ in the ordering defined by \hyperlink{class_total_potential_contribution_a15191539345978a3d0c7293bd7ecaa91}{Total\+Potential\+Contribution\+::\+H\+\_\+omega}, \hyperlink{class_total_potential_contribution_aac404e3a8493d9170541e34bd96673d3}{Total\+Potential\+Contribution\+::\+H\+\_\+sigma}, \hyperlink{class_total_potential_contribution_adea8f8f88243adec43df300e8c8d4593}{Total\+Potential\+Contribution\+::C} (domain related scalar functionals are the first elements, followed by the interface related scalar functionals, and finally the independent scalars).\\
+\hline
+\mbox{\tt in}  & {\em C\+\_\+ref\+\_\+sets} & Sets of reference values of $C_\iota$ (as many as are provided)\\
+\hline
+\mbox{\tt out}  & {\em Pi} & Value of $\Pi_i$. As the value of this potential does not factor into the finite element system, it can be set to zero if desired (for example in cases where $\Pi_i$ cannot be expressed explicitly or where it does not even exist).\\
+\hline
+\mbox{\tt out}  & {\em Pi\+\_\+1} & First derivatives of $\Pi_i$ w.\+r.\+t. $H^\Omega_\rho$, $H^\Sigma_\tau$, $C_\iota$ (in the same ordering as in {\ttfamily H\+\_\+omega\+\_\+\+H\+\_\+sigma\+\_\+C})\\
+\hline
+\mbox{\tt out}  & {\em Pi\+\_\+2} & Second derivatives of $\Pi_i$ w.\+r.\+t. $H^\Omega_\rho$, $H^\Sigma_\tau$, $C_\iota$ (in the same ordering as in {\ttfamily H\+\_\+omega\+\_\+\+H\+\_\+sigma\+\_\+C}). If there is a potential $\Pi_i$, this matrix will generally be symmetric. However, in principle the routines do also work for cases where $\Pi_i$ does not exist and {\ttfamily Pi\+\_\+2} is not symmetric.\\
+\hline
+\mbox{\tt in}  & {\em requested\+\_\+quantities} & Tuple indicating which quantities are actually to be computed (e.\+g. ({\ttfamily true}, {\ttfamily false}, {\ttfamily true}) indicates that {\ttfamily Pi} and {\ttfamily Pi\+\_\+2} are to be computed)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily false} if the evaluation of $\Pi_i$ and its derivatives was successful, and {\ttfamily true} if an error prevented the proper calculation of these quantities 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Total\+Potential\+Contribution@{Total\+Potential\+Contribution}!C@{C}}
+\index{C@{C}!Total\+Potential\+Contribution@{Total\+Potential\+Contribution}}
+\subsubsection[{\texorpdfstring{C}{C}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const std\+::vector$<$const {\bf Independent\+Field}$<$0, spacedim$>$$\ast$$>$ {\bf Total\+Potential\+Contribution}$<$ spacedim $>$\+::C}\hypertarget{class_total_potential_contribution_adea8f8f88243adec43df300e8c8d4593}{}\label{class_total_potential_contribution_adea8f8f88243adec43df300e8c8d4593}
+vector with the independent scalars $C_\iota$ entering into $\Pi_i$ \index{Total\+Potential\+Contribution@{Total\+Potential\+Contribution}!H\+\_\+omega@{H\+\_\+omega}}
+\index{H\+\_\+omega@{H\+\_\+omega}!Total\+Potential\+Contribution@{Total\+Potential\+Contribution}}
+\subsubsection[{\texorpdfstring{H\+\_\+omega}{H_omega}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const std\+::vector$<$const {\bf Scalar\+Functional}$<$spacedim, spacedim$>$$\ast$$>$ {\bf Total\+Potential\+Contribution}$<$ spacedim $>$\+::H\+\_\+omega}\hypertarget{class_total_potential_contribution_a15191539345978a3d0c7293bd7ecaa91}{}\label{class_total_potential_contribution_a15191539345978a3d0c7293bd7ecaa91}
+vector with the domain related scalar functionals $H^\Omega_\rho$ entering into $\Pi_i$ \index{Total\+Potential\+Contribution@{Total\+Potential\+Contribution}!H\+\_\+sigma@{H\+\_\+sigma}}
+\index{H\+\_\+sigma@{H\+\_\+sigma}!Total\+Potential\+Contribution@{Total\+Potential\+Contribution}}
+\subsubsection[{\texorpdfstring{H\+\_\+sigma}{H_sigma}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const std\+::vector$<$const {\bf Scalar\+Functional}$<$spacedim-\/1, spacedim$>$$\ast$$>$ {\bf Total\+Potential\+Contribution}$<$ spacedim $>$\+::H\+\_\+sigma}\hypertarget{class_total_potential_contribution_aac404e3a8493d9170541e34bd96673d3}{}\label{class_total_potential_contribution_aac404e3a8493d9170541e34bd96673d3}
+vector with the interface related scalar functionals $H^\Sigma_\tau$ entering into $\Pi_i$ \index{Total\+Potential\+Contribution@{Total\+Potential\+Contribution}!is\+\_\+primitive@{is\+\_\+primitive}}
+\index{is\+\_\+primitive@{is\+\_\+primitive}!Total\+Potential\+Contribution@{Total\+Potential\+Contribution}}
+\subsubsection[{\texorpdfstring{is\+\_\+primitive}{is_primitive}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const bool {\bf Total\+Potential\+Contribution}$<$ spacedim $>$\+::is\+\_\+primitive}\hypertarget{class_total_potential_contribution_a45bfb25a7693c949c26e223cf4a1a1e7}{}\label{class_total_potential_contribution_a45bfb25a7693c949c26e223cf4a1a1e7}
+This bool is {\ttfamily true} if (and only if), the \hyperlink{class_total_potential_contribution}{Total\+Potential\+Contribution} is either of the form $\Pi_i=H^\Omega_\rho$ or $\Pi_i=H^\Sigma_\tau$. If this is the case, this class can be used straight away. If this is not the case, only derived classes overwriting the function \hyperlink{class_total_potential_contribution_a0d281fceeb90ece5c4d2655df5eb9948}{Total\+Potential\+Contribution\+::get\+\_\+potential\+\_\+contribution()} can be used. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/\hyperlink{total__potential__contribution_8h}{total\+\_\+potential\+\_\+contribution.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,11 @@
+/*! \mainpage GalerkinTools library
+ *
+ * This is the documentation of the GalerkinTools library. The main purpose of the library is to help with the
+ * assembly of finite element systems for formulations obtained based on the Galerkin approach. Though the library must
+ * of course make certain restrictions on the class of problems for which it can be applied, it is believed to
+ * be useful for the solution of many practical problems especially in the field of solid mechanics. Special focus of
+ * the library is on problems involving different domain portions (e.g. different materials) as well as on problems
+ * involving unknown fields living on interfaces or boundaries.
+ *
+ * Further information on the main concepts can be found in the pdf document <a href='../notes/galerkin_tools.pdf'>galerkin_tools.pdf</a>.
+ */

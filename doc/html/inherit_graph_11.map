@@ -1,0 +1,16 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classSubscriptor.html" title="Subscriptor" alt="" coords="5,326,93,353"/>
+<area shape="rect" id="node2" href="$class_dirichlet_constraint.html" title="DirichletConstraint\l\&lt; spacedim \&gt;" alt="" coords="173,5,303,47"/>
+<area shape="rect" id="node3" href="$class_do_f_renumbering.html" title="DoFRenumbering" alt="" coords="176,71,300,98"/>
+<area shape="rect" id="node5" href="$class_independent_field.html" title="IndependentField\&lt; dim,\l spacedim \&gt;" alt="" coords="159,123,317,164"/>
+<area shape="rect" id="node6" href="$class_independent_field_3_010_00_01spacedim_01_4.html" title="IndependentField\&lt; 0,\l spacedim \&gt;" alt="" coords="166,188,310,229"/>
+<area shape="rect" id="node7" href="$class_independent_field.html" title="IndependentField\&lt; spacedim,\l spacedim \&gt;" alt="" coords="141,253,335,295"/>
+<area shape="rect" id="node8" href="$class_interface_cell_domain_cells.html" title="InterfaceCellDomainCells\l\&lt; spacedim \&gt;" alt="" coords="153,319,323,360"/>
+<area shape="rect" id="node9" href="$class_interface_cell_domain_cells_do_f.html" title="InterfaceCellDomainCells\lDoF\&lt; spacedim \&gt;" alt="" coords="153,384,323,425"/>
+<area shape="rect" id="node10" href="$class_scalar_functional.html" title="ScalarFunctional\&lt; dim,\l spacedim \&gt;" alt="" coords="160,449,316,491"/>
+<area shape="rect" id="node11" href="$class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html" title="ScalarFunctional\&lt; spacedim,\l spacedim \&gt;" alt="" coords="143,515,333,556"/>
+<area shape="rect" id="node13" href="$class_total_potential_contribution.html" title="TotalPotentialContribution\l\&lt; spacedim \&gt;" alt="" coords="152,580,324,621"/>
+<area shape="rect" id="node14" href="$class_triangulation_system.html" title="TriangulationSystem\l\&lt; spacedim \&gt;" alt="" coords="167,645,309,687"/>
+<area shape="rect" id="node4" href="$class_do_f_renumbering_offset.html" title="DoFRenumberingOffset" alt="" coords="383,71,543,98"/>
+<area shape="rect" id="node12" href="$class_linear_material_domain.html" title="LinearMaterialDomain\l\&lt; spacedim \&gt;" alt="" coords="389,515,537,556"/>
+</map>

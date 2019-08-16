@@ -1,0 +1,13 @@
+<map id="TriangulationSystem&lt; spacedim &gt;" name="TriangulationSystem&lt; spacedim &gt;">
+<area shape="rect" id="node2" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classSubscriptor.html" title="Subscriptor" alt="" coords="37,43,125,69"/>
+<area shape="rect" id="node4" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classTriangulation.html" title="Triangulation\&lt; spacedim,\l spacedim \&gt;" alt="" coords="1385,77,1553,118"/>
+<area shape="rect" id="node9" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classManifold.html" title="Manifold\&lt; dim, spacedim \&gt;" alt="" coords="247,93,427,120"/>
+<area shape="rect" id="node3" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classSmartPointer.html" title="SmartPointer\&lt; Triangulation\l\&lt; spacedim, spacedim \&gt; \&gt;" alt="" coords="1611,53,1795,94"/>
+<area shape="rect" id="node5" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$structinternal_1_1TriangulationImplementation_1_1NumberCache.html" title="internal::TriangulationImplementation\l::NumberCache\&lt; spacedim \&gt;" alt="" coords="995,159,1229,201"/>
+<area shape="rect" id="node6" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classStraightBoundary.html" title="StraightBoundary\&lt; spacedim,\l spacedim \&gt;" alt="" coords="1015,94,1209,135"/>
+<area shape="rect" id="node7" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classBoundary.html" title="Boundary\&lt; dim, spacedim \&gt;" alt="" coords="759,101,945,128"/>
+<area shape="rect" id="node8" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classFlatManifold.html" title="FlatManifold\&lt; dim,\l spacedim \&gt;" alt="" coords="539,94,669,135"/>
+<area shape="rect" id="node10" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classTensor.html" title="Tensor\&lt; 1, spacedim \&gt;" alt="" coords="258,144,415,171"/>
+<area shape="rect" id="node11" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classTensor.html" title="Tensor\&lt; rank_&#45;1, dim,\l Number \&gt;" alt="" coords="5,137,156,178"/>
+<area shape="rect" id="node12" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classThreads_1_1Mutex.html" title="Threads::Mutex" alt="" coords="547,160,661,187"/>
+</map>

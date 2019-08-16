@@ -1,0 +1,101 @@
+\hypertarget{class_do_f_renumbering}{}\section{Do\+F\+Renumbering Class Reference}
+\label{class_do_f_renumbering}\index{Do\+F\+Renumbering@{Do\+F\+Renumbering}}
+
+
+{\ttfamily \#include $<$dof\+\_\+renumbering.\+h$>$}
+
+
+
+Inheritance diagram for Do\+F\+Renumbering\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{class_do_f_renumbering__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Do\+F\+Renumbering\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=173pt]{class_do_f_renumbering__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_do_f_renumbering_ad37a052986c62df79a1ebc8abea13e89}{convert\+\_\+dof\+\_\+indices} (std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices) const 
+\item 
+virtual std\+::vector$<$ std\+::pair$<$ const unsigned int, const unsigned int $>$ $>$ \hyperlink{class_do_f_renumbering_ae95ba2f7f04a172812f086fc75b61c15}{convert\+\_\+range} (const unsigned int range\+\_\+begin, const unsigned int range\+\_\+end) const 
+\item 
+virtual \hyperlink{class_do_f_renumbering_a0443d7cb614fa161e4201ff7a6bdf541}{$\sim$\+Do\+F\+Renumbering} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This class is intended to describe a renumbering of dof indices
+
+The class inherits from {\bf Subscriptor} in order to be able to check that \hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering} objects are only destroyed when they are not needed anymore by other objects.
+
+The default implementation does no renumbering. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Do\+F\+Renumbering@{Do\+F\+Renumbering}!````~Do\+F\+Renumbering@{$\sim$\+Do\+F\+Renumbering}}
+\index{````~Do\+F\+Renumbering@{$\sim$\+Do\+F\+Renumbering}!Do\+F\+Renumbering@{Do\+F\+Renumbering}}
+\subsubsection[{\texorpdfstring{$\sim$\+Do\+F\+Renumbering()}{~DoFRenumbering()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual Do\+F\+Renumbering\+::$\sim$\+Do\+F\+Renumbering (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_do_f_renumbering_a0443d7cb614fa161e4201ff7a6bdf541}{}\label{class_do_f_renumbering_a0443d7cb614fa161e4201ff7a6bdf541}
+The destructor of \hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering} essentially checks before destruction that the \hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering} object is not used by other objects. If this is the case, the program will be aborted. 
+
+\subsection{Member Function Documentation}
+\index{Do\+F\+Renumbering@{Do\+F\+Renumbering}!convert\+\_\+dof\+\_\+indices@{convert\+\_\+dof\+\_\+indices}}
+\index{convert\+\_\+dof\+\_\+indices@{convert\+\_\+dof\+\_\+indices}!Do\+F\+Renumbering@{Do\+F\+Renumbering}}
+\subsubsection[{\texorpdfstring{convert\+\_\+dof\+\_\+indices(std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices) const }{convert_dof_indices(std::vector< unsigned int > &dof_indices) const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Do\+F\+Renumbering\+::convert\+\_\+dof\+\_\+indices (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_do_f_renumbering_ad37a052986c62df79a1ebc8abea13e89}{}\label{class_do_f_renumbering_ad37a052986c62df79a1ebc8abea13e89}
+This function renumbers the incoming dof indices
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em dof\+\_\+indices} & The vector with the dof indices to be renumbered \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_do_f_renumbering_offset_a7b48f6f59b90c015b7e176148edbb797}{Do\+F\+Renumbering\+Offset}.
+
+\index{Do\+F\+Renumbering@{Do\+F\+Renumbering}!convert\+\_\+range@{convert\+\_\+range}}
+\index{convert\+\_\+range@{convert\+\_\+range}!Do\+F\+Renumbering@{Do\+F\+Renumbering}}
+\subsubsection[{\texorpdfstring{convert\+\_\+range(const unsigned int range\+\_\+begin, const unsigned int range\+\_\+end) const }{convert_range(const unsigned int range_begin, const unsigned int range_end) const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::vector$<$std\+::pair$<$const unsigned int, const unsigned int$>$ $>$ Do\+F\+Renumbering\+::convert\+\_\+range (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{range\+\_\+begin, }
+\item[{const unsigned int}]{range\+\_\+end}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_do_f_renumbering_ae95ba2f7f04a172812f086fc75b61c15}{}\label{class_do_f_renumbering_ae95ba2f7f04a172812f086fc75b61c15}
+Converts a contiguous range \mbox{[}{\ttfamily range\+\_\+begin}, {\ttfamily range\+\_\+end}\mbox{]} of indices into one or several contiguous ranges in the new numbering
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em range\+\_\+begin} & First index\\
+\hline
+\mbox{\tt in}  & {\em range\+\_\+end} & Past the last index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector with one or several ranges. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_do_f_renumbering_offset_ac066233b202f7982d29206c1221c1f6a}{Do\+F\+Renumbering\+Offset}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/\hyperlink{dof__renumbering_8h}{dof\+\_\+renumbering.\+h}\end{DoxyCompactItemize}

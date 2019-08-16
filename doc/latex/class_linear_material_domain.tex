@@ -1,0 +1,139 @@
+\hypertarget{class_linear_material_domain}{}\section{Linear\+Material\+Domain$<$ spacedim $>$ Class Template Reference}
+\label{class_linear_material_domain}\index{Linear\+Material\+Domain$<$ spacedim $>$@{Linear\+Material\+Domain$<$ spacedim $>$}}
+
+
+{\ttfamily \#include $<$linear\+\_\+material.\+h$>$}
+
+
+
+Inheritance diagram for Linear\+Material\+Domain$<$ spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{class_linear_material_domain__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Linear\+Material\+Domain$<$ spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_linear_material_domain__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_linear_material_domain_a7f91a980e9475691513443cd6b2efbc1}{Linear\+Material\+Domain} (const std\+::vector$<$ \hyperlink{class_dependent_field}{Dependent\+Field}$<$ spacedim, spacedim $>$$>$ \hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_adfed9b70b743ba245a39c3e63b951f96}{e\+\_\+omega}, const std\+::set$<$ {\bf types\+::material\+\_\+id} $>$ \hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_aa192395f822a64f60df43bf9d36c2f3a}{domain\+\_\+of\+\_\+integration}, const {\bf Quadrature}$<$ spacedim $>$ \hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_ab83ee3ae077b211137824b006098382e}{quadrature}, const {\bf Full\+Matrix}$<$ double $>$ \hyperlink{class_linear_material_domain_a8ac95fcf4f77790670b8520ba9593a7c}{C}, const {\bf Vector}$<$ double $>$ \hyperlink{class_linear_material_domain_a7ea9ab6930c0b0aa826e809ef245b0e2}{y}, const std\+::string \hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a195248af3821548af3000872e9e6d00e}{name}=\char`\"{}Linear\+Material\+Domain\char`\"{})
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_linear_material_domain_ac071e6886b4e661442af7a003d5f2b2a}{get\+\_\+h\+\_\+omega} (const {\bf Vector}$<$ double $>$ \&\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_adfed9b70b743ba245a39c3e63b951f96}{e\+\_\+omega}, const std\+::vector$<$ {\bf Vector}$<$ double $>$$>$ \&e\+\_\+omega\+\_\+ref\+\_\+sets, {\bf Vector}$<$ double $>$ \&hidden\+\_\+vars, const {\bf Point}$<$ spacedim $>$ \&x, double \&h\+\_\+omega, {\bf Vector}$<$ double $>$ \&h\+\_\+omega\+\_\+1, {\bf Full\+Matrix}$<$ double $>$ \&h\+\_\+omega\+\_\+2, const std\+::tuple$<$ bool, bool, bool $>$ requested\+\_\+quantities) const 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf Full\+Matrix}$<$ double $>$ \hyperlink{class_linear_material_domain_a8ac95fcf4f77790670b8520ba9593a7c}{C}
+\item 
+const {\bf Vector}$<$ double $>$ \hyperlink{class_linear_material_domain_a7ea9ab6930c0b0aa826e809ef245b0e2}{y}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$unsigned int spacedim$>$\\*
+class Linear\+Material\+Domain$<$ spacedim $>$}
+
+Class defining the scalar functional $H^\Omega_\rho$ according to $H^\Omega_\rho=\int_\Omega \left[ \dfrac{1}{2} {\boldsymbol{e}^\Omega}^\top \boldsymbol{C} {\boldsymbol{e}^\Omega} + \boldsymbol{y}^\top \boldsymbol{e}^\Omega \right] \mathrm{d}V$, where $\boldsymbol{e}^\Omega$ is a vector with a selection of dependent fields $e^\Omega_\lambda$, $\boldsymbol{C}$ is a matrix, and $\boldsymbol{y}$ is a vector. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Linear\+Material\+Domain@{Linear\+Material\+Domain}!Linear\+Material\+Domain@{Linear\+Material\+Domain}}
+\index{Linear\+Material\+Domain@{Linear\+Material\+Domain}!Linear\+Material\+Domain@{Linear\+Material\+Domain}}
+\subsubsection[{\texorpdfstring{Linear\+Material\+Domain(const std\+::vector$<$ Dependent\+Field$<$ spacedim, spacedim $>$$>$ e\+\_\+omega, const std\+::set$<$ types\+::material\+\_\+id $>$ domain\+\_\+of\+\_\+integration, const Quadrature$<$ spacedim $>$ quadrature, const Full\+Matrix$<$ double $>$ C, const Vector$<$ double $>$ y, const std\+::string name=""Linear\+Material\+Domain"")}{LinearMaterialDomain(const std::vector< DependentField< spacedim, spacedim >> e_omega, const std::set< types::material_id > domain_of_integration, const Quadrature< spacedim > quadrature, const FullMatrix< double > C, const Vector< double > y, const std::string name="LinearMaterialDomain")}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ {\bf Linear\+Material\+Domain}$<$ spacedim $>$\+::{\bf Linear\+Material\+Domain} (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ {\bf Dependent\+Field}$<$ spacedim, spacedim $>$$>$}]{e\+\_\+omega, }
+\item[{const std\+::set$<$ {\bf types\+::material\+\_\+id} $>$}]{domain\+\_\+of\+\_\+integration, }
+\item[{const {\bf Quadrature}$<$ spacedim $>$}]{quadrature, }
+\item[{const {\bf Full\+Matrix}$<$ double $>$}]{C, }
+\item[{const {\bf Vector}$<$ double $>$}]{y, }
+\item[{const std\+::string}]{name = {\ttfamily \char`\"{}LinearMaterialDomain$<$~spacedim~$>$\char`\"{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_linear_material_domain_a7f91a980e9475691513443cd6b2efbc1}{}\label{class_linear_material_domain_a7f91a980e9475691513443cd6b2efbc1}
+The constructor of the class.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em e\+\_\+omega} & \hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_adfed9b70b743ba245a39c3e63b951f96}{Scalar\+Functional$<$spacedim, spacedim$>$\+::e\+\_\+omega}\\
+\hline
+\mbox{\tt in}  & {\em domain\+\_\+of\+\_\+integration} & \hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_aa192395f822a64f60df43bf9d36c2f3a}{Scalar\+Functional$<$spacedim, spacedim$>$\+::domain\+\_\+of\+\_\+integration}\\
+\hline
+\mbox{\tt in}  & {\em quadrature} & \hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_ab83ee3ae077b211137824b006098382e}{Scalar\+Functional$<$spacedim, spacedim$>$\+::quadrature}\\
+\hline
+\mbox{\tt in}  & {\em C} & \hyperlink{class_linear_material_domain_a8ac95fcf4f77790670b8520ba9593a7c}{Linear\+Material\+Domain\+::C}\\
+\hline
+\mbox{\tt in}  & {\em y} & \hyperlink{class_linear_material_domain_a7ea9ab6930c0b0aa826e809ef245b0e2}{Linear\+Material\+Domain\+::y}\\
+\hline
+\mbox{\tt in}  & {\em name} & \hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a195248af3821548af3000872e9e6d00e}{Scalar\+Functional$<$spacedim, spacedim$>$\+::name} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Linear\+Material\+Domain@{Linear\+Material\+Domain}!get\+\_\+h\+\_\+omega@{get\+\_\+h\+\_\+omega}}
+\index{get\+\_\+h\+\_\+omega@{get\+\_\+h\+\_\+omega}!Linear\+Material\+Domain@{Linear\+Material\+Domain}}
+\subsubsection[{\texorpdfstring{get\+\_\+h\+\_\+omega(const Vector$<$ double $>$ \&e\+\_\+omega, const std\+::vector$<$ Vector$<$ double $>$$>$ \&e\+\_\+omega\+\_\+ref\+\_\+sets, Vector$<$ double $>$ \&hidden\+\_\+vars, const Point$<$ spacedim $>$ \&x, double \&h\+\_\+omega, Vector$<$ double $>$ \&h\+\_\+omega\+\_\+1, Full\+Matrix$<$ double $>$ \&h\+\_\+omega\+\_\+2, const std\+::tuple$<$ bool, bool, bool $>$ requested\+\_\+quantities) const }{get_h_omega(const Vector< double > &e_omega, const std::vector< Vector< double >> &e_omega_ref_sets, Vector< double > &hidden_vars, const Point< spacedim > &x, double &h_omega, Vector< double > &h_omega_1, FullMatrix< double > &h_omega_2, const std::tuple< bool, bool, bool > requested_quantities) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ bool {\bf Linear\+Material\+Domain}$<$ spacedim $>$\+::get\+\_\+h\+\_\+omega (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ double $>$ \&}]{e\+\_\+omega, }
+\item[{const std\+::vector$<$ {\bf Vector}$<$ double $>$$>$ \&}]{e\+\_\+omega\+\_\+ref\+\_\+sets, }
+\item[{{\bf Vector}$<$ double $>$ \&}]{hidden\+\_\+vars, }
+\item[{const {\bf Point}$<$ spacedim $>$ \&}]{x, }
+\item[{double \&}]{h\+\_\+omega, }
+\item[{{\bf Vector}$<$ double $>$ \&}]{h\+\_\+omega\+\_\+1, }
+\item[{{\bf Full\+Matrix}$<$ double $>$ \&}]{h\+\_\+omega\+\_\+2, }
+\item[{const std\+::tuple$<$ bool, bool, bool $>$}]{requested\+\_\+quantities}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}\hypertarget{class_linear_material_domain_ac071e6886b4e661442af7a003d5f2b2a}{}\label{class_linear_material_domain_ac071e6886b4e661442af7a003d5f2b2a}
+See \hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a629bfeae4d8ea364fc3f72fea8016ac8}{Scalar\+Functional$<$spacedim, spacedim$>$\+::get\+\_\+h\+\_\+omega} for detailed information on this method.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em e\+\_\+omega} & $\boldsymbol{e}^\Omega$\\
+\hline
+\mbox{\tt in}  & {\em e\+\_\+omega\+\_\+ref\+\_\+sets} & Sets of reference values of $\boldsymbol{e}^\Omega$. None are required here.\\
+\hline
+\mbox{\tt in,out}  & {\em hidden\+\_\+vars} & Values of \char`\"{}hidden\char`\"{} variables associated with the integrand $h^\Omega_\rho$. Here, no hidden variables are present.\\
+\hline
+\mbox{\tt in}  & {\em x} & Location of material point\\
+\hline
+\mbox{\tt out}  & {\em h\+\_\+omega} & $\dfrac{1}{2} {\boldsymbol{e}^\Omega}^\top \boldsymbol{C} {\boldsymbol{e}^\Omega} + \boldsymbol{y}^\top \boldsymbol{e}^\Omega$\\
+\hline
+\mbox{\tt out}  & {\em h\+\_\+omega\+\_\+1} & $\boldsymbol{C} {\boldsymbol{e}^\Omega} + \boldsymbol{y}^\top$\\
+\hline
+\mbox{\tt out}  & {\em h\+\_\+omega\+\_\+2} & $\boldsymbol{C}$\\
+\hline
+\mbox{\tt in}  & {\em requested\+\_\+quantities} & A tuple indicating which quantities are actually to be computed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily false} if the evaluation of {\ttfamily h\+\_\+omega}, {\ttfamily h\+\_\+omega\+\_\+1}, and {\ttfamily h\+\_\+omega\+\_\+2} was successful, and {\ttfamily true} if an error prevented the proper calculation of these quantities 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a629bfeae4d8ea364fc3f72fea8016ac8}{Scalar\+Functional$<$ spacedim, spacedim $>$}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Linear\+Material\+Domain@{Linear\+Material\+Domain}!C@{C}}
+\index{C@{C}!Linear\+Material\+Domain@{Linear\+Material\+Domain}}
+\subsubsection[{\texorpdfstring{C}{C}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const {\bf Full\+Matrix}$<$double$>$ {\bf Linear\+Material\+Domain}$<$ spacedim $>$\+::C\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_linear_material_domain_a8ac95fcf4f77790670b8520ba9593a7c}{}\label{class_linear_material_domain_a8ac95fcf4f77790670b8520ba9593a7c}
+$\boldsymbol{C}$ \index{Linear\+Material\+Domain@{Linear\+Material\+Domain}!y@{y}}
+\index{y@{y}!Linear\+Material\+Domain@{Linear\+Material\+Domain}}
+\subsubsection[{\texorpdfstring{y}{y}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const {\bf Vector}$<$double$>$ {\bf Linear\+Material\+Domain}$<$ spacedim $>$\+::y\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_linear_material_domain_a7ea9ab6930c0b0aa826e809ef245b0e2}{}\label{class_linear_material_domain_a7ea9ab6930c0b0aa826e809ef245b0e2}
+$\boldsymbol{y}$ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/\hyperlink{linear__material_8h}{linear\+\_\+material.\+h}\end{DoxyCompactItemize}

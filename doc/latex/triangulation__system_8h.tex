@@ -1,0 +1,70 @@
+\hypertarget{triangulation__system_8h}{}\section{/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/triangulation\+\_\+system.h File Reference}
+\label{triangulation__system_8h}\index{/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/triangulation\+\_\+system.\+h@{/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/triangulation\+\_\+system.\+h}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells$<$ spacedim $>$}
+\item 
+class \hyperlink{class_triangulation_system}{Triangulation\+System$<$ spacedim $>$}
+\item 
+class {\bf parallel\+::\+Triangulation$<$ dim, spacedim $>$}
+\item 
+class \hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System$<$ spacedim $>$}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceparallel}{parallel}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7}{Interface\+Refinement\+Case} \{ \hyperlink{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7a725ee72f9a8d77b879deec24e24a1d7b}{minus\+\_\+is\+\_\+finer}, 
+\hyperlink{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7aee243748f7ee1b44506873ec0b8ae191}{plus\+\_\+is\+\_\+finer}, 
+\hyperlink{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7a37477769ebb40217b8b2dcb406f8b564}{equally\+\_\+fine}, 
+\hyperlink{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7ad453630f99a3f3cec0aaea2d520ac3cf}{at\+\_\+boundary}
+ \}
+\item 
+enum \hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side} \{ \hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435aba34d25d1a0e7f60052d7418d1ccf58b}{minus}, 
+\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435a772311abb4290d65c05c49d38c4da6fb}{plus}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\index{triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}!Interface\+Refinement\+Case@{Interface\+Refinement\+Case}}
+\index{Interface\+Refinement\+Case@{Interface\+Refinement\+Case}!triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}}
+\subsubsection[{\texorpdfstring{Interface\+Refinement\+Case}{InterfaceRefinementCase}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Interface\+Refinement\+Case}}\hypertarget{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7}{}\label{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7}
+This enum describes the several refinement situations that are possible for a cell on an interface. The following possibilities exist\+:
+
+(1) The face of the domain cell on the minus side of the interface cell is more refined than the face of the domain cell on the plus side of the interface. In this case, the interface cell coincides with the domain cell on the minus side (just because the interface mesh is assumed to follow the mesh of the more refined domain cells).
+
+(2) The opposite case of (1). In this case, the interface cell coincides with the face of the domain cell on the plus side of the interface cell
+
+(3) The face of the domain cell on the minus side of the interface cell is equally refined as the face of the domain cell on the plus side of the interface. In this case, the interface cell coincides with both, the face of the domain cell on the minus side as well as the face of the domain cell on the plus side.
+
+(4) The interface is actually a boundary. I.\+e., there is only a domain cell on the minus side. In this case, the face of the domain cell underlying the boundary is equally refined as the corresponding interface (or, rather, boundary) cell. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{minus\+\_\+is\+\_\+finer@{minus\+\_\+is\+\_\+finer}!triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}}\index{triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}!minus\+\_\+is\+\_\+finer@{minus\+\_\+is\+\_\+finer}}\item[{\em 
+minus\+\_\+is\+\_\+finer\hypertarget{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7a725ee72f9a8d77b879deec24e24a1d7b}{}\label{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7a725ee72f9a8d77b879deec24e24a1d7b}
+}]\index{plus\+\_\+is\+\_\+finer@{plus\+\_\+is\+\_\+finer}!triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}}\index{triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}!plus\+\_\+is\+\_\+finer@{plus\+\_\+is\+\_\+finer}}\item[{\em 
+plus\+\_\+is\+\_\+finer\hypertarget{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7aee243748f7ee1b44506873ec0b8ae191}{}\label{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7aee243748f7ee1b44506873ec0b8ae191}
+}]\index{equally\+\_\+fine@{equally\+\_\+fine}!triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}}\index{triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}!equally\+\_\+fine@{equally\+\_\+fine}}\item[{\em 
+equally\+\_\+fine\hypertarget{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7a37477769ebb40217b8b2dcb406f8b564}{}\label{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7a37477769ebb40217b8b2dcb406f8b564}
+}]\index{at\+\_\+boundary@{at\+\_\+boundary}!triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}}\index{triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}!at\+\_\+boundary@{at\+\_\+boundary}}\item[{\em 
+at\+\_\+boundary\hypertarget{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7ad453630f99a3f3cec0aaea2d520ac3cf}{}\label{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7ad453630f99a3f3cec0aaea2d520ac3cf}
+}]\end{description}
+\end{Desc}
+\index{triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}!Interface\+Side@{Interface\+Side}}
+\index{Interface\+Side@{Interface\+Side}!triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}}
+\subsubsection[{\texorpdfstring{Interface\+Side}{InterfaceSide}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Interface\+Side}}\hypertarget{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{}\label{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}
+This enum describes the two sides of an interface. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{minus@{minus}!triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}}\index{triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}!minus@{minus}}\item[{\em 
+minus\hypertarget{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435aba34d25d1a0e7f60052d7418d1ccf58b}{}\label{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435aba34d25d1a0e7f60052d7418d1ccf58b}
+}]\index{plus@{plus}!triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}}\index{triangulation\+\_\+system.\+h@{triangulation\+\_\+system.\+h}!plus@{plus}}\item[{\em 
+plus\hypertarget{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435a772311abb4290d65c05c49d38c4da6fb}{}\label{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435a772311abb4290d65c05c49d38c4da6fb}
+}]\end{description}
+\end{Desc}

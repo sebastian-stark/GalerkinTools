@@ -1,0 +1,223 @@
+\hypertarget{classparallel_1_1_triangulation_system}{}\section{parallel\+:\+:Triangulation\+System$<$ spacedim $>$ Class Template Reference}
+\label{classparallel_1_1_triangulation_system}\index{parallel\+::\+Triangulation\+System$<$ spacedim $>$@{parallel\+::\+Triangulation\+System$<$ spacedim $>$}}
+
+
+{\ttfamily \#include $<$triangulation\+\_\+system.\+h$>$}
+
+
+
+Inheritance diagram for parallel\+:\+:Triangulation\+System$<$ spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classparallel_1_1_triangulation_system__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for parallel\+:\+:Triangulation\+System$<$ spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classparallel_1_1_triangulation_system__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classparallel_1_1_triangulation_system_a2d0fa99c5da897bedc4d9df93d6cdaf7}{Triangulation\+System} (dealii\+::parallel\+::distributed\+::\+Triangulation$<$ spacedim, spacedim $>$ \&tria\+\_\+domain)
+\item 
+virtual \hyperlink{classparallel_1_1_triangulation_system_ad12682d17e85ee169fd53cdbe0536f16}{$\sim$\+Triangulation\+System} ()=default
+\item 
+virtual const dealii\+::parallel\+::\+Triangulation$<$ spacedim, spacedim $>$ \& \hyperlink{classparallel_1_1_triangulation_system_afcd68b5e999d3c656d728e6313d37957}{get\+\_\+triangulation\+\_\+domain} () const 
+\item 
+virtual const dealii\+::parallel\+::\+Triangulation$<$ spacedim-\/1, spacedim $>$ \& \hyperlink{classparallel_1_1_triangulation_system_a6c80e2e3391aa784100984c6aae834e1}{get\+\_\+triangulation\+\_\+interface} () const 
+\item 
+virtual dealii\+::parallel\+::\+Triangulation$<$ spacedim, spacedim $>$ \& \hyperlink{classparallel_1_1_triangulation_system_a4901a2f0e26104d5a085253620b98f52}{get\+\_\+triangulation\+\_\+domain} ()
+\item 
+virtual dealii\+::parallel\+::\+Triangulation$<$ spacedim-\/1, spacedim $>$ \& \hyperlink{classparallel_1_1_triangulation_system_ab799af10ed705dcf903bcd78325762b0}{get\+\_\+triangulation\+\_\+interface} ()
+\item 
+virtual void \hyperlink{classparallel_1_1_triangulation_system_a5a7ef73bec1fbe698480e1bd7c6cd8a7}{close} ()
+\item 
+void \hyperlink{classparallel_1_1_triangulation_system_a58151f4fc7d91474a24c5666a18aa354}{write\+\_\+meshes\+\_\+per\+\_\+processor\+\_\+as\+\_\+vtu} (const std\+::string file\+\_\+name\+\_\+domain, const std\+::string file\+\_\+name\+\_\+interface) const 
+\item 
+virtual std\+::pair$<$ const unsigned int, const unsigned int $>$ \hyperlink{classparallel_1_1_triangulation_system_a7f9b450a3667344b0a291d8e8dfdee18}{get\+\_\+this\+\_\+proc\+\_\+n\+\_\+procs} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classparallel_1_1_triangulation_system_a79e9789e83e12900c85cf8de0644271f}{pre\+\_\+refinement\+\_\+domain} ()
+\item 
+virtual void \hyperlink{classparallel_1_1_triangulation_system_a951181f2ad877283d458fa19db42efb2}{post\+\_\+refinement\+\_\+domain} ()
+\item 
+void \hyperlink{classparallel_1_1_triangulation_system_a2dfa7c2bf13b929a4d1abf685d5b1448}{update\+\_\+interface\+\_\+subdomain\+\_\+ids} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+M\+P\+I\+\_\+\+Comm \hyperlink{classparallel_1_1_triangulation_system_aff7cdcf04d5a4fb633d714130da893b0}{mpi\+\_\+communicator}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$unsigned int spacedim$>$\\*
+class parallel\+::\+Triangulation\+System$<$ spacedim $>$}
+
+This is the parallel computing equivalent of the class \hyperlink{classparallel_1_1_triangulation_system}{Triangulation\+System} (for general information refer to the documentation of this class).
+
+For the domain triangulation the {\bf parallel\+::distributed\+::\+Triangulation} class is used. In contrast, for the interface triangulation the {\bf parallel\+::\+Triangulation} class is used, which allows for the necessary manual management of the partitioning of the triangulation.
+
+Regarding ownership of interface cells, the convention used is that the ownership of interface cells is according to the ownership of the underlying domain cells on the minus side of the interface.
+
+In general, the complete coarse domain mesh with all {\bf types\+::material\+\_\+id}s, {\bf types\+::manifold\+\_\+id}s must be identically defined on each processor (this ensures that no ids are lost during the repartitioning process after mesh refinement).
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em spacedim} & The spatial dimension of the problem. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}!Triangulation\+System@{Triangulation\+System}}
+\index{Triangulation\+System@{Triangulation\+System}!parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}}
+\subsubsection[{\texorpdfstring{Triangulation\+System(dealii\+::parallel\+::distributed\+::\+Triangulation$<$ spacedim, spacedim $>$ \&tria\+\_\+domain)}{TriangulationSystem(dealii::parallel::distributed::Triangulation< spacedim, spacedim > &tria_domain)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ {\bf parallel\+::\+Triangulation\+System}$<$ spacedim $>$\+::{\bf Triangulation\+System} (
+\begin{DoxyParamCaption}
+\item[{dealii\+::parallel\+::distributed\+::\+Triangulation$<$ spacedim, spacedim $>$ \&}]{tria\+\_\+domain}
+\end{DoxyParamCaption}
+)}\hypertarget{classparallel_1_1_triangulation_system_a2d0fa99c5da897bedc4d9df93d6cdaf7}{}\label{classparallel_1_1_triangulation_system_a2d0fa99c5da897bedc4d9df93d6cdaf7}
+Constructor of the \hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}. Note that the constructor does not copy the {\ttfamily tria\+\_\+domain} object supplied, but rather stores a pointer to it. So do not change it after construction of the \hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System} unless you\textquotesingle{}re knowing exactly what you are doing (the only change to the domain triangulation, which is admissible, is mesh refinement). No checking on external changes of the domain triangulation is currently performed and, therefore, doing so may lead to errors which are hard to debug.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em tria\+\_\+domain} & \hyperlink{class_triangulation_system_a68bafddc70652cb7c64701c74e86279f}{Triangulation\+System\+::tria\+\_\+domain} \\
+\hline
+\end{DoxyParams}
+\index{parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}!````~Triangulation\+System@{$\sim$\+Triangulation\+System}}
+\index{````~Triangulation\+System@{$\sim$\+Triangulation\+System}!parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}}
+\subsubsection[{\texorpdfstring{$\sim$\+Triangulation\+System()=default}{~TriangulationSystem()=default}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual {\bf parallel\+::\+Triangulation\+System}$<$ spacedim $>$\+::$\sim${\bf Triangulation\+System} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}\hypertarget{classparallel_1_1_triangulation_system_ad12682d17e85ee169fd53cdbe0536f16}{}\label{classparallel_1_1_triangulation_system_ad12682d17e85ee169fd53cdbe0536f16}
+Destructor 
+
+\subsection{Member Function Documentation}
+\index{parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}!close@{close}}
+\index{close@{close}!parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}}
+\subsubsection[{\texorpdfstring{close()}{close()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual void {\bf parallel\+::\+Triangulation\+System}$<$ spacedim $>$\+::close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classparallel_1_1_triangulation_system_a5a7ef73bec1fbe698480e1bd7c6cd8a7}{}\label{classparallel_1_1_triangulation_system_a5a7ef73bec1fbe698480e1bd7c6cd8a7}
+Function closing the interface definition. After this function has been called, no modifications to the interface triangulation are possible. This function does the real work of creating the interface triangulation and associating it with the underlying domain triangulation. \index{parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}!get\+\_\+this\+\_\+proc\+\_\+n\+\_\+procs@{get\+\_\+this\+\_\+proc\+\_\+n\+\_\+procs}}
+\index{get\+\_\+this\+\_\+proc\+\_\+n\+\_\+procs@{get\+\_\+this\+\_\+proc\+\_\+n\+\_\+procs}!parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}}
+\subsubsection[{\texorpdfstring{get\+\_\+this\+\_\+proc\+\_\+n\+\_\+procs() const }{get_this_proc_n_procs() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual std\+::pair$<$const unsigned int, const unsigned int$>$ {\bf parallel\+::\+Triangulation\+System}$<$ spacedim $>$\+::get\+\_\+this\+\_\+proc\+\_\+n\+\_\+procs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classparallel_1_1_triangulation_system_a7f9b450a3667344b0a291d8e8dfdee18}{}\label{classparallel_1_1_triangulation_system_a7f9b450a3667344b0a291d8e8dfdee18}
+\begin{DoxyReturn}{Returns}
+The number of this processor and the total number of participating processors 
+\end{DoxyReturn}
+\index{parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}!get\+\_\+triangulation\+\_\+domain@{get\+\_\+triangulation\+\_\+domain}}
+\index{get\+\_\+triangulation\+\_\+domain@{get\+\_\+triangulation\+\_\+domain}!parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}}
+\subsubsection[{\texorpdfstring{get\+\_\+triangulation\+\_\+domain() const }{get_triangulation_domain() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual const dealii\+::parallel\+::\+Triangulation$<$spacedim, spacedim$>$\& {\bf parallel\+::\+Triangulation\+System}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classparallel_1_1_triangulation_system_afcd68b5e999d3c656d728e6313d37957}{}\label{classparallel_1_1_triangulation_system_afcd68b5e999d3c656d728e6313d37957}
+\begin{DoxyReturn}{Returns}
+This returns a const reference to the domain triangulation. 
+\end{DoxyReturn}
+\index{parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}!get\+\_\+triangulation\+\_\+domain@{get\+\_\+triangulation\+\_\+domain}}
+\index{get\+\_\+triangulation\+\_\+domain@{get\+\_\+triangulation\+\_\+domain}!parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}}
+\subsubsection[{\texorpdfstring{get\+\_\+triangulation\+\_\+domain()}{get_triangulation_domain()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual dealii\+::parallel\+::\+Triangulation$<$spacedim, spacedim$>$\& {\bf parallel\+::\+Triangulation\+System}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classparallel_1_1_triangulation_system_a4901a2f0e26104d5a085253620b98f52}{}\label{classparallel_1_1_triangulation_system_a4901a2f0e26104d5a085253620b98f52}
+\begin{DoxyReturn}{Returns}
+This returns a reference to the domain triangulation. 
+\end{DoxyReturn}
+\index{parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}!get\+\_\+triangulation\+\_\+interface@{get\+\_\+triangulation\+\_\+interface}}
+\index{get\+\_\+triangulation\+\_\+interface@{get\+\_\+triangulation\+\_\+interface}!parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}}
+\subsubsection[{\texorpdfstring{get\+\_\+triangulation\+\_\+interface() const }{get_triangulation_interface() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual const dealii\+::parallel\+::\+Triangulation$<$spacedim-\/1, spacedim$>$\& {\bf parallel\+::\+Triangulation\+System}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+interface (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classparallel_1_1_triangulation_system_a6c80e2e3391aa784100984c6aae834e1}{}\label{classparallel_1_1_triangulation_system_a6c80e2e3391aa784100984c6aae834e1}
+\begin{DoxyReturn}{Returns}
+This returns a const reference to the interface triangulation. 
+\end{DoxyReturn}
+\index{parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}!get\+\_\+triangulation\+\_\+interface@{get\+\_\+triangulation\+\_\+interface}}
+\index{get\+\_\+triangulation\+\_\+interface@{get\+\_\+triangulation\+\_\+interface}!parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}}
+\subsubsection[{\texorpdfstring{get\+\_\+triangulation\+\_\+interface()}{get_triangulation_interface()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual dealii\+::parallel\+::\+Triangulation$<$spacedim-\/1, spacedim$>$\& {\bf parallel\+::\+Triangulation\+System}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+interface (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classparallel_1_1_triangulation_system_ab799af10ed705dcf903bcd78325762b0}{}\label{classparallel_1_1_triangulation_system_ab799af10ed705dcf903bcd78325762b0}
+\begin{DoxyReturn}{Returns}
+This returns a reference to the interface triangulation. 
+\end{DoxyReturn}
+\index{parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}!post\+\_\+refinement\+\_\+domain@{post\+\_\+refinement\+\_\+domain}}
+\index{post\+\_\+refinement\+\_\+domain@{post\+\_\+refinement\+\_\+domain}!parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}}
+\subsubsection[{\texorpdfstring{post\+\_\+refinement\+\_\+domain()}{post_refinement_domain()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual void {\bf parallel\+::\+Triangulation\+System}$<$ spacedim $>$\+::post\+\_\+refinement\+\_\+domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}\hypertarget{classparallel_1_1_triangulation_system_a951181f2ad877283d458fa19db42efb2}{}\label{classparallel_1_1_triangulation_system_a951181f2ad877283d458fa19db42efb2}
+This internal function takes care that the interface mesh is updated after any refinement/coarsening of the domain cells. The underlying mechanism is that the method is attached to the domain triangulation during construction of the \hyperlink{classparallel_1_1_triangulation_system}{Triangulation\+System}; and it will always be called immediately after the domain mesh has been refined.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000014}{Todo}]This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. \end{DoxyRefDesc}
+\index{parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}!pre\+\_\+refinement\+\_\+domain@{pre\+\_\+refinement\+\_\+domain}}
+\index{pre\+\_\+refinement\+\_\+domain@{pre\+\_\+refinement\+\_\+domain}!parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}}
+\subsubsection[{\texorpdfstring{pre\+\_\+refinement\+\_\+domain()}{pre_refinement_domain()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual void {\bf parallel\+::\+Triangulation\+System}$<$ spacedim $>$\+::pre\+\_\+refinement\+\_\+domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}\hypertarget{classparallel_1_1_triangulation_system_a79e9789e83e12900c85cf8de0644271f}{}\label{classparallel_1_1_triangulation_system_a79e9789e83e12900c85cf8de0644271f}
+In parallel, this function does nothing except triggering the \hyperlink{class_triangulation_system_ad3b16b86e7cbe4800fb5a40114cbc5fb}{Triangulation\+System\+::pre\+\_\+refinement()} signal.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000013}{Todo}]This function will have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. \end{DoxyRefDesc}
+\index{parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}!update\+\_\+interface\+\_\+subdomain\+\_\+ids@{update\+\_\+interface\+\_\+subdomain\+\_\+ids}}
+\index{update\+\_\+interface\+\_\+subdomain\+\_\+ids@{update\+\_\+interface\+\_\+subdomain\+\_\+ids}!parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}}
+\subsubsection[{\texorpdfstring{update\+\_\+interface\+\_\+subdomain\+\_\+ids() const }{update_interface_subdomain_ids() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf parallel\+::\+Triangulation\+System}$<$ spacedim $>$\+::update\+\_\+interface\+\_\+subdomain\+\_\+ids (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classparallel_1_1_triangulation_system_a2dfa7c2bf13b929a4d1abf685d5b1448}{}\label{classparallel_1_1_triangulation_system_a2dfa7c2bf13b929a4d1abf685d5b1448}
+This function assigns the interface subdomain ids according to the subdomain ids of the underlying domain cells on the minus side. \index{parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}!write\+\_\+meshes\+\_\+per\+\_\+processor\+\_\+as\+\_\+vtu@{write\+\_\+meshes\+\_\+per\+\_\+processor\+\_\+as\+\_\+vtu}}
+\index{write\+\_\+meshes\+\_\+per\+\_\+processor\+\_\+as\+\_\+vtu@{write\+\_\+meshes\+\_\+per\+\_\+processor\+\_\+as\+\_\+vtu}!parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}}
+\subsubsection[{\texorpdfstring{write\+\_\+meshes\+\_\+per\+\_\+processor\+\_\+as\+\_\+vtu(const std\+::string file\+\_\+name\+\_\+domain, const std\+::string file\+\_\+name\+\_\+interface) const }{write_meshes_per_processor_as_vtu(const std::string file_name_domain, const std::string file_name_interface) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf parallel\+::\+Triangulation\+System}$<$ spacedim $>$\+::write\+\_\+meshes\+\_\+per\+\_\+processor\+\_\+as\+\_\+vtu (
+\begin{DoxyParamCaption}
+\item[{const std\+::string}]{file\+\_\+name\+\_\+domain, }
+\item[{const std\+::string}]{file\+\_\+name\+\_\+interface}
+\end{DoxyParamCaption}
+) const}\hypertarget{classparallel_1_1_triangulation_system_a58151f4fc7d91474a24c5666a18aa354}{}\label{classparallel_1_1_triangulation_system_a58151f4fc7d91474a24c5666a18aa354}
+Write triangulations in $\ast$.vtu format for each processor, and add a .pvtu file for visualization in Visit or Paraview that describes the collection of $\ast$.vtu files.
+
+Note that the extension .vtu will be added automatically.
+
+If a file name is left empty, the corresponding meshes will not be written.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em file\+\_\+name\+\_\+domain} & file name for the domain triangulation\\
+\hline
+\mbox{\tt in}  & {\em file\+\_\+name\+\_\+interface} & file name for the interface triangulation \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}!mpi\+\_\+communicator@{mpi\+\_\+communicator}}
+\index{mpi\+\_\+communicator@{mpi\+\_\+communicator}!parallel\+::\+Triangulation\+System@{parallel\+::\+Triangulation\+System}}
+\subsubsection[{\texorpdfstring{mpi\+\_\+communicator}{mpi_communicator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ M\+P\+I\+\_\+\+Comm {\bf parallel\+::\+Triangulation\+System}$<$ spacedim $>$\+::mpi\+\_\+communicator\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classparallel_1_1_triangulation_system_aff7cdcf04d5a4fb633d714130da893b0}{}\label{classparallel_1_1_triangulation_system_aff7cdcf04d5a4fb633d714130da893b0}
+M\+PI communicator 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/\hyperlink{triangulation__system_8h}{triangulation\+\_\+system.\+h}\end{DoxyCompactItemize}

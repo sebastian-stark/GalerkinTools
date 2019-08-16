@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['advection',['Advection',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLocalIntegrators_1_1Advection.html',1,'LocalIntegrators']]],
+  ['cudawrappers',['CUDAWrappers',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLinearAlgebra_1_1CUDAWrappers.html',1,'LinearAlgebra']]],
+  ['distributed',['distributed',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLinearAlgebra_1_1distributed.html',1,'LinearAlgebra']]],
+  ['divergence',['Divergence',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLocalIntegrators_1_1Divergence.html',1,'LocalIntegrators']]],
+  ['elasticity',['Elasticity',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLocalIntegrators_1_1Elasticity.html',1,'LocalIntegrators']]],
+  ['epetrawrappers',['EpetraWrappers',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLinearAlgebra_1_1EpetraWrappers.html',1,'LinearAlgebra']]],
+  ['graddiv',['GradDiv',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLocalIntegrators_1_1GradDiv.html',1,'LocalIntegrators']]],
+  ['l2',['L2',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLocalIntegrators_1_1L2.html',1,'LocalIntegrators']]],
+  ['lacexceptions',['LACExceptions',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLACExceptions.html',1,'']]],
+  ['lapacksupport',['LAPACKSupport',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLAPACKSupport.html',1,'']]],
+  ['laplace',['Laplace',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLocalIntegrators_1_1Laplace.html',1,'LocalIntegrators']]],
+  ['linearalgebra',['LinearAlgebra',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLinearAlgebra.html',1,'']]],
+  ['linearalgebradealii',['LinearAlgebraDealII',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLinearAlgebraDealII.html',1,'']]],
+  ['linearalgebrapetsc',['LinearAlgebraPETSc',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLinearAlgebraPETSc.html',1,'']]],
+  ['linearalgebratrilinos',['LinearAlgebraTrilinos',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLinearAlgebraTrilinos.html',1,'']]],
+  ['localintegrators',['LocalIntegrators',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLocalIntegrators.html',1,'']]],
+  ['maxwell',['Maxwell',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLocalIntegrators_1_1Maxwell.html',1,'LocalIntegrators']]],
+  ['mpi',['MPI',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLinearAlgebraPETSc_1_1MPI.html',1,'LinearAlgebraPETSc']]],
+  ['mpi',['MPI',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLinearAlgebraTrilinos_1_1MPI.html',1,'LinearAlgebraTrilinos']]],
+  ['patches',['Patches',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceLocalIntegrators_1_1Patches.html',1,'LocalIntegrators']]],
+  ['readwritevector',['ReadWriteVector',['https://dealii.org/9.0.0/doxygen/deal.II/classLinearAlgebra_1_1ReadWriteVector_1_1FunctorTemplate.html',1,'LinearAlgebra']]]
+];

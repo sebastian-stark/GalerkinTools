@@ -1,0 +1,97 @@
+\hypertarget{class_solver_wrapper}{}\section{Solver\+Wrapper$<$ Solution\+Vector\+Type, R\+H\+S\+Vector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$ Class Template Reference}
+\label{class_solver_wrapper}\index{Solver\+Wrapper$<$ Solution\+Vector\+Type, R\+H\+S\+Vector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$@{Solver\+Wrapper$<$ Solution\+Vector\+Type, R\+H\+S\+Vector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$}}
+
+
+{\ttfamily \#include $<$solver\+\_\+wrapper.\+h$>$}
+
+
+
+Inheritance diagram for Solver\+Wrapper$<$ Solution\+Vector\+Type, R\+H\+S\+Vector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{class_solver_wrapper__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Solver\+Wrapper$<$ Solution\+Vector\+Type, R\+H\+S\+Vector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{class_solver_wrapper__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_solver_wrapper_a75a599630086e2edee14eb43ae071733}{solve} (const Matrix\+Type \&K\+\_\+stretched, Solution\+Vector\+Type \&solution, const R\+H\+S\+Vector\+Type \&f\+\_\+stretched, const bool symmetric) const =0
+\item 
+virtual \hyperlink{class_solver_wrapper_a738e65e298fb0b13327e853fc9683b6d}{$\sim$\+Solver\+Wrapper} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class Solution\+Vector\+Type, class R\+H\+S\+Vector\+Type, class Matrix\+Type, class Sparsity\+Pattern\+Type$>$\\*
+class Solver\+Wrapper$<$ Solution\+Vector\+Type, R\+H\+S\+Vector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$}
+
+This class essentially wraps some functions related to the solver used for the problem and the corresponding data types into a common interface.
+
+The \hyperlink{class_solver_wrapper}{Solver\+Wrapper} class inherits from {\bf Subscriptor} in order to be able to check that \hyperlink{class_solver_wrapper}{Solver\+Wrapper} objects are only destroyed when they are not needed anymore by other objects.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Solution\+Vector\+Type} & The type used for the solution vector\\
+\hline
+{\em R\+H\+S\+Vector\+Type} & The type used for the right hand side\\
+\hline
+{\em Matrix\+Type} & The type used for the system matrix\\
+\hline
+{\em Sparsity\+Pattern\+Type} & The sparsity pattern used for initialization of the matrix \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Solver\+Wrapper@{Solver\+Wrapper}!````~Solver\+Wrapper@{$\sim$\+Solver\+Wrapper}}
+\index{````~Solver\+Wrapper@{$\sim$\+Solver\+Wrapper}!Solver\+Wrapper@{Solver\+Wrapper}}
+\subsubsection[{\texorpdfstring{$\sim$\+Solver\+Wrapper()}{~SolverWrapper()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Solution\+Vector\+Type, class R\+H\+S\+Vector\+Type, class Matrix\+Type, class Sparsity\+Pattern\+Type$>$ virtual {\bf Solver\+Wrapper}$<$ Solution\+Vector\+Type, R\+H\+S\+Vector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$\+::$\sim${\bf Solver\+Wrapper} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_solver_wrapper_a738e65e298fb0b13327e853fc9683b6d}{}\label{class_solver_wrapper_a738e65e298fb0b13327e853fc9683b6d}
+The destructor of \hyperlink{class_solver_wrapper}{Solver\+Wrapper} essentially checks before destruction that the \hyperlink{class_solver_wrapper}{Solver\+Wrapper} object is not used by other objects. If this is the case, the program will be aborted. 
+
+\subsection{Member Function Documentation}
+\index{Solver\+Wrapper@{Solver\+Wrapper}!solve@{solve}}
+\index{solve@{solve}!Solver\+Wrapper@{Solver\+Wrapper}}
+\subsubsection[{\texorpdfstring{solve(const Matrix\+Type \&\+K\+\_\+stretched, Solution\+Vector\+Type \&solution, const R\+H\+S\+Vector\+Type \&f\+\_\+stretched, const bool symmetric) const =0}{solve(const MatrixType &K_stretched, SolutionVectorType &solution, const RHSVectorType &f_stretched, const bool symmetric) const =0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Solution\+Vector\+Type, class R\+H\+S\+Vector\+Type, class Matrix\+Type, class Sparsity\+Pattern\+Type$>$ virtual void {\bf Solver\+Wrapper}$<$ Solution\+Vector\+Type, R\+H\+S\+Vector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$\+::solve (
+\begin{DoxyParamCaption}
+\item[{const Matrix\+Type \&}]{K\+\_\+stretched, }
+\item[{Solution\+Vector\+Type \&}]{solution, }
+\item[{const R\+H\+S\+Vector\+Type \&}]{f\+\_\+stretched, }
+\item[{const bool}]{symmetric}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_solver_wrapper_a75a599630086e2edee14eb43ae071733}{}\label{class_solver_wrapper_a75a599630086e2edee14eb43ae071733}
+The solve function for the system of linear equations in the stretched form
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em K\+\_\+stretched} & The stretched system\+\_\+matrix\\
+\hline
+\mbox{\tt out}  & {\em solution} & The stretched solution vector\\
+\hline
+\mbox{\tt in}  & {\em f\+\_\+stretched} & The stretched right hand side vector\\
+\hline
+\mbox{\tt in}  & {\em symmetric} & A bool indicating whether {\ttfamily system\+\_\+matrix} is symmetric \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_solver_wrapper_p_e_t_sc_ac1033bb655ccc7459c4549e5ae4988c5}{Solver\+Wrapper\+P\+E\+T\+Sc}, and \hyperlink{class_solver_wrapper_u_m_f_p_a_c_k_a80ed8c6186251e670960945e9ebc0c5b}{Solver\+Wrapper\+U\+M\+F\+P\+A\+CK}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/\hyperlink{solver__wrapper_8h}{solver\+\_\+wrapper.\+h}\end{DoxyCompactItemize}

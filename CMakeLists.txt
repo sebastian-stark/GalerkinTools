@@ -1,0 +1,54 @@
+#######################################################################
+#                                                                     #
+# CMake script for configuration of galerkin_tools library            #
+#                                                                     #
+# Usage: cmake -DCMAKE_INSTALL_PREFIX=/installation/path /source/path #
+#                                                                     #
+#######################################################################
+
+CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
+PROJECT(galerkin_tools VERSION 1.0.0)
+
+#locate deal.II
+FIND_PACKAGE(deal.II 9.1.0 QUIET
+  HINTS ${deal.II_DIR} ${DEAL_II_DIR} ../ ../../ $ENV{DEAL_II_DIR}
+  )
+IF(NOT ${deal.II_FOUND})
+  MESSAGE(FATAL_ERROR "\n"
+    "*** Could not locate a (sufficiently recent) version of deal.II. ***\n\n"
+    "You may want to either pass a flag -DDEAL_II_DIR=/path/to/deal.II to cmake\n"
+    "or set an environment variable \"DEAL_II_DIR\" that contains this path."
+    )
+ENDIF()
+
+#define paths for installation of libraries and headers of library galerkin_tools
+INCLUDE(GNUInstallDirs)
+SET(GALERKIN_TOOLS_INSTALL_PATH_LIBRARIES ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR})
+SET(GALERKIN_TOOLS_INSTALL_PATH_HEADERS ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_INCLUDEDIR})
+
+#set library names for debug and release versions of galerkin_tools library, respectively
+SET(GALERKIN_TOOLS_TARGET_DEBUG ${PROJECT_NAME}.debug)
+SET(GALERKIN_TOOLS_TARGET_RELEASE ${PROJECT_NAME}.release)
+
+#this does the actual definition of the target, link libraries, etc.
+ADD_SUBDIRECTORY(source)
+
+#configure the tests
+#make sure that the tests know of the headers of the galerkin_tools library and are linked against the galerkin_tools library
+INCLUDE_DIRECTORIES(${GALERKIN_TOOLS_INSTALL_PATH_HEADERS})
+LINK_DIRECTORIES(${GALERKIN_TOOLS_INSTALL_PATH_LIBRARIES})
+SET(TEST_LIBRARIES_DEBUG ${GALERKIN_TOOLS_TARGET_DEBUG})
+SET(TEST_LIBRARIES_RELEASE ${GALERKIN_TOOLS_TARGET_RELEASE})
+#build the tests for both, debug and release mode
+SET(CMAKE_BUILD_TYPE "DebugRelease")
+#enable testing
+ENABLE_TESTING()
+#this does the actual work
+ADD_SUBDIRECTORY(tests)
+
+#set up and install the configuration information of the library galerkin_tools
+CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/cmake/config/Config.cmake.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/galerkin_toolsConfig.cmake" @ONLY)
+CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/cmake/config/ConfigVersion.cmake.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/galerkin_toolsConfigVersion.cmake" @ONLY)
+INSTALL(FILES ${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/galerkin_toolsConfig.cmake DESTINATION ${GALERKIN_TOOLS_INSTALL_PATH_LIBRARIES}/cmake/galerkin_tools/)
+INSTALL(FILES ${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/galerkin_toolsConfigVersion.cmake DESTINATION ${GALERKIN_TOOLS_INSTALL_PATH_LIBRARIES}/cmake/galerkin_tools/)
+

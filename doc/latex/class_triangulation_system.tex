@@ -1,0 +1,596 @@
+\hypertarget{class_triangulation_system}{}\section{Triangulation\+System$<$ spacedim $>$ Class Template Reference}
+\label{class_triangulation_system}\index{Triangulation\+System$<$ spacedim $>$@{Triangulation\+System$<$ spacedim $>$}}
+
+
+{\ttfamily \#include $<$triangulation\+\_\+system.\+h$>$}
+
+
+
+Inheritance diagram for Triangulation\+System$<$ spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{class_triangulation_system__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Triangulation\+System$<$ spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_triangulation_system__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef {\bf Tria\+Iterator}$<$ {\bf Cell\+Accessor}$<$ spacedim-\/1, spacedim $>$ $>$ \hyperlink{class_triangulation_system_a1d62a56e335cf19f4a4ec7932fbaef09}{Interface\+Cell}
+\item 
+typedef {\bf Tria\+Iterator}$<$ {\bf Cell\+Accessor}$<$ spacedim, spacedim $>$ $>$ \hyperlink{class_triangulation_system_af53de5ec80a16d9cb167660b2832b240}{Domain\+Cell}
+\item 
+typedef {\bf Tria\+Active\+Iterator}$<$ {\bf Cell\+Accessor}$<$ spacedim-\/1, spacedim $>$ $>$ \hyperlink{class_triangulation_system_a4c3f97884b5478ebd6771433c5273ac5}{Active\+Interface\+Cell}
+\item 
+typedef {\bf Tria\+Active\+Iterator}$<$ {\bf Cell\+Accessor}$<$ spacedim, spacedim $>$ $>$ \hyperlink{class_triangulation_system_a6aa358f6803facdc7e7ee72698a5f4cb}{Active\+Domain\+Cell}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_triangulation_system_a427810bad1fb5457979b8948bb776539}{Triangulation\+System} ({\bf Triangulation}$<$ spacedim, spacedim $>$ \&\hyperlink{class_triangulation_system_a68bafddc70652cb7c64701c74e86279f}{tria\+\_\+domain})
+\item 
+virtual \hyperlink{class_triangulation_system_a9b0dc550fe1566ab1ba6668a868d0a70}{$\sim$\+Triangulation\+System} ()
+\item 
+virtual const {\bf Triangulation}$<$ spacedim, spacedim $>$ \& \hyperlink{class_triangulation_system_a38345fa4fb7725e66bf0762a1ef0b135}{get\+\_\+triangulation\+\_\+domain} () const 
+\item 
+virtual const {\bf Triangulation}$<$ spacedim-\/1, spacedim $>$ \& \hyperlink{class_triangulation_system_aa6615acfade0126dc55d168253c49c7c}{get\+\_\+triangulation\+\_\+interface} () const 
+\item 
+virtual {\bf Triangulation}$<$ spacedim, spacedim $>$ \& \hyperlink{class_triangulation_system_a4c4e1d0589f962d92532586d808c7da2}{get\+\_\+triangulation\+\_\+domain} ()
+\item 
+virtual {\bf Triangulation}$<$ spacedim-\/1, spacedim $>$ \& \hyperlink{class_triangulation_system_a73ef25cdc88395ef6d1ebcf6792cb97f}{get\+\_\+triangulation\+\_\+interface} ()
+\item 
+virtual void \hyperlink{class_triangulation_system_ad3605f3f59fbd55942288026107c4e6d}{close} ()
+\item 
+void \hyperlink{class_triangulation_system_a004ced64c3160c7589b6e7bf12f58019}{add\+\_\+interface\+\_\+cell} (const \hyperlink{class_triangulation_system_af53de5ec80a16d9cb167660b2832b240}{Domain\+Cell} \&domain\+\_\+cell, const unsigned int face, const {\bf types\+::material\+\_\+id} {\bf material\+\_\+id})
+\item 
+void \hyperlink{class_triangulation_system_a2bb42253dc27cab092c7c76c66b83585}{add\+\_\+interface\+\_\+cells} (std\+::vector$<$ std\+::tuple$<$ const \hyperlink{class_triangulation_system_af53de5ec80a16d9cb167660b2832b240}{Domain\+Cell}, const unsigned int, const {\bf types\+::material\+\_\+id} $>$ $>$ interface\+\_\+cells)
+\item 
+void \hyperlink{class_triangulation_system_a54803f193d6f237b2039ba6f5bca09b9}{set\+\_\+interface\+\_\+manifold} (const {\bf types\+::manifold\+\_\+id} {\bf manifold\+\_\+id}, const {\bf Manifold}$<$ spacedim-\/1, spacedim $>$ \&manifold)
+\item 
+void \hyperlink{class_triangulation_system_afb5564d01d3914b15b552f95648d231b}{set\+\_\+interface\+\_\+manifolds} (const std\+::map$<$ {\bf types\+::manifold\+\_\+id}, std\+::reference\+\_\+wrapper$<$ const {\bf Manifold}$<$ spacedim-\/1, spacedim $>$$>$$>$ manifolds)
+\item 
+std\+::vector$<$ \hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}$<$ spacedim $>$ $>$\+::iterator \hyperlink{class_triangulation_system_abbbd02a7e813a0604d072480bda93b1a}{interface\+\_\+begin\+\_\+active} ()
+\item 
+std\+::vector$<$ \hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}$<$ spacedim $>$ $>$\+::iterator \hyperlink{class_triangulation_system_abcab5ca315d720879468cf92a820c29a}{interface\+\_\+end\+\_\+active} ()
+\item 
+const std\+::vector$<$ \hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}$<$ spacedim $>$ $>$ \& \hyperlink{class_triangulation_system_a6e3f8531f86b7404e5cb28f5e88e9cd2}{interface\+\_\+active\+\_\+iterators} () const 
+\item 
+std\+::vector$<$ \hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}$<$ spacedim $>$ $>$\+::iterator \hyperlink{class_triangulation_system_aaf68847ea61f015fce319bb9810833f4}{interface\+\_\+begin\+\_\+coarse} ()
+\item 
+std\+::vector$<$ \hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}$<$ spacedim $>$ $>$\+::iterator \hyperlink{class_triangulation_system_a1595839f52f5f5b9d7af31836f9c1f0f}{interface\+\_\+end\+\_\+coarse} ()
+\item 
+const std\+::vector$<$ \hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}$<$ spacedim $>$ $>$ \& \hyperlink{class_triangulation_system_aff36f319e3c837aa9b0522bc63f83bf3}{interface\+\_\+coarse\+\_\+iterators} () const 
+\item 
+void \hyperlink{class_triangulation_system_a2b90f1509c910930c1404548fa860d8c}{write\+\_\+triangulations\+\_\+vtk} (const std\+::string file\+\_\+name\+\_\+domain, const std\+::string file\+\_\+name\+\_\+interface) const 
+\item 
+void \hyperlink{class_triangulation_system_a8aa29c77fd798ddd8a5e20806ea21558}{refine\+\_\+global} (const unsigned int times=1)
+\item 
+void \hyperlink{class_triangulation_system_a62be2563cc8d810a71941e15490f9840}{execute\+\_\+coarsening\+\_\+and\+\_\+refinement} ()
+\item 
+bool \hyperlink{class_triangulation_system_a53b005b496d27529bce82f1ed05fed0e}{check\+\_\+active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells\+\_\+consistency} (const double tol=1e-\/12) const 
+\item 
+virtual std\+::pair$<$ const unsigned int, const unsigned int $>$ \hyperlink{class_triangulation_system_abf6f1a3377be207410b4fd1a9568fb76}{get\+\_\+this\+\_\+proc\+\_\+n\+\_\+procs} () const 
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+boost\+::signals2\+::signal$<$ void()$>$ \hyperlink{class_triangulation_system_ad3b16b86e7cbe4800fb5a40114cbc5fb}{pre\+\_\+refinement}
+\item 
+boost\+::signals2\+::signal$<$ void()$>$ \hyperlink{class_triangulation_system_a8813b73cab76c8b77c47c00c39233f76}{post\+\_\+refinement}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_triangulation_system_aee020d825bdf108d69f8e5b71b7ad665}{generate\+\_\+tria\+\_\+interface\+\_\+from\+\_\+tria\+\_\+domain} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const {\bf Smart\+Pointer}$<$ {\bf Triangulation}$<$ spacedim, spacedim $>$ $>$ \hyperlink{class_triangulation_system_a68bafddc70652cb7c64701c74e86279f}{tria\+\_\+domain}
+\item 
+std\+::unique\+\_\+ptr$<$ {\bf Triangulation}$<$ spacedim-\/1, spacedim $>$ $>$ \hyperlink{class_triangulation_system_af145fb3f6a3b3ef9ed92111f9fca5b7d}{tria\+\_\+interface}
+\item 
+bool \hyperlink{class_triangulation_system_aef5ae937cc00b7954357bb8ae88b1f73}{closed} = false
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_triangulation_system_a4214cf789cf39910305db9fe554249a0}{generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells} (const bool no\+\_\+assert=false)
+\item 
+void \hyperlink{class_triangulation_system_a449457dd44d9c9d9aaa5754532e8537e}{generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells\+\_\+recursion} (const \hyperlink{class_triangulation_system_af53de5ec80a16d9cb167660b2832b240}{Domain\+Cell} \&domain\+\_\+cell, const unsigned int \&face, const \hyperlink{class_triangulation_system_a1d62a56e335cf19f4a4ec7932fbaef09}{Interface\+Cell} \&interface\+\_\+cell, const bool no\+\_\+assert)
+\item 
+bool \hyperlink{class_triangulation_system_a677ea8e08a897b475375eaf4ef70be37}{check\+\_\+material\+\_\+ids\+\_\+recursion} (const \hyperlink{class_triangulation_system_af53de5ec80a16d9cb167660b2832b240}{Domain\+Cell} \&domain\+\_\+cell) const 
+\item 
+virtual void \hyperlink{class_triangulation_system_ae1862e6da3157dc8d539fdc0439e9f48}{pre\+\_\+refinement\+\_\+domain} ()
+\item 
+virtual void \hyperlink{class_triangulation_system_a8435489384095f687363d200ccfce628}{post\+\_\+refinement\+\_\+domain} ()
+\item 
+void \hyperlink{class_triangulation_system_aca3dc94f1006a603f56ac12c730ae242}{push\+\_\+tria\+\_\+listeners\+\_\+to\+\_\+end} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ std\+::pair$<$ const \hyperlink{class_triangulation_system_af53de5ec80a16d9cb167660b2832b240}{Domain\+Cell}, const unsigned int $>$, {\bf types\+::material\+\_\+id} $>$ \hyperlink{class_triangulation_system_a9a14a8a68bda679330a169413f0e2dfb}{coarse\+\_\+domain\+\_\+faces\+\_\+material\+\_\+ids}
+\item 
+std\+::map$<$ {\bf dealii\+::types\+::manifold\+\_\+id}, const dealii\+::\+Manifold$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \hyperlink{class_triangulation_system_a130322b74b66f27d8611ce92ad241c6d}{interface\+\_\+manifolds}
+\item 
+std\+::vector$<$ \hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}$<$ spacedim $>$ $>$ \hyperlink{class_triangulation_system_a5b909c472fe2508da44e89b017aa146c}{coarse\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}
+\item 
+std\+::vector$<$ \hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}$<$ spacedim $>$ $>$ \hyperlink{class_triangulation_system_a516c7a253cefbc5e208714538b21424d}{active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}
+\item 
+std\+::vector$<$ boost\+::signals2\+::connection $>$ \hyperlink{class_triangulation_system_a713f97bee5570de1f5571d86a41e83f6}{tria\+\_\+listeners}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$unsigned int$>$ }\\class \hyperlink{class_triangulation_system_af4019c2e39cc934d646aaa35c3c52773}{Assembly\+Helper}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$unsigned int spacedim$>$\\*
+class Triangulation\+System$<$ spacedim $>$}
+
+Objects of this class contain all information about the domain and interface mesh and how both of them are related to each other (i.\+e., which domain cell faces underly the interface mesh). They are also used for the actual definition of the interface mesh based on the domain mesh. Moreover, objects of this class are used to ensure that the interface mesh is refined in a consistent way with the domain mesh.
+
+The following general notes apply to domain and interface meshes\+:
+
+(1) The domain mesh may be split into several portions, which are identified by {\bf types\+::material\+\_\+id}s. In the same way, the interface mesh may be split into several portions. The domain / interface portions must generally be defined by the coarse mesh cells. I.\+e., child cells must always have the same {\bf types\+::material\+\_\+id} as the corresponding coarse cell.
+
+(2) Neighboring domain cells with two different {\bf types\+::material\+\_\+id}s will share faces / nodes where they meet if the domain triangulation has been set up accordingly.
+
+(3) Neighboring interface cells with two different {\bf types\+::material\+\_\+id}s will not share edges/nodes where they meet. If degrees of freedom are to be shared for these situations, this can currently only be achieved by appropriate constraints.
+
+(4) Boundaries are generally considered as special cases of interfaces. The distinguishing feature of boundaries is just that no mesh exists on one side of the interface (and, therefore, no domain related independent fields live on this side).
+
+(5) An interface mesh must be set up wherever interface related independent fields live and/or Dirichlet type constraints on domain related fields are applied on interfaces using the built in functionality of \hyperlink{class_assembly_helper}{Assembly\+Helper}.
+
+(6) The definition of the interface mesh is done via the domain mesh. In particular, each interface cell is defined by a face of a domain cell. The domain cell used in this process defines the minus side of the interface cell. Generally, only domain cells of the coarse mesh are allowed for the definition of the interfaces. This implies that the coarse domain mesh must be set up before the interface mesh can be defined.
+
+(7) Each interface cell is always refined in the same way as the face of the more refined domain cell adjacent to the interface. Also, it is assumed that refinement of the interface mesh always happens indirectly through refinement of the domain mesh (by the requirement set out before). I.\+e., it is not possible to mark interface cells for refinement. Rather, the adjacent domain cells must be marked for refinement if the interface mesh is to be refined.
+
+(8) At present only isotropic refinement is allowed for. This choice has been made because many important functionalities of the deal.\+II library are based on the very same assumption currently.
+
+(9) The {\bf types\+::manifold\+\_\+id}s of interface cells will generally be taken from the {\bf types\+::manifold\+\_\+id}s of the coarse mesh domain cell faces underlying the interface cells (on the minus side of the interface).
+
+(10) In order to avoid undefined behavior when the \hyperlink{class_triangulation_system}{Triangulation\+System} is used with an \hyperlink{class_assembly_helper}{Assembly\+Helper} object, the definition of {\bf types\+::material\+\_\+id}s, {\bf types\+::manifold\+\_\+id}s, etc. should always be done on the coarse domain mesh before the \hyperlink{class_triangulation_system}{Triangulation\+System} is constructed. Also it should be done before any kind of refinement in order to ensure that ids are properly inherited to children (and, therefore, the ids of the refined mesh stay consistent with the coarse mesh).
+
+(11) Due to restrictions in the deal.\+II library, it is presently not allowed for that more than two interface cells share a common edge (and the corresponding nodes). Currently, these situations can only be treated by appropriately \char`\"{}chopping\char`\"{} the interface mesh into different portions (i.\+e., portions with different {\bf types\+::material\+\_\+id}s). As described above, this approach will create duplicate edges and nodes where interface cells with different {\bf types\+::material\+\_\+id}s meet, meaning that it may be necessary to constrain dofs together on these duplicate edges.
+
+The \hyperlink{class_triangulation_system}{Triangulation\+System} class inherits from {\bf Subscriptor} in order to be able to check that \hyperlink{class_triangulation_system}{Triangulation\+System} objects are only destroyed when they are not needed anymore by other objects.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em spacedim} & The spatial dimension of the problem. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Typedef Documentation}
+\index{Triangulation\+System@{Triangulation\+System}!Active\+Domain\+Cell@{Active\+Domain\+Cell}}
+\index{Active\+Domain\+Cell@{Active\+Domain\+Cell}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{Active\+Domain\+Cell}{ActiveDomainCell}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ typedef {\bf Tria\+Active\+Iterator}$<${\bf Cell\+Accessor}$<$spacedim, spacedim$>$ $>$ {\bf Triangulation\+System}$<$ spacedim $>$\+::{\bf Active\+Domain\+Cell}}\hypertarget{class_triangulation_system_a6aa358f6803facdc7e7ee72698a5f4cb}{}\label{class_triangulation_system_a6aa358f6803facdc7e7ee72698a5f4cb}
+A convenience typedef for a deal.\+II {\bf Tria\+Active\+Iterator} referring to a domain cell \index{Triangulation\+System@{Triangulation\+System}!Active\+Interface\+Cell@{Active\+Interface\+Cell}}
+\index{Active\+Interface\+Cell@{Active\+Interface\+Cell}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{Active\+Interface\+Cell}{ActiveInterfaceCell}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ typedef {\bf Tria\+Active\+Iterator}$<${\bf Cell\+Accessor}$<$spacedim-\/1, spacedim$>$ $>$ {\bf Triangulation\+System}$<$ spacedim $>$\+::{\bf Active\+Interface\+Cell}}\hypertarget{class_triangulation_system_a4c3f97884b5478ebd6771433c5273ac5}{}\label{class_triangulation_system_a4c3f97884b5478ebd6771433c5273ac5}
+A convenience typedef for a deal.\+II {\bf Tria\+Active\+Iterator} referring to an interface cell \index{Triangulation\+System@{Triangulation\+System}!Domain\+Cell@{Domain\+Cell}}
+\index{Domain\+Cell@{Domain\+Cell}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{Domain\+Cell}{DomainCell}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ typedef {\bf Tria\+Iterator}$<${\bf Cell\+Accessor}$<$spacedim, spacedim$>$ $>$ {\bf Triangulation\+System}$<$ spacedim $>$\+::{\bf Domain\+Cell}}\hypertarget{class_triangulation_system_af53de5ec80a16d9cb167660b2832b240}{}\label{class_triangulation_system_af53de5ec80a16d9cb167660b2832b240}
+A convenience typedef for a deal.\+II {\bf Tria\+Iterator} referring to a domain cell \index{Triangulation\+System@{Triangulation\+System}!Interface\+Cell@{Interface\+Cell}}
+\index{Interface\+Cell@{Interface\+Cell}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{Interface\+Cell}{InterfaceCell}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ typedef {\bf Tria\+Iterator}$<${\bf Cell\+Accessor}$<$spacedim-\/1, spacedim$>$ $>$ {\bf Triangulation\+System}$<$ spacedim $>$\+::{\bf Interface\+Cell}}\hypertarget{class_triangulation_system_a1d62a56e335cf19f4a4ec7932fbaef09}{}\label{class_triangulation_system_a1d62a56e335cf19f4a4ec7932fbaef09}
+A convenience typedef for a deal.\+II {\bf Tria\+Iterator} referring to an interface cell 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Triangulation\+System@{Triangulation\+System}!Triangulation\+System@{Triangulation\+System}}
+\index{Triangulation\+System@{Triangulation\+System}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{Triangulation\+System(\+Triangulation$<$ spacedim, spacedim $>$ \&tria\+\_\+domain)}{TriangulationSystem(Triangulation< spacedim, spacedim > &tria_domain)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ {\bf Triangulation\+System}$<$ spacedim $>$\+::{\bf Triangulation\+System} (
+\begin{DoxyParamCaption}
+\item[{{\bf Triangulation}$<$ spacedim, spacedim $>$ \&}]{tria\+\_\+domain}
+\end{DoxyParamCaption}
+)}\hypertarget{class_triangulation_system_a427810bad1fb5457979b8948bb776539}{}\label{class_triangulation_system_a427810bad1fb5457979b8948bb776539}
+Constructor of the \hyperlink{class_triangulation_system}{Triangulation\+System}. Note that the constructor does not copy the {\ttfamily tria\+\_\+domain} object supplied, but rather stores a pointer to it. So do not change it after construction of the \hyperlink{class_triangulation_system}{Triangulation\+System} unless you\textquotesingle{}re knowing exactly what you are doing (the only change to the domain triangulation, which is admissible, is mesh refinement). No checking on external changes of the domain triangulation is currently performed and, therefore, doing so may lead to errors which are hard to debug.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em tria\+\_\+domain} & \hyperlink{class_triangulation_system_a68bafddc70652cb7c64701c74e86279f}{Triangulation\+System\+::tria\+\_\+domain} \\
+\hline
+\end{DoxyParams}
+\index{Triangulation\+System@{Triangulation\+System}!````~Triangulation\+System@{$\sim$\+Triangulation\+System}}
+\index{````~Triangulation\+System@{$\sim$\+Triangulation\+System}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{$\sim$\+Triangulation\+System()}{~TriangulationSystem()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual {\bf Triangulation\+System}$<$ spacedim $>$\+::$\sim${\bf Triangulation\+System} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_triangulation_system_a9b0dc550fe1566ab1ba6668a868d0a70}{}\label{class_triangulation_system_a9b0dc550fe1566ab1ba6668a868d0a70}
+The destructor of \hyperlink{class_triangulation_system}{Triangulation\+System} essentially checks before destruction that the \hyperlink{class_triangulation_system}{Triangulation\+System} object is not used by other objects. If this is the case, the program will be aborted. 
+
+\subsection{Member Function Documentation}
+\index{Triangulation\+System@{Triangulation\+System}!add\+\_\+interface\+\_\+cell@{add\+\_\+interface\+\_\+cell}}
+\index{add\+\_\+interface\+\_\+cell@{add\+\_\+interface\+\_\+cell}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{add\+\_\+interface\+\_\+cell(const Domain\+Cell \&domain\+\_\+cell, const unsigned int face, const types\+::material\+\_\+id material\+\_\+id)}{add_interface_cell(const DomainCell &domain_cell, const unsigned int face, const types::material_id material_id)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Triangulation\+System}$<$ spacedim $>$\+::add\+\_\+interface\+\_\+cell (
+\begin{DoxyParamCaption}
+\item[{const {\bf Domain\+Cell} \&}]{domain\+\_\+cell, }
+\item[{const unsigned int}]{face, }
+\item[{const {\bf types\+::material\+\_\+id}}]{material\+\_\+id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_triangulation_system_a004ced64c3160c7589b6e7bf12f58019}{}\label{class_triangulation_system_a004ced64c3160c7589b6e7bf12f58019}
+This method adds an interface cell to the interface mesh, with the interface cell being defined through the pair ({\ttfamily domain\+\_\+cell}, {\ttfamily face}). The {\ttfamily domain\+\_\+cell} is assumed to be on the minus side of the interface.
+
+Note that this function can only be called before \hyperlink{class_triangulation_system_ad3605f3f59fbd55942288026107c4e6d}{Triangulation\+System\+::close()} has been called.
+
+Note also that the method overwrites previously added cells (i.\+e., if the same combination of cell and face has been added previously, the corresponding {\ttfamily material\+\_\+id} will be overwritten).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em domain\+\_\+cell} & The domain cell underlying the interface cell to be defined\\
+\hline
+\mbox{\tt in}  & {\em face} & The face of the domain cell underlying the interface cell to be defined\\
+\hline
+\mbox{\tt in}  & {\em material\+\_\+id} & The {\bf types\+::material\+\_\+id} which is assigned to the interface cell (thereby deciding to which interface portion the interface cell is linked) \\
+\hline
+\end{DoxyParams}
+\index{Triangulation\+System@{Triangulation\+System}!add\+\_\+interface\+\_\+cells@{add\+\_\+interface\+\_\+cells}}
+\index{add\+\_\+interface\+\_\+cells@{add\+\_\+interface\+\_\+cells}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{add\+\_\+interface\+\_\+cells(std\+::vector$<$ std\+::tuple$<$ const Domain\+Cell, const unsigned int, const types\+::material\+\_\+id $>$ $>$ interface\+\_\+cells)}{add_interface_cells(std::vector< std::tuple< const DomainCell, const unsigned int, const types::material_id > > interface_cells)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Triangulation\+System}$<$ spacedim $>$\+::add\+\_\+interface\+\_\+cells (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ std\+::tuple$<$ const {\bf Domain\+Cell}, const unsigned int, const {\bf types\+::material\+\_\+id} $>$ $>$}]{interface\+\_\+cells}
+\end{DoxyParamCaption}
+)}\hypertarget{class_triangulation_system_a2bb42253dc27cab092c7c76c66b83585}{}\label{class_triangulation_system_a2bb42253dc27cab092c7c76c66b83585}
+Function to add several cells to the interface triangulation at once. This function mainly exists for compatibility with a premature version of the library. Essentially, \hyperlink{class_triangulation_system_a004ced64c3160c7589b6e7bf12f58019}{Triangulation\+System\+::add\+\_\+interface\+\_\+cell()} is called repeatedly for all elements of the input vector {\ttfamily interface\+\_\+cells}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em interface\+\_\+cells} & A vector defining the interface cell (first in tuple\+: the domain cell underlying the interface cell to be defined; second in tuple\+: the face of the domain cell underlying the interface cell to be defined; third in tuple\+: the {\bf types\+::material\+\_\+id} which is assigned to the interface cell ); see also \hyperlink{class_triangulation_system_a004ced64c3160c7589b6e7bf12f58019}{Triangulation\+System\+::add\+\_\+interface\+\_\+cell()} \\
+\hline
+\end{DoxyParams}
+\index{Triangulation\+System@{Triangulation\+System}!check\+\_\+active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells\+\_\+consistency@{check\+\_\+active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells\+\_\+consistency}}
+\index{check\+\_\+active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells\+\_\+consistency@{check\+\_\+active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells\+\_\+consistency}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{check\+\_\+active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells\+\_\+consistency(const double tol=1e-\/12) const }{check_active_interface_cell_domain_cells_consistency(const double tol=1e-12) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ bool {\bf Triangulation\+System}$<$ spacedim $>$\+::check\+\_\+active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells\+\_\+consistency (
+\begin{DoxyParamCaption}
+\item[{const double}]{tol = {\ttfamily 1e-\/12}}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_triangulation_system_a53b005b496d27529bce82f1ed05fed0e}{}\label{class_triangulation_system_a53b005b496d27529bce82f1ed05fed0e}
+This method checks that the active interface cells are properly aligned with the underlying domain cell faces by comparison of cell / face centers.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em tol} & The distance between the center of an interface cell and the center of the underlying domain cell face below which the centers are considered consistent.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If {\ttfamily true} is returned, all is in order and the interface mesh is consistent with the domain mesh. If {\ttfamily false} is returned, inconsistencies have been detected. 
+\end{DoxyReturn}
+\index{Triangulation\+System@{Triangulation\+System}!check\+\_\+material\+\_\+ids\+\_\+recursion@{check\+\_\+material\+\_\+ids\+\_\+recursion}}
+\index{check\+\_\+material\+\_\+ids\+\_\+recursion@{check\+\_\+material\+\_\+ids\+\_\+recursion}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{check\+\_\+material\+\_\+ids\+\_\+recursion(const Domain\+Cell \&domain\+\_\+cell) const }{check_material_ids_recursion(const DomainCell &domain_cell) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ bool {\bf Triangulation\+System}$<$ spacedim $>$\+::check\+\_\+material\+\_\+ids\+\_\+recursion (
+\begin{DoxyParamCaption}
+\item[{const {\bf Domain\+Cell} \&}]{domain\+\_\+cell}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_triangulation_system_a677ea8e08a897b475375eaf4ef70be37}{}\label{class_triangulation_system_a677ea8e08a897b475375eaf4ef70be37}
+This internal auxiliary method is used for checking whether all children of a certain coarse domain cell have the same {\bf types\+::material\+\_\+id} as the coarse mother cell. This method is used to assert on the case that the user supplies a refined domain mesh to \hyperlink{class_triangulation_system}{Triangulation\+System}, where the boundaries between different domain portions are not aligned with coarse mesh faces.
+
+The method works its way through the different refinement levels by recursion.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em domain\+\_\+cell} & The mother cell to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If {\ttfamily true} is returned, all children of the coarse domain cell have the same {\bf types\+::material\+\_\+id} as the coarse mother cell; if {\ttfamily false} is returned, this is not the case. 
+\end{DoxyReturn}
+\index{Triangulation\+System@{Triangulation\+System}!close@{close}}
+\index{close@{close}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{close()}{close()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual void {\bf Triangulation\+System}$<$ spacedim $>$\+::close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_triangulation_system_ad3605f3f59fbd55942288026107c4e6d}{}\label{class_triangulation_system_ad3605f3f59fbd55942288026107c4e6d}
+Function closing the interface definition. After this function has been called, no modifications to the interface triangulation are possible. This function does the real work of creating the interface triangulation and associating it with the underlying domain triangulation. \index{Triangulation\+System@{Triangulation\+System}!execute\+\_\+coarsening\+\_\+and\+\_\+refinement@{execute\+\_\+coarsening\+\_\+and\+\_\+refinement}}
+\index{execute\+\_\+coarsening\+\_\+and\+\_\+refinement@{execute\+\_\+coarsening\+\_\+and\+\_\+refinement}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{execute\+\_\+coarsening\+\_\+and\+\_\+refinement()}{execute_coarsening_and_refinement()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Triangulation\+System}$<$ spacedim $>$\+::execute\+\_\+coarsening\+\_\+and\+\_\+refinement (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_triangulation_system_a62be2563cc8d810a71941e15490f9840}{}\label{class_triangulation_system_a62be2563cc8d810a71941e15490f9840}
+Function to execute coarsening and refinement. This method does nothing but calling the deal.\+II function \hyperlink{class_triangulation_system_a62be2563cc8d810a71941e15490f9840}{execute\+\_\+coarsening\+\_\+and\+\_\+refinement()} on the domain mesh, which will in turn trigger refinement of the interface by \hyperlink{class_triangulation_system_ae1862e6da3157dc8d539fdc0439e9f48}{Triangulation\+System\+::pre\+\_\+refinement\+\_\+domain()} and \hyperlink{class_triangulation_system_a8435489384095f687363d200ccfce628}{Triangulation\+System\+::post\+\_\+refinement\+\_\+domain()}.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000012}{Todo}]This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. \end{DoxyRefDesc}
+\index{Triangulation\+System@{Triangulation\+System}!generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells@{generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells}}
+\index{generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells@{generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells(const bool no\+\_\+assert=false)}{generate_active_interface_cells_domain_cells(const bool no_assert=false)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Triangulation\+System}$<$ spacedim $>$\+::generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells (
+\begin{DoxyParamCaption}
+\item[{const bool}]{no\+\_\+assert = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_triangulation_system_a4214cf789cf39910305db9fe554249a0}{}\label{class_triangulation_system_a4214cf789cf39910305db9fe554249a0}
+This method is used internally to generate / update \hyperlink{class_triangulation_system_a516c7a253cefbc5e208714538b21424d}{Triangulation\+System\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells} after meshing / mesh refinement.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em no\+\_\+assert} & If {\ttfamily no\+\_\+assert} is {\ttfamily true}, no checking is performed whether the interface and domain mesh refinements are consistent. This functionality is necessary when generating {\ttfamily \hyperlink{class_triangulation_system_a516c7a253cefbc5e208714538b21424d}{Triangulation\+System\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}} after initial meshing because the domain mesh supplied to \hyperlink{class_triangulation_system}{Triangulation\+System} may already be refined. In the latter case, the corresponding interface mesh is refined in several refinement steps until it is consistent with the domain mesh. However, intermediate meshes in this process may not be consistent with the domain mesh and, thus, it must not checked for consistency. \\
+\hline
+\end{DoxyParams}
+\index{Triangulation\+System@{Triangulation\+System}!generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells\+\_\+recursion@{generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells\+\_\+recursion}}
+\index{generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells\+\_\+recursion@{generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells\+\_\+recursion}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells\+\_\+recursion(const Domain\+Cell \&domain\+\_\+cell, const unsigned int \&face, const Interface\+Cell \&interface\+\_\+cell, const bool no\+\_\+assert)}{generate_active_interface_cells_domain_cells_recursion(const DomainCell &domain_cell, const unsigned int &face, const InterfaceCell &interface_cell, const bool no_assert)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Triangulation\+System}$<$ spacedim $>$\+::generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells\+\_\+recursion (
+\begin{DoxyParamCaption}
+\item[{const {\bf Domain\+Cell} \&}]{domain\+\_\+cell, }
+\item[{const unsigned int \&}]{face, }
+\item[{const {\bf Interface\+Cell} \&}]{interface\+\_\+cell, }
+\item[{const bool}]{no\+\_\+assert}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_triangulation_system_a449457dd44d9c9d9aaa5754532e8537e}{}\label{class_triangulation_system_a449457dd44d9c9d9aaa5754532e8537e}
+This internal auxiliary method is called by \hyperlink{class_triangulation_system_a4214cf789cf39910305db9fe554249a0}{Triangulation\+System\+::generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells()} and does the actual work of generating / updating \hyperlink{class_triangulation_system_a516c7a253cefbc5e208714538b21424d}{Triangulation\+System\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}. For each pair of ({\ttfamily domain\+\_\+cell}, {\ttfamily face}) defining an interface cell on the coarse level, the method does a recursion through the refinement levels and adds elements to \hyperlink{class_triangulation_system_a516c7a253cefbc5e208714538b21424d}{Triangulation\+System\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells} only at the deepest (i.\+e. active) level.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em domain\+\_\+cell} & Domain cell underlying the interface cell {\ttfamily interface\+\_\+cell} \\
+\hline
+\mbox{\tt in}  & {\em face} & Face of {\ttfamily domain\+\_\+cell} underlying interface cell {\ttfamily interface\+\_\+cell} \\
+\hline
+\mbox{\tt in}  & {\em interface\+\_\+cell} & The interface cell corresponding to the pair ({\ttfamily domain\+\_\+cell}, {\ttfamily face})\\
+\hline
+\mbox{\tt in}  & {\em no\+\_\+assert} & see the documentation of the same parameter in \hyperlink{class_triangulation_system_a4214cf789cf39910305db9fe554249a0}{Triangulation\+System\+::generate\+\_\+active\+\_\+interface\+\_\+cells\+\_\+domain\+\_\+cells()} \\
+\hline
+\end{DoxyParams}
+\index{Triangulation\+System@{Triangulation\+System}!generate\+\_\+tria\+\_\+interface\+\_\+from\+\_\+tria\+\_\+domain@{generate\+\_\+tria\+\_\+interface\+\_\+from\+\_\+tria\+\_\+domain}}
+\index{generate\+\_\+tria\+\_\+interface\+\_\+from\+\_\+tria\+\_\+domain@{generate\+\_\+tria\+\_\+interface\+\_\+from\+\_\+tria\+\_\+domain}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{generate\+\_\+tria\+\_\+interface\+\_\+from\+\_\+tria\+\_\+domain()}{generate_tria_interface_from_tria_domain()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Triangulation\+System}$<$ spacedim $>$\+::generate\+\_\+tria\+\_\+interface\+\_\+from\+\_\+tria\+\_\+domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_triangulation_system_aee020d825bdf108d69f8e5b71b7ad665}{}\label{class_triangulation_system_aee020d825bdf108d69f8e5b71b7ad665}
+Function generating the interface triangulation from the domain triangulation and setting up \hyperlink{class_triangulation_system_a5b909c472fe2508da44e89b017aa146c}{Triangulation\+System\+::coarse\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells} and \hyperlink{class_triangulation_system_a516c7a253cefbc5e208714538b21424d}{Triangulation\+System\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells} \index{Triangulation\+System@{Triangulation\+System}!get\+\_\+this\+\_\+proc\+\_\+n\+\_\+procs@{get\+\_\+this\+\_\+proc\+\_\+n\+\_\+procs}}
+\index{get\+\_\+this\+\_\+proc\+\_\+n\+\_\+procs@{get\+\_\+this\+\_\+proc\+\_\+n\+\_\+procs}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{get\+\_\+this\+\_\+proc\+\_\+n\+\_\+procs() const }{get_this_proc_n_procs() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual std\+::pair$<$const unsigned int, const unsigned int$>$ {\bf Triangulation\+System}$<$ spacedim $>$\+::get\+\_\+this\+\_\+proc\+\_\+n\+\_\+procs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_triangulation_system_abf6f1a3377be207410b4fd1a9568fb76}{}\label{class_triangulation_system_abf6f1a3377be207410b4fd1a9568fb76}
+\begin{DoxyReturn}{Returns}
+The number of this processor and the total number of participating processors (as this is a sequential triangulation, the result is always (0, 1) 
+\end{DoxyReturn}
+\index{Triangulation\+System@{Triangulation\+System}!get\+\_\+triangulation\+\_\+domain@{get\+\_\+triangulation\+\_\+domain}}
+\index{get\+\_\+triangulation\+\_\+domain@{get\+\_\+triangulation\+\_\+domain}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{get\+\_\+triangulation\+\_\+domain() const }{get_triangulation_domain() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual const {\bf Triangulation}$<$spacedim, spacedim$>$\& {\bf Triangulation\+System}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_triangulation_system_a38345fa4fb7725e66bf0762a1ef0b135}{}\label{class_triangulation_system_a38345fa4fb7725e66bf0762a1ef0b135}
+\begin{DoxyReturn}{Returns}
+This returns a const reference to the domain triangulation. 
+\end{DoxyReturn}
+\index{Triangulation\+System@{Triangulation\+System}!get\+\_\+triangulation\+\_\+domain@{get\+\_\+triangulation\+\_\+domain}}
+\index{get\+\_\+triangulation\+\_\+domain@{get\+\_\+triangulation\+\_\+domain}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{get\+\_\+triangulation\+\_\+domain()}{get_triangulation_domain()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual {\bf Triangulation}$<$spacedim, spacedim$>$\& {\bf Triangulation\+System}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_triangulation_system_a4c4e1d0589f962d92532586d808c7da2}{}\label{class_triangulation_system_a4c4e1d0589f962d92532586d808c7da2}
+\begin{DoxyReturn}{Returns}
+This returns a reference to the domain triangulation. 
+\end{DoxyReturn}
+\index{Triangulation\+System@{Triangulation\+System}!get\+\_\+triangulation\+\_\+interface@{get\+\_\+triangulation\+\_\+interface}}
+\index{get\+\_\+triangulation\+\_\+interface@{get\+\_\+triangulation\+\_\+interface}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{get\+\_\+triangulation\+\_\+interface() const }{get_triangulation_interface() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual const {\bf Triangulation}$<$spacedim-\/1, spacedim$>$\& {\bf Triangulation\+System}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+interface (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_triangulation_system_aa6615acfade0126dc55d168253c49c7c}{}\label{class_triangulation_system_aa6615acfade0126dc55d168253c49c7c}
+\begin{DoxyReturn}{Returns}
+This returns a const reference to the interface triangulation. 
+\end{DoxyReturn}
+\index{Triangulation\+System@{Triangulation\+System}!get\+\_\+triangulation\+\_\+interface@{get\+\_\+triangulation\+\_\+interface}}
+\index{get\+\_\+triangulation\+\_\+interface@{get\+\_\+triangulation\+\_\+interface}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{get\+\_\+triangulation\+\_\+interface()}{get_triangulation_interface()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual {\bf Triangulation}$<$spacedim-\/1, spacedim$>$\& {\bf Triangulation\+System}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+interface (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_triangulation_system_a73ef25cdc88395ef6d1ebcf6792cb97f}{}\label{class_triangulation_system_a73ef25cdc88395ef6d1ebcf6792cb97f}
+\begin{DoxyReturn}{Returns}
+This returns a reference to the interface triangulation. 
+\end{DoxyReturn}
+\index{Triangulation\+System@{Triangulation\+System}!interface\+\_\+active\+\_\+iterators@{interface\+\_\+active\+\_\+iterators}}
+\index{interface\+\_\+active\+\_\+iterators@{interface\+\_\+active\+\_\+iterators}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{interface\+\_\+active\+\_\+iterators() const }{interface_active_iterators() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const std\+::vector$<${\bf Interface\+Cell\+Domain\+Cells}$<$spacedim$>$ $>$\& {\bf Triangulation\+System}$<$ spacedim $>$\+::interface\+\_\+active\+\_\+iterators (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_triangulation_system_a6e3f8531f86b7404e5cb28f5e88e9cd2}{}\label{class_triangulation_system_a6e3f8531f86b7404e5cb28f5e88e9cd2}
+\begin{DoxyReturn}{Returns}
+This returns a const reference to \hyperlink{class_triangulation_system_a516c7a253cefbc5e208714538b21424d}{Triangulation\+System\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}, which is essentially be meant for range based loops instead of using the functions \hyperlink{class_triangulation_system_abbbd02a7e813a0604d072480bda93b1a}{Triangulation\+System\+::interface\+\_\+begin\+\_\+active()} and \hyperlink{class_triangulation_system_abcab5ca315d720879468cf92a820c29a}{Triangulation\+System\+::interface\+\_\+end\+\_\+active()} (hence the name of the function). 
+\end{DoxyReturn}
+\index{Triangulation\+System@{Triangulation\+System}!interface\+\_\+begin\+\_\+active@{interface\+\_\+begin\+\_\+active}}
+\index{interface\+\_\+begin\+\_\+active@{interface\+\_\+begin\+\_\+active}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{interface\+\_\+begin\+\_\+active()}{interface_begin_active()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::vector$<${\bf Interface\+Cell\+Domain\+Cells}$<$spacedim$>$ $>$\+::iterator {\bf Triangulation\+System}$<$ spacedim $>$\+::interface\+\_\+begin\+\_\+active (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_triangulation_system_abbbd02a7e813a0604d072480bda93b1a}{}\label{class_triangulation_system_abbbd02a7e813a0604d072480bda93b1a}
+\begin{DoxyReturn}{Returns}
+An iterator to the first active interface cell. Note that this is not a deal.\+II iterator. Rather, it is an iterator to the first element in \hyperlink{class_triangulation_system_a516c7a253cefbc5e208714538b21424d}{Triangulation\+System\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}. However, through the returned iterator, deal.\+II iterators to the interface cells and adjacent domain cells can be obtained. 
+\end{DoxyReturn}
+\index{Triangulation\+System@{Triangulation\+System}!interface\+\_\+begin\+\_\+coarse@{interface\+\_\+begin\+\_\+coarse}}
+\index{interface\+\_\+begin\+\_\+coarse@{interface\+\_\+begin\+\_\+coarse}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{interface\+\_\+begin\+\_\+coarse()}{interface_begin_coarse()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::vector$<${\bf Interface\+Cell\+Domain\+Cells}$<$spacedim$>$ $>$\+::iterator {\bf Triangulation\+System}$<$ spacedim $>$\+::interface\+\_\+begin\+\_\+coarse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_triangulation_system_aaf68847ea61f015fce319bb9810833f4}{}\label{class_triangulation_system_aaf68847ea61f015fce319bb9810833f4}
+\begin{DoxyReturn}{Returns}
+An iterator to the first coarse interface cell. Note that this is not a deal.\+II iterator. Rather, it is an iterator to the first element in \hyperlink{class_triangulation_system_a5b909c472fe2508da44e89b017aa146c}{Triangulation\+System\+::coarse\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}. However, through the returned iterator, deal.\+II iterators to the interface cells and adjacent domain cells can be obtained. 
+\end{DoxyReturn}
+\index{Triangulation\+System@{Triangulation\+System}!interface\+\_\+coarse\+\_\+iterators@{interface\+\_\+coarse\+\_\+iterators}}
+\index{interface\+\_\+coarse\+\_\+iterators@{interface\+\_\+coarse\+\_\+iterators}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{interface\+\_\+coarse\+\_\+iterators() const }{interface_coarse_iterators() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const std\+::vector$<${\bf Interface\+Cell\+Domain\+Cells}$<$spacedim$>$ $>$\& {\bf Triangulation\+System}$<$ spacedim $>$\+::interface\+\_\+coarse\+\_\+iterators (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_triangulation_system_aff36f319e3c837aa9b0522bc63f83bf3}{}\label{class_triangulation_system_aff36f319e3c837aa9b0522bc63f83bf3}
+\begin{DoxyReturn}{Returns}
+This returns a const reference to \hyperlink{class_triangulation_system_a5b909c472fe2508da44e89b017aa146c}{Triangulation\+System\+::coarse\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}, which is essentially be meant for range based loops instead of using the functions \hyperlink{class_triangulation_system_aaf68847ea61f015fce319bb9810833f4}{Triangulation\+System\+::interface\+\_\+begin\+\_\+coarse()} and \hyperlink{class_triangulation_system_a1595839f52f5f5b9d7af31836f9c1f0f}{Triangulation\+System\+::interface\+\_\+end\+\_\+coarse()} (hence the name of the function). 
+\end{DoxyReturn}
+\index{Triangulation\+System@{Triangulation\+System}!interface\+\_\+end\+\_\+active@{interface\+\_\+end\+\_\+active}}
+\index{interface\+\_\+end\+\_\+active@{interface\+\_\+end\+\_\+active}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{interface\+\_\+end\+\_\+active()}{interface_end_active()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::vector$<${\bf Interface\+Cell\+Domain\+Cells}$<$spacedim$>$ $>$\+::iterator {\bf Triangulation\+System}$<$ spacedim $>$\+::interface\+\_\+end\+\_\+active (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_triangulation_system_abcab5ca315d720879468cf92a820c29a}{}\label{class_triangulation_system_abcab5ca315d720879468cf92a820c29a}
+\begin{DoxyReturn}{Returns}
+An iterator to past the last active interface cell. Note that this is not a deal.\+II iterator. Rather, it is an iterator to the past the end element in \hyperlink{class_triangulation_system_a516c7a253cefbc5e208714538b21424d}{Triangulation\+System\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}. 
+\end{DoxyReturn}
+\index{Triangulation\+System@{Triangulation\+System}!interface\+\_\+end\+\_\+coarse@{interface\+\_\+end\+\_\+coarse}}
+\index{interface\+\_\+end\+\_\+coarse@{interface\+\_\+end\+\_\+coarse}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{interface\+\_\+end\+\_\+coarse()}{interface_end_coarse()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::vector$<${\bf Interface\+Cell\+Domain\+Cells}$<$spacedim$>$ $>$\+::iterator {\bf Triangulation\+System}$<$ spacedim $>$\+::interface\+\_\+end\+\_\+coarse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_triangulation_system_a1595839f52f5f5b9d7af31836f9c1f0f}{}\label{class_triangulation_system_a1595839f52f5f5b9d7af31836f9c1f0f}
+\begin{DoxyReturn}{Returns}
+An iterator to past the last coarse interface cell. Note that this is not a deal.\+II iterator. Rather, it is an iterator to the past the end element in \hyperlink{class_triangulation_system_a5b909c472fe2508da44e89b017aa146c}{Triangulation\+System\+::coarse\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}. 
+\end{DoxyReturn}
+\index{Triangulation\+System@{Triangulation\+System}!post\+\_\+refinement\+\_\+domain@{post\+\_\+refinement\+\_\+domain}}
+\index{post\+\_\+refinement\+\_\+domain@{post\+\_\+refinement\+\_\+domain}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{post\+\_\+refinement\+\_\+domain()}{post_refinement_domain()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual void {\bf Triangulation\+System}$<$ spacedim $>$\+::post\+\_\+refinement\+\_\+domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}\hypertarget{class_triangulation_system_a8435489384095f687363d200ccfce628}{}\label{class_triangulation_system_a8435489384095f687363d200ccfce628}
+This internal function takes care that the interface cells are refined/coarsened after any refinement of the domain cells. The underlying mechanism is that the method is attached to the domain triangulation during construction of the \hyperlink{class_triangulation_system}{Triangulation\+System}; and it will always be called immediately after the domain mesh has been refined.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000011}{Todo}]This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. \end{DoxyRefDesc}
+\index{Triangulation\+System@{Triangulation\+System}!pre\+\_\+refinement\+\_\+domain@{pre\+\_\+refinement\+\_\+domain}}
+\index{pre\+\_\+refinement\+\_\+domain@{pre\+\_\+refinement\+\_\+domain}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{pre\+\_\+refinement\+\_\+domain()}{pre_refinement_domain()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ virtual void {\bf Triangulation\+System}$<$ spacedim $>$\+::pre\+\_\+refinement\+\_\+domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}\hypertarget{class_triangulation_system_ae1862e6da3157dc8d539fdc0439e9f48}{}\label{class_triangulation_system_ae1862e6da3157dc8d539fdc0439e9f48}
+This function takes care that the interface cells are appropriately marked for refinement/coarsening if the domain mesh is going to be refined. The underlying mechanism is that the method is attached to the domain triangulation during construction of the \hyperlink{class_triangulation_system}{Triangulation\+System}; and it will always be called immediately before the domain mesh is actually refined (i.\+e., after all refinement flags of the domain mesh have been checked for consistency and mesh smoothing has been performed).
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000010}{Todo}]This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. \end{DoxyRefDesc}
+\index{Triangulation\+System@{Triangulation\+System}!push\+\_\+tria\+\_\+listeners\+\_\+to\+\_\+end@{push\+\_\+tria\+\_\+listeners\+\_\+to\+\_\+end}}
+\index{push\+\_\+tria\+\_\+listeners\+\_\+to\+\_\+end@{push\+\_\+tria\+\_\+listeners\+\_\+to\+\_\+end}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{push\+\_\+tria\+\_\+listeners\+\_\+to\+\_\+end()}{push_tria_listeners_to_end()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Triangulation\+System}$<$ spacedim $>$\+::push\+\_\+tria\+\_\+listeners\+\_\+to\+\_\+end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_triangulation_system_aca3dc94f1006a603f56ac12c730ae242}{}\label{class_triangulation_system_aca3dc94f1006a603f56ac12c730ae242}
+This function disconnects all listeners in \hyperlink{class_triangulation_system_a713f97bee5570de1f5571d86a41e83f6}{Triangulation\+System\+::tria\+\_\+listeners} and reconnects them. This provides a mechanism to make sure that the functions related to \hyperlink{class_triangulation_system_a713f97bee5570de1f5571d86a41e83f6}{Triangulation\+System\+::tria\+\_\+listeners} are called as the very last step. This function is for internal use by \hyperlink{class_assembly_helper}{Assembly\+Helper}. \index{Triangulation\+System@{Triangulation\+System}!refine\+\_\+global@{refine\+\_\+global}}
+\index{refine\+\_\+global@{refine\+\_\+global}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{refine\+\_\+global(const unsigned int times=1)}{refine_global(const unsigned int times=1)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Triangulation\+System}$<$ spacedim $>$\+::refine\+\_\+global (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{times = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_triangulation_system_a8aa29c77fd798ddd8a5e20806ea21558}{}\label{class_triangulation_system_a8aa29c77fd798ddd8a5e20806ea21558}
+Function for global mesh refinement. This method does nothing but calling the deal.\+II function \hyperlink{class_triangulation_system_a8aa29c77fd798ddd8a5e20806ea21558}{refine\+\_\+global()} on the domain mesh, which will in turn trigger refinement of the interface by \hyperlink{class_triangulation_system_ae1862e6da3157dc8d539fdc0439e9f48}{Triangulation\+System\+::pre\+\_\+refinement\+\_\+domain()} and \hyperlink{class_triangulation_system_a8435489384095f687363d200ccfce628}{Triangulation\+System\+::post\+\_\+refinement\+\_\+domain()}. \index{Triangulation\+System@{Triangulation\+System}!set\+\_\+interface\+\_\+manifold@{set\+\_\+interface\+\_\+manifold}}
+\index{set\+\_\+interface\+\_\+manifold@{set\+\_\+interface\+\_\+manifold}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{set\+\_\+interface\+\_\+manifold(const types\+::manifold\+\_\+id manifold\+\_\+id, const Manifold$<$ spacedim-\/1, spacedim $>$ \&manifold)}{set_interface_manifold(const types::manifold_id manifold_id, const Manifold< spacedim-1, spacedim > &manifold)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Triangulation\+System}$<$ spacedim $>$\+::set\+\_\+interface\+\_\+manifold (
+\begin{DoxyParamCaption}
+\item[{const {\bf types\+::manifold\+\_\+id}}]{manifold\+\_\+id, }
+\item[{const {\bf Manifold}$<$ spacedim-\/1, spacedim $>$ \&}]{manifold}
+\end{DoxyParamCaption}
+)}\hypertarget{class_triangulation_system_a54803f193d6f237b2039ba6f5bca09b9}{}\label{class_triangulation_system_a54803f193d6f237b2039ba6f5bca09b9}
+Attach a manifold to the interface (note that the {\bf types\+::manifold\+\_\+id}s of interface cells will generally be taken from the {\bf types\+::manifold\+\_\+id} of the coarse mesh domain cell faces underlying the interface cells on the minus side of the interface). By attaching appropriate manifolds to the interface, it can be ensured that the refinement of the interface triangulation stays geometrically consistent with the refinement of the underlying domain cells. To achieve the latter, the codim 1 equivalents of the manifolds used by the domain triangulation must be added with the same {\bf types\+::manifold\+\_\+id}s.
+
+This method is necessary because there is currently no way to directly obtain the codim 1 equivalent from a manifold used on the domain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em manifold\+\_\+id} & The {\bf types\+::manifold\+\_\+id} with which {\ttfamily manifold} will be associated\\
+\hline
+\mbox{\tt in}  & {\em manifold} & Reference to the codim 1 manifold to be used \\
+\hline
+\end{DoxyParams}
+\index{Triangulation\+System@{Triangulation\+System}!set\+\_\+interface\+\_\+manifolds@{set\+\_\+interface\+\_\+manifolds}}
+\index{set\+\_\+interface\+\_\+manifolds@{set\+\_\+interface\+\_\+manifolds}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{set\+\_\+interface\+\_\+manifolds(const std\+::map$<$ types\+::manifold\+\_\+id, std\+::reference\+\_\+wrapper$<$ const Manifold$<$ spacedim-\/1, spacedim $>$$>$$>$ manifolds)}{set_interface_manifolds(const std::map< types::manifold_id, std::reference_wrapper< const Manifold< spacedim-1, spacedim >>> manifolds)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Triangulation\+System}$<$ spacedim $>$\+::set\+\_\+interface\+\_\+manifolds (
+\begin{DoxyParamCaption}
+\item[{const std\+::map$<$ {\bf types\+::manifold\+\_\+id}, std\+::reference\+\_\+wrapper$<$ const {\bf Manifold}$<$ spacedim-\/1, spacedim $>$$>$$>$}]{manifolds}
+\end{DoxyParamCaption}
+)}\hypertarget{class_triangulation_system_afb5564d01d3914b15b552f95648d231b}{}\label{class_triangulation_system_afb5564d01d3914b15b552f95648d231b}
+Function to add several manifolds to the interface triangulation at once. This function mainly exists for compatibility with a premature version of the library. Essentially, \hyperlink{class_triangulation_system_a54803f193d6f237b2039ba6f5bca09b9}{Triangulation\+System\+::set\+\_\+interface\+\_\+manifold()} is called repeatedly for all elements of the input vector {\ttfamily manifolds}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em manifolds} & A map between {\bf types\+::manifold\+\_\+id}s and corresponding manifold objects \\
+\hline
+\end{DoxyParams}
+\index{Triangulation\+System@{Triangulation\+System}!write\+\_\+triangulations\+\_\+vtk@{write\+\_\+triangulations\+\_\+vtk}}
+\index{write\+\_\+triangulations\+\_\+vtk@{write\+\_\+triangulations\+\_\+vtk}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{write\+\_\+triangulations\+\_\+vtk(const std\+::string file\+\_\+name\+\_\+domain, const std\+::string file\+\_\+name\+\_\+interface) const }{write_triangulations_vtk(const std::string file_name_domain, const std::string file_name_interface) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Triangulation\+System}$<$ spacedim $>$\+::write\+\_\+triangulations\+\_\+vtk (
+\begin{DoxyParamCaption}
+\item[{const std\+::string}]{file\+\_\+name\+\_\+domain, }
+\item[{const std\+::string}]{file\+\_\+name\+\_\+interface}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_triangulation_system_a2b90f1509c910930c1404548fa860d8c}{}\label{class_triangulation_system_a2b90f1509c910930c1404548fa860d8c}
+A convenience method writing the domain and interface triangulations to vtk files. Note that the extension .vtk will not be added automatically. So, it has to be included in the file names.
+
+If a file name is left empty, the corresponding mesh will not be written.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em file\+\_\+name\+\_\+domain} & file name for the domain triangulation\\
+\hline
+\mbox{\tt in}  & {\em file\+\_\+name\+\_\+interface} & file name for the interface triangulation \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Triangulation\+System@{Triangulation\+System}!Assembly\+Helper@{Assembly\+Helper}}
+\index{Assembly\+Helper@{Assembly\+Helper}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{Assembly\+Helper}{AssemblyHelper}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ template$<$unsigned int$>$ friend class {\bf Assembly\+Helper}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{class_triangulation_system_af4019c2e39cc934d646aaa35c3c52773}{}\label{class_triangulation_system_af4019c2e39cc934d646aaa35c3c52773}
+Make \hyperlink{class_assembly_helper}{Assembly\+Helper} a friend to simplify some procedures 
+
+\subsection{Member Data Documentation}
+\index{Triangulation\+System@{Triangulation\+System}!active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells@{active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}}
+\index{active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells@{active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}{active_interface_cell_domain_cells}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::vector$<${\bf Interface\+Cell\+Domain\+Cells}$<$spacedim$>$ $>$ {\bf Triangulation\+System}$<$ spacedim $>$\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_triangulation_system_a516c7a253cefbc5e208714538b21424d}{}\label{class_triangulation_system_a516c7a253cefbc5e208714538b21424d}
+This vector contains the interface cells and corresponding domain cells of the active mesh. \index{Triangulation\+System@{Triangulation\+System}!closed@{closed}}
+\index{closed@{closed}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{closed}{closed}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ bool {\bf Triangulation\+System}$<$ spacedim $>$\+::closed = false\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_triangulation_system_aef5ae937cc00b7954357bb8ae88b1f73}{}\label{class_triangulation_system_aef5ae937cc00b7954357bb8ae88b1f73}
+This boolean indicates whether the definition of the interface mesh has been finished already. As soon as all interface cells are defined, the method \hyperlink{class_triangulation_system_ad3605f3f59fbd55942288026107c4e6d}{Triangulation\+System\+::close()} must be called by the user, which will set \hyperlink{class_triangulation_system_aef5ae937cc00b7954357bb8ae88b1f73}{Triangulation\+System\+::closed} to {\ttfamily true}. Afterwards, no further interface cells can be added. Vice versa, \hyperlink{class_triangulation_system}{Triangulation\+System} objects are not associated with an actual triangulation for the interface before \hyperlink{class_triangulation_system_ad3605f3f59fbd55942288026107c4e6d}{Triangulation\+System\+::close()} is called, and are, therefore, of little use. \index{Triangulation\+System@{Triangulation\+System}!coarse\+\_\+domain\+\_\+faces\+\_\+material\+\_\+ids@{coarse\+\_\+domain\+\_\+faces\+\_\+material\+\_\+ids}}
+\index{coarse\+\_\+domain\+\_\+faces\+\_\+material\+\_\+ids@{coarse\+\_\+domain\+\_\+faces\+\_\+material\+\_\+ids}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{coarse\+\_\+domain\+\_\+faces\+\_\+material\+\_\+ids}{coarse_domain_faces_material_ids}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::map$<$ std\+::pair$<$const {\bf Domain\+Cell}, const unsigned int$>$, {\bf types\+::material\+\_\+id} $>$ {\bf Triangulation\+System}$<$ spacedim $>$\+::coarse\+\_\+domain\+\_\+faces\+\_\+material\+\_\+ids\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_triangulation_system_a9a14a8a68bda679330a169413f0e2dfb}{}\label{class_triangulation_system_a9a14a8a68bda679330a169413f0e2dfb}
+Mapping between pairs of (coarse domain cell, coarse domain cell face) defining interface cells and corresponding {\bf types\+::material\+\_\+id}s. This data structures determines which interface cells are associated with the same interface portion; and it is used only before \hyperlink{class_triangulation_system_ad3605f3f59fbd55942288026107c4e6d}{Triangulation\+System\+::close()} is called. \index{Triangulation\+System@{Triangulation\+System}!coarse\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells@{coarse\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}}
+\index{coarse\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells@{coarse\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{coarse\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}{coarse_interface_cell_domain_cells}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::vector$<${\bf Interface\+Cell\+Domain\+Cells}$<$spacedim$>$ $>$ {\bf Triangulation\+System}$<$ spacedim $>$\+::coarse\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_triangulation_system_a5b909c472fe2508da44e89b017aa146c}{}\label{class_triangulation_system_a5b909c472fe2508da44e89b017aa146c}
+This vector contains the interface cells and corresponding domain cells on the coarse mesh level. A peculiarity of the \hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells} contained in the vector is that the domain cell faces on both sides of an interface cell are always refined to the same level. I.\+e., the \hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells} are always related with either \hyperlink{class_interface_cell_domain_cells_ab1b5469ca5c40256942ea179abbba92c}{Interface\+Cell\+Domain\+Cells\+::refinement\+\_\+case} == {\ttfamily equally\+\_\+fine} or \hyperlink{class_interface_cell_domain_cells_ab1b5469ca5c40256942ea179abbba92c}{Interface\+Cell\+Domain\+Cells\+::refinement\+\_\+case} == {\ttfamily at\+\_\+boundary}. \index{Triangulation\+System@{Triangulation\+System}!interface\+\_\+manifolds@{interface\+\_\+manifolds}}
+\index{interface\+\_\+manifolds@{interface\+\_\+manifolds}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{interface\+\_\+manifolds}{interface_manifolds}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::map$<${\bf dealii\+::types\+::manifold\+\_\+id}, const dealii\+::\+Manifold$<$spacedim-\/1, spacedim$>$$\ast$$>$ {\bf Triangulation\+System}$<$ spacedim $>$\+::interface\+\_\+manifolds\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_triangulation_system_a130322b74b66f27d8611ce92ad241c6d}{}\label{class_triangulation_system_a130322b74b66f27d8611ce92ad241c6d}
+This stores the manifolds used for the interfae triangulation \index{Triangulation\+System@{Triangulation\+System}!post\+\_\+refinement@{post\+\_\+refinement}}
+\index{post\+\_\+refinement@{post\+\_\+refinement}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{post\+\_\+refinement}{post_refinement}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ boost\+::signals2\+::signal$<$void ()$>$ {\bf Triangulation\+System}$<$ spacedim $>$\+::post\+\_\+refinement\hspace{0.3cm}{\ttfamily [mutable]}}\hypertarget{class_triangulation_system_a8813b73cab76c8b77c47c00c39233f76}{}\label{class_triangulation_system_a8813b73cab76c8b77c47c00c39233f76}
+All functions attached to this signal will be called after the \hyperlink{class_triangulation_system}{Triangulation\+System} has been refined. \index{Triangulation\+System@{Triangulation\+System}!pre\+\_\+refinement@{pre\+\_\+refinement}}
+\index{pre\+\_\+refinement@{pre\+\_\+refinement}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{pre\+\_\+refinement}{pre_refinement}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ boost\+::signals2\+::signal$<$void ()$>$ {\bf Triangulation\+System}$<$ spacedim $>$\+::pre\+\_\+refinement\hspace{0.3cm}{\ttfamily [mutable]}}\hypertarget{class_triangulation_system_ad3b16b86e7cbe4800fb5a40114cbc5fb}{}\label{class_triangulation_system_ad3b16b86e7cbe4800fb5a40114cbc5fb}
+All functions attached to this signal will be called before the \hyperlink{class_triangulation_system}{Triangulation\+System} is going to be refined (but after all domain and interface cells are marked for refinement and coarsening). \index{Triangulation\+System@{Triangulation\+System}!tria\+\_\+domain@{tria\+\_\+domain}}
+\index{tria\+\_\+domain@{tria\+\_\+domain}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{tria\+\_\+domain}{tria_domain}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const {\bf Smart\+Pointer}$<${\bf Triangulation}$<$spacedim, spacedim$>$ $>$ {\bf Triangulation\+System}$<$ spacedim $>$\+::tria\+\_\+domain\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_triangulation_system_a68bafddc70652cb7c64701c74e86279f}{}\label{class_triangulation_system_a68bafddc70652cb7c64701c74e86279f}
+This is the triangulation of the domain. For further information of the underlying assumptions, see the general documentation of this class. \index{Triangulation\+System@{Triangulation\+System}!tria\+\_\+interface@{tria\+\_\+interface}}
+\index{tria\+\_\+interface@{tria\+\_\+interface}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{tria\+\_\+interface}{tria_interface}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::unique\+\_\+ptr$<${\bf Triangulation}$<$spacedim-\/1, spacedim$>$ $>$ {\bf Triangulation\+System}$<$ spacedim $>$\+::tria\+\_\+interface\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_triangulation_system_af145fb3f6a3b3ef9ed92111f9fca5b7d}{}\label{class_triangulation_system_af145fb3f6a3b3ef9ed92111f9fca5b7d}
+This is the triangulation of the interfaces. For further information of the underlying assumptions, see the general documentation of this class. \index{Triangulation\+System@{Triangulation\+System}!tria\+\_\+listeners@{tria\+\_\+listeners}}
+\index{tria\+\_\+listeners@{tria\+\_\+listeners}!Triangulation\+System@{Triangulation\+System}}
+\subsubsection[{\texorpdfstring{tria\+\_\+listeners}{tria_listeners}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::vector$<$boost\+::signals2\+::connection$>$ {\bf Triangulation\+System}$<$ spacedim $>$\+::tria\+\_\+listeners\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_triangulation_system_a713f97bee5570de1f5571d86a41e83f6}{}\label{class_triangulation_system_a713f97bee5570de1f5571d86a41e83f6}
+A list of connections with which this object connects to the triangulations to get information about when the triangulations change. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/\hyperlink{triangulation__system_8h}{triangulation\+\_\+system.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,246 @@
+\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4}{}\section{Dependent\+Field$<$ spacedim, spacedim $>$ Class Template Reference}
+\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4}\index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+
+
+{\ttfamily \#include $<$dependent\+\_\+field.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a3b2090f3b7c66d84dbb41ec5e677ecfe}{Dependent\+Field} (const std\+::string \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a99a47f4c10f0e472dbdc2b0945712e23}{name})
+\item 
+void \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a9e0b93f36ef8bc10ee9028576db57390}{add\+\_\+term} (double coefficient, const \hyperlink{class_independent_field}{Independent\+Field}$<$ spacedim, spacedim $>$ \&independent\+\_\+field, const unsigned int component=0, const std\+::vector$<$ unsigned int $>$ derivatives=std\+::vector$<$ unsigned int $>$())
+\item 
+void \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a79f3b134f21759492662b2f7173fff8e}{add\+\_\+term} (double coefficient, const \hyperlink{class_independent_field}{Independent\+Field}$<$ spacedim, spacedim $>$ \&independent\+\_\+field, const unsigned int component, const unsigned int derivative)
+\item 
+void \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a25b4485644ccc8e2aeafddceadb33950}{add\+\_\+term} (double coefficient, const \hyperlink{class_independent_field}{Independent\+Field}$<$ 0, spacedim $>$ \&independent\+\_\+field)
+\item 
+void \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a24fe77c93937f9563b3dac9e4520fd9b}{add\+\_\+term} (double \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a24efc9c0928896be871908f050c406fc}{constant})
+\item 
+const std\+::set$<$ \hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}$<$ spacedim, spacedim $>$ $>$ \& \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_abe2d6beee95fae305add085afa7b6119}{get\+\_\+terms\+\_\+domain} () const 
+\item 
+const std\+::set$<$ \hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}$<$ 0, spacedim $>$ $>$ \& \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a24de9a650280f55800c5b22a1017f60d}{get\+\_\+terms\+\_\+independent\+\_\+scalars} () const 
+\item 
+double \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_acede82b94119d1a86f08030dbded477e}{get\+\_\+constant} () const 
+\item 
+std\+::set$<$ const \hyperlink{class_independent_field}{Independent\+Field}$<$ spacedim, spacedim $>$ $\ast$ $>$ \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_ac5527c93285b39f3adc70709243448f0}{get\+\_\+independent\+\_\+fields\+\_\+domain} () const 
+\item 
+std\+::set$<$ const \hyperlink{class_independent_field}{Independent\+Field}$<$ 0, spacedim $>$ $\ast$ $>$ \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a793e428507763e02a79fb4c6773ada7b}{get\+\_\+independent\+\_\+scalars} () const 
+\item 
+void \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_afa7738e59a3352eb4242d6b31fe3ff5f}{print} () const 
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::string \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a99a47f4c10f0e472dbdc2b0945712e23}{name}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::set$<$ \hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}$<$ spacedim, spacedim $>$ $>$ \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_ace23fb05e85b4c967793e8ffce58f332}{terms\+\_\+domain}
+\item 
+std\+::set$<$ \hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}$<$ 0, spacedim $>$ $>$ \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a54061701af0eea90b02e56612f1491cc}{terms\+\_\+independent\+\_\+scalars}
+\item 
+double \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a24efc9c0928896be871908f050c406fc}{constant} = 0.\+0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$unsigned int spacedim$>$\\*
+class Dependent\+Field$<$ spacedim, spacedim $>$}
+
+This class is used to define a domain related dependent field $e^\Omega_\lambda$ ( $\lambda \in \Lambda=\left\{1 \hdots N^{\mathrm{e},\Omega}\right\}$) according to \begin{equation*} e^\Omega_\lambda = \sum_{\epsilon \in E} \left[ a^\Omega_{\lambda\epsilon} u^\Omega_\epsilon + b^\Omega_{\lambda \epsilon i} \dfrac{\partial u^\Omega_\epsilon}{\partial x_i} \right] + \sum_{\iota \in I}c^\Omega_{\lambda\iota} C_\iota + d^\Omega_\lambda\, \end{equation*} where $a^\Omega_{\lambda\epsilon}$, $b^\Omega_{\lambda \epsilon i}$, $c^\Omega_{\lambda\iota}$, and $d^\Omega_\lambda$ are constants and summation is implied over $i$ (the remaining notation is introduced in \hyperlink{class_independent_field}{Independent\+Field} and \hyperlink{class_independent_field_3_010_00_01spacedim_01_4}{Independent\+Field$<$0, spacedim$>$}). Although the class in principle also allows for higher spatial derivatives in the definition of $e^\Omega_\lambda$, the documentation is restricted to first derivatives because most other parts of the Galerkin\+Tools library make this restriction.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em spacedim} & The spatial dimension of the problem \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}!Dependent\+Field@{Dependent\+Field}}
+\index{Dependent\+Field@{Dependent\+Field}!Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+\subsubsection[{\texorpdfstring{Dependent\+Field(const std\+::string name)}{DependentField(const std::string name)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ {\bf Dependent\+Field}$<$ spacedim, spacedim $>$\+::{\bf Dependent\+Field} (
+\begin{DoxyParamCaption}
+\item[{const std\+::string}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a3b2090f3b7c66d84dbb41ec5e677ecfe}{}\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a3b2090f3b7c66d84dbb41ec5e677ecfe}
+Constructor for a \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4}{Dependent\+Field$<$spacedim, spacedim$>$}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em name} & \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a99a47f4c10f0e472dbdc2b0945712e23}{Dependent\+Field$<$spacedim, spacedim$>$\+::name} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}!add\+\_\+term@{add\+\_\+term}}
+\index{add\+\_\+term@{add\+\_\+term}!Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+\subsubsection[{\texorpdfstring{add\+\_\+term(double coefficient, const Independent\+Field$<$ spacedim, spacedim $>$ \&independent\+\_\+field, const unsigned int component=0, const std\+::vector$<$ unsigned int $>$ derivatives=std\+::vector$<$ unsigned int $>$())}{add_term(double coefficient, const IndependentField< spacedim, spacedim > &independent_field, const unsigned int component=0, const std::vector< unsigned int > derivatives=std::vector< unsigned int >())}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Dependent\+Field}$<$ spacedim, spacedim $>$\+::add\+\_\+term (
+\begin{DoxyParamCaption}
+\item[{double}]{coefficient, }
+\item[{const {\bf Independent\+Field}$<$ spacedim, spacedim $>$ \&}]{independent\+\_\+field, }
+\item[{const unsigned int}]{component = {\ttfamily 0}, }
+\item[{const std\+::vector$<$ unsigned int $>$}]{derivatives = {\ttfamily std\+:\+:vector$<$~unsigned~int~$>$()}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a9e0b93f36ef8bc10ee9028576db57390}{}\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a9e0b93f36ef8bc10ee9028576db57390}
+Add a term to \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_ace23fb05e85b4c967793e8ffce58f332}{Dependent\+Field$<$spacedim, spacedim$>$\+::terms\+\_\+domain}.
+
+Although this method allows to add terms involving spatial derivatives of arbitrary order, its main purpose in the Galerkin\+Tools library are the following two cases\+:
+
+(1) Add a term $a^\Omega_{\lambda\epsilon} u^\Omega_\epsilon$ ({\ttfamily coefficient} is $a^\Omega_{\lambda\epsilon}$, {\ttfamily independent\+\_\+field} and {\ttfamily component} describe $u^\Omega_\epsilon$, {\ttfamily derivatives} is empty).
+
+(2) Add a term $b^\Omega_{\lambda \epsilon i} \dfrac{\partial u^\Omega_\epsilon}{\partial x_i}$ ({\ttfamily coefficient} is $b^\Omega_{\lambda \epsilon i}$, {\ttfamily independent\+\_\+field} and {\ttfamily component} describe $u^\Omega_\epsilon$, {\ttfamily derivatives} contains a single element with $i$).
+
+It is currently not allowed to add the same term (i.\+e. with the same {\ttfamily independent\+\_\+field}, {\ttfamily component}, {\ttfamily derivatives}) two times.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em coefficient} & \hyperlink{class_dependent_field_term_a59a9183a32ac55fb728f3797b68a9f8f}{Dependent\+Field\+Term\+::coefficient} of the term\\
+\hline
+\mbox{\tt in}  & {\em independent\+\_\+field} & \hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field} of the term\\
+\hline
+\mbox{\tt in}  & {\em component} & \hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{Dependent\+Field\+Term\+::component} of the term\\
+\hline
+\mbox{\tt in}  & {\em derivatives} & \hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{Dependent\+Field\+Term\+::derivatives} of the term \\
+\hline
+\end{DoxyParams}
+\index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}!add\+\_\+term@{add\+\_\+term}}
+\index{add\+\_\+term@{add\+\_\+term}!Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+\subsubsection[{\texorpdfstring{add\+\_\+term(double coefficient, const Independent\+Field$<$ spacedim, spacedim $>$ \&independent\+\_\+field, const unsigned int component, const unsigned int derivative)}{add_term(double coefficient, const IndependentField< spacedim, spacedim > &independent_field, const unsigned int component, const unsigned int derivative)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Dependent\+Field}$<$ spacedim, spacedim $>$\+::add\+\_\+term (
+\begin{DoxyParamCaption}
+\item[{double}]{coefficient, }
+\item[{const {\bf Independent\+Field}$<$ spacedim, spacedim $>$ \&}]{independent\+\_\+field, }
+\item[{const unsigned int}]{component, }
+\item[{const unsigned int}]{derivative}
+\end{DoxyParamCaption}
+)}\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a79f3b134f21759492662b2f7173fff8e}{}\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a79f3b134f21759492662b2f7173fff8e}
+Add a term $b^\Omega_{\lambda \epsilon i} \dfrac{\partial u^\Omega_\epsilon}{\partial x_i}$ to \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_ace23fb05e85b4c967793e8ffce58f332}{Dependent\+Field$<$spacedim, spacedim$>$\+::terms\+\_\+domain} ({\ttfamily coefficient} is $b^\Omega_{\lambda \epsilon i}$, {\ttfamily independent\+\_\+field} and {\ttfamily component} describe $u^\Omega_\epsilon$, {\ttfamily derivative} is $i$).
+
+It is currently not allowed to add the same term (i.\+e. with the same {\ttfamily independent\+\_\+field}, {\ttfamily component}, {\ttfamily derivative}) two times.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em coefficient} & \hyperlink{class_dependent_field_term_a59a9183a32ac55fb728f3797b68a9f8f}{Dependent\+Field\+Term\+::coefficient} of the term ( $b^\Omega_{\lambda \epsilon i}$)\\
+\hline
+\mbox{\tt in}  & {\em independent\+\_\+field} & \hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field} of the term (describes together with {\ttfamily component} $u^\Omega_\epsilon$)\\
+\hline
+\mbox{\tt in}  & {\em component} & \hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{Dependent\+Field\+Term\+::component} of the term (describes together with {\ttfamily independent\+\_\+field} $u^\Omega_\epsilon$)\\
+\hline
+\mbox{\tt in}  & {\em derivative} & The only element in \hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{Dependent\+Field\+Term\+::derivatives} of the term ( $i$) \\
+\hline
+\end{DoxyParams}
+\index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}!add\+\_\+term@{add\+\_\+term}}
+\index{add\+\_\+term@{add\+\_\+term}!Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+\subsubsection[{\texorpdfstring{add\+\_\+term(double coefficient, const Independent\+Field$<$ 0, spacedim $>$ \&independent\+\_\+field)}{add_term(double coefficient, const IndependentField< 0, spacedim > &independent_field)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Dependent\+Field}$<$ spacedim, spacedim $>$\+::add\+\_\+term (
+\begin{DoxyParamCaption}
+\item[{double}]{coefficient, }
+\item[{const {\bf Independent\+Field}$<$ 0, spacedim $>$ \&}]{independent\+\_\+field}
+\end{DoxyParamCaption}
+)}\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a25b4485644ccc8e2aeafddceadb33950}{}\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a25b4485644ccc8e2aeafddceadb33950}
+Add a term $c^\Omega_{\lambda\iota} C_\iota$ to \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a54061701af0eea90b02e56612f1491cc}{Dependent\+Field$<$spacedim, spacedim$>$\+::terms\+\_\+independent\+\_\+scalars} ({\ttfamily coefficient} is $c^\Omega_{\lambda\iota}$, {\ttfamily independent\+\_\+field} is $C_\iota$).
+
+It is currently not allowed to add the same term (i.\+e. with the same {\ttfamily independent\+\_\+field}) two times.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em coefficient} & \hyperlink{class_dependent_field_term_a59a9183a32ac55fb728f3797b68a9f8f}{Dependent\+Field\+Term\+::coefficient} of the term ( $c^\Omega_{\lambda\iota}$)\\
+\hline
+\mbox{\tt in}  & {\em independent\+\_\+field} & \hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field} of the term ( $C_\iota$) \\
+\hline
+\end{DoxyParams}
+\index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}!add\+\_\+term@{add\+\_\+term}}
+\index{add\+\_\+term@{add\+\_\+term}!Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+\subsubsection[{\texorpdfstring{add\+\_\+term(double constant)}{add_term(double constant)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Dependent\+Field}$<$ spacedim, spacedim $>$\+::add\+\_\+term (
+\begin{DoxyParamCaption}
+\item[{double}]{constant}
+\end{DoxyParamCaption}
+)}\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a24fe77c93937f9563b3dac9e4520fd9b}{}\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a24fe77c93937f9563b3dac9e4520fd9b}
+Set the constant \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a24efc9c0928896be871908f050c406fc}{Dependent\+Field$<$spacedim, spacedim$>$\+::constant} (which corresponds to $d^\Omega_\lambda$)
+
+It is currently not allowed to call this method again if \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a24efc9c0928896be871908f050c406fc}{Dependent\+Field$<$spacedim, spacedim$>$\+::constant} is already set to a non-\/zero value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em constant} & \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a24efc9c0928896be871908f050c406fc}{Dependent\+Field$<$spacedim, spacedim$>$\+::constant} ( $d^\Omega_\lambda$) \\
+\hline
+\end{DoxyParams}
+\index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}!get\+\_\+constant@{get\+\_\+constant}}
+\index{get\+\_\+constant@{get\+\_\+constant}!Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+\subsubsection[{\texorpdfstring{get\+\_\+constant() const }{get_constant() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ double {\bf Dependent\+Field}$<$ spacedim, spacedim $>$\+::get\+\_\+constant (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4_acede82b94119d1a86f08030dbded477e}{}\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4_acede82b94119d1a86f08030dbded477e}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a24efc9c0928896be871908f050c406fc}{Dependent\+Field$<$spacedim, spacedim$>$\+::constant} ( $d^\Omega_\lambda$) 
+\end{DoxyReturn}
+\index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}!get\+\_\+independent\+\_\+fields\+\_\+domain@{get\+\_\+independent\+\_\+fields\+\_\+domain}}
+\index{get\+\_\+independent\+\_\+fields\+\_\+domain@{get\+\_\+independent\+\_\+fields\+\_\+domain}!Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+\subsubsection[{\texorpdfstring{get\+\_\+independent\+\_\+fields\+\_\+domain() const }{get_independent_fields_domain() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::set$<$const {\bf Independent\+Field}$<$spacedim, spacedim$>$$\ast$$>$ {\bf Dependent\+Field}$<$ spacedim, spacedim $>$\+::get\+\_\+independent\+\_\+fields\+\_\+domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4_ac5527c93285b39f3adc70709243448f0}{}\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4_ac5527c93285b39f3adc70709243448f0}
+\begin{DoxyReturn}{Returns}
+A set containing all \hyperlink{class_independent_field}{Independent\+Field} objects currently involved in the definition of the \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4}{Dependent\+Field$<$spacedim, spacedim$>$} 
+\end{DoxyReturn}
+\index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}!get\+\_\+independent\+\_\+scalars@{get\+\_\+independent\+\_\+scalars}}
+\index{get\+\_\+independent\+\_\+scalars@{get\+\_\+independent\+\_\+scalars}!Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+\subsubsection[{\texorpdfstring{get\+\_\+independent\+\_\+scalars() const }{get_independent_scalars() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::set$<$const {\bf Independent\+Field}$<$0, spacedim$>$$\ast$$>$ {\bf Dependent\+Field}$<$ spacedim, spacedim $>$\+::get\+\_\+independent\+\_\+scalars (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a793e428507763e02a79fb4c6773ada7b}{}\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a793e428507763e02a79fb4c6773ada7b}
+\begin{DoxyReturn}{Returns}
+A set containing all \hyperlink{class_independent_field_3_010_00_01spacedim_01_4}{Independent\+Field$<$0, spacedim$>$} objects currently involved in the definition of the \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4}{Dependent\+Field$<$spacedim, spacedim$>$} 
+\end{DoxyReturn}
+\index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}!get\+\_\+terms\+\_\+domain@{get\+\_\+terms\+\_\+domain}}
+\index{get\+\_\+terms\+\_\+domain@{get\+\_\+terms\+\_\+domain}!Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+\subsubsection[{\texorpdfstring{get\+\_\+terms\+\_\+domain() const }{get_terms_domain() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const std\+::set$<$ {\bf Dependent\+Field\+Term}$<$spacedim, spacedim$>$ $>$\& {\bf Dependent\+Field}$<$ spacedim, spacedim $>$\+::get\+\_\+terms\+\_\+domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4_abe2d6beee95fae305add085afa7b6119}{}\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4_abe2d6beee95fae305add085afa7b6119}
+\begin{DoxyReturn}{Returns}
+A const reference to \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_ace23fb05e85b4c967793e8ffce58f332}{Dependent\+Field$<$spacedim, spacedim$>$\+::terms\+\_\+domain} 
+\end{DoxyReturn}
+\index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}!get\+\_\+terms\+\_\+independent\+\_\+scalars@{get\+\_\+terms\+\_\+independent\+\_\+scalars}}
+\index{get\+\_\+terms\+\_\+independent\+\_\+scalars@{get\+\_\+terms\+\_\+independent\+\_\+scalars}!Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+\subsubsection[{\texorpdfstring{get\+\_\+terms\+\_\+independent\+\_\+scalars() const }{get_terms_independent_scalars() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const std\+::set$<$ {\bf Dependent\+Field\+Term}$<$0, spacedim$>$ $>$\& {\bf Dependent\+Field}$<$ spacedim, spacedim $>$\+::get\+\_\+terms\+\_\+independent\+\_\+scalars (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a24de9a650280f55800c5b22a1017f60d}{}\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a24de9a650280f55800c5b22a1017f60d}
+\begin{DoxyReturn}{Returns}
+A const reference to \hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a54061701af0eea90b02e56612f1491cc}{Dependent\+Field$<$spacedim, spacedim$>$\+::terms\+\_\+independent\+\_\+scalars} 
+\end{DoxyReturn}
+\index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}!print@{print}}
+\index{print@{print}!Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+\subsubsection[{\texorpdfstring{print() const }{print() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Dependent\+Field}$<$ spacedim, spacedim $>$\+::print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4_afa7738e59a3352eb4242d6b31fe3ff5f}{}\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4_afa7738e59a3352eb4242d6b31fe3ff5f}
+This methods prints the current definition of the \hyperlink{class_dependent_field}{Dependent\+Field} to {\ttfamily stdout}. 
+
+\subsection{Member Data Documentation}
+\index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}!constant@{constant}}
+\index{constant@{constant}!Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+\subsubsection[{\texorpdfstring{constant}{constant}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ double {\bf Dependent\+Field}$<$ spacedim, spacedim $>$\+::constant = 0.\+0\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a24efc9c0928896be871908f050c406fc}{}\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a24efc9c0928896be871908f050c406fc}
+This is the constant $d^\Omega_\lambda$ of the dependent field. \index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}!name@{name}}
+\index{name@{name}!Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+\subsubsection[{\texorpdfstring{name}{name}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const std\+::string {\bf Dependent\+Field}$<$ spacedim, spacedim $>$\+::name}\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a99a47f4c10f0e472dbdc2b0945712e23}{}\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a99a47f4c10f0e472dbdc2b0945712e23}
+The name of the dependent field, which is used to identify it in output, etc. \index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}!terms\+\_\+domain@{terms\+\_\+domain}}
+\index{terms\+\_\+domain@{terms\+\_\+domain}!Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+\subsubsection[{\texorpdfstring{terms\+\_\+domain}{terms_domain}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::set$<${\bf Dependent\+Field\+Term}$<$spacedim, spacedim$>$ $>$ {\bf Dependent\+Field}$<$ spacedim, spacedim $>$\+::terms\+\_\+domain\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4_ace23fb05e85b4c967793e8ffce58f332}{}\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4_ace23fb05e85b4c967793e8ffce58f332}
+This set contains all summands making up the term $\sum_{\epsilon \in E} \left[ a^\Omega_{\lambda\epsilon} u^\Omega_\epsilon + b^\Omega_{\lambda \epsilon i} \dfrac{\partial u^\Omega_\epsilon}{\partial x_i} \right]$ of the dependent field. \index{Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}!terms\+\_\+independent\+\_\+scalars@{terms\+\_\+independent\+\_\+scalars}}
+\index{terms\+\_\+independent\+\_\+scalars@{terms\+\_\+independent\+\_\+scalars}!Dependent\+Field$<$ spacedim, spacedim $>$@{Dependent\+Field$<$ spacedim, spacedim $>$}}
+\subsubsection[{\texorpdfstring{terms\+\_\+independent\+\_\+scalars}{terms_independent_scalars}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::set$<${\bf Dependent\+Field\+Term}$<$0, spacedim$>$ $>$ {\bf Dependent\+Field}$<$ spacedim, spacedim $>$\+::terms\+\_\+independent\+\_\+scalars\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a54061701af0eea90b02e56612f1491cc}{}\label{class_dependent_field_3_01spacedim_00_01spacedim_01_4_a54061701af0eea90b02e56612f1491cc}
+This set contains all summands making up the term $\sum_{\iota \in I}c^\Omega_{\lambda\iota} C_\iota$ of the dependent field. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/\hyperlink{dependent__field_8h}{dependent\+\_\+field.\+h}\end{DoxyCompactItemize}
