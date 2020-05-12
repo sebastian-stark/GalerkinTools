@@ -461,9 +461,12 @@ DoFHandlerSystem<spacedim>::split_vector(	const VectorType&	in_vect,
 											VectorType&			out_vect_C)
 const
 {
-	split_vector_implementation(in_vect, out_vect_domain, 0, n_dofs_domain());
+	if(n_dofs_domain() > 0)
+		split_vector_implementation(in_vect, out_vect_domain, 0, n_dofs_domain());
+	if(n_dofs_interface() > 0)
 	split_vector_implementation(in_vect, out_vect_interface, n_dofs_domain(), n_dofs_domain() + n_dofs_interface());
-	split_vector_implementation(in_vect, out_vect_C, n_dofs_domain() + n_dofs_interface(), n_dofs_domain() + n_dofs_interface() + n_dofs_additional());
+	if(n_dofs_additional() > 0)
+		split_vector_implementation(in_vect, out_vect_C, n_dofs_domain() + n_dofs_interface(), n_dofs_domain() + n_dofs_interface() + n_dofs_additional());
 }
 
 template<unsigned int spacedim>

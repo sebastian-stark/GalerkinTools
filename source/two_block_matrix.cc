@@ -387,6 +387,7 @@ const
 #ifdef DEAL_II_WITH_PETSC
 #ifdef DEAL_II_WITH_MPI
 	template class dealii::GalerkinTools::parallel::TwoBlockMatrix<PETScWrappers::MPI::SparseMatrix>;
+	template class dealii::GalerkinTools::TwoBlockMatrix<PETScWrappers::MPI::SparseMatrix>;
 #endif // DEAL_II_WITH_MPI
 #endif // DEAL_II_WITH_P4EST
 
