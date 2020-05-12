@@ -24,4 +24,6 @@ be useful for the solution of many practical problems especially in the field of
 the library is on problems involving different domain portions (e.g. different materials) as well as on problems
 involving unknown fields living on interfaces or boundaries.
 
-todo: Installation instructions
+Minimum requirements: deal.II, lapacke, numdiff
+For direct sequential solver: deal.II configured with UMFPACK
+For distributed parallel computations: deal.II configured with MPI, PETSc, p4est

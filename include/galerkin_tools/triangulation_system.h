@@ -786,10 +786,10 @@ public:
 	const;
 };
 
+#ifdef DEAL_II_WITH_P4EST
+#ifdef DEAL_II_WITH_MPI
 namespace parallel
 {
-
-#ifdef DEAL_II_WITH_P4EST
 
 /**
  * This class derives from parallel::Triangulation and provides an interface triangulation appropriate for
@@ -965,9 +965,9 @@ public:
 
 };
 
-#endif // DEAL_II_WITH_P4EST
-
 }
+#endif // DEAL_II_WITH_MPI
+#endif // DEAL_II_WITH_P4EST
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE
 

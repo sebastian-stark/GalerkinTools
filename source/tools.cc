@@ -523,8 +523,6 @@ Auxiliary::split_matrix(const FullMatrix<double>&	in,
 }
 
 #ifdef DEAL_II_WITH_MPI
-
-
 bool
 Auxiliary::communicate_bool(const bool		local_bool,
 							const MPI_Comm& mpi_communicator)
@@ -552,12 +550,10 @@ Auxiliary::communicate_bool(const bool		local_bool,
 		return local_bool;
 
 }
-
 #endif // DEAL_II_WITH_MPI
 
 
 #ifdef DEAL_II_WITH_MPI
-
 template
 void
 Auxiliary::compute_dof_renumbering_contiguous<2>(	const DoFHandlerSystem<2>&,
@@ -567,7 +563,6 @@ template
 void
 Auxiliary::compute_dof_renumbering_contiguous<3>(	const DoFHandlerSystem<3>&,
 													DoFRenumberingOffset&);
-
 #endif // DEAL_II_WITH_MPI
 
 template

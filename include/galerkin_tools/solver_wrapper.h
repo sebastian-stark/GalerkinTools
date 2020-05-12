@@ -126,6 +126,7 @@ public:
 };
 
 #ifdef DEAL_II_WITH_PETSC
+#ifdef DEAL_II_WITH_MPI
 
 /**
  * A SolverWrapper for the PETSc MUMPS solver, which works for parallel computations.
@@ -147,6 +148,7 @@ public:
 };
 
 #endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_WITH_MPI
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE
 DEAL_II_NAMESPACE_CLOSE

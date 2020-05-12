@@ -218,17 +218,19 @@ DoFHandlerSystem<spacedim>::distribute_dofs(const hp::FECollection<spacedim, spa
 	n_dofs_per_processor.resize(this_proc_n_procs.second, 0);
 	n_dofs_per_processor[this_proc_n_procs.first] = locally_owned_dofs.n_elements();
 
-#ifdef DEAL_II_WITH_MPI
 	if(this_proc_n_procs.second > 1)
 	{
+#ifdef DEAL_II_WITH_MPI
 		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&(dof_handler_domain->get_triangulation()));
 		Assert(tria_domain_ptr != nullptr, ExcMessage("Internal error!"));
 
 		unsigned int send_value = n_dofs_per_processor[this_proc_n_procs.first];
 		int ierr =  MPI_Allgather(&send_value, 1, MPI_UNSIGNED, n_dofs_per_processor.data(), 1, MPI_UNSIGNED, tria_domain_ptr->get_communicator());
 		AssertThrowMPI(ierr);
-	}
+#else
+		Assert(this_proc_n_procs.second == 1, ExcMessage("Internal error: deal.II not configured with MPI, but computation run with more than one processor"));
 #endif //DEAL_II_WITH_MPI
+	}
 }
 
 template<unsigned int spacedim>
@@ -385,13 +387,13 @@ DoFHandlerSystem<spacedim>::attach_dof_renumbering(const DoFRenumbering& dof_ren
 {
 	this->dof_renumbering = &dof_renumbering;
 
-//#ifdef DEBUG
+#ifdef DEBUG
 	//check that the renumbering scheme does not change the numbering range of the C's
 	auto dof_indices_C_copy = dof_indices_C;
 	dof_renumbering.convert_dof_indices(dof_indices_C_copy);
 	sort(dof_indices_C_copy.begin(), dof_indices_C_copy.end());
 	Assert(dof_indices_C_copy == dof_indices_C, ExcMessage("The dof renumbering scheme must not renumber the C's!"));
-//#endif // DEBUG
+#endif // DEBUG
 
 	set_locally_owned_dofs();
 	set_locally_relevant_dofs();
@@ -609,6 +611,7 @@ DoFHandlerSystem<spacedim>::set_locally_relevant_dofs_standard_numbering()
 }
 
 
+#ifdef DEAL_II_WITH_MPI
 template<unsigned int spacedim>
 void
 DoFHandlerSystem<spacedim>::split_vector_implementation(const LinearAlgebra::distributed::Vector<double>&	in_vect,
@@ -617,8 +620,6 @@ DoFHandlerSystem<spacedim>::split_vector_implementation(const LinearAlgebra::dis
 														const unsigned int									window_end)
 const
 {
-
-#ifdef DEAL_II_WITH_P4EST
 
 	Assert( ( (int)window_end - (int)window_begin >= 0), ExcMessage("The slice must have positive size!") );
 	Assert( locally_owned_dofs.is_contiguous(), ExcMessage("The locally owned indices of the standard numbering must form a contiguous range for this function to work!") )
@@ -649,12 +650,8 @@ const
 
 	//communicate ghosts
 	out_vect.update_ghost_values();
-
-#else //DEAL_II_WITH_P4EST
-	Assert(false, ExcMessage("This function does not work if deal.II is not configured with MPI and p4est!"));
-#endif //DEAL_II_WITH_P4EST
-
 }
+#endif // DEAL_II_WITH_MPI
 
 
 template<unsigned int spacedim>
@@ -720,25 +717,25 @@ const;
 
 
 //if there's no p4est, this functionality doesn't make sense
-#ifdef DEAL_II_WITH_P4EST
+#ifdef DEAL_II_WITH_MPI
 
-	template
-	void
-	DoFHandlerSystem<2>::split_vector<LinearAlgebra::distributed::Vector<double>>(	const LinearAlgebra::distributed::Vector<double>&,
-																					LinearAlgebra::distributed::Vector<double>&,
-																					LinearAlgebra::distributed::Vector<double>&,
-																					LinearAlgebra::distributed::Vector<double>&)
-	const;
+template
+void
+DoFHandlerSystem<2>::split_vector<LinearAlgebra::distributed::Vector<double>>(	const LinearAlgebra::distributed::Vector<double>&,
+																				LinearAlgebra::distributed::Vector<double>&,
+																				LinearAlgebra::distributed::Vector<double>&,
+																				LinearAlgebra::distributed::Vector<double>&)
+const;
 
-	template
-	void
-	DoFHandlerSystem<3>::split_vector<LinearAlgebra::distributed::Vector<double>>(	const LinearAlgebra::distributed::Vector<double>&,
-																					LinearAlgebra::distributed::Vector<double>&,
-																					LinearAlgebra::distributed::Vector<double>&,
-																					LinearAlgebra::distributed::Vector<double>&)
-	const;
+template
+void
+DoFHandlerSystem<3>::split_vector<LinearAlgebra::distributed::Vector<double>>(	const LinearAlgebra::distributed::Vector<double>&,
+																				LinearAlgebra::distributed::Vector<double>&,
+																				LinearAlgebra::distributed::Vector<double>&,
+																				LinearAlgebra::distributed::Vector<double>&)
+const;
 
-#endif
+#endif // DEAL_II_WITH_MPI
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE
 DEAL_II_NAMESPACE_CLOSE

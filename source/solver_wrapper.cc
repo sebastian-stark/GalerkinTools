@@ -143,6 +143,7 @@ const
 }
 
 #ifdef DEAL_II_WITH_PETSC
+#ifdef DEAL_II_WITH_MPI
 
 void
 SolverWrapperPETSc::solve(	const parallel::TwoBlockMatrix<PETScWrappers::MPI::SparseMatrix>&	K_stretched,
@@ -271,13 +272,16 @@ const
 	solution.update_ghost_values();
 }
 
+#endif // DEAL_II_WITH_MPI
 #endif // DEAL_II_WITH_PETSC
 
 template class SolverWrapper<Vector<double>, Vector<double>, SparseMatrix<double>, SparsityPattern>;
 template class SolverWrapper<Vector<double>, BlockVector<double>, TwoBlockMatrix<SparseMatrix<double>>, TwoBlockSparsityPattern>;
 #ifdef DEAL_II_WITH_PETSC
+#ifdef DEAL_II_WITH_MPI
 	template class SolverWrapper<LinearAlgebra::distributed::Vector<double>, PETScWrappers::MPI::BlockVector, dealii::GalerkinTools::parallel::TwoBlockMatrix<PETScWrappers::MPI::SparseMatrix>, TwoBlockSparsityPattern>;
 #endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_WITH_MPI
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE
 DEAL_II_NAMESPACE_CLOSE

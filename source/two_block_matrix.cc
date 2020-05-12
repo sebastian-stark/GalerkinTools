@@ -320,10 +320,9 @@ const
 	return block_1_size;
 }
 
+#ifdef DEAL_II_WITH_MPI
 namespace parallel
 {
-
-#ifdef DEAL_II_WITH_MPI
 
 template<class MatrixType>
 TwoBlockMatrix<MatrixType>::TwoBlockMatrix(	const TwoBlockSparsityPattern&	dsp,
@@ -382,15 +381,14 @@ const
 	return this->A.get_mpi_communicator();
 }
 
+}
 #endif //DEAL_II_WITH_MPI
 
-}
-
-
 #ifdef DEAL_II_WITH_PETSC
-	template class dealii::GalerkinTools::TwoBlockMatrix<PETScWrappers::MPI::SparseMatrix>;
+#ifdef DEAL_II_WITH_MPI
 	template class dealii::GalerkinTools::parallel::TwoBlockMatrix<PETScWrappers::MPI::SparseMatrix>;
-#endif //DEAL_II_WITH_PETSC
+#endif // DEAL_II_WITH_MPI
+#endif // DEAL_II_WITH_P4EST
 
 template class TwoBlockMatrix<SparseMatrix<double>>;
 
@@ -418,6 +416,8 @@ AffineConstraints<double>::distribute_local_to_global<GalerkinTools::TwoBlockMat
 																																integral_constant<bool, false>)
 const;
 
+#ifdef DEAL_II_WITH_PETSC
+#ifdef DEAL_II_WITH_MPI
 template
 void
 AffineConstraints<double>::distribute_local_to_global<dealii::GalerkinTools::parallel::TwoBlockMatrix<PETScWrappers::MPI::SparseMatrix>>(	const FullMatrix<double>&,
@@ -436,5 +436,7 @@ AffineConstraints<double>::distribute_local_to_global<dealii::GalerkinTools::par
 																																													bool,
 																																													integral_constant<bool, false>)
 const;
+#endif // DEAL_II_WITH_MPI
+#endif // DEAL_II_WITH_P4EST
 
 DEAL_II_NAMESPACE_CLOSE

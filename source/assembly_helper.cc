@@ -1231,15 +1231,17 @@ const
 		constraints->distribute(initial_fields);
 	initial_fields.compress(VectorOperation::insert);
 
-#ifdef DEAL_II_WITH_MPI
 	//make sure that ghosts are imported here
 	if(n_procs > 1)
 	{
+#ifdef DEAL_II_WITH_MPI
 		const auto initial_fields_ptr = dynamic_cast<dealii::LinearAlgebra::distributed::Vector<double>*>(&initial_fields);
 		if(initial_fields_ptr != nullptr)
 			initial_fields_ptr->update_ghost_values();
-	}
+#else
+		Assert(n_procs == 1, ExcMessage("Internal error: deal.II not configured with MPI, but computation run with more than one processor"));
 #endif //DEAL_II_WITH_MPI
+	}
 }
 
 template<unsigned int spacedim>
@@ -2508,16 +2510,18 @@ const
 
 	if(compute_potential)
 	{
-#ifdef DEAL_II_WITH_MPI
 		//add up contributions of different processors of primitive_scalar_functionals_values
 		if(n_procs > 1)
 		{
+#ifdef DEAL_II_WITH_MPI
 			const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&(tria_system.get_triangulation_domain()));
 			Assert(tria_domain_ptr != nullptr, ExcMessage("Internal error!"));
 			int ierr = MPI_Allreduce(MPI_IN_PLACE, primitive_scalar_functionals_values.data(), primitive_scalar_functionals_values.size(), MPI_DOUBLE, MPI_SUM, tria_domain_ptr->get_communicator());
 			AssertThrowMPI(ierr);
-		}
+#else
+		Assert(n_procs == 1, ExcMessage("Internal error: deal.II not configured with MPI, but computation run with more than one processor"));
 #endif //DEAL_II_WITH_MPI
+		}
 
 		//loop over the total potential contributions
 		for(const auto total_potential_contribution : total_potential.total_potential_contributions)
@@ -2537,16 +2541,16 @@ const
 		}
 	}
 
-#ifdef DEAL_II_WITH_MPI
-
 	if(n_procs > 1)
 	{
+#ifdef DEAL_II_WITH_MPI
 		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&(tria_system.get_triangulation_domain()));
 		Assert(tria_domain_ptr != nullptr, ExcMessage("Internal error!"));
 		return Auxiliary::communicate_bool(error, tria_domain_ptr->get_communicator());
-	}
-
+#else
+		Assert(n_procs == 1, ExcMessage("Internal error: deal.II not configured with MPI, but computation run with more than one processor"));
 #endif //DEAL_II_WITH_MPI
+	}
 
 	return error;
 
@@ -3009,10 +3013,10 @@ const
 		}
 	}
 
-#ifdef DEAL_II_WITH_MPI
 	//exchange local step lengths
 	if(n_procs > 1)
 	{
+#ifdef DEAL_II_WITH_MPI
 		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&tria_system.get_triangulation_domain());
 		Assert(tria_domain_ptr != nullptr, ExcMessage("Internal error!"));
 
@@ -3024,9 +3028,11 @@ const
 		AssertThrowMPI(ierr);
 
 		max_step_global = *min_element(max_step_global_vect.begin(), max_step_global_vect.end());
-
-	}
+#else
+		Assert(n_procs == 1, ExcMessage("Internal error: deal.II not configured with MPI, but computation run with more than one processor"));
 #endif //DEAL_II_WITH_MPI
+		}
+
 
 	return max_step_global;
 
@@ -4926,18 +4932,20 @@ const
 		}
 	}
 
-#ifdef DEAL_II_WITH_MPI
 	//add up contributions of different processors
 	if(n_procs > 1)
 	{
+#ifdef DEAL_II_WITH_MPI
 		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&(tria_system.get_triangulation_domain()));
 		Assert(tria_domain_ptr != nullptr, ExcMessage("Internal error!"));
 		int ierr = MPI_Allreduce(MPI_IN_PLACE, nonprimitive_scalar_functional_values.data(), nonprimitive_scalar_functional_values.size(), MPI_DOUBLE, MPI_SUM, tria_domain_ptr->get_communicator());
 		AssertThrowMPI(ierr);
 
 		return Auxiliary::communicate_bool(error, tria_domain_ptr->get_communicator());
-	}
+#else
+		Assert(n_procs == 1, ExcMessage("Internal error: deal.II not configured with MPI, but computation run with more than one processor"));
 #endif //DEAL_II_WITH_MPI
+	}
 
 	return error;
 }
@@ -5001,8 +5009,7 @@ AssemblyHelper<3>::get_nonprimitive_scalar_functional_values<Vector<double>>(	co
 																				Vector<double>&)
 const;
 
-#ifdef DEAL_II_WITH_PETSC
-
+#ifdef DEAL_II_WITH_MPI
 template
 bool
 AssemblyHelper<2>::get_nonprimitive_scalar_functional_values<LinearAlgebra::distributed::Vector<double>>(	const LinearAlgebra::distributed::Vector<double>&,
@@ -5016,8 +5023,7 @@ AssemblyHelper<3>::get_nonprimitive_scalar_functional_values<LinearAlgebra::dist
 																											const vector<const LinearAlgebra::distributed::Vector<double>*>,
 																											Vector<double>&)
 const;
-
-#endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_WITH_MPI
 
 //public get_nonprimitive_scalar_functional_values
 template
@@ -5036,8 +5042,7 @@ AssemblyHelper<3>::get_nonprimitive_scalar_functional_values<Vector<double>>(	co
 																				map<const ScalarFunctional<2, 3>*, double>&)
 const;
 
-#ifdef DEAL_II_WITH_PETSC
-
+#ifdef DEAL_II_WITH_MPI
 template
 bool
 AssemblyHelper<2>::get_nonprimitive_scalar_functional_values<LinearAlgebra::distributed::Vector<double>>(	const LinearAlgebra::distributed::Vector<double>&,
@@ -5053,8 +5058,7 @@ AssemblyHelper<3>::get_nonprimitive_scalar_functional_values<LinearAlgebra::dist
 																											map<const ScalarFunctional<3, 3>*, double>&,
 																											map<const ScalarFunctional<2, 3>*, double>&)
 const;
-
-#endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_WITH_MPI
 
 //public get_maximum_step_length
 template
@@ -5071,8 +5075,7 @@ AssemblyHelper<3>::get_maximum_step_length<Vector<double>>(	const Vector<double>
 															const Vector<double>&)
 const;
 
-#ifdef DEAL_II_WITH_PETSC
-
+#ifdef DEAL_II_WITH_MPI
 template
 double
 AssemblyHelper<2>::get_maximum_step_length<LinearAlgebra::distributed::Vector<double>>(	const LinearAlgebra::distributed::Vector<double>&,
@@ -5086,8 +5089,7 @@ AssemblyHelper<3>::get_maximum_step_length<LinearAlgebra::distributed::Vector<do
 																						const vector<const LinearAlgebra::distributed::Vector<double>*>,
 																						const LinearAlgebra::distributed::Vector<double>&)
 const;
-
-#endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_WITH_MPI
 
 //get_initial_fields_vector
 template
@@ -5102,8 +5104,7 @@ AssemblyHelper<3>::get_initial_fields_vector<Vector<double>>(	Vector<double>&,
 																const AffineConstraints<double>*)
 const;
 
-#ifdef DEAL_II_WITH_PETSC
-
+#ifdef DEAL_II_WITH_MPI
 template
 void
 AssemblyHelper<2>::get_initial_fields_vector<LinearAlgebra::distributed::Vector<double>>(	LinearAlgebra::distributed::Vector<double>&,
@@ -5115,8 +5116,7 @@ void
 AssemblyHelper<3>::get_initial_fields_vector<LinearAlgebra::distributed::Vector<double>>(	LinearAlgebra::distributed::Vector<double>&,
 																							const AffineConstraints<double>*)
 const;
-
-#endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_WITH_MPI
 
 //generate_sparsity_pattern_by_simulation
 
@@ -5190,8 +5190,8 @@ AssemblyHelper<3>::assemble_system<Vector<double>, BlockVector<double>, TwoBlock
 																												const tuple<bool,bool,bool>)
 const;
 
+#ifdef DEAL_II_WITH_MPI
 #ifdef DEAL_II_WITH_PETSC
-
 template
 bool
 AssemblyHelper<2>::assemble_system<LinearAlgebra::distributed::Vector<double>, PETScWrappers::MPI::BlockVector, dealii::GalerkinTools::parallel::TwoBlockMatrix<PETScWrappers::MPI::SparseMatrix>>(	const LinearAlgebra::distributed::Vector<double>&,
@@ -5213,8 +5213,8 @@ AssemblyHelper<3>::assemble_system<LinearAlgebra::distributed::Vector<double>, P
 																																																	dealii::GalerkinTools::parallel::TwoBlockMatrix<PETScWrappers::MPI::SparseMatrix>&,
 																																																	const tuple<bool,bool,bool>)
 const;
-
 #endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_WITH_MPI
 
 //write_output_independent_fields
 template
@@ -5239,8 +5239,7 @@ AssemblyHelper<3>::write_output_independent_fields<Vector<double>>(	const Vector
 																	const unsigned int)
 const;
 
-#ifdef DEAL_II_WITH_PETSC
-
+#ifdef DEAL_II_WITH_MPI
 template
 std::pair<const string, const string>
 AssemblyHelper<2>::write_output_independent_fields<LinearAlgebra::distributed::Vector<double>>(	const LinearAlgebra::distributed::Vector<double>&,
@@ -5262,8 +5261,7 @@ AssemblyHelper<3>::write_output_independent_fields<LinearAlgebra::distributed::V
 																								const vector<SmartPointer<const DataPostprocessor<3>>>&,
 																								const unsigned int)
 const;
-
-#endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_WITH_MPI
 
 template
 void
@@ -5281,6 +5279,7 @@ AssemblyHelper<3>::compare_derivatives_with_numerical_derivatives<Vector<double>
 																					const double)
 const;
 
+#ifdef DEAL_II_WITH_MPI
 #ifdef DEAL_II_WITH_PETSC
 
 template
@@ -5300,6 +5299,7 @@ AssemblyHelper<3>::compare_derivatives_with_numerical_derivatives<PETScWrappers:
 const;
 
 #endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_WITH_MPI
 
 template
 std::pair<const double, const double>
@@ -5327,7 +5327,7 @@ AssemblyHelper<3>::compute_distance_to_other_solution<Vector<double>>(	const Vec
 																		const double)
 const;
 
-#ifdef DEAL_II_WITH_PETSC
+#ifdef DEAL_II_WITH_MPI
 
 template
 std::pair<const double, const double>
@@ -5355,7 +5355,7 @@ AssemblyHelper<3>::compute_distance_to_other_solution<LinearAlgebra::distributed
 																									const double)
 const;
 
-#endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_WITH_MPI
 
 template
 std::pair<const double, const double>
@@ -5383,7 +5383,7 @@ AssemblyHelper<3>::compute_distance_to_exact_solution<Vector<double>>(	const Vec
 																		const double)
 const;
 
-#ifdef DEAL_II_WITH_PETSC
+#ifdef DEAL_II_WITH_MPI
 
 template
 std::pair<const double, const double>
@@ -5411,7 +5411,7 @@ AssemblyHelper<3>::compute_distance_to_exact_solution<LinearAlgebra::distributed
 																									const double)
 const;
 
-#endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_WITH_MPI
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE
 DEAL_II_NAMESPACE_CLOSE

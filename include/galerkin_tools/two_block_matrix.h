@@ -28,7 +28,9 @@
 #include <deal.II/lac/vector_operation.h>
 #include <deal.II/lac/petsc_sparse_matrix.h>
 
+#ifdef DEAL_II_WITH_MPI
 #include <mpi/mpi.h>
+#endif
 
 #include <galerkin_tools/config.h>
 #include <galerkin_tools/two_block_sparsity_pattern.h>
@@ -328,11 +330,9 @@ public:
 
 };
 
-
+#ifdef DEAL_II_WITH_MPI
 namespace parallel
 {
-
-#ifdef DEAL_II_WITH_MPI
 
 /**
  * The parallel version of ::TwoBlockMatrix
@@ -393,9 +393,8 @@ public:
 
 };
 
-#endif //DEAL_II_WITH_MPI
-
 }
+#endif //DEAL_II_WITH_MPI
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE
 DEAL_II_NAMESPACE_CLOSE

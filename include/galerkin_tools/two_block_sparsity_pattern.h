@@ -28,7 +28,9 @@
 #include <deal.II/lac/dynamic_sparsity_pattern.h>
 #include <deal.II/lac/sparsity_pattern.h>
 
+#ifdef DEAL_II_WITH_MPI
 #include <mpi/mpi.h>
+#endif
 
 #include <galerkin_tools/config.h>
 #include <galerkin_tools/assembly_helper.h>
@@ -260,7 +262,6 @@ public:
 	const;
 
 #ifdef DEAL_II_WITH_MPI
-
 	/**
 	 * This function makes sure that all processors know about all their entries
 	 *
@@ -271,7 +272,6 @@ public:
 	void
 	distribute(	const IndexSet&	locally_owned_indices,
 				const MPI_Comm	mpi_communicator);
-
 
 #endif //DEAL_II_WITH_MPI
 

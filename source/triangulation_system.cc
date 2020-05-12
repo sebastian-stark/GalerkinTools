@@ -711,10 +711,10 @@ TriangulationSystem<spacedim>::generate_tria_interface_from_tria_domain()
 }
 
 //implementation of the parallel version of the TriangulationSystem
+#ifdef DEAL_II_WITH_P4EST
+#ifdef DEAL_II_WITH_MPI
 namespace parallel
 {
-
-#ifdef DEAL_II_WITH_P4EST
 
 template<unsigned int dim, unsigned int spacedim>
 Triangulation<dim, spacedim>::Triangulation(MPI_Comm mpi_communicator)
@@ -897,18 +897,20 @@ const
 	tria_interface_cast->finalize_subdomain_assignment();
 }
 
-#endif // DEAL_II_WITH_P4EST
-
 }
+#endif // DEAL_II_WITH_MPI
+#endif // DEAL_II_WITH_P4EST
 
 template class TriangulationSystem<2>;
 template class TriangulationSystem<3>;
 
 #ifdef DEAL_II_WITH_P4EST
+#ifdef DEAL_II_WITH_MPI
 	template class parallel::TriangulationSystem<2>;
 	template class parallel::TriangulationSystem<3>;
 	template class parallel::Triangulation<1,2>;
 	template class parallel::Triangulation<2,3>;
+#endif // DEAL_II_WITH_MPI
 #endif // DEAL_II_WITH_P4EST
 
 template struct InterfaceCellDomainCells<2>;

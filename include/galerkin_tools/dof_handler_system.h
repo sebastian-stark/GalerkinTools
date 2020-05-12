@@ -475,6 +475,7 @@ private:
 	void
 	set_locally_relevant_dofs_standard_numbering();
 
+#ifdef DEAL_II_WITH_MPI
 	/**
 	 * This function allows to renumber a distributed vector, which is renumbered according to DoFHandlerSystem::dof_renumbering,
 	 * back to the standard numbering of this DoFHandlerSystem
@@ -502,6 +503,7 @@ private:
 								const unsigned int									window_begin,
 								const unsigned int									window_end)
 	const;
+#endif // DEAL_II_WITH_MPI
 
 	/**
 	 * This function allows to renumber a sequential vector, which is renumbered according to DoFHandlerSystem::dof_renumbering,

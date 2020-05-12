@@ -35,6 +35,7 @@ FEValuesInterface<spacedim>::FEValuesInterface(	const Mapping<spacedim-1, spaced
 												const UpdateFlags							update_flags_domain_minus,
 												const UpdateFlags							update_flags_domain_plus)
 :
+initialized_interface_refinement_case(InterfaceRefinementCase::equally_fine),
 fe_values_interface(mapping_interface, fe_interface, quadrature, update_flags_interface),
 fe_face_values_domain_minus(mapping_domain, fe_domain_minus, quadrature, update_flags_domain_minus),
 fe_face_values_domain_plus(mapping_domain, fe_domain_plus, quadrature, update_flags_domain_plus),
