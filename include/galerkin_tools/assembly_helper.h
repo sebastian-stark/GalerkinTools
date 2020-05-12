@@ -31,6 +31,7 @@
 #include <deal.II/lac/petsc_block_vector.h>
 #include <deal.II/lac/block_vector.h>
 #include <deal.II/numerics/data_postprocessor.h>
+#include <deal.II/base/conditional_ostream.h>
 
 #include <galerkin_tools/config.h>
 #include <galerkin_tools/triangulation_system.h>
@@ -848,6 +849,12 @@ private:
 	 */
 	const unsigned int
 	n_procs;
+
+	/**
+	 * Stream used for standard output to screen (makes sure that output is printed only on one processor in parallel)
+	 */
+	ConditionalOStream
+	pout;
 
 ///@}
 

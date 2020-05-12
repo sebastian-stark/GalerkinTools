@@ -59,7 +59,8 @@ mapping_domain(&mapping_domain, typeid(*this).name()),
 mapping_interface(&mapping_interface, typeid(*this).name()),
 dof_handler_system(tria_system),
 this_proc(tria_system.get_this_proc_n_procs().first),
-n_procs(tria_system.get_this_proc_n_procs().second)
+n_procs(tria_system.get_this_proc_n_procs().second),
+pout(cout, this_proc == 0)
 {
 
 /*****************************************************************************
@@ -283,24 +284,24 @@ n_procs(tria_system.get_this_proc_n_procs().second)
 		this->C.push_back(C.second);
 	}
 
-	cout << "Independent fields defined on domain:" << endl;
+	pout << "Independent fields defined on domain:" << endl;
 	for(const auto& u_omega : u_omega_ordered_by_name)
-		cout << u_omega.first << " (global index="<< global_indices_u_omega.at(u_omega.second) <<")" << endl;
+		pout << u_omega.first << " (global index="<< global_indices_u_omega.at(u_omega.second) <<")" << endl;
 	if(u_omega_ordered_by_name.size() == 0)
-		cout << "None" << endl;
+		pout << "None" << endl;
 
-	cout << endl << "Independent fields defined on interfaces:" << endl;
+	pout << endl << "Independent fields defined on interfaces:" << endl;
 	for(auto u_sigma : u_sigma_ordered_by_name)
-		cout << u_sigma.first << " (global index="<< global_indices_u_sigma.at(u_sigma.second) <<")" << endl;
+		pout << u_sigma.first << " (global index="<< global_indices_u_sigma.at(u_sigma.second) <<")" << endl;
 	if(u_sigma_ordered_by_name.size() == 0)
-		cout << "None" << endl;
+		pout << "None" << endl;
 
-	cout << endl << "Scalar independent variables:" << endl;
+	pout << endl << "Scalar independent variables:" << endl;
 	for(auto C : C_ordered_by_name)
-		cout << C.first << " (global index="<< global_indices_C.at(C.second) <<")" << endl;
+		pout << C.first << " (global index="<< global_indices_C.at(C.second) <<")" << endl;
 	if(C_ordered_by_name.size() == 0)
-		cout << "None" << endl;
-	cout << endl;
+		pout << "None" << endl;
+	pout << endl;
 
 /*************************************************************************
  * Finite elements on domain						   					 *
@@ -3072,7 +3073,7 @@ const
 		solution_ref_sets_copy_pointers[ref_set] = &(solution_ref_sets_copy[ref_set]);
 	}
 
-	cout << "START CHECKING DERIVATIVES\n";
+	pout << "START CHECKING DERIVATIVES\n";
 
 	//first of all compute system_matrix and rhs without taking into account any constraints
 	AffineConstraints<double> constraints;
@@ -3220,7 +3221,7 @@ const
 	printf("  Maximum relative deviation between numerical second derivative and directly computed second derivative (in infinity norm) = % 10.8f\n", max_relative_error_2);
 	printf("                                                                                                   Value of total potential = % 10.8f\n", potential_value_ref);
 
-	cout << "FINISHED CHECKING DERIVATIVES\n";
+	pout << "FINISHED CHECKING DERIVATIVES\n";
 
 	return;
 }
@@ -3369,20 +3370,20 @@ const
 		map_internal_index_to_material_id_domain.insert(make_pair(material_id_to_internal_index_n.second, material_id_to_internal_index_n.first));
 
 	//scalar functionals on domain
-	cout << "******************************************************" << endl
+	pout << "******************************************************" << endl
 		 << "****** scalar functionals DEFINED ON THE DOMAIN ******" << endl
 		 << "******************************************************" << endl << endl;
 	for(unsigned int internal_index = 0; internal_index < scalar_functionals_domain.size(); ++internal_index)
 	{
 		//print domain portion
-		cout	<< "  *** DOMAIN PORTION #"
+		pout	<< "  *** DOMAIN PORTION #"
 				<< map_internal_index_to_material_id_domain[internal_index]
 				<< " ***"
 				<< endl;
 
 		//print finite element in use on the domain portion
 		const unsigned int fe_system_id_domain = material_id_to_fe_system_id_domain.at(map_internal_index_to_material_id_domain[internal_index]);
-		cout	<< endl
+		pout	<< endl
 				<< "    -> FE = "
 				<< fe_collection_domain[fe_system_id_domain].get_name()
 				<< endl
@@ -3390,19 +3391,19 @@ const
 
 		//print scalar functional related information on domain portion
 		if(scalar_functionals_domain[internal_index].size() == 0)
-			cout << endl;
+			pout << endl;
 		for(unsigned int scalar_functional_n = 0; scalar_functional_n < scalar_functionals_domain[internal_index].size(); ++scalar_functional_n)
 		{
 			//name of scalar functional
-			cout	<< "    -> scalar functional "
+			pout	<< "    -> scalar functional "
 					<< scalar_functionals_domain[internal_index][scalar_functional_n]->name
 					<< endl
 					<< endl;
 
 			//relation of scalar functional to total potential
-			cout	<< "       Relation to total potential : ";
+			pout	<< "       Relation to total potential : ";
 			for(unsigned int contribution = 0; contribution<contributions_scalar_functionals_domain_total_potential.at(scalar_functionals_domain[internal_index][scalar_functional_n]).size(); ++contribution)
-				cout	<< "("
+				pout	<< "("
 						<< contributions_scalar_functionals_domain_total_potential.at(scalar_functionals_domain[internal_index][scalar_functional_n])[contribution].first
 						<< "," << contributions_scalar_functionals_domain_total_potential.at(scalar_functionals_domain[internal_index][scalar_functional_n])[contribution].second
 						<< ")"
@@ -3411,22 +3412,22 @@ const
 						<< endl;
 
 			//quadrature scheme used for scalar functional
-			cout	<< "       Quadrature = "
+			pout	<< "       Quadrature = "
 					<< fe_values_domain[internal_index][scalar_functional_n]->get_quadrature().size()
 					<< endl;
 			Assert(	fe_values_domain[internal_index][scalar_functional_n]->get_fe().get_name() == fe_collection_domain[fe_system_id_domain].get_name(),
 					ExcMessage("Internal error!"));
-			cout << endl;
+			pout << endl;
 
 			//information about dependent fields associated with scalar functional
 			for(unsigned int e_omega_n = 0; e_omega_n < scalar_functionals_domain[internal_index][scalar_functional_n]->e_omega.size(); e_omega_n++)
 			{
-				cout	<< "       "
+				pout	<< "       "
 						<< scalar_functionals_domain[internal_index][scalar_functional_n]->e_omega[e_omega_n].name;
 				//detailed printout how dependent fields are related to shape functions
 				if(detailed_printout_shapefuns)
 				{
-					cout	<< " = "
+					pout	<< " = "
 							<< endl;
 					for(const auto& a_omega_term : a_omega[internal_index][scalar_functional_n][e_omega_n])
 					{
@@ -3437,7 +3438,7 @@ const
 						for(const auto& shapefun : shapefuns)
 						{
 							const unsigned int shapefun_in_element = fe_collection_domain[fe_system_id_domain].system_to_base_index(shapefun).second;
-							cout	<< "              "
+							pout	<< "              "
 									<< a
 									<< " * "
 									<< name.first
@@ -3459,7 +3460,7 @@ const
 						for(const auto& shapefun : shapefuns)
 						{
 							const unsigned int shapefun_in_element = fe_collection_domain[fe_system_id_domain].system_to_base_index(shapefun).second;
-							cout	<< "              "
+							pout	<< "              "
 									<< b
 									<< " * "
 									<< name.first
@@ -3474,7 +3475,7 @@ const
 						}
 					}
 				}
-				cout << endl;
+				pout << endl;
 			}
 		}
 	}
@@ -3485,13 +3486,13 @@ const
 		map_internal_index_material_ids_interface.insert(make_pair(material_ids_to_internal_index_n.second, material_ids_to_internal_index_n.first));
 
 	//scalar functionals on interface
-	cout << "*********************************************************" << endl;
-	cout << "****** scalar functionals DEFINED ON THE INTERFACE ******" << endl;
-	cout << "*********************************************************" << endl << endl;
+	pout << "*********************************************************" << endl;
+	pout << "****** scalar functionals DEFINED ON THE INTERFACE ******" << endl;
+	pout << "*********************************************************" << endl << endl;
 	for(unsigned int internal_index = 0; internal_index < scalar_functionals_interface.size(); ++internal_index)
 	{
 		//print domain (sub)portion
-		cout	<< "  *** INTERFACE PORTION #("
+		pout	<< "  *** INTERFACE PORTION #("
 				<< get<0>(map_internal_index_material_ids_interface[internal_index])
 				<< ","
 				<< get<1>(map_internal_index_material_ids_interface[internal_index])
@@ -3508,7 +3509,7 @@ const
 			fe_system_id_domain_plus = fe_collection_domain.size()-1;
 		else
 			fe_system_id_domain_plus = material_id_to_fe_system_id_domain.at(get<2>(map_internal_index_material_ids_interface[internal_index]));
-		cout	<< endl
+		pout	<< endl
 				<< "    -> FE    = "
 				<< fe_collection_interface[fe_system_id_interface].get_name()
 				<< endl
@@ -3522,19 +3523,19 @@ const
 
 		//print scalar functional related information on domain portion
 		if(scalar_functionals_interface[internal_index].size()==0)
-			cout << endl;
+			pout << endl;
 		for(unsigned int scalar_functional_n = 0; scalar_functional_n < scalar_functionals_interface[internal_index].size(); ++scalar_functional_n)
 		{
-			cout	<< "    -> scalar functional "
+			pout	<< "    -> scalar functional "
 					<< scalar_functionals_interface[internal_index][scalar_functional_n]->name
 					<< " <-"
 					<< endl
 					<< endl;
 
 			//relation of scalar functional to total potential
-			cout	<< "       Relation to total potential : ";
+			pout	<< "       Relation to total potential : ";
 			for(unsigned int contribution = 0; contribution<contributions_scalar_functionals_interface_total_potential.at(scalar_functionals_interface[internal_index][scalar_functional_n]).size(); ++contribution)
-				cout	<< "("
+				pout	<< "("
 				<< contributions_scalar_functionals_interface_total_potential.at(scalar_functionals_interface[internal_index][scalar_functional_n])[contribution].first
 				<< ","
 				<< contributions_scalar_functionals_interface_total_potential.at(scalar_functionals_interface[internal_index][scalar_functional_n])[contribution].second
@@ -3544,7 +3545,7 @@ const
 				<< endl;
 
 			//quadrature scheme used for scalar functional
-			cout	<<"       Quadrature = "
+			pout	<<"       Quadrature = "
 					<< fe_values_interface[internal_index][scalar_functional_n]->get_quadrature().size()
 					<< endl
 					<< endl;
@@ -3552,12 +3553,12 @@ const
 			//information about dependent fields associated with scalar functional
 			for(unsigned int e_sigma_n = 0; e_sigma_n < scalar_functionals_interface[internal_index][scalar_functional_n]->e_sigma.size(); ++e_sigma_n)
 			{
-				cout	<< "       "
+				pout	<< "       "
 						<< scalar_functionals_interface[internal_index][scalar_functional_n]->e_sigma[e_sigma_n].name;
 				//detailed printout how dependent fields are related to shape functions
 				if(detailed_printout_shapefuns)
 				{
-					cout	<< " = "
+					pout	<< " = "
 							<< endl;
 					for(const auto& a_sigma_term : a_sigma[internal_index][scalar_functional_n][e_sigma_n])
 					{
@@ -3568,7 +3569,7 @@ const
 						for(const auto& shapefun : shapefuns)
 						{
 							const unsigned int shapefun_in_element = fe_collection_interface[fe_system_id_interface].system_to_base_index(shapefun).second;
-							cout	<< "              "
+							pout	<< "              "
 									<< a
 									<< " * "
 									<< name.first
@@ -3590,7 +3591,7 @@ const
 						for(const auto& shapefun : shapefuns)
 						{
 							const unsigned int shapefun_in_element = fe_collection_interface[fe_system_id_interface].system_to_base_index(shapefun).second;
-							cout	<< "              "
+							pout	<< "              "
 									<< b << " * "
 									<< name.first
 									<< "_"
@@ -3612,7 +3613,7 @@ const
 						for(const auto& shapefun : shapefuns)
 						{
 							const unsigned int shapefun_in_element = fe_collection_domain[fe_system_id_domain_minus].system_to_base_index(shapefun).second;
-							cout	<< "              "
+							pout	<< "              "
 									<< a
 									<< " * "
 									<< name.first
@@ -3635,7 +3636,7 @@ const
 						for(const auto& shapefun : shapefuns)
 						{
 							const unsigned int shapefun_in_element = fe_collection_domain[fe_system_id_domain_minus].system_to_base_index(shapefun).second;
-							cout	<< "              "
+							pout	<< "              "
 									<< b
 									<< " * "
 									<< name.first
@@ -3659,7 +3660,7 @@ const
 						for(const auto& shapefun : shapefuns)
 						{
 							const unsigned int shapefun_in_element = fe_collection_domain[fe_system_id_domain_plus].system_to_base_index(shapefun).second;
-							cout	<< "              "
+							pout	<< "              "
 									<< a
 									<< " * "
 									<< name.first
@@ -3682,7 +3683,7 @@ const
 						for(const auto& shapefun : shapefuns)
 						{
 							const unsigned int shapefun_in_element = fe_collection_domain[fe_system_id_domain_plus].system_to_base_index(shapefun).second;
-							cout	<< "              "
+							pout	<< "              "
 									<< b
 									<< " * "
 									<< name.first
@@ -3698,7 +3699,7 @@ const
 						}
 					}
 				}
-				cout << endl;
+				pout << endl;
 			}
 		}
 	}
@@ -4215,14 +4216,14 @@ const
 					{
 						if(dof_indices_local_global[shapefun] == dof_index)
 						{
-							cout << dof_indices_local_global[shapefun] << " belongs to independent field " << u_omega_n->name << endl;
-							cout << dof_indices_local_global[shapefun] << " belongs to component " << component << endl;
-							cout << dof_indices_local_global[shapefun] << " belongs to cell " << domain_cell->id() << endl;
+							pout << dof_indices_local_global[shapefun] << " belongs to independent field " << u_omega_n->name << endl;
+							pout << dof_indices_local_global[shapefun] << " belongs to component " << component << endl;
+							pout << dof_indices_local_global[shapefun] << " belongs to cell " << domain_cell->id() << endl;
 							if(domain_cell->get_fe().has_support_points())
 							{
 								unit_support_point_domain = domain_cell->get_fe().unit_support_point(shapefun);
 								support_point = mapping_domain->transform_unit_to_real_cell(domain_cell, unit_support_point_domain);
-								cout << dof_indices_local_global[shapefun] << " has support at " << support_point << endl;
+								pout << dof_indices_local_global[shapefun] << " has support at " << support_point << endl;
 							}
 							return;
 						}
@@ -4231,7 +4232,7 @@ const
 			}
 		}
 	}
-	cout << "Did not find the requested index!" << endl;
+	pout << "Did not find the requested index!" << endl;
 
 }
 
