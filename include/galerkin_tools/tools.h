@@ -125,6 +125,8 @@ renumber_constraints(	AffineConstraints<double>&	constraint_matrix,
 						const DoFRenumbering&		dof_renumbering = DoFRenumbering(),
 						const bool					close = true);
 
+#ifdef DEAL_II_WITH_MPI
+
 /**
  * Return a DoFRenumberingOffset object for a DoFHandlerSystem such that the renumbered dofs are contiguous on each processor. Of course, the renumbering
  * has to be recomputed after every distribution of dofs. The implementation currently requires that the domain related and interface related dof handlers
@@ -138,6 +140,8 @@ template<unsigned int spacedim>
 void
 compute_dof_renumbering_contiguous(	const DoFHandlerSystem<spacedim>&	dof_handler_system,
 									DoFRenumberingOffset&				dof_renumbering_offset);
+
+#endif
 
 /**
  * Compute a map between the dofs of @p dhs_1 and the dofs of @p dhs_2. This function requires that the triangulation underlying the dof handlers is based on the same mesh, that

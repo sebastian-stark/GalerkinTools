@@ -196,14 +196,12 @@ Auxiliary::renumber_constraints(AffineConstraints<double>&	constraint_matrix,
 
 }
 
+#ifdef DEAL_II_WITH_MPI
 template<unsigned int spacedim>
 void
 Auxiliary::compute_dof_renumbering_contiguous(	const DoFHandlerSystem<spacedim>&	dof_handler_system,
 												DoFRenumberingOffset&				dof_renumbering_offset)
 {
-
-#ifdef DEAL_II_WITH_MPI
-
 	dof_renumbering_offset.clear();
 
 	const auto& dof_handler_domain = dof_handler_system.get_dof_handler_domain();
@@ -346,11 +344,9 @@ Auxiliary::compute_dof_renumbering_contiguous(	const DoFHandlerSystem<spacedim>&
 		dof_renumbering_offset.add_range(0, dof_handler_system.n_dofs() - 1, 0);
 	}
 
-#else // DEAL_II_WITH_MPI
-     Assert(false, ExcMessage("This functionality is only available with MPI!"));
+}
 #endif // DEAL_II_WITH_MPI
 
-}
 
 template<unsigned int spacedim>
 void
