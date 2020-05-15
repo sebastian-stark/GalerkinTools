@@ -143,6 +143,7 @@ const
 }
 
 #ifdef DEAL_II_WITH_PETSC
+#ifdef DEAL_II_PETSC_WITH_MUMPS
 #ifdef DEAL_II_WITH_MPI
 
 void
@@ -272,15 +273,18 @@ const
 	solution.update_ghost_values();
 }
 
-#endif // DEAL_II_WITH_MPI
 #endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_PETSC_WITH_MUMPS
+#endif // DEAL_II_WITH_MPI
 
 template class SolverWrapper<Vector<double>, Vector<double>, SparseMatrix<double>, SparsityPattern>;
 template class SolverWrapper<Vector<double>, BlockVector<double>, TwoBlockMatrix<SparseMatrix<double>>, TwoBlockSparsityPattern>;
 #ifdef DEAL_II_WITH_PETSC
+#ifdef DEAL_II_PETSC_WITH_MUMPS
 #ifdef DEAL_II_WITH_MPI
 	template class SolverWrapper<LinearAlgebra::distributed::Vector<double>, PETScWrappers::MPI::BlockVector, dealii::GalerkinTools::parallel::TwoBlockMatrix<PETScWrappers::MPI::SparseMatrix>, TwoBlockSparsityPattern>;
 #endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_PETSC_WITH_MUMPS
 #endif // DEAL_II_WITH_MPI
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE

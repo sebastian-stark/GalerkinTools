@@ -126,6 +126,7 @@ public:
 };
 
 #ifdef DEAL_II_WITH_PETSC
+#ifdef DEAL_II_PETSC_WITH_MUMPS
 #ifdef DEAL_II_WITH_MPI
 
 /**
@@ -148,6 +149,7 @@ public:
 };
 
 #endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_PETSC_WITH_MUMPS
 #endif // DEAL_II_WITH_MPI
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE

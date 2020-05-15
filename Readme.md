@@ -26,4 +26,4 @@ involving unknown fields living on interfaces or boundaries.
 
 Minimum requirements: deal.II, lapacke, numdiff
 For direct sequential solver: deal.II configured with UMFPACK
-For distributed parallel computations: deal.II configured with MPI, PETSc, p4est
+For distributed parallel computations: deal.II configured with MPI, PETSc (with mumps), p4est
