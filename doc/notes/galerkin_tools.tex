@@ -63,26 +63,26 @@ It is also remarked that no explicit dependence on time is considered. However, 
 \caption{Domain under consideration.}
 \label{domain}
 \end{figure}
-The Euclidean $n$-space $\mathcal{R}^n$ with $n=2$ or $n=3$ is considered. $\mathcal{R}^n$ is split into the ``computational domain'' $\Omega \subset \mathcal{R}^n$ and the ``environment'' $\Omega_0 = \mathcal{R}^n \setminus \Omega$, see also Figure \ref{domain}. The computational domain is further subdivided into ``domain portions'' $\Omega_\alpha$, where $\alpha \in A=\left\{1, \hdots, N^\mathrm{\Omega}\right\}$, $\bigcup_{\alpha \in A} \Omega_\alpha = \Omega$, and $\Omega_\alpha \cap \Omega_\beta = 0$ if $\alpha\neq \beta$. Additionally, the $n-1$ dimensional ``interface'' $\Sigma$ is introduced. This interface is further subdivided into ``interface portions'' $\Sigma_\gamma$, where $\gamma \in \Gamma=\left\{1, \hdots, N^\mathrm{\Sigma}\right\}$, and $\Sigma_\gamma \cap \Sigma_\delta = 0$ if $\gamma\neq \delta$. Interface portions may align with interfaces between the domain portions $\Omega_\alpha$ or the interface between $\Omega$ and $\Omega_0$, but need not to. Together with the interface, a piecewise continuous unit normal field $\boldsymbol{n}(\boldsymbol{X})$ satisfying $\boldsymbol{n}(\boldsymbol{X})\cdot\boldsymbol{n}(\boldsymbol{X}) = 1$ is defined. Using this normal field, the '$+$' and '$-$' sides of the interface at a point $\boldsymbol{X} \in \Sigma$ are defined such that $\boldsymbol{n}(\boldsymbol{X})$ points from $-$ to $+$.
+The Euclidean $n$-space $\mathbb{R}^n$ with $n=2$ or $n=3$ is considered. $\mathbb{R}^n$ is split into the ``computational domain'' $\Omega \subset \mathbb{R}^n$ and the ``environment'' $\Omega_0 = \mathbb{R}^n \setminus \Omega$, see also Figure \ref{domain}. The computational domain is further subdivided into ``domain portions'' $\Omega_\alpha$, where $\alpha \in A=\left\{1, \hdots, N^\mathrm{\Omega}\right\}$, $\bigcup_{\alpha \in A} \Omega_\alpha = \Omega$, and $\Omega_\alpha \cap \Omega_\beta = 0$ if $\alpha\neq \beta$. Additionally, the $n-1$ dimensional ``interface'' $\Sigma$ is introduced. This interface is further subdivided into ``interface portions'' $\Sigma_\gamma$, where $\gamma \in \Gamma=\left\{1, \hdots, N^\mathrm{\Sigma}\right\}$, and $\Sigma_\gamma \cap \Sigma_\delta = 0$ if $\gamma\neq \delta$. Interface portions may align with interfaces between the domain portions $\Omega_\alpha$ or the interface between $\Omega$ and $\Omega_0$, but need not to. Together with the interface, a piecewise continuous unit normal field $\boldsymbol{n}(\boldsymbol{X})$ satisfying $\boldsymbol{n}(\boldsymbol{X})\cdot\boldsymbol{n}(\boldsymbol{X}) = 1$ is defined. Using this normal field, the '$+$' and '$-$' sides of the interface at a point $\boldsymbol{X} \in \Sigma$ are defined such that $\boldsymbol{n}(\boldsymbol{X})$ points from $-$ to $+$.
 
 \subsection{Unknowns of the problem: independent fields and scalars}
 The unknowns of the problem are a set of ``independent fields'' and, possibly, a set of ``independent scalars''. The independent fields may either be related to the domain (or portions thereof) or to the interface (or portions thereof), while the independent scalars have no spatial association.
 
-The ``domain related independent fields'' $u^\Omega_\epsilon \in \mathcal{V}^\Omega_\epsilon \subseteq \mathcal{L}^2(\mathcal{R}^n)$ are introduced according to\footnote{Defining $u^\Omega_\epsilon$ on the entire $\mathcal{R}^n$ instead of on  $\Omega$ has the advantage that the boundary of the domain can formally be considered as an interface. The latter viewpoint is also physically motivated: A boundary may be seen as a special interface, where the situation on one side of it is known to some extent (in particular, to the extent it influences the situation on the other side of the boundary).}
+The ``domain related independent fields'' $u^\Omega_\epsilon \in \mathcal{V}^\Omega_\epsilon \subseteq \mathcal{L}^2(\mathbb{R}^n)$ are introduced according to\footnote{Defining $u^\Omega_\epsilon$ on the entire $\mathbb{R}^n$ instead of on  $\Omega$ has the advantage that the boundary of the domain can formally be considered as an interface. The latter viewpoint is also physically motivated: A boundary may be seen as a special interface, where the situation on one side of it is known to some extent (in particular, to the extent it influences the situation on the other side of the boundary).}
 \begin{equation}
 u^\Omega_\epsilon:
 \begin{cases}
-\mathcal{R}^n \rightarrow \mathcal{R}\\
+\mathbb{R}^n \rightarrow \mathbb{R}\\
 \boldsymbol{X} \mapsto u^\Omega_\epsilon(\boldsymbol{X}),
 \end{cases}
 \end{equation}
-where $\epsilon \in E=\left\{1, \hdots, N^\mathrm{u,\Omega}\right\}$, and $\boldsymbol{X}\in \mathcal{R}^n$.
+where $\epsilon \in E=\left\{1, \hdots, N^\mathrm{u,\Omega}\right\}$, and $\boldsymbol{X}\in \mathbb{R}^n$.
 
 Similarly, the ``interface related independent fields'' $u^\Sigma_\eta \in \mathcal{V}^\Sigma_\eta \subseteq \mathcal{L}^2(\Sigma)$ are introduced according to
 \begin{equation}
 u^\Sigma_\eta:
 \begin{cases}
-\Sigma \rightarrow \mathcal{R}\\
+\Sigma \rightarrow \mathbb{R}\\
 \boldsymbol{X} \mapsto u^\mathrm{\Sigma}_\eta(\boldsymbol{X}),
 \end{cases}
 \end{equation}
@@ -91,7 +91,7 @@ where $\eta \in H=\left\{1, \hdots, N^\mathrm{u,\Sigma}\right\}$.
 It will generally be assumed that $u^\Omega_\epsilon(\boldsymbol{X}) = 0$ if $\boldsymbol{X} \in \Omega_0$. Also, sets $A_{\epsilon,u\neq 0} \subset A$ and $\Gamma_{\eta,u\neq 0} \subset \Gamma$ are introduced. If $\alpha \notin A_{\epsilon,u\neq 0}$, then $u^\Omega_\epsilon(\boldsymbol{X})=0$ if $\boldsymbol{X} \in \Omega_\alpha$. Similarly, if
 $\gamma \notin \Gamma_{\eta,u\neq 0}$, then $u^\Sigma_\eta(\boldsymbol{X})=0$ if $\boldsymbol{X} \in \Sigma_\gamma$. I.e., the sets $A_{\epsilon,u\neq 0}$ and $\Gamma_{\eta,u\neq 0}$ determine on which domain portions and interface portions the unknown fields $u^\Omega_\epsilon$ and $u^\Sigma_\eta$ may be non-zero, and on which domain and interface portions they are constrained to zero. This approach effectively allows for different sets of unknown fields on different domain/interface portions. In addition, further problem specific constraints may apply to $u^\Omega_\epsilon$ and $u^\Sigma_\eta$. It is understood that all constraints as well as regularity requirements on the independent fields are incorporated by choosing appropriate spaces $\mathcal{V}^\Omega_\epsilon$ and $\mathcal{V}^\Sigma_\eta$. Moreover, it is noted that, although each independent field is scalar valued, tensor valued unknown fields can easily be accounted for by combining several scalar valued fields.
 
-Finally, the ``independent scalars'' $C_\iota \in \mathcal{R}$ are introduced, where $\iota \in I=\left\{1, \hdots, N^\mathrm{C}\right\}$. Hence, the unknowns of the problem are $(u^\Omega_\epsilon, u^\Sigma_\eta, C_\iota)$.
+Finally, the ``independent scalars'' $C_\iota \in \mathbb{R}$ are introduced, where $\iota \in I=\left\{1, \hdots, N^\mathrm{C}\right\}$. Hence, the unknowns of the problem are $(u^\Omega_\epsilon, u^\Sigma_\eta, C_\iota)$.
 
 \subsection{Dependent fields}
 The ``domain related dependent fields'' are introduced according to
@@ -173,7 +173,7 @@ The latter weak form defines the problem under consideration. In the following, 
 \end{enumerate}
 
 \section{Spatially discrete problem under consideration}
-The spatially discrete problem is obtained based on the weak form \eqref{stationarity_conditions} by the Galerkin approach. I.e., the approximate solution is given by those $u^{\Omega,\mathrm{h}}_\epsilon \in \mathcal{V}^{\Omega,\mathrm{h}}_\epsilon$, $u^{\Sigma,\mathrm{h}}_\eta \in \mathcal{V}^{\Sigma,\mathrm{h}}_\eta$, $C^\mathrm{h}_\iota \in \mathcal{R}$ satisfying
+The spatially discrete problem is obtained based on the weak form \eqref{stationarity_conditions} by the Galerkin approach. I.e., the approximate solution is given by those $u^{\Omega,\mathrm{h}}_\epsilon \in \mathcal{V}^{\Omega,\mathrm{h}}_\epsilon$, $u^{\Sigma,\mathrm{h}}_\eta \in \mathcal{V}^{\Sigma,\mathrm{h}}_\eta$, $C^\mathrm{h}_\iota \in \mathbb{R}$ satisfying
 \begin{equation}
   \delta \Pi(u^{\Omega,\mathrm{h}}_\epsilon, u^{\Sigma,\mathrm{h}}_\eta, C^\mathrm{h}_\iota, \delta u^{\Omega,\mathrm{h}}_\epsilon, \delta u^{\Sigma,\mathrm{h}}_\eta, \delta C^\mathrm{h}_\iota)
   = 0
@@ -182,7 +182,7 @@ The spatially discrete problem is obtained based on the weak form \eqref{station
 \end{equation}
 where $\mathcal{V}^{\Omega,\mathrm{h}}_\epsilon \subset \mathcal{V}^\Omega_\epsilon$ and $\mathcal{V}^{\Sigma,\mathrm{h}}_\eta \subset \mathcal{V}^\Sigma_\eta$ are finite dimensional spaces.
 
-Let $(w^{\Omega,\mathrm{h}}_{\epsilon \phi}, w^{\Sigma,\mathrm{h}}_{\eta \phi}, w^{\mathrm{C},\mathrm{h}}_{\iota \phi})$ with $\phi \in \Phi=\left\{1, \hdots, N^\mathrm{dof} \right\}$ be the $\phi$-th basis vector of a basis of the $N^\mathrm{dof}$-dimensional space $\mathcal{V}^{\Omega,\mathrm{h}}_0 \times \hdots \times \mathcal{V}^{\Omega,\mathrm{h}}_{N^\mathrm{u,\Omega}} \times \mathcal{V}^{\Sigma,\mathrm{h}}_0 \times \hdots \times \mathcal{V}^{\Sigma,\mathrm{h}}_{N^\mathrm{u,\Sigma}} \times \mathcal{R}^{N^\mathrm{C}}$.
+Let $(w^{\Omega,\mathrm{h}}_{\epsilon \phi}, w^{\Sigma,\mathrm{h}}_{\eta \phi}, w^{\mathrm{C},\mathrm{h}}_{\iota \phi})$ with $\phi \in \Phi=\left\{1, \hdots, N^\mathrm{dof} \right\}$ be the $\phi$-th basis vector of a basis of the $N^\mathrm{dof}$-dimensional space $\mathcal{V}^{\Omega,\mathrm{h}}_0 \times \hdots \times \mathcal{V}^{\Omega,\mathrm{h}}_{N^\mathrm{u,\Omega}} \times \mathcal{V}^{\Sigma,\mathrm{h}}_0 \times \hdots \times \mathcal{V}^{\Sigma,\mathrm{h}}_{N^\mathrm{u,\Sigma}} \times \mathbb{R}^{N^\mathrm{C}}$.
 Then, $u^{\Omega,\mathrm{h}}_\epsilon$, $u^{\Sigma,\mathrm{h}}_\eta$ and $C^\mathrm{h}_\iota$ may be expressed in terms of the scalar unknowns $\hat u_\phi$ according to
 \begin{equation}
 \begin{split}
