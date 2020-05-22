@@ -24,7 +24,7 @@ be useful for the solution of many practical problems especially in the field of
 the library is on problems involving different domain portions (e.g. different materials) as well as on problems
 involving unknown fields living on interfaces or boundaries.
 
-The library currently requires deal.II, lapacke and numdiff to be installed on your system (and cmake must be able to find them).
+The library currently requires deal.II 9.2, lapacke and numdiff to be installed on your system (and cmake must be able to find them).
 To use the direct sequential solver interface of the library, deal.II must additionally be configured with UMFPACK.
 To use the distributed parallel capabilities of the library, deal.II must be configured with MPI, PETSc (including MUMPS for the parallel solver) and p4est.
 
