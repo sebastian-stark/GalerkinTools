@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------
-// Copyright (C) 2019 by Sebastian Stark
+// Copyright (C) 2020 by Sebastian Stark
 //
 // This file is part of the GalerkinTools library
 //
