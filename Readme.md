@@ -24,6 +24,16 @@ be useful for the solution of many practical problems especially in the field of
 the library is on problems involving different domain portions (e.g. different materials) as well as on problems
 involving unknown fields living on interfaces or boundaries.
 
-Minimum requirements: deal.II, lapacke, numdiff
-For direct sequential solver: deal.II configured with UMFPACK
-For distributed parallel computations: deal.II configured with MPI, PETSc (with mumps), p4est
+The library currently requires deal.II, lapacke and numdiff to be installed on your system (and cmake must be able to find them).
+To use the direct sequential solver interface of the library, deal.II must additionally be configured with UMFPACK.
+To use the distributed parallel capabilities of the library, deal.II must be configured with MPI, PETSc (including MUMPS for the parallel solver) and p4est.
+
+Installation of the library is through cmake:
+
+(1) place library source files into some folder /path/to/folder/GalerkinTools (you can use git clone https://github.com/starki0815/GalerkinTools.git for this)
+(2) cd /path/to/folder/
+(3) mkdir build
+(4) cd build
+(5) cmake -DCMAKE_INSTALL_PREFIX=/path/to/install/dir ../GalerkinTools
+(6) make install
+(7) optionally set an environment variable to GALERKIN_TOOLS_DIR=/path/to/install/dir
