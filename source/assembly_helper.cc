@@ -170,7 +170,7 @@ pout(cout, this_proc == 0)
 				const auto u_omega_set_ = e_omega.get_independent_fields_domain();
 				u_omega_set.insert(u_omega_set_.begin(), u_omega_set_.end());
 				const auto C_set_ = e_omega.get_independent_scalars();
-				C_set.insert(C_set.begin(), C_set.end());
+				C_set.insert(C_set_.begin(), C_set_.end());
 			}
 		}
 
