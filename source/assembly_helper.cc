@@ -2488,6 +2488,9 @@ const
 				rhs_cell_dummy.reinit(dof_indices_global.size());
 				constraints.distribute_local_to_global(rhs_cell_dummy, dof_indices_global, nonlinear_scalar_functional_indices, f, L_U_cell);
 
+				// don't forget to set diagonal to 1 if dof is constrained
+				if(constraints.is_constrained(global_dof_index_C))
+					K.set(global_dof_index_C, global_dof_index_C, 1.0);
 			}
 		}
 	}

@@ -101,7 +101,6 @@ protected:
 	SparsityPattern
 	sp_C;
 
-
 	/**
 	 * The sparsity pattern of D
 	 */
