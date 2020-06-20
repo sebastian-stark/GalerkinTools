@@ -482,6 +482,7 @@ unsigned int
 DoFHandlerSystem<spacedim>::get_single_dof_index_component_interface(const unsigned int component)
 const
 {
+	unsigned int dof_index = numbers::invalid_dof_index;
 	for(const auto& interface_cell_domain_cells : interface_active_iterators())
 	{
 		const auto& interface_cell = interface_cell_domain_cells.interface_cell;
@@ -496,12 +497,41 @@ const
 					dof_indices_local_global.resize(n_dofs);
 					interface_cell.get_dof_indices(dof_indices_local_global);
 					if(locally_owned_dofs.is_element(dof_indices_local_global[sf]))
-						return dof_indices_local_global[sf];
+						dof_index = dof_indices_local_global[sf];
 				}
 			}
 		}
 	}
-	return numbers::invalid_dof_index;
+
+	// communicate results in parallel and choose the dof_index found on the processor with the smallest rank
+	const auto this_proc_n_procs = tria_system->get_this_proc_n_procs();
+	if(this_proc_n_procs.second > 1)
+	{
+		vector<unsigned int> dof_indices(this_proc_n_procs.second);
+		dof_indices[this_proc_n_procs.first] = dof_index;
+#ifdef DEAL_II_WITH_MPI
+		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&(dof_handler_domain->get_triangulation()));
+		Assert(tria_domain_ptr != nullptr, ExcMessage("Internal error!"));
+		unsigned int send_value = dof_indices[this_proc_n_procs.first];
+		int ierr =  MPI_Allgather(&send_value, 1, MPI_UNSIGNED, dof_indices.data(), 1, MPI_UNSIGNED, tria_domain_ptr->get_communicator());
+		AssertThrowMPI(ierr);
+#else
+		Assert(this_proc_n_procs.second == 1, ExcMessage("Internal error: deal.II not configured with MPI, but computation run with more than one processor"));
+#endif //DEAL_II_WITH_MPI
+		for(unsigned int m = 0; m < dof_indices.size(); ++m)
+		{
+			if(dof_indices[m] != numbers::invalid_dof_index)
+			{
+				dof_index = dof_indices[m];
+				break;
+			}
+		}
+	}
+
+	if(locally_relevant_dofs.is_element(dof_index))
+		return dof_index;
+	else
+		return numbers::invalid_dof_index;
 }
 
 template<unsigned int spacedim>
@@ -509,6 +539,7 @@ unsigned int
 DoFHandlerSystem<spacedim>::get_single_dof_index_component_domain(const unsigned int component)
 const
 {
+	unsigned int dof_index = numbers::invalid_dof_index;
 	for(const auto& domain_cell : domain_active_iterators())
 	{
 		if(domain_cell->is_locally_owned())
@@ -522,12 +553,41 @@ const
 					dof_indices_local_global.resize(n_dofs);
 					domain_cell.get_dof_indices(dof_indices_local_global);
 					if(locally_owned_dofs.is_element(dof_indices_local_global[sf]))
-						return dof_indices_local_global[sf];
+						dof_index = dof_indices_local_global[sf];
 				}
 			}
 		}
 	}
-	return numbers::invalid_dof_index;
+
+	// communicate results in parallel and choose the dof_index found on the processor with the smallest rank
+	const auto this_proc_n_procs = tria_system->get_this_proc_n_procs();
+	if(this_proc_n_procs.second > 1)
+	{
+		vector<unsigned int> dof_indices(this_proc_n_procs.second);
+		dof_indices[this_proc_n_procs.first] = dof_index;
+#ifdef DEAL_II_WITH_MPI
+		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&(dof_handler_domain->get_triangulation()));
+		Assert(tria_domain_ptr != nullptr, ExcMessage("Internal error!"));
+		unsigned int send_value = dof_indices[this_proc_n_procs.first];
+		int ierr =  MPI_Allgather(&send_value, 1, MPI_UNSIGNED, dof_indices.data(), 1, MPI_UNSIGNED, tria_domain_ptr->get_communicator());
+		AssertThrowMPI(ierr);
+#else
+		Assert(this_proc_n_procs.second == 1, ExcMessage("Internal error: deal.II not configured with MPI, but computation run with more than one processor"));
+#endif //DEAL_II_WITH_MPI
+		for(unsigned int m = 0; m < dof_indices.size(); ++m)
+		{
+			if(dof_indices[m] != numbers::invalid_dof_index)
+			{
+				dof_index = dof_indices[m];
+				break;
+			}
+		}
+	}
+
+	if(locally_relevant_dofs.is_element(dof_index))
+		return dof_index;
+	else
+		return numbers::invalid_dof_index;
 }
 
 template<unsigned int spacedim>

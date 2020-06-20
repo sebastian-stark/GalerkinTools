@@ -2490,7 +2490,7 @@ const
 
 				// don't forget to set diagonal to 1 if dof is constrained
 				if(constraints.is_constrained(global_dof_index_C))
-					K.set(global_dof_index_C, global_dof_index_C, 1.0);
+					K.add(global_dof_index_C, global_dof_index_C, 1.0);
 			}
 		}
 	}

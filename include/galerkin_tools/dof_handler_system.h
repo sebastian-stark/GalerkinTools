@@ -787,8 +787,8 @@ public:
 	 *
 	 * @note	This works only if the finite element corresponding to @p component is primitive.
 	 *
-	 * @note	This searches in the locally owned dofs on the current processor. If you apply a constraint to fix
-	 * 			e.g. the constant of a scalar potential field, make sure that you do so only on a single processor.
+	 * @note	This searches in the locally owned dofs. In parallel, this will select one of the dofs and return this dof on all processors for which this
+	 * 			dof is locally relevant (on all other processors numbers::invalid_dof_index is returned).
 	 */
 	unsigned int
 	get_single_dof_index_component_interface(const unsigned int component)
@@ -803,8 +803,8 @@ public:
 	 *
 	 * @note	This works only if the finite element corresponding to @p component is primitive.
 	 *
-	 * @note	This searches in the locally owned dofs on the current processor. If you apply a constraint to fix
-	 * 			e.g. the constant of a scalar potential field, make sure that you do so only on a single processor.
+	 * @note	This searches in the locally owned dofs. In parallel, this will select one of the dofs and return this dof on all processors for which this
+	 * 			dof is locally relevant (on all other processors numbers::invalid_dof_index is returned).
 	 */
 	unsigned int
 	get_single_dof_index_component_domain(const unsigned int component)
