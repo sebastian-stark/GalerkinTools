@@ -36,7 +36,7 @@ InterfaceCellDomainCells<spacedim>::convert_constructor_inputs(	const DomainCell
 																const InterfaceSide		interface_side)
 {
 
-	InterfaceRefinementCase refinement_case=InterfaceRefinementCase::equally_fine;
+	InterfaceRefinementCase refinement_case = InterfaceRefinementCase::equally_fine;
 	unsigned int face_plus;
 	unsigned int face_minus;
 	unsigned int subface;
@@ -398,9 +398,9 @@ TriangulationSystem<spacedim>::generate_active_interface_cells_domain_cells_recu
 {
 	if(interface_cell->has_children())
 	{
-		//interface cell has children
-		//(1) at boundary:     domain cell must have children
-		//(2) not at boundary: domain cell or its neighbor must have children
+		// interface cell has children
+		// (1) at boundary:     domain cell must have children
+		// (2) not at boundary: domain cell or its neighbor must have children
 		if(domain_cell->has_children())
 		{
 			//domain cell has children->go one level deeper
@@ -506,10 +506,36 @@ TriangulationSystem<spacedim>::pre_refinement_domain()
 			}
 			case InterfaceRefinementCase::equally_fine:
 			{
+				// experimental: handle anisotropic refinement
 				if( (cell.domain_cell_plus->coarsen_flag_set()) && (cell.domain_cell_minus->coarsen_flag_set()))
-					cell.interface_cell->set_coarsen_flag();
+				{
+					const auto& parent = cell.domain_cell_minus->parent();
+					const auto face_refinement_case = GeometryInfo<spacedim>::face_refinement_case(	parent->refinement_case(),
+																									cell.face_minus,
+																									parent->face_orientation(cell.face_minus),
+																									parent->face_flip(cell.face_minus),
+																									parent->face_rotation(cell.face_minus));
+					Assert( (face_refinement_case == RefinementCase<spacedim-1>::no_refinement) || (face_refinement_case == RefinementCase<spacedim-1>::isotropic_refinement), ExcMessage("No anisotropic refinement of interfaces or boundaries allowed!") );
+					if(face_refinement_case == RefinementCase<spacedim-1>::isotropic_refinement)
+						cell.interface_cell->set_coarsen_flag();
+				}
 				else if ( (cell.domain_cell_plus->refine_flag_set()) || (cell.domain_cell_minus->refine_flag_set()) )
-					cell.interface_cell->set_refine_flag();
+				{
+					const auto face_refinement_case_minus = GeometryInfo<spacedim>::face_refinement_case(	cell.domain_cell_minus->refine_flag_set(),
+																											cell.face_minus,
+																											cell.domain_cell_minus->face_orientation(cell.face_minus),
+																											cell.domain_cell_minus->face_flip(cell.face_minus),
+																											cell.domain_cell_minus->face_rotation(cell.face_minus));
+					const auto face_refinement_case_plus = GeometryInfo<spacedim>::face_refinement_case(	cell.domain_cell_plus->refine_flag_set(),
+																											cell.face_plus,
+																											cell.domain_cell_plus->face_orientation(cell.face_plus),
+																											cell.domain_cell_plus->face_flip(cell.face_plus),
+																											cell.domain_cell_plus->face_rotation(cell.face_plus));
+					Assert( (face_refinement_case_minus == RefinementCase<spacedim-1>::no_refinement) || (face_refinement_case_minus == RefinementCase<spacedim-1>::isotropic_refinement), ExcMessage("No anisotropic refinement of interfaces or boundaries allowed!") );
+					Assert( (face_refinement_case_plus == RefinementCase<spacedim-1>::no_refinement) || (face_refinement_case_plus == RefinementCase<spacedim-1>::isotropic_refinement), ExcMessage("No anisotropic refinement of interfaces or boundaries allowed!") );
+					if( (face_refinement_case_minus == RefinementCase<spacedim-1>::isotropic_refinement) || (face_refinement_case_plus == RefinementCase<spacedim-1>::isotropic_refinement) )
+						cell.interface_cell->set_refine_flag();
+				}
 				break;
 			}
 			case InterfaceRefinementCase::at_boundary:
@@ -709,13 +735,15 @@ TriangulationSystem<spacedim>::generate_tria_interface_from_tria_domain()
 		generate_active_interface_cells_domain_cells(true);
 
 		bool changed;
+		const unsigned int n_procs = get_this_proc_n_procs().second;
 		do
 		{
 			changed = false;
 			for(const auto & active_interface_cell_domain_cells_n : active_interface_cell_domain_cells)
 			{
-				const DomainCell& domain_cell_minus=active_interface_cell_domain_cells_n.domain_cell_minus;
+				const DomainCell& domain_cell_minus = active_interface_cell_domain_cells_n.domain_cell_minus;
 				const unsigned int face_minus = active_interface_cell_domain_cells_n.face_minus;
+				const unsigned int face_plus = active_interface_cell_domain_cells_n.face_plus;
 				if(domain_cell_minus->face(face_minus)->at_boundary())
 				{
 					if( domain_cell_minus->face(face_minus)->has_children())
@@ -727,10 +755,13 @@ TriangulationSystem<spacedim>::generate_tria_interface_from_tria_domain()
 				else
 				{
 					const DomainCell& domain_cell_plus = active_interface_cell_domain_cells_n.domain_cell_plus;
-					if( (domain_cell_minus->has_children()) ||	(domain_cell_plus->has_children()) )
 					{
-						(active_interface_cell_domain_cells_n.interface_cell)->set_refine_flag();
-						changed = true;
+						// Checking the domain cells here seems superfluous. But if an artificial cell is involved in parallel, it seems to be possible that an artificial cell has no children, but its faces do have children.
+						if( ( (domain_cell_minus->has_children()) && (domain_cell_minus->face(face_minus)->has_children()) ) ||	( domain_cell_plus->has_children() && (domain_cell_plus->face(face_plus)->has_children()) ) )
+						{
+							(active_interface_cell_domain_cells_n.interface_cell)->set_refine_flag();
+							changed = true;
+						}
 					}
 				}
 			}
