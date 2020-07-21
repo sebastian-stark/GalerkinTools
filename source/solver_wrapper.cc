@@ -153,6 +153,7 @@ SolverWrapperPETSc::solve(	const parallel::TwoBlockMatrix<PETScWrappers::MPI::Sp
 							const bool															symmetric)
 const
 {
+
 	//mpi communicator
 	MPI_Comm comm = K_stretched.get_communicator();
 
@@ -277,14 +278,61 @@ const
 #endif // DEAL_II_PETSC_WITH_MUMPS
 #endif // DEAL_II_WITH_MPI
 
+
+#ifdef DEAL_II_WITH_PETSC
+#ifdef DEAL_II_WITH_MPI
+
+void
+SolverWrapperPETScIterative::solve(	const parallel::TwoBlockMatrix<PETScWrappers::MPI::SparseMatrix>&	K_stretched,
+									LinearAlgebra::distributed::Vector<double>&							solution,
+									const PETScWrappers::MPI::BlockVector&								f_stretched,
+									const bool															symmetric)
+const
+{
+	//mpi communicator
+	MPI_Comm comm = K_stretched.get_communicator();
+
+	//matrix sub blocks
+	const auto& K = K_stretched.get_A();
+
+	//size of bottom diagonal block of stretched system
+	const unsigned int size_w = K_stretched.get_block_1_size();
+
+	//solver control for MUMPS
+	SolverControl cn;
+
+	Assert(size_w == 0, ExcMessage("This is currently only implemented for systems without a second block!"));
+
+	PETScWrappers::MPI::Vector solution_petsc(f_stretched.block(0).locally_owned_elements(), comm);
+
+	SolverControl solver_control(solution.size(), 1e-12);
+	PETScWrappers::SolverGMRES solver(solver_control, comm);
+
+	PETScWrappers::PreconditionBoomerAMG preconditioner;
+	PETScWrappers::PreconditionBoomerAMG::AdditionalData data;
+	//data.symmetric_operator = symmetric;
+    preconditioner.initialize(K, data);
+    solver.solve(K,	solution_petsc, f_stretched.block(0), preconditioner);
+    cout << "   Solved in " << solver_control.last_step() << " iterations." << std::endl;
+
+    for(const auto m : solution_petsc.locally_owned_elements())
+		solution(m) = solution_petsc(m);
+	solution.compress(VectorOperation::insert);
+
+	return;
+}
+
+#endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_WITH_MPI
+
+
+
 template class SolverWrapper<Vector<double>, Vector<double>, SparseMatrix<double>, SparsityPattern>;
 template class SolverWrapper<Vector<double>, BlockVector<double>, TwoBlockMatrix<SparseMatrix<double>>, TwoBlockSparsityPattern>;
 #ifdef DEAL_II_WITH_PETSC
-#ifdef DEAL_II_PETSC_WITH_MUMPS
 #ifdef DEAL_II_WITH_MPI
 	template class SolverWrapper<LinearAlgebra::distributed::Vector<double>, PETScWrappers::MPI::BlockVector, dealii::GalerkinTools::parallel::TwoBlockMatrix<PETScWrappers::MPI::SparseMatrix>, TwoBlockSparsityPattern>;
 #endif // DEAL_II_WITH_PETSC
-#endif // DEAL_II_PETSC_WITH_MUMPS
 #endif // DEAL_II_WITH_MPI
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE

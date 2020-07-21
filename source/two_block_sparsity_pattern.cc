@@ -257,10 +257,15 @@ TwoBlockSparsityPattern::distribute(const IndexSet& locally_owned_indices, const
 		ierr =  MPI_Allgather(&send_value, 1, MPI_UNSIGNED, n_dofs_per_processor_1.data(), 1, MPI_UNSIGNED, mpi_communicator);
 		AssertThrowMPI(ierr);
 
-		SparsityTools::distribute_sparsity_pattern(dsp_A, n_dofs_per_processor_0, mpi_communicator, dsp_A.row_index_set());
-		SparsityTools::distribute_sparsity_pattern(dsp_B, n_dofs_per_processor_0, mpi_communicator, dsp_B.row_index_set());
-		SparsityTools::distribute_sparsity_pattern(dsp_C, n_dofs_per_processor_0, mpi_communicator, dsp_C.row_index_set());
-		SparsityTools::distribute_sparsity_pattern(dsp_D, n_dofs_per_processor_1, mpi_communicator, dsp_D.row_index_set());
+		if(block_0_size > 0)
+			SparsityTools::distribute_sparsity_pattern(dsp_A, n_dofs_per_processor_0, mpi_communicator, dsp_A.row_index_set());
+		if( (block_0_size > 0) && (block_1_size > 0) )
+		{
+			SparsityTools::distribute_sparsity_pattern(dsp_B, n_dofs_per_processor_0, mpi_communicator, dsp_B.row_index_set());
+			SparsityTools::distribute_sparsity_pattern(dsp_C, n_dofs_per_processor_0, mpi_communicator, dsp_C.row_index_set());
+		}
+		if(block_1_size > 0)
+			SparsityTools::distribute_sparsity_pattern(dsp_D, n_dofs_per_processor_1, mpi_communicator, dsp_D.row_index_set());
 	}
 
 }

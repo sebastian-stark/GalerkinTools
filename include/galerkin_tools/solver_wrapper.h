@@ -152,6 +152,31 @@ public:
 #endif // DEAL_II_PETSC_WITH_MUMPS
 #endif // DEAL_II_WITH_MPI
 
+#ifdef DEAL_II_WITH_PETSC
+#ifdef DEAL_II_WITH_MPI
+
+/**
+ * A SolverWrapper for the PETSc MUMPS solver, which works for parallel computations.
+ */
+class SolverWrapperPETScIterative : public SolverWrapper<dealii::LinearAlgebra::distributed::Vector<double>, dealii::PETScWrappers::MPI::BlockVector, parallel::TwoBlockMatrix<dealii::PETScWrappers::MPI::SparseMatrix>, TwoBlockSparsityPattern>
+{
+public:
+
+	/**
+	 * @copydoc SolverWrapper::solve
+	 */
+	virtual
+	void
+	solve(	const parallel::TwoBlockMatrix<dealii::PETScWrappers::MPI::SparseMatrix>&	K_stretched,
+			dealii::LinearAlgebra::distributed::Vector<double>&							solution,
+			const dealii::PETScWrappers::MPI::BlockVector&								f_stretched,
+			const bool																	symmetric = false)
+	const;
+};
+
+#endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_WITH_MPI
+
 GALERKIN_TOOLS_NAMESPACE_CLOSE
 DEAL_II_NAMESPACE_CLOSE
 
