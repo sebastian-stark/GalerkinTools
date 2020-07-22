@@ -1,13 +1,13 @@
 <map id="FEValuesInterface&lt; spacedim &gt;" name="FEValuesInterface&lt; spacedim &gt;">
-<area shape="rect" id="node2" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classFEFaceValues.html" title="FEFaceValues\&lt; spacedim,\l spacedim \&gt;" alt="" coords="856,183,1036,224"/>
-<area shape="rect" id="node3" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classFEFaceValuesBase.html" title="FEFaceValuesBase\&lt; dim,\l spacedim \&gt;" alt="" coords="605,192,779,233"/>
-<area shape="rect" id="node11" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classFESubfaceValues.html" title="FESubfaceValues\&lt; spacedim,\l spacedim \&gt;" alt="" coords="847,257,1045,299"/>
-<area shape="rect" id="node4" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classFEValuesBase.html" title="FEValuesBase\&lt; dim,\l spacedim \&gt;" alt="" coords="311,141,458,183"/>
-<area shape="rect" id="node9" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classFEFaceValuesBase.html" title="FEFaceValuesBase\&lt; spacedim,\l spacedim \&gt;" alt="" coords="587,112,797,153"/>
-<area shape="rect" id="node12" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classFEValues.html" title="FEValues\&lt; spacedim\l&#45;1, spacedim \&gt;" alt="" coords="619,5,765,47"/>
-<area shape="rect" id="node5" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classSubscriptor.html" title="Subscriptor" alt="" coords="56,75,144,102"/>
-<area shape="rect" id="node8" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classQuadrature.html" title="Quadrature\&lt; dim&#45;1 \&gt;" alt="" coords="313,90,456,117"/>
-<area shape="rect" id="node10" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classQuadrature.html" title="Quadrature\&lt; spacedim&#45;1 \&gt;" alt="" coords="296,39,473,66"/>
-<area shape="rect" id="node6" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classSmartPointer.html" title="SmartPointer\&lt; const\l FiniteElement\&lt; dim,\l spacedim \&gt;, FEValuesBase\l\&lt; dim, spacedim \&gt; \&gt;" alt="" coords="5,127,195,197"/>
-<area shape="rect" id="node7" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classSmartPointer.html" title="SmartPointer\&lt; const\l Mapping\&lt; dim, spacedim\l \&gt;, FEValuesBase\&lt; dim,\l spacedim \&gt; \&gt;" alt="" coords="14,221,186,292"/>
+<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classFEFaceValues.html" title="FEFaceValues\&lt; spacedim,\l spacedim \&gt;" alt="" coords="856,183,1036,224"/>
+<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classFEFaceValuesBase.html" title="FEFaceValuesBase\&lt; dim,\l spacedim \&gt;" alt="" coords="605,192,779,233"/>
+<area shape="rect" id="node11" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classFESubfaceValues.html" title="FESubfaceValues\&lt; spacedim,\l spacedim \&gt;" alt="" coords="847,257,1045,299"/>
+<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classFEValuesBase.html" title="FEValuesBase\&lt; dim,\l spacedim \&gt;" alt="" coords="311,141,458,183"/>
+<area shape="rect" id="node9" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classFEFaceValuesBase.html" title="FEFaceValuesBase\&lt; spacedim,\l spacedim \&gt;" alt="" coords="587,112,797,153"/>
+<area shape="rect" id="node12" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classFEValues.html" title="FEValues\&lt; spacedim\l&#45;1, spacedim \&gt;" alt="" coords="619,5,765,47"/>
+<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title="Subscriptor" alt="" coords="56,75,144,102"/>
+<area shape="rect" id="node8" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classQuadrature.html" title="Quadrature\&lt; dim&#45;1 \&gt;" alt="" coords="313,90,456,117"/>
+<area shape="rect" id="node10" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classQuadrature.html" title="Quadrature\&lt; spacedim&#45;1 \&gt;" alt="" coords="296,39,473,66"/>
+<area shape="rect" id="node6" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title="SmartPointer\&lt; const\l FiniteElement\&lt; dim,\l spacedim \&gt;, FEValuesBase\l\&lt; dim, spacedim \&gt; \&gt;" alt="" coords="5,127,195,197"/>
+<area shape="rect" id="node7" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title="SmartPointer\&lt; const\l Mapping\&lt; dim, spacedim\l \&gt;, FEValuesBase\&lt; dim,\l spacedim \&gt; \&gt;" alt="" coords="14,221,186,292"/>
 </map>

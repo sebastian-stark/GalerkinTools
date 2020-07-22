@@ -787,7 +787,7 @@ public:
 	 *
 	 * @note	This works only if the finite element corresponding to @p component is primitive.
 	 *
-	 * @note	This searches in the locally owned dofs. In parallel, this will select one of the dofs and return this dof on all processors for which this
+	 * @note	In parallel, this will select one of the dofs and return this dof on all processors for which this
 	 * 			dof is locally relevant (on all other processors numbers::invalid_dof_index is returned).
 	 */
 	unsigned int
@@ -803,11 +803,39 @@ public:
 	 *
 	 * @note	This works only if the finite element corresponding to @p component is primitive.
 	 *
-	 * @note	This searches in the locally owned dofs. In parallel, this will select one of the dofs and return this dof on all processors for which this
+	 * @note	In parallel, this will select one of the dofs and return this dof on all processors for which this
 	 * 			dof is locally relevant (on all other processors numbers::invalid_dof_index is returned).
 	 */
 	unsigned int
 	get_single_dof_index_component_domain(const unsigned int component)
+	const;
+
+	/**
+	 * @param[in]		component			The component for which all global dof indices are to be found
+	 *
+	 * @param[inout]	indices				The set into which the global dof indices belonging to the component @p component are written (already existing entries in the set are kept)
+	 *
+	 * @note	This works only if the finite element corresponding to @p component is primitive.
+	 *
+	 * @note	In parallel, this searches in the locally owned dofs.
+	 */
+	void
+	get_dof_indices_component_interface(const unsigned int 		component,
+										std::set<unsigned int>&	indices)
+	const;
+
+	/**
+	 * @param[in]		component			The component for which all global dof indices are to be found
+	 *
+	 * @param[inout]	indices				The set into which the global dof indices belonging to the component @p component are written (already existing entries in the set are kept)
+	 *
+	 * @note	This works only if the finite element corresponding to @p component is primitive.
+	 *
+	 * @note	In parallel, this searches in the locally owned dofs.
+	 */
+	void
+	get_dof_indices_component_domain(	const unsigned int 		component,
+										std::set<unsigned int>&	indices)
 	const;
 
 };

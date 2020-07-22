@@ -6,7 +6,8 @@
 
 
 
-Collaboration diagram for Do\+F\+Handler\+System$<$ spacedim $>$\+:\nopagebreak
+Collaboration diagram for Do\+F\+Handler\+System$<$ spacedim $>$\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -82,6 +83,10 @@ const std\+::vector$<$ unsigned int $>$ \& \hyperlink{class_do_f_handler_system_
 unsigned int \hyperlink{class_do_f_handler_system_a0acf8d35c183ac73bb445e3bac3dd59a}{get\+\_\+single\+\_\+dof\+\_\+index\+\_\+component\+\_\+interface} (const unsigned int component) const 
 \item 
 unsigned int \hyperlink{class_do_f_handler_system_aa25553114a5cbe59607b8b9df2162c3e}{get\+\_\+single\+\_\+dof\+\_\+index\+\_\+component\+\_\+domain} (const unsigned int component) const 
+\item 
+void \hyperlink{class_do_f_handler_system_a8c17d9da864812987d06258a29a6bd11}{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+interface} (const unsigned int component, std\+::set$<$ unsigned int $>$ \&indices) const 
+\item 
+void \hyperlink{class_do_f_handler_system_ac92b8ae730634afbf300a10de8d360e1}{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+domain} (const unsigned int component, std\+::set$<$ unsigned int $>$ \&indices) const 
 \end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
@@ -330,6 +335,46 @@ Function returning the global dof indices of the dofs not related to a mesh
 \mbox{\tt out}  & {\em dof\+\_\+indices} & dof indices of the dofs not related to a mesh \\
 \hline
 \end{DoxyParams}
+\index{Do\+F\+Handler\+System@{Do\+F\+Handler\+System}!get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+domain@{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+domain}}
+\index{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+domain@{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+domain}!Do\+F\+Handler\+System@{Do\+F\+Handler\+System}}
+\subsubsection[{\texorpdfstring{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+domain(const unsigned int component, std\+::set$<$ unsigned int $>$ \&indices) const }{get_dof_indices_component_domain(const unsigned int component, std::set< unsigned int > &indices) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Do\+F\+Handler\+System}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+domain (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{component, }
+\item[{std\+::set$<$ unsigned int $>$ \&}]{indices}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_do_f_handler_system_ac92b8ae730634afbf300a10de8d360e1}{}\label{class_do_f_handler_system_ac92b8ae730634afbf300a10de8d360e1}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em component} & The component for which all global dof indices are to be found\\
+\hline
+\mbox{\tt in,out}  & {\em indices} & The set into which the global dof indices belonging to the component {\ttfamily component} are written (already existing entries in the set are kept)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This works only if the finite element corresponding to {\ttfamily component} is primitive.
+
+In parallel, this searches in the locally owned dofs. 
+\end{DoxyNote}
+\index{Do\+F\+Handler\+System@{Do\+F\+Handler\+System}!get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+interface@{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+interface}}
+\index{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+interface@{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+interface}!Do\+F\+Handler\+System@{Do\+F\+Handler\+System}}
+\subsubsection[{\texorpdfstring{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+interface(const unsigned int component, std\+::set$<$ unsigned int $>$ \&indices) const }{get_dof_indices_component_interface(const unsigned int component, std::set< unsigned int > &indices) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void {\bf Do\+F\+Handler\+System}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+interface (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{component, }
+\item[{std\+::set$<$ unsigned int $>$ \&}]{indices}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_do_f_handler_system_a8c17d9da864812987d06258a29a6bd11}{}\label{class_do_f_handler_system_a8c17d9da864812987d06258a29a6bd11}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em component} & The component for which all global dof indices are to be found\\
+\hline
+\mbox{\tt in,out}  & {\em indices} & The set into which the global dof indices belonging to the component {\ttfamily component} are written (already existing entries in the set are kept)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This works only if the finite element corresponding to {\ttfamily component} is primitive.
+
+In parallel, this searches in the locally owned dofs. 
+\end{DoxyNote}
 \index{Do\+F\+Handler\+System@{Do\+F\+Handler\+System}!get\+\_\+locally\+\_\+owned\+\_\+dofs@{get\+\_\+locally\+\_\+owned\+\_\+dofs}}
 \index{get\+\_\+locally\+\_\+owned\+\_\+dofs@{get\+\_\+locally\+\_\+owned\+\_\+dofs}!Do\+F\+Handler\+System@{Do\+F\+Handler\+System}}
 \subsubsection[{\texorpdfstring{get\+\_\+locally\+\_\+owned\+\_\+dofs() const }{get_locally_owned_dofs() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ const {\bf Index\+Set}\& {\bf Do\+F\+Handler\+System}$<$ spacedim $>$\+::get\+\_\+locally\+\_\+owned\+\_\+dofs (
@@ -380,7 +425,7 @@ This function can be used to constrain a single dof of a domain related field (e
 
 This works only if the finite element corresponding to {\ttfamily component} is primitive.
 
-This searches in the locally owned dofs on the current processor. If you apply a constraint to fix e.\+g. the constant of a scalar potential field, make sure that you do so only on a single processor. 
+In parallel, this will select one of the dofs and return this dof on all processors for which this dof is locally relevant (on all other processors {\bf numbers\+::invalid\+\_\+dof\+\_\+index} is returned). 
 \end{DoxyNote}
 \index{Do\+F\+Handler\+System@{Do\+F\+Handler\+System}!get\+\_\+single\+\_\+dof\+\_\+index\+\_\+component\+\_\+interface@{get\+\_\+single\+\_\+dof\+\_\+index\+\_\+component\+\_\+interface}}
 \index{get\+\_\+single\+\_\+dof\+\_\+index\+\_\+component\+\_\+interface@{get\+\_\+single\+\_\+dof\+\_\+index\+\_\+component\+\_\+interface}!Do\+F\+Handler\+System@{Do\+F\+Handler\+System}}
@@ -402,7 +447,7 @@ This function can be used to constrain a single dof of an interface related fiel
 
 This works only if the finite element corresponding to {\ttfamily component} is primitive.
 
-This searches in the locally owned dofs on the current processor. If you apply a constraint to fix e.\+g. the constant of a scalar potential field, make sure that you do so only on a single processor. 
+In parallel, this will select one of the dofs and return this dof on all processors for which this dof is locally relevant (on all other processors {\bf numbers\+::invalid\+\_\+dof\+\_\+index} is returned). 
 \end{DoxyNote}
 \index{Do\+F\+Handler\+System@{Do\+F\+Handler\+System}!interface\+\_\+active\+\_\+iterators@{interface\+\_\+active\+\_\+iterators}}
 \index{interface\+\_\+active\+\_\+iterators@{interface\+\_\+active\+\_\+iterators}!Do\+F\+Handler\+System@{Do\+F\+Handler\+System}}
@@ -677,4 +722,4 @@ The \hyperlink{class_triangulation_system}{Triangulation\+System} underlying the
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/\hyperlink{dof__handler__system_8h}{dof\+\_\+handler\+\_\+system.\+h}\end{DoxyCompactItemize}
+/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\hyperlink{dof__handler__system_8h}{dof\+\_\+handler\+\_\+system.\+h}\end{DoxyCompactItemize}

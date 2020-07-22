@@ -2,23 +2,23 @@
 <tagfile>
   <compound kind="file">
     <name>mainpage.dox</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/doc/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/doc/</path>
     <filename>mainpage_8dox</filename>
   </compound>
   <compound kind="file">
     <name>assembly_helper.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>assembly__helper_8h</filename>
     <class kind="class">AssemblyHelper</class>
   </compound>
   <compound kind="file">
     <name>config.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>config_8h</filename>
   </compound>
   <compound kind="file">
     <name>dependent_field.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>dependent__field_8h</filename>
     <class kind="class">DependentFieldTerm</class>
     <class kind="class">DependentField</class>
@@ -26,13 +26,13 @@
   </compound>
   <compound kind="file">
     <name>dirichlet_constraint.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>dirichlet__constraint_8h</filename>
     <class kind="class">DirichletConstraint</class>
   </compound>
   <compound kind="file">
     <name>dof_handler_system.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>dof__handler__system_8h</filename>
     <class kind="class">DoFHandlerSystem</class>
     <class kind="class">InterfaceCellDoFIterator</class>
@@ -42,27 +42,27 @@
   </compound>
   <compound kind="file">
     <name>dof_renumbering.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>dof__renumbering_8h</filename>
     <class kind="class">DoFRenumbering</class>
     <class kind="class">DoFRenumberingOffset</class>
   </compound>
   <compound kind="file">
     <name>fe_values_interface.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>fe__values__interface_8h</filename>
     <class kind="class">FEValuesInterface</class>
   </compound>
   <compound kind="file">
     <name>independent_field.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>independent__field_8h</filename>
     <class kind="class">IndependentField</class>
     <class kind="class">IndependentField&lt; 0, spacedim &gt;</class>
   </compound>
   <compound kind="file">
     <name>ldr.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>ldr_8h</filename>
     <namespace>Auxiliary</namespace>
     <member kind="function">
@@ -75,30 +75,31 @@
   </compound>
   <compound kind="file">
     <name>linear_material.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>linear__material_8h</filename>
     <class kind="class">LinearMaterialDomain</class>
     <class kind="class">LinearMaterialInterface</class>
   </compound>
   <compound kind="file">
     <name>scalar_functional.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>scalar__functional_8h</filename>
     <class kind="class">ScalarFunctional</class>
     <class kind="class">ScalarFunctional&lt; spacedim, spacedim &gt;</class>
   </compound>
   <compound kind="file">
     <name>solver_wrapper.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>solver__wrapper_8h</filename>
     <class kind="class">SolverWrapper</class>
     <class kind="class">SolverWrapperUMFPACK</class>
     <class kind="class">BlockSolverWrapperUMFPACK</class>
     <class kind="class">SolverWrapperPETSc</class>
+    <class kind="class">SolverWrapperPETScIterative</class>
   </compound>
   <compound kind="file">
     <name>tools.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>tools_8h</filename>
     <namespace>Auxiliary</namespace>
     <member kind="function">
@@ -167,19 +168,19 @@
   </compound>
   <compound kind="file">
     <name>total_potential.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>total__potential_8h</filename>
     <class kind="class">TotalPotential</class>
   </compound>
   <compound kind="file">
     <name>total_potential_contribution.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>total__potential__contribution_8h</filename>
     <class kind="class">TotalPotentialContribution</class>
   </compound>
   <compound kind="file">
     <name>triangulation_system.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>triangulation__system_8h</filename>
     <class kind="class">InterfaceCellDomainCells</class>
     <class kind="class">TriangulationSystem</class>
@@ -238,7 +239,7 @@
   </compound>
   <compound kind="file">
     <name>two_block_matrix.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>two__block__matrix_8h</filename>
     <class kind="class">TwoBlockMatrix</class>
     <class kind="class">parallel::TwoBlockMatrix</class>
@@ -246,7 +247,7 @@
   </compound>
   <compound kind="file">
     <name>two_block_sparsity_pattern.h</name>
-    <path>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/</path>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>two__block__sparsity__pattern_8h</filename>
     <class kind="class">TwoBlockSparsityPattern</class>
   </compound>
@@ -990,6 +991,13 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
+      <type>ConditionalOStream</type>
+      <name>pout</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a717eb6ebc7c62fe00063edcf264f3ecc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
       <type>const TotalPotential&lt; spacedim &gt;</type>
       <name>total_potential</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
@@ -1414,6 +1422,13 @@
       <name>n_procs</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>a87945d87baf37637673fd124b3803fd5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>ConditionalOStream</type>
+      <name>pout</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a717eb6ebc7c62fe00063edcf264f3ecc</anchor>
       <arglist></arglist>
     </member>
     <member kind="function" protection="private">
@@ -2351,6 +2366,20 @@
       <anchorfile>class_do_f_handler_system.html</anchorfile>
       <anchor>aa25553114a5cbe59607b8b9df2162c3e</anchor>
       <arglist>(const unsigned int component) const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>get_dof_indices_component_interface</name>
+      <anchorfile>class_do_f_handler_system.html</anchorfile>
+      <anchor>a8c17d9da864812987d06258a29a6bd11</anchor>
+      <arglist>(const unsigned int component, std::set&lt; unsigned int &gt; &amp;indices) const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>get_dof_indices_component_domain</name>
+      <anchorfile>class_do_f_handler_system.html</anchorfile>
+      <anchor>ac92b8ae730634afbf300a10de8d360e1</anchor>
+      <arglist>(const unsigned int component, std::set&lt; unsigned int &gt; &amp;indices) const </arglist>
     </member>
     <member kind="function" protection="private">
       <type>void</type>
@@ -3483,6 +3512,18 @@
       <name>solve</name>
       <anchorfile>class_solver_wrapper_p_e_t_sc.html</anchorfile>
       <anchor>ac1033bb655ccc7459c4549e5ae4988c5</anchor>
+      <arglist>(const parallel::TwoBlockMatrix&lt; dealii::PETScWrappers::MPI::SparseMatrix &gt; &amp;K_stretched, dealii::LinearAlgebra::distributed::Vector&lt; double &gt; &amp;solution, const dealii::PETScWrappers::MPI::BlockVector &amp;f_stretched, const bool symmetric=false) const </arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>SolverWrapperPETScIterative</name>
+    <filename>class_solver_wrapper_p_e_t_sc_iterative.html</filename>
+    <base>SolverWrapper&lt; dealii::LinearAlgebra::distributed::Vector&lt; double &gt;, dealii::PETScWrappers::MPI::BlockVector, parallel::TwoBlockMatrix&lt; dealii::PETScWrappers::MPI::SparseMatrix &gt;, TwoBlockSparsityPattern &gt;</base>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>solve</name>
+      <anchorfile>class_solver_wrapper_p_e_t_sc_iterative.html</anchorfile>
+      <anchor>a22441581003123bc0ecefde1cf0f121a</anchor>
       <arglist>(const parallel::TwoBlockMatrix&lt; dealii::PETScWrappers::MPI::SparseMatrix &gt; &amp;K_stretched, dealii::LinearAlgebra::distributed::Vector&lt; double &gt; &amp;solution, const dealii::PETScWrappers::MPI::BlockVector &amp;f_stretched, const bool symmetric=false) const </arglist>
     </member>
   </compound>

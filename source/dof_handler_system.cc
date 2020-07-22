@@ -498,6 +498,7 @@ const
 					interface_cell.get_dof_indices(dof_indices_local_global);
 					if(locally_owned_dofs.is_element(dof_indices_local_global[sf]))
 						dof_index = dof_indices_local_global[sf];
+					// TODO: Why is here no break?
 				}
 			}
 		}
@@ -554,6 +555,7 @@ const
 					domain_cell.get_dof_indices(dof_indices_local_global);
 					if(locally_owned_dofs.is_element(dof_indices_local_global[sf]))
 						dof_index = dof_indices_local_global[sf];
+					// TODO: Why is here no break?
 				}
 			}
 		}
@@ -588,6 +590,59 @@ const
 		return dof_index;
 	else
 		return numbers::invalid_dof_index;
+}
+
+template<unsigned int spacedim>
+void
+DoFHandlerSystem<spacedim>::get_dof_indices_component_interface(const unsigned int	component,
+																set<unsigned int>&	indices)
+const
+{
+	vector<unsigned int> dof_indices_local_global;
+
+	for(const auto& interface_cell_domain_cells : interface_active_iterators())
+	{
+		const auto& interface_cell = interface_cell_domain_cells.interface_cell;
+		if(interface_cell->is_locally_owned())
+		{
+			const unsigned int n_dofs = interface_cell->get_fe().dofs_per_cell;
+			dof_indices_local_global.resize(n_dofs);
+			interface_cell.get_dof_indices(dof_indices_local_global);
+			for(unsigned int sf = 0; sf < n_dofs; ++sf)
+			{
+				if( (interface_cell->get_fe().is_primitive(sf)) && (interface_cell->get_fe().system_to_component_index(sf).first == component) )
+					indices.insert(dof_indices_local_global[sf]);
+			}
+		}
+	}
+	return;
+}
+
+template<unsigned int spacedim>
+void
+DoFHandlerSystem<spacedim>::get_dof_indices_component_domain(	const unsigned int	component,
+																set<unsigned int>&	indices)
+const
+{
+	vector<unsigned int> dof_indices_local_global;
+
+	for(const auto& domain_cell : domain_active_iterators())
+	{
+		if(domain_cell->is_locally_owned())
+		{
+			const unsigned int n_dofs = domain_cell->get_fe().dofs_per_cell;
+			dof_indices_local_global.resize(n_dofs);
+			domain_cell.get_dof_indices(dof_indices_local_global);
+			for(unsigned int sf = 0; sf < n_dofs; ++sf)
+			{
+				if( (domain_cell->get_fe().is_primitive(sf)) && (domain_cell->get_fe().system_to_component_index(sf).first == component) )
+				{
+					indices.insert(dof_indices_local_global[sf]);
+				}
+			}
+		}
+	}
+	return;
 }
 
 template<unsigned int spacedim>

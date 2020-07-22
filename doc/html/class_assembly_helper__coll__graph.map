@@ -1,9 +1,10 @@
 <map id="AssemblyHelper&lt; spacedim &gt;" name="AssemblyHelper&lt; spacedim &gt;">
-<area shape="rect" id="node2" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classSmartPointer.html" title="SmartPointer\&lt; const\l Mapping\&lt; spacedim,\l spacedim \&gt; \&gt;" alt="" coords="542,5,689,61"/>
-<area shape="rect" id="node3" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classMapping.html" title="Mapping\&lt; spacedim,\l spacedim \&gt;" alt="" coords="149,22,291,63"/>
-<area shape="rect" id="node4" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classSubscriptor.html" title="Subscriptor" alt="" coords="5,117,93,144"/>
-<area shape="rect" id="node5" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classhp_1_1FECollection.html" title="hp::FECollection\&lt; spacedim,\l spacedim \&gt;" alt="" coords="321,81,512,122"/>
-<area shape="rect" id="node6" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classhp_1_1FECollection.html" title="hp::FECollection\&lt; spacedim\l&#45;1, spacedim \&gt;" alt="" coords="323,141,510,182"/>
-<area shape="rect" id="node8" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classMapping.html" title="Mapping\&lt; spacedim&#45;1,\l spacedim \&gt;" alt="" coords="143,199,297,241"/>
-<area shape="rect" id="node7" href="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag$classSmartPointer.html" title="SmartPointer\&lt; const\l Mapping\&lt; spacedim&#45;1,\l spacedim \&gt; \&gt;" alt="" coords="536,211,695,267"/>
+<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title="SmartPointer\&lt; const\l Mapping\&lt; spacedim,\l spacedim \&gt; \&gt;" alt="" coords="542,5,689,61"/>
+<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classMapping.html" title="Mapping\&lt; spacedim,\l spacedim \&gt;" alt="" coords="149,22,291,63"/>
+<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title="Subscriptor" alt="" coords="5,117,93,144"/>
+<area shape="rect" id="node6" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classhp_1_1FECollection.html" title="hp::FECollection\&lt; spacedim,\l spacedim \&gt;" alt="" coords="321,81,512,122"/>
+<area shape="rect" id="node7" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classhp_1_1FECollection.html" title="hp::FECollection\&lt; spacedim\l&#45;1, spacedim \&gt;" alt="" coords="323,141,510,182"/>
+<area shape="rect" id="node9" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classMapping.html" title="Mapping\&lt; spacedim&#45;1,\l spacedim \&gt;" alt="" coords="143,199,297,241"/>
+<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classConditionalOStream.html" title="ConditionalOStream" alt="" coords="546,291,685,317"/>
+<area shape="rect" id="node8" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title="SmartPointer\&lt; const\l Mapping\&lt; spacedim&#45;1,\l spacedim \&gt; \&gt;" alt="" coords="536,211,695,267"/>
 </map>

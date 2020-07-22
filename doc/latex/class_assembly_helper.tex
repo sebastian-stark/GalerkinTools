@@ -6,7 +6,8 @@
 
 
 
-Collaboration diagram for Assembly\+Helper$<$ spacedim $>$\+:\nopagebreak
+Collaboration diagram for Assembly\+Helper$<$ spacedim $>$\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -278,6 +279,8 @@ std\+::vector$<$ boost\+::signals2\+::connection $>$ \hyperlink{class_assembly_h
 const unsigned int \hyperlink{class_assembly_helper_a2aad83ae1bfe5338794cf9b50848469a}{this\+\_\+proc}
 \item 
 const unsigned int \hyperlink{class_assembly_helper_a87945d87baf37637673fd124b3803fd5}{n\+\_\+procs}
+\item 
+{\bf Conditional\+O\+Stream} \hyperlink{class_assembly_helper_a717eb6ebc7c62fe00063edcf264f3ecc}{pout}
 \end{DoxyCompactItemize}
 \end{Indent}
 
@@ -1470,7 +1473,10 @@ The number of participating processors \index{Assembly\+Helper@{Assembly\+Helper
 Number of scalar functionals entering non-\/primitively into the total potential. This is the sum of the sizes of the maps \hyperlink{class_assembly_helper_acf05fab2ddf57769a103d82a4f2d1cd3}{Assembly\+Helper\+::scalar\+\_\+functionals\+\_\+domain\+\_\+nonprimitive\+\_\+indices} and \hyperlink{class_assembly_helper_a0d15b3ab0c7bec9fc4f40e532f8776f4}{Assembly\+Helper\+::scalar\+\_\+functionals\+\_\+interface\+\_\+nonprimitive\+\_\+indices} \index{Assembly\+Helper@{Assembly\+Helper}!n\+\_\+scalar\+\_\+functionals\+\_\+primitive@{n\+\_\+scalar\+\_\+functionals\+\_\+primitive}}
 \index{n\+\_\+scalar\+\_\+functionals\+\_\+primitive@{n\+\_\+scalar\+\_\+functionals\+\_\+primitive}!Assembly\+Helper@{Assembly\+Helper}}
 \subsubsection[{\texorpdfstring{n\+\_\+scalar\+\_\+functionals\+\_\+primitive}{n_scalar_functionals_primitive}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ unsigned int {\bf Assembly\+Helper}$<$ spacedim $>$\+::n\+\_\+scalar\+\_\+functionals\+\_\+primitive\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_assembly_helper_af5e03e8e47a85dbc96444ef61525c454}{}\label{class_assembly_helper_af5e03e8e47a85dbc96444ef61525c454}
-Number of scalar functionals entering primitively into the total potential. This is the the sum of the sizes of the maps \hyperlink{class_assembly_helper_a4f08790a2235e48ce19f5d8d965a7874}{Assembly\+Helper\+::scalar\+\_\+functionals\+\_\+domain\+\_\+primitive\+\_\+indices} and \hyperlink{class_assembly_helper_ad99c75f32cf3f18aa1d4067ad8b56ae8}{Assembly\+Helper\+::scalar\+\_\+functionals\+\_\+interface\+\_\+primitive\+\_\+indices} \index{Assembly\+Helper@{Assembly\+Helper}!scalar\+\_\+functionals\+\_\+domain@{scalar\+\_\+functionals\+\_\+domain}}
+Number of scalar functionals entering primitively into the total potential. This is the the sum of the sizes of the maps \hyperlink{class_assembly_helper_a4f08790a2235e48ce19f5d8d965a7874}{Assembly\+Helper\+::scalar\+\_\+functionals\+\_\+domain\+\_\+primitive\+\_\+indices} and \hyperlink{class_assembly_helper_ad99c75f32cf3f18aa1d4067ad8b56ae8}{Assembly\+Helper\+::scalar\+\_\+functionals\+\_\+interface\+\_\+primitive\+\_\+indices} \index{Assembly\+Helper@{Assembly\+Helper}!pout@{pout}}
+\index{pout@{pout}!Assembly\+Helper@{Assembly\+Helper}}
+\subsubsection[{\texorpdfstring{pout}{pout}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ {\bf Conditional\+O\+Stream} {\bf Assembly\+Helper}$<$ spacedim $>$\+::pout\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_assembly_helper_a717eb6ebc7c62fe00063edcf264f3ecc}{}\label{class_assembly_helper_a717eb6ebc7c62fe00063edcf264f3ecc}
+Stream used for standard output to screen (makes sure that output is printed only on one processor in parallel) \index{Assembly\+Helper@{Assembly\+Helper}!scalar\+\_\+functionals\+\_\+domain@{scalar\+\_\+functionals\+\_\+domain}}
 \index{scalar\+\_\+functionals\+\_\+domain@{scalar\+\_\+functionals\+\_\+domain}!Assembly\+Helper@{Assembly\+Helper}}
 \subsubsection[{\texorpdfstring{scalar\+\_\+functionals\+\_\+domain}{scalar_functionals_domain}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ std\+::vector$<$std\+::vector$<${\bf Smart\+Pointer}$<$const {\bf Scalar\+Functional}$<$spacedim, spacedim$>$ $>$ $>$ $>$ {\bf Assembly\+Helper}$<$ spacedim $>$\+::scalar\+\_\+functionals\+\_\+domain\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_assembly_helper_aa6fa619e4c2582e95950e878cd06628e}{}\label{class_assembly_helper_aa6fa619e4c2582e95950e878cd06628e}
 \hyperlink{class_assembly_helper_aa6fa619e4c2582e95950e878cd06628e}{Assembly\+Helper\+::scalar\+\_\+functionals\+\_\+domain}\mbox{[}{\ttfamily i}\mbox{]} contains the domain related scalar functionals which have non-\/zero integrands $h^\Omega_\rho$ on the domain portion with internal index {\ttfamily i}. If the contribution of a certain domain cell associated with internal index {\ttfamily i} to the finite element system is to be assembled, it is looped over all scalar functionals contained in \hyperlink{class_assembly_helper_aa6fa619e4c2582e95950e878cd06628e}{Assembly\+Helper\+::scalar\+\_\+functionals\+\_\+domain}\mbox{[}{\ttfamily i}\mbox{]}. \index{Assembly\+Helper@{Assembly\+Helper}!scalar\+\_\+functionals\+\_\+domain\+\_\+nonprimitive@{scalar\+\_\+functionals\+\_\+domain\+\_\+nonprimitive}}
@@ -1516,4 +1522,4 @@ vector of interface related independent fields $u^\Sigma_\eta$ involved in the d
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/sst/\+F\+E/code/incremental\+F\+E/galerkin\+\_\+tools/include/galerkin\+\_\+tools/\hyperlink{assembly__helper_8h}{assembly\+\_\+helper.\+h}\end{DoxyCompactItemize}
+/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\hyperlink{assembly__helper_8h}{assembly\+\_\+helper.\+h}\end{DoxyCompactItemize}

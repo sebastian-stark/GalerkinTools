@@ -1,0 +1,73 @@
+\hypertarget{class_solver_wrapper_p_e_t_sc_iterative}{}\section{Solver\+Wrapper\+P\+E\+T\+Sc\+Iterative Class Reference}
+\label{class_solver_wrapper_p_e_t_sc_iterative}\index{Solver\+Wrapper\+P\+E\+T\+Sc\+Iterative@{Solver\+Wrapper\+P\+E\+T\+Sc\+Iterative}}
+
+
+{\ttfamily \#include $<$solver\+\_\+wrapper.\+h$>$}
+
+
+
+Inheritance diagram for Solver\+Wrapper\+P\+E\+T\+Sc\+Iterative\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_solver_wrapper_p_e_t_sc_iterative__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Solver\+Wrapper\+P\+E\+T\+Sc\+Iterative\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_solver_wrapper_p_e_t_sc_iterative__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_solver_wrapper_p_e_t_sc_iterative_a22441581003123bc0ecefde1cf0f121a}{solve} (const \hyperlink{classparallel_1_1_two_block_matrix}{parallel\+::\+Two\+Block\+Matrix}$<$ {\bf dealii\+::\+P\+E\+T\+Sc\+Wrappers\+::\+M\+P\+I\+::\+Sparse\+Matrix} $>$ \&K\+\_\+stretched, {\bf dealii\+::\+Linear\+Algebra\+::distributed\+::\+Vector}$<$ double $>$ \&solution, const {\bf dealii\+::\+P\+E\+T\+Sc\+Wrappers\+::\+M\+P\+I\+::\+Block\+Vector} \&f\+\_\+stretched, const bool symmetric=false) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A \hyperlink{class_solver_wrapper}{Solver\+Wrapper} for the P\+E\+T\+Sc M\+U\+M\+PS solver, which works for parallel computations. 
+
+\subsection{Member Function Documentation}
+\index{Solver\+Wrapper\+P\+E\+T\+Sc\+Iterative@{Solver\+Wrapper\+P\+E\+T\+Sc\+Iterative}!solve@{solve}}
+\index{solve@{solve}!Solver\+Wrapper\+P\+E\+T\+Sc\+Iterative@{Solver\+Wrapper\+P\+E\+T\+Sc\+Iterative}}
+\subsubsection[{\texorpdfstring{solve(const parallel\+::\+Two\+Block\+Matrix$<$ dealii\+::\+P\+E\+T\+Sc\+Wrappers\+::\+M\+P\+I\+::\+Sparse\+Matrix $>$ \&\+K\+\_\+stretched, dealii\+::\+Linear\+Algebra\+::distributed\+::\+Vector$<$ double $>$ \&solution, const dealii\+::\+P\+E\+T\+Sc\+Wrappers\+::\+M\+P\+I\+::\+Block\+Vector \&f\+\_\+stretched, const bool symmetric=false) const }{solve(const parallel::TwoBlockMatrix< dealii::PETScWrappers::MPI::SparseMatrix > &K_stretched, dealii::LinearAlgebra::distributed::Vector< double > &solution, const dealii::PETScWrappers::MPI::BlockVector &f_stretched, const bool symmetric=false) const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Solver\+Wrapper\+P\+E\+T\+Sc\+Iterative\+::solve (
+\begin{DoxyParamCaption}
+\item[{const {\bf parallel\+::\+Two\+Block\+Matrix}$<$ {\bf dealii\+::\+P\+E\+T\+Sc\+Wrappers\+::\+M\+P\+I\+::\+Sparse\+Matrix} $>$ \&}]{K\+\_\+stretched, }
+\item[{{\bf dealii\+::\+Linear\+Algebra\+::distributed\+::\+Vector}$<$ double $>$ \&}]{solution, }
+\item[{const {\bf dealii\+::\+P\+E\+T\+Sc\+Wrappers\+::\+M\+P\+I\+::\+Block\+Vector} \&}]{f\+\_\+stretched, }
+\item[{const bool}]{symmetric = {\ttfamily false}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_solver_wrapper_p_e_t_sc_iterative_a22441581003123bc0ecefde1cf0f121a}{}\label{class_solver_wrapper_p_e_t_sc_iterative_a22441581003123bc0ecefde1cf0f121a}
+
+
+
+
+The solve function for the system of linear equations in the stretched form
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em K\+\_\+stretched} & The stretched system\+\_\+matrix\\
+\hline
+\mbox{\tt out}  & {\em solution} & The stretched solution vector\\
+\hline
+\mbox{\tt in}  & {\em f\+\_\+stretched} & The stretched right hand side vector\\
+\hline
+\mbox{\tt in}  & {\em symmetric} & A bool indicating whether {\ttfamily system\+\_\+matrix} is symmetric \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_solver_wrapper_a75a599630086e2edee14eb43ae071733}{Solver\+Wrapper$<$ dealii\+::\+Linear\+Algebra\+::distributed\+::\+Vector$<$ double $>$, dealii\+::\+P\+E\+T\+Sc\+Wrappers\+::\+M\+P\+I\+::\+Block\+Vector, parallel\+::\+Two\+Block\+Matrix$<$ dealii\+::\+P\+E\+T\+Sc\+Wrappers\+::\+M\+P\+I\+::\+Sparse\+Matrix $>$, Two\+Block\+Sparsity\+Pattern $>$}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\hyperlink{solver__wrapper_8h}{solver\+\_\+wrapper.\+h}\end{DoxyCompactItemize}

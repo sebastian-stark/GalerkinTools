@@ -151,9 +151,9 @@ Private Attributes</h2></td></tr>
 class parallel::TriangulationSystem&lt; spacedim &gt;</h3>
 
 <p>This is the parallel computing equivalent of the class <a class="el" href="classparallel_1_1_triangulation_system.html">TriangulationSystem</a> (for general information refer to the documentation of this class).</p>
-<p>For the domain triangulation the <a class="elRef" doxygen="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag:https://dealii.org/9.0.0/doxygen/deal.II/" href="https://dealii.org/9.0.0/doxygen/deal.II/classparallel_1_1distributed_1_1Triangulation.html">parallel::distributed::Triangulation</a> class is used. In contrast, for the interface triangulation the <a class="elRef" doxygen="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag:https://dealii.org/9.0.0/doxygen/deal.II/" href="https://dealii.org/9.0.0/doxygen/deal.II/classparallel_1_1Triangulation.html">parallel::Triangulation</a> class is used, which allows for the necessary manual management of the partitioning of the triangulation.</p>
+<p>For the domain triangulation the <a class="elRef" doxygen="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag:https://dealii.org/9.0.0/doxygen/deal.II/" href="https://dealii.org/9.0.0/doxygen/deal.II/classparallel_1_1distributed_1_1Triangulation.html">parallel::distributed::Triangulation</a> class is used. In contrast, for the interface triangulation the <a class="elRef" doxygen="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag:https://dealii.org/9.0.0/doxygen/deal.II/" href="https://dealii.org/9.0.0/doxygen/deal.II/classparallel_1_1Triangulation.html">parallel::Triangulation</a> class is used, which allows for the necessary manual management of the partitioning of the triangulation.</p>
 <p>Regarding ownership of interface cells, the convention used is that the ownership of interface cells is according to the ownership of the underlying domain cells on the minus side of the interface.</p>
-<p>In general, the complete coarse domain mesh with all <a class="elRef" doxygen="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag:https://dealii.org/9.0.0/doxygen/deal.II/" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacetypes.html#afb65af4be8a9a1d09a0c3ecc967c9d4c">types::material_id</a>s, <a class="elRef" doxygen="/home/sst/FE/code/incrementalFE/galerkin_tools/doc/deal.tag:https://dealii.org/9.0.0/doxygen/deal.II/" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacetypes.html#a9f062a82e4dab1dd631a2c4fa8162bea">types::manifold_id</a>s must be identically defined on each processor (this ensures that no ids are lost during the repartitioning process after mesh refinement).</p>
+<p>In general, the complete coarse domain mesh with all <a class="elRef" doxygen="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag:https://dealii.org/9.0.0/doxygen/deal.II/" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacetypes.html#afb65af4be8a9a1d09a0c3ecc967c9d4c">types::material_id</a>s, <a class="elRef" doxygen="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag:https://dealii.org/9.0.0/doxygen/deal.II/" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacetypes.html#a9f062a82e4dab1dd631a2c4fa8162bea">types::manifold_id</a>s must be identically defined on each processor (this ensures that no ids are lost during the repartitioning process after mesh refinement).</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">spacedim</td><td>The spatial dimension of the problem. </td></tr>
@@ -512,7 +512,7 @@ template&lt;unsigned int spacedim&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/sst/FE/code/incrementalFE/galerkin_tools/include/galerkin_tools/<a class="el" href="triangulation__system_8h_source.html">triangulation_system.h</a></li>
+<li>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/<a class="el" href="triangulation__system_8h_source.html">triangulation_system.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

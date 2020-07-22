@@ -310,10 +310,9 @@ const
 
 	PETScWrappers::PreconditionBoomerAMG preconditioner;
 	PETScWrappers::PreconditionBoomerAMG::AdditionalData data;
-	//data.symmetric_operator = symmetric;
+	data.symmetric_operator = symmetric;
     preconditioner.initialize(K, data);
     solver.solve(K,	solution_petsc, f_stretched.block(0), preconditioner);
-    cout << "   Solved in " << solver_control.last_step() << " iterations." << std::endl;
 
     for(const auto m : solution_petsc.locally_owned_elements())
 		solution(m) = solution_petsc(m);
