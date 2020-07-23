@@ -735,7 +735,6 @@ TriangulationSystem<spacedim>::generate_tria_interface_from_tria_domain()
 		generate_active_interface_cells_domain_cells(true);
 
 		bool changed;
-		const unsigned int n_procs = get_this_proc_n_procs().second;
 		do
 		{
 			changed = false;

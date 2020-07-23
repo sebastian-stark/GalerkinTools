@@ -22,7 +22,7 @@ var searchData=
   ['conditional_5fostream_2ecc',['conditional_ostream.cc',['https://dealii.org/9.0.0/doxygen/deal.II/conditional__ostream_8cc.html',1,'']]],
   ['conditional_5fostream_2eh',['conditional_ostream.h',['https://dealii.org/9.0.0/doxygen/deal.II/conditional__ostream_8h.html',1,'']]],
   ['config_2ecc',['config.cc',['https://dealii.org/9.0.0/doxygen/deal.II/config_8cc.html',1,'']]],
-  ['config_2eh',['config.h',['../config_8h.html',1,'(Global Namespace)'],['https://dealii.org/9.0.0/doxygen/deal.II/config_8h.html',1,'(Global Namespace)']]],
+  ['config_2eh',['config.h',['https://dealii.org/9.0.0/doxygen/deal.II/config_8h.html',1,'']]],
   ['constrained_5flinear_5foperator_2eh',['constrained_linear_operator.h',['https://dealii.org/9.0.0/doxygen/deal.II/constrained__linear__operator_8h.html',1,'']]],
   ['constraint_5fmatrix_2ecc',['constraint_matrix.cc',['https://dealii.org/9.0.0/doxygen/deal.II/constraint__matrix_8cc.html',1,'']]],
   ['constraint_5fmatrix_2eh',['constraint_matrix.h',['https://dealii.org/9.0.0/doxygen/deal.II/constraint__matrix_8h.html',1,'']]],

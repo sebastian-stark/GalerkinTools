@@ -43,6 +43,19 @@ FOREACH(_build "debug" "release")
     ELSE()
       TARGET_LINK_LIBRARIES(${_target} ${LAPACKE_LIBRARY})
       TARGET_INCLUDE_DIRECTORIES(${_target} PRIVATE ${LAPACKE_INSTALL_PATH_HEADERS})
+      OPTION(GALERKIN_TOOLS_WITH_UMFPACK "Enable UMFPACK" ON)
+    ENDIF()
+
+    #link against UMFPACK and include corresponding header
+    FIND_LIBRARY(UMFPACK_LIBRARY umfpack HINTS ${SUITE_SPARSE_DIR} $ENV{SUITE_SPARSE_DIR} ${UMFPACK_DIR} $ENV{UMFPACK_DIR} PATH_SUFFIXES lib)
+    FIND_PATH(UMFPACK_INSTALL_PATH_HEADERS NAMES umfpack.h HINTS ${SUITE_SPARSE_DIR} $ENV{SUITE_SPARSE_DIR} ${UMFPACK_DIR} $ENV{UMFPACK_DIR} PATH_SUFFIXES include)
+    IF( (${UMFPACK_LIBRARY} MATCHES "UMFPACK_LIBRARY-NOTFOUND") OR (${UMFPACK_INSTALL_PATH_HEADERS} MATCHES "UMFPACK_INSTALL_PATH_HEADERS-NOTFOUND") )
+      MESSAGE("*** Could not locate UMFPACK ***\n\n"
+        "You may want to either pass a flag -DSUITE_SPARSE_DIR=/path/to/suite_sparse to cmake\n"
+        "or set an environment variable \"SUITE_SPARSE_DIR\" that contains this path.")
+    ELSE()
+      TARGET_LINK_LIBRARIES(${_target} ${UMFPACK_LIBRARY})
+      TARGET_INCLUDE_DIRECTORIES(${_target} PRIVATE ${UMFPACK_INSTALL_PATH_HEADERS})
     ENDIF()
 
     #link against deal.II and include headers of deal.II
@@ -57,6 +70,11 @@ FOREACH(_build "debug" "release")
 
 ENDFOREACH(_build)
 
+#make config.h
+CONFIGURE_FILE(../include/galerkin_tools/config.h.in ../include/galerkin_tools/config.h)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/../include)
+
 #install the headers of the library galerkin_tools
-INSTALL(DIRECTORY ${CMAKE_SOURCE_DIR}/include/galerkin_tools DESTINATION ${GALERKIN_TOOLS_INSTALL_PATH_HEADERS})
+INSTALL(DIRECTORY ${CMAKE_SOURCE_DIR}/include/galerkin_tools DESTINATION ${GALERKIN_TOOLS_INSTALL_PATH_HEADERS} FILES_MATCHING PATTERN "*.h")
+INSTALL(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/../include/galerkin_tools DESTINATION ${GALERKIN_TOOLS_INSTALL_PATH_HEADERS} FILES_MATCHING PATTERN "*.h")
 

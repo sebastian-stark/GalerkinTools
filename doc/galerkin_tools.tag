@@ -12,11 +12,6 @@
     <class kind="class">AssemblyHelper</class>
   </compound>
   <compound kind="file">
-    <name>config.h</name>
-    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
-    <filename>config_8h</filename>
-  </compound>
-  <compound kind="file">
     <name>dependent_field.h</name>
     <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>dependent__field_8h</filename>
@@ -96,6 +91,7 @@
     <class kind="class">BlockSolverWrapperUMFPACK</class>
     <class kind="class">SolverWrapperPETSc</class>
     <class kind="class">SolverWrapperPETScIterative</class>
+    <class kind="class">BlockSolverWrapperUMFPACK2</class>
   </compound>
   <compound kind="file">
     <name>tools.h</name>
@@ -1736,6 +1732,130 @@
       <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k.html</anchorfile>
       <anchor>acb9f3b8c9a7996cad23a4d5a663432d7</anchor>
       <arglist>(const TwoBlockMatrix&lt; dealii::SparseMatrix&lt; double &gt;&gt; &amp;K_stretched, dealii::Vector&lt; double &gt; &amp;solution, const dealii::BlockVector&lt; double &gt; &amp;f_stretched, const bool symmetric=false) const </arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>BlockSolverWrapperUMFPACK2</name>
+    <filename>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</filename>
+    <base>SolverWrapper&lt; dealii::Vector&lt; double &gt;, dealii::BlockVector&lt; double &gt;, TwoBlockMatrix&lt; dealii::SparseMatrix&lt; double &gt; &gt;, TwoBlockSparsityPattern &gt;</base>
+    <member kind="function">
+      <type></type>
+      <name>~BlockSolverWrapperUMFPACK2</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>a8f298590602e05af072f1ce4178199f2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>solve</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>a490b0cf1b929be32d3a4e26a97a520ec</anchor>
+      <arglist>(const TwoBlockMatrix&lt; dealii::SparseMatrix&lt; double &gt;&gt; &amp;K_stretched, dealii::Vector&lt; double &gt; &amp;solution, const dealii::BlockVector&lt; double &gt; &amp;f_stretched, const bool symmetric=false) const </arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>DeclException2</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>aa454139937c8f01d8e893a7e09d3b1a2</anchor>
+      <arglist>(ExcUMFPACKError, std::string, int,&lt;&lt; &quot;UMFPACK routine &quot;&lt;&lt; arg1&lt;&lt; &quot; returned error status &quot;&lt;&lt; arg2&lt;&lt; &quot;.&quot;)</arglist>
+    </member>
+    <member kind="variable">
+      <type>unsigned int</type>
+      <name>analyze</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>a5869a4301c4e7a3ae64aa8998131d8c7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>unsigned int</type>
+      <name>print_level</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>af78261735f66012f531c3a71c9640d2c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>initialize_matrix</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>ab97e246439c72620e7c434fd53ac96e9</anchor>
+      <arglist>(const SparseMatrix&lt; double &gt; &amp;matrix) const </arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>analyze_matrix</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>a81e44a6e9414b3ef84295f966a16a907</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>factorize_matrix</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>a257c886568befa97173650ebd6d09344</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>vmult</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>a359ffe48728b7ed55500b959fea67d59</anchor>
+      <arglist>(Vector&lt; double &gt; &amp;x, const Vector&lt; double &gt; &amp;f) const </arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; double &gt;</type>
+      <name>control</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>a295fca0b28991ae43c7bdfb72b5cdcb2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; double &gt;</type>
+      <name>info</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>a8dfbe8f5e1f1cf26460ba584b4eb02b6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>unsigned int</type>
+      <name>N</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>a85d397826a36330bf3602d510acdd8d4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>void *</type>
+      <name>symbolic_decomposition</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>a399387c1717404d92ed721fc31767f55</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>void *</type>
+      <name>numeric_decomposition</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>ac3a439162324f36f5162439c075d02eb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; SuiteSparse_long &gt;</type>
+      <name>Ap</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>a18e53f152f97e51caab8dcf3efd5eaf1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; SuiteSparse_long &gt;</type>
+      <name>Ai</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>a088fc386567b26c63b8d1a25a9319c75</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; double &gt;</type>
+      <name>Ax</name>
+      <anchorfile>class_block_solver_wrapper_u_m_f_p_a_c_k2.html</anchorfile>
+      <anchor>a57a4f7722dbbdd1ec2efa416f1cbb47c</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -3642,6 +3762,102 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>parallel::TriangulationSystem</name>
+    <filename>classparallel_1_1_triangulation_system.html</filename>
+    <templarg>spacedim</templarg>
+    <member kind="function">
+      <type></type>
+      <name>TriangulationSystem</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a2d0fa99c5da897bedc4d9df93d6cdaf7</anchor>
+      <arglist>(dealii::parallel::distributed::Triangulation&lt; spacedim, spacedim &gt; &amp;tria_domain)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~TriangulationSystem</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>ad12682d17e85ee169fd53cdbe0536f16</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual const dealii::parallel::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
+      <name>get_triangulation_domain</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>afcd68b5e999d3c656d728e6313d37957</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual const dealii::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
+      <name>get_triangulation_interface</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a6c80e2e3391aa784100984c6aae834e1</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual dealii::parallel::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
+      <name>get_triangulation_domain</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a4901a2f0e26104d5a085253620b98f52</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual dealii::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
+      <name>get_triangulation_interface</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>ab799af10ed705dcf903bcd78325762b0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>close</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a5a7ef73bec1fbe698480e1bd7c6cd8a7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>write_meshes_per_processor_as_vtu</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a58151f4fc7d91474a24c5666a18aa354</anchor>
+      <arglist>(const std::string file_name_domain, const std::string file_name_interface) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual std::pair&lt; const unsigned int, const unsigned int &gt;</type>
+      <name>get_this_proc_n_procs</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a7f9b450a3667344b0a291d8e8dfdee18</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="virtual">
+      <type>virtual void</type>
+      <name>pre_refinement_domain</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a79e9789e83e12900c85cf8de0644271f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="virtual">
+      <type>virtual void</type>
+      <name>post_refinement_domain</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a951181f2ad877283d458fa19db42efb2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>update_interface_subdomain_ids</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a2dfa7c2bf13b929a4d1abf685d5b1448</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>MPI_Comm</type>
+      <name>mpi_communicator</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>aff7cdcf04d5a4fb633d714130da893b0</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>TriangulationSystem</name>
     <filename>class_triangulation_system.html</filename>
     <templarg>spacedim</templarg>
@@ -3956,99 +4172,43 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>parallel::TriangulationSystem</name>
-    <filename>classparallel_1_1_triangulation_system.html</filename>
-    <templarg>spacedim</templarg>
+    <name>parallel::TwoBlockMatrix</name>
+    <filename>classparallel_1_1_two_block_matrix.html</filename>
+    <templarg>MatrixType</templarg>
     <member kind="function">
       <type></type>
-      <name>TriangulationSystem</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a2d0fa99c5da897bedc4d9df93d6cdaf7</anchor>
-      <arglist>(dealii::parallel::distributed::Triangulation&lt; spacedim, spacedim &gt; &amp;tria_domain)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~TriangulationSystem</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>ad12682d17e85ee169fd53cdbe0536f16</anchor>
+      <name>TwoBlockMatrix</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a93990616301e671f9a967fbc49029674</anchor>
       <arglist>()=default</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual const dealii::parallel::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
-      <name>get_triangulation_domain</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>afcd68b5e999d3c656d728e6313d37957</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual const dealii::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
-      <name>get_triangulation_interface</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a6c80e2e3391aa784100984c6aae834e1</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual dealii::parallel::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
-      <name>get_triangulation_domain</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a4901a2f0e26104d5a085253620b98f52</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual dealii::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
-      <name>get_triangulation_interface</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>ab799af10ed705dcf903bcd78325762b0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>close</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a5a7ef73bec1fbe698480e1bd7c6cd8a7</anchor>
-      <arglist>()</arglist>
+    <member kind="function">
+      <type></type>
+      <name>TwoBlockMatrix</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>afa9b3f1c3d74a211c334c8f6e59b52f6</anchor>
+      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
-      <name>write_meshes_per_processor_as_vtu</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a58151f4fc7d91474a24c5666a18aa354</anchor>
-      <arglist>(const std::string file_name_domain, const std::string file_name_interface) const </arglist>
+      <name>reinit</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a0e112695034c69aa8a430efd9e7c37ef</anchor>
+      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual std::pair&lt; const unsigned int, const unsigned int &gt;</type>
-      <name>get_this_proc_n_procs</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a7f9b450a3667344b0a291d8e8dfdee18</anchor>
+    <member kind="function">
+      <type>dealii::GalerkinTools::parallel::TwoBlockMatrix&lt; MatrixType &gt; &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a8e2ba56ebc9ee5ad1fe7b1d8604e9669</anchor>
+      <arglist>(const double value)</arglist>
+    </member>
+    <member kind="function">
+      <type>const MPI_Comm &amp;</type>
+      <name>get_communicator</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a4894068aad11986f43c1221cd696dc2a</anchor>
       <arglist>() const </arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>pre_refinement_domain</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a79e9789e83e12900c85cf8de0644271f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>post_refinement_domain</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a951181f2ad877283d458fa19db42efb2</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>update_interface_subdomain_ids</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a2dfa7c2bf13b929a4d1abf685d5b1448</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>MPI_Comm</type>
-      <name>mpi_communicator</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>aff7cdcf04d5a4fb633d714130da893b0</anchor>
-      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -4299,46 +4459,6 @@
       <anchorfile>class_two_block_matrix.html</anchorfile>
       <anchor>a7d63b4c4c1e499c9f9913444dc5fd6b6</anchor>
       <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>parallel::TwoBlockMatrix</name>
-    <filename>classparallel_1_1_two_block_matrix.html</filename>
-    <templarg>MatrixType</templarg>
-    <member kind="function">
-      <type></type>
-      <name>TwoBlockMatrix</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a93990616301e671f9a967fbc49029674</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>TwoBlockMatrix</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>afa9b3f1c3d74a211c334c8f6e59b52f6</anchor>
-      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reinit</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a0e112695034c69aa8a430efd9e7c37ef</anchor>
-      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
-    </member>
-    <member kind="function">
-      <type>dealii::GalerkinTools::parallel::TwoBlockMatrix&lt; MatrixType &gt; &amp;</type>
-      <name>operator=</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a8e2ba56ebc9ee5ad1fe7b1d8604e9669</anchor>
-      <arglist>(const double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>const MPI_Comm &amp;</type>
-      <name>get_communicator</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a4894068aad11986f43c1221cd696dc2a</anchor>
-      <arglist>() const </arglist>
     </member>
   </compound>
   <compound kind="class">

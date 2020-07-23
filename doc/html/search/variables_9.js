@@ -45,6 +45,7 @@ var searchData=
   ['indices_5fby_5fblock',['indices_by_block',['https://dealii.org/9.0.0/doxygen/deal.II/classMeshWorker_1_1DoFInfo.html#abf9abc5ffad3e2c73c12dc3362c309bd',1,'MeshWorker::DoFInfo']]],
   ['indices_5fon_5fcell',['indices_on_cell',['https://dealii.org/9.0.0/doxygen/deal.II/classSolutionTransfer.html#a270e07ab5108066b6889c98908145bdd',1,'SolutionTransfer']]],
   ['indices_5forg',['indices_org',['https://dealii.org/9.0.0/doxygen/deal.II/classMeshWorker_1_1DoFInfo.html#a0edeaf466428fb857a5f2eef1054a4c7',1,'MeshWorker::DoFInfo']]],
+  ['info',['info',['../class_block_solver_wrapper_u_m_f_p_a_c_k2.html#a8dfbe8f5e1f1cf26460ba584b4eb02b6',1,'BlockSolverWrapperUMFPACK2']]],
   ['inhomogeneity',['inhomogeneity',['https://dealii.org/9.0.0/doxygen/deal.II/structConstraintMatrix_1_1ConstraintLine.html#a951f236c7e1f1e15adf08e84a3903bd1',1,'ConstraintMatrix::ConstraintLine']]],
   ['initial',['initial',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceAlgorithms_1_1Events.html#a15a12dfdadd39a026d192ad96cb6207b',1,'Algorithms::Events']]],
   ['initial_5fstep_5fsize',['initial_step_size',['https://dealii.org/9.0.0/doxygen/deal.II/classSUNDIALS_1_1IDA_1_1AdditionalData.html#a1ab788c02b4e3ef195584ccd301287c1',1,'SUNDIALS::IDA::AdditionalData::initial_step_size()'],['https://dealii.org/9.0.0/doxygen/deal.II/classSUNDIALS_1_1ARKode_1_1AdditionalData.html#a17b5adb5730165971dfa53e097c0a257',1,'SUNDIALS::ARKode::AdditionalData::initial_step_size()']]],
