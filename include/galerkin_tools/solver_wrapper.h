@@ -183,13 +183,12 @@ public:
 
 #ifdef GALERKIN_TOOLS_WITH_PARDISO
 
-/* PARDISO prototypes */
-/*extern "C" void pardisoinit(void*, int*, int*, int*, double*, int *);
+/** PARDISO prototypes */
+extern "C" void pardisoinit(void*, int*, int*, int*, double*, int *);
 extern "C" void pardiso(void*, int*, int*, int*, int*, int*, double*, int*, int*, int*, int*, int*, int*, double*, double*, int*, double*);
 extern "C" void pardiso_chkmatrix(int*, int*, double*, int*, int*, int*);
 extern "C" void pardiso_chkvec(int*, int*, double*, int*);
 extern "C" void pardiso_printstats(int*, int*, double*, int*, int*, int*, double*, int*);
-*/
 
 /**
  * A SolverWrapper for the PARDISO solver included in the Intel MKL library.

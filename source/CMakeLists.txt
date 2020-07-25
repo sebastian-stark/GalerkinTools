@@ -34,7 +34,17 @@ ENDIF()
 
 #find PARDISO
 IF( DEFINED ENV{PARDISO_LIBRARY} )
-#  LINK_LIBRARIES($ENV{PARDISO_LIBRARY})
+  FIND_PACKAGE(OpenMP)
+  IF(NOT ${Open_MP_FOUND})
+    MESSAGE(FATAL_ERROR "\n"
+      "*** You want to use PARDISO, which requires OpenMP. But did not find OpenMP.")
+  ENDIF()
+  #TODO: deal.II can in principle be configured without LAPACK. In this case, LAPACK would have to be pulled in here ...
+  IF(NOT ${DEAL_II_WITH_LAPACK})
+    MESSAGE(FATAL_ERROR "\n"
+      "*** You want to use PARDISO, which requires LAPACK. But deal.II was not configured with LAPACK.")
+  ENDIF()
+  LINK_LIBRARIES($ENV{PARDISO_LIBRARY})
   OPTION(GALERKIN_TOOLS_WITH_PARDISO "Enable PARDISO" ON)
 ELSE()
   MESSAGE("*** Could not locate PARDISO ***\n\n"
@@ -53,6 +63,13 @@ FOREACH(_build "debug" "release")
     SET_PROPERTY(TARGET ${_target} APPEND_STRING PROPERTY COMPILE_FLAGS " ${DEAL_II_CXX_FLAGS} ${DEAL_II_CXX_FLAGS_${_build_toupper}}")
     SET_PROPERTY(TARGET ${_target} APPEND PROPERTY COMPILE_DEFINITIONS "${DEAL_II_USER_DEFINITIONS};${DEAL_II_USER_DEFINITIONS_${_build_toupper}}")
     SET_PROPERTY(TARGET ${_target} APPEND PROPERTY LINK_FLAGS "${DEAL_II_LINKER_FLAGS} ${DEAL_II_LINKER_FLAGS_${_build_toupper}}")
+    IF(GALERKIN_TOOLS_WITH_PARDISO)
+      SET_PROPERTY(TARGET ${_target} APPEND_STRING PROPERTY COMPILE_FLAGS " -fopenmp")
+      SET_PROPERTY(TARGET ${_target} APPEND_STRING PROPERTY LINK_FLAGS " -fopenmp")
+      #the pardiso library is not linked against lapack, blas and openmp - so make sure that these libraries are nevertheless listed in the shared library (otherwise they would have
+      #to be included into LD_PRELOAD
+      SET_PROPERTY(TARGET ${_target} APPEND_STRING PROPERTY LINK_FLAGS " -Wl,--no-as-needed")
+    ENDIF()
 
     #link against deal.II
     TARGET_LINK_LIBRARIES(${_target} ${DEAL_II_LIBRARIES_${_build_toupper}})

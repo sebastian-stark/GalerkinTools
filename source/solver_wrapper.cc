@@ -337,7 +337,6 @@ BlockSolverWrapperPARDISO::solve(const TwoBlockMatrix<SparseMatrix<double>>& K_s
 								const bool 									/*symmetric*/)
 const
 {
-#ifdef blabla
     /* Matrix data. */
     int    n = 8;
     int    ia[ 9] = { 0, 4, 7, 9, 11, 14, 16, 17, 18 };
@@ -408,7 +407,7 @@ const
         printf("[PARDISO]: License check was successful ... \n");
 
     /* Numbers of processors, value of OMP_NUM_THREADS */
-    setenv("OMP_NUM_THREADS", "1", 1);
+    setenv("OMP_NUM_THREADS", "8", 8);
     var = getenv("OMP_NUM_THREADS");
     if(var != NULL)
         sscanf( var, "%d", &num_procs );
@@ -439,8 +438,6 @@ const
     for (i = 0; i < n; i++) {
         b[i] = i;
     }
-
-cout << "HERE" << endl;
 
 /* -------------------------------------------------------------------- */
 /*  .. pardiso_chk_matrix(...)                                          */
@@ -554,7 +551,7 @@ cout << "HERE" << endl;
     pardiso (pt, &maxfct, &mnum, &mtype, &phase,
              &n, &ddum, ia, ja, &idum, &nrhs,
              iparm, &msglvl, &ddum, &ddum, &error,  dparm);
-#endif
+    Assert(false, ExcMessage("Breakpoint"));
 }
 
 #endif // GALERKIN_TOOLS_WITH_PARDISO
