@@ -22,8 +22,6 @@
 #include <deal.II/lac/petsc_solver.h>
 #include <deal.II/lac/sparse_direct.h>
 #include <deal.II/lac/petsc_precondition.h>
-#include <camd.h>
-#include <ccolamd.h>
 
 using namespace std;
 
@@ -41,7 +39,6 @@ SolverWrapperUMFPACK::solve(const SparseMatrix<double>& K_stretched,
 		 	 	 	 	 	Vector<double>&				solution,
 							const Vector<double>&		f_stretched,
 							const bool 					/*symmetric*/)
-const
 {
 	SparseDirectUMFPACK direct_solver;
 	direct_solver.initialize(K_stretched);
@@ -53,7 +50,6 @@ BlockSolverWrapperUMFPACK::solve(	const TwoBlockMatrix<SparseMatrix<double>>& K_
 		 	 	 	 	 			Vector<double>&				solution,
 									const BlockVector<double>&	f_stretched,
 									const bool 					/*symmetric*/)
-const
 {
 
 	//matrix sub blocks
@@ -72,7 +68,7 @@ const
 	if(size_f == 0)
 	{
 		direct_solver.initialize(D);
-		direct_solver.vmult(solution, f_stretched.block(0));
+		direct_solver.vmult(solution, f_stretched.block(1));
 		return;
 	}
 	else if(size_w == 0)
@@ -154,7 +150,6 @@ SolverWrapperPETSc::solve(	const parallel::TwoBlockMatrix<PETScWrappers::MPI::Sp
 							LinearAlgebra::distributed::Vector<double>&							solution,
 							const PETScWrappers::MPI::BlockVector&								f_stretched,
 							const bool															symmetric)
-const
 {
 
 	//mpi communicator
@@ -176,10 +171,10 @@ const
 
 	if(size_f == 0)
 	{
-		PETScWrappers::MPI::Vector solution_petsc(f_stretched.block(0).locally_owned_elements(), comm);
+		PETScWrappers::MPI::Vector solution_petsc(f_stretched.block(1).locally_owned_elements(), comm);
 		PETScWrappers::SparseDirectMUMPS solver(cn, comm);
 		solver.set_symmetric_mode(symmetric);
-		solver.solve(D, solution_petsc, f_stretched.block(0));
+		solver.solve(D, solution_petsc, f_stretched.block(1));
 		for(const auto m : solution_petsc.locally_owned_elements())
 			solution(m) = solution_petsc(m);
 		solution.compress(VectorOperation::insert);
@@ -290,7 +285,6 @@ SolverWrapperPETScIterative::solve(	const parallel::TwoBlockMatrix<PETScWrappers
 									LinearAlgebra::distributed::Vector<double>&							solution,
 									const PETScWrappers::MPI::BlockVector&								f_stretched,
 									const bool															symmetric)
-const
 {
 	//mpi communicator
 	MPI_Comm comm = K_stretched.get_communicator();
@@ -331,231 +325,555 @@ const
 #ifdef GALERKIN_TOOLS_WITH_PARDISO
 
 void
-BlockSolverWrapperPARDISO::solve(const TwoBlockMatrix<SparseMatrix<double>>& K_stretched,
-		 	 	 	 	 		Vector<double>&								solution,
-								const BlockVector<double>&					f_stretched,
-								const bool 									/*symmetric*/)
-const
+BlockSolverWrapperPARDISO::initialize_matrix(	const SparseMatrix<double>& matrix)
 {
-    /* Matrix data. */
-    int    n = 8;
-    int    ia[ 9] = { 0, 4, 7, 9, 11, 14, 16, 17, 18 };
-    int    ja[18] = { 0,    2,       5, 6,
-                         1, 2,    4,
-                            2,             7,
-                               3,       6,
-                                  4, 5, 6,
-                                     5,    7,
-                                        6,
-                                           7 };
-    double  a[18] = { 7.0,      1.0,           2.0, 7.0,
-                          -4.0, 8.0,           2.0,
-                                1.0,                     5.0,
-                                     7.0,           9.0,
-                                          5.0, 1.0, 5.0,
-                                               0.0,      5.0,
-                                                   11.0,
-                                                         5.0 };
+	msglvl = print_level;
 
-    int      nnz = ia[n];
-    int      mtype = -2;        /* Real symmetric matrix */
+	Assert(matrix.m() == matrix.n(), ExcNotQuadratic());
 
-    /* RHS and solution vectors. */
-    double   b[8], x[8];
-    int      nrhs = 1;          /* Number of right hand sides. */
+	N = matrix.m();
+	const int N_nonzero = matrix_type < 2 ? matrix.n_nonzero_elements() : (matrix.n_nonzero_elements() - N) / 2 + N;
+	Ap.resize(N + 1);
+	Ai.resize(N_nonzero);
+	Ax.resize(N_nonzero);
 
-    /* Internal solver memory pointer pt,                  */
-    /* 32-bit: int pt[64]; 64-bit: long int pt[64]         */
-    /* or void *pt[64] should be OK on both architectures  */
-    void    *pt[64];
+	Ap[0] = 1;
+	unsigned int elements_in_row;
+	if(matrix_type < 2)
+	{
+		for (int row = 0; row < N; ++row)
+			Ap[row + 1] = Ap[row] + matrix.get_row_length(row);
+		Assert(Ap.back() - 1 == N_nonzero, ExcMessage("Either this is a bug in the implementation of the PARDISO interface or the matrix supplied is not associated with a symmetric sparsity pattern!"));
 
-    /* Pardiso control parameters. */
-    int      iparm[64];
-    double   dparm[64];
-    int      maxfct, mnum, phase, error, msglvl, solver;
+		std::vector<int> row_pointers = Ap;
+		for (int row = 0; row < N; ++row)
+		{
+			for(auto p = matrix.begin(row); p != matrix.end(row); ++p)
+			{
+				Ai[row_pointers[row] - 1] = p->column() + 1;
+				Ax[row_pointers[row] - 1] = std::real(p->value());
+				if(p->column() == p->row())
+					Ax[row_pointers[row] - 1] += 0.0;
+				++row_pointers[row];
+			}
+			Assert(Ap[row + 1] == row_pointers[row], ExcMessage("Internal error - this indicates a bug!"));
+		}
+	}
+	else
+	{
+		for(int row = 0; row < N; ++row)
+		{
+			elements_in_row = matrix.get_row_length(row);
+			for(auto p = matrix.begin(row); p != matrix.end(row); ++p)
+			{
+				if(p->column() < p->row())
+					elements_in_row--;
+			}
+			Ap[row + 1] = Ap[row] + elements_in_row;
+		}
+		Assert(Ap.back() - 1 == N_nonzero, ExcMessage("Either this is a bug in the implementation of the PARDISO interface or the matrix supplied is not associated with a symmetric sparsity pattern!"));
 
-    /* Number of processors. */
-    int      num_procs;
+		std::vector<int> row_pointers = Ap;
+		for (int row = 0; row < N; ++row)
+		{
+			for(auto p = matrix.begin(row); p != matrix.end(row); ++p)
+			{
+				if(p->column() >= p->row())
+				{
+					Ai[row_pointers[row] - 1] = p->column() + 1;
+					Ax[row_pointers[row] - 1] = std::real(p->value());
+					++row_pointers[row];
+				}
+			}
+			Assert(Ap[row + 1] == row_pointers[row], ExcMessage("Internal error - this indicates a bug!"));
+		}
 
-    /* Auxiliary variables. */
-    char    *var;
-    int      i;
+	}
 
-    double   ddum;              /* Double dummy */
-    int      idum;              /* Integer dummy. */
+	// order entries (this swaps the diagonal element, which is stored first in deal.II, into the right position)
+	for(int row = 0; row < N; ++row)
+	{
+		int cursor = Ap[row] - 1;
+		while( ( cursor < Ap[row + 1] - 1 - 1 ) && ( Ai[cursor] > Ai[cursor + 1] ) )
+		{
+			std::swap(Ai[cursor], Ai[cursor + 1]);
+			std::swap(Ax[cursor], Ax[cursor + 1]);
+			++cursor;
+		}
+	}
+
+	// set up control parameters
+	if(analyze < 2)
+	{
+		int mtype = get_matrix_type();
+		int solver = 0;
+		int error = 0;
+		pardisoinit (pt,  &mtype, &solver, iparm, dparm, &error);
+		cout << "PARDISO exit code = " << error << endl;
+		AssertThrow(error == 0, ExcPARDISOError("pardisoinit", error));
+
+		Assert((ordering_method == 0) || (ordering_method == 2), ExcMessage("Only values 0 and 2 allowed for ordering method"));
+		iparm[1] = ordering_method;
+
+		Assert((apply_scaling == 0) || (apply_scaling == 1), ExcMessage("Only values 0 and 1 allowed for apply_scaling"));
+		iparm[10] = iparm[12] = apply_scaling;
+		if(matrix_type == 2)
+		{
+			Assert((pivoting_method == 0) || (pivoting_method == 1), ExcMessage("Only values 0 and 1 allowed for pivoting_method"));
+			iparm[20] = pivoting_method;
+		}
+
+		// determine number of processors
+		char* var = getenv("OMP_NUM_THREADS");
+		int num_procs;
+		if(var != NULL)
+			sscanf(var, "%d", &num_procs);
+		else
+			Assert(false, ExcMessage("You have to export an environment variable OMP_NUM_THREADS in order to specify how many threads are allowed for PARDISO!"));
+		iparm[2]  = num_procs;
+
+		if(print_level == 1)
+		{
+			pardiso_printstats (&mtype, &N, Ax.data(), Ap.data(), Ai.data(), &nrhs, nullptr, &error);
+			AssertThrow(error == 0, ExcPARDISOError("pardiso_printstats", error));
+		}
+	}
+
+	return;
+}
+
+void
+BlockSolverWrapperPARDISO::analyze_matrix()
+{
+	if(analyze < 2)
+	{
+		int phase = 11;
+		int mtype = get_matrix_type();
+
+		int error = 0;
+		pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, Ax.data(), Ap.data(), Ai.data(), nullptr, &nrhs, iparm, &msglvl, nullptr, nullptr, &error, dparm);
+		AssertThrow(error == 0, ExcPARDISOError("pardiso", error));
+	}
+
+	// Matrix was only analyzed in this step
+	if(analyze == 1)
+		analyze = 2;
+
+	return;
+}
 
 
-/* -------------------------------------------------------------------- */
-/* ..  Setup Pardiso control parameters.                                */
-/* -------------------------------------------------------------------- */
+void
+BlockSolverWrapperPARDISO::factorize_matrix()
+{
+	int phase = 22;
+	int mtype = get_matrix_type();
 
-    error = 0;
-    solver = 0; /* use sparse direct solver */
-    pardisoinit (pt,  &mtype, &solver, iparm, dparm, &error);
+	int error = 0;
+	pardiso (pt, &maxfct, &mnum, &mtype, &phase, &N, Ax.data(), Ap.data(), Ai.data(), nullptr, &nrhs, iparm, &msglvl, nullptr, nullptr, &error,  dparm);
+	AssertThrow(error == 0, ExcPARDISOError("pardiso", error));
 
-    if (error != 0)
-    {
-        if (error == -10 )
-           printf("No license file found \n");
-        if (error == -11 )
-           printf("License is expired \n");
-        if (error == -12 )
-           printf("Wrong username or hostname \n");
-         return;
-    }
-    else
-        printf("[PARDISO]: License check was successful ... \n");
+	return;
+}
 
-    /* Numbers of processors, value of OMP_NUM_THREADS */
-    setenv("OMP_NUM_THREADS", "8", 8);
-    var = getenv("OMP_NUM_THREADS");
-    if(var != NULL)
-        sscanf( var, "%d", &num_procs );
-    else {
-        printf("Set environment OMP_NUM_THREADS to 1");
-        exit(1);
-    }
-    iparm[2]  = num_procs;
+void
+BlockSolverWrapperPARDISO::vmult(	Vector<double>& 		x,
+									const Vector<double>&	f )
+{
+	// make sure that some kind of factorize() call has happened before
+	Assert(Ap.size() != 0, ExcNotInitialized());
+	Assert(Ai.size() != 0, ExcNotInitialized());
+	Assert(Ai.size() == Ax.size(), ExcNotInitialized());
 
-    maxfct = 1;		/* Maximum number of numerical factorizations.  */
-    mnum   = 1;         /* Which factorization to use. */
+	x.reinit(f.size());
 
-    msglvl = 1;         /* Print statistical information  */
-    error  = 0;         /* Initialize error flag */
+	int phase = 33;
+    int mtype = get_matrix_type();
 
-/* -------------------------------------------------------------------- */
-/* ..  Convert matrix from 0-based C-notation to Fortran 1-based        */
-/*     notation.                                                        */
-/* -------------------------------------------------------------------- */
-    for (i = 0; i < n+1; i++) {
-        ia[i] += 1;
-    }
-    for (i = 0; i < nnz; i++) {
-        ja[i] += 1;
-    }
+    iparm[7] = n_iterative_refinements;
+    int error = 0;
+	pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, Ax.data(), Ap.data(), Ai.data(), nullptr, &nrhs, iparm, &msglvl, const_cast<double*>(f.data()), x.data(), &error,  dparm);
+	AssertThrow(error == 0, ExcPARDISOError("pardiso", error));
 
-    /* Set right hand side to one. */
-    for (i = 0; i < n; i++) {
-        b[i] = i;
-    }
+	return;
+}
 
-/* -------------------------------------------------------------------- */
-/*  .. pardiso_chk_matrix(...)                                          */
-/*     Checks the consistency of the given matrix.                      */
-/*     Use this functionality only for debugging purposes               */
-/* -------------------------------------------------------------------- */
+int
+BlockSolverWrapperPARDISO::get_matrix_type()
+{
+	switch(matrix_type)
+	{
+		case 0:
+			return 11;
+		case 1:
+			return 1;
+		case 2:
+			return -2;
+		default:
+			return 2;
+	}
+}
 
-    pardiso_chkmatrix  (&mtype, &n, a, ia, ja, &error);
-    if (error != 0) {
-        printf("\nERROR in consistency of matrix: %d", error);
-        exit(1);
-    }
+BlockSolverWrapperPARDISO::~BlockSolverWrapperPARDISO()
+{
+	int phase = -1;
+	int mtype = get_matrix_type();
+	int error = 0;
+	pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, nullptr, Ap.data(), Ai.data(), nullptr, &nrhs, iparm, &msglvl, nullptr, nullptr, &error,  dparm);
+}
 
-/* -------------------------------------------------------------------- */
-/* ..  pardiso_chkvec(...)                                              */
-/*     Checks the given vectors for infinite and NaN values             */
-/*     Input parameters (see PARDISO user manual for a description):    */
-/*     Use this functionality only for debugging purposes               */
-/* -------------------------------------------------------------------- */
+void
+BlockSolverWrapperPARDISO::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_stretched,
+		 	 	 	 	 		Vector<double>&									solution,
+								const BlockVector<double>&						f_stretched,
+								const bool 										/*symmetric*/)
+{
 
-    pardiso_chkvec (&n, &nrhs, b, &error);
-    if (error != 0) {
-        printf("\nERROR  in right hand side: %d", error);
-        exit(1);
-    }
+	//matrix sub blocks
+	const auto& K = K_stretched.get_A();
+	const auto& L_U = K_stretched.get_B();
+	const auto& L_V = K_stretched.get_C();
+	const auto& D = K_stretched.get_D();
 
-/* -------------------------------------------------------------------- */
-/* .. pardiso_printstats(...)                                           */
-/*    prints information on the matrix to STDOUT.                       */
-/*    Use this functionality only for debugging purposes                */
-/* -------------------------------------------------------------------- */
+	//size of top diagonal block of stretched system
+	const unsigned int size_f = K_stretched.get_block_0_size();
+	//size of bottom diagonal block of stretched system
+	const unsigned int size_w = K_stretched.get_block_1_size();
 
-    pardiso_printstats (&mtype, &n, a, ia, ja, &nrhs, b, &error);
-    if (error != 0) {
-        printf("\nERROR right hand side: %d", error);
-        exit(1);
-    }
+	// initialize solver, analyze and factorize
+	if(size_f > 0)
+	{
+		initialize_matrix(K);
+		analyze_matrix();
+		factorize_matrix();
+	}
 
-/* -------------------------------------------------------------------- */
-/* ..  Reordering and Symbolic Factorization.  This step also allocates */
-/*     all memory that is necessary for the factorization.              */
-/* -------------------------------------------------------------------- */
-    phase = 11;
+	// if one of the blocks is zero sized, solve directly with the other and return
+	if(size_f == 0)
+	{
+		SparseDirectUMFPACK direct_solver_D;
+		direct_solver_D.initialize(D);
+		direct_solver_D.vmult(solution, f_stretched.block(0));
+		return;
+	}
+	else if(size_w == 0)
+	{
+		vmult(solution, f_stretched.block(0));
+		return;
+	}
 
-    pardiso (pt, &maxfct, &mnum, &mtype, &phase,
-	     &n, a, ia, ja, &idum, &nrhs,
-             iparm, &msglvl, &ddum, &ddum, &error, dparm);
+	//vector sub blocks
+	const auto& f = f_stretched.block(0);
+	const auto& w = f_stretched.block(1);
 
-    if (error != 0) {
-        printf("\nERROR during symbolic factorization: %d", error);
-        exit(1);
-    }
-    printf("\nReordering completed ... ");
-    printf("\nNumber of nonzeros in factors  = %d", iparm[17]);
-    printf("\nNumber of factorization MFLOPS = %d", iparm[18]);
+	//step 0 (u_0 = inv(K) * f)
+	Vector<double> u_0(size_f);
+	vmult(u_0, f);
 
-/* -------------------------------------------------------------------- */
-/* ..  Numerical factorization.                                         */
-/* -------------------------------------------------------------------- */
-    phase = 22;
-    iparm[32] = 1; /* compute determinant */
+	//step 1 (compute C = inv(K)*L_U)
+	DynamicSparsityPattern dsp_C(size_f, size_w);
+	for(unsigned int m = 0; m < size_f; ++m)
+		for(unsigned int n = 0; n < size_w; ++n)
+			dsp_C.add(m, n);
+	SparsityPattern sp_C;
+	sp_C.copy_from(dsp_C);
+	SparseMatrix<double> C(sp_C);
+	Vector<double> L_U_n(size_f);
+	for(unsigned int n = 0; n < size_w; ++n)
+	{
+		for(unsigned int m = 0; m < size_f; ++m)
+			L_U_n[m] = L_U.el(m, n);
+		const auto L_U_n_ = L_U_n;
+		vmult(L_U_n, L_U_n_);
+		for(unsigned int m = 0; m < size_f; ++m)
+			C.set(m, n, L_U_n[m]);
+	}
 
-    pardiso (pt, &maxfct, &mnum, &mtype, &phase,
-             &n, a, ia, ja, &idum, &nrhs,
-             iparm, &msglvl, &ddum, &ddum, &error,  dparm);
+	//step 2 (compute F = L_V^T*C - D)
+	DynamicSparsityPattern dsp_F(size_w, size_w);
+	for(unsigned int m = 0; m < size_w; ++m)
+		for(unsigned int n = 0; n < size_w; ++n)
+			dsp_F.add(m, n);
+	SparsityPattern sp_F;
+	sp_F.copy_from(dsp_F);
+	SparseMatrix<double> F(sp_F);
+	L_V.Tmmult(F, C, Vector<double>(), false);
+	for(unsigned int m = 0; m < size_w; ++m)
+		for(unsigned int n = 0; n < size_w; ++n)
+			F.add(m, n, -D.el(m, n));
 
-    if (error != 0) {
-        printf("\nERROR during numerical factorization: %d", error);
-        exit(2);
-    }
-    printf("\nFactorization completed ...\n ");
+	//step 3 (compute -lambda = inv(F) * (w - L_V^T*u_0))
+	Vector<double> minus_lambda(size_w);
+	L_V.Tvmult(minus_lambda, u_0);
+	for(unsigned int m = 0; m < size_w; ++m)
+		minus_lambda[m] = w[m] - minus_lambda[m];
 
-/* -------------------------------------------------------------------- */
-/* ..  Back substitution and iterative refinement.                      */
-/* -------------------------------------------------------------------- */
-    phase = 33;
+	SparseDirectUMFPACK inv_F;
+	inv_F.initialize(F);
+	inv_F.solve(minus_lambda);
 
-    iparm[7] = 1;       /* Max numbers of iterative refinement steps. */
+	//step 4 (compute u = u_0 - C*lambda)
+	C.vmult_add(u_0, minus_lambda);
 
-    pardiso (pt, &maxfct, &mnum, &mtype, &phase,
-             &n, a, ia, ja, &idum, &nrhs,
-             iparm, &msglvl, b, x, &error,  dparm);
+	//step 5 (transfer solution)
+	for(unsigned int m = 0; m < size_f; ++m)
+		solution[m] = u_0[m];
+	for(unsigned int m = 0; m < size_w; ++m)
+		solution[m + size_f] = -minus_lambda[m];
 
-    if (error != 0) {
-        printf("\nERROR during solution: %d", error);
-        exit(3);
-    }
+	return;
 
-    printf("\nSolve completed ... ");
-    printf("\nThe solution of the system is: ");
-    for (i = 0; i < n; i++) {
-        printf("\n x [%d] = % f", i, x[i] );
-    }
-    printf ("\n");
-
-/* -------------------------------------------------------------------- */
-/* ..  Convert matrix back to 0-based C-notation.                       */
-/* -------------------------------------------------------------------- */
-    for (i = 0; i < n+1; i++) {
-        ia[i] -= 1;
-    }
-    for (i = 0; i < nnz; i++) {
-        ja[i] -= 1;
-    }
-
-/* -------------------------------------------------------------------- */
-/* ..  Termination and release of memory.                               */
-/* -------------------------------------------------------------------- */
-    phase = -1;                 /* Release internal memory. */
-
-    pardiso (pt, &maxfct, &mnum, &mtype, &phase,
-             &n, &ddum, ia, ja, &idum, &nrhs,
-             iparm, &msglvl, &ddum, &ddum, &error,  dparm);
-    Assert(false, ExcMessage("Breakpoint"));
 }
 
 #endif // GALERKIN_TOOLS_WITH_PARDISO
 
+#ifdef DEAL_II_WITH_UMFPACK
+
+void
+BlockSolverWrapperUMFPACK2::initialize_matrix(const SparseMatrix<double>& matrix)
+{
+	// Code partially copied over from deal.II library
+
+	Assert(matrix.m() == matrix.n(), ExcNotQuadratic());
+
+	N = matrix.m();
+	Ap.resize(N + 1);
+	Ai.resize(matrix.n_nonzero_elements());
+	Ax.resize(matrix.n_nonzero_elements());
+
+	// copy data into the data structures (note that deal.II uses a slightly different format to store the matrix, which complicates amtters a bit)
+	Ap[0] = 0;
+	for (unsigned int row = 1; row <= N; ++row)
+		Ap[row] = Ap[row - 1] + matrix.get_row_length(row - 1);
+
+	std::vector<SuiteSparse_long> row_pointers = Ap;
+	for (unsigned int row = 0; row < matrix.m(); ++row)
+	{
+		for(auto p = matrix.begin(row); p != matrix.end(row); ++p)
+		{
+			Ai[row_pointers[row]] = p->column();
+			Ax[row_pointers[row]] = std::real(p->value());
+			++row_pointers[row];
+		}
+	}
+
+	for(unsigned int row = 0; row < matrix.m(); ++row)
+	{
+		SuiteSparse_long cursor = Ap[row];
+		while( ( cursor < Ap[row + 1] - 1 ) && ( Ai[cursor] > Ai[cursor + 1] ) )
+		{
+			std::swap(Ai[cursor], Ai[cursor + 1]);
+			std::swap(Ax[cursor], Ax[cursor + 1]);
+			++cursor;
+		}
+	}
+
+	// set up control parameters
+	umfpack_dl_defaults(control.data());
+
+	return;
+}
+
+void
+BlockSolverWrapperUMFPACK2::analyze_matrix()
+{
+
+	if(analyze < 2)
+	{
+		// throw away old symbolic decomposition if it exists
+		if (symbolic_decomposition != nullptr)
+		{
+			umfpack_dl_free_symbolic(&symbolic_decomposition);
+			symbolic_decomposition = nullptr;
+		}
+
+		// analyze the matrix
+
+		const int status = umfpack_dl_symbolic(N, N, Ap.data(), Ai.data(), Ax.data(), &symbolic_decomposition, control.data(), info.data());
+		AssertThrow(status == UMFPACK_OK, ExcUMFPACKError("umfpack_dl_symbolic", status));
+	}
+
+	// Matrix was only analyzed in this step
+	if(analyze == 1)
+		analyze = 2;
+
+	return;
+}
+
+void
+BlockSolverWrapperUMFPACK2::factorize_matrix()
+{
+	// throw away old numeric decomposition if it exists
+	if (numeric_decomposition != nullptr)
+	{
+		umfpack_dl_free_numeric(&numeric_decomposition);
+		numeric_decomposition = nullptr;
+	}
+
+	const int status = umfpack_dl_numeric(Ap.data(), Ai.data(), Ax.data(), symbolic_decomposition,  &numeric_decomposition, control.data(), info.data());
+	AssertThrow(status == UMFPACK_OK, ExcUMFPACKError("umfpack_dl_numeric", status));
+
+	// print report of factorization
+	if(print_level > 0)
+		cout << "*** UMFPACK REPORT OF FACTORIZATION ***" << endl << endl;
+	control[UMFPACK_PRL] = print_level;
+	umfpack_dl_report_info(control.data(), info.data());
+
+	return;
+}
+
+void
+BlockSolverWrapperUMFPACK2::vmult(	Vector<double>& 		x,
+									const Vector<double>&	f )
+{
+	// make sure that some kind of factorize() call has happened before
+	Assert(Ap.size() != 0, ExcNotInitialized());
+	Assert(Ai.size() != 0, ExcNotInitialized());
+	Assert(Ai.size() == Ax.size(), ExcNotInitialized());
+
+	x.reinit(f.size());
+
+	// solve the system. note that since UMFPACK wants compressed column
+	// storage instead of the compressed row storage format we use in
+	// deal.II's SparsityPattern classes, we solve for UMFPACK's A^T instead
+
+	const int status = umfpack_dl_solve(UMFPACK_At, Ap.data(), Ai.data(), Ax.data(), x.begin(), f.begin(), numeric_decomposition, control.data(), info.data());
+	AssertThrow(status == UMFPACK_OK, ExcUMFPACKError("umfpack_dl_solve", status));
+
+	return;
+}
+
+BlockSolverWrapperUMFPACK2::~BlockSolverWrapperUMFPACK2()
+{
+	if (symbolic_decomposition != nullptr)
+	{
+		umfpack_dl_free_symbolic(&symbolic_decomposition);
+		symbolic_decomposition = nullptr;
+	}
+
+	if (numeric_decomposition != nullptr)
+	{
+		umfpack_dl_free_numeric(&numeric_decomposition);
+		numeric_decomposition = nullptr;
+	}
+}
+
+void
+BlockSolverWrapperUMFPACK2::solve(	const TwoBlockMatrix<SparseMatrix<double>>& K_stretched,
+		 	 	 	 	 			Vector<double>&								solution,
+									const BlockVector<double>&					f_stretched,
+									const bool 									/*symmetric*/)
+{
+
+	//matrix sub blocks
+	const auto& K = K_stretched.get_A();
+	const auto& L_U = K_stretched.get_B();
+	const auto& L_V = K_stretched.get_C();
+	const auto& D = K_stretched.get_D();
+
+	//size of top diagonal block of stretched system
+	const unsigned int size_f = K_stretched.get_block_0_size();
+	//size of bottom diagonal block of stretched system
+	const unsigned int size_w = K_stretched.get_block_1_size();
+
+	// initialize solver, analyze and factorize
+	if(size_f > 0)
+	{
+		initialize_matrix(K);
+		analyze_matrix();
+		factorize_matrix();
+	}
+
+	// if one of the blocks is zero sized, solve directly with the other and return
+	if(size_f == 0)
+	{
+		SparseDirectUMFPACK direct_solver_D;
+		direct_solver_D.initialize(D);
+		direct_solver_D.vmult(solution, f_stretched.block(0));
+		return;
+	}
+	else if(size_w == 0)
+	{
+		vmult(solution, f_stretched.block(0));
+		// throw away numeric decomposition
+		if (numeric_decomposition != nullptr)
+		{
+			umfpack_dl_free_numeric(&numeric_decomposition);
+			numeric_decomposition = nullptr;
+		}
+		return;
+	}
+
+	//vector sub blocks
+	const auto& f = f_stretched.block(0);
+	const auto& w = f_stretched.block(1);
+
+	//step 0 (u_0 = inv(K) * f)
+	Vector<double> u_0(size_f);
+	vmult(u_0, f);
+
+	//step 1 (compute C = inv(K)*L_U)
+	DynamicSparsityPattern dsp_C(size_f, size_w);
+	for(unsigned int m = 0; m < size_f; ++m)
+		for(unsigned int n = 0; n < size_w; ++n)
+			dsp_C.add(m, n);
+	SparsityPattern sp_C;
+	sp_C.copy_from(dsp_C);
+	SparseMatrix<double> C(sp_C);
+	Vector<double> L_U_n(size_f);
+	for(unsigned int n = 0; n < size_w; ++n)
+	{
+		for(unsigned int m = 0; m < size_f; ++m)
+			L_U_n[m] = L_U.el(m, n);
+		const auto L_U_n_ = L_U_n;
+		vmult(L_U_n, L_U_n_);
+		for(unsigned int m = 0; m < size_f; ++m)
+			C.set(m, n, L_U_n[m]);
+	}
+
+	//step 2 (compute F = L_V^T*C - D)
+	DynamicSparsityPattern dsp_F(size_w, size_w);
+	for(unsigned int m = 0; m < size_w; ++m)
+		for(unsigned int n = 0; n < size_w; ++n)
+			dsp_F.add(m, n);
+	SparsityPattern sp_F;
+	sp_F.copy_from(dsp_F);
+	SparseMatrix<double> F(sp_F);
+	L_V.Tmmult(F, C, Vector<double>(), false);
+	for(unsigned int m = 0; m < size_w; ++m)
+		for(unsigned int n = 0; n < size_w; ++n)
+			F.add(m, n, -D.el(m, n));
+
+	//step 3 (compute -lambda = inv(F) * (w - L_V^T*u_0))
+	Vector<double> minus_lambda(size_w);
+	L_V.Tvmult(minus_lambda, u_0);
+	for(unsigned int m = 0; m < size_w; ++m)
+		minus_lambda[m] = w[m] - minus_lambda[m];
+
+	SparseDirectUMFPACK inv_F;
+	inv_F.initialize(F);
+	inv_F.solve(minus_lambda);
+
+	//step 4 (compute u = u_0 - C*lambda)
+	C.vmult_add(u_0, minus_lambda);
+
+	//step 5 (transfer solution)
+	for(unsigned int m = 0; m < size_f; ++m)
+		solution[m] = u_0[m];
+	for(unsigned int m = 0; m < size_w; ++m)
+		solution[m + size_f] = -minus_lambda[m];
+
+	// throw away numeric decomposition
+	if (numeric_decomposition != nullptr)
+	{
+		umfpack_dl_free_numeric(&numeric_decomposition);
+		numeric_decomposition = nullptr;
+	}
+
+	return;
+}
+
+#endif // DEAL_II_WITH_UMFPACK
 
 template class SolverWrapper<Vector<double>, Vector<double>, SparseMatrix<double>, SparsityPattern>;
 template class SolverWrapper<Vector<double>, BlockVector<double>, TwoBlockMatrix<SparseMatrix<double>>, TwoBlockSparsityPattern>;

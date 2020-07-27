@@ -114,6 +114,7 @@ var searchData=
   ['dominate',['dominate',['https://dealii.org/9.0.0/doxygen/deal.II/classFE__Nothing.html#a2353ad6dabaabb7c31520edb22ec286f',1,'FE_Nothing::dominate()'],['https://dealii.org/9.0.0/doxygen/deal.II/classFE__Nothing.html#a2353ad6dabaabb7c31520edb22ec286f',1,'FE_Nothing&lt; dim &gt;::dominate()']]],
   ['double_5fexpansion',['double_expansion',['https://dealii.org/9.0.0/doxygen/deal.II/structSLEPcWrappers_1_1SolverGeneralizedDavidson_1_1AdditionalData.html#a046da414ec43f81c919936cfd16a04ad',1,'SLEPcWrappers::SolverGeneralizedDavidson::AdditionalData']]],
   ['doubling',['doubling',['https://dealii.org/9.0.0/doxygen/deal.II/classAlgorithms_1_1TimestepControl.html#a9626f97d8c7c6a961413a312118fce39a7c6fd5ad77dcbc3f24700601ccdb552f',1,'Algorithms::TimestepControl']]],
+  ['dparm',['dparm',['../class_block_solver_wrapper_p_a_r_d_i_s_o.html#aa158c35f9486dc043bf3485da3dec8d4',1,'BlockSolverWrapperPARDISO']]],
   ['dq_5frelative_5ferror',['dq_relative_error',['https://dealii.org/9.0.0/doxygen/deal.II/classSUNDIALS_1_1KINSOL_1_1AdditionalData.html#adb507a32a1bc6e4063f4a4a7d966762f',1,'SUNDIALS::KINSOL::AdditionalData']]],
   ['draw_5fboundary',['draw_boundary',['https://dealii.org/9.0.0/doxygen/deal.II/structGridOutFlags_1_1XFig.html#a3f3eaeda531e90340512dc75f6966fc6',1,'GridOutFlags::XFig']]],
   ['draw_5fbounding_5fbox',['draw_bounding_box',['https://dealii.org/9.0.0/doxygen/deal.II/structGridOutFlags_1_1MathGL.html#a21d17318da71db44db1703108179c04e',1,'GridOutFlags::MathGL']]],

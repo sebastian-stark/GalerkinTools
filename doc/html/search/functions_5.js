@@ -16,7 +16,7 @@ var searchData=
   ['face_5fto_5fcell_5flines',['face_to_cell_lines',['https://dealii.org/9.0.0/doxygen/deal.II/structGeometryInfo.html#addd80ab9c6099f69d8d980b9f6fa070b',1,'GeometryInfo']]],
   ['face_5fto_5fcell_5fvertices',['face_to_cell_vertices',['https://dealii.org/9.0.0/doxygen/deal.II/structGeometryInfo.html#a2adac0f129f0bdaa1600b14a543bdaa4',1,'GeometryInfo']]],
   ['factorize',['factorize',['https://dealii.org/9.0.0/doxygen/deal.II/classSparseDirectUMFPACK.html#ab3493095277b2e533c03ced257630a14',1,'SparseDirectUMFPACK::factorize(const Matrix &amp;matrix)'],['https://dealii.org/9.0.0/doxygen/deal.II/classSparseDirectUMFPACK.html#ab3493095277b2e533c03ced257630a14',1,'SparseDirectUMFPACK::factorize(const Matrix &amp;matrix)']]],
-  ['factorize_5fmatrix',['factorize_matrix',['../class_block_solver_wrapper_u_m_f_p_a_c_k2.html#a257c886568befa97173650ebd6d09344',1,'BlockSolverWrapperUMFPACK2']]],
+  ['factorize_5fmatrix',['factorize_matrix',['../class_block_solver_wrapper_p_a_r_d_i_s_o.html#accbe586b87cfd3d453522fee240ff37b',1,'BlockSolverWrapperPARDISO::factorize_matrix()'],['../class_block_solver_wrapper_u_m_f_p_a_c_k2.html#a1fb479f8089c3b71b2632f0267e6e7ff',1,'BlockSolverWrapperUMFPACK2::factorize_matrix()']]],
   ['fe_5fabf',['FE_ABF',['https://dealii.org/9.0.0/doxygen/deal.II/classFE__ABF.html#afaf68e0c2f2ea8ebd50ed6cf7e67656f',1,'FE_ABF']]],
   ['fe_5fbdm',['FE_BDM',['https://dealii.org/9.0.0/doxygen/deal.II/classFE__BDM.html#a5606dba3c940b03f4edca6341275fef5',1,'FE_BDM']]],
   ['fe_5fbernstein',['FE_Bernstein',['https://dealii.org/9.0.0/doxygen/deal.II/classFE__Bernstein.html#a37d1b70bd950e264d3d8790d241bc379',1,'FE_Bernstein']]],

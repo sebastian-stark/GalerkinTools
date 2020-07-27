@@ -2,10 +2,11 @@
 <area shape="rect" id="node2" href="$class_solver_wrapper.html" title="SolverWrapper\&lt; SolutionVector\lType, RHSVectorType, MatrixType,\l SparsityPatternType \&gt;" alt="" coords="165,5,397,61"/>
 <area shape="rect" id="node3" href="$class_solver_wrapper.html" title="SolverWrapper\&lt; dealii\l::LinearAlgebra::distributed\l::Vector\&lt; double \&gt;, dealii\l::PETScWrappers::MPI::BlockVector,\l parallel::TwoBlockMatrix\&lt; dealii\l::PETScWrappers::MPI::SparseMatrix\l \&gt;, TwoBlockSparsityPattern \&gt;" alt="" coords="158,85,403,200"/>
 <area shape="rect" id="node6" href="$class_solver_wrapper.html" title="SolverWrapper\&lt; dealii\l::Vector\&lt; double \&gt;, dealii\l::BlockVector\&lt; double \&gt;,\l TwoBlockMatrix\&lt; dealii::SparseMatrix\l\&lt; double \&gt; \&gt;, TwoBlockSparsityPattern \&gt;" alt="" coords="149,224,413,309"/>
-<area shape="rect" id="node9" href="$class_solver_wrapper.html" title="SolverWrapper\&lt; dealii\l::Vector\&lt; double \&gt;, dealii\l::Vector\&lt; double \&gt;, dealii\l::SparseMatrix\&lt; double \&gt;, SparsityPattern \&gt;" alt="" coords="141,334,420,405"/>
-<area shape="rect" id="node4" href="$class_solver_wrapper_p_e_t_sc.html" title="SolverWrapperPETSc" alt="" coords="500,104,651,131"/>
-<area shape="rect" id="node5" href="$class_solver_wrapper_p_e_t_sc_iterative.html" title="SolverWrapperPETScIterative" alt="" coords="477,155,674,181"/>
-<area shape="rect" id="node7" href="$class_block_solver_wrapper_u_m_f_p_a_c_k.html" title="BlockSolverWrapperUMFPACK" alt="" coords="472,229,679,256"/>
-<area shape="rect" id="node8" href="$class_block_solver_wrapper_u_m_f_p_a_c_k2.html" title="BlockSolverWrapperUMFPACK2" alt="" coords="468,280,683,307"/>
-<area shape="rect" id="node10" href="$class_solver_wrapper_u_m_f_p_a_c_k.html" title="SolverWrapperUMFPACK" alt="" coords="488,356,663,383"/>
+<area shape="rect" id="node10" href="$class_solver_wrapper.html" title="SolverWrapper\&lt; dealii\l::Vector\&lt; double \&gt;, dealii\l::Vector\&lt; double \&gt;, dealii\l::SparseMatrix\&lt; double \&gt;, SparsityPattern \&gt;" alt="" coords="141,334,420,405"/>
+<area shape="rect" id="node4" href="$class_solver_wrapper_p_e_t_sc.html" title="SolverWrapperPETSc" alt="" coords="500,91,651,117"/>
+<area shape="rect" id="node5" href="$class_solver_wrapper_p_e_t_sc_iterative.html" title="SolverWrapperPETScIterative" alt="" coords="477,141,674,168"/>
+<area shape="rect" id="node7" href="$class_block_solver_wrapper_p_a_r_d_i_s_o.html" title="BlockSolverWrapperPARDISO" alt="" coords="474,203,677,229"/>
+<area shape="rect" id="node8" href="$class_block_solver_wrapper_u_m_f_p_a_c_k.html" title="BlockSolverWrapperUMFPACK" alt="" coords="472,253,679,280"/>
+<area shape="rect" id="node9" href="$class_block_solver_wrapper_u_m_f_p_a_c_k2.html" title="BlockSolverWrapperUMFPACK2" alt="" coords="468,304,683,331"/>
+<area shape="rect" id="node11" href="$class_solver_wrapper_u_m_f_p_a_c_k.html" title="SolverWrapperUMFPACK" alt="" coords="488,356,663,383"/>
 </map>

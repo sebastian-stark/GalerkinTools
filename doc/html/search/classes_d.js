@@ -20,11 +20,11 @@ var searchData=
   ['numbercache_3c_202_20_3e',['NumberCache&lt; 2 &gt;',['https://dealii.org/9.0.0/doxygen/deal.II/structinternal_1_1TriangulationImplementation_1_1NumberCache_3_012_01_4.html',1,'internal::TriangulationImplementation']]],
   ['numbercache_3c_203_20_3e',['NumberCache&lt; 3 &gt;',['https://dealii.org/9.0.0/doxygen/deal.II/structinternal_1_1TriangulationImplementation_1_1NumberCache_3_013_01_4.html',1,'internal::TriangulationImplementation']]],
   ['numbercache_3c_20spacedim_20_3e',['NumberCache&lt; spacedim &gt;',['https://dealii.org/9.0.0/doxygen/deal.II/structinternal_1_1TriangulationImplementation_1_1NumberCache.html',1,'internal::TriangulationImplementation']]],
-  ['numbertraits',['NumberTraits',['https://dealii.org/9.0.0/doxygen/deal.II/structDifferentiation_1_1AD_1_1NumberTraits.html',1,'Differentiation::AD']]],
   ['numbertraits',['NumberTraits',['https://dealii.org/9.0.0/doxygen/deal.II/structnumbers_1_1NumberTraits.html',1,'numbers']]],
+  ['numbertraits',['NumberTraits',['https://dealii.org/9.0.0/doxygen/deal.II/structDifferentiation_1_1AD_1_1NumberTraits.html',1,'Differentiation::AD']]],
   ['numbertraits_3c_20std_3a_3acomplex_3c_20number_20_3e_20_3e',['NumberTraits&lt; std::complex&lt; number &gt; &gt;',['https://dealii.org/9.0.0/doxygen/deal.II/structnumbers_1_1NumberTraits_3_01std_1_1complex_3_01number_01_4_01_4.html',1,'numbers']]],
-  ['numbertype',['NumberType',['https://dealii.org/9.0.0/doxygen/deal.II/structinternal_1_1NumberType.html',1,'internal']]],
   ['numbertype',['NumberType',['https://dealii.org/9.0.0/doxygen/deal.II/structDifferentiation_1_1AD_1_1internal_1_1NumberType.html',1,'Differentiation::AD::internal']]],
+  ['numbertype',['NumberType',['https://dealii.org/9.0.0/doxygen/deal.II/structinternal_1_1NumberType.html',1,'internal']]],
   ['numbertype_3c_20tensor_3c_20rank_2c_20dim_2c_20t_20_3e_20_3e',['NumberType&lt; Tensor&lt; rank, dim, T &gt; &gt;',['https://dealii.org/9.0.0/doxygen/deal.II/structinternal_1_1NumberType_3_01Tensor_3_01rank_00_01dim_00_01T_01_4_01_4.html',1,'internal']]],
   ['numbertype_3c_20vectorizedarray_3c_20t_20_3e_20_3e',['NumberType&lt; VectorizedArray&lt; T &gt; &gt;',['https://dealii.org/9.0.0/doxygen/deal.II/structinternal_1_1NumberType_3_01VectorizedArray_3_01T_01_4_01_4.html',1,'internal']]],
   ['nurbspatchmanifold',['NURBSPatchManifold',['https://dealii.org/9.0.0/doxygen/deal.II/classOpenCASCADE_1_1NURBSPatchManifold.html',1,'OpenCASCADE']]]
