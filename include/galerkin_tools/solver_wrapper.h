@@ -185,6 +185,7 @@ extern "C" void pardiso(void*, int*, int*, int*, int*, int*, double*, int*, int*
 extern "C" void pardiso_chkmatrix(int*, int*, double*, int*, int*, int*);
 extern "C" void pardiso_chkvec(int*, int*, double*, int*);
 extern "C" void pardiso_printstats(int*, int*, double*, int*, int*, int*, double*, int*);
+extern "C" void pardiso_residual(int*, int*, double*, int*, int*, double*, double*, double*, double*, double*);
 
 /**
  * A SolverWrapper for the PARDISO solver.
@@ -271,6 +272,12 @@ private:
 	 */
     int
 	msglvl;
+
+    /**
+     * Vector for residual calculation
+     */
+    Vector<double>
+    res;
 
 	/**
 	 * Sets the data structures storing the matrix up (BlockSolverWrapperPARDISO::Ap, BlockSolverWrapperPARDISO::Ai, BlockSolverWrapperPARDISO::Ax).
@@ -381,6 +388,12 @@ public:
 	n_iterative_refinements = std::numeric_limits<int>::max();
 
 	/**
+	 * Maximum allowable residual
+	 */
+	double
+	res_max = 1e-8;
+
+	/**
 	 * @copydoc SolverWrapper::solve
 	 */
 	virtual
@@ -393,6 +406,11 @@ public:
 	DeclException2(	ExcPARDISOError,
 					std::string, int,
 					<< "PARDISO routine " << arg1 << " returned error status " << arg2 << ".");
+
+	DeclException1(	ExcPARDISORes,
+					double,
+					<< "PARDISO residual too large: res = " << arg1 << ".");
+
 
 };
 

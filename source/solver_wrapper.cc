@@ -411,7 +411,6 @@ BlockSolverWrapperPARDISO::initialize_matrix(	const SparseMatrix<double>& matrix
 		int error = 0;
 		initialized = true;
 		pardisoinit (pt,  &mtype, &solver, iparm, dparm, &error);
-		cout << "PARDISO exit code = " << error << endl;
 		AssertThrow(error == 0, ExcPARDISOError("pardisoinit", error));
 
 		Assert((ordering_method == 0) || (ordering_method == 2), ExcMessage("Only values 0 and 2 allowed for ordering method"));
@@ -495,7 +494,17 @@ BlockSolverWrapperPARDISO::vmult(	Vector<double>& 		x,
     iparm[7] = n_iterative_refinements;
     int error = 0;
 	pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, Ax.data(), Ap.data(), Ai.data(), nullptr, &nrhs, iparm, &msglvl, const_cast<double*>(f.data()), x.data(), &error,  dparm);
+
+	/**
+	 * check residual (TODO: it seems to be a bug in PARDISO that it does not complain about large residuals)
+	 */
+	double normb, normr;
+	res.reinit(N, true);
+	pardiso_residual (&mtype , &N, Ax.data(), Ap.data() , Ai.data(), const_cast<double*>(f.data()), x.data(), res.data(), &normb , &normr);
+	if( normr >= res_max)
+		cout << "The solution of the PARDISO solver is inaccurate! (Residual = " << normr << ")" << endl;
 	AssertThrow(error == 0, ExcPARDISOError("pardiso", error));
+	AssertThrow(normr < res_max, ExcPARDISORes(normr));
 
 	return;
 }
