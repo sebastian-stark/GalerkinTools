@@ -413,15 +413,19 @@ BlockSolverWrapperPARDISO::initialize_matrix(	const SparseMatrix<double>& matrix
 		pardisoinit (pt,  &mtype, &solver, iparm, dparm, &error);
 		AssertThrow(error == 0, ExcPARDISOError("pardisoinit", error));
 
-		Assert((ordering_method == 0) || (ordering_method == 2), ExcMessage("Only values 0 and 2 allowed for ordering method"));
-		iparm[1] = ordering_method;
-
-		Assert((apply_scaling == 0) || (apply_scaling == 1), ExcMessage("Only values 0 and 1 allowed for apply_scaling"));
-		iparm[10] = iparm[12] = apply_scaling;
-		if(matrix_type == 2)
+		if(!use_defaults)
 		{
-			Assert((pivoting_method == 0) || (pivoting_method == 1), ExcMessage("Only values 0 and 1 allowed for pivoting_method"));
-			iparm[20] = pivoting_method;
+			Assert((ordering_method == 0) || (ordering_method == 2), ExcMessage("Only values 0 and 2 allowed for ordering method"));
+			iparm[1] = ordering_method;
+
+			Assert((apply_scaling == 0) || (apply_scaling == 1), ExcMessage("Only values 0 and 1 allowed for apply_scaling"));
+			iparm[10] = iparm[12] = apply_scaling;
+			if(matrix_type == 2)
+			{
+				Assert((pivoting_method == 0) || (pivoting_method == 1), ExcMessage("Only values 0 and 1 allowed for pivoting_method"));
+				iparm[20] = pivoting_method;
+			}
+		    iparm[7] = n_iterative_refinements;
 		}
 
 		// determine number of processors
@@ -491,7 +495,6 @@ BlockSolverWrapperPARDISO::vmult(	Vector<double>& 		x,
 	int phase = 33;
     int mtype = get_matrix_type();
 
-    iparm[7] = n_iterative_refinements;
     int error = 0;
 	pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, Ax.data(), Ap.data(), Ai.data(), nullptr, &nrhs, iparm, &msglvl, const_cast<double*>(f.data()), x.data(), &error,  dparm);
 

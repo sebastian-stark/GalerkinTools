@@ -345,7 +345,7 @@ public:
 	 * 1: print output
 	 */
 	unsigned int
-	print_level = 1;
+	print_level = 0;
 
 	/**
 	 * type of the matrix:<br>
@@ -392,6 +392,13 @@ public:
 	 */
 	double
 	res_max = 1e-8;
+
+	/**
+	 * indicates whether to use default parameters of PARDISO. If @p true, BlockSolverWrapperPARDISO::ordering_method, BlockSolverWrapperPARDISO::apply_scaling, BlockSolverWrapperPARDISO::pivoting_method,
+	 * BlockSolverWrapperPARDISO::n_iterative_refinements are ignored.
+	 */
+	bool
+	use_defaults = true;
 
 	/**
 	 * @copydoc SolverWrapper::solve
@@ -755,7 +762,7 @@ public:
 	 * 1: print output
 	 */
 	unsigned int
-	print_level = 1;
+	print_level = 0;
 
 	/**
 	 * ordering method (key corresponding to ICNTL(6) of MA57):<br>
