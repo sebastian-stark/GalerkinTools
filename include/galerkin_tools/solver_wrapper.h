@@ -175,7 +175,9 @@ public:
 #endif // DEAL_II_WITH_PETSC
 #endif // DEAL_II_WITH_MPI
 
+// TODO: internally UMFPACK interface of deal.II is used to invert the matrix related to the second block, replace this by something more efficient!
 #ifdef GALERKIN_TOOLS_WITH_PARDISO
+#ifdef DEAL_II_WITH_UMFPACK
 
 /** PARDISO prototypes */
 extern "C" void pardisoinit(void*, int*, int*, int*, double*, int *);
@@ -188,13 +190,19 @@ extern "C" void pardiso_printstats(int*, int*, double*, int*, int*, int*, double
  * A SolverWrapper for the PARDISO solver.
  *
  * @note PARDISO has its own license, independent of that of GalerkinTools. If you
- * want to use PARDISO you have to accept that license.
+ * want to use PARDISO you have to accept that license and obtain your own copy of PARDISO.
  *
  * Code partially copied over from deal.II
  */
 class BlockSolverWrapperPARDISO : public SolverWrapper<dealii::Vector<double>, dealii::BlockVector<double>, TwoBlockMatrix<dealii::SparseMatrix<double>>, TwoBlockSparsityPattern>
 {
 private:
+
+	/**
+	 * stores whether PARDISO has been initialized.
+	 */
+	bool
+	initialized = false;
 
 	/**
 	 * PARDISO control parameters -> refer to PARDISO user manual for details
@@ -388,6 +396,7 @@ public:
 
 };
 
+#endif // DEAL_II_WITH_UMFPACK
 #endif // GALERKIN_TOOLS_WITH_PARDISO
 
 // TODO: internally UMFPACK interface of deal.II is used to invert the matrix related to the second block, replace this by something more efficient!
@@ -535,6 +544,237 @@ public:
 };
 
 #endif // DEAL_II_WITH_UMFPACK
+
+// TODO: internally UMFPACK interface of deal.II is used to invert the matrix related to the second block, replace this by something more efficient!
+#ifdef GALERKIN_TOOLS_WITH_MA57
+#ifdef DEAL_II_WITH_UMFPACK
+
+/** MA57 prototypes */
+extern "C" void ma57id_(double*, int*);
+extern "C" void ma57ad_(int*, int*, int*, int*, int*, int*, int*, int*, int*, double*);
+extern "C" void ma57bd_(int*, int*, double*, double*, int*, int*, int*, int*, int*, int*, int*, double*, int*, double*);
+extern "C" void ma57cd_(int*, int*, double*, int*, int*, int*, int*, double*, int*, double*, int*, int*, int*, int*);
+extern "C" void ma57dd_(int*, int*, int*, double*, int*, int*, double*, int*, int*, int*, double*, double*, double*, double*, int*, int*, double*, int*, double*);
+
+/**
+ * A SolverWrapper for the MA57 solver.
+ *
+ * @note MA57 has its own license, independent of that of GalerkinTools. If you
+ * want to use MA57 you have to accept that license and obtain your own copy of MA57.
+ *
+ * Code partially copied over from deal.II
+ */
+class BlockSolverWrapperMA57 : public SolverWrapper<dealii::Vector<double>, dealii::BlockVector<double>, TwoBlockMatrix<dealii::SparseMatrix<double>>, TwoBlockSparsityPattern>
+{
+private:
+
+	/**
+	 * double control parameters of MA57
+	 */
+	std::vector<double>
+	CNTL;
+
+	/**
+	 * integer control parameters of MA57
+	 */
+	std::vector<int>
+	ICNTL;
+
+	/**
+	* The size of the matrix A of the TwoBlockMatrix
+	*/
+	int
+	N;
+
+	/**
+	* The number of entries needed to define A (entries in upper triangular part of A)
+	*/
+	int
+	NE;
+
+	/**
+	 * row indices of entries (attention: Fortran indexing->starts from 1)
+	 */
+	std::vector<int>
+	IRN;
+
+	/**
+	 * column indices of entries (attention: Fortran indexing->starts from 1)
+	 */
+	std::vector<int>
+	JCN;
+
+	/**
+	 * Array storing the numerical values of the matrix entrie (A(k) corresponds to row IRN(k), ICN(k))
+	 */
+	std::vector<double>
+	A;
+
+	/**
+	 * Array for internal use of MA57
+	 */
+	std::vector<int>
+	KEEP;
+
+	/**
+	 * length of KEEP
+	 */
+	int
+	LKEEP;
+
+	/**
+	 * Workspace array for MA57
+	 */
+	std::vector<int>
+	IWORK;
+
+	/**
+	 * another Workspace array for MA57
+	 */
+	std::vector<double>
+	WORK;
+
+	/**
+	 * size if WORK
+	 */
+	int
+	LWORK;
+
+	/**
+	 * Info array for MA57
+	 */
+	std::vector<int>
+	INFO;
+
+	/**
+	 * RINFO array for MA57
+	 */
+	std::vector<double>
+	RINFO;
+
+	/**
+	 * Factors of the matrix
+	 */
+	std::vector<double>
+	FACT;
+
+	/**
+	 * entries in factors of the matrix
+	 */
+	int
+	LFACT;
+
+	/**
+	 * Indexing information of factors of the matrix
+	 */
+	std::vector<int>
+	IFACT;
+
+	/**
+	 * entries in IFACT
+	 */
+	int
+	LIFACT;
+
+	/**
+	 * Sets the data structures storing the matrix up (BlockSolverWrapperMA57::Ap, BlockSolverWrapperMA57::Ai, BlockSolverWrapperMA57::Ax).
+	 *
+	 * Also sets up the control parameters for the MA57 routines
+	 *
+	 * @param[in]	matrix		The matrix A
+	 */
+	void
+	initialize_matrix(	const SparseMatrix<double>& matrix);
+
+	/**
+	 * This function analyses the given matrix.
+	 * Whether this function does anything depends upon the value of BlockSolverWrapperMA57::analyze.
+	 */
+	void
+	analyze_matrix();
+
+	/**
+	 * This function factorizes the matrix.
+	 */
+	void
+	factorize_matrix();
+
+	/**
+	 * Multiply the inverse of A by @p f and store the result into @p x. I.e., solve Ax=f for x.
+	 * This uses the factors computed by BlockSolverWrapperMA57::factorize_matrix().
+	 *
+	 * @param[out]	x	solution
+	 * @param[in]	f	rhs
+	 */
+	void
+	vmult(	Vector<double>& 		x,
+			const Vector<double>&	f);
+
+public:
+
+	/**
+	 * Destructor.
+	 */
+	~BlockSolverWrapperMA57();
+
+	/**
+	 * Key indicating when to analyze the matrix structure:<br>
+	 * 0 - before each factorization (default)<br>
+	 * 1 - only before the next factorization (afterwards, BlockSolverWrapperMA57::analyze will be set to 2)<br>
+	 * >=2 - do not recompute
+	 *
+	 * @warning		The user must ensure that BlockSolverWrapperMA57::analyze=0 or BlockSolverWrapperMA57::analyze=1
+	 * 				whenever the sparsity pattern of the matrix has changed (or during the first call). Currently, no internal checking is performed.
+	 *
+	 * @warning		The scaling of the matrix is only recomputed if BlockSolverWrapperMA57::analyze <2. Otherwise, the most recently computed scaling will be used.
+	 */
+	unsigned int
+	analyze = 0;
+
+	/**
+	 * diagnostic printing:<br>
+	 * 0: no output<br>
+	 * 1: print output
+	 */
+	unsigned int
+	print_level = 1;
+
+	/**
+	 * ordering method (key corresponding to ICNTL(6) of MA57):<br>
+	 * 0: AMD ordering using MC47 (without the detection of dense rows)<br>
+	 * 2: AMD ordering using MC47<br>
+	 * 3: Minimum degree ordering using MA27<br>
+	 * 4: nested dissection (METIS)<br>
+	 * 5: Automatic choice
+	 * >=6: currently equivalent to 5
+	 */
+	unsigned int
+	ordering_method = 5;
+
+	/**
+	 * indicates whether to use iterative refinement
+	 */
+	bool
+	use_iterative_refinement = true;
+
+	/**
+	 * @copydoc SolverWrapper::solve
+	 */
+	virtual
+	void
+	solve(	const TwoBlockMatrix<dealii::SparseMatrix<double>>&	K_stretched,
+			dealii::Vector<double>&								solution,
+			const  dealii::BlockVector<double>&					f_stretched,
+			const bool											symmetric = false);
+
+	DeclException2(	ExcMA57Error,
+					std::string, int,
+					<< "MA57 routine " << arg1 << " returned error status " << arg2 << ".");
+
+};
+
+#endif // DEAL_II_WITH_UMFPACK
+#endif // GALERKIN_TOOLS_WITH_MA57
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE
 DEAL_II_NAMESPACE_CLOSE

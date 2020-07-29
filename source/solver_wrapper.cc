@@ -323,6 +323,7 @@ SolverWrapperPETScIterative::solve(	const parallel::TwoBlockMatrix<PETScWrappers
 #endif // DEAL_II_WITH_MPI
 
 #ifdef GALERKIN_TOOLS_WITH_PARDISO
+#ifdef DEAL_II_WITH_UMFPACK
 
 void
 BlockSolverWrapperPARDISO::initialize_matrix(	const SparseMatrix<double>& matrix)
@@ -408,6 +409,7 @@ BlockSolverWrapperPARDISO::initialize_matrix(	const SparseMatrix<double>& matrix
 		int mtype = get_matrix_type();
 		int solver = 0;
 		int error = 0;
+		initialized = true;
 		pardisoinit (pt,  &mtype, &solver, iparm, dparm, &error);
 		cout << "PARDISO exit code = " << error << endl;
 		AssertThrow(error == 0, ExcPARDISOError("pardisoinit", error));
@@ -519,7 +521,8 @@ BlockSolverWrapperPARDISO::~BlockSolverWrapperPARDISO()
 	int phase = -1;
 	int mtype = get_matrix_type();
 	int error = 0;
-	pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, nullptr, Ap.data(), Ai.data(), nullptr, &nrhs, iparm, &msglvl, nullptr, nullptr, &error,  dparm);
+	if(initialized)
+		pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, nullptr, Ap.data(), Ai.data(), nullptr, &nrhs, iparm, &msglvl, nullptr, nullptr, &error,  dparm);
 }
 
 void
@@ -626,6 +629,7 @@ BlockSolverWrapperPARDISO::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_s
 }
 
 #endif // GALERKIN_TOOLS_WITH_PARDISO
+#endif // DEAL_II_WITH_UMFPACK
 
 #ifdef DEAL_II_WITH_UMFPACK
 
@@ -801,6 +805,7 @@ BlockSolverWrapperUMFPACK2::solve(	const TwoBlockMatrix<SparseMatrix<double>>& K
 			umfpack_dl_free_numeric(&numeric_decomposition);
 			numeric_decomposition = nullptr;
 		}
+
 		return;
 	}
 
@@ -874,6 +879,230 @@ BlockSolverWrapperUMFPACK2::solve(	const TwoBlockMatrix<SparseMatrix<double>>& K
 }
 
 #endif // DEAL_II_WITH_UMFPACK
+
+#ifdef GALERKIN_TOOLS_WITH_MA57
+#ifdef DEAL_II_WITH_UMFPACK
+
+void
+BlockSolverWrapperMA57::initialize_matrix(const SparseMatrix<double>& matrix)
+{
+	// Code partially copied over from deal.II library
+
+	Assert(matrix.m() == matrix.n(), ExcNotQuadratic());
+
+	N = matrix.m();
+	NE = (matrix.n_nonzero_elements() - N) / 2 + N;
+
+	IRN.resize(NE);
+	JCN.resize(NE);
+	A.resize(NE);
+
+	int counter = 0;
+	for (unsigned int row = 0; row < matrix.m(); ++row)
+	{
+		for(auto p = matrix.begin(row); p != matrix.end(row); ++p)
+		{
+			if(p->column() >= p->row())
+			{
+				IRN[counter] = p->row() + 1;
+				JCN[counter] = p->column() + 1;
+				A[counter] =std::real(p->value());
+				++counter;
+			}
+		}
+	}
+
+	CNTL.resize(5);
+	ICNTL.resize(20);
+	ma57id_(CNTL.data(), ICNTL.data());
+
+	if(print_level == 1)
+		ICNTL[4] = 3;
+	Assert(ordering_method != 1, ExcMessage("ordering_method is not allowed to be 1!"));
+	ICNTL[5] = ordering_method;
+
+	return;
+}
+
+void
+BlockSolverWrapperMA57::analyze_matrix()
+{
+
+	if(analyze < 2)
+	{
+		INFO.resize(40);
+		RINFO.resize(20);
+		LKEEP = 5*N + NE + std::max(N,NE) + 42 + 2*N;
+		KEEP.resize(LKEEP);
+		IWORK.resize(5*N);
+		LWORK = 5*N;
+		WORK.resize(LWORK);
+
+		ma57ad_(&N, &NE, IRN.data(), JCN.data(), &LKEEP, KEEP.data(), IWORK.data(), ICNTL.data(), INFO.data(), RINFO.data());
+		AssertThrow(INFO[0] >= 0, ExcMA57Error("ma57ad_", INFO[0]));
+
+		// allocate memory for factors; be conservative here -> allow for a lot of extra memory for pivoting for the indefinite case
+		LFACT = INFO[8] * 2;
+		LIFACT = INFO[9] * 2;
+		FACT.resize(LFACT);
+		IFACT.resize(LIFACT);
+	}
+
+	// Matrix was only analyzed in this step
+	if(analyze == 1)
+		analyze = 2;
+
+	return;
+}
+
+void
+BlockSolverWrapperMA57::factorize_matrix()
+{
+
+	ma57bd_(&N, &NE, A.data(), FACT.data(), &LFACT, IFACT.data(), &LIFACT, &LKEEP, KEEP.data(), IWORK.data(), ICNTL.data(), CNTL.data(), INFO.data(), RINFO.data());
+	AssertThrow(INFO[0] >= 0, ExcMA57Error("ma57bd_", INFO[0]));
+
+	return;
+}
+
+void
+BlockSolverWrapperMA57::vmult(	Vector<double>& 		x,
+								const Vector<double>&	f )
+{
+
+	int NRHS = 1;
+	int JOB = 0;
+	if(!use_iterative_refinement)
+	{
+		x = f;
+		ma57cd_(&JOB, &N, FACT.data(), &LFACT, IFACT.data(), &LIFACT, &NRHS, x.data(), &N, WORK.data(), &LWORK, IWORK.data(), ICNTL.data(), INFO.data());
+
+		AssertThrow(INFO[0] >= 0, ExcMA57Error("ma57cd_", INFO[0]));
+	}
+	else
+	{
+		x.reinit(f.size());
+		Vector<double> RESID(f.size());
+		ma57dd_(&JOB, &N, &NE, A.data(), IRN.data(), JCN.data(), FACT.data(), &LFACT, IFACT.data(), &LIFACT, const_cast<double*>(f.data()), x.data(), RESID.data(), WORK.data(), IWORK.data(), ICNTL.data(), CNTL.data(), INFO.data(), RINFO.data());
+		AssertThrow(INFO[0] >= 0, ExcMA57Error("ma57dd_", INFO[0]));
+	}
+
+	AssertThrow(INFO[0] >= 0, ExcMA57Error("ma57cd_", INFO[0]));
+
+	return;
+}
+
+
+
+void
+BlockSolverWrapperMA57::solve(	const TwoBlockMatrix<SparseMatrix<double>>& K_stretched,
+		 	 	 	 	 			Vector<double>&							solution,
+									const BlockVector<double>&				f_stretched,
+									const bool 								/*symmetric*/)
+{
+
+	//matrix sub blocks
+	const auto& K = K_stretched.get_A();
+	const auto& L_U = K_stretched.get_B();
+	const auto& L_V = K_stretched.get_C();
+	const auto& D = K_stretched.get_D();
+
+	//size of top diagonal block of stretched system
+	const unsigned int size_f = K_stretched.get_block_0_size();
+	//size of bottom diagonal block of stretched system
+	const unsigned int size_w = K_stretched.get_block_1_size();
+
+	// initialize solver, analyze and factorize
+	if(size_f > 0)
+	{
+		initialize_matrix(K);
+		analyze_matrix();
+		factorize_matrix();
+	}
+
+	// if one of the blocks is zero sized, solve directly with the other and return
+	if(size_f == 0)
+	{
+		SparseDirectUMFPACK direct_solver_D;
+		direct_solver_D.initialize(D);
+		direct_solver_D.vmult(solution, f_stretched.block(0));
+		return;
+	}
+	else if(size_w == 0)
+	{
+		vmult(solution, f_stretched.block(0));
+		return;
+	}
+
+	//vector sub blocks
+	const auto& f = f_stretched.block(0);
+	const auto& w = f_stretched.block(1);
+
+	//step 0 (u_0 = inv(K) * f)
+	Vector<double> u_0(size_f);
+	vmult(u_0, f);
+
+	//step 1 (compute C = inv(K)*L_U)
+	DynamicSparsityPattern dsp_C(size_f, size_w);
+	for(unsigned int m = 0; m < size_f; ++m)
+		for(unsigned int n = 0; n < size_w; ++n)
+			dsp_C.add(m, n);
+	SparsityPattern sp_C;
+	sp_C.copy_from(dsp_C);
+	SparseMatrix<double> C(sp_C);
+	Vector<double> L_U_n(size_f);
+	for(unsigned int n = 0; n < size_w; ++n)
+	{
+		for(unsigned int m = 0; m < size_f; ++m)
+			L_U_n[m] = L_U.el(m, n);
+		const auto L_U_n_ = L_U_n;
+		vmult(L_U_n, L_U_n_);
+		for(unsigned int m = 0; m < size_f; ++m)
+			C.set(m, n, L_U_n[m]);
+	}
+
+	//step 2 (compute F = L_V^T*C - D)
+	DynamicSparsityPattern dsp_F(size_w, size_w);
+	for(unsigned int m = 0; m < size_w; ++m)
+		for(unsigned int n = 0; n < size_w; ++n)
+			dsp_F.add(m, n);
+	SparsityPattern sp_F;
+	sp_F.copy_from(dsp_F);
+	SparseMatrix<double> F(sp_F);
+	L_V.Tmmult(F, C, Vector<double>(), false);
+	for(unsigned int m = 0; m < size_w; ++m)
+		for(unsigned int n = 0; n < size_w; ++n)
+			F.add(m, n, -D.el(m, n));
+
+	//step 3 (compute -lambda = inv(F) * (w - L_V^T*u_0))
+	Vector<double> minus_lambda(size_w);
+	L_V.Tvmult(minus_lambda, u_0);
+	for(unsigned int m = 0; m < size_w; ++m)
+		minus_lambda[m] = w[m] - minus_lambda[m];
+
+	SparseDirectUMFPACK inv_F;
+	inv_F.initialize(F);
+	inv_F.solve(minus_lambda);
+
+	//step 4 (compute u = u_0 - C*lambda)
+	C.vmult_add(u_0, minus_lambda);
+
+	//step 5 (transfer solution)
+	for(unsigned int m = 0; m < size_f; ++m)
+		solution[m] = u_0[m];
+	for(unsigned int m = 0; m < size_w; ++m)
+		solution[m + size_f] = -minus_lambda[m];
+
+	return;
+}
+
+BlockSolverWrapperMA57::~BlockSolverWrapperMA57()
+{
+}
+
+#endif // DEAL_II_WITH_UMFPACK
+#endif // GALERKIN_TOOLS_WITH_MA57
+
 
 template class SolverWrapper<Vector<double>, Vector<double>, SparseMatrix<double>, SparsityPattern>;
 template class SolverWrapper<Vector<double>, BlockVector<double>, TwoBlockMatrix<SparseMatrix<double>>, TwoBlockSparsityPattern>;
