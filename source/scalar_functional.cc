@@ -81,6 +81,18 @@ const
 
 template<unsigned int spacedim>
 void
+ScalarFunctional<spacedim, spacedim>::modify_K_cell_f_cell(	const DomainCellDoFIterator<spacedim>&	/*domain_cell*/,
+															FullMatrix<double>&						/*K_cell*/,
+															Vector<double>&							/*f_cell*/,
+															const std::vector<unsigned int>&		/*scalar_functional_indices_to_cell_shapefuns*/,
+															const std::vector<unsigned int>&		/*scalar_functional_indices_to_independent_scalar_indices*/)
+const
+{
+}
+
+
+template<unsigned int spacedim>
+void
 ScalarFunctional<spacedim, spacedim>::compare_derivatives_with_numerical_derivatives(	Vector<double>&					e_omega,
 																						const vector<Vector<double>>&	e_omega_ref_sets,
 																						Vector<double>&					hidden_vars,

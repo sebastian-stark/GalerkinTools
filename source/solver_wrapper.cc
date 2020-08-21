@@ -476,6 +476,8 @@ BlockSolverWrapperPARDISO::factorize_matrix()
 
 	int error = 0;
 	pardiso (pt, &maxfct, &mnum, &mtype, &phase, &N, Ax.data(), Ap.data(), Ai.data(), nullptr, &nrhs, iparm, &msglvl, nullptr, nullptr, &error,  dparm);
+	if(error == -2)
+		cout << "Ran out of memory, memory required=" << iparm[16]/1000000.0 << endl;
 	AssertThrow(error == 0, ExcPARDISOError("pardiso", error));
 
 	return;
@@ -507,7 +509,7 @@ BlockSolverWrapperPARDISO::vmult(	Vector<double>& 		x,
 	if( normr >= res_max)
 		cout << "The solution of the PARDISO solver is inaccurate! (Residual = " << normr << ")" << endl;
 	AssertThrow(error == 0, ExcPARDISOError("pardiso", error));
-	AssertThrow(normr < res_max, ExcPARDISORes(normr));
+	//AssertThrow(normr < res_max, ExcPARDISORes(normr));
 
 	return;
 }

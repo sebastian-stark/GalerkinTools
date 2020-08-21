@@ -32,6 +32,7 @@
 
 #include <galerkin_tools/config.h>
 #include <galerkin_tools/dependent_field.h>
+#include <galerkin_tools/dof_handler_system.h>
 
 DEAL_II_NAMESPACE_OPEN
 GALERKIN_TOOLS_NAMESPACE_OPEN
@@ -465,6 +466,30 @@ public:
 						const Vector<double>& 					delta_e_omega,
 						const Vector<double>& 					hidden_vars,
 						const Point<spacedim>& 					x)
+	const;
+
+	/**
+	 * This allows for manually manipulating the contribution (related to this scalar functional) of a certain domain cell to the global finite element matrix and rhs.
+	 *
+	 * @param[in]		domain_cell												Reference to the cell
+	 *
+	 * @param[inout]	K_cell													The cell matrix. This matrix is indexed by the scalar functional related indexing (indices related to cells come first followed by indices related to independent scalars).
+	 *
+	 * @param[inout]	f_cell													The cell rhs. This vector is indexed by the scalar functional related indexing (indices related to cells come first followed by indices related to independent scalars).
+	 *
+	 * @param[in]		scalar_functional_indices_to_cell_shapefuns				This relates the scalar functional related indices to the cell shape function indices. In particular, the i-th component of this vector is the cell shape function
+	 * 																			corresponding to the i-th scalar functional related index.
+	 *
+	 * @param[in]		scalar_functional_indices_to_independent_scalar_indices	This relates the scalar functional related indices to the independent scalar indices. In particular, the i-th component of this vector is the independent scalar index
+	 * 																			corresponding to the (n_dofs_cell + i)-th scalar functional related index, where n_dofs_cell is the number of cell related shape functions for this scalar functional.
+	 */
+	virtual
+	void
+	modify_K_cell_f_cell(	const DomainCellDoFIterator<spacedim>&	domain_cell,
+							FullMatrix<double>&						K_cell,
+							Vector<double>&							f_cell,
+							const std::vector<unsigned int>&		scalar_functional_indices_to_cell_shapefuns,
+							const std::vector<unsigned int>&		scalar_functional_indices_to_independent_scalar_indices)
 	const;
 
 	/**

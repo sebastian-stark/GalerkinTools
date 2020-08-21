@@ -1269,10 +1269,19 @@ const
 		{
 			//we don't have to worry about face orientations here, because all we want is to get all the child cells behind the face, while
 			//the order in which we are traversing them does not matter.
-			const unsigned int child = GeometryInfo<spacedim>::child_cell_on_face(domain_cell->refinement_case(), face, subface/*, domain_cell->face(face)->face_orientation(),
+			const unsigned int child = GeometryInfo<spacedim>::child_cell_on_face(domain_cell->refinement_case(), face, subface/*,  domain_cell->face(face)->face_orientation(),
 																																	domain_cell->face(face)->face_flip(),
 																																	domain_cell->face(face)->face_rotation(),
 																																	domain_cell->face(face)->refinement_case()*/);
+			make_dirichlet_constraints_recursion(domain_cell->child(child), face, shapefuns, constraint, constraint_matrix, constraints_ignore);
+		}
+		// this may happen for anisotropic refinement
+		if(domain_cell->face(face)->n_children() == 0)
+		{
+			const unsigned int child = GeometryInfo<spacedim>::child_cell_on_face(domain_cell->refinement_case(), face, 0/*, domain_cell->face(face)->face_orientation(),
+																															 domain_cell->face(face)->face_flip(),
+																															 domain_cell->face(face)->face_rotation(),
+																															 domain_cell->face(face)->refinement_case()*/);
 			make_dirichlet_constraints_recursion(domain_cell->child(child), face, shapefuns, constraint, constraint_matrix, constraints_ignore);
 		}
 
@@ -2048,6 +2057,11 @@ const
 						de_omega_dsol_T.mmult(K_cell, h_omega_2_de_omega_dsol_T, true);
 					}
 				}
+				scalar_functional->modify_K_cell_f_cell(domain_cell,
+														K_cell,
+														f_cell,
+														this->coupled_dof_indices_scalar_functionals_domain[internal_index][scalar_functional_n],
+														this->coupled_C_indices_scalar_functionals_domain[internal_index][scalar_functional_n]);
 
 				//additional work to do for scalar functionals entering the total potential non-primitively
 				//(lower left and upper right part of stretched system matrix)
