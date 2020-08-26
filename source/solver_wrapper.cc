@@ -659,7 +659,7 @@ BlockSolverWrapperUMFPACK2::initialize_matrix(const SparseMatrix<double>& matrix
 	Ai.resize(matrix.n_nonzero_elements());
 	Ax.resize(matrix.n_nonzero_elements());
 
-	// copy data into the data structures (note that deal.II uses a slightly different format to store the matrix, which complicates amtters a bit)
+	// copy data into the data structures (note that deal.II uses a slightly different format to store the matrix, which complicates matters a bit)
 	Ap[0] = 0;
 	for (unsigned int row = 1; row <= N; ++row)
 		Ap[row] = Ap[row - 1] + matrix.get_row_length(row - 1);
@@ -799,6 +799,18 @@ BlockSolverWrapperUMFPACK2::solve(	const TwoBlockMatrix<SparseMatrix<double>>& K
 	{
 		initialize_matrix(K);
 		analyze_matrix();
+
+/*		FILE* printout = fopen ("K_2.dat","w");
+		for (unsigned int row = 0; row < K.m(); ++row)
+		{
+			for(auto p = K.begin(row); p != K.end(row); ++p)
+			{
+				fprintf(printout, "%i %i %- 1.16e\n", p->row(), p->column(), std::real(p->value()));
+			}
+		}
+		fclose(printout);
+*/
+
 		factorize_matrix();
 	}
 
