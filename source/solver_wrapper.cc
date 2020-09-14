@@ -930,12 +930,32 @@ BlockSolverWrapperMA57::initialize_matrix(const SparseMatrix<double>& matrix)
 		{
 			if(p->column() >= p->row())
 			{
-				IRN[counter] = p->row() + 1;
-				JCN[counter] = p->column() + 1;
-				A[counter] =std::real(p->value());
-				++counter;
+				if(!ignore_zeros)
+				{
+					IRN[counter] = p->row() + 1;
+					JCN[counter] = p->column() + 1;
+					A[counter] = std::real(p->value());
+					++counter;
+				}
+				else
+				{
+					if(std::real(p->value()) != 0.0)
+					{
+						IRN[counter] = p->row() + 1;
+						JCN[counter] = p->column() + 1;
+						A[counter] = std::real(p->value());
+						++counter;
+					}
+				}
 			}
 		}
+	}
+	if(ignore_zeros)
+	{
+		NE = counter;
+		IRN.resize(NE);
+		JCN.resize(NE);
+		A.resize(NE);
 	}
 
 	CNTL.resize(5);
@@ -954,7 +974,7 @@ void
 BlockSolverWrapperMA57::analyze_matrix()
 {
 
-	if(analyze < 2)
+	if(analyze < 2 || ignore_zeros)
 	{
 		INFO.resize(40);
 		RINFO.resize(20);

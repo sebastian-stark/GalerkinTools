@@ -396,6 +396,24 @@ TriangulationSystem<spacedim>::generate_active_interface_cells_domain_cells_recu
 																						const InterfaceCell&	interface_cell,
 																						const bool				no_assert)
 {
+	if((domain_cell->refinement_case() != RefinementCase<spacedim>::isotropic_refinement) && (domain_cell->refinement_case() != RefinementCase<spacedim>::no_refinement))
+	{
+		for(unsigned int domain_cell_child_n = 0; domain_cell_child_n < domain_cell->n_children(); ++domain_cell_child_n)
+		{
+			for(unsigned int face_n = 0; face_n < GeometryInfo<spacedim>::faces_per_cell; ++face_n)
+			{
+				if(domain_cell->child(domain_cell_child_n)->face(face_n) == domain_cell->face(face))
+				{
+					generate_active_interface_cells_domain_cells_recursion(	domain_cell->child(domain_cell_child_n),
+																			face_n,
+																			interface_cell,
+																			no_assert);
+					return;
+				}
+			}
+		}
+	}
+
 	if(interface_cell->has_children())
 	{
 		// interface cell has children

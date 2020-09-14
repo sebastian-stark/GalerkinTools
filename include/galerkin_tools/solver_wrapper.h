@@ -783,6 +783,12 @@ public:
 	use_iterative_refinement = true;
 
 	/**
+	 * whether to ignore zeros in the matrix
+	 */
+	bool
+	ignore_zeros = false;
+
+	/**
 	 * @copydoc SolverWrapper::solve
 	 */
 	virtual
