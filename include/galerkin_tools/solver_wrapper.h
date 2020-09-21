@@ -388,6 +388,12 @@ public:
 	n_iterative_refinements = std::numeric_limits<int>::max();
 
 	/**
+	 * value of pivot to be added to tiny pivots (if e.g. 10, than 1e-10 is added to tiny pivots)
+	 */
+	unsigned int
+	pivot_perturbation = 8;
+
+	/**
 	 * Maximum allowable residual
 	 */
 	double

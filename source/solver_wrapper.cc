@@ -353,8 +353,6 @@ BlockSolverWrapperPARDISO::initialize_matrix(	const SparseMatrix<double>& matrix
 			{
 				Ai[row_pointers[row] - 1] = p->column() + 1;
 				Ax[row_pointers[row] - 1] = std::real(p->value());
-				if(p->column() == p->row())
-					Ax[row_pointers[row] - 1] += 0.0;
 				++row_pointers[row];
 			}
 			Assert(Ap[row + 1] == row_pointers[row], ExcMessage("Internal error - this indicates a bug!"));
@@ -426,6 +424,7 @@ BlockSolverWrapperPARDISO::initialize_matrix(	const SparseMatrix<double>& matrix
 				iparm[20] = pivoting_method;
 			}
 		    iparm[7] = n_iterative_refinements;
+		    iparm[9] = 10;
 		}
 
 		// determine number of processors
@@ -437,11 +436,11 @@ BlockSolverWrapperPARDISO::initialize_matrix(	const SparseMatrix<double>& matrix
 			Assert(false, ExcMessage("You have to export an environment variable OMP_NUM_THREADS in order to specify how many threads are allowed for PARDISO!"));
 		iparm[2]  = num_procs;
 
-		if(print_level == 1)
+/*		if(print_level == 1)
 		{
 			pardiso_printstats (&mtype, &N, Ax.data(), Ap.data(), Ai.data(), &nrhs, nullptr, &error);
 			AssertThrow(error == 0, ExcPARDISOError("pardiso_printstats", error));
-		}
+		}*/
 	}
 
 	return;
@@ -509,6 +508,7 @@ BlockSolverWrapperPARDISO::vmult(	Vector<double>& 		x,
 	if( normr >= res_max)
 		cout << "The solution of the PARDISO solver is inaccurate! (Residual = " << normr << ")" << endl;
 	AssertThrow(error == 0, ExcPARDISOError("pardiso", error));
+
 	//AssertThrow(normr < res_max, ExcPARDISORes(normr));
 
 	return;

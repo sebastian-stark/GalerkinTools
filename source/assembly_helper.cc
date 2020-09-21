@@ -3734,7 +3734,9 @@ AssemblyHelper<spacedim>::compute_distance_to_other_solution(	const VectorType&	
 																const VectorTools::NormType		norm_type,
 																const ComponentMask				component_mask_domain,
 																const ComponentMask				component_mask_interface,
-																const double					/*exponent*/)
+																const double					/*exponent*/,
+																const Vector<double>			scaling_domain,
+																const Vector<double>			scaling_interface)
 const
 {
 
@@ -3797,6 +3799,17 @@ const
 														update_values);
 
 	const unsigned int n_components_domain = fe_collection_domain.n_components();
+	Vector<double> scaling_domain_(n_components_domain);
+	if(scaling_domain.size() == 0)
+	{
+		for(auto& el : scaling_domain_)
+			el = 1.0;
+	}
+	else
+	{
+		Assert(scaling_domain.size() == n_components_domain, ExcMessage("Scaling vector does not match the number of solution components"));
+		scaling_domain_ = scaling_domain;
+	}
 	const unsigned int n_q_points_domain = quadrature_domain.size();
 	vector<Vector<double>> function_values_domain;
 	function_values_domain.resize(n_q_points_domain);
@@ -3814,15 +3827,15 @@ const
 				double norm_contribution = 0.0;
 				for(unsigned int component = 0; component < function_values_domain[q].size(); ++component)
 					if( (component_mask_domain.size() == 0) || (component_mask_domain[component]) )
-						norm_contribution += function_values_domain[q][component] * function_values_domain[q][component];
+						norm_contribution += function_values_domain[q][component] * function_values_domain[q][component] * scaling_domain_[component] * scaling_domain_[component];
 				norm_domain += fe_values_domain_present.JxW(q) * norm_contribution;
 			}
 			else if(norm_type == VectorTools::NormType::Linfty_norm)
 			{
 				for(unsigned int component = 0; component < function_values_domain[q].size(); ++component)
 					if( (component_mask_domain.size() == 0) || (component_mask_domain[component]) )
-						if(fabs(function_values_domain[q][component]) > norm_domain)
-							norm_domain = fabs(function_values_domain[q][component]);
+						if(fabs(function_values_domain[q][component] * scaling_domain_[component]) > norm_domain)
+							norm_domain = fabs(function_values_domain[q][component] * scaling_domain_[component]);
 			}
 		}
 	}
@@ -3838,6 +3851,17 @@ const
 															update_values);
 
 	const unsigned int n_components_interface = fe_collection_interface.n_components();
+	Vector<double> scaling_interface_(n_components_interface);
+	if(scaling_interface.size() == 0)
+	{
+		for(auto& el : scaling_interface_)
+			el = 1.0;
+	}
+	else
+	{
+		Assert(scaling_interface.size() == n_components_interface, ExcMessage("Scaling vector does not match the number of solution components"));
+		scaling_interface_ = scaling_interface;
+	}
 	const unsigned int n_q_points_interface = quadrature_interface.size();
 	vector<Vector<double>> function_values_interface;
 	function_values_interface.resize(n_q_points_interface);
@@ -3855,15 +3879,15 @@ const
 				double norm_contribution = 0.0;
 				for(unsigned int component = 0; component < function_values_interface[q].size(); ++component)
 					if( (component_mask_interface.size() == 0) || (component_mask_interface[component]) )
-						norm_contribution += function_values_interface[q][component] * function_values_interface[q][component];
+						norm_contribution += function_values_interface[q][component] * function_values_interface[q][component] * scaling_interface_[component] * scaling_interface_[component];
 				norm_interface += fe_values_interface_present.JxW(q) * norm_contribution;
 			}
 			else if(norm_type == VectorTools::NormType::Linfty_norm)
 			{
 				for(unsigned int component = 0; component < function_values_interface[q].size(); ++component)
 					if( (component_mask_interface.size() == 0) || (component_mask_interface[component]) )
-						if(fabs(function_values_interface[q][component]) > norm_interface)
-							norm_interface = fabs(function_values_interface[q][component]);
+						if(fabs(function_values_interface[q][component] * scaling_interface_[component]) > norm_interface)
+							norm_interface = fabs(function_values_interface[q][component] * scaling_interface_[component]);
 			}
 		}
 	}
@@ -5329,7 +5353,9 @@ AssemblyHelper<2>::compute_distance_to_other_solution<Vector<double>>(	const Vec
 																		const VectorTools::NormType,
 																		const ComponentMask,
 																		const ComponentMask,
-																		const double)
+																		const double,
+																		const Vector<double>,
+																		const Vector<double>)
 const;
 
 template
@@ -5342,7 +5368,9 @@ AssemblyHelper<3>::compute_distance_to_other_solution<Vector<double>>(	const Vec
 																		const VectorTools::NormType,
 																		const ComponentMask,
 																		const ComponentMask,
-																		const double)
+																		const double,
+																		const Vector<double>,
+																		const Vector<double>)
 const;
 
 #ifdef DEAL_II_WITH_MPI
@@ -5357,7 +5385,9 @@ AssemblyHelper<2>::compute_distance_to_other_solution<LinearAlgebra::distributed
 																									const VectorTools::NormType,
 																									const ComponentMask,
 																									const ComponentMask,
-																									const double)
+																									const double,
+																									const Vector<double>,
+																									const Vector<double>)
 const;
 
 template
@@ -5370,7 +5400,9 @@ AssemblyHelper<3>::compute_distance_to_other_solution<LinearAlgebra::distributed
 																									const VectorTools::NormType,
 																									const ComponentMask,
 																									const ComponentMask,
-																									const double)
+																									const double,
+																									const Vector<double>,
+																									const Vector<double>)
 const;
 
 #endif // DEAL_II_WITH_MPI
