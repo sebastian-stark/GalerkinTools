@@ -123,3 +123,7 @@
 \_form#122:$\Pi_i=H^\Sigma_\tau$
 \_form#123:$\Pi_i(H^\Omega_\rho, H^\Sigma_\tau, C_\iota)$
 \_form#124:\begin{equation*} \begin{pmatrix} \boldsymbol{A} & \boldsymbol{B} \\ \boldsymbol{C}^\top & \boldsymbol{D} \end{pmatrix} \end{equation*}
+\_form#125:$u^\Sigma_\eta(\boldsymbol{X}) = b^\Sigma_\eta$
+\_form#126:$b^\Sigma_\eta$
+\_form#127:$u^\Omega_\epsilon(\boldsymbol{X}) = b^\Omega_\epsilon$
+\_form#128:$\boldsymbol{X}$

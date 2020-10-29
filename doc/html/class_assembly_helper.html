@@ -100,6 +100,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4043c993c8902ad5d3045a13ed42e6f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40e7eb10c5dbd5358597f38291b90d85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a40e7eb10c5dbd5358597f38291b90d85">make_dirichlet_constraints</a> (AffineConstraints&lt; double &gt; &amp;constraint_matrix, const std::vector&lt; const <a class="el" href="class_dirichlet_constraint.html">DirichletConstraint</a>&lt; spacedim &gt; * &gt; &amp;dirichlet_constraints, const AffineConstraints&lt; double &gt; &amp;constraints_ignore=AffineConstraints&lt; double &gt;()) const</td></tr>
 <tr class="separator:a40e7eb10c5dbd5358597f38291b90d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b2d6681755428d4abfe718e54e3c322"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a5b2d6681755428d4abfe718e54e3c322">make_dirichlet_constraints</a> (AffineConstraints&lt; double &gt; &amp;constraint_matrix, const std::vector&lt; const <a class="el" href="class_dirichlet_constraint.html">DirichletConstraint</a>&lt; spacedim &gt; * &gt; &amp;dirichlet_constraints, const std::vector&lt; const <a class="el" href="class_point_constraint.html">PointConstraint</a>&lt; spacedim, spacedim &gt; * &gt; &amp;point_constraints_omega, const std::vector&lt; const <a class="el" href="class_point_constraint.html">PointConstraint</a>&lt; spacedim-1, spacedim &gt; * &gt; &amp;point_constraints_sigma, const std::vector&lt; const <a class="el" href="class_point_constraint.html">PointConstraint</a>&lt; 0, spacedim &gt; * &gt; &amp;point_constraints_C, const AffineConstraints&lt; double &gt; &amp;constraints_ignore=AffineConstraints&lt; double &gt;()) const</td></tr>
+<tr class="separator:a5b2d6681755428d4abfe718e54e3c322"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60a2aa2aa08149682feca02e458232d4"><td class="memTemplParams" colspan="2">template&lt;class SparsityPatternType &gt; </td></tr>
 <tr class="memitem:a60a2aa2aa08149682feca02e458232d4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a60a2aa2aa08149682feca02e458232d4">generate_sparsity_pattern_by_simulation</a> (SparsityPatternType &amp;dsp_K, const AffineConstraints&lt; double &gt; &amp;constraints) const</td></tr>
 <tr class="separator:a60a2aa2aa08149682feca02e458232d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2020,7 +2022,7 @@ template&lt;unsigned int spacedim&gt; </div>
 </div>
 </div>
 <a id="a40e7eb10c5dbd5358597f38291b90d85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40e7eb10c5dbd5358597f38291b90d85">&#9670;&nbsp;</a></span>make_dirichlet_constraints()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a40e7eb10c5dbd5358597f38291b90d85">&#9670;&nbsp;</a></span>make_dirichlet_constraints() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2057,6 +2059,75 @@ template&lt;unsigned int spacedim&gt; </div>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">constraint_matrix</td><td>resulting constraint matrix with the Dirichlet type constraints</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dirichlet_constraints</td><td>constraints to be applied to the domain related fields</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">constraints_ignore</td><td>All dofs which are already constrained in <code>ignore_constrained</code> will not again be constrained in <code>constraint_matrix</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>The constraint matrix will be cleared before the constraints are written. This means that if you have other constraints, it will be necessary to merge the constraint matrices. The <code>local_lines</code> property will be set to what <a class="el" href="class_do_f_handler_system.html#af5e18e9200d2137f01c35a19e0890739">DoFHandlerSystem::get_locally_relevant_dofs()</a> of the object <a class="el" href="class_assembly_helper.html#a885e660c749e91a35e3279643ebcd87f">AssemblyHelper::dof_handler_system</a> returns.</dd>
+<dd>
+Domain related independent fields can only be directly constrained using this method if they are discretized based on finite elements having support points! Attempting to constrain independent fields discretized in terms of elements not having support points with this function will have no effect. </dd></dl>
+
+</div>
+</div>
+<a id="a5b2d6681755428d4abfe718e54e3c322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b2d6681755428d4abfe718e54e3c322">&#9670;&nbsp;</a></span>make_dirichlet_constraints() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_assembly_helper.html">AssemblyHelper</a>&lt; spacedim &gt;::make_dirichlet_constraints </td>
+          <td>(</td>
+          <td class="paramtype">AffineConstraints&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>constraint_matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; const <a class="el" href="class_dirichlet_constraint.html">DirichletConstraint</a>&lt; spacedim &gt; * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dirichlet_constraints</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; const <a class="el" href="class_point_constraint.html">PointConstraint</a>&lt; spacedim, spacedim &gt; * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>point_constraints_omega</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; const <a class="el" href="class_point_constraint.html">PointConstraint</a>&lt; spacedim-1, spacedim &gt; * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>point_constraints_sigma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; const <a class="el" href="class_point_constraint.html">PointConstraint</a>&lt; 0, spacedim &gt; * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>point_constraints_C</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AffineConstraints&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>constraints_ignore</em> = <code>AffineConstraints&lt;&#160;double&#160;&gt;()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>An extended method generating Dirichlet type constraints on domain related independent fields on interfaces as well as point-wise Dirichlet type constraints.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">constraint_matrix</td><td>resulting constraint matrix with the Dirichlet type constraints</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dirichlet_constraints</td><td>constraints to be applied to the domain related fields</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">point_constraints_omega</td><td>point constraints to be applied to the domain related fields</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">point_constraints_sigma</td><td>point constraints to be applied to the interface related fields</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">point_constraints_C</td><td>point constraints to be applied to the independent scalars</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">constraints_ignore</td><td>All dofs which are already constrained in <code>ignore_constrained</code> will not again be constrained in <code>constraint_matrix</code> </td></tr>
   </table>
   </dd>

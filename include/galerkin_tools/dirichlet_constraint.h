@@ -116,19 +116,6 @@ public:
 	coefficient_c;
 
 	/**
-	 * Sets DirichletConstraint::constraint_is_active
-	 *
-	 * @param[in]	constraint_is_active		Value to be assigned to DirichletConstraint::constraint_is_active
-	 */
-	void set_constraint_is_active(const bool constraint_is_active);
-
-	/**
-	 * Return DirichletConstraint::constraint_is_active
-	 */
-	bool get_constraint_is_active()
-	const;
-
-	/**
 	 * The constructor of the class
 	 *
 	 * @param[in]	independent_field			DirichletConstraint::independent_field
@@ -161,7 +148,278 @@ public:
 	virtual
 	~DirichletConstraint();
 
+	/**
+	 * Sets DirichletConstraint::constraint_is_active
+	 *
+	 * @param[in]	constraint_is_active		Value to be assigned to DirichletConstraint::constraint_is_active
+	 */
+	void set_constraint_is_active(const bool constraint_is_active);
+
+	/**
+	 * Return DirichletConstraint::constraint_is_active
+	 */
+	bool get_constraint_is_active()
+	const;
+
+	/**
+	 * Set the time at which the constraint is evaluated
+	 *
+	 * @param[in]	time	The time at which the constraint is evaluated
+	 */
+	void
+	set_time(const double time)
+	const;
+
 };
+
+/**
+ * Class defining a Dirichlet type condition for an interface related field at a single point.
+ *
+ * The Dirichlet type condition has the form
+ * \f$u^\Sigma_\eta(\boldsymbol{X}) = b^\Sigma_\eta\f$,
+ * where \f$b^\Sigma_\eta\f$ is a prescribed value.
+ * The PointConstraint class inherits from Subscriptor in order to be
+ * able to check that PointConstraint objects are only destroyed when they are
+ * not needed anymore by other objects.
+ *
+ * @tparam dim		The dimension of the object on which the independent field is defined.
+ * 					Note that also dim=0 is admissible in order to constrain an independent scalar.
+ * 					In this case, however, PointConstraint::X is ignored
+ *
+ * @tparam spacedim	The spatial dimension of the problem
+ */
+template<unsigned int dim, unsigned int spacedim>
+class PointConstraint : public Subscriptor
+{
+private:
+
+	/**
+	 * Bool indicating whether constraint is currently active
+	 */
+	bool
+	constraint_is_active = true;
+
+	/**
+	 * point \f$\boldsymbol{X}\f$
+	 */
+	Point<spacedim>
+	X;
+
+
+public:
+
+	/**
+	 * IndependentField object to be constrained
+	 * (defines together with PointConstraint::component \f$u^\Sigma_\eta\f$)
+	 */
+	const SmartPointer<const IndependentField<dim, spacedim>>
+	independent_field;
+
+	/**
+	 * component of IndependentField object to be constrained
+	 * (defines together with PointConstraint::independent_field \f$u^\Sigma_\eta\f$)
+	 */
+	const unsigned int
+	component;
+
+	/**
+	 * A Function (or, rather, an instance of a derived class) specifying the constraint inhomogeneity
+	 * \f$b^\Sigma_\eta\f$. The position variable of the function object is ignored. However, the Function::set_time() or PointConstraint::set_time() functionality can be used to change the constraint
+	 * inhomogeneity with time.
+	 * The Function must have a single component and implement the method Function::value().
+	 * If a @p nullptr is stored here, the constraint will be assumed homogeneous.
+	 */
+	const SmartPointer<const Function<spacedim>>
+	constraint_inhomogeneity;
+
+	/**
+	 * The constructor of the class
+	 *
+	 * @param[in]	independent_field			PointConstraint::independent_field
+	 *
+	 * @param[in]	component					PointConstraint::component
+	 *
+	 * @param[in]	X							PointConstraint::X
+	 *
+	 * @param[in]	constraint_inhomogeneity	PointConstraint::constraint_inhomogeneity
+	 */
+	PointConstraint(const IndependentField<dim, spacedim>& 	independent_field,
+					const unsigned int						component,
+					const Point<spacedim>					X,
+					const Function<spacedim>* const			constraint_inhomogeneity = nullptr);
+
+	/**
+	 * The destructor of PointConstraint essentially checks before destruction that the
+	 * PointConstraint object is not used by other objects. If this is the case, the program
+	 * will be aborted.
+	 */
+	virtual
+	~PointConstraint();
+
+	/**
+	 * Sets PointConstraint::constraint_is_active
+	 *
+	 * @param[in]	constraint_is_active		Value to be assigned to PointConstraint::constraint_is_active
+	 */
+	void
+	set_constraint_is_active(const bool constraint_is_active);
+
+	/**
+	 * Sets PointConstraint::X
+	 *
+	 * @param[in]	X		Value to be assigned to PointConstraint::X
+	 */
+	void
+	set_X(const Point<spacedim> X);
+
+	/**
+	 * Returns PointConstraint::X
+	 *
+	 */
+	Point<spacedim>
+	get_X()
+	const;
+
+	/**
+	 * Return PointConstraint::constraint_is_active
+	 */
+	bool
+	get_constraint_is_active()
+	const;
+
+	/**
+	 * Set the time at which the constraint is evaluated
+	 *
+	 * @param[in]	time	The time at which the constraint is evaluated
+	 */
+	void
+	set_time(const double time)
+	const;
+
+};
+
+/**
+ * Class defining a Dirichlet type condition for a domain related field at a single point.
+ *
+ * The Dirichlet type condition has the form
+ * \f$u^\Omega_\epsilon(\boldsymbol{X}) = b^\Omega_\epsilon\f$,
+ * where \f$b^\Omega_\epsilon\f$ is a prescribed value.
+ * The PointConstraint<spacedim,spacedim> class inherits from Subscriptor in order to be
+ * able to check that PointConstraint<spacedim,spacedim> objects are only destroyed when they are
+ * not needed anymore by other objects.
+ *
+ * @tparam	spacedim	Spatial dimension of the problem
+ */
+template<unsigned int spacedim>
+class PointConstraint<spacedim, spacedim> : public Subscriptor
+{
+private:
+
+	/**
+	 * Bool indicating whether constraint is currently active
+	 */
+	bool
+	constraint_is_active = true;
+
+	/**
+	 * point \f$\boldsymbol{X}\f$
+	 */
+	Point<spacedim>
+	X;
+
+
+public:
+
+	/**
+	 * IndependentField object to be constrained
+	 * (defines together with PointConstraint<spacedim,spacedim>::component \f$u^\Omega_\epsilon\f$)
+	 */
+	const SmartPointer<const IndependentField<spacedim, spacedim>>
+	independent_field;
+
+	/**
+	 * component of IndependentField object to be constrained
+	 * (defines together with PointConstraint<spacedim,spacedim>::independent_field \f$u^\Omega_\epsilon\f$)
+	 */
+	const unsigned int
+	component;
+
+	/**
+	 * A Function (or, rather, an instance of a derived class) specifying the constraint inhomogeneity
+	 * \f$b^\Omega_\epsilon\f$. The position variable of the function object is ignored. However, the Function::set_time() or PointConstraint<spacedim, spacedim>::set_time() functionality can be used to change the constraint
+	 * inhomogeneity with time.
+	 * The Function must have a single component and implement the method Function::value().
+	 * If a @p nullptr is stored here, the constraint will be assumed homogeneous.
+	 */
+	const SmartPointer<const Function<spacedim>>
+	constraint_inhomogeneity;
+
+	/**
+	 * The constructor of the class
+	 *
+	 * @param[in]	independent_field			PointConstraint<spacedim,spacedim>::independent_field
+	 *
+	 * @param[in]	component					PointConstraint<spacedim,spacedim>::component
+	 *
+	 * @param[in]	X							PointConstraint<spacedim,spacedim>::X
+	 *
+	 * @param[in]	constraint_inhomogeneity	PointConstraint<spacedim,spacedim>::constraint_inhomogeneity
+	 */
+	PointConstraint(const IndependentField<spacedim, spacedim>& independent_field,
+					const unsigned int							component,
+					const Point<spacedim>						X,
+					const Function<spacedim>* const				constraint_inhomogeneity = nullptr);
+
+	/**
+	 * The destructor of PointConstraint<spacedim,spacedim> essentially checks before destruction that the
+	 * PointConstraint<spacedim,spacedim> object is not used by other objects. If this is the case, the program
+	 * will be aborted.
+	 */
+	virtual
+	~PointConstraint();
+
+	/**
+	 * Sets PointConstraint<spacedim,spacedim>::constraint_is_active
+	 *
+	 * @param[in]	constraint_is_active		Value to be assigned to PointConstraint<spacedim,spacedim>::constraint_is_active
+	 */
+	void
+	set_constraint_is_active(const bool constraint_is_active);
+
+	/**
+	 * Sets PointConstraint<spacedim,spacedim>::X
+	 *
+	 * @param[in]	X		Value to be assigned to PointConstraint<spacedim,spacedim>::X
+	 */
+	void
+	set_X(const Point<spacedim> X);
+
+	/**
+	 * Returns PointConstraint::X
+	 *
+	 */
+	Point<spacedim>
+	get_X()
+	const;
+
+	/**
+	 * Return PointConstraint<spacedim,spacedim>::constraint_is_active
+	 */
+	bool
+	get_constraint_is_active()
+	const;
+
+	/**
+	 * Set the time at which the constraint is evaluated
+	 *
+	 * @param[in]	time	The time at which the constraint is evaluated
+	 */
+	void
+	set_time(const double time)
+	const;
+
+};
+
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE
 DEAL_II_NAMESPACE_CLOSE

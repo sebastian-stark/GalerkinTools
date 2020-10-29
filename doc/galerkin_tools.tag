@@ -24,6 +24,8 @@
     <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>dirichlet__constraint_8h.html</filename>
     <class kind="class">DirichletConstraint</class>
+    <class kind="class">PointConstraint</class>
+    <class kind="class">PointConstraint&lt; spacedim, spacedim &gt;</class>
   </compound>
   <compound kind="file">
     <name>dof_handler_system.h</name>
@@ -357,6 +359,13 @@
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>a40e7eb10c5dbd5358597f38291b90d85</anchor>
       <arglist>(AffineConstraints&lt; double &gt; &amp;constraint_matrix, const std::vector&lt; const DirichletConstraint&lt; spacedim &gt; * &gt; &amp;dirichlet_constraints, const AffineConstraints&lt; double &gt; &amp;constraints_ignore=AffineConstraints&lt; double &gt;()) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>make_dirichlet_constraints</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a5b2d6681755428d4abfe718e54e3c322</anchor>
+      <arglist>(AffineConstraints&lt; double &gt; &amp;constraint_matrix, const std::vector&lt; const DirichletConstraint&lt; spacedim &gt; * &gt; &amp;dirichlet_constraints, const std::vector&lt; const PointConstraint&lt; spacedim, spacedim &gt; * &gt; &amp;point_constraints_omega, const std::vector&lt; const PointConstraint&lt; spacedim-1, spacedim &gt; * &gt; &amp;point_constraints_sigma, const std::vector&lt; const PointConstraint&lt; 0, spacedim &gt; * &gt; &amp;point_constraints_C, const AffineConstraints&lt; double &gt; &amp;constraints_ignore=AffineConstraints&lt; double &gt;()) const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -1603,6 +1612,13 @@
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>a40e7eb10c5dbd5358597f38291b90d85</anchor>
       <arglist>(AffineConstraints&lt; double &gt; &amp;constraint_matrix, const std::vector&lt; const DirichletConstraint&lt; spacedim &gt; * &gt; &amp;dirichlet_constraints, const AffineConstraints&lt; double &gt; &amp;constraints_ignore=AffineConstraints&lt; double &gt;()) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>make_dirichlet_constraints</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a5b2d6681755428d4abfe718e54e3c322</anchor>
+      <arglist>(AffineConstraints&lt; double &gt; &amp;constraint_matrix, const std::vector&lt; const DirichletConstraint&lt; spacedim &gt; * &gt; &amp;dirichlet_constraints, const std::vector&lt; const PointConstraint&lt; spacedim, spacedim &gt; * &gt; &amp;point_constraints_omega, const std::vector&lt; const PointConstraint&lt; spacedim-1, spacedim &gt; * &gt; &amp;point_constraints_sigma, const std::vector&lt; const PointConstraint&lt; 0, spacedim &gt; * &gt; &amp;point_constraints_C, const AffineConstraints&lt; double &gt; &amp;constraints_ignore=AffineConstraints&lt; double &gt;()) const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -2719,6 +2735,20 @@
     <templarg>spacedim</templarg>
     <base>Subscriptor</base>
     <member kind="function">
+      <type></type>
+      <name>DirichletConstraint</name>
+      <anchorfile>class_dirichlet_constraint.html</anchorfile>
+      <anchor>a14e75a7f8bcc8a18daa04a5c1164fe87</anchor>
+      <arglist>(const IndependentField&lt; spacedim, spacedim &gt; &amp;independent_field, const unsigned int component, const InterfaceSide side, const std::set&lt; types::material_id &gt; domain_of_constraint, const Function&lt; spacedim &gt; *const constraint_inhomogeneity=nullptr, const IndependentField&lt; 0, spacedim &gt; *independent_scalar=nullptr, const Function&lt; spacedim &gt; *const coefficient_c=nullptr)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~DirichletConstraint</name>
+      <anchorfile>class_dirichlet_constraint.html</anchorfile>
+      <anchor>ac6b6b7caf4694000486abff377fd1440</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>set_constraint_is_active</name>
       <anchorfile>class_dirichlet_constraint.html</anchorfile>
@@ -2733,18 +2763,11 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type></type>
-      <name>DirichletConstraint</name>
+      <type>void</type>
+      <name>set_time</name>
       <anchorfile>class_dirichlet_constraint.html</anchorfile>
-      <anchor>a14e75a7f8bcc8a18daa04a5c1164fe87</anchor>
-      <arglist>(const IndependentField&lt; spacedim, spacedim &gt; &amp;independent_field, const unsigned int component, const InterfaceSide side, const std::set&lt; types::material_id &gt; domain_of_constraint, const Function&lt; spacedim &gt; *const constraint_inhomogeneity=nullptr, const IndependentField&lt; 0, spacedim &gt; *independent_scalar=nullptr, const Function&lt; spacedim &gt; *const coefficient_c=nullptr)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~DirichletConstraint</name>
-      <anchorfile>class_dirichlet_constraint.html</anchorfile>
-      <anchor>ac6b6b7caf4694000486abff377fd1440</anchor>
-      <arglist>()</arglist>
+      <anchor>ab8c509170d5d36f778415b88bceee99d</anchor>
+      <arglist>(const double time) const</arglist>
     </member>
     <member kind="variable">
       <type>const std::set&lt; types::material_id &gt;</type>
@@ -3911,6 +3934,187 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>PointConstraint</name>
+    <filename>class_point_constraint.html</filename>
+    <templarg>dim</templarg>
+    <templarg>spacedim</templarg>
+    <base>Subscriptor</base>
+    <member kind="function">
+      <type></type>
+      <name>PointConstraint</name>
+      <anchorfile>class_point_constraint.html</anchorfile>
+      <anchor>a5d192b30c02b3d4002fef04db84f75c3</anchor>
+      <arglist>(const IndependentField&lt; dim, spacedim &gt; &amp;independent_field, const unsigned int component, const Point&lt; spacedim &gt; X, const Function&lt; spacedim &gt; *const constraint_inhomogeneity=nullptr)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~PointConstraint</name>
+      <anchorfile>class_point_constraint.html</anchorfile>
+      <anchor>afcaa6aaeb90f8128f121ac3797f77f03</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_constraint_is_active</name>
+      <anchorfile>class_point_constraint.html</anchorfile>
+      <anchor>afeb601e598e753c669abcd86d84ac3d3</anchor>
+      <arglist>(const bool constraint_is_active)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_X</name>
+      <anchorfile>class_point_constraint.html</anchorfile>
+      <anchor>a748280c69c257904cad201e837a9b5d4</anchor>
+      <arglist>(const Point&lt; spacedim &gt; X)</arglist>
+    </member>
+    <member kind="function">
+      <type>Point&lt; spacedim &gt;</type>
+      <name>get_X</name>
+      <anchorfile>class_point_constraint.html</anchorfile>
+      <anchor>a181f4e7b3042afed35db300290d46aa5</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>get_constraint_is_active</name>
+      <anchorfile>class_point_constraint.html</anchorfile>
+      <anchor>a19659b5f07f5f3013ecb59eecefd56ea</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_time</name>
+      <anchorfile>class_point_constraint.html</anchorfile>
+      <anchor>a2178075182226dcf265e5b956190ed15</anchor>
+      <arglist>(const double time) const</arglist>
+    </member>
+    <member kind="variable">
+      <type>const SmartPointer&lt; const IndependentField&lt; dim, spacedim &gt; &gt;</type>
+      <name>independent_field</name>
+      <anchorfile>class_point_constraint.html</anchorfile>
+      <anchor>a8d27c23d2d6e1e64f8b2a36f7c950efb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const unsigned int</type>
+      <name>component</name>
+      <anchorfile>class_point_constraint.html</anchorfile>
+      <anchor>af15fcbe78e2f8233ae1ff4b52b9d9de5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const SmartPointer&lt; const Function&lt; spacedim &gt; &gt;</type>
+      <name>constraint_inhomogeneity</name>
+      <anchorfile>class_point_constraint.html</anchorfile>
+      <anchor>ace3fa5f9542ee73d502abd78f48da032</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>constraint_is_active</name>
+      <anchorfile>class_point_constraint.html</anchorfile>
+      <anchor>ae09c78d247df993db4fced0460889161</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>Point&lt; spacedim &gt;</type>
+      <name>X</name>
+      <anchorfile>class_point_constraint.html</anchorfile>
+      <anchor>ac021367793862b52580cc292bb7b0ea7</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>PointConstraint&lt; spacedim, spacedim &gt;</name>
+    <filename>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</filename>
+    <templarg>spacedim</templarg>
+    <base>Subscriptor</base>
+    <member kind="function">
+      <type></type>
+      <name>PointConstraint</name>
+      <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>ab2807d5ef6751bac3528306d073dd7bb</anchor>
+      <arglist>(const IndependentField&lt; spacedim, spacedim &gt; &amp;independent_field, const unsigned int component, const Point&lt; spacedim &gt; X, const Function&lt; spacedim &gt; *const constraint_inhomogeneity=nullptr)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~PointConstraint</name>
+      <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>ade399e3c4a1d033505ddce38f7f5d1ce</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_constraint_is_active</name>
+      <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a3e06652b150bbcb759eb20b1b1a805e0</anchor>
+      <arglist>(const bool constraint_is_active)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_X</name>
+      <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a292f383bdf4563d562dda619df76aa11</anchor>
+      <arglist>(const Point&lt; spacedim &gt; X)</arglist>
+    </member>
+    <member kind="function">
+      <type>Point&lt; spacedim &gt;</type>
+      <name>get_X</name>
+      <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a4264d07fbc938311ea069b5a5a3b4165</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>get_constraint_is_active</name>
+      <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a9c6cde4645e498de1c74fd2c4b04df06</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_time</name>
+      <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a725ee8b397b6f5c2b54795e4fb5173f2</anchor>
+      <arglist>(const double time) const</arglist>
+    </member>
+    <member kind="variable">
+      <type>const SmartPointer&lt; const IndependentField&lt; spacedim, spacedim &gt; &gt;</type>
+      <name>independent_field</name>
+      <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a8b124e7568331aef96870450a0113bab</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const unsigned int</type>
+      <name>component</name>
+      <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a92118ca233dadb0ff3495317cee3fe72</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const SmartPointer&lt; const Function&lt; spacedim &gt; &gt;</type>
+      <name>constraint_inhomogeneity</name>
+      <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>af6bbff9cc333d7aa678180f3b5f5d569</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>constraint_is_active</name>
+      <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a8f876badee193506b88dbb0959ac6776</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>Point&lt; spacedim &gt;</type>
+      <name>X</name>
+      <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a8d6c7dd2a1c97869ea347ab18d57aefe</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>ScalarFunctional</name>
     <filename>class_scalar_functional.html</filename>
     <templarg>dim</templarg>
@@ -4313,102 +4517,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>parallel::TriangulationSystem</name>
-    <filename>classparallel_1_1_triangulation_system.html</filename>
-    <templarg>spacedim</templarg>
-    <member kind="function">
-      <type></type>
-      <name>TriangulationSystem</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a2d0fa99c5da897bedc4d9df93d6cdaf7</anchor>
-      <arglist>(dealii::parallel::distributed::Triangulation&lt; spacedim, spacedim &gt; &amp;tria_domain)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~TriangulationSystem</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>ad12682d17e85ee169fd53cdbe0536f16</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual const dealii::parallel::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
-      <name>get_triangulation_domain</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a68d45d1980bf4a8aa4ed8db4f4985eef</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual const dealii::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
-      <name>get_triangulation_interface</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a7ac3f351759406d1e340ddafc2dc7c75</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual dealii::parallel::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
-      <name>get_triangulation_domain</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a4901a2f0e26104d5a085253620b98f52</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual dealii::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
-      <name>get_triangulation_interface</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>ab799af10ed705dcf903bcd78325762b0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>close</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a5a7ef73bec1fbe698480e1bd7c6cd8a7</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>write_meshes_per_processor_as_vtu</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a6220dec5dd926987eedf084273062f9c</anchor>
-      <arglist>(const std::string file_name_domain, const std::string file_name_interface) const</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual std::pair&lt; const unsigned int, const unsigned int &gt;</type>
-      <name>get_this_proc_n_procs</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>afbde3803f2243308fa33593d6b5f17b4</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>pre_refinement_domain</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a79e9789e83e12900c85cf8de0644271f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>post_refinement_domain</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a951181f2ad877283d458fa19db42efb2</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>update_interface_subdomain_ids</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>ae214de5a3053ae320a1eb6d879f03b43</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>MPI_Comm</type>
-      <name>mpi_communicator</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>aff7cdcf04d5a4fb633d714130da893b0</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>TriangulationSystem</name>
     <filename>class_triangulation_system.html</filename>
     <templarg>spacedim</templarg>
@@ -4723,6 +4831,142 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>parallel::TriangulationSystem</name>
+    <filename>classparallel_1_1_triangulation_system.html</filename>
+    <templarg>spacedim</templarg>
+    <member kind="function">
+      <type></type>
+      <name>TriangulationSystem</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a2d0fa99c5da897bedc4d9df93d6cdaf7</anchor>
+      <arglist>(dealii::parallel::distributed::Triangulation&lt; spacedim, spacedim &gt; &amp;tria_domain)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~TriangulationSystem</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>ad12682d17e85ee169fd53cdbe0536f16</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual const dealii::parallel::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
+      <name>get_triangulation_domain</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a68d45d1980bf4a8aa4ed8db4f4985eef</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual const dealii::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
+      <name>get_triangulation_interface</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a7ac3f351759406d1e340ddafc2dc7c75</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual dealii::parallel::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
+      <name>get_triangulation_domain</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a4901a2f0e26104d5a085253620b98f52</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual dealii::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
+      <name>get_triangulation_interface</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>ab799af10ed705dcf903bcd78325762b0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>close</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a5a7ef73bec1fbe698480e1bd7c6cd8a7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>write_meshes_per_processor_as_vtu</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a6220dec5dd926987eedf084273062f9c</anchor>
+      <arglist>(const std::string file_name_domain, const std::string file_name_interface) const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual std::pair&lt; const unsigned int, const unsigned int &gt;</type>
+      <name>get_this_proc_n_procs</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>afbde3803f2243308fa33593d6b5f17b4</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="virtual">
+      <type>virtual void</type>
+      <name>pre_refinement_domain</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a79e9789e83e12900c85cf8de0644271f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="virtual">
+      <type>virtual void</type>
+      <name>post_refinement_domain</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a951181f2ad877283d458fa19db42efb2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>update_interface_subdomain_ids</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>ae214de5a3053ae320a1eb6d879f03b43</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>MPI_Comm</type>
+      <name>mpi_communicator</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>aff7cdcf04d5a4fb633d714130da893b0</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>parallel::TwoBlockMatrix</name>
+    <filename>classparallel_1_1_two_block_matrix.html</filename>
+    <templarg></templarg>
+    <member kind="function">
+      <type></type>
+      <name>TwoBlockMatrix</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a93990616301e671f9a967fbc49029674</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TwoBlockMatrix</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>afa9b3f1c3d74a211c334c8f6e59b52f6</anchor>
+      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reinit</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a0e112695034c69aa8a430efd9e7c37ef</anchor>
+      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
+    </member>
+    <member kind="function">
+      <type>dealii::GalerkinTools::parallel::TwoBlockMatrix&lt; MatrixType &gt; &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a8e2ba56ebc9ee5ad1fe7b1d8604e9669</anchor>
+      <arglist>(const double value)</arglist>
+    </member>
+    <member kind="function">
+      <type>const MPI_Comm &amp;</type>
+      <name>get_communicator</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>add0cc2ee49d139e1dbc5554fd62dd5f5</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>TwoBlockMatrix</name>
     <filename>class_two_block_matrix.html</filename>
     <templarg></templarg>
@@ -4970,46 +5214,6 @@
       <anchorfile>class_two_block_matrix.html</anchorfile>
       <anchor>a7d63b4c4c1e499c9f9913444dc5fd6b6</anchor>
       <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>parallel::TwoBlockMatrix</name>
-    <filename>classparallel_1_1_two_block_matrix.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type></type>
-      <name>TwoBlockMatrix</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a93990616301e671f9a967fbc49029674</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>TwoBlockMatrix</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>afa9b3f1c3d74a211c334c8f6e59b52f6</anchor>
-      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reinit</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a0e112695034c69aa8a430efd9e7c37ef</anchor>
-      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
-    </member>
-    <member kind="function">
-      <type>dealii::GalerkinTools::parallel::TwoBlockMatrix&lt; MatrixType &gt; &amp;</type>
-      <name>operator=</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a8e2ba56ebc9ee5ad1fe7b1d8604e9669</anchor>
-      <arglist>(const double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>const MPI_Comm &amp;</type>
-      <name>get_communicator</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>add0cc2ee49d139e1dbc5554fd62dd5f5</anchor>
-      <arglist>() const</arglist>
     </member>
   </compound>
   <compound kind="class">

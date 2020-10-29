@@ -25,13 +25,15 @@ Collaboration diagram for Dirichlet\+Constraint$<$ spacedim $>$\+:\nopagebreak
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{class_dirichlet_constraint_a14e75a7f8bcc8a18daa04a5c1164fe87}{Dirichlet\+Constraint}} (const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ \&\mbox{\hyperlink{class_dirichlet_constraint_abbd7945a973ed93d1d773307393ffde3}{independent\+\_\+field}}, const unsigned int \mbox{\hyperlink{class_dirichlet_constraint_a7e3c4d0e0906af1c81b88e05e41bdafc}{component}}, const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} \mbox{\hyperlink{class_dirichlet_constraint_ae049d107664d3bf23d287ec77545b6f3}{side}}, const std\+::set$<$ \textbf{ types\+::material\+\_\+id} $>$ \mbox{\hyperlink{class_dirichlet_constraint_a258b6ff11b206f966bb03943bb11f469}{domain\+\_\+of\+\_\+constraint}}, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_dirichlet_constraint_af22d2bca23999bdb4f2b67e8982d29c5}{constraint\+\_\+inhomogeneity}}=nullptr, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$\mbox{\hyperlink{class_dirichlet_constraint_a8793f0d41a9c6e88638d7cf5d52a6fdd}{independent\+\_\+scalar}}=nullptr, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_dirichlet_constraint_adea2dc6126a633b297eb7dfce832b9ef}{coefficient\+\_\+c}}=nullptr)
+\item 
+virtual \mbox{\hyperlink{class_dirichlet_constraint_ac6b6b7caf4694000486abff377fd1440}{$\sim$\+Dirichlet\+Constraint}} ()
+\item 
 void \mbox{\hyperlink{class_dirichlet_constraint_abdfdde6ef50639152e2a82d54b130042}{set\+\_\+constraint\+\_\+is\+\_\+active}} (const bool \mbox{\hyperlink{class_dirichlet_constraint_a1ae0b53768be76747f31b5bc584d9ed6}{constraint\+\_\+is\+\_\+active}})
 \item 
 bool \mbox{\hyperlink{class_dirichlet_constraint_ad1741529befff8fca4af6ee82224abb3}{get\+\_\+constraint\+\_\+is\+\_\+active}} () const
 \item 
-\mbox{\hyperlink{class_dirichlet_constraint_a14e75a7f8bcc8a18daa04a5c1164fe87}{Dirichlet\+Constraint}} (const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ \&\mbox{\hyperlink{class_dirichlet_constraint_abbd7945a973ed93d1d773307393ffde3}{independent\+\_\+field}}, const unsigned int \mbox{\hyperlink{class_dirichlet_constraint_a7e3c4d0e0906af1c81b88e05e41bdafc}{component}}, const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} \mbox{\hyperlink{class_dirichlet_constraint_ae049d107664d3bf23d287ec77545b6f3}{side}}, const std\+::set$<$ \textbf{ types\+::material\+\_\+id} $>$ \mbox{\hyperlink{class_dirichlet_constraint_a258b6ff11b206f966bb03943bb11f469}{domain\+\_\+of\+\_\+constraint}}, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_dirichlet_constraint_af22d2bca23999bdb4f2b67e8982d29c5}{constraint\+\_\+inhomogeneity}}=nullptr, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$\mbox{\hyperlink{class_dirichlet_constraint_a8793f0d41a9c6e88638d7cf5d52a6fdd}{independent\+\_\+scalar}}=nullptr, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_dirichlet_constraint_adea2dc6126a633b297eb7dfce832b9ef}{coefficient\+\_\+c}}=nullptr)
-\item 
-virtual \mbox{\hyperlink{class_dirichlet_constraint_ac6b6b7caf4694000486abff377fd1440}{$\sim$\+Dirichlet\+Constraint}} ()
+void \mbox{\hyperlink{class_dirichlet_constraint_ab8c509170d5d36f778415b88bceee99d}{set\+\_\+time}} (const double time) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -135,6 +137,20 @@ Sets \mbox{\hyperlink{class_dirichlet_constraint_a1ae0b53768be76747f31b5bc584d9e
 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em constraint\+\_\+is\+\_\+active} & Value to be assigned to \mbox{\hyperlink{class_dirichlet_constraint_a1ae0b53768be76747f31b5bc584d9ed6}{Dirichlet\+Constraint\+::constraint\+\_\+is\+\_\+active}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_dirichlet_constraint_ab8c509170d5d36f778415b88bceee99d}\label{class_dirichlet_constraint_ab8c509170d5d36f778415b88bceee99d}} 
+\index{DirichletConstraint$<$ spacedim $>$@{DirichletConstraint$<$ spacedim $>$}!set\_time@{set\_time}}
+\index{set\_time@{set\_time}!DirichletConstraint$<$ spacedim $>$@{DirichletConstraint$<$ spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{set\_time()}{set\_time()}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$\+::set\+\_\+time (\begin{DoxyParamCaption}\item[{const double}]{time }\end{DoxyParamCaption}) const}
+
+Set the time at which the constraint is evaluated
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em time} & The time at which the constraint is evaluated \\
 \hline
 \end{DoxyParams}
 

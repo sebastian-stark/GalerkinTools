@@ -27,6 +27,8 @@ Collaboration diagram for Assembly\+Helper$<$ spacedim $>$\+:\nopagebreak
 \item 
 void \mbox{\hyperlink{class_assembly_helper_a40e7eb10c5dbd5358597f38291b90d85}{make\+\_\+dirichlet\+\_\+constraints}} (Affine\+Constraints$<$ double $>$ \&constraint\+\_\+matrix, const std\+::vector$<$ const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ $\ast$ $>$ \&dirichlet\+\_\+constraints, const Affine\+Constraints$<$ double $>$ \&constraints\+\_\+ignore=Affine\+Constraints$<$ double $>$()) const
 \item 
+void \mbox{\hyperlink{class_assembly_helper_a5b2d6681755428d4abfe718e54e3c322}{make\+\_\+dirichlet\+\_\+constraints}} (Affine\+Constraints$<$ double $>$ \&constraint\+\_\+matrix, const std\+::vector$<$ const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ $\ast$ $>$ \&dirichlet\+\_\+constraints, const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&point\+\_\+constraints\+\_\+omega, const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&point\+\_\+constraints\+\_\+sigma, const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ 0, spacedim $>$ $\ast$ $>$ \&point\+\_\+constraints\+\_\+C, const Affine\+Constraints$<$ double $>$ \&constraints\+\_\+ignore=Affine\+Constraints$<$ double $>$()) const
+\item 
 {\footnotesize template$<$class Sparsity\+Pattern\+Type $>$ }\\void \mbox{\hyperlink{class_assembly_helper_a60a2aa2aa08149682feca02e458232d4}{generate\+\_\+sparsity\+\_\+pattern\+\_\+by\+\_\+simulation}} (Sparsity\+Pattern\+Type \&dsp\+\_\+K, const Affine\+Constraints$<$ double $>$ \&constraints) const
 \item 
 {\footnotesize template$<$class Solution\+Vector\+Type , class R\+H\+S\+Vector\+Type , class Matrix\+Type $>$ }\\bool \mbox{\hyperlink{class_assembly_helper_ae02fef45662d1703b0f29d7d9cead7c1}{assemble\+\_\+system}} (const Solution\+Vector\+Type \&solution, const std\+::vector$<$ const Solution\+Vector\+Type $\ast$ $>$ solution\+\_\+ref\+\_\+sets, const Affine\+Constraints$<$ double $>$ \&constraints, double \&potential\+\_\+value, R\+H\+S\+Vector\+Type \&f, Matrix\+Type \&K, const std\+::tuple$<$ bool, bool, bool $>$ requested\+\_\+quantities=std\+::make\+\_\+tuple(true, true, true)) const
@@ -1041,7 +1043,7 @@ At present the transfer of hidden variables upon mesh refinement is not implemen
 \mbox{\Hypertarget{class_assembly_helper_a40e7eb10c5dbd5358597f38291b90d85}\label{class_assembly_helper_a40e7eb10c5dbd5358597f38291b90d85}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!make\_dirichlet\_constraints@{make\_dirichlet\_constraints}}
 \index{make\_dirichlet\_constraints@{make\_dirichlet\_constraints}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
-\doxysubsubsection{\texorpdfstring{make\_dirichlet\_constraints()}{make\_dirichlet\_constraints()}}
+\doxysubsubsection{\texorpdfstring{make\_dirichlet\_constraints()}{make\_dirichlet\_constraints()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::make\+\_\+dirichlet\+\_\+constraints (\begin{DoxyParamCaption}\item[{Affine\+Constraints$<$ double $>$ \&}]{constraint\+\_\+matrix,  }\item[{const std\+::vector$<$ const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ $\ast$ $>$ \&}]{dirichlet\+\_\+constraints,  }\item[{const Affine\+Constraints$<$ double $>$ \&}]{constraints\+\_\+ignore = {\ttfamily AffineConstraints$<$~double~$>$()} }\end{DoxyParamCaption}) const}
 
@@ -1052,6 +1054,35 @@ Method generating Dirichlet type constraints on domain related independent field
 \mbox{\texttt{ out}}  & {\em constraint\+\_\+matrix} & resulting constraint matrix with the Dirichlet type constraints\\
 \hline
 \mbox{\texttt{ in}}  & {\em dirichlet\+\_\+constraints} & constraints to be applied to the domain related fields\\
+\hline
+\mbox{\texttt{ in}}  & {\em constraints\+\_\+ignore} & All dofs which are already constrained in {\ttfamily ignore\+\_\+constrained} will not again be constrained in {\ttfamily constraint\+\_\+matrix} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The constraint matrix will be cleared before the constraints are written. This means that if you have other constraints, it will be necessary to merge the constraint matrices. The {\ttfamily local\+\_\+lines} property will be set to what \mbox{\hyperlink{class_do_f_handler_system_af5e18e9200d2137f01c35a19e0890739}{Do\+F\+Handler\+System\+::get\+\_\+locally\+\_\+relevant\+\_\+dofs()}} of the object \mbox{\hyperlink{class_assembly_helper_a885e660c749e91a35e3279643ebcd87f}{Assembly\+Helper\+::dof\+\_\+handler\+\_\+system}} returns.
+
+Domain related independent fields can only be directly constrained using this method if they are discretized based on finite elements having support points! Attempting to constrain independent fields discretized in terms of elements not having support points with this function will have no effect. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{class_assembly_helper_a5b2d6681755428d4abfe718e54e3c322}\label{class_assembly_helper_a5b2d6681755428d4abfe718e54e3c322}} 
+\index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!make\_dirichlet\_constraints@{make\_dirichlet\_constraints}}
+\index{make\_dirichlet\_constraints@{make\_dirichlet\_constraints}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{make\_dirichlet\_constraints()}{make\_dirichlet\_constraints()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::make\+\_\+dirichlet\+\_\+constraints (\begin{DoxyParamCaption}\item[{Affine\+Constraints$<$ double $>$ \&}]{constraint\+\_\+matrix,  }\item[{const std\+::vector$<$ const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ $\ast$ $>$ \&}]{dirichlet\+\_\+constraints,  }\item[{const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&}]{point\+\_\+constraints\+\_\+omega,  }\item[{const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&}]{point\+\_\+constraints\+\_\+sigma,  }\item[{const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ 0, spacedim $>$ $\ast$ $>$ \&}]{point\+\_\+constraints\+\_\+C,  }\item[{const Affine\+Constraints$<$ double $>$ \&}]{constraints\+\_\+ignore = {\ttfamily AffineConstraints$<$~double~$>$()} }\end{DoxyParamCaption}) const}
+
+An extended method generating Dirichlet type constraints on domain related independent fields on interfaces as well as point-\/wise Dirichlet type constraints.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em constraint\+\_\+matrix} & resulting constraint matrix with the Dirichlet type constraints\\
+\hline
+\mbox{\texttt{ in}}  & {\em dirichlet\+\_\+constraints} & constraints to be applied to the domain related fields\\
+\hline
+\mbox{\texttt{ in}}  & {\em point\+\_\+constraints\+\_\+omega} & point constraints to be applied to the domain related fields\\
+\hline
+\mbox{\texttt{ in}}  & {\em point\+\_\+constraints\+\_\+sigma} & point constraints to be applied to the interface related fields\\
+\hline
+\mbox{\texttt{ in}}  & {\em point\+\_\+constraints\+\_\+C} & point constraints to be applied to the independent scalars\\
 \hline
 \mbox{\texttt{ in}}  & {\em constraints\+\_\+ignore} & All dofs which are already constrained in {\ttfamily ignore\+\_\+constrained} will not again be constrained in {\ttfamily constraint\+\_\+matrix} \\
 \hline

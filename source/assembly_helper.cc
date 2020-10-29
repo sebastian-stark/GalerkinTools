@@ -1385,6 +1385,90 @@ const
 }
 
 template<unsigned int spacedim>
+void
+AssemblyHelper<spacedim>::make_dirichlet_constraints(	AffineConstraints<double>&									constraint_matrix,
+														const vector<const DirichletConstraint<spacedim>*>&			dirichlet_constraints,
+														const vector<const PointConstraint<spacedim, spacedim>*>&	point_constraints_omega,
+														const vector<const PointConstraint<spacedim-1, spacedim>*>&	point_constraints_sigma,
+														const vector<const PointConstraint<0, spacedim>*>&			point_constraints_C,
+														const AffineConstraints<double>&							constraints_ignore)
+const
+{
+
+	// first, make regular interface related constraints
+	make_dirichlet_constraints(constraint_matrix, dirichlet_constraints, constraints_ignore);
+
+	// now, make point constraints
+	for(const auto constraint : point_constraints_omega)
+	{
+		if(constraint->get_constraint_is_active())
+		{
+			const unsigned int dof_index = get_dof_index_at_point_omega(constraint->independent_field, constraint->component, constraint->get_X());
+			if(dof_index != numbers::invalid_size_type)
+			{
+				if( (!constraint_matrix.is_constrained(dof_index)) && (!constraints_ignore.is_constrained(dof_index)) )
+				{
+					constraint_matrix.add_line(dof_index);
+					if(constraint->constraint_inhomogeneity != nullptr)
+					{
+						const double inhomogeneity = constraint->constraint_inhomogeneity->value(Point<spacedim>());
+						constraint_matrix.set_inhomogeneity(dof_index, inhomogeneity);
+					}
+				}
+			}
+			else
+			{
+				if(n_procs == 1)
+					Assert(false, ExcMessage("Tried to apply a point-wise constraint, but was unable to find a dof at the specified point!"));
+			}
+		}
+	}
+
+	for(const auto constraint : point_constraints_sigma)
+	{
+		if(constraint->get_constraint_is_active())
+		{
+			const unsigned int dof_index = get_dof_index_at_point_sigma(constraint->independent_field, constraint->component, constraint->get_X());
+			if(dof_index != numbers::invalid_size_type)
+			{
+				if( (!constraint_matrix.is_constrained(dof_index)) && (!constraints_ignore.is_constrained(dof_index)) )
+				{
+					constraint_matrix.add_line(dof_index);
+					if(constraint->constraint_inhomogeneity != nullptr)
+					{
+						const double inhomogeneity = constraint->constraint_inhomogeneity->value(Point<spacedim>());
+						constraint_matrix.set_inhomogeneity(dof_index, inhomogeneity);
+					}
+				}
+			}
+			else
+			{
+				if(n_procs == 1)
+					Assert(false, ExcMessage("Tried to apply a point-wise constraint, but was unable to find a dof at the specified point!"));
+			}
+		}
+	}
+
+	for(const auto constraint : point_constraints_C)
+	{
+		if(constraint->get_constraint_is_active())
+		{
+			const unsigned int dof_index = get_global_dof_index_C(constraint->independent_field);
+			Assert(dof_index !=  numbers::invalid_size_type, ExcMessage("Tried to apply a constraint for an independent scalar, but independent scalar unknown to this FEModel!"));
+			if( (!constraint_matrix.is_constrained(dof_index)) && (!constraints_ignore.is_constrained(dof_index)) )
+			{
+				constraint_matrix.add_line(dof_index);
+				if(constraint->constraint_inhomogeneity != nullptr)
+				{
+					const double inhomogeneity = constraint->constraint_inhomogeneity->value(Point<spacedim>());
+					constraint_matrix.set_inhomogeneity(dof_index, inhomogeneity);
+				}
+			}
+		}
+	}
+}
+
+template<unsigned int spacedim>
 template<class SparsityPatternType>
 void
 AssemblyHelper<spacedim>::generate_sparsity_pattern_by_simulation(	SparsityPatternType&				dsp_K,

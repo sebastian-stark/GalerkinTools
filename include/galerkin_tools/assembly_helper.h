@@ -1259,6 +1259,41 @@ public:
 	const;
 
 	/**
+	 * An extended method generating Dirichlet type constraints on domain related independent fields on interfaces as well as point-wise Dirichlet type constraints.
+	 *
+	 * @param[out]	constraint_matrix		resulting constraint matrix with the Dirichlet type constraints
+	 *
+	 * @param[in]	dirichlet_constraints	constraints to be applied to the domain related fields
+	 *
+	 * @param[in]	point_constraints_omega	point constraints to be applied to the domain related fields
+	 *
+	 * @param[in]	point_constraints_sigma	point constraints to be applied to the interface related fields
+	 *
+	 * @param[in]	point_constraints_C		point constraints to be applied to the independent scalars
+	 *
+	 * @param[in]	constraints_ignore		All dofs which are already constrained in @p ignore_constrained will not again be constrained in @p constraint_matrix
+	 *
+	 * @warning		The constraint matrix will be cleared before the constraints are written.
+	 * 				This means that if you have other constraints, it will be necessary to merge the constraint matrices.
+	 * 				The @p local_lines property will be set to what DoFHandlerSystem::get_locally_relevant_dofs() of the object AssemblyHelper::dof_handler_system
+	 * 				returns.
+
+	 *
+	 * @warning		Domain related independent fields can only be directly constrained using this method if they
+	 * 				are discretized based on finite elements having support points! Attempting to constrain
+	 * 				independent fields discretized in terms of elements not having support points with this function
+	 * 				will have no effect.
+	 */
+	void
+	make_dirichlet_constraints(	AffineConstraints<double>&											constraint_matrix,
+								const std::vector<const DirichletConstraint<spacedim>*>&			dirichlet_constraints,
+								const std::vector<const PointConstraint<spacedim, spacedim>*>&		point_constraints_omega,
+								const std::vector<const PointConstraint<spacedim-1, spacedim>*>&	point_constraints_sigma,
+								const std::vector<const PointConstraint<0, spacedim>*>&				point_constraints_C,
+								const AffineConstraints<double>&									constraints_ignore = AffineConstraints<double>())
+	const;
+
+	/**
 	 * Generate the current sparsity pattern by simulation of the assembly process,
 	 * thereby taking into account the particular structure of the total potential function.
 	 *

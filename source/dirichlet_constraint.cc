@@ -43,7 +43,9 @@ coefficient_c(coefficient_c)
 {
 	Assert(component < independent_field.n_components, ExcMessage("You are trying to constrain a degree of freedom which does not exist!"));
 	if(constraint_inhomogeneity != nullptr)
+	{
 		Assert(constraint_inhomogeneity->n_components==1, ExcMessage("The Function object for a constraint must have exactly one component!"));
+	}
 }
 
 template<unsigned int spacedim>
@@ -67,8 +69,148 @@ const
 	return this->constraint_is_active;
 }
 
+template<unsigned int spacedim>
+void
+DirichletConstraint<spacedim>::set_time(const double time)
+const
+{
+	if(constraint_inhomogeneity != nullptr)
+		const_cast<Function<spacedim>*>(&(*(this->constraint_inhomogeneity)))->set_time(time);
+
+	if(coefficient_c != nullptr)
+		const_cast<Function<spacedim>*>(&(*(this->coefficient_c)))->set_time(time);
+}
+
+template<unsigned int dim, unsigned int spacedim>
+PointConstraint<dim, spacedim>::PointConstraint(const IndependentField<dim, spacedim>&	independent_field,
+												const unsigned int						component,
+												const Point<spacedim>					X,
+												const Function<spacedim>* const 		constraint_inhomogeneity)
+:
+X(X),
+independent_field(&independent_field),
+component(component),
+constraint_inhomogeneity(constraint_inhomogeneity)
+{
+	Assert(component < independent_field.n_components, ExcMessage("You are trying to constrain a degree of freedom which does not exist!"));
+	if(constraint_inhomogeneity != nullptr)
+		Assert(constraint_inhomogeneity->n_components==1, ExcMessage("The Function object for a constraint must have exactly one component!"));
+}
+
+template<unsigned int dim, unsigned int spacedim>
+PointConstraint<dim, spacedim>::~PointConstraint()
+{
+	Assert(n_subscriptions() == 0, ExcMessage("You are about to destroy a DirichletConstraint, which is currently in use! Make sure that all DirichletConstraint objects live at least as long as the objects using them!"));
+}
+
+template<unsigned int dim, unsigned int spacedim>
+void
+PointConstraint<dim, spacedim>::set_constraint_is_active(const bool constraint_is_active)
+{
+	this->constraint_is_active = constraint_is_active;
+}
+
+template<unsigned int dim, unsigned int spacedim>
+void
+PointConstraint<dim, spacedim>::set_X(const Point<spacedim> X)
+{
+	this->X = X;
+}
+
+template<unsigned int dim, unsigned int spacedim>
+Point<spacedim>
+PointConstraint<dim, spacedim>::get_X()
+const
+{
+	return this->X;
+}
+
+template<unsigned int dim, unsigned int spacedim>
+bool
+PointConstraint<dim, spacedim>::get_constraint_is_active()
+const
+{
+	return this->constraint_is_active;
+}
+
+template<unsigned int dim, unsigned int spacedim>
+void
+PointConstraint<dim, spacedim>::set_time(const double time)
+const
+{
+	if(constraint_inhomogeneity != nullptr)
+		const_cast<Function<spacedim>*>(&(*(this->constraint_inhomogeneity)))->set_time(time);
+}
+
+template<unsigned int spacedim>
+PointConstraint<spacedim, spacedim>::PointConstraint(	const IndependentField<spacedim, spacedim>&	independent_field,
+														const unsigned int							component,
+														const Point<spacedim>						X,
+														const Function<spacedim>* const 			constraint_inhomogeneity)
+:
+X(X),
+independent_field(&independent_field),
+component(component),
+constraint_inhomogeneity(constraint_inhomogeneity)
+{
+	Assert(component < independent_field.n_components, ExcMessage("You are trying to constrain a degree of freedom which does not exist!"));
+	if(constraint_inhomogeneity != nullptr)
+		Assert(constraint_inhomogeneity->n_components==1, ExcMessage("The Function object for a constraint must have exactly one component!"));
+}
+
+template<unsigned int spacedim>
+PointConstraint<spacedim, spacedim>::~PointConstraint()
+{
+	Assert(n_subscriptions() == 0, ExcMessage("You are about to destroy a DirichletConstraint, which is currently in use! Make sure that all DirichletConstraint objects live at least as long as the objects using them!"));
+}
+
+template<unsigned int spacedim>
+void
+PointConstraint<spacedim, spacedim>::set_constraint_is_active(const bool constraint_is_active)
+{
+	this->constraint_is_active = constraint_is_active;
+}
+
+template<unsigned int spacedim>
+void
+PointConstraint<spacedim, spacedim>::set_X(const Point<spacedim> X)
+{
+	this->X = X;
+}
+
+template<unsigned int spacedim>
+Point<spacedim>
+PointConstraint<spacedim, spacedim>::get_X()
+const
+{
+	return this->X;
+}
+
+template<unsigned int spacedim>
+bool
+PointConstraint<spacedim, spacedim>::get_constraint_is_active()
+const
+{
+	return this->constraint_is_active;
+}
+
+template<unsigned int spacedim>
+void
+PointConstraint<spacedim, spacedim>::set_time(const double time)
+const
+{
+	if(constraint_inhomogeneity != nullptr)
+		const_cast<Function<spacedim>*>(&(*(this->constraint_inhomogeneity)))->set_time(time);
+}
+
 template class DirichletConstraint<2>;
 template class DirichletConstraint<3>;
+template class PointConstraint<2,2>;
+template class PointConstraint<3,3>;
+template class PointConstraint<2,3>;
+template class PointConstraint<1,2>;
+template class PointConstraint<0,3>;
+template class PointConstraint<0,2>;
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE
 DEAL_II_NAMESPACE_CLOSE
