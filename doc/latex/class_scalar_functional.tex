@@ -1,5 +1,5 @@
-\hypertarget{class_scalar_functional}{}\section{Scalar\+Functional$<$ dim, spacedim $>$ Class Template Reference}
-\label{class_scalar_functional}\index{Scalar\+Functional$<$ dim, spacedim $>$@{Scalar\+Functional$<$ dim, spacedim $>$}}
+\hypertarget{class_scalar_functional}{}\doxysection{Scalar\+Functional$<$ dim, spacedim $>$ Class Template Reference}
+\label{class_scalar_functional}\index{ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}}
 
 
 {\ttfamily \#include $<$scalar\+\_\+functional.\+h$>$}
@@ -10,7 +10,7 @@ Inheritance diagram for Scalar\+Functional$<$ dim, spacedim $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=197pt]{class_scalar_functional__inherit__graph}
+\includegraphics[width=210pt]{class_scalar_functional__inherit__graph}
 \end{center}
 \end{figure}
 
@@ -19,44 +19,44 @@ Collaboration diagram for Scalar\+Functional$<$ dim, spacedim $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=292pt]{class_scalar_functional__coll__graph}
+\includegraphics[width=326pt]{class_scalar_functional__coll__graph}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_scalar_functional_ac0618ada3b80400784ee8553a66aade9}{Scalar\+Functional} (const std\+::vector$<$ \hyperlink{class_dependent_field}{Dependent\+Field}$<$ dim, spacedim $>$$>$ \hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{e\+\_\+sigma}, const std\+::set$<$ {\bf types\+::material\+\_\+id} $>$ \hyperlink{class_scalar_functional_ae3b6dd6934e1cd55fcc55cf344179407}{domain\+\_\+of\+\_\+integration}, const {\bf Quadrature}$<$ dim $>$ \hyperlink{class_scalar_functional_adea9ff214aeb2a1d8c3712a9d2433883}{quadrature}, const std\+::string \hyperlink{class_scalar_functional_a4d184688053b3443d10e228e4a8eba60}{name}, const unsigned int \hyperlink{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}{n\+\_\+ref\+\_\+sets}=0, const unsigned int \hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{n\+\_\+hidden}=0, const {\bf Function}$<$ spacedim $>$ $\ast$const \hyperlink{class_scalar_functional_a602d0bc2c945822c6b756fc63183ae2b}{initial\+\_\+vals\+\_\+hidden}=nullptr)
+\mbox{\hyperlink{class_scalar_functional_ac0618ada3b80400784ee8553a66aade9}{Scalar\+Functional}} (const std\+::vector$<$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$$>$ \mbox{\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{e\+\_\+sigma}}, const std\+::set$<$ \textbf{ types\+::material\+\_\+id} $>$ \mbox{\hyperlink{class_scalar_functional_ae3b6dd6934e1cd55fcc55cf344179407}{domain\+\_\+of\+\_\+integration}}, const \textbf{ Quadrature}$<$ dim $>$ \mbox{\hyperlink{class_scalar_functional_adea9ff214aeb2a1d8c3712a9d2433883}{quadrature}}, const std\+::string \mbox{\hyperlink{class_scalar_functional_a4d184688053b3443d10e228e4a8eba60}{name}}, const unsigned int \mbox{\hyperlink{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}{n\+\_\+ref\+\_\+sets}}=0, const unsigned int \mbox{\hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{n\+\_\+hidden}}=0, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_scalar_functional_a602d0bc2c945822c6b756fc63183ae2b}{initial\+\_\+vals\+\_\+hidden}}=nullptr)
 \item 
-virtual bool \hyperlink{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{get\+\_\+h\+\_\+sigma} (const {\bf Vector}$<$ double $>$ \&\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{e\+\_\+sigma}, const std\+::vector$<$ {\bf Vector}$<$ double $>$$>$ \&e\+\_\+sigma\+\_\+ref\+\_\+sets, {\bf Vector}$<$ double $>$ \&hidden\+\_\+vars, const {\bf Point}$<$ spacedim $>$ \&x, const {\bf Tensor}$<$ 1, spacedim $>$ \&n, double \&h\+\_\+sigma, {\bf Vector}$<$ double $>$ \&h\+\_\+sigma\+\_\+1, {\bf Full\+Matrix}$<$ double $>$ \&h\+\_\+sigma\+\_\+2, const std\+::tuple$<$ bool, bool, bool $>$ requested\+\_\+quantities) const =0
+virtual bool \mbox{\hyperlink{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{get\+\_\+h\+\_\+sigma}} (const \textbf{ Vector}$<$ double $>$ \&\mbox{\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{e\+\_\+sigma}}, const std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&e\+\_\+sigma\+\_\+ref\+\_\+sets, \textbf{ Vector}$<$ double $>$ \&hidden\+\_\+vars, const \textbf{ Point}$<$ spacedim $>$ \&x, const \textbf{ Tensor}$<$ 1, spacedim $>$ \&n, double \&h\+\_\+sigma, \textbf{ Vector}$<$ double $>$ \&h\+\_\+sigma\+\_\+1, \textbf{ Full\+Matrix}$<$ double $>$ \&h\+\_\+sigma\+\_\+2, const std\+::tuple$<$ bool, bool, bool $>$ requested\+\_\+quantities) const =0
 \item 
-virtual double \hyperlink{class_scalar_functional_a31e4e48bb968b12fde76530c343b433d}{get\+\_\+maximum\+\_\+step} (const {\bf Vector}$<$ double $>$ \&\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{e\+\_\+sigma}, const std\+::vector$<$ {\bf Vector}$<$ double $>$$>$ \&e\+\_\+sigma\+\_\+ref\+\_\+sets, const {\bf Vector}$<$ double $>$ \&delta\+\_\+e\+\_\+sigma, const {\bf Vector}$<$ double $>$ \&hidden\+\_\+vars, const {\bf Point}$<$ spacedim $>$ \&x, const {\bf Tensor}$<$ 1, spacedim $>$ \&n) const 
+virtual double \mbox{\hyperlink{class_scalar_functional_ae4f5fbd69cabfda73cc2b30ae0263ca5}{get\+\_\+maximum\+\_\+step}} (const \textbf{ Vector}$<$ double $>$ \&\mbox{\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{e\+\_\+sigma}}, const std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&e\+\_\+sigma\+\_\+ref\+\_\+sets, const \textbf{ Vector}$<$ double $>$ \&delta\+\_\+e\+\_\+sigma, const \textbf{ Vector}$<$ double $>$ \&hidden\+\_\+vars, const \textbf{ Point}$<$ spacedim $>$ \&x, const \textbf{ Tensor}$<$ 1, spacedim $>$ \&n) const
 \item 
-void \hyperlink{class_scalar_functional_a95174310efe3b02d78ef47979846ff51}{compare\+\_\+derivatives\+\_\+with\+\_\+numerical\+\_\+derivatives} ({\bf Vector}$<$ double $>$ \&\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{e\+\_\+sigma}, const std\+::vector$<$ {\bf Vector}$<$ double $>$$>$ \&e\+\_\+sigma\+\_\+ref\+\_\+sets, {\bf Vector}$<$ double $>$ \&hidden\+\_\+vars, const {\bf Point}$<$ spacedim $>$ \&x, const {\bf Tensor}$<$ 1, spacedim $>$ \&n, const std\+::string detailed\+\_\+printout\+\_\+file=\char`\"{}\char`\"{}, const double {\bf epsilon}=1e-\/8) const 
+void \mbox{\hyperlink{class_scalar_functional_a0c0a2095a33e657a7a984e706ed7f968}{compare\+\_\+derivatives\+\_\+with\+\_\+numerical\+\_\+derivatives}} (\textbf{ Vector}$<$ double $>$ \&\mbox{\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{e\+\_\+sigma}}, const std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&e\+\_\+sigma\+\_\+ref\+\_\+sets, \textbf{ Vector}$<$ double $>$ \&hidden\+\_\+vars, const \textbf{ Point}$<$ spacedim $>$ \&x, const \textbf{ Tensor}$<$ 1, spacedim $>$ \&n, const std\+::string detailed\+\_\+printout\+\_\+file=\char`\"{}\char`\"{}, const double \textbf{ epsilon}=1\textbf{ e}-\/8) const
 \item 
-virtual \hyperlink{class_scalar_functional_aed36f35e6d2c9f9a93ee2749d01f2a51}{$\sim$\+Scalar\+Functional} ()
+virtual \mbox{\hyperlink{class_scalar_functional_aed36f35e6d2c9f9a93ee2749d01f2a51}{$\sim$\+Scalar\+Functional}} ()
 \end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-const std\+::set$<$ {\bf types\+::material\+\_\+id} $>$ \hyperlink{class_scalar_functional_ae3b6dd6934e1cd55fcc55cf344179407}{domain\+\_\+of\+\_\+integration}
+const std\+::set$<$ \textbf{ types\+::material\+\_\+id} $>$ \mbox{\hyperlink{class_scalar_functional_ae3b6dd6934e1cd55fcc55cf344179407}{domain\+\_\+of\+\_\+integration}}
 \item 
-const {\bf Smart\+Pointer}$<$ const {\bf Function}$<$ spacedim $>$ $>$ \hyperlink{class_scalar_functional_a602d0bc2c945822c6b756fc63183ae2b}{initial\+\_\+vals\+\_\+hidden}
+const \textbf{ Smart\+Pointer}$<$ const \textbf{ Function}$<$ spacedim $>$ $>$ \mbox{\hyperlink{class_scalar_functional_a602d0bc2c945822c6b756fc63183ae2b}{initial\+\_\+vals\+\_\+hidden}}
 \item 
-const std\+::vector$<$ \hyperlink{class_dependent_field}{Dependent\+Field}$<$ dim, spacedim $>$ $>$ \hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{e\+\_\+sigma}
+const std\+::vector$<$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$ $>$ \mbox{\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{e\+\_\+sigma}}
 \item 
-const {\bf Quadrature}$<$ dim $>$ \hyperlink{class_scalar_functional_adea9ff214aeb2a1d8c3712a9d2433883}{quadrature}
+const \textbf{ Quadrature}$<$ dim $>$ \mbox{\hyperlink{class_scalar_functional_adea9ff214aeb2a1d8c3712a9d2433883}{quadrature}}
 \item 
-const unsigned int \hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{n\+\_\+hidden}
+const unsigned int \mbox{\hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{n\+\_\+hidden}}
 \item 
-const std\+::string \hyperlink{class_scalar_functional_a4d184688053b3443d10e228e4a8eba60}{name}
+const std\+::string \mbox{\hyperlink{class_scalar_functional_a4d184688053b3443d10e228e4a8eba60}{name}}
 \item 
-const unsigned int \hyperlink{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}{n\+\_\+ref\+\_\+sets}
+const unsigned int \mbox{\hyperlink{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}{n\+\_\+ref\+\_\+sets}}
 \end{DoxyCompactItemize}
-\subsection*{Additional Inherited Members}
+\doxysubsection*{Additional Inherited Members}
 
 
-\subsection{Detailed Description}
-\subsubsection*{template$<$unsigned int dim, unsigned int spacedim$>$\\*
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$unsigned int dim, unsigned int spacedim$>$\newline
 class Scalar\+Functional$<$ dim, spacedim $>$}
 
 Class defining an interface related scalar functional $H^\Sigma_\tau = \int_\Sigma h^\Sigma_\tau(e^\Sigma_\nu, \boldsymbol{X}) \mathrm{d}S$, where $\tau \in T=\left\{1 \hdots N^\mathrm{H,\Sigma}\right\}$.
@@ -67,166 +67,141 @@ The integrand $h^\Sigma_\tau$ may, besides the current values of $e^\Sigma_\nu$,
 
 In principle, it is often sufficient that the first and second derivatives of $h^\Sigma_\tau$ are known, as the values themselves do not factor into the finite element system. However, this depends on the exact problem.
 
-The \hyperlink{class_scalar_functional}{Scalar\+Functional} class inherits from {\bf Subscriptor} in order to be able to check that \hyperlink{class_scalar_functional}{Scalar\+Functional} objects are only destroyed when they are not needed anymore by other objects.
+The \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}} class inherits from \textbf{ Subscriptor} in order to be able to check that \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}} objects are only destroyed when they are not needed anymore by other objects.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em dim} & The dimension of the object on which the \hyperlink{class_scalar_functional}{Scalar\+Functional} is defined. Currently, only {\ttfamily dim} = {\ttfamily spacedim-\/1} is considered, although this class would in principle also work for scalar functionals on lower dimensional objects.\\
+{\em dim} & The dimension of the object on which the \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}} is defined. Currently, only {\ttfamily dim} = {\ttfamily spacedim-\/1} is considered, although this class would in principle also work for scalar functionals on lower dimensional objects.\\
 \hline
 {\em spacedim} & The spatial dimension of the problem \\
 \hline
 \end{DoxyTemplParams}
 
 
-\subsection{Constructor \& Destructor Documentation}
-\index{Scalar\+Functional@{Scalar\+Functional}!Scalar\+Functional@{Scalar\+Functional}}
-\index{Scalar\+Functional@{Scalar\+Functional}!Scalar\+Functional@{Scalar\+Functional}}
-\subsubsection[{\texorpdfstring{Scalar\+Functional(const std\+::vector$<$ Dependent\+Field$<$ dim, spacedim $>$$>$ e\+\_\+sigma, const std\+::set$<$ types\+::material\+\_\+id $>$ domain\+\_\+of\+\_\+integration, const Quadrature$<$ dim $>$ quadrature, const std\+::string name, const unsigned int n\+\_\+ref\+\_\+sets=0, const unsigned int n\+\_\+hidden=0, const Function$<$ spacedim $>$ $\ast$const initial\+\_\+vals\+\_\+hidden=nullptr)}{ScalarFunctional(const std::vector< DependentField< dim, spacedim >> e_sigma, const std::set< types::material_id > domain_of_integration, const Quadrature< dim > quadrature, const std::string name, const unsigned int n_ref_sets=0, const unsigned int n_hidden=0, const Function< spacedim > *const initial_vals_hidden=nullptr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ {\bf Scalar\+Functional}$<$ dim, spacedim $>$\+::{\bf Scalar\+Functional} (
-\begin{DoxyParamCaption}
-\item[{const std\+::vector$<$ {\bf Dependent\+Field}$<$ dim, spacedim $>$$>$}]{e\+\_\+sigma, }
-\item[{const std\+::set$<$ {\bf types\+::material\+\_\+id} $>$}]{domain\+\_\+of\+\_\+integration, }
-\item[{const {\bf Quadrature}$<$ dim $>$}]{quadrature, }
-\item[{const std\+::string}]{name, }
-\item[{const unsigned int}]{n\+\_\+ref\+\_\+sets = {\ttfamily 0}, }
-\item[{const unsigned int}]{n\+\_\+hidden = {\ttfamily 0}, }
-\item[{const {\bf Function}$<$ spacedim $>$ $\ast$const}]{initial\+\_\+vals\+\_\+hidden = {\ttfamily nullptr}}
-\end{DoxyParamCaption}
-)}\hypertarget{class_scalar_functional_ac0618ada3b80400784ee8553a66aade9}{}\label{class_scalar_functional_ac0618ada3b80400784ee8553a66aade9}
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_scalar_functional_ac0618ada3b80400784ee8553a66aade9}\label{class_scalar_functional_ac0618ada3b80400784ee8553a66aade9}} 
+\index{ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}!ScalarFunctional@{ScalarFunctional}}
+\index{ScalarFunctional@{ScalarFunctional}!ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{ScalarFunctional()}{ScalarFunctional()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+\mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$\+::\mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}} (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$$>$}]{e\+\_\+sigma,  }\item[{const std\+::set$<$ \textbf{ types\+::material\+\_\+id} $>$}]{domain\+\_\+of\+\_\+integration,  }\item[{const \textbf{ Quadrature}$<$ dim $>$}]{quadrature,  }\item[{const std\+::string}]{name,  }\item[{const unsigned int}]{n\+\_\+ref\+\_\+sets = {\ttfamily 0},  }\item[{const unsigned int}]{n\+\_\+hidden = {\ttfamily 0},  }\item[{const \textbf{ Function}$<$ spacedim $>$ $\ast$const}]{initial\+\_\+vals\+\_\+hidden = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
 The constructor of the class
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em e\+\_\+sigma} & \hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{Scalar\+Functional\+::e\+\_\+sigma}\\
+\mbox{\texttt{ in}}  & {\em e\+\_\+sigma} & \mbox{\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{Scalar\+Functional\+::e\+\_\+sigma}}\\
 \hline
-\mbox{\tt in}  & {\em domain\+\_\+of\+\_\+integration} & \hyperlink{class_scalar_functional_ae3b6dd6934e1cd55fcc55cf344179407}{Scalar\+Functional\+::domain\+\_\+of\+\_\+integration}\\
+\mbox{\texttt{ in}}  & {\em domain\+\_\+of\+\_\+integration} & \mbox{\hyperlink{class_scalar_functional_ae3b6dd6934e1cd55fcc55cf344179407}{Scalar\+Functional\+::domain\+\_\+of\+\_\+integration}}\\
 \hline
-\mbox{\tt in}  & {\em quadrature} & \hyperlink{class_scalar_functional_adea9ff214aeb2a1d8c3712a9d2433883}{Scalar\+Functional\+::quadrature}\\
+\mbox{\texttt{ in}}  & {\em quadrature} & \mbox{\hyperlink{class_scalar_functional_adea9ff214aeb2a1d8c3712a9d2433883}{Scalar\+Functional\+::quadrature}}\\
 \hline
-\mbox{\tt in}  & {\em name} & \hyperlink{class_scalar_functional_a4d184688053b3443d10e228e4a8eba60}{Scalar\+Functional\+::name}\\
+\mbox{\texttt{ in}}  & {\em name} & \mbox{\hyperlink{class_scalar_functional_a4d184688053b3443d10e228e4a8eba60}{Scalar\+Functional\+::name}}\\
 \hline
-\mbox{\tt in}  & {\em n\+\_\+ref\+\_\+sets} & \hyperlink{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}{Scalar\+Functional\+::n\+\_\+ref\+\_\+sets}\\
+\mbox{\texttt{ in}}  & {\em n\+\_\+ref\+\_\+sets} & \mbox{\hyperlink{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}{Scalar\+Functional\+::n\+\_\+ref\+\_\+sets}}\\
 \hline
-\mbox{\tt in}  & {\em n\+\_\+hidden} & \hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{Scalar\+Functional\+::n\+\_\+hidden}\\
+\mbox{\texttt{ in}}  & {\em n\+\_\+hidden} & \mbox{\hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{Scalar\+Functional\+::n\+\_\+hidden}}\\
 \hline
-\mbox{\tt in}  & {\em initial\+\_\+vals\+\_\+hidden} & \hyperlink{class_scalar_functional_a602d0bc2c945822c6b756fc63183ae2b}{Scalar\+Functional\+::initial\+\_\+vals\+\_\+hidden} (if {\ttfamily n\+\_\+hidden$>$0} and this argument is omitted, the initial values will be set to zero) \\
+\mbox{\texttt{ in}}  & {\em initial\+\_\+vals\+\_\+hidden} & \mbox{\hyperlink{class_scalar_functional_a602d0bc2c945822c6b756fc63183ae2b}{Scalar\+Functional\+::initial\+\_\+vals\+\_\+hidden}} (if {\ttfamily n\+\_\+hidden$>$0} and this argument is omitted, the initial values will be set to zero) \\
 \hline
 \end{DoxyParams}
-\index{Scalar\+Functional@{Scalar\+Functional}!````~Scalar\+Functional@{$\sim$\+Scalar\+Functional}}
-\index{````~Scalar\+Functional@{$\sim$\+Scalar\+Functional}!Scalar\+Functional@{Scalar\+Functional}}
-\subsubsection[{\texorpdfstring{$\sim$\+Scalar\+Functional()}{~ScalarFunctional()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ virtual {\bf Scalar\+Functional}$<$ dim, spacedim $>$\+::$\sim${\bf Scalar\+Functional} (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_scalar_functional_aed36f35e6d2c9f9a93ee2749d01f2a51}{}\label{class_scalar_functional_aed36f35e6d2c9f9a93ee2749d01f2a51}
-The destructor of \hyperlink{class_scalar_functional}{Scalar\+Functional} essentially checks before destruction that the \hyperlink{class_scalar_functional}{Scalar\+Functional} object is not used by other objects. If this is the case, the program will be aborted. 
+\mbox{\Hypertarget{class_scalar_functional_aed36f35e6d2c9f9a93ee2749d01f2a51}\label{class_scalar_functional_aed36f35e6d2c9f9a93ee2749d01f2a51}} 
+\index{ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}!````~ScalarFunctional@{$\sim$ScalarFunctional}}
+\index{````~ScalarFunctional@{$\sim$ScalarFunctional}!ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$ScalarFunctional()}{~ScalarFunctional()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+virtual \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$\+::$\sim$\mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-\subsection{Member Function Documentation}
-\index{Scalar\+Functional@{Scalar\+Functional}!compare\+\_\+derivatives\+\_\+with\+\_\+numerical\+\_\+derivatives@{compare\+\_\+derivatives\+\_\+with\+\_\+numerical\+\_\+derivatives}}
-\index{compare\+\_\+derivatives\+\_\+with\+\_\+numerical\+\_\+derivatives@{compare\+\_\+derivatives\+\_\+with\+\_\+numerical\+\_\+derivatives}!Scalar\+Functional@{Scalar\+Functional}}
-\subsubsection[{\texorpdfstring{compare\+\_\+derivatives\+\_\+with\+\_\+numerical\+\_\+derivatives(\+Vector$<$ double $>$ \&e\+\_\+sigma, const std\+::vector$<$ Vector$<$ double $>$$>$ \&e\+\_\+sigma\+\_\+ref\+\_\+sets, Vector$<$ double $>$ \&hidden\+\_\+vars, const Point$<$ spacedim $>$ \&x, const Tensor$<$ 1, spacedim $>$ \&n, const std\+::string detailed\+\_\+printout\+\_\+file="""", const double epsilon=1e-\/8) const }{compare_derivatives_with_numerical_derivatives(Vector< double > &e_sigma, const std::vector< Vector< double >> &e_sigma_ref_sets, Vector< double > &hidden_vars, const Point< spacedim > &x, const Tensor< 1, spacedim > &n, const std::string detailed_printout_file="", const double epsilon=1e-8) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ void {\bf Scalar\+Functional}$<$ dim, spacedim $>$\+::compare\+\_\+derivatives\+\_\+with\+\_\+numerical\+\_\+derivatives (
-\begin{DoxyParamCaption}
-\item[{{\bf Vector}$<$ double $>$ \&}]{e\+\_\+sigma, }
-\item[{const std\+::vector$<$ {\bf Vector}$<$ double $>$$>$ \&}]{e\+\_\+sigma\+\_\+ref\+\_\+sets, }
-\item[{{\bf Vector}$<$ double $>$ \&}]{hidden\+\_\+vars, }
-\item[{const {\bf Point}$<$ spacedim $>$ \&}]{x, }
-\item[{const {\bf Tensor}$<$ 1, spacedim $>$ \&}]{n, }
-\item[{const std\+::string}]{detailed\+\_\+printout\+\_\+file = {\ttfamily \char`\"{}\char`\"{}}, }
-\item[{const double}]{epsilon = {\ttfamily 1e-\/8}}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_scalar_functional_a95174310efe3b02d78ef47979846ff51}{}\label{class_scalar_functional_a95174310efe3b02d78ef47979846ff51}
-Function comparing the computed derivatives of the integrand $h^\Sigma_\tau$ provided by \hyperlink{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma()} with corresponding numerically computed finite difference based derivatives.
+The destructor of \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}} essentially checks before destruction that the \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}} object is not used by other objects. If this is the case, the program will be aborted. 
 
-In the case of the first derivative, the numerical derivatives are obtained based on the values for $h^\Sigma_\tau$ provided by \hyperlink{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma()}; and in the case of the second derivatives, the numerical derivatives are obtained based on the values for the first derivatives of $h^\Sigma_\tau$ provided by \hyperlink{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma()} ). In both cases, a simple forward finite difference approach is used. Generally, the first numerical derivative can only be \char`\"{}correct\char`\"{} if the computation of the value of $h^\Sigma_\tau$ is correctly implemented in the function \hyperlink{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma()}; and likewise the second numerical derivative can only be \char`\"{}correct\char`\"{} if the computation of the first derivative of $h^\Sigma_\tau$ is correctly implemented in the function \hyperlink{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma()}.
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_scalar_functional_a0c0a2095a33e657a7a984e706ed7f968}\label{class_scalar_functional_a0c0a2095a33e657a7a984e706ed7f968}} 
+\index{ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}!compare\_derivatives\_with\_numerical\_derivatives@{compare\_derivatives\_with\_numerical\_derivatives}}
+\index{compare\_derivatives\_with\_numerical\_derivatives@{compare\_derivatives\_with\_numerical\_derivatives}!ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{compare\_derivatives\_with\_numerical\_derivatives()}{compare\_derivatives\_with\_numerical\_derivatives()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$\+::compare\+\_\+derivatives\+\_\+with\+\_\+numerical\+\_\+derivatives (\begin{DoxyParamCaption}\item[{\textbf{ Vector}$<$ double $>$ \&}]{e\+\_\+sigma,  }\item[{const std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&}]{e\+\_\+sigma\+\_\+ref\+\_\+sets,  }\item[{\textbf{ Vector}$<$ double $>$ \&}]{hidden\+\_\+vars,  }\item[{const \textbf{ Point}$<$ spacedim $>$ \&}]{x,  }\item[{const \textbf{ Tensor}$<$ 1, spacedim $>$ \&}]{n,  }\item[{const std\+::string}]{detailed\+\_\+printout\+\_\+file = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const double}]{epsilon = {\ttfamily 1\textbf{ e}-\/8} }\end{DoxyParamCaption}) const}
 
-This function is essentially meant for testing of user defined functions \hyperlink{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma()}.
+Function comparing the computed derivatives of the integrand $h^\Sigma_\tau$ provided by \mbox{\hyperlink{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma()}} with corresponding numerically computed finite difference based derivatives.
+
+In the case of the first derivative, the numerical derivatives are obtained based on the values for $h^\Sigma_\tau$ provided by \mbox{\hyperlink{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma()}}; and in the case of the second derivatives, the numerical derivatives are obtained based on the values for the first derivatives of $h^\Sigma_\tau$ provided by \mbox{\hyperlink{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma()}} ). In both cases, a simple forward finite difference approach is used. Generally, the first numerical derivative can only be \char`\"{}correct\char`\"{} if the computation of the value of $h^\Sigma_\tau$ is correctly implemented in the function \mbox{\hyperlink{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma()}}; and likewise the second numerical derivative can only be \char`\"{}correct\char`\"{} if the computation of the first derivative of $h^\Sigma_\tau$ is correctly implemented in the function \mbox{\hyperlink{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma()}}.
+
+This function is essentially meant for testing of user defined functions \mbox{\hyperlink{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma()}}.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em e\+\_\+sigma} & Values of $e^\Sigma_\nu$ (the ordering is defined by the ordering of the dependent fields in \hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{Scalar\+Functional\+::e\+\_\+sigma})\\
+\mbox{\texttt{ in}}  & {\em e\+\_\+sigma} & Values of $e^\Sigma_\nu$ (the ordering is defined by the ordering of the dependent fields in \mbox{\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{Scalar\+Functional\+::e\+\_\+sigma}})\\
 \hline
-\mbox{\tt in}  & {\em e\+\_\+sigma\+\_\+ref\+\_\+sets} & Sets of reference values of $e^\Sigma_\nu$ (as required according to \hyperlink{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}{Scalar\+Functional\+::n\+\_\+ref\+\_\+sets})\\
+\mbox{\texttt{ in}}  & {\em e\+\_\+sigma\+\_\+ref\+\_\+sets} & Sets of reference values of $e^\Sigma_\nu$ (as required according to \mbox{\hyperlink{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}{Scalar\+Functional\+::n\+\_\+ref\+\_\+sets}})\\
 \hline
-\mbox{\tt in,out}  & {\em hidden\+\_\+vars} & Values of \char`\"{}hidden\char`\"{} variables associated with the integrand $h^\Sigma_\tau$. This vector has the size \hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{Scalar\+Functional\+::n\+\_\+hidden}.\\
+\mbox{\texttt{ in,out}}  & {\em hidden\+\_\+vars} & Values of \char`\"{}hidden\char`\"{} variables associated with the integrand $h^\Sigma_\tau$. This vector has the size \mbox{\hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{Scalar\+Functional\+::n\+\_\+hidden}}.\\
 \hline
-\mbox{\tt in}  & {\em x} & Location of material point at which integrand $h^\Sigma_\tau$ and derivatives thereof are evaluated\\
+\mbox{\texttt{ in}}  & {\em x} & Location of material point at which integrand $h^\Sigma_\tau$ and derivatives thereof are evaluated\\
 \hline
-\mbox{\tt in}  & {\em n} & Normal vector pointing from -\/ to + side of the interface $\Sigma$ at {\ttfamily x} \\
+\mbox{\texttt{ in}}  & {\em n} & Normal vector pointing from -\/ to + side of the interface $\Sigma$ at {\ttfamily x} \\
 \hline
-\mbox{\tt in}  & {\em detailed\+\_\+printout\+\_\+file} & A file to which detailed printout is written if requested\\
+\mbox{\texttt{ in}}  & {\em detailed\+\_\+printout\+\_\+file} & A file to which detailed printout is written if requested\\
 \hline
-\mbox{\tt in}  & {\em epsilon} & Step width for finite difference computation \\
+\mbox{\texttt{ in}}  & {\em epsilon} & Step width for finite difference computation \\
 \hline
 \end{DoxyParams}
-\index{Scalar\+Functional@{Scalar\+Functional}!get\+\_\+h\+\_\+sigma@{get\+\_\+h\+\_\+sigma}}
-\index{get\+\_\+h\+\_\+sigma@{get\+\_\+h\+\_\+sigma}!Scalar\+Functional@{Scalar\+Functional}}
-\subsubsection[{\texorpdfstring{get\+\_\+h\+\_\+sigma(const Vector$<$ double $>$ \&e\+\_\+sigma, const std\+::vector$<$ Vector$<$ double $>$$>$ \&e\+\_\+sigma\+\_\+ref\+\_\+sets, Vector$<$ double $>$ \&hidden\+\_\+vars, const Point$<$ spacedim $>$ \&x, const Tensor$<$ 1, spacedim $>$ \&n, double \&h\+\_\+sigma, Vector$<$ double $>$ \&h\+\_\+sigma\+\_\+1, Full\+Matrix$<$ double $>$ \&h\+\_\+sigma\+\_\+2, const std\+::tuple$<$ bool, bool, bool $>$ requested\+\_\+quantities) const =0}{get_h_sigma(const Vector< double > &e_sigma, const std::vector< Vector< double >> &e_sigma_ref_sets, Vector< double > &hidden_vars, const Point< spacedim > &x, const Tensor< 1, spacedim > &n, double &h_sigma, Vector< double > &h_sigma_1, FullMatrix< double > &h_sigma_2, const std::tuple< bool, bool, bool > requested_quantities) const =0}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ virtual bool {\bf Scalar\+Functional}$<$ dim, spacedim $>$\+::get\+\_\+h\+\_\+sigma (
-\begin{DoxyParamCaption}
-\item[{const {\bf Vector}$<$ double $>$ \&}]{e\+\_\+sigma, }
-\item[{const std\+::vector$<$ {\bf Vector}$<$ double $>$$>$ \&}]{e\+\_\+sigma\+\_\+ref\+\_\+sets, }
-\item[{{\bf Vector}$<$ double $>$ \&}]{hidden\+\_\+vars, }
-\item[{const {\bf Point}$<$ spacedim $>$ \&}]{x, }
-\item[{const {\bf Tensor}$<$ 1, spacedim $>$ \&}]{n, }
-\item[{double \&}]{h\+\_\+sigma, }
-\item[{{\bf Vector}$<$ double $>$ \&}]{h\+\_\+sigma\+\_\+1, }
-\item[{{\bf Full\+Matrix}$<$ double $>$ \&}]{h\+\_\+sigma\+\_\+2, }
-\item[{const std\+::tuple$<$ bool, bool, bool $>$}]{requested\+\_\+quantities}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}{}\label{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}
+\mbox{\Hypertarget{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}\label{class_scalar_functional_a1b9874b2fd591c844ecfcd1db8212c54}} 
+\index{ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}!get\_h\_sigma@{get\_h\_sigma}}
+\index{get\_h\_sigma@{get\_h\_sigma}!ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{get\_h\_sigma()}{get\_h\_sigma()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+virtual bool \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$\+::get\+\_\+h\+\_\+sigma (\begin{DoxyParamCaption}\item[{const \textbf{ Vector}$<$ double $>$ \&}]{e\+\_\+sigma,  }\item[{const std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&}]{e\+\_\+sigma\+\_\+ref\+\_\+sets,  }\item[{\textbf{ Vector}$<$ double $>$ \&}]{hidden\+\_\+vars,  }\item[{const \textbf{ Point}$<$ spacedim $>$ \&}]{x,  }\item[{const \textbf{ Tensor}$<$ 1, spacedim $>$ \&}]{n,  }\item[{double \&}]{h\+\_\+sigma,  }\item[{\textbf{ Vector}$<$ double $>$ \&}]{h\+\_\+sigma\+\_\+1,  }\item[{\textbf{ Full\+Matrix}$<$ double $>$ \&}]{h\+\_\+sigma\+\_\+2,  }\item[{const std\+::tuple$<$ bool, bool, bool $>$}]{requested\+\_\+quantities }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
 Function for evaluation of integrand $h^\Sigma_\tau$ and computation of first and second derivatives w.\+r.\+t. the dependent fields $e^\Sigma_\nu$.
 
 This function is pure virtual, and, therefore, it is not possible to instantiate objects of this class. Rather, derived user defined classes must implement this function.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em e\+\_\+sigma} & Values of $e^\Sigma_\nu$ (the ordering is defined by the ordering of the dependent fields in \hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{Scalar\+Functional\+::e\+\_\+sigma})\\
+\mbox{\texttt{ in}}  & {\em e\+\_\+sigma} & Values of $e^\Sigma_\nu$ (the ordering is defined by the ordering of the dependent fields in \mbox{\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{Scalar\+Functional\+::e\+\_\+sigma}})\\
 \hline
-\mbox{\tt in}  & {\em e\+\_\+sigma\+\_\+ref\+\_\+sets} & Sets of reference values of $e^\Sigma_\nu$ (as required according to \hyperlink{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}{Scalar\+Functional\+::n\+\_\+ref\+\_\+sets})\\
+\mbox{\texttt{ in}}  & {\em e\+\_\+sigma\+\_\+ref\+\_\+sets} & Sets of reference values of $e^\Sigma_\nu$ (as required according to \mbox{\hyperlink{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}{Scalar\+Functional\+::n\+\_\+ref\+\_\+sets}})\\
 \hline
-\mbox{\tt in,out}  & {\em hidden\+\_\+vars} & Values of \char`\"{}hidden\char`\"{} variables associated with the integrand $h^\Sigma_\tau$. This vector has the size \hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{Scalar\+Functional\+::n\+\_\+hidden}. The inputs are the previously known values of the hidden variables, which may be overwritten by the function (the user can decide during assembly of the finite element system whether the returned updated values of the hidden variables are really used to update the stored values of the hidden variables or whether they are discarded)\\
+\mbox{\texttt{ in,out}}  & {\em hidden\+\_\+vars} & Values of \char`\"{}hidden\char`\"{} variables associated with the integrand $h^\Sigma_\tau$. This vector has the size \mbox{\hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{Scalar\+Functional\+::n\+\_\+hidden}}. The inputs are the previously known values of the hidden variables, which may be overwritten by the function (the user can decide during assembly of the finite element system whether the returned updated values of the hidden variables are really used to update the stored values of the hidden variables or whether they are discarded)\\
 \hline
-\mbox{\tt in}  & {\em x} & Location of material point at which integrand $h^\Sigma_\tau$ and derivatives thereof are evaluated\\
+\mbox{\texttt{ in}}  & {\em x} & Location of material point at which integrand $h^\Sigma_\tau$ and derivatives thereof are evaluated\\
 \hline
-\mbox{\tt in}  & {\em n} & Normal vector pointing from -\/ to + side of the interface $\Sigma$ at {\ttfamily x} \\
+\mbox{\texttt{ in}}  & {\em n} & Normal vector pointing from -\/ to + side of the interface $\Sigma$ at {\ttfamily x} \\
 \hline
-\mbox{\tt out}  & {\em h\+\_\+sigma} & Current value of $h^\Sigma_\tau$.\\
+\mbox{\texttt{ out}}  & {\em h\+\_\+sigma} & Current value of $h^\Sigma_\tau$.\\
 \hline
-\mbox{\tt out}  & {\em h\+\_\+sigma\+\_\+1} & First derivatives of $h^\Sigma_\tau$ w.\+r.\+t. $e^\Sigma_\nu$ (the ordering is defined by the ordering of the dependent fields in \hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{Scalar\+Functional\+::e\+\_\+sigma}, and {\ttfamily h\+\_\+sigma\+\_\+1} will already be initialized to the correct size if it is called by \hyperlink{class_assembly_helper}{Assembly\+Helper} objects)\\
+\mbox{\texttt{ out}}  & {\em h\+\_\+sigma\+\_\+1} & First derivatives of $h^\Sigma_\tau$ w.\+r.\+t. $e^\Sigma_\nu$ (the ordering is defined by the ordering of the dependent fields in \mbox{\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{Scalar\+Functional\+::e\+\_\+sigma}}, and {\ttfamily h\+\_\+sigma\+\_\+1} will already be initialized to the correct size if it is called by \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}} objects)\\
 \hline
-\mbox{\tt out}  & {\em h\+\_\+sigma\+\_\+2} & Second derivatives of $h^\Sigma_\tau$ w.\+r.\+t. $e^\Sigma_\nu$ (the ordering is defined by the ordering of the dependent fields in \hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{Scalar\+Functional\+::e\+\_\+sigma}, and {\ttfamily h\+\_\+sigma\+\_\+2} will already be initialized to the correct size if it is called by \hyperlink{class_assembly_helper}{Assembly\+Helper} objects). If $h^\Sigma_\tau$ exists, this matrix will generally be symmetric. However, in principle the routines do also work for cases where $h^\Sigma_\tau$ does not exist and {\ttfamily h\+\_\+sigma\+\_\+2} is not symmetric.\\
+\mbox{\texttt{ out}}  & {\em h\+\_\+sigma\+\_\+2} & Second derivatives of $h^\Sigma_\tau$ w.\+r.\+t. $e^\Sigma_\nu$ (the ordering is defined by the ordering of the dependent fields in \mbox{\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{Scalar\+Functional\+::e\+\_\+sigma}}, and {\ttfamily h\+\_\+sigma\+\_\+2} will already be initialized to the correct size if it is called by \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}} objects). If $h^\Sigma_\tau$ exists, this matrix will generally be symmetric. However, in principle the routines do also work for cases where $h^\Sigma_\tau$ does not exist and {\ttfamily h\+\_\+sigma\+\_\+2} is not symmetric.\\
 \hline
-\mbox{\tt in}  & {\em requested\+\_\+quantities} & A tuple indicating which quantities are actually to be computed (e.\+g. ({\ttfamily true}, {\ttfamily false}, {\ttfamily true}) indicates that {\ttfamily h\+\_\+sigma} and {\ttfamily h\+\_\+sigma\+\_\+2} are to be computed)\\
+\mbox{\texttt{ in}}  & {\em requested\+\_\+quantities} & A tuple indicating which quantities are actually to be computed (e.\+g. ({\ttfamily true}, {\ttfamily false}, {\ttfamily true}) indicates that {\ttfamily h\+\_\+sigma} and {\ttfamily h\+\_\+sigma\+\_\+2} are to be computed)\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 {\ttfamily false} if the evaluation of the integrand $h^\Sigma_\tau$ and its derivatives was successful, and {\ttfamily true} if an error prevented the proper calculation of these quantities (e.\+g. because a dependent field, which should be non-\/negative, was actually negative) 
 \end{DoxyReturn}
-\index{Scalar\+Functional@{Scalar\+Functional}!get\+\_\+maximum\+\_\+step@{get\+\_\+maximum\+\_\+step}}
-\index{get\+\_\+maximum\+\_\+step@{get\+\_\+maximum\+\_\+step}!Scalar\+Functional@{Scalar\+Functional}}
-\subsubsection[{\texorpdfstring{get\+\_\+maximum\+\_\+step(const Vector$<$ double $>$ \&e\+\_\+sigma, const std\+::vector$<$ Vector$<$ double $>$$>$ \&e\+\_\+sigma\+\_\+ref\+\_\+sets, const Vector$<$ double $>$ \&delta\+\_\+e\+\_\+sigma, const Vector$<$ double $>$ \&hidden\+\_\+vars, const Point$<$ spacedim $>$ \&x, const Tensor$<$ 1, spacedim $>$ \&n) const }{get_maximum_step(const Vector< double > &e_sigma, const std::vector< Vector< double >> &e_sigma_ref_sets, const Vector< double > &delta_e_sigma, const Vector< double > &hidden_vars, const Point< spacedim > &x, const Tensor< 1, spacedim > &n) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ virtual double {\bf Scalar\+Functional}$<$ dim, spacedim $>$\+::get\+\_\+maximum\+\_\+step (
-\begin{DoxyParamCaption}
-\item[{const {\bf Vector}$<$ double $>$ \&}]{e\+\_\+sigma, }
-\item[{const std\+::vector$<$ {\bf Vector}$<$ double $>$$>$ \&}]{e\+\_\+sigma\+\_\+ref\+\_\+sets, }
-\item[{const {\bf Vector}$<$ double $>$ \&}]{delta\+\_\+e\+\_\+sigma, }
-\item[{const {\bf Vector}$<$ double $>$ \&}]{hidden\+\_\+vars, }
-\item[{const {\bf Point}$<$ spacedim $>$ \&}]{x, }
-\item[{const {\bf Tensor}$<$ 1, spacedim $>$ \&}]{n}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_scalar_functional_a31e4e48bb968b12fde76530c343b433d}{}\label{class_scalar_functional_a31e4e48bb968b12fde76530c343b433d}
+\mbox{\Hypertarget{class_scalar_functional_ae4f5fbd69cabfda73cc2b30ae0263ca5}\label{class_scalar_functional_ae4f5fbd69cabfda73cc2b30ae0263ca5}} 
+\index{ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}!get\_maximum\_step@{get\_maximum\_step}}
+\index{get\_maximum\_step@{get\_maximum\_step}!ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{get\_maximum\_step()}{get\_maximum\_step()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+virtual double \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$\+::get\+\_\+maximum\+\_\+step (\begin{DoxyParamCaption}\item[{const \textbf{ Vector}$<$ double $>$ \&}]{e\+\_\+sigma,  }\item[{const std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&}]{e\+\_\+sigma\+\_\+ref\+\_\+sets,  }\item[{const \textbf{ Vector}$<$ double $>$ \&}]{delta\+\_\+e\+\_\+sigma,  }\item[{const \textbf{ Vector}$<$ double $>$ \&}]{hidden\+\_\+vars,  }\item[{const \textbf{ Point}$<$ spacedim $>$ \&}]{x,  }\item[{const \textbf{ Tensor}$<$ 1, spacedim $>$ \&}]{n }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
 Function for evaluation of the maximum permissible step length
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em e\+\_\+sigma} & Values of $e^\Sigma_\nu$ (the ordering is defined by the ordering of the dependent fields in \hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{Scalar\+Functional\+::e\+\_\+sigma})\\
+\mbox{\texttt{ in}}  & {\em e\+\_\+sigma} & Values of $e^\Sigma_\nu$ (the ordering is defined by the ordering of the dependent fields in \mbox{\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{Scalar\+Functional\+::e\+\_\+sigma}})\\
 \hline
-\mbox{\tt in}  & {\em e\+\_\+sigma\+\_\+ref\+\_\+sets} & Sets of reference values of $e^\Sigma_\nu$ (as required according to \hyperlink{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}{Scalar\+Functional\+::n\+\_\+ref\+\_\+sets})\\
+\mbox{\texttt{ in}}  & {\em e\+\_\+sigma\+\_\+ref\+\_\+sets} & Sets of reference values of $e^\Sigma_\nu$ (as required according to \mbox{\hyperlink{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}{Scalar\+Functional\+::n\+\_\+ref\+\_\+sets}})\\
 \hline
-\mbox{\tt in}  & {\em delta\+\_\+e\+\_\+sigma} & Values of $\Delta e^\Sigma_\nu$\\
+\mbox{\texttt{ in}}  & {\em delta\+\_\+e\+\_\+sigma} & Values of $\Delta e^\Sigma_\nu$\\
 \hline
-\mbox{\tt in}  & {\em hidden\+\_\+vars} & Values of \char`\"{}hidden\char`\"{} variables associated with the integrand $h^\Sigma_\tau$. This vector has the size \hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{Scalar\+Functional\+::n\+\_\+hidden}.\\
+\mbox{\texttt{ in}}  & {\em hidden\+\_\+vars} & Values of \char`\"{}hidden\char`\"{} variables associated with the integrand $h^\Sigma_\tau$. This vector has the size \mbox{\hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{Scalar\+Functional\+::n\+\_\+hidden}}.\\
 \hline
-\mbox{\tt in}  & {\em x} & Location of material point\\
+\mbox{\texttt{ in}}  & {\em x} & Location of material point\\
 \hline
-\mbox{\tt in}  & {\em n} & Normal vector pointing from -\/ to + side of the interface $\Sigma$ at {\ttfamily x} \\
+\mbox{\texttt{ in}}  & {\em n} & Normal vector pointing from -\/ to + side of the interface $\Sigma$ at {\ttfamily x} \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -234,34 +209,62 @@ The maximum $\alpha$ such that $e^\Sigma_\nu + \alpha \Delta e^\Sigma_\nu$ is a 
 \end{DoxyReturn}
 
 
-\subsection{Member Data Documentation}
-\index{Scalar\+Functional@{Scalar\+Functional}!domain\+\_\+of\+\_\+integration@{domain\+\_\+of\+\_\+integration}}
-\index{domain\+\_\+of\+\_\+integration@{domain\+\_\+of\+\_\+integration}!Scalar\+Functional@{Scalar\+Functional}}
-\subsubsection[{\texorpdfstring{domain\+\_\+of\+\_\+integration}{domain_of_integration}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ const std\+::set$<${\bf types\+::material\+\_\+id}$>$ {\bf Scalar\+Functional}$<$ dim, spacedim $>$\+::domain\+\_\+of\+\_\+integration}\hypertarget{class_scalar_functional_ae3b6dd6934e1cd55fcc55cf344179407}{}\label{class_scalar_functional_ae3b6dd6934e1cd55fcc55cf344179407}
-Set of {\bf types\+::material\+\_\+id}s determining the interfacial domain of integration (i.\+e. those regions of the total interface $\Sigma$, where the integrand $h^\Sigma_\tau$ is non-\/zero). \index{Scalar\+Functional@{Scalar\+Functional}!e\+\_\+sigma@{e\+\_\+sigma}}
-\index{e\+\_\+sigma@{e\+\_\+sigma}!Scalar\+Functional@{Scalar\+Functional}}
-\subsubsection[{\texorpdfstring{e\+\_\+sigma}{e_sigma}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ const std\+::vector$<${\bf Dependent\+Field}$<$dim, spacedim$>$ $>$ {\bf Scalar\+Functional}$<$ dim, spacedim $>$\+::e\+\_\+sigma}\hypertarget{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{}\label{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}
-Vector containing the dependent fields $e^\Sigma_\nu$ whereupon the integrand $h^\Sigma_\tau$ depends. The ordering in this vector defines the ordering in vectors and matrices related to derivatives of $h^\Sigma_\tau$ w.\+r.\+t. the dependent fields $e^\Sigma_\nu$. \index{Scalar\+Functional@{Scalar\+Functional}!initial\+\_\+vals\+\_\+hidden@{initial\+\_\+vals\+\_\+hidden}}
-\index{initial\+\_\+vals\+\_\+hidden@{initial\+\_\+vals\+\_\+hidden}!Scalar\+Functional@{Scalar\+Functional}}
-\subsubsection[{\texorpdfstring{initial\+\_\+vals\+\_\+hidden}{initial_vals_hidden}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ const {\bf Smart\+Pointer}$<$const {\bf Function}$<$spacedim$>$ $>$ {\bf Scalar\+Functional}$<$ dim, spacedim $>$\+::initial\+\_\+vals\+\_\+hidden}\hypertarget{class_scalar_functional_a602d0bc2c945822c6b756fc63183ae2b}{}\label{class_scalar_functional_a602d0bc2c945822c6b756fc63183ae2b}
-A {\ttfamily {\bf Function}}, which must be supplied by the user for determination of non-\/zero initial values of the hidden variables (applies only if \hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{Scalar\+Functional\+::n\+\_\+hidden} $>$ 0).
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_scalar_functional_ae3b6dd6934e1cd55fcc55cf344179407}\label{class_scalar_functional_ae3b6dd6934e1cd55fcc55cf344179407}} 
+\index{ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}!domain\_of\_integration@{domain\_of\_integration}}
+\index{domain\_of\_integration@{domain\_of\_integration}!ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{domain\_of\_integration}{domain\_of\_integration}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+const std\+::set$<$\textbf{ types\+::material\+\_\+id}$>$ \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$\+::domain\+\_\+of\+\_\+integration}
 
-The number of components of \hyperlink{class_scalar_functional_a602d0bc2c945822c6b756fc63183ae2b}{Scalar\+Functional\+::initial\+\_\+vals\+\_\+hidden} must be equal to \hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{Scalar\+Functional\+::n\+\_\+hidden}
+Set of \textbf{ types\+::material\+\_\+id}s determining the interfacial domain of integration (i.\+e. those regions of the total interface $\Sigma$, where the integrand $h^\Sigma_\tau$ is non-\/zero). \mbox{\Hypertarget{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}\label{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}} 
+\index{ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}!e\_sigma@{e\_sigma}}
+\index{e\_sigma@{e\_sigma}!ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{e\_sigma}{e\_sigma}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+const std\+::vector$<$\mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$dim, spacedim$>$ $>$ \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$\+::e\+\_\+sigma}
 
-As a minimum requirement, \hyperlink{class_scalar_functional_a602d0bc2c945822c6b756fc63183ae2b}{Scalar\+Functional\+::initial\+\_\+vals\+\_\+hidden} must implement the method {\bf Function\+::value()}. \index{Scalar\+Functional@{Scalar\+Functional}!n\+\_\+hidden@{n\+\_\+hidden}}
-\index{n\+\_\+hidden@{n\+\_\+hidden}!Scalar\+Functional@{Scalar\+Functional}}
-\subsubsection[{\texorpdfstring{n\+\_\+hidden}{n_hidden}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ const unsigned int {\bf Scalar\+Functional}$<$ dim, spacedim $>$\+::n\+\_\+hidden}\hypertarget{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{}\label{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}
-Number of \char`\"{}hidden\char`\"{} variables associated with the integrand $h^\Sigma_\tau$ of the scalar functional \index{Scalar\+Functional@{Scalar\+Functional}!n\+\_\+ref\+\_\+sets@{n\+\_\+ref\+\_\+sets}}
-\index{n\+\_\+ref\+\_\+sets@{n\+\_\+ref\+\_\+sets}!Scalar\+Functional@{Scalar\+Functional}}
-\subsubsection[{\texorpdfstring{n\+\_\+ref\+\_\+sets}{n_ref_sets}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ const unsigned int {\bf Scalar\+Functional}$<$ dim, spacedim $>$\+::n\+\_\+ref\+\_\+sets}\hypertarget{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}{}\label{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}
-The number of sets of reference values of the dependent fields $e^\Sigma_\nu$ involved in the definition of the integrand $h^\Sigma_\tau$ \index{Scalar\+Functional@{Scalar\+Functional}!name@{name}}
-\index{name@{name}!Scalar\+Functional@{Scalar\+Functional}}
-\subsubsection[{\texorpdfstring{name}{name}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ const std\+::string {\bf Scalar\+Functional}$<$ dim, spacedim $>$\+::name}\hypertarget{class_scalar_functional_a4d184688053b3443d10e228e4a8eba60}{}\label{class_scalar_functional_a4d184688053b3443d10e228e4a8eba60}
-A name for the scalar functional \index{Scalar\+Functional@{Scalar\+Functional}!quadrature@{quadrature}}
-\index{quadrature@{quadrature}!Scalar\+Functional@{Scalar\+Functional}}
-\subsubsection[{\texorpdfstring{quadrature}{quadrature}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int dim, unsigned int spacedim$>$ const {\bf Quadrature}$<$dim$>$ {\bf Scalar\+Functional}$<$ dim, spacedim $>$\+::quadrature}\hypertarget{class_scalar_functional_adea9ff214aeb2a1d8c3712a9d2433883}{}\label{class_scalar_functional_adea9ff214aeb2a1d8c3712a9d2433883}
-{\bf Quadrature} rule when integrating over the domain determined by \hyperlink{class_scalar_functional_ae3b6dd6934e1cd55fcc55cf344179407}{Scalar\+Functional\+::domain\+\_\+of\+\_\+integration} 
+Vector containing the dependent fields $e^\Sigma_\nu$ whereupon the integrand $h^\Sigma_\tau$ depends. The ordering in this vector defines the ordering in vectors and matrices related to derivatives of $h^\Sigma_\tau$ w.\+r.\+t. the dependent fields $e^\Sigma_\nu$. \mbox{\Hypertarget{class_scalar_functional_a602d0bc2c945822c6b756fc63183ae2b}\label{class_scalar_functional_a602d0bc2c945822c6b756fc63183ae2b}} 
+\index{ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}!initial\_vals\_hidden@{initial\_vals\_hidden}}
+\index{initial\_vals\_hidden@{initial\_vals\_hidden}!ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{initial\_vals\_hidden}{initial\_vals\_hidden}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+const \textbf{ Smart\+Pointer}$<$const \textbf{ Function}$<$spacedim$>$ $>$ \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$\+::initial\+\_\+vals\+\_\+hidden}
+
+A {\ttfamily \textbf{ Function}}, which must be supplied by the user for determination of non-\/zero initial values of the hidden variables (applies only if \mbox{\hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{Scalar\+Functional\+::n\+\_\+hidden}} $>$ 0).
+
+The number of components of \mbox{\hyperlink{class_scalar_functional_a602d0bc2c945822c6b756fc63183ae2b}{Scalar\+Functional\+::initial\+\_\+vals\+\_\+hidden}} must be equal to \mbox{\hyperlink{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}{Scalar\+Functional\+::n\+\_\+hidden}}
+
+As a minimum requirement, \mbox{\hyperlink{class_scalar_functional_a602d0bc2c945822c6b756fc63183ae2b}{Scalar\+Functional\+::initial\+\_\+vals\+\_\+hidden}} must implement the method \textbf{ Function\+::value()}. \mbox{\Hypertarget{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}\label{class_scalar_functional_a8b1617930242870f22eef5e306cb717f}} 
+\index{ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}!n\_hidden@{n\_hidden}}
+\index{n\_hidden@{n\_hidden}!ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{n\_hidden}{n\_hidden}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+const unsigned int \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$\+::n\+\_\+hidden}
+
+Number of \char`\"{}hidden\char`\"{} variables associated with the integrand $h^\Sigma_\tau$ of the scalar functional \mbox{\Hypertarget{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}\label{class_scalar_functional_a7e12423f4b29e9e0aaa0f7f9c2d1c0eb}} 
+\index{ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}!n\_ref\_sets@{n\_ref\_sets}}
+\index{n\_ref\_sets@{n\_ref\_sets}!ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{n\_ref\_sets}{n\_ref\_sets}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+const unsigned int \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$\+::n\+\_\+ref\+\_\+sets}
+
+The number of sets of reference values of the dependent fields $e^\Sigma_\nu$ involved in the definition of the integrand $h^\Sigma_\tau$ \mbox{\Hypertarget{class_scalar_functional_a4d184688053b3443d10e228e4a8eba60}\label{class_scalar_functional_a4d184688053b3443d10e228e4a8eba60}} 
+\index{ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}!name@{name}}
+\index{name@{name}!ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+const std\+::string \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$\+::name}
+
+A name for the scalar functional \mbox{\Hypertarget{class_scalar_functional_adea9ff214aeb2a1d8c3712a9d2433883}\label{class_scalar_functional_adea9ff214aeb2a1d8c3712a9d2433883}} 
+\index{ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}!quadrature@{quadrature}}
+\index{quadrature@{quadrature}!ScalarFunctional$<$ dim, spacedim $>$@{ScalarFunctional$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{quadrature}{quadrature}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+const \textbf{ Quadrature}$<$dim$>$ \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$\+::quadrature}
+
+\textbf{ Quadrature} rule when integrating over the domain determined by \mbox{\hyperlink{class_scalar_functional_ae3b6dd6934e1cd55fcc55cf344179407}{Scalar\+Functional\+::domain\+\_\+of\+\_\+integration}} 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\hyperlink{scalar__functional_8h}{scalar\+\_\+functional.\+h}\end{DoxyCompactItemize}
+/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\mbox{\hyperlink{scalar__functional_8h}{scalar\+\_\+functional.\+h}}\end{DoxyCompactItemize}

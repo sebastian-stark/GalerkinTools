@@ -1,5 +1,5 @@
-\hypertarget{class_two_block_sparsity_pattern}{}\section{Two\+Block\+Sparsity\+Pattern Class Reference}
-\label{class_two_block_sparsity_pattern}\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
+\hypertarget{class_two_block_sparsity_pattern}{}\doxysection{Two\+Block\+Sparsity\+Pattern Class Reference}
+\label{class_two_block_sparsity_pattern}\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
 
 
 {\ttfamily \#include $<$two\+\_\+block\+\_\+sparsity\+\_\+pattern.\+h$>$}
@@ -10,318 +10,332 @@ Collaboration diagram for Two\+Block\+Sparsity\+Pattern\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=323pt]{class_two_block_sparsity_pattern__coll__graph}
+\includegraphics[width=346pt]{class_two_block_sparsity_pattern__coll__graph}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_two_block_sparsity_pattern_a5bcc54c1c6b0d769807644f1c87fa136}{Two\+Block\+Sparsity\+Pattern} ()=default
+\mbox{\hyperlink{class_two_block_sparsity_pattern_a5bcc54c1c6b0d769807644f1c87fa136}{Two\+Block\+Sparsity\+Pattern}} ()=default
 \item 
-\hyperlink{class_two_block_sparsity_pattern_ab7240dc72bf5fdb32fc192f70e6c68b0}{Two\+Block\+Sparsity\+Pattern} (const {\bf Index\+Set} \&locally\+\_\+relevant\+\_\+indices, const unsigned int \hyperlink{class_two_block_sparsity_pattern_a81789900ac1a9f5bfd7f85ad730eb03b}{block\+\_\+0\+\_\+size})
+\mbox{\hyperlink{class_two_block_sparsity_pattern_ab7240dc72bf5fdb32fc192f70e6c68b0}{Two\+Block\+Sparsity\+Pattern}} (const \textbf{ Index\+Set} \&locally\+\_\+relevant\+\_\+indices, const unsigned int \mbox{\hyperlink{class_two_block_sparsity_pattern_a81789900ac1a9f5bfd7f85ad730eb03b}{block\+\_\+0\+\_\+size}})
 \item 
-virtual \hyperlink{class_two_block_sparsity_pattern_abe3cbf4d3ee10b66234c5f8b566a938f}{$\sim$\+Two\+Block\+Sparsity\+Pattern} ()=default
+virtual \mbox{\hyperlink{class_two_block_sparsity_pattern_abe3cbf4d3ee10b66234c5f8b566a938f}{$\sim$\+Two\+Block\+Sparsity\+Pattern}} ()=default
 \item 
-void \hyperlink{class_two_block_sparsity_pattern_ae18398b187a0dba1570abfec1a4e082d}{reinit} (const {\bf Index\+Set} \&locally\+\_\+relevant\+\_\+indices, const unsigned int \hyperlink{class_two_block_sparsity_pattern_a81789900ac1a9f5bfd7f85ad730eb03b}{block\+\_\+0\+\_\+size})
+void \mbox{\hyperlink{class_two_block_sparsity_pattern_ae18398b187a0dba1570abfec1a4e082d}{reinit}} (const \textbf{ Index\+Set} \&locally\+\_\+relevant\+\_\+indices, const unsigned int \mbox{\hyperlink{class_two_block_sparsity_pattern_a81789900ac1a9f5bfd7f85ad730eb03b}{block\+\_\+0\+\_\+size}})
 \item 
-{\footnotesize template$<$unsigned int spacedim$>$ }\\void \hyperlink{class_two_block_sparsity_pattern_a8c9a56a20123e8eaea65f9eb6efed250}{reinit} (const \hyperlink{class_assembly_helper}{Assembly\+Helper}$<$ spacedim $>$ \&assembly\+\_\+helper)
+{\footnotesize template$<$unsigned int spacedim$>$ }\\void \mbox{\hyperlink{class_two_block_sparsity_pattern_a8c9a56a20123e8eaea65f9eb6efed250}{reinit}} (const \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$ \&assembly\+\_\+helper)
 \item 
-unsigned int \hyperlink{class_two_block_sparsity_pattern_a1f95d380bc078a6abf6ef67fcb076e0d}{n\+\_\+rows} () const 
+unsigned int \mbox{\hyperlink{class_two_block_sparsity_pattern_ab2b3683a888bedc713117771f4e052fb}{n\+\_\+rows}} () const
 \item 
-unsigned int \hyperlink{class_two_block_sparsity_pattern_a33a0e1a01a788c73b474426128b18179}{n\+\_\+cols} () const 
+unsigned int \mbox{\hyperlink{class_two_block_sparsity_pattern_a800e2b70b07117cdf330c41a5e9532ca}{n\+\_\+cols}} () const
 \item 
-void \hyperlink{class_two_block_sparsity_pattern_ab3787657efc568999fbf24cb5208d46b}{add} (const unsigned int i, const unsigned int j)
+void \mbox{\hyperlink{class_two_block_sparsity_pattern_ab3787657efc568999fbf24cb5208d46b}{add}} (const unsigned int i, const unsigned int j)
 \item 
-{\footnotesize template$<$typename Forward\+Iterator $>$ }\\void \hyperlink{class_two_block_sparsity_pattern_a97c69542e0e22e5653c8b4f7b4275635}{add\+\_\+entries} (const unsigned int row, Forward\+Iterator begin, Forward\+Iterator end, const bool indices\+\_\+are\+\_\+sorted=true)
+{\footnotesize template$<$typename Forward\+Iterator $>$ }\\void \mbox{\hyperlink{class_two_block_sparsity_pattern_a97c69542e0e22e5653c8b4f7b4275635}{add\+\_\+entries}} (const unsigned int row, Forward\+Iterator begin, Forward\+Iterator end, const bool indices\+\_\+are\+\_\+sorted=true)
 \item 
-void \hyperlink{class_two_block_sparsity_pattern_a051b557d53ca8367228b7829c55d4af5}{finalize} ()
+void \mbox{\hyperlink{class_two_block_sparsity_pattern_a051b557d53ca8367228b7829c55d4af5}{finalize}} ()
 \item 
-const {\bf Sparsity\+Pattern} \& \hyperlink{class_two_block_sparsity_pattern_a595b3576cc8e02e24a795c9cd639af01}{get\+\_\+sp\+\_\+A} () const 
+const \textbf{ Sparsity\+Pattern} \& \mbox{\hyperlink{class_two_block_sparsity_pattern_ac4e6c53ad297cfe1b9e0f41550d7345c}{get\+\_\+sp\+\_\+A}} () const
 \item 
-const {\bf Sparsity\+Pattern} \& \hyperlink{class_two_block_sparsity_pattern_a36c1dbb12ab6ac24fc30e793e59d2c3b}{get\+\_\+sp\+\_\+B} () const 
+const \textbf{ Sparsity\+Pattern} \& \mbox{\hyperlink{class_two_block_sparsity_pattern_a7826ec9b684468fa09a8b60d31c6188f}{get\+\_\+sp\+\_\+B}} () const
 \item 
-const {\bf Sparsity\+Pattern} \& \hyperlink{class_two_block_sparsity_pattern_a156a0a521faae238543e76aa05a8bad7}{get\+\_\+sp\+\_\+C} () const 
+const \textbf{ Sparsity\+Pattern} \& \mbox{\hyperlink{class_two_block_sparsity_pattern_a5dac1b5718f7d001fe3e04f8744601fd}{get\+\_\+sp\+\_\+C}} () const
 \item 
-const {\bf Sparsity\+Pattern} \& \hyperlink{class_two_block_sparsity_pattern_a0990cb1eabe18204dd46ac30e1cc0dda}{get\+\_\+sp\+\_\+D} () const 
+const \textbf{ Sparsity\+Pattern} \& \mbox{\hyperlink{class_two_block_sparsity_pattern_ad23448c9eb58843e1c0cc3403664b6f5}{get\+\_\+sp\+\_\+D}} () const
 \item 
-bool \hyperlink{class_two_block_sparsity_pattern_a32bae81b9aec47fa34ddd40c963fb7e8}{exists} (const unsigned int i, const unsigned int j) const 
+bool \mbox{\hyperlink{class_two_block_sparsity_pattern_a642806909b31d0cb75ca4831563c8269}{exists}} (const unsigned int i, const unsigned int j) const
 \item 
-void \hyperlink{class_two_block_sparsity_pattern_a61ef6e3f3325cffcfc1d25efc41886b0}{distribute} (const {\bf Index\+Set} \&locally\+\_\+owned\+\_\+indices, const M\+P\+I\+\_\+\+Comm mpi\+\_\+communicator)
+void \mbox{\hyperlink{class_two_block_sparsity_pattern_a61ef6e3f3325cffcfc1d25efc41886b0}{distribute}} (const \textbf{ Index\+Set} \&locally\+\_\+owned\+\_\+indices, const M\+P\+I\+\_\+\+Comm mpi\+\_\+communicator)
 \end{DoxyCompactItemize}
-\subsection*{Private Attributes}
+\doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-{\bf Dynamic\+Sparsity\+Pattern} \hyperlink{class_two_block_sparsity_pattern_ac3bafc713fec0ec2232fc084f880c50c}{dsp\+\_\+A}
+\textbf{ Dynamic\+Sparsity\+Pattern} \mbox{\hyperlink{class_two_block_sparsity_pattern_ac3bafc713fec0ec2232fc084f880c50c}{dsp\+\_\+A}}
 \item 
-{\bf Dynamic\+Sparsity\+Pattern} \hyperlink{class_two_block_sparsity_pattern_ab1b2d6dc5d92f6353b80dd7a8d32ffa4}{dsp\+\_\+B}
+\textbf{ Dynamic\+Sparsity\+Pattern} \mbox{\hyperlink{class_two_block_sparsity_pattern_ab1b2d6dc5d92f6353b80dd7a8d32ffa4}{dsp\+\_\+B}}
 \item 
-{\bf Dynamic\+Sparsity\+Pattern} \hyperlink{class_two_block_sparsity_pattern_a444a6465b3ba1355fb675128c6e9800a}{dsp\+\_\+C}
+\textbf{ Dynamic\+Sparsity\+Pattern} \mbox{\hyperlink{class_two_block_sparsity_pattern_a444a6465b3ba1355fb675128c6e9800a}{dsp\+\_\+C}}
 \item 
-{\bf Dynamic\+Sparsity\+Pattern} \hyperlink{class_two_block_sparsity_pattern_a853d4000754f009a66853954d8c540bf}{dsp\+\_\+D}
+\textbf{ Dynamic\+Sparsity\+Pattern} \mbox{\hyperlink{class_two_block_sparsity_pattern_a853d4000754f009a66853954d8c540bf}{dsp\+\_\+D}}
 \item 
-{\bf Sparsity\+Pattern} \hyperlink{class_two_block_sparsity_pattern_ad09712fc57a8cf5a2cd2cb9fc238a7cc}{sp\+\_\+A}
+\textbf{ Sparsity\+Pattern} \mbox{\hyperlink{class_two_block_sparsity_pattern_ad09712fc57a8cf5a2cd2cb9fc238a7cc}{sp\+\_\+A}}
 \item 
-{\bf Sparsity\+Pattern} \hyperlink{class_two_block_sparsity_pattern_a95e817472f023d7237c752a18a24ac73}{sp\+\_\+B}
+\textbf{ Sparsity\+Pattern} \mbox{\hyperlink{class_two_block_sparsity_pattern_a95e817472f023d7237c752a18a24ac73}{sp\+\_\+B}}
 \item 
-{\bf Sparsity\+Pattern} \hyperlink{class_two_block_sparsity_pattern_aee8da566a426045fb8101dba91295a27}{sp\+\_\+C}
+\textbf{ Sparsity\+Pattern} \mbox{\hyperlink{class_two_block_sparsity_pattern_aee8da566a426045fb8101dba91295a27}{sp\+\_\+C}}
 \item 
-{\bf Sparsity\+Pattern} \hyperlink{class_two_block_sparsity_pattern_a7a820cba98001e45ba09551a306b14d7}{sp\+\_\+D}
+\textbf{ Sparsity\+Pattern} \mbox{\hyperlink{class_two_block_sparsity_pattern_a7a820cba98001e45ba09551a306b14d7}{sp\+\_\+D}}
 \item 
-unsigned int \hyperlink{class_two_block_sparsity_pattern_a81789900ac1a9f5bfd7f85ad730eb03b}{block\+\_\+0\+\_\+size} = 0
+unsigned int \mbox{\hyperlink{class_two_block_sparsity_pattern_a81789900ac1a9f5bfd7f85ad730eb03b}{block\+\_\+0\+\_\+size}} = 0
 \item 
-unsigned int \hyperlink{class_two_block_sparsity_pattern_ab215e3553e07b5f5872b1e01228968f2}{block\+\_\+1\+\_\+size} = 0
+unsigned int \mbox{\hyperlink{class_two_block_sparsity_pattern_ab215e3553e07b5f5872b1e01228968f2}{block\+\_\+1\+\_\+size}} = 0
 \item 
-unsigned int \hyperlink{class_two_block_sparsity_pattern_aa560457e8b8bf7a06acf6b19987c5ee0}{total\+\_\+dimension} = 0
+unsigned int \mbox{\hyperlink{class_two_block_sparsity_pattern_aa560457e8b8bf7a06acf6b19987c5ee0}{total\+\_\+dimension}} = 0
 \item 
-bool \hyperlink{class_two_block_sparsity_pattern_a7c930cd0dd5e1d6fb1550d6c3939c7aa}{finalized} = false
+bool \mbox{\hyperlink{class_two_block_sparsity_pattern_a7c930cd0dd5e1d6fb1550d6c3939c7aa}{finalized}} = false
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-This class implements a (dynamic) sparsity pattern corresponding to \hyperlink{class_two_block_matrix}{Two\+Block\+Matrix} 
+\doxysubsection{Detailed Description}
+This class implements a (dynamic) sparsity pattern corresponding to \mbox{\hyperlink{class_two_block_matrix}{Two\+Block\+Matrix}} 
 
-\subsection{Constructor \& Destructor Documentation}
-\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{Two\+Block\+Sparsity\+Pattern()=default}{TwoBlockSparsityPattern()=default}}]{\setlength{\rightskip}{0pt plus 5cm}Two\+Block\+Sparsity\+Pattern\+::\+Two\+Block\+Sparsity\+Pattern (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [default]}}\hypertarget{class_two_block_sparsity_pattern_a5bcc54c1c6b0d769807644f1c87fa136}{}\label{class_two_block_sparsity_pattern_a5bcc54c1c6b0d769807644f1c87fa136}
-Default Constructor \index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{Two\+Block\+Sparsity\+Pattern(const Index\+Set \&locally\+\_\+relevant\+\_\+indices, const unsigned int block\+\_\+0\+\_\+size)}{TwoBlockSparsityPattern(const IndexSet &locally_relevant_indices, const unsigned int block_0_size)}}]{\setlength{\rightskip}{0pt plus 5cm}Two\+Block\+Sparsity\+Pattern\+::\+Two\+Block\+Sparsity\+Pattern (
-\begin{DoxyParamCaption}
-\item[{const {\bf Index\+Set} \&}]{locally\+\_\+relevant\+\_\+indices, }
-\item[{const unsigned int}]{block\+\_\+0\+\_\+size}
-\end{DoxyParamCaption}
-)}\hypertarget{class_two_block_sparsity_pattern_ab7240dc72bf5fdb32fc192f70e6c68b0}{}\label{class_two_block_sparsity_pattern_ab7240dc72bf5fdb32fc192f70e6c68b0}
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_two_block_sparsity_pattern_a5bcc54c1c6b0d769807644f1c87fa136}\label{class_two_block_sparsity_pattern_a5bcc54c1c6b0d769807644f1c87fa136}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{TwoBlockSparsityPattern()}{TwoBlockSparsityPattern()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Two\+Block\+Sparsity\+Pattern\+::\+Two\+Block\+Sparsity\+Pattern (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default Constructor \mbox{\Hypertarget{class_two_block_sparsity_pattern_ab7240dc72bf5fdb32fc192f70e6c68b0}\label{class_two_block_sparsity_pattern_ab7240dc72bf5fdb32fc192f70e6c68b0}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{TwoBlockSparsityPattern()}{TwoBlockSparsityPattern()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Two\+Block\+Sparsity\+Pattern\+::\+Two\+Block\+Sparsity\+Pattern (\begin{DoxyParamCaption}\item[{const \textbf{ Index\+Set} \&}]{locally\+\_\+relevant\+\_\+indices,  }\item[{const unsigned int}]{block\+\_\+0\+\_\+size }\end{DoxyParamCaption})}
+
 Constructor
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em locally\+\_\+relevant\+\_\+indices} & The locally relevant indices\\
+\mbox{\texttt{ in}}  & {\em locally\+\_\+relevant\+\_\+indices} & The locally relevant indices\\
 \hline
-\mbox{\tt in}  & {\em block\+\_\+0\+\_\+size} & The dimension of A (the dimension of B is implicitly given by {\ttfamily locally\+\_\+relevant\+\_\+indices} and {\ttfamily block\+\_\+0\+\_\+size}) \\
+\mbox{\texttt{ in}}  & {\em block\+\_\+0\+\_\+size} & The dimension of A (the dimension of B is implicitly given by {\ttfamily locally\+\_\+relevant\+\_\+indices} and {\ttfamily block\+\_\+0\+\_\+size}) \\
 \hline
 \end{DoxyParams}
-\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!````~Two\+Block\+Sparsity\+Pattern@{$\sim$\+Two\+Block\+Sparsity\+Pattern}}
-\index{````~Two\+Block\+Sparsity\+Pattern@{$\sim$\+Two\+Block\+Sparsity\+Pattern}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{$\sim$\+Two\+Block\+Sparsity\+Pattern()=default}{~TwoBlockSparsityPattern()=default}}]{\setlength{\rightskip}{0pt plus 5cm}virtual Two\+Block\+Sparsity\+Pattern\+::$\sim$\+Two\+Block\+Sparsity\+Pattern (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}\hypertarget{class_two_block_sparsity_pattern_abe3cbf4d3ee10b66234c5f8b566a938f}{}\label{class_two_block_sparsity_pattern_abe3cbf4d3ee10b66234c5f8b566a938f}
+\mbox{\Hypertarget{class_two_block_sparsity_pattern_abe3cbf4d3ee10b66234c5f8b566a938f}\label{class_two_block_sparsity_pattern_abe3cbf4d3ee10b66234c5f8b566a938f}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!````~TwoBlockSparsityPattern@{$\sim$TwoBlockSparsityPattern}}
+\index{````~TwoBlockSparsityPattern@{$\sim$TwoBlockSparsityPattern}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{$\sim$TwoBlockSparsityPattern()}{~TwoBlockSparsityPattern()}}
+{\footnotesize\ttfamily virtual Two\+Block\+Sparsity\+Pattern\+::$\sim$\+Two\+Block\+Sparsity\+Pattern (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
 Virtual destructor to make the class polymorphic and allow dynamic casts. 
 
-\subsection{Member Function Documentation}
-\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!add@{add}}
-\index{add@{add}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{add(const unsigned int i, const unsigned int j)}{add(const unsigned int i, const unsigned int j)}}]{\setlength{\rightskip}{0pt plus 5cm}void Two\+Block\+Sparsity\+Pattern\+::add (
-\begin{DoxyParamCaption}
-\item[{const unsigned int}]{i, }
-\item[{const unsigned int}]{j}
-\end{DoxyParamCaption}
-)}\hypertarget{class_two_block_sparsity_pattern_ab3787657efc568999fbf24cb5208d46b}{}\label{class_two_block_sparsity_pattern_ab3787657efc568999fbf24cb5208d46b}
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_two_block_sparsity_pattern_ab3787657efc568999fbf24cb5208d46b}\label{class_two_block_sparsity_pattern_ab3787657efc568999fbf24cb5208d46b}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!add@{add}}
+\index{add@{add}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void Two\+Block\+Sparsity\+Pattern\+::add (\begin{DoxyParamCaption}\item[{const unsigned int}]{i,  }\item[{const unsigned int}]{j }\end{DoxyParamCaption})}
+
 Function adding an entry to the sparsity pattern
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em i} & row\\
+\mbox{\texttt{ in}}  & {\em i} & row\\
 \hline
-\mbox{\tt in}  & {\em j} & column \\
+\mbox{\texttt{ in}}  & {\em j} & column \\
 \hline
 \end{DoxyParams}
-\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!add\+\_\+entries@{add\+\_\+entries}}
-\index{add\+\_\+entries@{add\+\_\+entries}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{add\+\_\+entries(const unsigned int row, Forward\+Iterator begin, Forward\+Iterator end, const bool indices\+\_\+are\+\_\+sorted=true)}{add_entries(const unsigned int row, ForwardIterator begin, ForwardIterator end, const bool indices_are_sorted=true)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Forward\+Iterator $>$ void Two\+Block\+Sparsity\+Pattern\+::add\+\_\+entries (
-\begin{DoxyParamCaption}
-\item[{const unsigned int}]{row, }
-\item[{Forward\+Iterator}]{begin, }
-\item[{Forward\+Iterator}]{end, }
-\item[{const bool}]{indices\+\_\+are\+\_\+sorted = {\ttfamily true}}
-\end{DoxyParamCaption}
-)}\hypertarget{class_two_block_sparsity_pattern_a97c69542e0e22e5653c8b4f7b4275635}{}\label{class_two_block_sparsity_pattern_a97c69542e0e22e5653c8b4f7b4275635}
+\mbox{\Hypertarget{class_two_block_sparsity_pattern_a97c69542e0e22e5653c8b4f7b4275635}\label{class_two_block_sparsity_pattern_a97c69542e0e22e5653c8b4f7b4275635}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!add\_entries@{add\_entries}}
+\index{add\_entries@{add\_entries}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{add\_entries()}{add\_entries()}}
+{\footnotesize\ttfamily template$<$typename Forward\+Iterator $>$ \\
+void Two\+Block\+Sparsity\+Pattern\+::add\+\_\+entries (\begin{DoxyParamCaption}\item[{const unsigned int}]{row,  }\item[{Forward\+Iterator}]{begin,  }\item[{Forward\+Iterator}]{end,  }\item[{const bool}]{indices\+\_\+are\+\_\+sorted = {\ttfamily true} }\end{DoxyParamCaption})}
+
 Add a number of entries to a row of the sparsity pattern
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em row} & row to add to\\
+\mbox{\texttt{ in}}  & {\em row} & row to add to\\
 \hline
-\mbox{\tt in}  & {\em begin} & iterator to first column index to add\\
+\mbox{\texttt{ in}}  & {\em begin} & iterator to first column index to add\\
 \hline
-\mbox{\tt in}  & {\em end} & iterator past the last column index to add\\
+\mbox{\texttt{ in}}  & {\em end} & iterator past the last column index to add\\
 \hline
-\mbox{\tt in}  & {\em indices\+\_\+are\+\_\+sorted} & This only exists for compatibility with deal.\+II and does not affect what\textquotesingle{}s going on in this function. The function only works if the indices are actually sorted. \\
+\mbox{\texttt{ in}}  & {\em indices\+\_\+are\+\_\+sorted} & This only exists for compatibility with deal.\+II and does not affect what\textquotesingle{}s going on in this function. The function only works if the indices are actually sorted. \\
 \hline
 \end{DoxyParams}
-\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!distribute@{distribute}}
-\index{distribute@{distribute}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{distribute(const Index\+Set \&locally\+\_\+owned\+\_\+indices, const M\+P\+I\+\_\+\+Comm mpi\+\_\+communicator)}{distribute(const IndexSet &locally_owned_indices, const MPI_Comm mpi_communicator)}}]{\setlength{\rightskip}{0pt plus 5cm}void Two\+Block\+Sparsity\+Pattern\+::distribute (
-\begin{DoxyParamCaption}
-\item[{const {\bf Index\+Set} \&}]{locally\+\_\+owned\+\_\+indices, }
-\item[{const M\+P\+I\+\_\+\+Comm}]{mpi\+\_\+communicator}
-\end{DoxyParamCaption}
-)}\hypertarget{class_two_block_sparsity_pattern_a61ef6e3f3325cffcfc1d25efc41886b0}{}\label{class_two_block_sparsity_pattern_a61ef6e3f3325cffcfc1d25efc41886b0}
+\mbox{\Hypertarget{class_two_block_sparsity_pattern_a61ef6e3f3325cffcfc1d25efc41886b0}\label{class_two_block_sparsity_pattern_a61ef6e3f3325cffcfc1d25efc41886b0}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!distribute@{distribute}}
+\index{distribute@{distribute}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{distribute()}{distribute()}}
+{\footnotesize\ttfamily void Two\+Block\+Sparsity\+Pattern\+::distribute (\begin{DoxyParamCaption}\item[{const \textbf{ Index\+Set} \&}]{locally\+\_\+owned\+\_\+indices,  }\item[{const M\+P\+I\+\_\+\+Comm}]{mpi\+\_\+communicator }\end{DoxyParamCaption})}
+
 This function makes sure that all processors know about all their entries
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em locally\+\_\+owned\+\_\+indices} & The locally owned indices on this processor\\
+\mbox{\texttt{ in}}  & {\em locally\+\_\+owned\+\_\+indices} & The locally owned indices on this processor\\
 \hline
-\mbox{\tt in}  & {\em mpi\+\_\+communicator} & The M\+PI communicator \\
+\mbox{\texttt{ in}}  & {\em mpi\+\_\+communicator} & The M\+PI communicator \\
 \hline
 \end{DoxyParams}
-\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!exists@{exists}}
-\index{exists@{exists}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{exists(const unsigned int i, const unsigned int j) const }{exists(const unsigned int i, const unsigned int j) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Two\+Block\+Sparsity\+Pattern\+::exists (
-\begin{DoxyParamCaption}
-\item[{const unsigned int}]{i, }
-\item[{const unsigned int}]{j}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_two_block_sparsity_pattern_a32bae81b9aec47fa34ddd40c963fb7e8}{}\label{class_two_block_sparsity_pattern_a32bae81b9aec47fa34ddd40c963fb7e8}
+\mbox{\Hypertarget{class_two_block_sparsity_pattern_a642806909b31d0cb75ca4831563c8269}\label{class_two_block_sparsity_pattern_a642806909b31d0cb75ca4831563c8269}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!exists@{exists}}
+\index{exists@{exists}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{exists()}{exists()}}
+{\footnotesize\ttfamily bool Two\+Block\+Sparsity\+Pattern\+::exists (\begin{DoxyParamCaption}\item[{const unsigned int}]{i,  }\item[{const unsigned int}]{j }\end{DoxyParamCaption}) const}
+
 Check wheter an entry exists in the sparsity pattern
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em i} & row\\
+\mbox{\texttt{ in}}  & {\em i} & row\\
 \hline
-\mbox{\tt in}  & {\em j} & column \\
+\mbox{\texttt{ in}}  & {\em j} & column \\
 \hline
 \end{DoxyParams}
-\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!finalize@{finalize}}
-\index{finalize@{finalize}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{finalize()}{finalize()}}]{\setlength{\rightskip}{0pt plus 5cm}void Two\+Block\+Sparsity\+Pattern\+::finalize (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{class_two_block_sparsity_pattern_a051b557d53ca8367228b7829c55d4af5}{}\label{class_two_block_sparsity_pattern_a051b557d53ca8367228b7829c55d4af5}
-This functions copies the dynamic sparsity patterns generated into the sparsity pattern. It does also clear the dynamic sparsity patterns. After finalize is called, no changes to the sparsity pattern are allowed, unless \hyperlink{class_two_block_sparsity_pattern_ae18398b187a0dba1570abfec1a4e082d}{reinit()} is called again. \index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!get\+\_\+sp\+\_\+A@{get\+\_\+sp\+\_\+A}}
-\index{get\+\_\+sp\+\_\+A@{get\+\_\+sp\+\_\+A}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{get\+\_\+sp\+\_\+\+A() const }{get_sp_A() const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Sparsity\+Pattern}\& Two\+Block\+Sparsity\+Pattern\+::get\+\_\+sp\+\_\+A (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_two_block_sparsity_pattern_a595b3576cc8e02e24a795c9cd639af01}{}\label{class_two_block_sparsity_pattern_a595b3576cc8e02e24a795c9cd639af01}
+\mbox{\Hypertarget{class_two_block_sparsity_pattern_a051b557d53ca8367228b7829c55d4af5}\label{class_two_block_sparsity_pattern_a051b557d53ca8367228b7829c55d4af5}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!finalize@{finalize}}
+\index{finalize@{finalize}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{finalize()}{finalize()}}
+{\footnotesize\ttfamily void Two\+Block\+Sparsity\+Pattern\+::finalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This functions copies the dynamic sparsity patterns generated into the sparsity pattern. It does also clear the dynamic sparsity patterns. After finalize is called, no changes to the sparsity pattern are allowed, unless \mbox{\hyperlink{class_two_block_sparsity_pattern_ae18398b187a0dba1570abfec1a4e082d}{reinit()}} is called again. \mbox{\Hypertarget{class_two_block_sparsity_pattern_ac4e6c53ad297cfe1b9e0f41550d7345c}\label{class_two_block_sparsity_pattern_ac4e6c53ad297cfe1b9e0f41550d7345c}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!get\_sp\_A@{get\_sp\_A}}
+\index{get\_sp\_A@{get\_sp\_A}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{get\_sp\_A()}{get\_sp\_A()}}
+{\footnotesize\ttfamily const \textbf{ Sparsity\+Pattern}\& Two\+Block\+Sparsity\+Pattern\+::get\+\_\+sp\+\_\+A (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
 \begin{DoxyReturn}{Returns}
 The sparsity pattern of A 
 \end{DoxyReturn}
-\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!get\+\_\+sp\+\_\+B@{get\+\_\+sp\+\_\+B}}
-\index{get\+\_\+sp\+\_\+B@{get\+\_\+sp\+\_\+B}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{get\+\_\+sp\+\_\+\+B() const }{get_sp_B() const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Sparsity\+Pattern}\& Two\+Block\+Sparsity\+Pattern\+::get\+\_\+sp\+\_\+B (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_two_block_sparsity_pattern_a36c1dbb12ab6ac24fc30e793e59d2c3b}{}\label{class_two_block_sparsity_pattern_a36c1dbb12ab6ac24fc30e793e59d2c3b}
+\mbox{\Hypertarget{class_two_block_sparsity_pattern_a7826ec9b684468fa09a8b60d31c6188f}\label{class_two_block_sparsity_pattern_a7826ec9b684468fa09a8b60d31c6188f}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!get\_sp\_B@{get\_sp\_B}}
+\index{get\_sp\_B@{get\_sp\_B}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{get\_sp\_B()}{get\_sp\_B()}}
+{\footnotesize\ttfamily const \textbf{ Sparsity\+Pattern}\& Two\+Block\+Sparsity\+Pattern\+::get\+\_\+sp\+\_\+B (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
 \begin{DoxyReturn}{Returns}
 The sparsity pattern of B 
 \end{DoxyReturn}
-\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!get\+\_\+sp\+\_\+C@{get\+\_\+sp\+\_\+C}}
-\index{get\+\_\+sp\+\_\+C@{get\+\_\+sp\+\_\+C}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{get\+\_\+sp\+\_\+\+C() const }{get_sp_C() const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Sparsity\+Pattern}\& Two\+Block\+Sparsity\+Pattern\+::get\+\_\+sp\+\_\+C (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_two_block_sparsity_pattern_a156a0a521faae238543e76aa05a8bad7}{}\label{class_two_block_sparsity_pattern_a156a0a521faae238543e76aa05a8bad7}
+\mbox{\Hypertarget{class_two_block_sparsity_pattern_a5dac1b5718f7d001fe3e04f8744601fd}\label{class_two_block_sparsity_pattern_a5dac1b5718f7d001fe3e04f8744601fd}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!get\_sp\_C@{get\_sp\_C}}
+\index{get\_sp\_C@{get\_sp\_C}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{get\_sp\_C()}{get\_sp\_C()}}
+{\footnotesize\ttfamily const \textbf{ Sparsity\+Pattern}\& Two\+Block\+Sparsity\+Pattern\+::get\+\_\+sp\+\_\+C (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
 \begin{DoxyReturn}{Returns}
 The sparsity pattern of C 
 \end{DoxyReturn}
-\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!get\+\_\+sp\+\_\+D@{get\+\_\+sp\+\_\+D}}
-\index{get\+\_\+sp\+\_\+D@{get\+\_\+sp\+\_\+D}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{get\+\_\+sp\+\_\+\+D() const }{get_sp_D() const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Sparsity\+Pattern}\& Two\+Block\+Sparsity\+Pattern\+::get\+\_\+sp\+\_\+D (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_two_block_sparsity_pattern_a0990cb1eabe18204dd46ac30e1cc0dda}{}\label{class_two_block_sparsity_pattern_a0990cb1eabe18204dd46ac30e1cc0dda}
+\mbox{\Hypertarget{class_two_block_sparsity_pattern_ad23448c9eb58843e1c0cc3403664b6f5}\label{class_two_block_sparsity_pattern_ad23448c9eb58843e1c0cc3403664b6f5}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!get\_sp\_D@{get\_sp\_D}}
+\index{get\_sp\_D@{get\_sp\_D}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{get\_sp\_D()}{get\_sp\_D()}}
+{\footnotesize\ttfamily const \textbf{ Sparsity\+Pattern}\& Two\+Block\+Sparsity\+Pattern\+::get\+\_\+sp\+\_\+D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
 \begin{DoxyReturn}{Returns}
 The sparsity pattern of D 
 \end{DoxyReturn}
-\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!n\+\_\+cols@{n\+\_\+cols}}
-\index{n\+\_\+cols@{n\+\_\+cols}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{n\+\_\+cols() const }{n_cols() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Two\+Block\+Sparsity\+Pattern\+::n\+\_\+cols (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_two_block_sparsity_pattern_a33a0e1a01a788c73b474426128b18179}{}\label{class_two_block_sparsity_pattern_a33a0e1a01a788c73b474426128b18179}
-The total number of columns \index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!n\+\_\+rows@{n\+\_\+rows}}
-\index{n\+\_\+rows@{n\+\_\+rows}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{n\+\_\+rows() const }{n_rows() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Two\+Block\+Sparsity\+Pattern\+::n\+\_\+rows (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_two_block_sparsity_pattern_a1f95d380bc078a6abf6ef67fcb076e0d}{}\label{class_two_block_sparsity_pattern_a1f95d380bc078a6abf6ef67fcb076e0d}
-The total number of rows \index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!reinit@{reinit}}
-\index{reinit@{reinit}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{reinit(const Index\+Set \&locally\+\_\+relevant\+\_\+indices, const unsigned int block\+\_\+0\+\_\+size)}{reinit(const IndexSet &locally_relevant_indices, const unsigned int block_0_size)}}]{\setlength{\rightskip}{0pt plus 5cm}void Two\+Block\+Sparsity\+Pattern\+::reinit (
-\begin{DoxyParamCaption}
-\item[{const {\bf Index\+Set} \&}]{locally\+\_\+relevant\+\_\+indices, }
-\item[{const unsigned int}]{block\+\_\+0\+\_\+size}
-\end{DoxyParamCaption}
-)}\hypertarget{class_two_block_sparsity_pattern_ae18398b187a0dba1570abfec1a4e082d}{}\label{class_two_block_sparsity_pattern_ae18398b187a0dba1570abfec1a4e082d}
-Reinitialize the \hyperlink{class_two_block_sparsity_pattern}{Two\+Block\+Sparsity\+Pattern}
+\mbox{\Hypertarget{class_two_block_sparsity_pattern_a800e2b70b07117cdf330c41a5e9532ca}\label{class_two_block_sparsity_pattern_a800e2b70b07117cdf330c41a5e9532ca}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!n\_cols@{n\_cols}}
+\index{n\_cols@{n\_cols}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{n\_cols()}{n\_cols()}}
+{\footnotesize\ttfamily unsigned int Two\+Block\+Sparsity\+Pattern\+::n\+\_\+cols (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+The total number of columns \mbox{\Hypertarget{class_two_block_sparsity_pattern_ab2b3683a888bedc713117771f4e052fb}\label{class_two_block_sparsity_pattern_ab2b3683a888bedc713117771f4e052fb}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!n\_rows@{n\_rows}}
+\index{n\_rows@{n\_rows}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{n\_rows()}{n\_rows()}}
+{\footnotesize\ttfamily unsigned int Two\+Block\+Sparsity\+Pattern\+::n\+\_\+rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+The total number of rows \mbox{\Hypertarget{class_two_block_sparsity_pattern_a8c9a56a20123e8eaea65f9eb6efed250}\label{class_two_block_sparsity_pattern_a8c9a56a20123e8eaea65f9eb6efed250}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!reinit@{reinit}}
+\index{reinit@{reinit}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{reinit()}{reinit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+void Two\+Block\+Sparsity\+Pattern\+::reinit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$ \&}]{assembly\+\_\+helper }\end{DoxyParamCaption})}
+
+Reinitialize the \mbox{\hyperlink{class_two_block_sparsity_pattern}{Two\+Block\+Sparsity\+Pattern}} in a way that it is compatible with the functions of an \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}. The first block will contain the dofs related to finite elements, and the second block is related to the independent scalars and the additional rows due to stretching of the system matrix. This choice ensures that the operations of \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}} scale in parallel.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em locally\+\_\+relevant\+\_\+indices} & The locally relevant indices\\
-\hline
-\mbox{\tt in}  & {\em block\+\_\+0\+\_\+size} & The dimension of A (the dimension of B is implicitly given by {\ttfamily locally\+\_\+relevant\+\_\+indices} and {\ttfamily block\+\_\+0\+\_\+size}) \\
+\mbox{\texttt{ in}}  & {\em assembly\+\_\+helper} & The \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}} object \\
 \hline
 \end{DoxyParams}
-\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!reinit@{reinit}}
-\index{reinit@{reinit}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{reinit(const Assembly\+Helper$<$ spacedim $>$ \&assembly\+\_\+helper)}{reinit(const AssemblyHelper< spacedim > &assembly_helper)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$unsigned int spacedim$>$ void Two\+Block\+Sparsity\+Pattern\+::reinit (
-\begin{DoxyParamCaption}
-\item[{const {\bf Assembly\+Helper}$<$ spacedim $>$ \&}]{assembly\+\_\+helper}
-\end{DoxyParamCaption}
-)}\hypertarget{class_two_block_sparsity_pattern_a8c9a56a20123e8eaea65f9eb6efed250}{}\label{class_two_block_sparsity_pattern_a8c9a56a20123e8eaea65f9eb6efed250}
-Reinitialize the \hyperlink{class_two_block_sparsity_pattern}{Two\+Block\+Sparsity\+Pattern} in a way that it is compatible with the functions of an \hyperlink{class_assembly_helper}{Assembly\+Helper}. The first block will contain the dofs related to finite elements, and the second block is related to the independent scalars and the additional rows due to stretching of the system matrix. This choice ensures that the operations of \hyperlink{class_assembly_helper}{Assembly\+Helper} scale in parallel.
+\mbox{\Hypertarget{class_two_block_sparsity_pattern_ae18398b187a0dba1570abfec1a4e082d}\label{class_two_block_sparsity_pattern_ae18398b187a0dba1570abfec1a4e082d}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!reinit@{reinit}}
+\index{reinit@{reinit}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{reinit()}{reinit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Two\+Block\+Sparsity\+Pattern\+::reinit (\begin{DoxyParamCaption}\item[{const \textbf{ Index\+Set} \&}]{locally\+\_\+relevant\+\_\+indices,  }\item[{const unsigned int}]{block\+\_\+0\+\_\+size }\end{DoxyParamCaption})}
+
+Reinitialize the \mbox{\hyperlink{class_two_block_sparsity_pattern}{Two\+Block\+Sparsity\+Pattern}}
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em assembly\+\_\+helper} & The \hyperlink{class_assembly_helper}{Assembly\+Helper} object \\
+\mbox{\texttt{ in}}  & {\em locally\+\_\+relevant\+\_\+indices} & The locally relevant indices\\
+\hline
+\mbox{\texttt{ in}}  & {\em block\+\_\+0\+\_\+size} & The dimension of A (the dimension of B is implicitly given by {\ttfamily locally\+\_\+relevant\+\_\+indices} and {\ttfamily block\+\_\+0\+\_\+size}) \\
 \hline
 \end{DoxyParams}
 
 
-\subsection{Member Data Documentation}
-\index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!block\+\_\+0\+\_\+size@{block\+\_\+0\+\_\+size}}
-\index{block\+\_\+0\+\_\+size@{block\+\_\+0\+\_\+size}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{block\+\_\+0\+\_\+size}{block_0_size}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Two\+Block\+Sparsity\+Pattern\+::block\+\_\+0\+\_\+size = 0\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_two_block_sparsity_pattern_a81789900ac1a9f5bfd7f85ad730eb03b}{}\label{class_two_block_sparsity_pattern_a81789900ac1a9f5bfd7f85ad730eb03b}
-The dimension of A \index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!block\+\_\+1\+\_\+size@{block\+\_\+1\+\_\+size}}
-\index{block\+\_\+1\+\_\+size@{block\+\_\+1\+\_\+size}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{block\+\_\+1\+\_\+size}{block_1_size}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Two\+Block\+Sparsity\+Pattern\+::block\+\_\+1\+\_\+size = 0\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_two_block_sparsity_pattern_ab215e3553e07b5f5872b1e01228968f2}{}\label{class_two_block_sparsity_pattern_ab215e3553e07b5f5872b1e01228968f2}
-The dimension of D \index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!dsp\+\_\+A@{dsp\+\_\+A}}
-\index{dsp\+\_\+A@{dsp\+\_\+A}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{dsp\+\_\+A}{dsp_A}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dynamic\+Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::dsp\+\_\+A\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_two_block_sparsity_pattern_ac3bafc713fec0ec2232fc084f880c50c}{}\label{class_two_block_sparsity_pattern_ac3bafc713fec0ec2232fc084f880c50c}
-The dynamic sparsity pattern for A \index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!dsp\+\_\+B@{dsp\+\_\+B}}
-\index{dsp\+\_\+B@{dsp\+\_\+B}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{dsp\+\_\+B}{dsp_B}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dynamic\+Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::dsp\+\_\+B\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_two_block_sparsity_pattern_ab1b2d6dc5d92f6353b80dd7a8d32ffa4}{}\label{class_two_block_sparsity_pattern_ab1b2d6dc5d92f6353b80dd7a8d32ffa4}
-The dynamic sparsity pattern for B \index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!dsp\+\_\+C@{dsp\+\_\+C}}
-\index{dsp\+\_\+C@{dsp\+\_\+C}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{dsp\+\_\+C}{dsp_C}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dynamic\+Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::dsp\+\_\+C\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_two_block_sparsity_pattern_a444a6465b3ba1355fb675128c6e9800a}{}\label{class_two_block_sparsity_pattern_a444a6465b3ba1355fb675128c6e9800a}
-The dynamic sparsity pattern for C \index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!dsp\+\_\+D@{dsp\+\_\+D}}
-\index{dsp\+\_\+D@{dsp\+\_\+D}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{dsp\+\_\+D}{dsp_D}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dynamic\+Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::dsp\+\_\+D\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_two_block_sparsity_pattern_a853d4000754f009a66853954d8c540bf}{}\label{class_two_block_sparsity_pattern_a853d4000754f009a66853954d8c540bf}
-The dynamic sparsity pattern for D \index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!finalized@{finalized}}
-\index{finalized@{finalized}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{finalized}{finalized}}]{\setlength{\rightskip}{0pt plus 5cm}bool Two\+Block\+Sparsity\+Pattern\+::finalized = false\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_two_block_sparsity_pattern_a7c930cd0dd5e1d6fb1550d6c3939c7aa}{}\label{class_two_block_sparsity_pattern_a7c930cd0dd5e1d6fb1550d6c3939c7aa}
-bool indicating whether the sparsity pattern is finalized (after finalization not changes are possible) \index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!sp\+\_\+A@{sp\+\_\+A}}
-\index{sp\+\_\+A@{sp\+\_\+A}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{sp\+\_\+A}{sp_A}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::sp\+\_\+A\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_two_block_sparsity_pattern_ad09712fc57a8cf5a2cd2cb9fc238a7cc}{}\label{class_two_block_sparsity_pattern_ad09712fc57a8cf5a2cd2cb9fc238a7cc}
-The sparsity pattern for A \index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!sp\+\_\+B@{sp\+\_\+B}}
-\index{sp\+\_\+B@{sp\+\_\+B}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{sp\+\_\+B}{sp_B}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::sp\+\_\+B\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_two_block_sparsity_pattern_a95e817472f023d7237c752a18a24ac73}{}\label{class_two_block_sparsity_pattern_a95e817472f023d7237c752a18a24ac73}
-The sparsity pattern for B \index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!sp\+\_\+C@{sp\+\_\+C}}
-\index{sp\+\_\+C@{sp\+\_\+C}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{sp\+\_\+C}{sp_C}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::sp\+\_\+C\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_two_block_sparsity_pattern_aee8da566a426045fb8101dba91295a27}{}\label{class_two_block_sparsity_pattern_aee8da566a426045fb8101dba91295a27}
-The sparsity pattern for B \index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!sp\+\_\+D@{sp\+\_\+D}}
-\index{sp\+\_\+D@{sp\+\_\+D}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{sp\+\_\+D}{sp_D}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::sp\+\_\+D\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_two_block_sparsity_pattern_a7a820cba98001e45ba09551a306b14d7}{}\label{class_two_block_sparsity_pattern_a7a820cba98001e45ba09551a306b14d7}
-The sparsity pattern for B \index{Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}!total\+\_\+dimension@{total\+\_\+dimension}}
-\index{total\+\_\+dimension@{total\+\_\+dimension}!Two\+Block\+Sparsity\+Pattern@{Two\+Block\+Sparsity\+Pattern}}
-\subsubsection[{\texorpdfstring{total\+\_\+dimension}{total_dimension}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Two\+Block\+Sparsity\+Pattern\+::total\+\_\+dimension = 0\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_two_block_sparsity_pattern_aa560457e8b8bf7a06acf6b19987c5ee0}{}\label{class_two_block_sparsity_pattern_aa560457e8b8bf7a06acf6b19987c5ee0}
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_two_block_sparsity_pattern_a81789900ac1a9f5bfd7f85ad730eb03b}\label{class_two_block_sparsity_pattern_a81789900ac1a9f5bfd7f85ad730eb03b}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!block\_0\_size@{block\_0\_size}}
+\index{block\_0\_size@{block\_0\_size}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{block\_0\_size}{block\_0\_size}}
+{\footnotesize\ttfamily unsigned int Two\+Block\+Sparsity\+Pattern\+::block\+\_\+0\+\_\+size = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+The dimension of A \mbox{\Hypertarget{class_two_block_sparsity_pattern_ab215e3553e07b5f5872b1e01228968f2}\label{class_two_block_sparsity_pattern_ab215e3553e07b5f5872b1e01228968f2}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!block\_1\_size@{block\_1\_size}}
+\index{block\_1\_size@{block\_1\_size}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{block\_1\_size}{block\_1\_size}}
+{\footnotesize\ttfamily unsigned int Two\+Block\+Sparsity\+Pattern\+::block\+\_\+1\+\_\+size = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+The dimension of D \mbox{\Hypertarget{class_two_block_sparsity_pattern_ac3bafc713fec0ec2232fc084f880c50c}\label{class_two_block_sparsity_pattern_ac3bafc713fec0ec2232fc084f880c50c}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!dsp\_A@{dsp\_A}}
+\index{dsp\_A@{dsp\_A}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{dsp\_A}{dsp\_A}}
+{\footnotesize\ttfamily \textbf{ Dynamic\+Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::dsp\+\_\+A\hspace{0.3cm}{\ttfamily [private]}}
+
+The dynamic sparsity pattern for A \mbox{\Hypertarget{class_two_block_sparsity_pattern_ab1b2d6dc5d92f6353b80dd7a8d32ffa4}\label{class_two_block_sparsity_pattern_ab1b2d6dc5d92f6353b80dd7a8d32ffa4}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!dsp\_B@{dsp\_B}}
+\index{dsp\_B@{dsp\_B}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{dsp\_B}{dsp\_B}}
+{\footnotesize\ttfamily \textbf{ Dynamic\+Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::dsp\+\_\+B\hspace{0.3cm}{\ttfamily [private]}}
+
+The dynamic sparsity pattern for B \mbox{\Hypertarget{class_two_block_sparsity_pattern_a444a6465b3ba1355fb675128c6e9800a}\label{class_two_block_sparsity_pattern_a444a6465b3ba1355fb675128c6e9800a}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!dsp\_C@{dsp\_C}}
+\index{dsp\_C@{dsp\_C}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{dsp\_C}{dsp\_C}}
+{\footnotesize\ttfamily \textbf{ Dynamic\+Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::dsp\+\_\+C\hspace{0.3cm}{\ttfamily [private]}}
+
+The dynamic sparsity pattern for C \mbox{\Hypertarget{class_two_block_sparsity_pattern_a853d4000754f009a66853954d8c540bf}\label{class_two_block_sparsity_pattern_a853d4000754f009a66853954d8c540bf}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!dsp\_D@{dsp\_D}}
+\index{dsp\_D@{dsp\_D}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{dsp\_D}{dsp\_D}}
+{\footnotesize\ttfamily \textbf{ Dynamic\+Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::dsp\+\_\+D\hspace{0.3cm}{\ttfamily [private]}}
+
+The dynamic sparsity pattern for D \mbox{\Hypertarget{class_two_block_sparsity_pattern_a7c930cd0dd5e1d6fb1550d6c3939c7aa}\label{class_two_block_sparsity_pattern_a7c930cd0dd5e1d6fb1550d6c3939c7aa}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!finalized@{finalized}}
+\index{finalized@{finalized}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{finalized}{finalized}}
+{\footnotesize\ttfamily bool Two\+Block\+Sparsity\+Pattern\+::finalized = false\hspace{0.3cm}{\ttfamily [private]}}
+
+bool indicating whether the sparsity pattern is finalized (after finalization not changes are possible) \mbox{\Hypertarget{class_two_block_sparsity_pattern_ad09712fc57a8cf5a2cd2cb9fc238a7cc}\label{class_two_block_sparsity_pattern_ad09712fc57a8cf5a2cd2cb9fc238a7cc}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!sp\_A@{sp\_A}}
+\index{sp\_A@{sp\_A}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{sp\_A}{sp\_A}}
+{\footnotesize\ttfamily \textbf{ Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::sp\+\_\+A\hspace{0.3cm}{\ttfamily [private]}}
+
+The sparsity pattern for A \mbox{\Hypertarget{class_two_block_sparsity_pattern_a95e817472f023d7237c752a18a24ac73}\label{class_two_block_sparsity_pattern_a95e817472f023d7237c752a18a24ac73}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!sp\_B@{sp\_B}}
+\index{sp\_B@{sp\_B}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{sp\_B}{sp\_B}}
+{\footnotesize\ttfamily \textbf{ Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::sp\+\_\+B\hspace{0.3cm}{\ttfamily [private]}}
+
+The sparsity pattern for B \mbox{\Hypertarget{class_two_block_sparsity_pattern_aee8da566a426045fb8101dba91295a27}\label{class_two_block_sparsity_pattern_aee8da566a426045fb8101dba91295a27}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!sp\_C@{sp\_C}}
+\index{sp\_C@{sp\_C}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{sp\_C}{sp\_C}}
+{\footnotesize\ttfamily \textbf{ Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::sp\+\_\+C\hspace{0.3cm}{\ttfamily [private]}}
+
+The sparsity pattern for B \mbox{\Hypertarget{class_two_block_sparsity_pattern_a7a820cba98001e45ba09551a306b14d7}\label{class_two_block_sparsity_pattern_a7a820cba98001e45ba09551a306b14d7}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!sp\_D@{sp\_D}}
+\index{sp\_D@{sp\_D}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{sp\_D}{sp\_D}}
+{\footnotesize\ttfamily \textbf{ Sparsity\+Pattern} Two\+Block\+Sparsity\+Pattern\+::sp\+\_\+D\hspace{0.3cm}{\ttfamily [private]}}
+
+The sparsity pattern for B \mbox{\Hypertarget{class_two_block_sparsity_pattern_aa560457e8b8bf7a06acf6b19987c5ee0}\label{class_two_block_sparsity_pattern_aa560457e8b8bf7a06acf6b19987c5ee0}} 
+\index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!total\_dimension@{total\_dimension}}
+\index{total\_dimension@{total\_dimension}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
+\doxysubsubsection{\texorpdfstring{total\_dimension}{total\_dimension}}
+{\footnotesize\ttfamily unsigned int Two\+Block\+Sparsity\+Pattern\+::total\+\_\+dimension = 0\hspace{0.3cm}{\ttfamily [private]}}
+
 The total dimension 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\hyperlink{two__block__sparsity__pattern_8h}{two\+\_\+block\+\_\+sparsity\+\_\+pattern.\+h}\end{DoxyCompactItemize}
+/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\mbox{\hyperlink{two__block__sparsity__pattern_8h}{two\+\_\+block\+\_\+sparsity\+\_\+pattern.\+h}}\end{DoxyCompactItemize}

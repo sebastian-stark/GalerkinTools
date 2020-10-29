@@ -1356,27 +1356,30 @@ const
 		//loop over the domain related constraints
 		for(const auto& constraint_n: constraints_domain_internal_mat)
 		{
-			types::material_id material_id_domain;
-			unsigned int face;
-			if (constraint_n.first->side == InterfaceSide::minus)
+			if(constraint_n.first->get_constraint_is_active())
 			{
-				material_id_domain = interface_cell_domain_cell.domain_cell_minus->material_id();
-				face = interface_cell_domain_cell.face_minus;
-			}
-			else{
-				Assert(	interface_cell_domain_cell.refinement_case != InterfaceRefinementCase::at_boundary,
-						ExcMessage("You have tried to apply a boundary condition at the + side of a boundary, which is not possible!"))
-				material_id_domain = interface_cell_domain_cell.domain_cell_plus->material_id();
-				face = interface_cell_domain_cell.face_plus;
-			}
+				types::material_id material_id_domain;
+				unsigned int face;
+				if (constraint_n.first->side == InterfaceSide::minus)
+				{
+					material_id_domain = interface_cell_domain_cell.domain_cell_minus->material_id();
+					face = interface_cell_domain_cell.face_minus;
+				}
+				else{
+					Assert(	interface_cell_domain_cell.refinement_case != InterfaceRefinementCase::at_boundary,
+							ExcMessage("You have tried to apply a boundary condition at the + side of a boundary, which is not possible!"))
+					material_id_domain = interface_cell_domain_cell.domain_cell_plus->material_id();
+					face = interface_cell_domain_cell.face_plus;
+				}
 
-			const unsigned int fe_system_id = material_id_to_fe_system_id_domain.at(material_id_domain);
-			const auto& shapefuns = components_to_shapefuns_domain_facewise[fe_system_id][constraint_n.second][face];
+				const unsigned int fe_system_id = material_id_to_fe_system_id_domain.at(material_id_domain);
+				const auto& shapefuns = components_to_shapefuns_domain_facewise[fe_system_id][constraint_n.second][face];
 
-			if (constraint_n.first->side == InterfaceSide::minus)
-				make_dirichlet_constraints_recursion(interface_cell_domain_cell.domain_cell_minus, face, shapefuns, *(constraint_n.first), constraint_matrix, constraints_ignore);
-			else
-				make_dirichlet_constraints_recursion(interface_cell_domain_cell.domain_cell_plus, face, shapefuns, *(constraint_n.first), constraint_matrix, constraints_ignore);
+				if (constraint_n.first->side == InterfaceSide::minus)
+					make_dirichlet_constraints_recursion(interface_cell_domain_cell.domain_cell_minus, face, shapefuns, *(constraint_n.first), constraint_matrix, constraints_ignore);
+				else
+					make_dirichlet_constraints_recursion(interface_cell_domain_cell.domain_cell_plus, face, shapefuns, *(constraint_n.first), constraint_matrix, constraints_ignore);
+			}
 		}
 	}
 }

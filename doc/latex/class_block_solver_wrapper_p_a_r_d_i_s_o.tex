@@ -1,5 +1,5 @@
-\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o}{}\section{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO Class Reference}
-\label{class_block_solver_wrapper_p_a_r_d_i_s_o}\index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
+\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o}{}\doxysection{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO Class Reference}
+\label{class_block_solver_wrapper_p_a_r_d_i_s_o}\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
 
 
 {\ttfamily \#include $<$solver\+\_\+wrapper.\+h$>$}
@@ -22,151 +22,156 @@ Collaboration diagram for Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO\+:\nopagebre
 \includegraphics[width=350pt]{class_block_solver_wrapper_p_a_r_d_i_s_o__coll__graph}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a22f5bc2196681e319b323549a457178a}{$\sim$\+Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO} ()
+\mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a22f5bc2196681e319b323549a457178a}{$\sim$\+Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}} ()
 \item 
-virtual void \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a73135d179e0618be550b9089c3c70689}{solve} (const \hyperlink{class_two_block_matrix}{Two\+Block\+Matrix}$<$ {\bf dealii\+::\+Sparse\+Matrix}$<$ double $>$$>$ \&K\+\_\+stretched, {\bf dealii\+::\+Vector}$<$ double $>$ \&solution, const {\bf dealii\+::\+Block\+Vector}$<$ double $>$ \&f\+\_\+stretched, const bool symmetric=false)
+virtual void \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a73135d179e0618be550b9089c3c70689}{solve}} (const \mbox{\hyperlink{class_two_block_matrix}{Two\+Block\+Matrix}}$<$ \textbf{ dealii\+::\+Sparse\+Matrix}$<$ double $>$$>$ \&K\+\_\+stretched, \textbf{ dealii\+::\+Vector}$<$ double $>$ \&solution, const \textbf{ dealii\+::\+Block\+Vector}$<$ double $>$ \&f\+\_\+stretched, const bool symmetric=false)
 \item 
-\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a8bb0292df53f83055f387c49f060499f}{Decl\+Exception2} (Exc\+P\+A\+R\+D\+I\+S\+O\+Error, std\+::string, int,$<$$<$ \char`\"{}P\+A\+R\+D\+I\+SO routine \char`\"{}$<$$<$ arg1$<$$<$ \char`\"{} returned error status \char`\"{}$<$$<$ arg2$<$$<$ \char`\"{}.\char`\"{})
+\mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a8bb0292df53f83055f387c49f060499f}{Decl\+Exception2}} (Exc\+P\+A\+R\+D\+I\+S\+O\+Error, std\+::string, int,$<$$<$ \char`\"{}P\+A\+R\+D\+I\+SO routine \char`\"{}$<$$<$ arg1$<$$<$ \char`\"{} returned error status \char`\"{}$<$$<$ arg2$<$$<$ \char`\"{}.\char`\"{})
+\item 
+\mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_add4fbb653224be1348463d9bff990a9f}{Decl\+Exception1}} (Exc\+P\+A\+R\+D\+I\+S\+O\+Res, double,$<$$<$ \char`\"{}P\+A\+R\+D\+I\+SO residual too large\+: \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a7d2b9809d10bde8d8440a607522e383c}{res}} = \char`\"{}$<$$<$ arg1$<$$<$ \char`\"{}.\char`\"{})
 \end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-unsigned int \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}{analyze} = 0
+unsigned int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}{analyze}} = 0
 \item 
-unsigned int \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_aa87e38dcf8e35852fbb47b4792b2540d}{print\+\_\+level} = 1
+unsigned int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_aa87e38dcf8e35852fbb47b4792b2540d}{print\+\_\+level}} = 0
 \item 
-unsigned int \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_adc6d3f7f878c578aff518cb907e157ff}{matrix\+\_\+type} = 0
+unsigned int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_adc6d3f7f878c578aff518cb907e157ff}{matrix\+\_\+type}} = 0
 \item 
-unsigned int \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3bf4e0ea8332a4e6c71eac84f385663c}{ordering\+\_\+method} = 2
+unsigned int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3bf4e0ea8332a4e6c71eac84f385663c}{ordering\+\_\+method}} = 2
 \item 
-unsigned int \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_aba68acd666b7c5c41af207eb77db201c}{apply\+\_\+scaling} = 0
+unsigned int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_aba68acd666b7c5c41af207eb77db201c}{apply\+\_\+scaling}} = 0
 \item 
-unsigned int \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a2924ded1d130cdd30e865ff664d8dcf7}{pivoting\+\_\+method} = 1
+unsigned int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a2924ded1d130cdd30e865ff664d8dcf7}{pivoting\+\_\+method}} = 1
 \item 
-unsigned int \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_afdb2039acda86d2def4e0eee33635dab}{n\+\_\+iterative\+\_\+refinements} = std\+::numeric\+\_\+limits$<$int$>$\+::{\bf max}()
+unsigned int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_afdb2039acda86d2def4e0eee33635dab}{n\+\_\+iterative\+\_\+refinements}} = std\+::numeric\+\_\+limits$<$int$>$\+::\textbf{ max}()
+\item 
+unsigned int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a5fa1782457ce43278374cc1d5395b1d6}{pivot\+\_\+perturbation}} = 8
+\item 
+double \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a32db83d42ee6bafd25ff6b01cd5452a0}{res\+\_\+max}} = 1\textbf{ e}-\/8
+\item 
+bool \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ad8bf45c0568b751a2773a57a5b00ba5d}{use\+\_\+defaults}} = true
 \end{DoxyCompactItemize}
-\subsection*{Private Member Functions}
+\doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a73460ba651207f3b8e86699f58db896f}{initialize\+\_\+matrix} (const {\bf Sparse\+Matrix}$<$ double $>$ \&matrix)
+void \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a73460ba651207f3b8e86699f58db896f}{initialize\+\_\+matrix}} (const \textbf{ Sparse\+Matrix}$<$ double $>$ \&matrix)
 \item 
-void \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a53ca2b0fda79f7c29ab46b32469d058a}{analyze\+\_\+matrix} ()
+void \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a53ca2b0fda79f7c29ab46b32469d058a}{analyze\+\_\+matrix}} ()
 \item 
-void \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_accbe586b87cfd3d453522fee240ff37b}{factorize\+\_\+matrix} ()
+void \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_accbe586b87cfd3d453522fee240ff37b}{factorize\+\_\+matrix}} ()
 \item 
-void \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a1dfbc3e43736a1225caa0ab91a30b80e}{vmult} ({\bf Vector}$<$ double $>$ \&x, const {\bf Vector}$<$ double $>$ \&f)
+void \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a1dfbc3e43736a1225caa0ab91a30b80e}{vmult}} (\textbf{ Vector}$<$ double $>$ \&x, const \textbf{ Vector}$<$ double $>$ \&f)
 \item 
-int \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3ec780cd305a0fe8326a6acb5c9283e9}{get\+\_\+matrix\+\_\+type} ()
+int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3ec780cd305a0fe8326a6acb5c9283e9}{get\+\_\+matrix\+\_\+type}} ()
 \end{DoxyCompactItemize}
-\subsection*{Private Attributes}
+\doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a61c49eda443075c200c9583f982ca447}{iparm} \mbox{[}64\mbox{]}
+bool \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a4bb7e16d07967bda228764b271fcc9d9}{initialized}} = false
 \item 
-double \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_aa158c35f9486dc043bf3485da3dec8d4}{dparm} \mbox{[}64\mbox{]}
+int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a61c49eda443075c200c9583f982ca447}{iparm}} \mbox{[}64\mbox{]}
 \item 
-void $\ast$ \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a4d1d5d9882ed7b4019b7412b0bbd125c}{pt} \mbox{[}64\mbox{]}
+double \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_aa158c35f9486dc043bf3485da3dec8d4}{dparm}} \mbox{[}64\mbox{]}
 \item 
-int \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a0218d17deabfb2a7b8905b90ccb6ef46}{N}
+void $\ast$ \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a4d1d5d9882ed7b4019b7412b0bbd125c}{pt}} \mbox{[}64\mbox{]}
 \item 
-std\+::vector$<$ int $>$ \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ad284b0a41b7e8f6ab2f58308dfad7c13}{Ap}
+int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a0218d17deabfb2a7b8905b90ccb6ef46}{N}}
 \item 
-std\+::vector$<$ int $>$ \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a20249115ffb23d1c0d35c22fa76a1257}{Ai}
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ad284b0a41b7e8f6ab2f58308dfad7c13}{Ap}}
 \item 
-std\+::vector$<$ double $>$ \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ad32493c27639c20286aea67e702f3442}{Ax}
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a20249115ffb23d1c0d35c22fa76a1257}{Ai}}
 \item 
-int \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3d6d894f09dcdeae1295cf5072b79451}{maxfct} = 1
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ad32493c27639c20286aea67e702f3442}{Ax}}
 \item 
-int \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a84ae552a3b77bb009366379148119ef8}{nrhs} = 1
+int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3d6d894f09dcdeae1295cf5072b79451}{maxfct}} = 1
 \item 
-int \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ae7c0c78a1167861fcce71bc86bddba19}{mnum} = 1
+int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a84ae552a3b77bb009366379148119ef8}{nrhs}} = 1
 \item 
-int \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a547f7dbd1fa0da9ce546a707d4e19912}{msglvl}
+int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ae7c0c78a1167861fcce71bc86bddba19}{mnum}} = 1
+\item 
+int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a547f7dbd1fa0da9ce546a707d4e19912}{msglvl}}
+\item 
+\textbf{ Vector}$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a7d2b9809d10bde8d8440a607522e383c}{res}}
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-A \hyperlink{class_solver_wrapper}{Solver\+Wrapper} for the P\+A\+R\+D\+I\+SO solver.
+\doxysubsection{Detailed Description}
+A \mbox{\hyperlink{class_solver_wrapper}{Solver\+Wrapper}} for the P\+A\+R\+D\+I\+SO solver.
 
 \begin{DoxyNote}{Note}
-P\+A\+R\+D\+I\+SO has its own license, independent of that of Galerkin\+Tools. If you want to use P\+A\+R\+D\+I\+SO you have to accept that license.
+P\+A\+R\+D\+I\+SO has its own license, independent of that of Galerkin\+Tools. If you want to use P\+A\+R\+D\+I\+SO you have to accept that license and obtain your own copy of P\+A\+R\+D\+I\+SO.
 \end{DoxyNote}
 Code partially copied over from deal.\+II 
 
-\subsection{Constructor \& Destructor Documentation}
-\index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!````~Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{$\sim$\+Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\index{````~Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{$\sim$\+Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{$\sim$\+Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O()}{~BlockSolverWrapperPARDISO()}}]{\setlength{\rightskip}{0pt plus 5cm}Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::$\sim$\+Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a22f5bc2196681e319b323549a457178a}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a22f5bc2196681e319b323549a457178a}
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a22f5bc2196681e319b323549a457178a}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a22f5bc2196681e319b323549a457178a}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!````~BlockSolverWrapperPARDISO@{$\sim$BlockSolverWrapperPARDISO}}
+\index{````~BlockSolverWrapperPARDISO@{$\sim$BlockSolverWrapperPARDISO}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{$\sim$BlockSolverWrapperPARDISO()}{~BlockSolverWrapperPARDISO()}}
+{\footnotesize\ttfamily Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::$\sim$\+Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 Destructor. 
 
-\subsection{Member Function Documentation}
-\index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!analyze\+\_\+matrix@{analyze\+\_\+matrix}}
-\index{analyze\+\_\+matrix@{analyze\+\_\+matrix}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{analyze\+\_\+matrix()}{analyze_matrix()}}]{\setlength{\rightskip}{0pt plus 5cm}void Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::analyze\+\_\+matrix (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a53ca2b0fda79f7c29ab46b32469d058a}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a53ca2b0fda79f7c29ab46b32469d058a}
-This function analyses the given matrix. Whether this function does anything depends upon the value of \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::analyze}. \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!Decl\+Exception2@{Decl\+Exception2}}
-\index{Decl\+Exception2@{Decl\+Exception2}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{Decl\+Exception2(\+Exc\+P\+A\+R\+D\+I\+S\+O\+Error, std\+::string, int,$<$$<$ ""P\+A\+R\+D\+I\+S\+O routine ""$<$$<$ arg1$<$$<$ "" returned error status ""$<$$<$ arg2$<$$<$ ""."")}{DeclException2(ExcPARDISOError, std::string, int,<< "PARDISO routine "<< arg1<< " returned error status "<< arg2<< ".")}}]{\setlength{\rightskip}{0pt plus 5cm}Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Decl\+Exception2 (
-\begin{DoxyParamCaption}
-\item[{Exc\+P\+A\+R\+D\+I\+S\+O\+Error}]{, }
-\item[{std\+::string}]{, }
-\item[{int}]{, }
-\item[{$<$$<$ \char`\"{}P\+A\+R\+D\+I\+SO routine \char`\"{}$<$$<$ arg1$<$$<$ \char`\"{} returned error status \char`\"{}$<$$<$ arg2$<$$<$ \char`\"{}.\char`\"{}}]{}
-\end{DoxyParamCaption}
-)}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a8bb0292df53f83055f387c49f060499f}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a8bb0292df53f83055f387c49f060499f}
-\index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!factorize\+\_\+matrix@{factorize\+\_\+matrix}}
-\index{factorize\+\_\+matrix@{factorize\+\_\+matrix}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{factorize\+\_\+matrix()}{factorize_matrix()}}]{\setlength{\rightskip}{0pt plus 5cm}void Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::factorize\+\_\+matrix (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_accbe586b87cfd3d453522fee240ff37b}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_accbe586b87cfd3d453522fee240ff37b}
-This function factorizes the matrix. \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!get\+\_\+matrix\+\_\+type@{get\+\_\+matrix\+\_\+type}}
-\index{get\+\_\+matrix\+\_\+type@{get\+\_\+matrix\+\_\+type}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{get\+\_\+matrix\+\_\+type()}{get_matrix_type()}}]{\setlength{\rightskip}{0pt plus 5cm}int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::get\+\_\+matrix\+\_\+type (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a3ec780cd305a0fe8326a6acb5c9283e9}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a3ec780cd305a0fe8326a6acb5c9283e9}
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a53ca2b0fda79f7c29ab46b32469d058a}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a53ca2b0fda79f7c29ab46b32469d058a}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!analyze\_matrix@{analyze\_matrix}}
+\index{analyze\_matrix@{analyze\_matrix}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{analyze\_matrix()}{analyze\_matrix()}}
+{\footnotesize\ttfamily void Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::analyze\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This function analyses the given matrix. Whether this function does anything depends upon the value of \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::analyze}}. \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_add4fbb653224be1348463d9bff990a9f}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_add4fbb653224be1348463d9bff990a9f}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!DeclException1@{DeclException1}}
+\index{DeclException1@{DeclException1}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{DeclException1()}{DeclException1()}}
+{\footnotesize\ttfamily Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Decl\+Exception1 (\begin{DoxyParamCaption}\item[{Exc\+P\+A\+R\+D\+I\+S\+O\+Res}]{,  }\item[{double}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a8bb0292df53f83055f387c49f060499f}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a8bb0292df53f83055f387c49f060499f}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!DeclException2@{DeclException2}}
+\index{DeclException2@{DeclException2}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{DeclException2()}{DeclException2()}}
+{\footnotesize\ttfamily Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Decl\+Exception2 (\begin{DoxyParamCaption}\item[{Exc\+P\+A\+R\+D\+I\+S\+O\+Error}]{,  }\item[{std\+::string}]{,  }\item[{int}]{,  }\item[{$<$$<$ \char`\"{}P\+A\+R\+D\+I\+SO routine \char`\"{}$<$$<$ arg1$<$$<$ \char`\"{} returned error status \char`\"{}$<$$<$ arg2$<$$<$ \char`\"{}.\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_accbe586b87cfd3d453522fee240ff37b}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_accbe586b87cfd3d453522fee240ff37b}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!factorize\_matrix@{factorize\_matrix}}
+\index{factorize\_matrix@{factorize\_matrix}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{factorize\_matrix()}{factorize\_matrix()}}
+{\footnotesize\ttfamily void Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::factorize\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This function factorizes the matrix. \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a3ec780cd305a0fe8326a6acb5c9283e9}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a3ec780cd305a0fe8326a6acb5c9283e9}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!get\_matrix\_type@{get\_matrix\_type}}
+\index{get\_matrix\_type@{get\_matrix\_type}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{get\_matrix\_type()}{get\_matrix\_type()}}
+{\footnotesize\ttfamily int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::get\+\_\+matrix\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
 \begin{DoxyReturn}{Returns}
-Return the matrix type (in P\+A\+R\+D\+I\+SO convention -\/ the return is not equal to \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_adc6d3f7f878c578aff518cb907e157ff}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::matrix\+\_\+type}) 
+Return the matrix type (in P\+A\+R\+D\+I\+SO convention -\/ the return is not equal to \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_adc6d3f7f878c578aff518cb907e157ff}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::matrix\+\_\+type}}) 
 \end{DoxyReturn}
-\index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!initialize\+\_\+matrix@{initialize\+\_\+matrix}}
-\index{initialize\+\_\+matrix@{initialize\+\_\+matrix}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{initialize\+\_\+matrix(const Sparse\+Matrix$<$ double $>$ \&matrix)}{initialize_matrix(const SparseMatrix< double > &matrix)}}]{\setlength{\rightskip}{0pt plus 5cm}void Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::initialize\+\_\+matrix (
-\begin{DoxyParamCaption}
-\item[{const {\bf Sparse\+Matrix}$<$ double $>$ \&}]{matrix}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a73460ba651207f3b8e86699f58db896f}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a73460ba651207f3b8e86699f58db896f}
-Sets the data structures storing the matrix up (\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ad284b0a41b7e8f6ab2f58308dfad7c13}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ap}, \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a20249115ffb23d1c0d35c22fa76a1257}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ai}, \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ad32493c27639c20286aea67e702f3442}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ax}).
+\mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a73460ba651207f3b8e86699f58db896f}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a73460ba651207f3b8e86699f58db896f}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!initialize\_matrix@{initialize\_matrix}}
+\index{initialize\_matrix@{initialize\_matrix}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{initialize\_matrix()}{initialize\_matrix()}}
+{\footnotesize\ttfamily void Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::initialize\+\_\+matrix (\begin{DoxyParamCaption}\item[{const \textbf{ Sparse\+Matrix}$<$ double $>$ \&}]{matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Sets the data structures storing the matrix up (\mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ad284b0a41b7e8f6ab2f58308dfad7c13}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ap}}, \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a20249115ffb23d1c0d35c22fa76a1257}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ai}}, \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ad32493c27639c20286aea67e702f3442}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ax}}).
 
 Also sets up the control parameters for the P\+A\+R\+D\+I\+SO routines
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em matrix} & The matrix A \\
+\mbox{\texttt{ in}}  & {\em matrix} & The matrix A \\
 \hline
 \end{DoxyParams}
-\index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!solve@{solve}}
-\index{solve@{solve}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{solve(const Two\+Block\+Matrix$<$ dealii\+::\+Sparse\+Matrix$<$ double $>$$>$ \&\+K\+\_\+stretched, dealii\+::\+Vector$<$ double $>$ \&solution, const dealii\+::\+Block\+Vector$<$ double $>$ \&f\+\_\+stretched, const bool symmetric=false)}{solve(const TwoBlockMatrix< dealii::SparseMatrix< double >> &K_stretched, dealii::Vector< double > &solution, const dealii::BlockVector< double > &f_stretched, const bool symmetric=false)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::solve (
-\begin{DoxyParamCaption}
-\item[{const {\bf Two\+Block\+Matrix}$<$ {\bf dealii\+::\+Sparse\+Matrix}$<$ double $>$$>$ \&}]{K\+\_\+stretched, }
-\item[{{\bf dealii\+::\+Vector}$<$ double $>$ \&}]{solution, }
-\item[{const {\bf dealii\+::\+Block\+Vector}$<$ double $>$ \&}]{f\+\_\+stretched, }
-\item[{const bool}]{symmetric = {\ttfamily false}}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a73135d179e0618be550b9089c3c70689}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a73135d179e0618be550b9089c3c70689}
+\mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a73135d179e0618be550b9089c3c70689}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a73135d179e0618be550b9089c3c70689}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!solve@{solve}}
+\index{solve@{solve}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily virtual void Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::solve (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_two_block_matrix}{Two\+Block\+Matrix}}$<$ \textbf{ dealii\+::\+Sparse\+Matrix}$<$ double $>$$>$ \&}]{K\+\_\+stretched,  }\item[{\textbf{ dealii\+::\+Vector}$<$ double $>$ \&}]{solution,  }\item[{const \textbf{ dealii\+::\+Block\+Vector}$<$ double $>$ \&}]{f\+\_\+stretched,  }\item[{const bool}]{symmetric = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
 
 
 
@@ -175,115 +180,197 @@ The solve function for the system of linear equations in the stretched form
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em K\+\_\+stretched} & The stretched system\+\_\+matrix\\
+\mbox{\texttt{ in}}  & {\em K\+\_\+stretched} & The stretched system\+\_\+matrix\\
 \hline
-\mbox{\tt out}  & {\em solution} & The stretched solution vector\\
+\mbox{\texttt{ out}}  & {\em solution} & The stretched solution vector\\
 \hline
-\mbox{\tt in}  & {\em f\+\_\+stretched} & The stretched right hand side vector\\
+\mbox{\texttt{ in}}  & {\em f\+\_\+stretched} & The stretched right hand side vector\\
 \hline
-\mbox{\tt in}  & {\em symmetric} & A bool indicating whether {\ttfamily system\+\_\+matrix} is symmetric \\
+\mbox{\texttt{ in}}  & {\em symmetric} & A bool indicating whether {\ttfamily system\+\_\+matrix} is symmetric \\
 \hline
 \end{DoxyParams}
-\index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!vmult@{vmult}}
-\index{vmult@{vmult}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{vmult(\+Vector$<$ double $>$ \&x, const Vector$<$ double $>$ \&f)}{vmult(Vector< double > &x, const Vector< double > &f)}}]{\setlength{\rightskip}{0pt plus 5cm}void Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::vmult (
-\begin{DoxyParamCaption}
-\item[{{\bf Vector}$<$ double $>$ \&}]{x, }
-\item[{const {\bf Vector}$<$ double $>$ \&}]{f}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a1dfbc3e43736a1225caa0ab91a30b80e}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a1dfbc3e43736a1225caa0ab91a30b80e}
-Multiply the inverse of A by {\ttfamily f} and store the result into {\ttfamily x}. I.\+e., solve Ax=f for x. This uses the factors computed by \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_accbe586b87cfd3d453522fee240ff37b}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::factorize\+\_\+matrix()}.
+\mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a1dfbc3e43736a1225caa0ab91a30b80e}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a1dfbc3e43736a1225caa0ab91a30b80e}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!vmult@{vmult}}
+\index{vmult@{vmult}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{vmult()}{vmult()}}
+{\footnotesize\ttfamily void Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::vmult (\begin{DoxyParamCaption}\item[{\textbf{ Vector}$<$ double $>$ \&}]{x,  }\item[{const \textbf{ Vector}$<$ double $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Multiply the inverse of A by {\ttfamily f} and store the result into {\ttfamily x}. I.\+e., solve Ax=f for x. This uses the factors computed by \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_accbe586b87cfd3d453522fee240ff37b}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::factorize\+\_\+matrix()}}.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em x} & solution \\
+\mbox{\texttt{ out}}  & {\em x} & solution \\
 \hline
-\mbox{\tt in}  & {\em f} & rhs \\
+\mbox{\texttt{ in}}  & {\em f} & rhs \\
 \hline
 \end{DoxyParams}
 
 
-\subsection{Member Data Documentation}
-\index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!Ai@{Ai}}
-\index{Ai@{Ai}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{Ai}{Ai}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$int$>$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ai\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a20249115ffb23d1c0d35c22fa76a1257}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a20249115ffb23d1c0d35c22fa76a1257}
-Array storing the column indices of non-\/zero entries of A \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!analyze@{analyze}}
-\index{analyze@{analyze}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{analyze}{analyze}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::analyze = 0}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a20249115ffb23d1c0d35c22fa76a1257}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a20249115ffb23d1c0d35c22fa76a1257}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!Ai@{Ai}}
+\index{Ai@{Ai}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{Ai}{Ai}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ai\hspace{0.3cm}{\ttfamily [private]}}
+
+Array storing the column indices of non-\/zero entries of A \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!analyze@{analyze}}
+\index{analyze@{analyze}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{analyze}{analyze}}
+{\footnotesize\ttfamily unsigned int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::analyze = 0}
+
 Key indicating when to analyze the matrix structure\+:~\newline
  0 -\/ before each factorization (default)~\newline
- 1 -\/ only before the next factorization (afterwards, \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::analyze} will be set to 2)~\newline
+ 1 -\/ only before the next factorization (afterwards, \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::analyze}} will be set to 2)~\newline
  $>$=2 -\/ do not recompute
 
 \begin{DoxyWarning}{Warning}
-The user must ensure that \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::analyze}=0 or \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::analyze}=1 whenever the sparsity pattern of the matrix has changed (or during the first call). Currently, no internal checking is performed.
+The user must ensure that \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::analyze}}=0 or \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::analyze}}=1 whenever the sparsity pattern of the matrix has changed (or during the first call). Currently, no internal checking is performed.
 
-The scaling of the matrix is only recomputed if \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::analyze} $<$2. Otherwise, the most recently computed scaling will be used. 
+The scaling of the matrix is only recomputed if \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::analyze}} $<$2. Otherwise, the most recently computed scaling will be used. 
 \end{DoxyWarning}
-\index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!Ap@{Ap}}
-\index{Ap@{Ap}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{Ap}{Ap}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$int$>$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ap\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_ad284b0a41b7e8f6ab2f58308dfad7c13}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_ad284b0a41b7e8f6ab2f58308dfad7c13}
-Array saying which row starts where in \hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a20249115ffb23d1c0d35c22fa76a1257}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ai} \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!apply\+\_\+scaling@{apply\+\_\+scaling}}
-\index{apply\+\_\+scaling@{apply\+\_\+scaling}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{apply\+\_\+scaling}{apply_scaling}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::apply\+\_\+scaling = 0}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_aba68acd666b7c5c41af207eb77db201c}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_aba68acd666b7c5c41af207eb77db201c}
+\mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_ad284b0a41b7e8f6ab2f58308dfad7c13}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_ad284b0a41b7e8f6ab2f58308dfad7c13}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!Ap@{Ap}}
+\index{Ap@{Ap}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{Ap}{Ap}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ap\hspace{0.3cm}{\ttfamily [private]}}
+
+Array saying which row starts where in \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a20249115ffb23d1c0d35c22fa76a1257}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ai}} \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_aba68acd666b7c5c41af207eb77db201c}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_aba68acd666b7c5c41af207eb77db201c}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!apply\_scaling@{apply\_scaling}}
+\index{apply\_scaling@{apply\_scaling}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{apply\_scaling}{apply\_scaling}}
+{\footnotesize\ttfamily unsigned int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::apply\+\_\+scaling = 0}
+
 whether to compute a scaling of the matrix during analysis\+:~\newline
  0\+: no scaling~\newline
- 1\+: scaling \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!Ax@{Ax}}
-\index{Ax@{Ax}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{Ax}{Ax}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$double$>$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ax\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_ad32493c27639c20286aea67e702f3442}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_ad32493c27639c20286aea67e702f3442}
-Array storing the numerical values of the non-\/zero entries of the matrix A \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!dparm@{dparm}}
-\index{dparm@{dparm}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{dparm}{dparm}}]{\setlength{\rightskip}{0pt plus 5cm}double Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::dparm\mbox{[}64\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_aa158c35f9486dc043bf3485da3dec8d4}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_aa158c35f9486dc043bf3485da3dec8d4}
-P\+A\+R\+D\+I\+SO control parameters for iterative solvers -\/$>$ here only a dummy \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!iparm@{iparm}}
-\index{iparm@{iparm}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{iparm}{iparm}}]{\setlength{\rightskip}{0pt plus 5cm}int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::iparm\mbox{[}64\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a61c49eda443075c200c9583f982ca447}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a61c49eda443075c200c9583f982ca447}
-P\+A\+R\+D\+I\+SO control parameters -\/$>$ refer to P\+A\+R\+D\+I\+SO user manual for details \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!matrix\+\_\+type@{matrix\+\_\+type}}
-\index{matrix\+\_\+type@{matrix\+\_\+type}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{matrix\+\_\+type}{matrix_type}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::matrix\+\_\+type = 0}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_adc6d3f7f878c578aff518cb907e157ff}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_adc6d3f7f878c578aff518cb907e157ff}
+ 1\+: scaling \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_ad32493c27639c20286aea67e702f3442}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_ad32493c27639c20286aea67e702f3442}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!Ax@{Ax}}
+\index{Ax@{Ax}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{Ax}{Ax}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ax\hspace{0.3cm}{\ttfamily [private]}}
+
+Array storing the numerical values of the non-\/zero entries of the matrix A \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_aa158c35f9486dc043bf3485da3dec8d4}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_aa158c35f9486dc043bf3485da3dec8d4}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!dparm@{dparm}}
+\index{dparm@{dparm}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{dparm}{dparm}}
+{\footnotesize\ttfamily double Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::dparm\mbox{[}64\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+P\+A\+R\+D\+I\+SO control parameters for iterative solvers -\/$>$ here only a dummy \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a4bb7e16d07967bda228764b271fcc9d9}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a4bb7e16d07967bda228764b271fcc9d9}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!initialized@{initialized}}
+\index{initialized@{initialized}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{initialized}{initialized}}
+{\footnotesize\ttfamily bool Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::initialized = false\hspace{0.3cm}{\ttfamily [private]}}
+
+stores whether P\+A\+R\+D\+I\+SO has been initialized. \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a61c49eda443075c200c9583f982ca447}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a61c49eda443075c200c9583f982ca447}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!iparm@{iparm}}
+\index{iparm@{iparm}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{iparm}{iparm}}
+{\footnotesize\ttfamily int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::iparm\mbox{[}64\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+P\+A\+R\+D\+I\+SO control parameters -\/$>$ refer to P\+A\+R\+D\+I\+SO user manual for details \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_adc6d3f7f878c578aff518cb907e157ff}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_adc6d3f7f878c578aff518cb907e157ff}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!matrix\_type@{matrix\_type}}
+\index{matrix\_type@{matrix\_type}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{matrix\_type}{matrix\_type}}
+{\footnotesize\ttfamily unsigned int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::matrix\+\_\+type = 0}
+
 type of the matrix\+:~\newline
  0\+: unsymmetric~\newline
  1\+: structurally symmetric~\newline
  2\+: symmetric indefinite~\newline
- $>$=3\+: symmetric positive definite \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!maxfct@{maxfct}}
-\index{maxfct@{maxfct}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{maxfct}{maxfct}}]{\setlength{\rightskip}{0pt plus 5cm}int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::maxfct = 1\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a3d6d894f09dcdeae1295cf5072b79451}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a3d6d894f09dcdeae1295cf5072b79451}
-Maximum number of numerical factorizations to keep in memory (P\+A\+R\+D\+I\+SO internal). \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!mnum@{mnum}}
-\index{mnum@{mnum}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{mnum}{mnum}}]{\setlength{\rightskip}{0pt plus 5cm}int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::mnum = 1\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_ae7c0c78a1167861fcce71bc86bddba19}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_ae7c0c78a1167861fcce71bc86bddba19}
-Matrix number (P\+A\+R\+D\+I\+SO internal). \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!msglvl@{msglvl}}
-\index{msglvl@{msglvl}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{msglvl}{msglvl}}]{\setlength{\rightskip}{0pt plus 5cm}int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::msglvl\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a547f7dbd1fa0da9ce546a707d4e19912}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a547f7dbd1fa0da9ce546a707d4e19912}
+ $>$=3\+: symmetric positive definite \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a3d6d894f09dcdeae1295cf5072b79451}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a3d6d894f09dcdeae1295cf5072b79451}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!maxfct@{maxfct}}
+\index{maxfct@{maxfct}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{maxfct}{maxfct}}
+{\footnotesize\ttfamily int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::maxfct = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+Maximum number of numerical factorizations to keep in memory (P\+A\+R\+D\+I\+SO internal). \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_ae7c0c78a1167861fcce71bc86bddba19}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_ae7c0c78a1167861fcce71bc86bddba19}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!mnum@{mnum}}
+\index{mnum@{mnum}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{mnum}{mnum}}
+{\footnotesize\ttfamily int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::mnum = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+Matrix number (P\+A\+R\+D\+I\+SO internal). \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a547f7dbd1fa0da9ce546a707d4e19912}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a547f7dbd1fa0da9ce546a707d4e19912}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!msglvl@{msglvl}}
+\index{msglvl@{msglvl}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{msglvl}{msglvl}}
+{\footnotesize\ttfamily int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::msglvl\hspace{0.3cm}{\ttfamily [private]}}
+
 diagnostic printing (P\+A\+R\+D\+I\+SO internal)\+:~\newline
  0\+: no output~\newline
- 1\+: print output \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!N@{N}}
-\index{N@{N}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{N}{N}}]{\setlength{\rightskip}{0pt plus 5cm}int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::N\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a0218d17deabfb2a7b8905b90ccb6ef46}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a0218d17deabfb2a7b8905b90ccb6ef46}
-The size of the matrix A of the \hyperlink{class_two_block_matrix}{Two\+Block\+Matrix} \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!n\+\_\+iterative\+\_\+refinements@{n\+\_\+iterative\+\_\+refinements}}
-\index{n\+\_\+iterative\+\_\+refinements@{n\+\_\+iterative\+\_\+refinements}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{n\+\_\+iterative\+\_\+refinements}{n_iterative_refinements}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::n\+\_\+iterative\+\_\+refinements = std\+::numeric\+\_\+limits$<$int$>$\+::{\bf max}()}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_afdb2039acda86d2def4e0eee33635dab}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_afdb2039acda86d2def4e0eee33635dab}
-maximum number of iterative refinements \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!nrhs@{nrhs}}
-\index{nrhs@{nrhs}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{nrhs}{nrhs}}]{\setlength{\rightskip}{0pt plus 5cm}int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::nrhs = 1\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a84ae552a3b77bb009366379148119ef8}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a84ae552a3b77bb009366379148119ef8}
-Number of right hand sides to solve for in one step \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!ordering\+\_\+method@{ordering\+\_\+method}}
-\index{ordering\+\_\+method@{ordering\+\_\+method}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{ordering\+\_\+method}{ordering_method}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::ordering\+\_\+method = 2}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a3bf4e0ea8332a4e6c71eac84f385663c}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a3bf4e0ea8332a4e6c71eac84f385663c}
+ 1\+: print output \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a0218d17deabfb2a7b8905b90ccb6ef46}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a0218d17deabfb2a7b8905b90ccb6ef46}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!N@{N}}
+\index{N@{N}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::N\hspace{0.3cm}{\ttfamily [private]}}
+
+The size of the matrix A of the \mbox{\hyperlink{class_two_block_matrix}{Two\+Block\+Matrix}} \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_afdb2039acda86d2def4e0eee33635dab}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_afdb2039acda86d2def4e0eee33635dab}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!n\_iterative\_refinements@{n\_iterative\_refinements}}
+\index{n\_iterative\_refinements@{n\_iterative\_refinements}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{n\_iterative\_refinements}{n\_iterative\_refinements}}
+{\footnotesize\ttfamily unsigned int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::n\+\_\+iterative\+\_\+refinements = std\+::numeric\+\_\+limits$<$int$>$\+::\textbf{ max}()}
+
+maximum number of iterative refinements \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a84ae552a3b77bb009366379148119ef8}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a84ae552a3b77bb009366379148119ef8}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!nrhs@{nrhs}}
+\index{nrhs@{nrhs}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{nrhs}{nrhs}}
+{\footnotesize\ttfamily int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::nrhs = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+Number of right hand sides to solve for in one step \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a3bf4e0ea8332a4e6c71eac84f385663c}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a3bf4e0ea8332a4e6c71eac84f385663c}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!ordering\_method@{ordering\_method}}
+\index{ordering\_method@{ordering\_method}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{ordering\_method}{ordering\_method}}
+{\footnotesize\ttfamily unsigned int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::ordering\+\_\+method = 2}
+
 ordering method\+:~\newline
  0\+: A\+MD~\newline
- 2\+: nested dissection (M\+E\+T\+IS) \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!pivoting\+\_\+method@{pivoting\+\_\+method}}
-\index{pivoting\+\_\+method@{pivoting\+\_\+method}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{pivoting\+\_\+method}{pivoting_method}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::pivoting\+\_\+method = 1}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a2924ded1d130cdd30e865ff664d8dcf7}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a2924ded1d130cdd30e865ff664d8dcf7}
+ 2\+: nested dissection (M\+E\+T\+IS) \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a5fa1782457ce43278374cc1d5395b1d6}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a5fa1782457ce43278374cc1d5395b1d6}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!pivot\_perturbation@{pivot\_perturbation}}
+\index{pivot\_perturbation@{pivot\_perturbation}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{pivot\_perturbation}{pivot\_perturbation}}
+{\footnotesize\ttfamily unsigned int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::pivot\+\_\+perturbation = 8}
+
+value of pivot to be added to tiny pivots (if e.\+g. 10, than 1e-\/10 is added to tiny pivots) \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a2924ded1d130cdd30e865ff664d8dcf7}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a2924ded1d130cdd30e865ff664d8dcf7}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!pivoting\_method@{pivoting\_method}}
+\index{pivoting\_method@{pivoting\_method}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{pivoting\_method}{pivoting\_method}}
+{\footnotesize\ttfamily unsigned int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::pivoting\+\_\+method = 1}
+
 pivoting type for symmetric indefinite matrices~\newline
  0\+: 1x1~\newline
- 1\+: 2x2 \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!print\+\_\+level@{print\+\_\+level}}
-\index{print\+\_\+level@{print\+\_\+level}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{print\+\_\+level}{print_level}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::print\+\_\+level = 1}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_aa87e38dcf8e35852fbb47b4792b2540d}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_aa87e38dcf8e35852fbb47b4792b2540d}
+ 1\+: 2x2 \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_aa87e38dcf8e35852fbb47b4792b2540d}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_aa87e38dcf8e35852fbb47b4792b2540d}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!print\_level@{print\_level}}
+\index{print\_level@{print\_level}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{print\_level}{print\_level}}
+{\footnotesize\ttfamily unsigned int Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::print\+\_\+level = 0}
+
 diagnostic printing\+:~\newline
  0\+: no output~\newline
- 1\+: print output \index{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}!pt@{pt}}
-\index{pt@{pt}!Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO@{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}}
-\subsubsection[{\texorpdfstring{pt}{pt}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::pt\mbox{[}64\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a4d1d5d9882ed7b4019b7412b0bbd125c}{}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a4d1d5d9882ed7b4019b7412b0bbd125c}
-Pointers to internal solver memory 
+ 1\+: print output \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a4d1d5d9882ed7b4019b7412b0bbd125c}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a4d1d5d9882ed7b4019b7412b0bbd125c}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!pt@{pt}}
+\index{pt@{pt}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{pt}{pt}}
+{\footnotesize\ttfamily void$\ast$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::pt\mbox{[}64\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+Pointers to internal solver memory \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a7d2b9809d10bde8d8440a607522e383c}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a7d2b9809d10bde8d8440a607522e383c}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!res@{res}}
+\index{res@{res}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{res}{res}}
+{\footnotesize\ttfamily \textbf{ Vector}$<$double$>$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::res\hspace{0.3cm}{\ttfamily [private]}}
+
+\textbf{ Vector} for residual calculation \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a32db83d42ee6bafd25ff6b01cd5452a0}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a32db83d42ee6bafd25ff6b01cd5452a0}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!res\_max@{res\_max}}
+\index{res\_max@{res\_max}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{res\_max}{res\_max}}
+{\footnotesize\ttfamily double Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::res\+\_\+max = 1\textbf{ e}-\/8}
+
+Maximum allowable residual \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_ad8bf45c0568b751a2773a57a5b00ba5d}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_ad8bf45c0568b751a2773a57a5b00ba5d}} 
+\index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!use\_defaults@{use\_defaults}}
+\index{use\_defaults@{use\_defaults}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
+\doxysubsubsection{\texorpdfstring{use\_defaults}{use\_defaults}}
+{\footnotesize\ttfamily bool Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::use\+\_\+defaults = true}
+
+indicates whether to use default parameters of P\+A\+R\+D\+I\+SO. If {\ttfamily true}, \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a3bf4e0ea8332a4e6c71eac84f385663c}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::ordering\+\_\+method}}, \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_aba68acd666b7c5c41af207eb77db201c}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::apply\+\_\+scaling}}, \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a2924ded1d130cdd30e865ff664d8dcf7}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::pivoting\+\_\+method}}, \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_afdb2039acda86d2def4e0eee33635dab}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::n\+\_\+iterative\+\_\+refinements}} are ignored. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\hyperlink{solver__wrapper_8h}{solver\+\_\+wrapper.\+h}\end{DoxyCompactItemize}
+/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\mbox{\hyperlink{solver__wrapper_8h}{solver\+\_\+wrapper.\+h}}\end{DoxyCompactItemize}

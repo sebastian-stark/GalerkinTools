@@ -1,7 +1,8 @@
 <map id="TwoBlockSparsityPattern" name="TwoBlockSparsityPattern">
-<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classDynamicSparsityPattern.html" title="DynamicSparsityPattern" alt="" coords="142,184,306,211"/>
-<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title="Subscriptor" alt="" coords="60,95,148,121"/>
-<area shape="rect" id="node6" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSparsityPattern.html" title="SparsityPattern" alt="" coords="5,184,117,211"/>
-<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classIndexSet.html" title="IndexSet" alt="" coords="187,95,261,121"/>
-<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classThreads_1_1Mutex.html" title="Threads::Mutex" alt="" coords="167,5,281,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="77,317,259,344"/>
+<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classDynamicSparsityPattern.html" title=" " alt="" coords="153,184,333,211"/>
+<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="69,95,163,121"/>
+<area shape="rect" id="node6" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSparsityPattern.html" title=" " alt="" coords="5,184,128,211"/>
+<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classIndexSet.html" title=" " alt="" coords="203,95,282,121"/>
+<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classThreads_1_1Mutex.html" title=" " alt="" coords="181,5,304,32"/>
 </map>

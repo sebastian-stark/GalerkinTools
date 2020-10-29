@@ -1,125 +1,125 @@
-\form#0:$\Pi$
-\form#1:$u^\Omega_\epsilon$
-\form#2:$u^\Sigma_\eta$
-\form#3:$C_\iota$
-\form#4:$h^\Omega_\rho$
-\form#5:$h^\Sigma_\tau$
-\form#6:$H^\Omega_1[e^\Omega_1(u^\Omega_1, u^\Omega_2)]$
-\form#7:$H^\Omega_2[e^\Omega_2(u^\Omega_2, u^\Omega_3)]$
-\form#8:$u^\Omega_1$
-\form#9:$u^\Omega_2$
-\form#10:$u^\Omega_3$
-\form#11:$e^\Omega_\lambda$
-\form#12:$a^\Omega_{\lambda\epsilon} u^\Omega_\epsilon$
-\form#13:$a^\Omega_{\lambda \epsilon} u^\Omega_\epsilon$
-\form#14:$a^\Omega_{\lambda \epsilon}$
-\form#15:$b^\Omega_{\lambda \epsilon i} \dfrac{\partial u^\Omega_\epsilon}{\partial x_i}$
-\form#16:$b^\Omega_{\lambda \epsilon i}$
-\form#17:$i$
-\form#18:$c^\Omega_{\lambda\iota} C_\iota$
-\form#19:$c^\Omega_{\lambda\iota}$
-\form#20:$d^\Omega_\lambda$
-\form#21:$d^\Omega_{\lambda}$
-\form#22:$e^\Sigma_\nu$
-\form#23:$a^\Sigma_{\nu\eta} u^\Sigma_\eta$
-\form#24:$a^\Sigma_{\nu \eta}$
-\form#25:$b^\Sigma_{\nu \eta i} \dfrac{\partial u^\Sigma_\eta}{\partial x_i}$
-\form#26:$b^\Sigma_{\nu \eta i}$
-\form#27:$a^-_{\nu\epsilon} (u^\Omega_\epsilon)^-$
-\form#28:$a^-_{\nu\epsilon}$
-\form#29:$b^-_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^-$
-\form#30:$b^-_{\nu\epsilon i}$
-\form#31:$a^+_{\nu\epsilon} (u^\Omega_\epsilon)^+$
-\form#32:$a^+_{\nu\epsilon}$
-\form#33:$b^+_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^+$
-\form#34:$b^+_{\nu\epsilon i}$
-\form#35:$c^\Sigma_{\nu\iota} C_\iota$
-\form#36:$c^\Sigma_{\nu\iota}$
-\form#37:$d^\Sigma_\nu$
-\form#38:$d^\Sigma_{\nu}$
-\form#39:$\begin{pmatrix} \boldsymbol{u}^\mathrm{initial} \\ \boldsymbol{0} \end{pmatrix}$
-\form#40:$\boldsymbol{u}^\mathrm{initial}$
-\form#41:$\boldsymbol{0}$
-\form#42:$\boldsymbol{K}^\mathrm{s}$
-\form#43:\begin{equation*} \boldsymbol{K}^\mathrm{s} \Delta \boldsymbol{\hat u}^\mathrm{s} = -\boldsymbol{f}^\mathrm{s} \end{equation*}
-\form#44:$\boldsymbol{\hat u}^\mathrm{s} = \begin{pmatrix} \boldsymbol{\hat u} \\ \boldsymbol{\hat \lambda} \end{pmatrix}$
-\form#45:$\boldsymbol{\hat \lambda}$
-\form#46:$-\boldsymbol{f}^\mathrm{s}$
-\form#47:$\left( \boldsymbol{K} + \boldsymbol{L} \boldsymbol{\Pi} \boldsymbol{L}^\top \right) \Delta\boldsymbol{\hat u} = - \boldsymbol{f}$
-\form#48:$\begin{pmatrix} \boldsymbol{\hat u} \\ \boldsymbol{\hat \lambda} \end{pmatrix}$
-\form#49:$a \dfrac{\partial^N f}{\partial x_{i_0} \hdots \partial x_{i_{N-1}}} $
-\form#50:$a$
-\form#51:$f$
-\form#52:$\boldsymbol{x}$
-\form#53:$N$
-\form#54:$\dfrac{\partial^N f}{\partial x_{i_0} \hdots \partial x_{i_{N-1}}}$
-\form#55:$i_k$
-\form#56:$\dfrac{\partial f}{\partial x_2}$
-\form#57:$\dfrac{\partial^2 f}{\partial x_2 \partial x_1}$
-\form#58:$a f$
-\form#59:$\nu \in N=\left\{1 \hdots N^\mathrm{e,\Sigma}\right\}$
-\form#60:\begin{equation*} \begin{split} e^\Sigma_\nu &= \sum_{\eta \in H} \left[ a^\Sigma_{\nu\eta} u^\Sigma_\eta + b^\Sigma_{\nu\eta i} \dfrac{\partial u^\Sigma_\eta}{\partial x_i} \right]\\ & + \sum_{\epsilon \in E} \left[ a^+_{\nu\epsilon} (u^\Omega_\epsilon)^+ + b^+_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^+ \right]\\ & + \sum_{\epsilon \in E} \left[ a^-_{\nu\epsilon} (u^\Omega_\epsilon)^- + b^-_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^- \right]\\ & + \sum_{\iota \in I}c^\Sigma_{\nu\iota} C_\iota + d^\Sigma_\nu. \end{split} \end{equation*}
-\form#61:$a^\Sigma_{\nu\eta}$
-\form#62:$b^\Sigma_{\nu\eta i}$
-\form#63:$(\,)^-$
-\form#64:$(\,)^+$
-\form#65:$\lambda \in \Lambda=\left\{1 \hdots N^{\mathrm{e},\Omega}\right\}$
-\form#66:\begin{equation*} e^\Omega_\lambda = \sum_{\epsilon \in E} \left[ a^\Omega_{\lambda\epsilon} u^\Omega_\epsilon + b^\Omega_{\lambda \epsilon i} \dfrac{\partial u^\Omega_\epsilon}{\partial x_i} \right] + \sum_{\iota \in I}c^\Omega_{\lambda\iota} C_\iota + d^\Omega_\lambda\, \end{equation*}
-\form#67:$a^\Omega_{\lambda\epsilon}$
-\form#68:$i_0$
-\form#69:$i_1$
-\form#70:$\sum_{\eta \in H} \left[ a^\Sigma_{\nu\eta} u^\Sigma_\eta + b^\Sigma_{\nu\eta i} \dfrac{\partial u^\Sigma_\eta}{\partial x_i} \right]$
-\form#71:$\sum_{\epsilon \in E} \left[ a^+_{\nu\epsilon} (u^\Omega_\epsilon)^+ + b^+_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^+ \right]$
-\form#72:$\sum_{\epsilon \in E} \left[ a^-_{\nu\epsilon} (u^\Omega_\epsilon)^- + b^-_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^- \right]$
-\form#73:$\sum_{\iota \in I}c^\Sigma_{\nu\iota} C_\iota$
-\form#74:$\sum_{\epsilon \in E} \left[ a^\Omega_{\lambda\epsilon} u^\Omega_\epsilon + b^\Omega_{\lambda \epsilon i} \dfrac{\partial u^\Omega_\epsilon}{\partial x_i} \right]$
-\form#75:$\sum_{\iota \in I}c^\Omega_{\lambda\iota} C_\iota$
-\form#76:$ \left(u^\Omega_\epsilon\right)^+ = b^\Omega_\epsilon + c^\Omega_\epsilon C_\iota$
-\form#77:$ \left(u^\Omega_\epsilon\right)^- = b^\Omega_\epsilon + c^\Omega_\epsilon C_\iota$
-\form#78:$b^\Omega_\epsilon$
-\form#79:$c^\Omega_\epsilon$
-\form#80:$u^\Omega_\epsilon = \mathrm{const.}$
-\form#81:$\Omega$
-\form#82:$\Sigma$
-\form#83:$u^\Omega_\epsilon(\boldsymbol{X})$
-\form#84:$\epsilon \in E=\left\{1 \hdots N^\mathrm{u,\Omega}\right\}$
-\form#85:$\boldsymbol{X} \in \mathcal{R}^n$
-\form#86:$n$
-\form#87:$u^\Sigma_\eta(\boldsymbol{X})$
-\form#88:$\eta \in H=\left\{1 \hdots N^\mathrm{u,\Sigma}\right\}$
-\form#89:$K$
-\form#90:$3$
-\form#91:$\iota \in I=\left\{1 \hdots N^\mathrm{C}\right\}$
-\form#92:$\boldsymbol{C}=\boldsymbol{L}\boldsymbol{D}\boldsymbol{R}^\top$
-\form#93:$\boldsymbol{R}=\boldsymbol{L}$
-\form#94:$\boldsymbol{C}$
-\form#95:$\boldsymbol{D}$
-\form#96:$\boldsymbol{L}$
-\form#97:$\boldsymbol{R}$
-\form#98:$H^\Omega_\rho$
-\form#99:$H^\Omega_\rho=\int_\Omega \left[ \dfrac{1}{2} {\boldsymbol{e}^\Omega}^\top \boldsymbol{C} {\boldsymbol{e}^\Omega} + \boldsymbol{y}^\top \boldsymbol{e}^\Omega \right] \mathrm{d}V$
-\form#100:$\boldsymbol{e}^\Omega$
-\form#101:$\boldsymbol{y}$
-\form#102:$H^\Sigma_\tau$
-\form#103:$H^\Sigma_\tau=\int_\Sigma \left[ \dfrac{1}{2} {\boldsymbol{e}^\Sigma}^\top \boldsymbol{C} {\boldsymbol{e}^\Sigma} + \boldsymbol{y}^\top \boldsymbol{e}^\Sigma \right] \mathrm{d}S$
-\form#104:$\boldsymbol{e}^\Sigma$
-\form#105:$\dfrac{1}{2} {\boldsymbol{e}^\Omega}^\top \boldsymbol{C} {\boldsymbol{e}^\Omega} + \boldsymbol{y}^\top \boldsymbol{e}^\Omega$
-\form#106:$\boldsymbol{C} {\boldsymbol{e}^\Omega} + \boldsymbol{y}^\top$
-\form#107:$\dfrac{1}{2} {\boldsymbol{e}^\Sigma}^\top \boldsymbol{C} {\boldsymbol{e}^\Sigma} + \boldsymbol{y}^\top \boldsymbol{e}^\Sigma$
-\form#108:$\boldsymbol{C} {\boldsymbol{e}^\Sigma} + \boldsymbol{y}^\top$
-\form#109:$H^\Sigma_\tau = \int_\Sigma h^\Sigma_\tau(e^\Sigma_\nu, \boldsymbol{X}) \mathrm{d}S$
-\form#110:$\tau \in T=\left\{1 \hdots N^\mathrm{H,\Sigma}\right\}$
-\form#111:$H^\Omega_\rho = \int_\Omega h^\Omega_\rho(e^\Omega_\lambda, \boldsymbol{X}) \mathrm{d}V$
-\form#112:$\rho \in P=\left\{1 \hdots N^\mathrm{H,\Omega}\right\}$
-\form#113:$\Delta e^\Sigma_\nu$
-\form#114:$\alpha$
-\form#115:$e^\Sigma_\nu + \alpha \Delta e^\Sigma_\nu$
-\form#116:$\Delta e^\Omega_\lambda$
-\form#117:$e^\Omega_\lambda + \alpha \Delta e^\Omega_\lambda$
-\form#118:$\Pi_i$
-\form#119:\begin{equation*} \Pi = \Pi(H^\Omega_\rho, H^\Sigma_\tau, C_\iota) = \sum_i \Pi_i(H^\Omega_\rho, H^\Sigma_\tau, C_\iota). \end{equation*}
-\form#120:\begin{equation*} \Pi = \Pi(H^\Omega_\rho, H^\Sigma_\tau, C_\iota) = \sum_i \Pi_i(H^\Omega_\rho, H^\Sigma_\tau, C_\iota), \end{equation*}
-\form#121:$\Pi_i=H^\Omega_\rho$
-\form#122:$\Pi_i=H^\Sigma_\tau$
-\form#123:$\Pi_i(H^\Omega_\rho, H^\Sigma_\tau, C_\iota)$
-\form#124:\begin{equation*} \begin{pmatrix} \boldsymbol{A} & \boldsymbol{B} \\ \boldsymbol{C}^\top & \boldsymbol{D} \end{pmatrix} \end{equation*}
+\_form#0:$\Pi$
+\_form#1:$u^\Omega_\epsilon$
+\_form#2:$u^\Sigma_\eta$
+\_form#3:$C_\iota$
+\_form#4:$h^\Omega_\rho$
+\_form#5:$h^\Sigma_\tau$
+\_form#6:$H^\Omega_1[e^\Omega_1(u^\Omega_1, u^\Omega_2)]$
+\_form#7:$H^\Omega_2[e^\Omega_2(u^\Omega_2, u^\Omega_3)]$
+\_form#8:$u^\Omega_1$
+\_form#9:$u^\Omega_2$
+\_form#10:$u^\Omega_3$
+\_form#11:$e^\Omega_\lambda$
+\_form#12:$a^\Omega_{\lambda\epsilon} u^\Omega_\epsilon$
+\_form#13:$a^\Omega_{\lambda \epsilon} u^\Omega_\epsilon$
+\_form#14:$a^\Omega_{\lambda \epsilon}$
+\_form#15:$b^\Omega_{\lambda \epsilon i} \dfrac{\partial u^\Omega_\epsilon}{\partial x_i}$
+\_form#16:$b^\Omega_{\lambda \epsilon i}$
+\_form#17:$i$
+\_form#18:$c^\Omega_{\lambda\iota} C_\iota$
+\_form#19:$c^\Omega_{\lambda\iota}$
+\_form#20:$d^\Omega_\lambda$
+\_form#21:$d^\Omega_{\lambda}$
+\_form#22:$e^\Sigma_\nu$
+\_form#23:$a^\Sigma_{\nu\eta} u^\Sigma_\eta$
+\_form#24:$a^\Sigma_{\nu \eta}$
+\_form#25:$b^\Sigma_{\nu \eta i} \dfrac{\partial u^\Sigma_\eta}{\partial x_i}$
+\_form#26:$b^\Sigma_{\nu \eta i}$
+\_form#27:$a^-_{\nu\epsilon} (u^\Omega_\epsilon)^-$
+\_form#28:$a^-_{\nu\epsilon}$
+\_form#29:$b^-_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^-$
+\_form#30:$b^-_{\nu\epsilon i}$
+\_form#31:$a^+_{\nu\epsilon} (u^\Omega_\epsilon)^+$
+\_form#32:$a^+_{\nu\epsilon}$
+\_form#33:$b^+_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^+$
+\_form#34:$b^+_{\nu\epsilon i}$
+\_form#35:$c^\Sigma_{\nu\iota} C_\iota$
+\_form#36:$c^\Sigma_{\nu\iota}$
+\_form#37:$d^\Sigma_\nu$
+\_form#38:$d^\Sigma_{\nu}$
+\_form#39:$\begin{pmatrix} \boldsymbol{u}^\mathrm{initial} \\ \boldsymbol{0} \end{pmatrix}$
+\_form#40:$\boldsymbol{u}^\mathrm{initial}$
+\_form#41:$\boldsymbol{0}$
+\_form#42:$\boldsymbol{K}^\mathrm{s}$
+\_form#43:\begin{equation*} \boldsymbol{K}^\mathrm{s} \Delta \boldsymbol{\hat u}^\mathrm{s} = -\boldsymbol{f}^\mathrm{s} \end{equation*}
+\_form#44:$\boldsymbol{\hat u}^\mathrm{s} = \begin{pmatrix} \boldsymbol{\hat u} \\ \boldsymbol{\hat \lambda} \end{pmatrix}$
+\_form#45:$\boldsymbol{\hat \lambda}$
+\_form#46:$-\boldsymbol{f}^\mathrm{s}$
+\_form#47:$\left( \boldsymbol{K} + \boldsymbol{L} \boldsymbol{\Pi} \boldsymbol{L}^\top \right) \Delta\boldsymbol{\hat u} = - \boldsymbol{f}$
+\_form#48:$\begin{pmatrix} \boldsymbol{\hat u} \\ \boldsymbol{\hat \lambda} \end{pmatrix}$
+\_form#49:$a \dfrac{\partial^N f}{\partial x_{i_0} \hdots \partial x_{i_{N-1}}} $
+\_form#50:$a$
+\_form#51:$f$
+\_form#52:$\boldsymbol{x}$
+\_form#53:$N$
+\_form#54:$\dfrac{\partial^N f}{\partial x_{i_0} \hdots \partial x_{i_{N-1}}}$
+\_form#55:$i_k$
+\_form#56:$\dfrac{\partial f}{\partial x_2}$
+\_form#57:$\dfrac{\partial^2 f}{\partial x_2 \partial x_1}$
+\_form#58:$a f$
+\_form#59:$\nu \in N=\left\{1 \hdots N^\mathrm{e,\Sigma}\right\}$
+\_form#60:\begin{equation*} \begin{split} e^\Sigma_\nu &= \sum_{\eta \in H} \left[ a^\Sigma_{\nu\eta} u^\Sigma_\eta + b^\Sigma_{\nu\eta i} \dfrac{\partial u^\Sigma_\eta}{\partial x_i} \right]\\ & + \sum_{\epsilon \in E} \left[ a^+_{\nu\epsilon} (u^\Omega_\epsilon)^+ + b^+_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^+ \right]\\ & + \sum_{\epsilon \in E} \left[ a^-_{\nu\epsilon} (u^\Omega_\epsilon)^- + b^-_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^- \right]\\ & + \sum_{\iota \in I}c^\Sigma_{\nu\iota} C_\iota + d^\Sigma_\nu. \end{split} \end{equation*}
+\_form#61:$a^\Sigma_{\nu\eta}$
+\_form#62:$b^\Sigma_{\nu\eta i}$
+\_form#63:$(\,)^-$
+\_form#64:$(\,)^+$
+\_form#65:$\lambda \in \Lambda=\left\{1 \hdots N^{\mathrm{e},\Omega}\right\}$
+\_form#66:\begin{equation*} e^\Omega_\lambda = \sum_{\epsilon \in E} \left[ a^\Omega_{\lambda\epsilon} u^\Omega_\epsilon + b^\Omega_{\lambda \epsilon i} \dfrac{\partial u^\Omega_\epsilon}{\partial x_i} \right] + \sum_{\iota \in I}c^\Omega_{\lambda\iota} C_\iota + d^\Omega_\lambda\, \end{equation*}
+\_form#67:$a^\Omega_{\lambda\epsilon}$
+\_form#68:$i_0$
+\_form#69:$i_1$
+\_form#70:$\sum_{\eta \in H} \left[ a^\Sigma_{\nu\eta} u^\Sigma_\eta + b^\Sigma_{\nu\eta i} \dfrac{\partial u^\Sigma_\eta}{\partial x_i} \right]$
+\_form#71:$\sum_{\epsilon \in E} \left[ a^+_{\nu\epsilon} (u^\Omega_\epsilon)^+ + b^+_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^+ \right]$
+\_form#72:$\sum_{\epsilon \in E} \left[ a^-_{\nu\epsilon} (u^\Omega_\epsilon)^- + b^-_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^- \right]$
+\_form#73:$\sum_{\iota \in I}c^\Sigma_{\nu\iota} C_\iota$
+\_form#74:$\sum_{\epsilon \in E} \left[ a^\Omega_{\lambda\epsilon} u^\Omega_\epsilon + b^\Omega_{\lambda \epsilon i} \dfrac{\partial u^\Omega_\epsilon}{\partial x_i} \right]$
+\_form#75:$\sum_{\iota \in I}c^\Omega_{\lambda\iota} C_\iota$
+\_form#76:$ \left(u^\Omega_\epsilon\right)^+ = b^\Omega_\epsilon + c^\Omega_\epsilon C_\iota$
+\_form#77:$ \left(u^\Omega_\epsilon\right)^- = b^\Omega_\epsilon + c^\Omega_\epsilon C_\iota$
+\_form#78:$b^\Omega_\epsilon$
+\_form#79:$c^\Omega_\epsilon$
+\_form#80:$u^\Omega_\epsilon = \mathrm{const.}$
+\_form#81:$\Omega$
+\_form#82:$\Sigma$
+\_form#83:$u^\Omega_\epsilon(\boldsymbol{X})$
+\_form#84:$\epsilon \in E=\left\{1 \hdots N^\mathrm{u,\Omega}\right\}$
+\_form#85:$\boldsymbol{X} \in \mathcal{R}^n$
+\_form#86:$n$
+\_form#87:$u^\Sigma_\eta(\boldsymbol{X})$
+\_form#88:$\eta \in H=\left\{1 \hdots N^\mathrm{u,\Sigma}\right\}$
+\_form#89:$K$
+\_form#90:$3$
+\_form#91:$\iota \in I=\left\{1 \hdots N^\mathrm{C}\right\}$
+\_form#92:$\boldsymbol{C}=\boldsymbol{L}\boldsymbol{D}\boldsymbol{R}^\top$
+\_form#93:$\boldsymbol{R}=\boldsymbol{L}$
+\_form#94:$\boldsymbol{C}$
+\_form#95:$\boldsymbol{D}$
+\_form#96:$\boldsymbol{L}$
+\_form#97:$\boldsymbol{R}$
+\_form#98:$H^\Omega_\rho$
+\_form#99:$H^\Omega_\rho=\int_\Omega \left[ \dfrac{1}{2} {\boldsymbol{e}^\Omega}^\top \boldsymbol{C} {\boldsymbol{e}^\Omega} + \boldsymbol{y}^\top \boldsymbol{e}^\Omega \right] \mathrm{d}V$
+\_form#100:$\boldsymbol{e}^\Omega$
+\_form#101:$\boldsymbol{y}$
+\_form#102:$H^\Sigma_\tau$
+\_form#103:$H^\Sigma_\tau=\int_\Sigma \left[ \dfrac{1}{2} {\boldsymbol{e}^\Sigma}^\top \boldsymbol{C} {\boldsymbol{e}^\Sigma} + \boldsymbol{y}^\top \boldsymbol{e}^\Sigma \right] \mathrm{d}S$
+\_form#104:$\boldsymbol{e}^\Sigma$
+\_form#105:$\dfrac{1}{2} {\boldsymbol{e}^\Omega}^\top \boldsymbol{C} {\boldsymbol{e}^\Omega} + \boldsymbol{y}^\top \boldsymbol{e}^\Omega$
+\_form#106:$\boldsymbol{C} {\boldsymbol{e}^\Omega} + \boldsymbol{y}^\top$
+\_form#107:$\dfrac{1}{2} {\boldsymbol{e}^\Sigma}^\top \boldsymbol{C} {\boldsymbol{e}^\Sigma} + \boldsymbol{y}^\top \boldsymbol{e}^\Sigma$
+\_form#108:$\boldsymbol{C} {\boldsymbol{e}^\Sigma} + \boldsymbol{y}^\top$
+\_form#109:$H^\Sigma_\tau = \int_\Sigma h^\Sigma_\tau(e^\Sigma_\nu, \boldsymbol{X}) \mathrm{d}S$
+\_form#110:$\tau \in T=\left\{1 \hdots N^\mathrm{H,\Sigma}\right\}$
+\_form#111:$H^\Omega_\rho = \int_\Omega h^\Omega_\rho(e^\Omega_\lambda, \boldsymbol{X}) \mathrm{d}V$
+\_form#112:$\rho \in P=\left\{1 \hdots N^\mathrm{H,\Omega}\right\}$
+\_form#113:$\Delta e^\Sigma_\nu$
+\_form#114:$\alpha$
+\_form#115:$e^\Sigma_\nu + \alpha \Delta e^\Sigma_\nu$
+\_form#116:$\Delta e^\Omega_\lambda$
+\_form#117:$e^\Omega_\lambda + \alpha \Delta e^\Omega_\lambda$
+\_form#118:$\Pi_i$
+\_form#119:\begin{equation*} \Pi = \Pi(H^\Omega_\rho, H^\Sigma_\tau, C_\iota) = \sum_i \Pi_i(H^\Omega_\rho, H^\Sigma_\tau, C_\iota). \end{equation*}
+\_form#120:\begin{equation*} \Pi = \Pi(H^\Omega_\rho, H^\Sigma_\tau, C_\iota) = \sum_i \Pi_i(H^\Omega_\rho, H^\Sigma_\tau, C_\iota), \end{equation*}
+\_form#121:$\Pi_i=H^\Omega_\rho$
+\_form#122:$\Pi_i=H^\Sigma_\tau$
+\_form#123:$\Pi_i(H^\Omega_\rho, H^\Sigma_\tau, C_\iota)$
+\_form#124:\begin{equation*} \begin{pmatrix} \boldsymbol{A} & \boldsymbol{B} \\ \boldsymbol{C}^\top & \boldsymbol{D} \end{pmatrix} \end{equation*}

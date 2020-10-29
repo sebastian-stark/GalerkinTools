@@ -1,28 +1,28 @@
-\hypertarget{tools_8h}{}\section{/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/tools.h File Reference}
-\label{tools_8h}\index{/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/tools.\+h@{/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/tools.\+h}}
-\subsection*{Namespaces}
+\hypertarget{tools_8h}{}\doxysection{/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/tools.h File Reference}
+\label{tools_8h}\index{/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin\_tools/tools.h@{/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin\_tools/tools.h}}
+\doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
- \hyperlink{namespace_auxiliary}{Auxiliary}
+ \mbox{\hyperlink{namespace_auxiliary}{Auxiliary}}
 \end{DoxyCompactItemize}
-\subsection*{Functions}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{namespace_auxiliary_ad3c42d209f0ba8e9d4ce305060634bf1}{Auxiliary\+::convert\+\_\+local\+\_\+indices\+\_\+to\+\_\+global\+\_\+indices} (const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global)
+void \mbox{\hyperlink{namespace_auxiliary_ad3c42d209f0ba8e9d4ce305060634bf1}{Auxiliary\+::convert\+\_\+local\+\_\+indices\+\_\+to\+\_\+global\+\_\+indices}} (const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global)
 \item 
-void \hyperlink{namespace_auxiliary_a1d90ebc8738df3d8c70b540034137019}{Auxiliary\+::combine\+\_\+dof\+\_\+indices} (const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+interface, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+minus, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+plus, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+C, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+interface\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+minus\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+plus\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+\+C\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+combined)
+void \mbox{\hyperlink{namespace_auxiliary_a1d90ebc8738df3d8c70b540034137019}{Auxiliary\+::combine\+\_\+dof\+\_\+indices}} (const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+interface, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+minus, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+plus, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+C, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+interface\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+minus\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+plus\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+\+C\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+combined)
 \item 
-void \hyperlink{namespace_auxiliary_aca5fe5966aef4ba2293fb44095bfd86c}{Auxiliary\+::add\+\_\+to\+\_\+index\+\_\+set} (const \hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering} \&dof\+\_\+renumbering, const {\bf Index\+Set} \&in, {\bf Index\+Set} \&out)
+void \mbox{\hyperlink{namespace_auxiliary_aca5fe5966aef4ba2293fb44095bfd86c}{Auxiliary\+::add\+\_\+to\+\_\+index\+\_\+set}} (const \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} \&dof\+\_\+renumbering, const \textbf{ Index\+Set} \&in, \textbf{ Index\+Set} \&out)
 \item 
-void \hyperlink{namespace_auxiliary_aa6148bcbaf5e3003717b4dd2a4da15b3}{Auxiliary\+::renumber\+\_\+constraints} (Affine\+Constraints$<$ double $>$ \&constraint\+\_\+matrix, const \hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering} \&dof\+\_\+renumbering=\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}(), const bool close=true)
+void \mbox{\hyperlink{namespace_auxiliary_aa6148bcbaf5e3003717b4dd2a4da15b3}{Auxiliary\+::renumber\+\_\+constraints}} (Affine\+Constraints$<$ double $>$ \&constraint\+\_\+matrix, const \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} \&dof\+\_\+renumbering=\mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}}(), const bool close=true)
 \item 
-{\footnotesize template$<$unsigned int spacedim$>$ }\\void \hyperlink{namespace_auxiliary_a4261fc726ff965166f3f53242918acea}{Auxiliary\+::compute\+\_\+dof\+\_\+renumbering\+\_\+contiguous} (const \hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}$<$ spacedim $>$ \&dof\+\_\+handler\+\_\+system, \hyperlink{class_do_f_renumbering_offset}{Do\+F\+Renumbering\+Offset} \&dof\+\_\+renumbering\+\_\+offset)
+{\footnotesize template$<$unsigned int spacedim$>$ }\\void \mbox{\hyperlink{namespace_auxiliary_a4261fc726ff965166f3f53242918acea}{Auxiliary\+::compute\+\_\+dof\+\_\+renumbering\+\_\+contiguous}} (const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&dof\+\_\+handler\+\_\+system, \mbox{\hyperlink{class_do_f_renumbering_offset}{Do\+F\+Renumbering\+Offset}} \&dof\+\_\+renumbering\+\_\+offset)
 \item 
-{\footnotesize template$<$unsigned int spacedim$>$ }\\void \hyperlink{namespace_auxiliary_a072f85e6d745ae3c532bb0612f4bd3ce}{Auxiliary\+::compute\+\_\+map\+\_\+dofs} (const \hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}$<$ spacedim $>$ \&dhs\+\_\+1, const \hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}$<$ spacedim $>$ \&dhs\+\_\+2, std\+::vector$<$ unsigned int $>$ \&map\+\_\+dofs)
+{\footnotesize template$<$unsigned int spacedim$>$ }\\void \mbox{\hyperlink{namespace_auxiliary_a072f85e6d745ae3c532bb0612f4bd3ce}{Auxiliary\+::compute\+\_\+map\+\_\+dofs}} (const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&dhs\+\_\+1, const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&dhs\+\_\+2, std\+::vector$<$ unsigned int $>$ \&map\+\_\+dofs)
 \item 
-void \hyperlink{namespace_auxiliary_a59c01a6511bffd7442693e86cd194ef1}{Auxiliary\+::split\+\_\+vector} (const {\bf Vector}$<$ double $>$ \&in, {\bf Vector}$<$ double $>$ \&out\+\_\+0, {\bf Vector}$<$ double $>$ \&out\+\_\+1, const unsigned int size\+\_\+1)
+void \mbox{\hyperlink{namespace_auxiliary_a59c01a6511bffd7442693e86cd194ef1}{Auxiliary\+::split\+\_\+vector}} (const \textbf{ Vector}$<$ double $>$ \&in, \textbf{ Vector}$<$ double $>$ \&out\+\_\+0, \textbf{ Vector}$<$ double $>$ \&out\+\_\+1, const unsigned int size\+\_\+1)
 \item 
-void \hyperlink{namespace_auxiliary_af746a1d08b1135a3684fc990f7b1384d}{Auxiliary\+::split\+\_\+matrix} (const {\bf Full\+Matrix}$<$ double $>$ \&in, {\bf Full\+Matrix}$<$ double $>$ \&out\+\_\+00, {\bf Full\+Matrix}$<$ double $>$ \&out\+\_\+01, {\bf Full\+Matrix}$<$ double $>$ \&out\+\_\+10, {\bf Full\+Matrix}$<$ double $>$ \&out\+\_\+11, const unsigned int size\+\_\+1)
+void \mbox{\hyperlink{namespace_auxiliary_af746a1d08b1135a3684fc990f7b1384d}{Auxiliary\+::split\+\_\+matrix}} (const \textbf{ Full\+Matrix}$<$ double $>$ \&in, \textbf{ Full\+Matrix}$<$ double $>$ \&out\+\_\+00, \textbf{ Full\+Matrix}$<$ double $>$ \&out\+\_\+01, \textbf{ Full\+Matrix}$<$ double $>$ \&out\+\_\+10, \textbf{ Full\+Matrix}$<$ double $>$ \&out\+\_\+11, const unsigned int size\+\_\+1)
 \item 
-bool \hyperlink{namespace_auxiliary_ad0ff28386be7b54b3487ae36e5a074fa}{Auxiliary\+::communicate\+\_\+bool} (const bool local\+\_\+bool, const M\+P\+I\+\_\+\+Comm \&mpi\+\_\+communicator)
+bool \mbox{\hyperlink{namespace_auxiliary_ad0ff28386be7b54b3487ae36e5a074fa}{Auxiliary\+::communicate\+\_\+bool}} (const bool local\+\_\+bool, const M\+P\+I\+\_\+\+Comm \&mpi\+\_\+communicator)
 \end{DoxyCompactItemize}

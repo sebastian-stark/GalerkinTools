@@ -54,6 +54,13 @@ GALERKIN_TOOLS_NAMESPACE_OPEN
 template<unsigned int spacedim>
 class DirichletConstraint : public Subscriptor
 {
+private:
+
+	/**
+	 * Bool indicating whether constraint is currently active
+	 */
+	bool
+	constraint_is_active = true;
 
 public:
 
@@ -107,6 +114,19 @@ public:
 	 */
 	const SmartPointer<const Function<spacedim>>
 	coefficient_c;
+
+	/**
+	 * Sets DirichletConstraint::constraint_is_active
+	 *
+	 * @param[in]	constraint_is_active		Value to be assigned to DirichletConstraint::constraint_is_active
+	 */
+	void set_constraint_is_active(const bool constraint_is_active);
+
+	/**
+	 * Return DirichletConstraint::constraint_is_active
+	 */
+	bool get_constraint_is_active()
+	const;
 
 	/**
 	 * The constructor of the class

@@ -1,5 +1,5 @@
-\hypertarget{class_do_f_renumbering_offset}{}\section{Do\+F\+Renumbering\+Offset Class Reference}
-\label{class_do_f_renumbering_offset}\index{Do\+F\+Renumbering\+Offset@{Do\+F\+Renumbering\+Offset}}
+\hypertarget{class_do_f_renumbering_offset}{}\doxysection{Do\+F\+Renumbering\+Offset Class Reference}
+\label{class_do_f_renumbering_offset}\index{DoFRenumberingOffset@{DoFRenumberingOffset}}
 
 
 {\ttfamily \#include $<$dof\+\_\+renumbering.\+h$>$}
@@ -10,7 +10,7 @@ Inheritance diagram for Do\+F\+Renumbering\+Offset\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=200pt]{class_do_f_renumbering_offset__inherit__graph}
+\includegraphics[width=211pt]{class_do_f_renumbering_offset__inherit__graph}
 \end{center}
 \end{figure}
 
@@ -19,96 +19,89 @@ Collaboration diagram for Do\+F\+Renumbering\+Offset\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=200pt]{class_do_f_renumbering_offset__coll__graph}
+\includegraphics[width=211pt]{class_do_f_renumbering_offset__coll__graph}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{class_do_f_renumbering_offset_a39333b4c3597c2b4a967f7af3cec0054}{add\+\_\+range} (const unsigned int dof\+\_\+start, const unsigned int dof\+\_\+end, const int offset)
+void \mbox{\hyperlink{class_do_f_renumbering_offset_a39333b4c3597c2b4a967f7af3cec0054}{add\+\_\+range}} (const unsigned int dof\+\_\+start, const unsigned int dof\+\_\+end, const int offset)
 \item 
-virtual void \hyperlink{class_do_f_renumbering_offset_a7b48f6f59b90c015b7e176148edbb797}{convert\+\_\+dof\+\_\+indices} (std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices) const 
+virtual void \mbox{\hyperlink{class_do_f_renumbering_offset_a11744a010a6502ae0aa9bac11c7ff3f0}{convert\+\_\+dof\+\_\+indices}} (std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices) const
 \item 
-virtual std\+::vector$<$ std\+::pair$<$ const unsigned int, const unsigned int $>$ $>$ \hyperlink{class_do_f_renumbering_offset_ac066233b202f7982d29206c1221c1f6a}{convert\+\_\+range} (const unsigned int range\+\_\+begin, const unsigned int range\+\_\+end) const 
+virtual std\+::vector$<$ std\+::pair$<$ const unsigned int, const unsigned int $>$ $>$ \mbox{\hyperlink{class_do_f_renumbering_offset_adef238432ea7b8100c3d4d0e008a9f72}{convert\+\_\+range}} (const unsigned int range\+\_\+begin, const unsigned int range\+\_\+end) const
 \item 
-const std\+::vector$<$ std\+::tuple$<$ const unsigned int, const unsigned int, const int $>$ $>$ \& \hyperlink{class_do_f_renumbering_offset_af92a21719157c5fd5e8ae42cf8af87f6}{get\+\_\+dof\+\_\+offsets} () const 
+const std\+::vector$<$ std\+::tuple$<$ const unsigned int, const unsigned int, const int $>$ $>$ \& \mbox{\hyperlink{class_do_f_renumbering_offset_a672fcd1ce3fa89174aceb105b00e7814}{get\+\_\+dof\+\_\+offsets}} () const
 \item 
-void \hyperlink{class_do_f_renumbering_offset_ac7156c58d0aa5dcb57fa0fe3ac437453}{clear} ()
+void \mbox{\hyperlink{class_do_f_renumbering_offset_ac7156c58d0aa5dcb57fa0fe3ac437453}{clear}} ()
 \item 
-void \hyperlink{class_do_f_renumbering_offset_a51ae1b70be0b0a2444c4bba71a272f71}{print} (std\+::ostream \&out) const 
+void \mbox{\hyperlink{class_do_f_renumbering_offset_a0781d3aa455908ba49e61eafaca5f50b}{print}} (std\+::ostream \&out) const
 \end{DoxyCompactItemize}
-\subsection*{Private Attributes}
+\doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ std\+::tuple$<$ const unsigned int, const unsigned int, const int $>$ $>$ \hyperlink{class_do_f_renumbering_offset_a5df6c4b70b1394c3670ced634146c9a9}{dof\+\_\+offsets}
+std\+::vector$<$ std\+::tuple$<$ const unsigned int, const unsigned int, const int $>$ $>$ \mbox{\hyperlink{class_do_f_renumbering_offset_a5df6c4b70b1394c3670ced634146c9a9}{dof\+\_\+offsets}}
 \end{DoxyCompactItemize}
-\subsection*{Additional Inherited Members}
+\doxysubsection*{Additional Inherited Members}
 
 
-\subsection{Detailed Description}
+\doxysubsection{Detailed Description}
 This renumbering scheme is based on applying offsets to index ranges. Presently no measures are taken to ensure that the overall index set is consistent! 
 
-\subsection{Member Function Documentation}
-\index{Do\+F\+Renumbering\+Offset@{Do\+F\+Renumbering\+Offset}!add\+\_\+range@{add\+\_\+range}}
-\index{add\+\_\+range@{add\+\_\+range}!Do\+F\+Renumbering\+Offset@{Do\+F\+Renumbering\+Offset}}
-\subsubsection[{\texorpdfstring{add\+\_\+range(const unsigned int dof\+\_\+start, const unsigned int dof\+\_\+end, const int offset)}{add_range(const unsigned int dof_start, const unsigned int dof_end, const int offset)}}]{\setlength{\rightskip}{0pt plus 5cm}void Do\+F\+Renumbering\+Offset\+::add\+\_\+range (
-\begin{DoxyParamCaption}
-\item[{const unsigned int}]{dof\+\_\+start, }
-\item[{const unsigned int}]{dof\+\_\+end, }
-\item[{const int}]{offset}
-\end{DoxyParamCaption}
-)}\hypertarget{class_do_f_renumbering_offset_a39333b4c3597c2b4a967f7af3cec0054}{}\label{class_do_f_renumbering_offset_a39333b4c3597c2b4a967f7af3cec0054}
-Add an element to \hyperlink{class_do_f_renumbering_offset_a5df6c4b70b1394c3670ced634146c9a9}{Do\+F\+Renumbering\+Offset\+::dof\+\_\+offsets}
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_do_f_renumbering_offset_a39333b4c3597c2b4a967f7af3cec0054}\label{class_do_f_renumbering_offset_a39333b4c3597c2b4a967f7af3cec0054}} 
+\index{DoFRenumberingOffset@{DoFRenumberingOffset}!add\_range@{add\_range}}
+\index{add\_range@{add\_range}!DoFRenumberingOffset@{DoFRenumberingOffset}}
+\doxysubsubsection{\texorpdfstring{add\_range()}{add\_range()}}
+{\footnotesize\ttfamily void Do\+F\+Renumbering\+Offset\+::add\+\_\+range (\begin{DoxyParamCaption}\item[{const unsigned int}]{dof\+\_\+start,  }\item[{const unsigned int}]{dof\+\_\+end,  }\item[{const int}]{offset }\end{DoxyParamCaption})}
+
+Add an element to \mbox{\hyperlink{class_do_f_renumbering_offset_a5df6c4b70b1394c3670ced634146c9a9}{Do\+F\+Renumbering\+Offset\+::dof\+\_\+offsets}}
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em dof\+\_\+start} & The first index of the original interval\\
+\mbox{\texttt{ in}}  & {\em dof\+\_\+start} & The first index of the original interval\\
 \hline
-\mbox{\tt in}  & {\em dof\+\_\+end} & The last index of the original interval (or, rather, the index past the last index)\\
+\mbox{\texttt{ in}}  & {\em dof\+\_\+end} & The last index of the original interval (or, rather, the index past the last index)\\
 \hline
-\mbox{\tt in}  & {\em offset} & The offset to be applied \\
+\mbox{\texttt{ in}}  & {\em offset} & The offset to be applied \\
 \hline
 \end{DoxyParams}
-\index{Do\+F\+Renumbering\+Offset@{Do\+F\+Renumbering\+Offset}!clear@{clear}}
-\index{clear@{clear}!Do\+F\+Renumbering\+Offset@{Do\+F\+Renumbering\+Offset}}
-\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}void Do\+F\+Renumbering\+Offset\+::clear (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{class_do_f_renumbering_offset_ac7156c58d0aa5dcb57fa0fe3ac437453}{}\label{class_do_f_renumbering_offset_ac7156c58d0aa5dcb57fa0fe3ac437453}
-Function resetting the object \index{Do\+F\+Renumbering\+Offset@{Do\+F\+Renumbering\+Offset}!convert\+\_\+dof\+\_\+indices@{convert\+\_\+dof\+\_\+indices}}
-\index{convert\+\_\+dof\+\_\+indices@{convert\+\_\+dof\+\_\+indices}!Do\+F\+Renumbering\+Offset@{Do\+F\+Renumbering\+Offset}}
-\subsubsection[{\texorpdfstring{convert\+\_\+dof\+\_\+indices(std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices) const }{convert_dof_indices(std::vector< unsigned int > &dof_indices) const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Do\+F\+Renumbering\+Offset\+::convert\+\_\+dof\+\_\+indices (
-\begin{DoxyParamCaption}
-\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_do_f_renumbering_offset_a7b48f6f59b90c015b7e176148edbb797}{}\label{class_do_f_renumbering_offset_a7b48f6f59b90c015b7e176148edbb797}
+\mbox{\Hypertarget{class_do_f_renumbering_offset_ac7156c58d0aa5dcb57fa0fe3ac437453}\label{class_do_f_renumbering_offset_ac7156c58d0aa5dcb57fa0fe3ac437453}} 
+\index{DoFRenumberingOffset@{DoFRenumberingOffset}!clear@{clear}}
+\index{clear@{clear}!DoFRenumberingOffset@{DoFRenumberingOffset}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Do\+F\+Renumbering\+Offset\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Function resetting the object \mbox{\Hypertarget{class_do_f_renumbering_offset_a11744a010a6502ae0aa9bac11c7ff3f0}\label{class_do_f_renumbering_offset_a11744a010a6502ae0aa9bac11c7ff3f0}} 
+\index{DoFRenumberingOffset@{DoFRenumberingOffset}!convert\_dof\_indices@{convert\_dof\_indices}}
+\index{convert\_dof\_indices@{convert\_dof\_indices}!DoFRenumberingOffset@{DoFRenumberingOffset}}
+\doxysubsubsection{\texorpdfstring{convert\_dof\_indices()}{convert\_dof\_indices()}}
+{\footnotesize\ttfamily virtual void Do\+F\+Renumbering\+Offset\+::convert\+\_\+dof\+\_\+indices (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
 This function renumbers the incoming dof indices
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in,out}  & {\em dof\+\_\+indices} & The vector with the dof indices to be renumbered \\
+\mbox{\texttt{ in,out}}  & {\em dof\+\_\+indices} & The vector with the dof indices to be renumbered \\
 \hline
 \end{DoxyParams}
 
 
-Reimplemented from \hyperlink{class_do_f_renumbering_ad37a052986c62df79a1ebc8abea13e89}{Do\+F\+Renumbering}.
+Reimplemented from \mbox{\hyperlink{class_do_f_renumbering_a3dd9e72a14b3078a9f823222eacd162c}{Do\+F\+Renumbering}}.
 
-\index{Do\+F\+Renumbering\+Offset@{Do\+F\+Renumbering\+Offset}!convert\+\_\+range@{convert\+\_\+range}}
-\index{convert\+\_\+range@{convert\+\_\+range}!Do\+F\+Renumbering\+Offset@{Do\+F\+Renumbering\+Offset}}
-\subsubsection[{\texorpdfstring{convert\+\_\+range(const unsigned int range\+\_\+begin, const unsigned int range\+\_\+end) const }{convert_range(const unsigned int range_begin, const unsigned int range_end) const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::vector$<$std\+::pair$<$const unsigned int, const unsigned int$>$ $>$ Do\+F\+Renumbering\+Offset\+::convert\+\_\+range (
-\begin{DoxyParamCaption}
-\item[{const unsigned int}]{range\+\_\+begin, }
-\item[{const unsigned int}]{range\+\_\+end}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_do_f_renumbering_offset_ac066233b202f7982d29206c1221c1f6a}{}\label{class_do_f_renumbering_offset_ac066233b202f7982d29206c1221c1f6a}
+\mbox{\Hypertarget{class_do_f_renumbering_offset_adef238432ea7b8100c3d4d0e008a9f72}\label{class_do_f_renumbering_offset_adef238432ea7b8100c3d4d0e008a9f72}} 
+\index{DoFRenumberingOffset@{DoFRenumberingOffset}!convert\_range@{convert\_range}}
+\index{convert\_range@{convert\_range}!DoFRenumberingOffset@{DoFRenumberingOffset}}
+\doxysubsubsection{\texorpdfstring{convert\_range()}{convert\_range()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$std\+::pair$<$const unsigned int, const unsigned int$>$ $>$ Do\+F\+Renumbering\+Offset\+::convert\+\_\+range (\begin{DoxyParamCaption}\item[{const unsigned int}]{range\+\_\+begin,  }\item[{const unsigned int}]{range\+\_\+end }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
 Converts a contiguous range \mbox{[}{\ttfamily range\+\_\+begin}, {\ttfamily range\+\_\+end}\mbox{]} of indices into one or several contiguous ranges in the new numbering
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em range\+\_\+begin} & First index\\
+\mbox{\texttt{ in}}  & {\em range\+\_\+begin} & First index\\
 \hline
-\mbox{\tt in}  & {\em range\+\_\+end} & Past the last index\\
+\mbox{\texttt{ in}}  & {\em range\+\_\+end} & Past the last index\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -116,42 +109,43 @@ A vector with one or several ranges.
 \end{DoxyReturn}
 
 
-Reimplemented from \hyperlink{class_do_f_renumbering_ae95ba2f7f04a172812f086fc75b61c15}{Do\+F\+Renumbering}.
+Reimplemented from \mbox{\hyperlink{class_do_f_renumbering_a39be83786966bdce332a902104993c74}{Do\+F\+Renumbering}}.
 
-\index{Do\+F\+Renumbering\+Offset@{Do\+F\+Renumbering\+Offset}!get\+\_\+dof\+\_\+offsets@{get\+\_\+dof\+\_\+offsets}}
-\index{get\+\_\+dof\+\_\+offsets@{get\+\_\+dof\+\_\+offsets}!Do\+F\+Renumbering\+Offset@{Do\+F\+Renumbering\+Offset}}
-\subsubsection[{\texorpdfstring{get\+\_\+dof\+\_\+offsets() const }{get_dof_offsets() const }}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::vector$<$std\+::tuple$<$const unsigned int, const unsigned int, const int$>$ $>$\& Do\+F\+Renumbering\+Offset\+::get\+\_\+dof\+\_\+offsets (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_do_f_renumbering_offset_af92a21719157c5fd5e8ae42cf8af87f6}{}\label{class_do_f_renumbering_offset_af92a21719157c5fd5e8ae42cf8af87f6}
+\mbox{\Hypertarget{class_do_f_renumbering_offset_a672fcd1ce3fa89174aceb105b00e7814}\label{class_do_f_renumbering_offset_a672fcd1ce3fa89174aceb105b00e7814}} 
+\index{DoFRenumberingOffset@{DoFRenumberingOffset}!get\_dof\_offsets@{get\_dof\_offsets}}
+\index{get\_dof\_offsets@{get\_dof\_offsets}!DoFRenumberingOffset@{DoFRenumberingOffset}}
+\doxysubsubsection{\texorpdfstring{get\_dof\_offsets()}{get\_dof\_offsets()}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::tuple$<$const unsigned int, const unsigned int, const int$>$ $>$\& Do\+F\+Renumbering\+Offset\+::get\+\_\+dof\+\_\+offsets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
 \begin{DoxyReturn}{Returns}
-\hyperlink{class_do_f_renumbering_offset_a5df6c4b70b1394c3670ced634146c9a9}{Do\+F\+Renumbering\+Offset\+::dof\+\_\+offsets} 
+\mbox{\hyperlink{class_do_f_renumbering_offset_a5df6c4b70b1394c3670ced634146c9a9}{Do\+F\+Renumbering\+Offset\+::dof\+\_\+offsets}} 
 \end{DoxyReturn}
-\index{Do\+F\+Renumbering\+Offset@{Do\+F\+Renumbering\+Offset}!print@{print}}
-\index{print@{print}!Do\+F\+Renumbering\+Offset@{Do\+F\+Renumbering\+Offset}}
-\subsubsection[{\texorpdfstring{print(std\+::ostream \&out) const }{print(std::ostream &out) const }}]{\setlength{\rightskip}{0pt plus 5cm}void Do\+F\+Renumbering\+Offset\+::print (
-\begin{DoxyParamCaption}
-\item[{std\+::ostream \&}]{out}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_do_f_renumbering_offset_a51ae1b70be0b0a2444c4bba71a272f71}{}\label{class_do_f_renumbering_offset_a51ae1b70be0b0a2444c4bba71a272f71}
+\mbox{\Hypertarget{class_do_f_renumbering_offset_a0781d3aa455908ba49e61eafaca5f50b}\label{class_do_f_renumbering_offset_a0781d3aa455908ba49e61eafaca5f50b}} 
+\index{DoFRenumberingOffset@{DoFRenumberingOffset}!print@{print}}
+\index{print@{print}!DoFRenumberingOffset@{DoFRenumberingOffset}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Do\+F\+Renumbering\+Offset\+::print (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out }\end{DoxyParamCaption}) const}
+
 print the renumbering scheme to screen
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em out} & The output stream \\
+\mbox{\texttt{ in}}  & {\em out} & The output stream \\
 \hline
 \end{DoxyParams}
 
 
-\subsection{Member Data Documentation}
-\index{Do\+F\+Renumbering\+Offset@{Do\+F\+Renumbering\+Offset}!dof\+\_\+offsets@{dof\+\_\+offsets}}
-\index{dof\+\_\+offsets@{dof\+\_\+offsets}!Do\+F\+Renumbering\+Offset@{Do\+F\+Renumbering\+Offset}}
-\subsubsection[{\texorpdfstring{dof\+\_\+offsets}{dof_offsets}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$std\+::tuple$<$const unsigned int, const unsigned int, const int$>$ $>$ Do\+F\+Renumbering\+Offset\+::dof\+\_\+offsets\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_do_f_renumbering_offset_a5df6c4b70b1394c3670ced634146c9a9}{}\label{class_do_f_renumbering_offset_a5df6c4b70b1394c3670ced634146c9a9}
-This data structure defines a fixed shift of dof numbers from a certain interval \mbox{[}dof\+\_\+start\+\_\+i, dof\+\_\+end\+\_\+i\mbox{]} to the interval \mbox{[}dof\+\_\+start\+\_\+i + offset\+\_\+i, dof\+\_\+end\+\_\+i + offset\+\_\+i\mbox{]}. The tuples (dof\+\_\+start\+\_\+i, dof\+\_\+end\+\_\+i, offset\+\_\+i) define this shift. Multiple intervals can be added and the order of adding the intervals influences how the intervals are searched during conversion of dof indices. In particular, if a certain dof index is to be converted, it is initially tried to find it in the interval added first, if it is not found there, the second interval is tried, and so forth.\begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000009}{Todo}]It would be worthwhile to implement a more effective conversion scheme. \end{DoxyRefDesc}
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_do_f_renumbering_offset_a5df6c4b70b1394c3670ced634146c9a9}\label{class_do_f_renumbering_offset_a5df6c4b70b1394c3670ced634146c9a9}} 
+\index{DoFRenumberingOffset@{DoFRenumberingOffset}!dof\_offsets@{dof\_offsets}}
+\index{dof\_offsets@{dof\_offsets}!DoFRenumberingOffset@{DoFRenumberingOffset}}
+\doxysubsubsection{\texorpdfstring{dof\_offsets}{dof\_offsets}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::tuple$<$const unsigned int, const unsigned int, const int$>$ $>$ Do\+F\+Renumbering\+Offset\+::dof\+\_\+offsets\hspace{0.3cm}{\ttfamily [private]}}
+
+This data structure defines a fixed shift of dof numbers from a certain interval \mbox{[}dof\+\_\+start\+\_\+i, dof\+\_\+end\+\_\+i\mbox{]} to the interval \mbox{[}dof\+\_\+start\+\_\+i + offset\+\_\+i, dof\+\_\+end\+\_\+i + offset\+\_\+i\mbox{]}. The tuples (dof\+\_\+start\+\_\+i, dof\+\_\+end\+\_\+i, offset\+\_\+i) define this shift. Multiple intervals can be added and the order of adding the intervals influences how the intervals are searched during conversion of dof indices. In particular, if a certain dof index is to be converted, it is initially tried to find it in the interval added first, if it is not found there, the second interval is tried, and so forth. \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000009}{Todo}}]It would be worthwhile to implement a more effective conversion scheme. \end{DoxyRefDesc}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\hyperlink{dof__renumbering_8h}{dof\+\_\+renumbering.\+h}\end{DoxyCompactItemize}
+/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\mbox{\hyperlink{dof__renumbering_8h}{dof\+\_\+renumbering.\+h}}\end{DoxyCompactItemize}

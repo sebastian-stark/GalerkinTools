@@ -52,6 +52,21 @@ DirichletConstraint<spacedim>::~DirichletConstraint()
 	Assert(n_subscriptions() == 0, ExcMessage("You are about to destroy a DirichletConstraint, which is currently in use! Make sure that all DirichletConstraint objects live at least as long as the objects using them!"));
 }
 
+template<unsigned int spacedim>
+void
+DirichletConstraint<spacedim>::set_constraint_is_active(const bool constraint_is_active)
+{
+	this->constraint_is_active = constraint_is_active;
+}
+
+template<unsigned int spacedim>
+bool
+DirichletConstraint<spacedim>::get_constraint_is_active()
+const
+{
+	return this->constraint_is_active;
+}
+
 template class DirichletConstraint<2>;
 template class DirichletConstraint<3>;
 
