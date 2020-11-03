@@ -3831,7 +3831,8 @@ const
 	Assert(other_solution.size() == other_assembly_helper.system_size(), ExcMessage("The other solution vector has not the correct size!"));
 	Assert(	(norm_type == VectorTools::NormType::L2_norm) ||
 			(norm_type == VectorTools::NormType::Linfty_norm) ||
-			(norm_type == VectorTools::NormType::H1_seminorm),
+			(norm_type == VectorTools::NormType::H1_seminorm) ||
+			(norm_type == VectorTools::NormType::W1infty_seminorm),
 			ExcMessage("Up to now only the L2 norm and the Linfty norm are implemented!"));
 
 	double norm_domain = 0.0;
@@ -3940,6 +3941,14 @@ const
 						norm_contribution += function_gradients_domain[q][component] * function_gradients_domain[q][component] * scaling_domain_[component] * scaling_domain_[component];
 				norm_domain += fe_values_domain_present.JxW(q) * norm_contribution;
 			}
+			else if(norm_type == VectorTools::NormType::W1infty_seminorm)
+			{
+				for(unsigned int component = 0; component < function_gradients_domain[q].size(); ++component)
+					if( (component_mask_domain.size() == 0) || (component_mask_domain[component]) )
+						for(unsigned int m = 0; m < spacedim; ++m)
+							if(fabs(function_gradients_domain[q][component][m] * scaling_domain_[component]) > norm_domain)
+								norm_domain = fabs(function_gradients_domain[q][component][m] * scaling_domain_[component]);
+			}
 		}
 	}
 
@@ -4005,6 +4014,14 @@ const
 					if( (component_mask_interface.size() == 0) || (component_mask_interface[component]) )
 						norm_contribution += function_gradients_interface[q][component] * function_gradients_interface[q][component] * scaling_interface_[component] * scaling_interface_[component];
 				norm_interface += fe_values_interface_present.JxW(q) * norm_contribution;
+			}
+			else if(norm_type == VectorTools::NormType::W1infty_seminorm)
+			{
+				for(unsigned int component = 0; component < function_gradients_interface[q].size(); ++component)
+					if( (component_mask_interface.size() == 0) || (component_mask_interface[component]) )
+						for(unsigned int m = 0; m < spacedim; ++m)
+							if(fabs(function_gradients_interface[q][component][m] * scaling_interface_[component]) > norm_interface)
+								norm_interface = fabs(function_gradients_interface[q][component][m] * scaling_interface_[component]);
 			}
 		}
 	}
