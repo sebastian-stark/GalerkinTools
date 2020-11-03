@@ -1557,7 +1557,7 @@ public:
 	 *
 	 * @param[in]	quadrature_interface		Quadrature scheme to be used on the interface for the computation of the norm
 	 *
-	 * @param[in]	norm_type					Type of the norm (note: currently only VectorTools::NormType::@p L2_norm and VectorTools::NormType::@p Linfty_norm are implemented)
+	 * @param[in]	norm_type					Type of the norm (note: currently only VectorTools::NormType::@p L2_norm, VectorTools::NormType::@p Linfty_norm and VectorTools::NormType::@p H1_seminorm are implemented)
 	 *
 	 * @param[in]	component_mask_domain		Domain related solution components to be included in the calculation. If the ComponentMask
 	 * 											is empty, all components will be included

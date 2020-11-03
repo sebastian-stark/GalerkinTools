@@ -3830,7 +3830,8 @@ const
 	Assert(solution.size() == system_size(), ExcMessage("The solution vector has not the correct size!"));
 	Assert(other_solution.size() == other_assembly_helper.system_size(), ExcMessage("The other solution vector has not the correct size!"));
 	Assert(	(norm_type == VectorTools::NormType::L2_norm) ||
-			(norm_type == VectorTools::NormType::Linfty_norm),
+			(norm_type == VectorTools::NormType::Linfty_norm) ||
+			(norm_type == VectorTools::NormType::H1_seminorm),
 			ExcMessage("Up to now only the L2 norm and the Linfty norm are implemented!"));
 
 	double norm_domain = 0.0;
@@ -3883,7 +3884,8 @@ const
 														quadrature_collection_domain,
 														update_quadrature_points|
 														update_JxW_values|
-														update_values);
+														update_values|
+														update_gradients);
 
 	const unsigned int n_components_domain = fe_collection_domain.n_components();
 	Vector<double> scaling_domain_(n_components_domain);
@@ -3902,11 +3904,17 @@ const
 	function_values_domain.resize(n_q_points_domain);
 	for(auto& function_values_domain_n : function_values_domain)
 		function_values_domain_n.reinit(n_components_domain);
+	vector<vector<Tensor<1,spacedim>>> function_gradients_domain;
+	function_gradients_domain.resize(n_q_points_domain);
+	for(auto& function_gradients_domain_n : function_gradients_domain)
+		function_gradients_domain_n.resize(n_components_domain);
+
 	for(const auto& cell : dof_handler_system.domain_active_iterators())
 	{
 		fe_values_domain.reinit(cell);
 		const FEValues<spacedim, spacedim>& fe_values_domain_present = fe_values_domain.get_present_fe_values();
 		fe_values_domain_present.get_function_values(e_domain, function_values_domain);
+		fe_values_domain_present.get_function_gradients(e_domain, function_gradients_domain);
 		for(unsigned int q = 0; q < n_q_points_domain; ++q)
 		{
 			if(norm_type == VectorTools::NormType::L2_norm)
@@ -3924,6 +3932,14 @@ const
 						if(fabs(function_values_domain[q][component] * scaling_domain_[component]) > norm_domain)
 							norm_domain = fabs(function_values_domain[q][component] * scaling_domain_[component]);
 			}
+			else if(norm_type == VectorTools::NormType::H1_seminorm)
+			{
+				double norm_contribution = 0.0;
+				for(unsigned int component = 0; component < function_gradients_domain[q].size(); ++component)
+					if( (component_mask_domain.size() == 0) || (component_mask_domain[component]) )
+						norm_contribution += function_gradients_domain[q][component] * function_gradients_domain[q][component] * scaling_domain_[component] * scaling_domain_[component];
+				norm_domain += fe_values_domain_present.JxW(q) * norm_contribution;
+			}
 		}
 	}
 
@@ -3935,7 +3951,8 @@ const
 															quadrature_collection_interface,
 															update_quadrature_points|
 															update_JxW_values|
-															update_values);
+															update_values|
+															update_gradients);
 
 	const unsigned int n_components_interface = fe_collection_interface.n_components();
 	Vector<double> scaling_interface_(n_components_interface);
@@ -3954,11 +3971,16 @@ const
 	function_values_interface.resize(n_q_points_interface);
 	for(auto& function_values_interface_n : function_values_interface)
 		function_values_interface_n.reinit(n_components_interface);
+	vector<vector<Tensor<1,spacedim>>> function_gradients_interface;
+	function_gradients_interface.resize(n_q_points_interface);
+	for(auto& function_gradients_interface_n : function_gradients_interface)
+		function_gradients_interface_n.resize(n_components_interface);
 	for(const auto& interface_cell_domain_cell : dof_handler_system.interface_active_iterators())
 	{
 		fe_values_interface.reinit(interface_cell_domain_cell.interface_cell);
 		const FEValues<spacedim-1, spacedim>& fe_values_interface_present = fe_values_interface.get_present_fe_values();
 		fe_values_interface_present.get_function_values(e_interface, function_values_interface);
+		fe_values_interface_present.get_function_gradients(e_interface, function_gradients_interface);
 		for(unsigned int q = 0; q < n_q_points_interface; q++)
 		{
 			if(norm_type == VectorTools::NormType::L2_norm)
@@ -3976,10 +3998,18 @@ const
 						if(fabs(function_values_interface[q][component] * scaling_interface_[component]) > norm_interface)
 							norm_interface = fabs(function_values_interface[q][component] * scaling_interface_[component]);
 			}
+			else if(norm_type == VectorTools::NormType::H1_seminorm)
+			{
+				double norm_contribution = 0.0;
+				for(unsigned int component = 0; component < function_gradients_interface[q].size(); ++component)
+					if( (component_mask_interface.size() == 0) || (component_mask_interface[component]) )
+						norm_contribution += function_gradients_interface[q][component] * function_gradients_interface[q][component] * scaling_interface_[component] * scaling_interface_[component];
+				norm_interface += fe_values_interface_present.JxW(q) * norm_contribution;
+			}
 		}
 	}
 
-	if(norm_type == VectorTools::NormType::L2_norm)
+	if( (norm_type == VectorTools::NormType::L2_norm) || (norm_type == VectorTools::NormType::H1_seminorm))
 	{
 		norm_domain = sqrt(norm_domain);
 		norm_interface = sqrt(norm_interface);

@@ -1,0 +1,43 @@
+### 2D-Case, Cube ###
+
+Independent fields defined on domain:
+u (global index=0)
+
+Independent fields defined on interfaces:
+v (global index=0)
+
+Scalar independent variables:
+None
+
+Independent fields defined on domain:
+u (global index=0)
+
+Independent fields defined on interfaces:
+v (global index=0)
+
+Scalar independent variables:
+None
+
+D=3.4641
+
+### 3D-Case, Cube ###
+
+Independent fields defined on domain:
+u (global index=0)
+
+Independent fields defined on interfaces:
+v (global index=0)
+
+Scalar independent variables:
+None
+
+Independent fields defined on domain:
+u (global index=0)
+
+Independent fields defined on interfaces:
+v (global index=0)
+
+Scalar independent variables:
+None
+
+D=4.08248
