@@ -98,8 +98,8 @@ Collaboration diagram for parallel::TriangulationSystem&lt; spacedim &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2d0fa99c5da897bedc4d9df93d6cdaf7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparallel_1_1_triangulation_system.html#a2d0fa99c5da897bedc4d9df93d6cdaf7">TriangulationSystem</a> (dealii::parallel::distributed::Triangulation&lt; spacedim, spacedim &gt; &amp;tria_domain)</td></tr>
-<tr class="separator:a2d0fa99c5da897bedc4d9df93d6cdaf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a312a7db9393869aa3c9b84b1e316342b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparallel_1_1_triangulation_system.html#a312a7db9393869aa3c9b84b1e316342b">TriangulationSystem</a> (dealii::parallel::distributed::Triangulation&lt; spacedim, spacedim &gt; &amp;tria_domain, const bool fix_vertex_positions=false)</td></tr>
+<tr class="separator:a312a7db9393869aa3c9b84b1e316342b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad12682d17e85ee169fd53cdbe0536f16"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparallel_1_1_triangulation_system.html#ad12682d17e85ee169fd53cdbe0536f16">~TriangulationSystem</a> ()=default</td></tr>
 <tr class="separator:ad12682d17e85ee169fd53cdbe0536f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68d45d1980bf4a8aa4ed8db4f4985eef"><td class="memItemLeft" align="right" valign="top">virtual const dealii::parallel::Triangulation&lt; spacedim, spacedim &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparallel_1_1_triangulation_system.html#a68d45d1980bf4a8aa4ed8db4f4985eef">get_triangulation_domain</a> () const</td></tr>
@@ -146,8 +146,8 @@ class parallel::TriangulationSystem&lt; spacedim &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a2d0fa99c5da897bedc4d9df93d6cdaf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d0fa99c5da897bedc4d9df93d6cdaf7">&#9670;&nbsp;</a></span>TriangulationSystem()</h2>
+<a id="a312a7db9393869aa3c9b84b1e316342b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a312a7db9393869aa3c9b84b1e316342b">&#9670;&nbsp;</a></span>TriangulationSystem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,15 +158,26 @@ template&lt;unsigned int spacedim&gt; </div>
           <td class="memname"><a class="el" href="classparallel_1_1_triangulation_system.html">parallel::TriangulationSystem</a>&lt; spacedim &gt;::<a class="el" href="classparallel_1_1_triangulation_system.html">TriangulationSystem</a> </td>
           <td>(</td>
           <td class="paramtype">dealii::parallel::distributed::Triangulation&lt; spacedim, spacedim &gt; &amp;&#160;</td>
-          <td class="paramname"><em>tria_domain</em></td><td>)</td>
+          <td class="paramname"><em>tria_domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>fix_vertex_positions</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Constructor of the <a class="el" href="classparallel_1_1_triangulation_system.html">parallel::TriangulationSystem</a>. Note that the constructor does not copy the <code>tria_domain</code> object supplied, but rather stores a pointer to it. So do not change it after construction of the <a class="el" href="classparallel_1_1_triangulation_system.html">parallel::TriangulationSystem</a> unless you're knowing exactly what you are doing (the only change to the domain triangulation, which is admissible, is mesh refinement). No checking on external changes of the domain triangulation is currently performed and, therefore, doing so may lead to errors which are hard to debug.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">tria_domain</td><td><a class="el" href="class_triangulation_system.html#a68bafddc70652cb7c64701c74e86279f">TriangulationSystem::tria_domain</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tria_domain</td><td><a class="el" href="class_triangulation_system.html#a68bafddc70652cb7c64701c74e86279f">TriangulationSystem::tria_domain</a></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fix_vertex_positions</td><td><a class="el" href="class_triangulation_system.html#a74bfeabee5174d77a8477ba9d2de4813">TriangulationSystem::fix_vertex_positions</a> </td></tr>
   </table>
   </dd>
 </dl>

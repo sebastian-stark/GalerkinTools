@@ -4553,8 +4553,8 @@
       <type></type>
       <name>TriangulationSystem</name>
       <anchorfile>class_triangulation_system.html</anchorfile>
-      <anchor>a427810bad1fb5457979b8948bb776539</anchor>
-      <arglist>(Triangulation&lt; spacedim, spacedim &gt; &amp;tria_domain)</arglist>
+      <anchor>a2d41b2b77cc2835f81a8584ca24dccad</anchor>
+      <arglist>(Triangulation&lt; spacedim, spacedim &gt; &amp;tria_domain, const bool fix_vertex_positions=false)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -4822,6 +4822,13 @@
       <anchor>a713f97bee5570de1f5571d86a41e83f6</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable" protection="private">
+      <type>const bool</type>
+      <name>fix_vertex_positions</name>
+      <anchorfile>class_triangulation_system.html</anchorfile>
+      <anchor>a74bfeabee5174d77a8477ba9d2de4813</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="friend" protection="private">
       <type>friend class</type>
       <name>AssemblyHelper</name>
@@ -4838,8 +4845,8 @@
       <type></type>
       <name>TriangulationSystem</name>
       <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a2d0fa99c5da897bedc4d9df93d6cdaf7</anchor>
-      <arglist>(dealii::parallel::distributed::Triangulation&lt; spacedim, spacedim &gt; &amp;tria_domain)</arglist>
+      <anchor>a312a7db9393869aa3c9b84b1e316342b</anchor>
+      <arglist>(dealii::parallel::distributed::Triangulation&lt; spacedim, spacedim &gt; &amp;tria_domain, const bool fix_vertex_positions=false)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>

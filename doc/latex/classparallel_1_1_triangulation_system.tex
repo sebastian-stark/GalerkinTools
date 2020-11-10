@@ -25,7 +25,7 @@ Collaboration diagram for parallel\+::Triangulation\+System$<$ spacedim $>$\+:\n
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classparallel_1_1_triangulation_system_a2d0fa99c5da897bedc4d9df93d6cdaf7}{Triangulation\+System}} (dealii\+::parallel\+::distributed\+::\+Triangulation$<$ spacedim, spacedim $>$ \&tria\+\_\+domain)
+\mbox{\hyperlink{classparallel_1_1_triangulation_system_a312a7db9393869aa3c9b84b1e316342b}{Triangulation\+System}} (dealii\+::parallel\+::distributed\+::\+Triangulation$<$ spacedim, spacedim $>$ \&tria\+\_\+domain, const bool fix\+\_\+vertex\+\_\+positions=false)
 \item 
 virtual \mbox{\hyperlink{classparallel_1_1_triangulation_system_ad12682d17e85ee169fd53cdbe0536f16}{$\sim$\+Triangulation\+System}} ()=default
 \item 
@@ -79,18 +79,20 @@ In general, the complete coarse domain mesh with all \textbf{ types\+::material\
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classparallel_1_1_triangulation_system_a2d0fa99c5da897bedc4d9df93d6cdaf7}\label{classparallel_1_1_triangulation_system_a2d0fa99c5da897bedc4d9df93d6cdaf7}} 
+\mbox{\Hypertarget{classparallel_1_1_triangulation_system_a312a7db9393869aa3c9b84b1e316342b}\label{classparallel_1_1_triangulation_system_a312a7db9393869aa3c9b84b1e316342b}} 
 \index{parallel::TriangulationSystem$<$ spacedim $>$@{parallel::TriangulationSystem$<$ spacedim $>$}!TriangulationSystem@{TriangulationSystem}}
 \index{TriangulationSystem@{TriangulationSystem}!parallel::TriangulationSystem$<$ spacedim $>$@{parallel::TriangulationSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{TriangulationSystem()}{TriangulationSystem()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}}$<$ spacedim $>$\+::\mbox{\hyperlink{classparallel_1_1_triangulation_system}{Triangulation\+System}} (\begin{DoxyParamCaption}\item[{dealii\+::parallel\+::distributed\+::\+Triangulation$<$ spacedim, spacedim $>$ \&}]{tria\+\_\+domain }\end{DoxyParamCaption})}
+\mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}}$<$ spacedim $>$\+::\mbox{\hyperlink{classparallel_1_1_triangulation_system}{Triangulation\+System}} (\begin{DoxyParamCaption}\item[{dealii\+::parallel\+::distributed\+::\+Triangulation$<$ spacedim, spacedim $>$ \&}]{tria\+\_\+domain,  }\item[{const bool}]{fix\+\_\+vertex\+\_\+positions = {\ttfamily false} }\end{DoxyParamCaption})}
 
 Constructor of the \mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}}. Note that the constructor does not copy the {\ttfamily tria\+\_\+domain} object supplied, but rather stores a pointer to it. So do not change it after construction of the \mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}} unless you\textquotesingle{}re knowing exactly what you are doing (the only change to the domain triangulation, which is admissible, is mesh refinement). No checking on external changes of the domain triangulation is currently performed and, therefore, doing so may lead to errors which are hard to debug.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em tria\+\_\+domain} & \mbox{\hyperlink{class_triangulation_system_a68bafddc70652cb7c64701c74e86279f}{Triangulation\+System\+::tria\+\_\+domain}} \\
+\mbox{\texttt{ in}}  & {\em tria\+\_\+domain} & \mbox{\hyperlink{class_triangulation_system_a68bafddc70652cb7c64701c74e86279f}{Triangulation\+System\+::tria\+\_\+domain}}\\
+\hline
+\mbox{\texttt{ in}}  & {\em fix\+\_\+vertex\+\_\+positions} & \mbox{\hyperlink{class_triangulation_system_a74bfeabee5174d77a8477ba9d2de4813}{Triangulation\+System\+::fix\+\_\+vertex\+\_\+positions}} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classparallel_1_1_triangulation_system_ad12682d17e85ee169fd53cdbe0536f16}\label{classparallel_1_1_triangulation_system_ad12682d17e85ee169fd53cdbe0536f16}} 

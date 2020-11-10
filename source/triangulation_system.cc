@@ -20,6 +20,7 @@
 #include <fstream>
 
 #include <deal.II/grid/grid_out.h>
+#include <deal.II/grid/manifold_lib.h>
 
 #include <galerkin_tools/triangulation_system.h>
 
@@ -153,8 +154,10 @@ subface(get<6>(input))
 }
 
 template<unsigned int spacedim>
-TriangulationSystem<spacedim>::TriangulationSystem(Triangulation<spacedim, spacedim>& tria_domain)
+TriangulationSystem<spacedim>::TriangulationSystem(	Triangulation<spacedim, spacedim>& 	tria_domain,
+													const bool							fix_vertex_positions)
 :
+fix_vertex_positions(fix_vertex_positions),
 tria_domain(&tria_domain)
 {
 	if(dynamic_cast<const dealii::parallel::distributed::Triangulation<spacedim, spacedim>*>(&tria_domain) != nullptr)
@@ -447,6 +450,17 @@ TriangulationSystem<spacedim>::generate_active_interface_cells_domain_cells_recu
 				const unsigned int face_neighbor = domain_cell->neighbor_of_neighbor(face);
 				Assert(	( domain_cell_neighbor_child_n->active() && interface_cell->child(interface_cell_child_n)->active() ) || no_assert,
 						ExcMessage("Interface and domain mesh inconsistent!"));
+				if(fix_vertex_positions)
+				{
+					for(unsigned int v = 0; v < GeometryInfo<spacedim>::vertices_per_face; ++ v)
+					{
+						if(domain_cell_neighbor_child_n->face(face_neighbor)->vertex(v).distance(interface_cell->child(interface_cell_child_n)->vertex(v)) > 1e-14)
+						{
+							interface_cell->child(interface_cell_child_n)->vertex(v) = domain_cell_neighbor_child_n->face(face_neighbor)->vertex(v);
+						}
+					}
+				}
+
 				Assert(	(domain_cell_neighbor_child_n->face(face_neighbor)->center()).distance(interface_cell->child(interface_cell_child_n)->center())<1e-14,
 						ExcMessage("Internal error: interface and domain face centers not at same location. Either this is a bug or you forgot to supply appropriate manifolds with the interface definition!"));
 				active_interface_cell_domain_cells.push_back(InterfaceCellDomainCells<spacedim>(domain_cell_neighbor_child_n, face_neighbor, interface_cell->child(interface_cell_child_n), InterfaceSide::plus));
@@ -472,6 +486,16 @@ TriangulationSystem<spacedim>::generate_active_interface_cells_domain_cells_recu
 		if(!(domain_cell->face(face)->at_boundary()))
 			Assert(	domain_cell->neighbor(face)->active()  || no_assert,
 					ExcMessage("Interface and domain mesh inconsistent!"));
+		if(fix_vertex_positions)
+		{
+			for(unsigned int v = 0; v < GeometryInfo<spacedim>::vertices_per_face; ++ v)
+			{
+				if(domain_cell->face(face)->vertex(v).distance(interface_cell->vertex(v)) > 1e-14)
+				{
+					interface_cell->vertex(v) = domain_cell->face(face)->vertex(v);
+				}
+			}
+		}
 		Assert(	(domain_cell->face(face)->center()).distance(interface_cell->center())<1e-14,
 				ExcMessage("Internal error: interface and domain face centers not at same location.  Either this is a bug or you forgot to supply appropriate manifolds with the interface definition."));
 		active_interface_cell_domain_cells.push_back(InterfaceCellDomainCells<spacedim>(domain_cell, face, interface_cell, InterfaceSide::minus));
@@ -622,7 +646,11 @@ TriangulationSystem<spacedim>::generate_tria_interface_from_tria_domain()
 
 	//attach manifolds
 	for(const auto& interface_manifold : interface_manifolds)
-		tria_interface->set_manifold(interface_manifold.first, *(interface_manifold.second));
+	{
+		//only attach manifolds here if they are not transfinite interpolation manifolds, otherwise later
+		if(!dynamic_cast<const TransfiniteInterpolationManifold<spacedim-1, spacedim>*>(interface_manifold.second))
+			tria_interface->set_manifold(interface_manifold.first, *(interface_manifold.second));
+	}
 
 	//this essentially creates the interface triangulation (approach similar as in GridGenerator::GridGenerator::extract_boundary_mesh() of deal.II)
 
@@ -733,6 +761,18 @@ TriangulationSystem<spacedim>::generate_tria_interface_from_tria_domain()
 		//create interface triangulation
 		tria_interface->create_triangulation(vertices, cell_data, subcell_data);
 
+		//initialize transfinite interpolation manifolds if these are present
+		for(const auto& interface_manifold : interface_manifolds)
+		{
+			const auto transfinite_manifold = dynamic_cast<const TransfiniteInterpolationManifold<spacedim-1, spacedim>*>(interface_manifold.second);
+			if(transfinite_manifold)
+			{
+				const_cast<TransfiniteInterpolationManifold<spacedim-1, spacedim>*>(transfinite_manifold)->initialize(*tria_interface);
+				tria_interface->set_manifold(interface_manifold.first, *(interface_manifold.second));
+			}
+		}
+
+
 		//Mapping between faces of the coarse domain mesh and corresponding cells of the coarse interface mesh
 		//it is assumed here that create_triangulation does not change the order of the elements;
 		//only do this if it has not been done during a previous call to close()
@@ -820,9 +860,10 @@ const
 	return false;
 }
 template<unsigned int spacedim>
-TriangulationSystem<spacedim>::TriangulationSystem(	dealii::parallel::distributed::Triangulation<spacedim, spacedim>&	tria_domain)
+TriangulationSystem<spacedim>::TriangulationSystem(	dealii::parallel::distributed::Triangulation<spacedim, spacedim>&	tria_domain,
+													const bool															fix_vertex_positions)
 :
-dealii::GalerkinTools::TriangulationSystem<spacedim>(tria_domain),
+dealii::GalerkinTools::TriangulationSystem<spacedim>(tria_domain, fix_vertex_positions),
 mpi_communicator(tria_domain.get_communicator())
 {
 	//reset the interface triangulation to use a parallel::Triangulation

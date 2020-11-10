@@ -478,6 +478,13 @@ private:
 	push_tria_listeners_to_end();
 
 	/**
+	 * If this is @p true, it is tried to adjust vertices of interface and domain triangulation such that they align properly
+	 * (misalignment ma happen if inapproriate/inconsistent manifolds are used for domain and interface triangulation)
+	 */
+	const bool
+	fix_vertex_positions = false;
+
+	/**
 	 * Make AssemblyHelper a friend to simplify some procedures
 	 */
 	template <unsigned int> friend class AssemblyHelper;
@@ -542,9 +549,12 @@ public:
 	 * of the domain triangulation is currently performed and, therefore, doing so may lead to errors
 	 * which are hard to debug.
 	 *
-	 * @param[in]	tria_domain		TriangulationSystem::tria_domain
+	 * @param[in]	tria_domain					TriangulationSystem::tria_domain
+	 *
+	 * @param[in]	fix_vertex_positions		TriangulationSystem::fix_vertex_positions
 	 */
-	TriangulationSystem(Triangulation<spacedim, spacedim>& tria_domain);
+	TriangulationSystem(Triangulation<spacedim, spacedim>& 	tria_domain,
+						const bool 							fix_vertex_positions = false);
 
 	/**
 	 * The destructor of TriangulationSystem essentially checks before destruction that the
@@ -889,9 +899,12 @@ public:
 	 * of the domain triangulation is currently performed and, therefore, doing so may lead to errors
 	 * which are hard to debug.
 	 *
-	 * @param[in]	tria_domain			TriangulationSystem::tria_domain
+	 * @param[in]	tria_domain				TriangulationSystem::tria_domain
+	 *
+	 * @param[in]	fix_vertex_positions	TriangulationSystem::fix_vertex_positions
 	 */
-	TriangulationSystem(dealii::parallel::distributed::Triangulation<spacedim, spacedim>& tria_domain);
+	TriangulationSystem(dealii::parallel::distributed::Triangulation<spacedim, spacedim>&	tria_domain,
+						const bool															fix_vertex_positions = false);
 
 		/**
 	 * Destructor

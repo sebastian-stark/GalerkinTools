@@ -120,8 +120,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a427810bad1fb5457979b8948bb776539"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangulation_system.html#a427810bad1fb5457979b8948bb776539">TriangulationSystem</a> (<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; spacedim, spacedim &gt; &amp;<a class="el" href="class_triangulation_system.html#a68bafddc70652cb7c64701c74e86279f">tria_domain</a>)</td></tr>
-<tr class="separator:a427810bad1fb5457979b8948bb776539"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d41b2b77cc2835f81a8584ca24dccad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangulation_system.html#a2d41b2b77cc2835f81a8584ca24dccad">TriangulationSystem</a> (<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; spacedim, spacedim &gt; &amp;<a class="el" href="class_triangulation_system.html#a68bafddc70652cb7c64701c74e86279f">tria_domain</a>, const bool <a class="el" href="class_triangulation_system.html#a74bfeabee5174d77a8477ba9d2de4813">fix_vertex_positions</a>=false)</td></tr>
+<tr class="separator:a2d41b2b77cc2835f81a8584ca24dccad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b0dc550fe1566ab1ba6668a868d0a70"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangulation_system.html#a9b0dc550fe1566ab1ba6668a868d0a70">~TriangulationSystem</a> ()</td></tr>
 <tr class="separator:a9b0dc550fe1566ab1ba6668a868d0a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70637dc46ee4a36433c3ec3c5dc544c5"><td class="memItemLeft" align="right" valign="top">virtual const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; spacedim, spacedim &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangulation_system.html#a70637dc46ee4a36433c3ec3c5dc544c5">get_triangulation_domain</a> () const</td></tr>
@@ -236,6 +236,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a516c7a253cefbc5e208714538b21424d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a713f97bee5570de1f5571d86a41e83f6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; boost::signals2::connection &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangulation_system.html#a713f97bee5570de1f5571d86a41e83f6">tria_listeners</a></td></tr>
 <tr class="separator:a713f97bee5570de1f5571d86a41e83f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74bfeabee5174d77a8477ba9d2de4813"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangulation_system.html#a74bfeabee5174d77a8477ba9d2de4813">fix_vertex_positions</a> = false</td></tr>
+<tr class="separator:a74bfeabee5174d77a8477ba9d2de4813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -345,8 +347,8 @@ template&lt;unsigned int spacedim&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a427810bad1fb5457979b8948bb776539"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a427810bad1fb5457979b8948bb776539">&#9670;&nbsp;</a></span>TriangulationSystem()</h2>
+<a id="a2d41b2b77cc2835f81a8584ca24dccad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d41b2b77cc2835f81a8584ca24dccad">&#9670;&nbsp;</a></span>TriangulationSystem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -357,15 +359,26 @@ template&lt;unsigned int spacedim&gt; </div>
           <td class="memname"><a class="el" href="class_triangulation_system.html">TriangulationSystem</a>&lt; spacedim &gt;::<a class="el" href="class_triangulation_system.html">TriangulationSystem</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classTriangulation.html">Triangulation</a>&lt; spacedim, spacedim &gt; &amp;&#160;</td>
-          <td class="paramname"><em>tria_domain</em></td><td>)</td>
+          <td class="paramname"><em>tria_domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>fix_vertex_positions</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Constructor of the <a class="el" href="class_triangulation_system.html">TriangulationSystem</a>. Note that the constructor does not copy the <code>tria_domain</code> object supplied, but rather stores a pointer to it. So do not change it after construction of the <a class="el" href="class_triangulation_system.html">TriangulationSystem</a> unless you're knowing exactly what you are doing (the only change to the domain triangulation, which is admissible, is mesh refinement). No checking on external changes of the domain triangulation is currently performed and, therefore, doing so may lead to errors which are hard to debug.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">tria_domain</td><td><a class="el" href="class_triangulation_system.html#a68bafddc70652cb7c64701c74e86279f">TriangulationSystem::tria_domain</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tria_domain</td><td><a class="el" href="class_triangulation_system.html#a68bafddc70652cb7c64701c74e86279f">TriangulationSystem::tria_domain</a></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fix_vertex_positions</td><td><a class="el" href="class_triangulation_system.html#a74bfeabee5174d77a8477ba9d2de4813">TriangulationSystem::fix_vertex_positions</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -1310,6 +1323,31 @@ template&lt;unsigned int spacedim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>This vector contains the interface cells and corresponding domain cells on the coarse mesh level. A peculiarity of the <a class="el" href="class_interface_cell_domain_cells.html">InterfaceCellDomainCells</a> contained in the vector is that the domain cell faces on both sides of an interface cell are always refined to the same level. I.e., the <a class="el" href="class_interface_cell_domain_cells.html">InterfaceCellDomainCells</a> are always related with either <a class="el" href="class_interface_cell_domain_cells.html#ab1b5469ca5c40256942ea179abbba92c">InterfaceCellDomainCells::refinement_case</a> == <code>equally_fine</code> or <a class="el" href="class_interface_cell_domain_cells.html#ab1b5469ca5c40256942ea179abbba92c">InterfaceCellDomainCells::refinement_case</a> == <code>at_boundary</code>. </p>
+
+</div>
+</div>
+<a id="a74bfeabee5174d77a8477ba9d2de4813"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74bfeabee5174d77a8477ba9d2de4813">&#9670;&nbsp;</a></span>fix_vertex_positions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="class_triangulation_system.html">TriangulationSystem</a>&lt; spacedim &gt;::fix_vertex_positions = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>If this is <code>true</code>, it is tried to adjust vertices of interface and domain triangulation such that they align properly (misalignment ma happen if inapproriate/inconsistent manifolds are used for domain and interface triangulation) </p>
 
 </div>
 </div>
