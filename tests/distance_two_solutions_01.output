@@ -18,7 +18,7 @@ v (global index=0)
 Scalar independent variables:
 None
 
-D=3.4641
+D=19.3333 42
 
 ### 3D-Case, Cube ###
 
@@ -40,4 +40,4 @@ v (global index=0)
 Scalar independent variables:
 None
 
-D=4.08248
+D=74.8333 304
