@@ -74,7 +74,7 @@ FOREACH(_build "debug" "release")
     ADD_LIBRARY(${_target} SHARED ${_target_src})
 
     #define compile flags and definitions and link flags (according to what has been used to compile deal.II)
-    SET_PROPERTY(TARGET ${_target} APPEND_STRING PROPERTY COMPILE_FLAGS " ${DEAL_II_CXX_FLAGS} ${DEAL_II_CXX_FLAGS_${_build_toupper}} -Wno-deprecated-declarations")
+    SET_PROPERTY(TARGET ${_target} APPEND_STRING PROPERTY COMPILE_FLAGS " ${DEAL_II_CXX_FLAGS} ${DEAL_II_CXX_FLAGS_${_build_toupper}} -Wno-deprecated-declarations -Wno-cast-function-type")
     SET_PROPERTY(TARGET ${_target} APPEND PROPERTY COMPILE_DEFINITIONS "${DEAL_II_USER_DEFINITIONS};${DEAL_II_USER_DEFINITIONS_${_build_toupper}}")
     SET_PROPERTY(TARGET ${_target} APPEND PROPERTY LINK_FLAGS "${DEAL_II_LINKER_FLAGS} ${DEAL_II_LINKER_FLAGS_${_build_toupper}}")
     IF(GALERKIN_TOOLS_WITH_PARDISO)
