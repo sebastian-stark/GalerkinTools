@@ -328,6 +328,18 @@ SolverWrapperPETScIterative::solve(	const parallel::TwoBlockMatrix<PETScWrappers
 void
 BlockSolverWrapperPARDISO::initialize_matrix(	const SparseMatrix<double>& matrix)
 {
+
+	// if matrix is already initialized and it will be analyzed again, clear the entire memory because otherwise the memory will be leaking
+	if( (analyze < 2) && initialized)
+	{
+		int phase = -1;
+		int mtype = get_matrix_type();
+		int error = 0;
+		if(initialized)
+			pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, nullptr, Ap.data(), Ai.data(), nullptr, &nrhs, iparm, &msglvl, nullptr, nullptr, &error,  dparm);
+		AssertThrow(error == 0, ExcPARDISOError("pardiso", error));
+	}
+
 	msglvl = print_level;
 
 	Assert(matrix.m() == matrix.n(), ExcNotQuadratic());
@@ -537,6 +549,7 @@ BlockSolverWrapperPARDISO::~BlockSolverWrapperPARDISO()
 	int error = 0;
 	if(initialized)
 		pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, nullptr, Ap.data(), Ai.data(), nullptr, &nrhs, iparm, &msglvl, nullptr, nullptr, &error,  dparm);
+	AssertThrow(error == 0, ExcPARDISOError("pardiso", error));
 }
 
 void
