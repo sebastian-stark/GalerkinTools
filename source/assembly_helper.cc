@@ -1414,6 +1414,18 @@ const
 						const double inhomogeneity = constraint->constraint_inhomogeneity->value(Point<spacedim>());
 						constraint_matrix.set_inhomogeneity(dof_index, inhomogeneity);
 					}
+					if(constraint->independent_scalar != nullptr)
+					{
+						double coefficient_c;
+						if(constraint->coefficient_c != nullptr)
+						{
+							coefficient_c = constraint->coefficient_c->value(Point<spacedim>());
+						}
+						else
+							coefficient_c = 1.0;
+						if(coefficient_c != 0.0)
+							constraint_matrix.add_entry(dof_index, get_global_dof_index_C(constraint->independent_scalar), coefficient_c);
+					}
 				}
 			}
 			else
@@ -1439,6 +1451,18 @@ const
 						const double inhomogeneity = constraint->constraint_inhomogeneity->value(Point<spacedim>());
 						constraint_matrix.set_inhomogeneity(dof_index, inhomogeneity);
 					}
+					if(constraint->independent_scalar != nullptr)
+					{
+						double coefficient_c;
+						if(constraint->coefficient_c != nullptr)
+						{
+							coefficient_c = constraint->coefficient_c->value(Point<spacedim>());
+						}
+						else
+							coefficient_c = 1.0;
+						if(coefficient_c != 0.0)
+							constraint_matrix.add_entry(dof_index, get_global_dof_index_C(constraint->independent_scalar), coefficient_c);
+					}
 				}
 			}
 			else
@@ -1462,6 +1486,18 @@ const
 				{
 					const double inhomogeneity = constraint->constraint_inhomogeneity->value(Point<spacedim>());
 					constraint_matrix.set_inhomogeneity(dof_index, inhomogeneity);
+				}
+				if(constraint->independent_scalar != nullptr)
+				{
+					double coefficient_c;
+					if(constraint->coefficient_c != nullptr)
+					{
+						coefficient_c = constraint->coefficient_c->value(Point<spacedim>());
+					}
+					else
+						coefficient_c = 1.0;
+					if(coefficient_c != 0.0)
+						constraint_matrix.add_entry(dof_index, get_global_dof_index_C(constraint->independent_scalar), coefficient_c);
 				}
 			}
 		}

@@ -3943,8 +3943,8 @@
       <type></type>
       <name>PointConstraint</name>
       <anchorfile>class_point_constraint.html</anchorfile>
-      <anchor>a5d192b30c02b3d4002fef04db84f75c3</anchor>
-      <arglist>(const IndependentField&lt; dim, spacedim &gt; &amp;independent_field, const unsigned int component, const Point&lt; spacedim &gt; X, const Function&lt; spacedim &gt; *const constraint_inhomogeneity=nullptr)</arglist>
+      <anchor>afa8c8b7998265207f2555a09fbe214ef</anchor>
+      <arglist>(const IndependentField&lt; dim, spacedim &gt; &amp;independent_field, const unsigned int component, const Point&lt; spacedim &gt; X, const Function&lt; spacedim &gt; *const constraint_inhomogeneity=nullptr, const IndependentField&lt; 0, spacedim &gt; *independent_scalar=nullptr, const Function&lt; spacedim &gt; *const coefficient_c=nullptr)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -4009,6 +4009,20 @@
       <anchor>ace3fa5f9542ee73d502abd78f48da032</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>const SmartPointer&lt; const IndependentField&lt; 0, spacedim &gt; &gt;</type>
+      <name>independent_scalar</name>
+      <anchorfile>class_point_constraint.html</anchorfile>
+      <anchor>a4f6c27593a39a2b1064020c256120f0a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const SmartPointer&lt; const Function&lt; spacedim &gt; &gt;</type>
+      <name>coefficient_c</name>
+      <anchorfile>class_point_constraint.html</anchorfile>
+      <anchor>a5b1a621c07e8ece928f44e2dabd01d25</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="variable" protection="private">
       <type>bool</type>
       <name>constraint_is_active</name>
@@ -4033,8 +4047,8 @@
       <type></type>
       <name>PointConstraint</name>
       <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
-      <anchor>ab2807d5ef6751bac3528306d073dd7bb</anchor>
-      <arglist>(const IndependentField&lt; spacedim, spacedim &gt; &amp;independent_field, const unsigned int component, const Point&lt; spacedim &gt; X, const Function&lt; spacedim &gt; *const constraint_inhomogeneity=nullptr)</arglist>
+      <anchor>a48676bf468995063cf5536d25ef30282</anchor>
+      <arglist>(const IndependentField&lt; spacedim, spacedim &gt; &amp;independent_field, const unsigned int component, const Point&lt; spacedim &gt; X, const Function&lt; spacedim &gt; *const constraint_inhomogeneity=nullptr, const IndependentField&lt; 0, spacedim &gt; *independent_scalar=nullptr, const Function&lt; spacedim &gt; *const coefficient_c=nullptr)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -4097,6 +4111,20 @@
       <name>constraint_inhomogeneity</name>
       <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>af6bbff9cc333d7aa678180f3b5f5d569</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const SmartPointer&lt; const IndependentField&lt; 0, spacedim &gt; &gt;</type>
+      <name>independent_scalar</name>
+      <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a7406c5d95454bf68acc2f4745c1b4536</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const SmartPointer&lt; const Function&lt; spacedim &gt; &gt;</type>
+      <name>coefficient_c</name>
+      <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a15e0c3b340dca72427147c35ca40f3f3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -4934,46 +4962,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>parallel::TwoBlockMatrix</name>
-    <filename>classparallel_1_1_two_block_matrix.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type></type>
-      <name>TwoBlockMatrix</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a93990616301e671f9a967fbc49029674</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>TwoBlockMatrix</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>afa9b3f1c3d74a211c334c8f6e59b52f6</anchor>
-      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reinit</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a0e112695034c69aa8a430efd9e7c37ef</anchor>
-      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
-    </member>
-    <member kind="function">
-      <type>dealii::GalerkinTools::parallel::TwoBlockMatrix&lt; MatrixType &gt; &amp;</type>
-      <name>operator=</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a8e2ba56ebc9ee5ad1fe7b1d8604e9669</anchor>
-      <arglist>(const double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>const MPI_Comm &amp;</type>
-      <name>get_communicator</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>add0cc2ee49d139e1dbc5554fd62dd5f5</anchor>
-      <arglist>() const</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>TwoBlockMatrix</name>
     <filename>class_two_block_matrix.html</filename>
     <templarg></templarg>
@@ -5221,6 +5209,46 @@
       <anchorfile>class_two_block_matrix.html</anchorfile>
       <anchor>a7d63b4c4c1e499c9f9913444dc5fd6b6</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>parallel::TwoBlockMatrix</name>
+    <filename>classparallel_1_1_two_block_matrix.html</filename>
+    <templarg></templarg>
+    <member kind="function">
+      <type></type>
+      <name>TwoBlockMatrix</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a93990616301e671f9a967fbc49029674</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TwoBlockMatrix</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>afa9b3f1c3d74a211c334c8f6e59b52f6</anchor>
+      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reinit</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a0e112695034c69aa8a430efd9e7c37ef</anchor>
+      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
+    </member>
+    <member kind="function">
+      <type>dealii::GalerkinTools::parallel::TwoBlockMatrix&lt; MatrixType &gt; &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a8e2ba56ebc9ee5ad1fe7b1d8604e9669</anchor>
+      <arglist>(const double value)</arglist>
+    </member>
+    <member kind="function">
+      <type>const MPI_Comm &amp;</type>
+      <name>get_communicator</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>add0cc2ee49d139e1dbc5554fd62dd5f5</anchor>
+      <arglist>() const</arglist>
     </member>
   </compound>
   <compound kind="class">

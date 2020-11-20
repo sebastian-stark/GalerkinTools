@@ -85,12 +85,16 @@ template<unsigned int dim, unsigned int spacedim>
 PointConstraint<dim, spacedim>::PointConstraint(const IndependentField<dim, spacedim>&	independent_field,
 												const unsigned int						component,
 												const Point<spacedim>					X,
-												const Function<spacedim>* const 		constraint_inhomogeneity)
+												const Function<spacedim>* const 		constraint_inhomogeneity,
+												const IndependentField<0, spacedim>*	independent_scalar,
+												const Function<spacedim>* const 		coefficient_c)
 :
 X(X),
 independent_field(&independent_field),
 component(component),
-constraint_inhomogeneity(constraint_inhomogeneity)
+constraint_inhomogeneity(constraint_inhomogeneity),
+independent_scalar(independent_scalar),
+coefficient_c(coefficient_c)
 {
 	Assert(component < independent_field.n_components, ExcMessage("You are trying to constrain a degree of freedom which does not exist!"));
 	if(constraint_inhomogeneity != nullptr)
@@ -140,18 +144,25 @@ const
 {
 	if(constraint_inhomogeneity != nullptr)
 		const_cast<Function<spacedim>*>(&(*(this->constraint_inhomogeneity)))->set_time(time);
+
+	if(coefficient_c != nullptr)
+		const_cast<Function<spacedim>*>(&(*(this->coefficient_c)))->set_time(time);
 }
 
 template<unsigned int spacedim>
 PointConstraint<spacedim, spacedim>::PointConstraint(	const IndependentField<spacedim, spacedim>&	independent_field,
 														const unsigned int							component,
 														const Point<spacedim>						X,
-														const Function<spacedim>* const 			constraint_inhomogeneity)
+														const Function<spacedim>* const 			constraint_inhomogeneity,
+														const IndependentField<0, spacedim>*		independent_scalar,
+														const Function<spacedim>* const 			coefficient_c)
 :
 X(X),
 independent_field(&independent_field),
 component(component),
-constraint_inhomogeneity(constraint_inhomogeneity)
+constraint_inhomogeneity(constraint_inhomogeneity),
+independent_scalar(independent_scalar),
+coefficient_c(coefficient_c)
 {
 	Assert(component < independent_field.n_components, ExcMessage("You are trying to constrain a degree of freedom which does not exist!"));
 	if(constraint_inhomogeneity != nullptr)
@@ -201,6 +212,9 @@ const
 {
 	if(constraint_inhomogeneity != nullptr)
 		const_cast<Function<spacedim>*>(&(*(this->constraint_inhomogeneity)))->set_time(time);
+
+	if(coefficient_c != nullptr)
+		const_cast<Function<spacedim>*>(&(*(this->coefficient_c)))->set_time(time);
 }
 
 template class DirichletConstraint<2>;

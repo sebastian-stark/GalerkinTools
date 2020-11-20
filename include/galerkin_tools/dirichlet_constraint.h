@@ -176,8 +176,8 @@ public:
  * Class defining a Dirichlet type condition for an interface related field at a single point.
  *
  * The Dirichlet type condition has the form
- * \f$u^\Sigma_\eta(\boldsymbol{X}) = b^\Sigma_\eta\f$,
- * where \f$b^\Sigma_\eta\f$ is a prescribed value.
+ * \f$u^\Sigma_\eta(\boldsymbol{X}) = b^\Sigma_\eta + c^\Sigma_\eta C_\iota\f$,
+ * where \f$b^\Sigma_\eta\f$ and \f$c^\Sigma_\eta\f$ are prescribed values.
  * The PointConstraint class inherits from Subscriptor in order to be
  * able to check that PointConstraint objects are only destroyed when they are
  * not needed anymore by other objects.
@@ -233,6 +233,22 @@ public:
 	constraint_inhomogeneity;
 
 	/**
+	 * \f$C_\iota\f$
+	 */
+	const SmartPointer<const IndependentField<0, spacedim>>
+	independent_scalar;
+
+	/**
+	 * A Function (or, rather, an instance of a derived class) specifying
+	 * \f$c^\Sigma_\eta\f$. The position variable of the function object is ignored. However, the Function::set_time() or PointConstraint<spacedim, spacedim>::set_time() functionality can be used to change the constraint
+	 * inhomogeneity with time.
+	 * The Function must have a single component and implement the method Function::value().
+	 * If a @p nullptr is stored here, 1 will be assumed for the coefficient.
+	 */
+	const SmartPointer<const Function<spacedim>>
+	coefficient_c;
+
+	/**
 	 * The constructor of the class
 	 *
 	 * @param[in]	independent_field			PointConstraint::independent_field
@@ -242,11 +258,17 @@ public:
 	 * @param[in]	X							PointConstraint::X
 	 *
 	 * @param[in]	constraint_inhomogeneity	PointConstraint::constraint_inhomogeneity
+	 *
+	 * @param[in]	independent_scalar			PointConstraint::independent_scalar
+	 *
+	 * @param[in]	coefficient_c				PointConstraint::coefficient_c
 	 */
 	PointConstraint(const IndependentField<dim, spacedim>& 	independent_field,
 					const unsigned int						component,
 					const Point<spacedim>					X,
-					const Function<spacedim>* const			constraint_inhomogeneity = nullptr);
+					const Function<spacedim>* const			constraint_inhomogeneity = nullptr,
+					const IndependentField<0, spacedim>*	independent_scalar = nullptr,
+					const Function<spacedim>* const			coefficient_c = nullptr);
 
 	/**
 	 * The destructor of PointConstraint essentially checks before destruction that the
@@ -302,8 +324,8 @@ public:
  * Class defining a Dirichlet type condition for a domain related field at a single point.
  *
  * The Dirichlet type condition has the form
- * \f$u^\Omega_\epsilon(\boldsymbol{X}) = b^\Omega_\epsilon\f$,
- * where \f$b^\Omega_\epsilon\f$ is a prescribed value.
+ * \f$u^\Omega_\epsilon(\boldsymbol{X}) = b^\Omega_\epsilon + c^\Omega_\epsilon C_\iota\f$,
+ * where \f$b^\Omega_\epsilon\f$ and \f$c^\Omega_\epsilon\f$ are prescribed values.
  * The PointConstraint<spacedim,spacedim> class inherits from Subscriptor in order to be
  * able to check that PointConstraint<spacedim,spacedim> objects are only destroyed when they are
  * not needed anymore by other objects.
@@ -326,7 +348,6 @@ private:
 	 */
 	Point<spacedim>
 	X;
-
 
 public:
 
@@ -355,6 +376,22 @@ public:
 	constraint_inhomogeneity;
 
 	/**
+	 * \f$C_\iota\f$
+	 */
+	const SmartPointer<const IndependentField<0, spacedim>>
+	independent_scalar;
+
+	/**
+	 * A Function (or, rather, an instance of a derived class) specifying
+	 * \f$c^\Sigma_\eta\f$. The position variable of the function object is ignored. However, the Function::set_time() or PointConstraint<spacedim, spacedim>::set_time() functionality can be used to change the constraint
+	 * inhomogeneity with time.
+	 * The Function must have a single component and implement the method Function::value().
+	 * If a @p nullptr is stored here, 1 will be assumed for the coefficient.
+	 */
+	const SmartPointer<const Function<spacedim>>
+	coefficient_c;
+
+	/**
 	 * The constructor of the class
 	 *
 	 * @param[in]	independent_field			PointConstraint<spacedim,spacedim>::independent_field
@@ -364,11 +401,17 @@ public:
 	 * @param[in]	X							PointConstraint<spacedim,spacedim>::X
 	 *
 	 * @param[in]	constraint_inhomogeneity	PointConstraint<spacedim,spacedim>::constraint_inhomogeneity
+	 *
+	 * @param[in]	independent_scalar			PointConstraint::independent_scalar
+	 *
+	 * @param[in]	coefficient_c				PointConstraint::coefficient_c
 	 */
 	PointConstraint(const IndependentField<spacedim, spacedim>& independent_field,
 					const unsigned int							component,
 					const Point<spacedim>						X,
-					const Function<spacedim>* const				constraint_inhomogeneity = nullptr);
+					const Function<spacedim>* const				constraint_inhomogeneity = nullptr,
+					const IndependentField<0, spacedim>*		independent_scalar = nullptr,
+					const Function<spacedim>* const				coefficient_c = nullptr);
 
 	/**
 	 * The destructor of PointConstraint<spacedim,spacedim> essentially checks before destruction that the

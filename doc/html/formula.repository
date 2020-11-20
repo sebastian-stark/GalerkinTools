@@ -127,3 +127,6 @@
 \_form#126:$b^\Sigma_\eta$
 \_form#127:$u^\Omega_\epsilon(\boldsymbol{X}) = b^\Omega_\epsilon$
 \_form#128:$\boldsymbol{X}$
+\_form#129:$u^\Sigma_\eta(\boldsymbol{X}) = b^\Sigma_\eta + c^\Sigma_\eta C_\iota$
+\_form#130:$c^\Sigma_\eta$
+\_form#131:$u^\Omega_\epsilon(\boldsymbol{X}) = b^\Omega_\epsilon + c^\Omega_\epsilon C_\iota$
