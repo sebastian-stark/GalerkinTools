@@ -9,6 +9,7 @@
     <name>assembly_helper.h</name>
     <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>assembly__helper_8h.html</filename>
+    <class kind="class">FunctionCell</class>
     <class kind="class">AssemblyHelper</class>
   </compound>
   <compound kind="file">
@@ -3443,6 +3444,47 @@
       <name>fe_subface_values_domain_plus</name>
       <anchorfile>class_f_e_values_interface.html</anchorfile>
       <anchor>a184e705efd975db536299ad619585a65</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>FunctionCell</name>
+    <filename>class_function_cell.html</filename>
+    <templarg>dim</templarg>
+    <templarg>spacedim</templarg>
+    <member kind="function">
+      <type></type>
+      <name>FunctionCell</name>
+      <anchorfile>class_function_cell.html</anchorfile>
+      <anchor>a283cbfe9d1af3fcee24517e3b63b5bc8</anchor>
+      <arglist>(const unsigned int n_components=1)</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual</type>
+      <name>~FunctionCell</name>
+      <anchorfile>class_function_cell.html</anchorfile>
+      <anchor>a4f91c2b4961ca9330c6e564014879670</anchor>
+      <arglist>()=0</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_cell</name>
+      <anchorfile>class_function_cell.html</anchorfile>
+      <anchor>a36b161ae96e789de9d03654497de03cd</anchor>
+      <arglist>(const TriaIterator&lt; CellAccessor&lt; dim, spacedim &gt;&gt; &amp;cell)</arglist>
+    </member>
+    <member kind="function">
+      <type>const TriaIterator&lt; CellAccessor&lt; dim, spacedim &gt; &gt; &amp;</type>
+      <name>get_cell</name>
+      <anchorfile>class_function_cell.html</anchorfile>
+      <anchor>ab3f22f3fa0cb7c3eec847f883fb7fecd</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>const TriaIterator&lt; CellAccessor&lt; dim, spacedim &gt; &gt; *</type>
+      <name>cell</name>
+      <anchorfile>class_function_cell.html</anchorfile>
+      <anchor>a3ef39628d9141076b3418fe2bb529dfe</anchor>
       <arglist></arglist>
     </member>
   </compound>

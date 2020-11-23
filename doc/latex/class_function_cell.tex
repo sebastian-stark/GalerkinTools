@@ -1,0 +1,119 @@
+\hypertarget{class_function_cell}{}\doxysection{Function\+Cell$<$ dim, spacedim $>$ Class Template Reference}
+\label{class_function_cell}\index{FunctionCell$<$ dim, spacedim $>$@{FunctionCell$<$ dim, spacedim $>$}}
+
+
+{\ttfamily \#include $<$assembly\+\_\+helper.\+h$>$}
+
+
+
+Inheritance diagram for Function\+Cell$<$ dim, spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{class_function_cell__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Function\+Cell$<$ dim, spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_function_cell__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_function_cell_a283cbfe9d1af3fcee24517e3b63b5bc8}{Function\+Cell}} (const unsigned int \textbf{ n\+\_\+components}=1)
+\item 
+virtual \mbox{\hyperlink{class_function_cell_a4f91c2b4961ca9330c6e564014879670}{$\sim$\+Function\+Cell}} ()=0
+\item 
+void \mbox{\hyperlink{class_function_cell_a36b161ae96e789de9d03654497de03cd}{set\+\_\+cell}} (const \textbf{ Tria\+Iterator}$<$ \textbf{ Cell\+Accessor}$<$ dim, spacedim $>$$>$ \&\mbox{\hyperlink{class_function_cell_a3ef39628d9141076b3418fe2bb529dfe}{cell}})
+\item 
+const \textbf{ Tria\+Iterator}$<$ \textbf{ Cell\+Accessor}$<$ dim, spacedim $>$ $>$ \& \mbox{\hyperlink{class_function_cell_ab3f22f3fa0cb7c3eec847f883fb7fecd}{get\+\_\+cell}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \textbf{ Tria\+Iterator}$<$ \textbf{ Cell\+Accessor}$<$ dim, spacedim $>$ $>$ $\ast$ \mbox{\hyperlink{class_function_cell_a3ef39628d9141076b3418fe2bb529dfe}{cell}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$unsigned int dim, unsigned int spacedim$>$\newline
+class Function\+Cell$<$ dim, spacedim $>$}
+
+Special \textbf{ Function} class allowing to pass the cell information when asking for the initial value of an unknown field at a finite element support point. Objects of this type can be given to the constructor of an \mbox{\hyperlink{class_independent_field}{Independent\+Field}}; and when the initial solution vector is set up with a call to \mbox{\hyperlink{class_assembly_helper_a4043c993c8902ad5d3045a13ed42e6f8}{Assembly\+Helper\+::get\+\_\+initial\+\_\+fields\+\_\+vector()}}, \mbox{\hyperlink{class_function_cell_a3ef39628d9141076b3418fe2bb529dfe}{Function\+Cell\+::cell}} will be appropriately set before each call to the \textbf{ Function\+::value()}, so that one can find out through \mbox{\hyperlink{class_function_cell_ab3f22f3fa0cb7c3eec847f883fb7fecd}{Function\+Cell\+::get\+\_\+cell()}} on which cell the support point lies, for which \textbf{ Function\+::value()} currently has to provide with initial values.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em dim} & dimensionality of the object for which \mbox{\hyperlink{class_function_cell}{Function\+Cell}} has to provide with initial values\\
+\hline
+{\em spacedim} & spatial dimension \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_function_cell_a283cbfe9d1af3fcee24517e3b63b5bc8}\label{class_function_cell_a283cbfe9d1af3fcee24517e3b63b5bc8}} 
+\index{FunctionCell$<$ dim, spacedim $>$@{FunctionCell$<$ dim, spacedim $>$}!FunctionCell@{FunctionCell}}
+\index{FunctionCell@{FunctionCell}!FunctionCell$<$ dim, spacedim $>$@{FunctionCell$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{FunctionCell()}{FunctionCell()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+\mbox{\hyperlink{class_function_cell}{Function\+Cell}}$<$ dim, spacedim $>$\+::\mbox{\hyperlink{class_function_cell}{Function\+Cell}} (\begin{DoxyParamCaption}\item[{const unsigned int}]{n\+\_\+components = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+constructor
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n\+\_\+components} & Number of components of function \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_function_cell_a4f91c2b4961ca9330c6e564014879670}\label{class_function_cell_a4f91c2b4961ca9330c6e564014879670}} 
+\index{FunctionCell$<$ dim, spacedim $>$@{FunctionCell$<$ dim, spacedim $>$}!````~FunctionCell@{$\sim$FunctionCell}}
+\index{````~FunctionCell@{$\sim$FunctionCell}!FunctionCell$<$ dim, spacedim $>$@{FunctionCell$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$FunctionCell()}{~FunctionCell()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+virtual \mbox{\hyperlink{class_function_cell}{Function\+Cell}}$<$ dim, spacedim $>$\+::$\sim$\mbox{\hyperlink{class_function_cell}{Function\+Cell}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Destructor, avoid that this class can be instantiated 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_function_cell_ab3f22f3fa0cb7c3eec847f883fb7fecd}\label{class_function_cell_ab3f22f3fa0cb7c3eec847f883fb7fecd}} 
+\index{FunctionCell$<$ dim, spacedim $>$@{FunctionCell$<$ dim, spacedim $>$}!get\_cell@{get\_cell}}
+\index{get\_cell@{get\_cell}!FunctionCell$<$ dim, spacedim $>$@{FunctionCell$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{get\_cell()}{get\_cell()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+const \textbf{ Tria\+Iterator}$<$\textbf{ Cell\+Accessor}$<$dim, spacedim$>$ $>$\& \mbox{\hyperlink{class_function_cell}{Function\+Cell}}$<$ dim, spacedim $>$\+::get\+\_\+cell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_function_cell_a3ef39628d9141076b3418fe2bb529dfe}{Function\+Cell\+::cell}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_function_cell_a36b161ae96e789de9d03654497de03cd}\label{class_function_cell_a36b161ae96e789de9d03654497de03cd}} 
+\index{FunctionCell$<$ dim, spacedim $>$@{FunctionCell$<$ dim, spacedim $>$}!set\_cell@{set\_cell}}
+\index{set\_cell@{set\_cell}!FunctionCell$<$ dim, spacedim $>$@{FunctionCell$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{set\_cell()}{set\_cell()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_function_cell}{Function\+Cell}}$<$ dim, spacedim $>$\+::set\+\_\+cell (\begin{DoxyParamCaption}\item[{const \textbf{ Tria\+Iterator}$<$ \textbf{ Cell\+Accessor}$<$ dim, spacedim $>$$>$ \&}]{cell }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cell} & \mbox{\hyperlink{class_function_cell_a3ef39628d9141076b3418fe2bb529dfe}{Function\+Cell\+::cell}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_function_cell_a3ef39628d9141076b3418fe2bb529dfe}\label{class_function_cell_a3ef39628d9141076b3418fe2bb529dfe}} 
+\index{FunctionCell$<$ dim, spacedim $>$@{FunctionCell$<$ dim, spacedim $>$}!cell@{cell}}
+\index{cell@{cell}!FunctionCell$<$ dim, spacedim $>$@{FunctionCell$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{cell}{cell}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+const \textbf{ Tria\+Iterator}$<$\textbf{ Cell\+Accessor}$<$dim, spacedim$>$ $>$$\ast$ \mbox{\hyperlink{class_function_cell}{Function\+Cell}}$<$ dim, spacedim $>$\+::cell\hspace{0.3cm}{\ttfamily [private]}}
+
+the current cell 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\mbox{\hyperlink{assembly__helper_8h}{assembly\+\_\+helper.\+h}}\end{DoxyCompactItemize}

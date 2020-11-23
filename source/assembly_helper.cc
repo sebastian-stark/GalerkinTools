@@ -47,12 +47,42 @@ using namespace std;
 DEAL_II_NAMESPACE_OPEN
 GALERKIN_TOOLS_NAMESPACE_OPEN
 
+
+template<unsigned int dim, unsigned int spacedim>
+FunctionCell<dim, spacedim>::FunctionCell(const unsigned int n_components)
+:
+Function<spacedim>(n_components)
+{
+
+}
+
+template<unsigned int dim, unsigned int spacedim>
+FunctionCell<dim, spacedim>::~FunctionCell()
+{
+}
+
+template<unsigned int dim, unsigned int spacedim>
+void
+FunctionCell<dim, spacedim>::set_cell(const TriaIterator<CellAccessor<dim, spacedim>>& cell)
+{
+	this->cell = &cell;
+}
+
+template<unsigned int dim, unsigned int spacedim>
+const TriaIterator<CellAccessor<dim, spacedim>>&
+FunctionCell<dim, spacedim>::get_cell()
+const
+{
+	return *cell;
+}
+
 template<unsigned int spacedim>
 AssemblyHelper<spacedim>::AssemblyHelper(	const TotalPotential<spacedim>&						total_potential,
 											TriangulationSystem<spacedim>&						tria_system,
 											const Mapping<spacedim, spacedim>&					mapping_domain,
 											const Mapping<spacedim-1, spacedim>&				mapping_interface,
-											const set<const IndependentField<0, spacedim>*>&	independent_scalars):
+											const set<const IndependentField<0, spacedim>*>&	independent_scalars)
+:
 total_potential(total_potential),
 tria_system(tria_system),
 mapping_domain(&mapping_domain, typeid(*this).name()),
@@ -1166,6 +1196,9 @@ const
 			{
 				if(u_omega_n->initial_vals != nullptr)
 				{
+					const Function<spacedim>* initial_vals = u_omega_n->initial_vals;
+					if(dynamic_cast<const FunctionCell<spacedim, spacedim>*>(initial_vals))
+						const_cast<FunctionCell<spacedim, spacedim>*>(dynamic_cast<const FunctionCell<spacedim, spacedim>*>(initial_vals))->set_cell(domain_cell);
 					for(unsigned int component = 0; component < u_omega_n->n_components; ++component)
 					{
 						const unsigned int global_component_index = global_component_indices_u_omega.at(u_omega_n) + component;
@@ -1201,6 +1234,9 @@ const
 			{
 				if(u_sigma_n->initial_vals != nullptr)
 				{
+					const Function<spacedim>* initial_vals = u_sigma_n->initial_vals;
+					if(dynamic_cast<const FunctionCell<spacedim-1, spacedim>*>(initial_vals))
+						const_cast<FunctionCell<spacedim-1, spacedim>*>(dynamic_cast<const FunctionCell<spacedim-1, spacedim>*>(initial_vals))->set_cell(interface_cell);
 					for(unsigned int component = 0; component < u_sigma_n->n_components; ++component)
 					{
 						const unsigned int global_component_index = global_component_indices_u_sigma.at(u_sigma_n) + component;
@@ -5201,6 +5237,12 @@ const{
 }
 
 //instantiations
+
+//FunctionCell
+template class FunctionCell<1,2>;
+template class FunctionCell<2,3>;
+template class FunctionCell<2,2>;
+template class FunctionCell<3,3>;
 
 //AssemblyHelper
 template class AssemblyHelper<2>;

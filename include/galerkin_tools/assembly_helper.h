@@ -44,6 +44,58 @@ DEAL_II_NAMESPACE_OPEN
 GALERKIN_TOOLS_NAMESPACE_OPEN
 
 /**
+ * Special Function class allowing to pass the cell information when asking for the initial value of an unknown field at a finite element support point.
+ * Objects of this type can be given to the constructor of an IndependentField; and when the initial solution vector is set up with
+ * a call to AssemblyHelper::get_initial_fields_vector(), FunctionCell::cell will be appropriately set before each call to the Function::value(),
+ * so that one can find out through FunctionCell::get_cell() on which cell the support point lies, for
+ * which Function::value() currently has to provide with initial values.
+ *
+ * @tparam	dim			dimensionality of the object for which FunctionCell has to provide with initial values
+ *
+ * @tparam	spacedim	spatial dimension
+ *
+ */
+template<unsigned int dim, unsigned int spacedim>
+class FunctionCell : public dealii::Function<spacedim>
+{
+private:
+
+	/**
+	 * the current cell
+	 */
+	const TriaIterator<CellAccessor<dim, spacedim>>*
+	cell;
+
+public:
+
+	/**
+	 * constructor
+	 *
+	 * @param[in]	n_components	Number of components of function
+	 */
+	FunctionCell(const unsigned int n_components = 1);
+
+	/**
+	 * Destructor, avoid that this class can be instantiated
+	 */
+	virtual
+	~FunctionCell() = 0;
+
+	/**
+	 * @param[in]	cell	FunctionCell::cell
+	 */
+	void
+	set_cell(const TriaIterator<CellAccessor<dim, spacedim>>& cell);
+
+	/**
+	 * @return	FunctionCell::cell
+	 */
+	const TriaIterator<CellAccessor<dim, spacedim>>&
+	get_cell()
+	const;
+};
+
+/**
  * The AssemblyHelper class puts it all together and provides with methods for assembly of the finite element system.
  *
  * Essentially, an AssemblyHelper object is a combination of a TriangulationSystem object (which includes the definition of the domain
