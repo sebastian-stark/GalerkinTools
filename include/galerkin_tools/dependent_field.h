@@ -129,6 +129,17 @@ public:
 	bool
 	operator<(const DependentFieldTerm& dependent_field_2)
 	const;
+
+	/**
+	 * A comparison operator, which allows to check for equality of two DependentFieldTerm.
+	 *
+	 * @param[in]	dependent_field_2	The DependentFieldTerm to compare with
+	 *
+	 * @return 							Boolean indicating result of comparison
+	 */
+	bool
+	operator==(const DependentFieldTerm& dependent_field_2)
+	const;
 };
 
 /**
@@ -199,7 +210,13 @@ private:
 	 * This is the constant \f$d^\Sigma_\nu\f$ of the dependent field.
 	 */
 	double
-	constant=0.0;
+	constant = 0.0;
+
+	/**
+	 * Indicate whether this is a local dependent field. If @p true, only local terms can be added subsequently.
+	 */
+	bool
+	is_local = false;
 
 public:
 
@@ -457,6 +474,35 @@ public:
 	print()
 	const;
 
+	/**
+	 * This methods returns DependentField::is_local
+	 */
+	bool
+	get_is_local()
+	const;
+
+	/**
+	 * A comparison operator, which allows to check for equality of two DependentField. Note that DependentField::is_local and DependentField::name are not involved in the comparison
+	 *
+	 * @param[in]	dependent_field_2	The DependentField to compare with
+	 *
+	 * @return 							Boolean indicating result of comparison
+	 */
+	bool
+	operator<(const DependentField& dependent_field_2)
+	const;
+
+	/**
+	 * A comparison operator, which allows to check for equality of two DependentField. Note that DependentField::is_local and DependentField::name are not involved in the comparison
+	 *
+	 * @param[in]	dependent_field_2	The DependentField to compare with
+	 *
+	 * @return 							Boolean indicating result of comparison
+	 */
+	bool
+	operator==(const DependentField& dependent_field_2)
+	const;
+
 };
 
 /**
@@ -495,6 +541,13 @@ private:
 	 */
 	double
 	constant = 0.0;
+
+	/**
+	 * Indicate whether this is a local dependent field. If @p true, only local terms can be added
+	 * to the dependent field subsequent to construction.
+	 */
+	bool
+	is_local = false;
 
 public:
 
@@ -637,6 +690,35 @@ public:
 	 */
 	void
 	print()
+	const;
+
+	/**
+	 * This methods returns DependentField<spacedim, spacedim>::is_local
+	 */
+	bool
+	get_is_local()
+	const;
+
+	/**
+	 * A comparison operator, which allows to check for equality of two DependentField<spacedim,spacedim>. Note that DependentField<spacedim,spacedim>::is_local and DependentField<spacedim,spacedim>::name are not involved in the comparison
+	 *
+	 * @param[in]	dependent_field_2	The DependentField to compare with
+	 *
+	 * @return 							Boolean indicating result of comparison
+	 */
+	bool
+	operator<(const DependentField<spacedim, spacedim>& dependent_field_2)
+	const;
+
+	/**
+	 * A comparison operator, which allows to check for equality of two DependentField<spacedim,spacedim>. Note that DependentField<spacedim,spacedim>::is_local and DependentField<spacedim,spacedim>::name are not involved in the comparison
+	 *
+	 * @param[in]	dependent_field_2	The DependentField to compare with
+	 *
+	 * @return 							Boolean indicating result of comparison
+	 */
+	bool
+	operator==(const DependentField<spacedim, spacedim>& dependent_field_2)
 	const;
 
 };

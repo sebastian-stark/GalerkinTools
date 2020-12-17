@@ -479,6 +479,18 @@ private:
 	coupled_dof_indices_scalar_functionals_domain;
 
 	/**
+	 * Essentially the same as AssemblyHelper::coupled_dof_indices_scalar_functionals_domain. However, only dofs related to local independent field are included
+	 */
+	std::vector<std::vector<std::vector<unsigned int>>>
+	coupled_dof_indices_scalar_functionals_domain_local;
+
+	/**
+	 * Essentially the same as AssemblyHelper::coupled_dof_indices_scalar_functionals_domain. However, only dofs related to nonlocal independent field are included
+	 */
+	std::vector<std::vector<std::vector<unsigned int>>>
+	coupled_dof_indices_scalar_functionals_domain_nonlocal;
+
+	/**
 	 * This member contains information about the shape functions of an interface cell coupling for a certain
 	 * interface related scalar functional. Essentially, this data structure transforms the cell related indexing of shape functions of deal.II into a scalar
 	 * functional related shape function indexing. This is important because the assembly of the contributions of each
@@ -648,6 +660,15 @@ private:
 	d_omega;
 
 	/**
+	 * This member contains information about whether the dependent field is local.
+	 *
+	 * AssemblyHelper::e_omega_local[@p u][@p v][@p k] contains whether the @p k-th dependent field of the
+	 * @p v-th scalar functional on the domain portion with internal index @p u is local.
+	 */
+	std::vector<std::vector<std::vector<bool>>>
+	e_omega_local;
+
+	/**
 	 * This member contains information about how interface related dependent fields \f$e^\Sigma_\nu\f$ are
 	 * related to shape functions. In particular, it relates shape functions to the terms \f$a^\Sigma_{\nu\eta} u^\Sigma_\eta\f$
 	 * (see DependentField for further information).
@@ -792,6 +813,16 @@ private:
 	 */
 	std::vector<std::vector<std::vector<double>>>
 	d_sigma;
+
+	/**
+	 * This member contains information about whether the dependent field is local.
+	 *
+	 * AssemblyHelper::e_sigma_local[@p u][@p v][@p k] contains whether the @p k-th dependent field of the
+	 * @p v-th scalar functional on the domain portion with internal index @p u is local.
+	 */
+	std::vector<std::vector<std::vector<bool>>>
+	e_sigma_local;
+
 
 ///@}
 
@@ -1403,6 +1434,8 @@ public:
 	 * @param[in]	requested_quantities	Tuple indicating which quantities are actually to be computed
 	 * 										(e.g. (@p true, @p false, @p true) indicates that @p potential_value and @p K are to be computed)
 	 *
+	 * @param[out]	local_solution			Map between global dof indices and updated local solution in case that there are local independent fields
+	 *
 	 * @return								@p false if the assembly process was successful, and @p true
 	 * 										if an error prevented proper assembly
 	 *
@@ -1423,7 +1456,8 @@ public:
 					double&											potential_value,
 					RHSVectorType&									f,
 					MatrixType&										K,
-					const std::tuple<bool,bool,bool>				requested_quantities = std::make_tuple(true, true, true))
+					const std::tuple<bool,bool,bool>				requested_quantities = std::make_tuple(true, true, true),
+					std::map<unsigned int, double>*					local_solution = nullptr)
 	const;
 
 	/**
@@ -1451,6 +1485,29 @@ public:
 												const std::vector<const VectorType*>								solution_ref_sets,
 												std::map<const ScalarFunctional<spacedim, spacedim>*, double>& 		nonprimitive_scalar_functional_values_domain,
 												std::map<const ScalarFunctional<spacedim-1, spacedim>*, double>& 	nonprimitive_scalar_functional_values_interface)
+	const;
+
+	/**
+	 * Method simply calling the ScalarFunctional<spacedim, spacedim>::get_h_omega() and ScalarFunctional::get_h_sigma() functions with the solution @p solution and
+	 * the reference solution @p solution_ref_sets, without doing any assembly of the finite element system.
+	 *
+	 * @param[in]	solution								the global solution vector
+	 *
+	 * @param[in]	solution_ref_sets						a set of reference solution vectors (e.g. solutions at previous time steps),
+	 * 														which may enter into the calculation of the scalar functionals
+	 *
+	 * @param[in]	scalar_functionals_domain_to_call		domain-related scalar functionals to be evaluated
+	 *
+	 * @param[in]	scalar_functionals_interface_to_call	interface-related scalar functionals to be evaluated
+	 *
+	 * @tparam		VectorType								The type used for the solution vector
+	 */
+	template<class VectorType>
+	void
+	call_scalar_functionals(const VectorType&												solution,
+							const std::vector<const VectorType*>&							solution_ref_sets,
+							const std::set<const ScalarFunctional<spacedim, spacedim>*>&	scalar_functionals_domain_to_call,
+							const std::set<const ScalarFunctional<spacedim-1, spacedim>*>&	scalar_functionals_interface_to_call)
 	const;
 
 	/**

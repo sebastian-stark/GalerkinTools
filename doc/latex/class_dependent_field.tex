@@ -38,6 +38,12 @@ std\+::set$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field
 std\+::set$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$ $>$ \mbox{\hyperlink{class_dependent_field_a15eb8101d33f2f09ada4cdf2cde73ad7}{get\+\_\+independent\+\_\+scalars}} () const
 \item 
 void \mbox{\hyperlink{class_dependent_field_adf0ad81e2d7b609b7dfde60a77f92a20}{print}} () const
+\item 
+bool \mbox{\hyperlink{class_dependent_field_aabc31c47b3f6cb69da28758d9672d8d8}{get\+\_\+is\+\_\+local}} () const
+\item 
+bool \mbox{\hyperlink{class_dependent_field_a1c56c4e18d320e9c402f3adde546c681}{operator$<$}} (const \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}} \&dependent\+\_\+field\+\_\+2) const
+\item 
+bool \mbox{\hyperlink{class_dependent_field_a808b18c7b0fc7c05204aed47b1509ce4}{operator==}} (const \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}} \&dependent\+\_\+field\+\_\+2) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -55,7 +61,9 @@ std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Ter
 \item 
 std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ 0, spacedim $>$ $>$ \mbox{\hyperlink{class_dependent_field_aa1ba265eae76489d22d3eecd595931c5}{terms\+\_\+independent\+\_\+scalars}}
 \item 
-double \mbox{\hyperlink{class_dependent_field_a32b37c78e04a16b6b606442f156c8ca9}{constant}} =0.\+0
+double \mbox{\hyperlink{class_dependent_field_a32b37c78e04a16b6b606442f156c8ca9}{constant}} = 0.\+0
+\item 
+bool \mbox{\hyperlink{class_dependent_field_aacdabff2601b1f0efcdce7a4413b47bc}{is\+\_\+local}} = false
 \end{DoxyCompactItemize}
 
 
@@ -294,7 +302,14 @@ std\+::set$<$const \mbox{\hyperlink{class_independent_field}{Independent\+Field}
 \begin{DoxyReturn}{Returns}
 A set containing all \mbox{\hyperlink{class_independent_field_3_010_00_01spacedim_01_4}{Independent\+Field$<$0, spacedim$>$}} objects currently involved in the definition of the \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_dependent_field_aab79e0a11ed661b0399d89d646ac2043}\label{class_dependent_field_aab79e0a11ed661b0399d89d646ac2043}} 
+\mbox{\Hypertarget{class_dependent_field_aabc31c47b3f6cb69da28758d9672d8d8}\label{class_dependent_field_aabc31c47b3f6cb69da28758d9672d8d8}} 
+\index{DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}!get\_is\_local@{get\_is\_local}}
+\index{get\_is\_local@{get\_is\_local}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{get\_is\_local()}{get\_is\_local()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+bool \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::get\+\_\+is\+\_\+local (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+This methods returns \mbox{\hyperlink{class_dependent_field_aacdabff2601b1f0efcdce7a4413b47bc}{Dependent\+Field\+::is\+\_\+local}} \mbox{\Hypertarget{class_dependent_field_aab79e0a11ed661b0399d89d646ac2043}\label{class_dependent_field_aab79e0a11ed661b0399d89d646ac2043}} 
 \index{DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}!get\_terms\_independent\_scalars@{get\_terms\_independent\_scalars}}
 \index{get\_terms\_independent\_scalars@{get\_terms\_independent\_scalars}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_terms\_independent\_scalars()}{get\_terms\_independent\_scalars()}}
@@ -329,6 +344,40 @@ const std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Fiel
 \begin{DoxyReturn}{Returns}
 A const reference to \mbox{\hyperlink{class_dependent_field_a9ac1d390137d52ef6c58b230d540ce38}{Dependent\+Field\+::terms\+\_\+neighbor\+\_\+minus}} or \mbox{\hyperlink{class_dependent_field_a05ba04a9f0f50fd881055f3abf46c9f5}{Dependent\+Field\+::terms\+\_\+neighbor\+\_\+plus}} depending on {\ttfamily side} 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_dependent_field_a1c56c4e18d320e9c402f3adde546c681}\label{class_dependent_field_a1c56c4e18d320e9c402f3adde546c681}} 
+\index{DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+bool \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$ \&}]{dependent\+\_\+field\+\_\+2 }\end{DoxyParamCaption}) const}
+
+A comparison operator, which allows to check for equality of two \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}. Note that \mbox{\hyperlink{class_dependent_field_aacdabff2601b1f0efcdce7a4413b47bc}{Dependent\+Field\+::is\+\_\+local}} and \mbox{\hyperlink{class_dependent_field_a698b255f131279d1edb97b3c525153a0}{Dependent\+Field\+::name}} are not involved in the comparison
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dependent\+\_\+field\+\_\+2} & The \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}} to compare with\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean indicating result of comparison 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dependent_field_a808b18c7b0fc7c05204aed47b1509ce4}\label{class_dependent_field_a808b18c7b0fc7c05204aed47b1509ce4}} 
+\index{DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+bool \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$ \&}]{dependent\+\_\+field\+\_\+2 }\end{DoxyParamCaption}) const}
+
+A comparison operator, which allows to check for equality of two \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}. Note that \mbox{\hyperlink{class_dependent_field_aacdabff2601b1f0efcdce7a4413b47bc}{Dependent\+Field\+::is\+\_\+local}} and \mbox{\hyperlink{class_dependent_field_a698b255f131279d1edb97b3c525153a0}{Dependent\+Field\+::name}} are not involved in the comparison
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dependent\+\_\+field\+\_\+2} & The \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}} to compare with\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean indicating result of comparison 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_dependent_field_adf0ad81e2d7b609b7dfde60a77f92a20}\label{class_dependent_field_adf0ad81e2d7b609b7dfde60a77f92a20}} 
 \index{DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}!print@{print}}
 \index{print@{print}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
@@ -344,9 +393,16 @@ This methods prints the current definition of the \mbox{\hyperlink{class_depende
 \index{constant@{constant}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{constant}{constant}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-double \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::constant =0.\+0\hspace{0.3cm}{\ttfamily [private]}}
+double \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::constant = 0.\+0\hspace{0.3cm}{\ttfamily [private]}}
 
-This is the constant $d^\Sigma_\nu$ of the dependent field. \mbox{\Hypertarget{class_dependent_field_a698b255f131279d1edb97b3c525153a0}\label{class_dependent_field_a698b255f131279d1edb97b3c525153a0}} 
+This is the constant $d^\Sigma_\nu$ of the dependent field. \mbox{\Hypertarget{class_dependent_field_aacdabff2601b1f0efcdce7a4413b47bc}\label{class_dependent_field_aacdabff2601b1f0efcdce7a4413b47bc}} 
+\index{DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}!is\_local@{is\_local}}
+\index{is\_local@{is\_local}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{is\_local}{is\_local}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+bool \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::is\+\_\+local = false\hspace{0.3cm}{\ttfamily [private]}}
+
+Indicate whether this is a local dependent field. If {\ttfamily true}, only local terms can be added subsequently. \mbox{\Hypertarget{class_dependent_field_a698b255f131279d1edb97b3c525153a0}\label{class_dependent_field_a698b255f131279d1edb97b3c525153a0}} 
 \index{DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}!name@{name}}
 \index{name@{name}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{name}{name}}

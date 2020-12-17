@@ -164,6 +164,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0d49f02ccbdd681028ce66fea9341fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4bb80864110f7917ae86525e3c0d799"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_do_f_handler_system.html#aa4bb80864110f7917ae86525e3c0d799">get_dof_indices_component_domain</a> (const unsigned int component, std::set&lt; unsigned int &gt; &amp;indices) const</td></tr>
 <tr class="separator:aa4bb80864110f7917ae86525e3c0d799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2617866e4d92dfb309a0212e2bc116d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_do_f_handler_system.html#ac2617866e4d92dfb309a0212e2bc116d">get_map_dof_index_component_interface</a> (std::vector&lt; unsigned int &gt; &amp;components) const</td></tr>
+<tr class="separator:ac2617866e4d92dfb309a0212e2bc116d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99e00b1efebbfee99db0478c3eac7787"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_do_f_handler_system.html#a99e00b1efebbfee99db0478c3eac7787">get_map_dof_index_component_domain</a> (std::vector&lt; unsigned int &gt; &amp;components) const</td></tr>
+<tr class="separator:a99e00b1efebbfee99db0478c3eac7787"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0af24410554802a908ce2800550007b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_do_f_handler_system.html#a0af24410554802a908ce2800550007b8">get_map_dof_index_support_point_index_interface</a> (std::vector&lt; unsigned int &gt; &amp;support_points, std::map&lt; unsigned int, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt;&gt; &amp;map_support_point_index_support_point_location, const dealii::Mapping&lt; spacedim-1, spacedim &gt; &amp;mapping) const</td></tr>
+<tr class="separator:a0af24410554802a908ce2800550007b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a298db5cd2cd488abbacb72c66fc9703e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_do_f_handler_system.html#a298db5cd2cd488abbacb72c66fc9703e">get_map_dof_index_support_point_index_domain</a> (std::vector&lt; unsigned int &gt; &amp;support_points, std::map&lt; unsigned int, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt;&gt; &amp;map_support_point_index_support_point_location, const dealii::Mapping&lt; spacedim &gt; &amp;mapping) const</td></tr>
+<tr class="separator:a298db5cd2cd488abbacb72c66fc9703e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -735,6 +743,158 @@ template&lt;unsigned int spacedim&gt; </div>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The set of locally relevant dofs (possibly renumbered according to <a class="el" href="class_do_f_handler_system.html#aef6159c606a24ac7daadcd3fe082b3b6">DoFHandlerSystem::dof_renumbering</a>) </dd></dl>
+
+</div>
+</div>
+<a id="a99e00b1efebbfee99db0478c3eac7787"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99e00b1efebbfee99db0478c3eac7787">&#9670;&nbsp;</a></span>get_map_dof_index_component_domain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_do_f_handler_system.html">DoFHandlerSystem</a>&lt; spacedim &gt;::get_map_dof_index_component_domain </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>components</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">components</td><td>components[i] is the component of the interface-related dof index i</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This works only if all finite elements are primitive.</dd>
+<dd>
+In parallel, this returns only valid components for locally owned cells. </dd></dl>
+
+</div>
+</div>
+<a id="ac2617866e4d92dfb309a0212e2bc116d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2617866e4d92dfb309a0212e2bc116d">&#9670;&nbsp;</a></span>get_map_dof_index_component_interface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_do_f_handler_system.html">DoFHandlerSystem</a>&lt; spacedim &gt;::get_map_dof_index_component_interface </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>components</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">components</td><td>components[i] is the component of the domain-related dof index i</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This works only if all finite elements are primitive.</dd>
+<dd>
+In parallel, this returns only valid components for locally owned cells. </dd></dl>
+
+</div>
+</div>
+<a id="a298db5cd2cd488abbacb72c66fc9703e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a298db5cd2cd488abbacb72c66fc9703e">&#9670;&nbsp;</a></span>get_map_dof_index_support_point_index_domain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_do_f_handler_system.html">DoFHandlerSystem</a>&lt; spacedim &gt;::get_map_dof_index_support_point_index_domain </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>support_points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; unsigned int, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>map_support_point_index_support_point_location</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const dealii::Mapping&lt; spacedim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mapping</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">support_points</td><td>support_point[i] is the support point index of the domain-related dof index i</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">map_support_point_index_support_point_location</td><td>map_support_point_index_support_point_location[i] is the physical location of the support point with index i</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mapping</td><td>The mapping to be used to calculate the physical locations of the support points</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This works only if all finite elements are primitive.</dd>
+<dd>
+In parallel, this returns only valid results for locally owned cells. </dd></dl>
+
+</div>
+</div>
+<a id="a0af24410554802a908ce2800550007b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0af24410554802a908ce2800550007b8">&#9670;&nbsp;</a></span>get_map_dof_index_support_point_index_interface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_do_f_handler_system.html">DoFHandlerSystem</a>&lt; spacedim &gt;::get_map_dof_index_support_point_index_interface </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>support_points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; unsigned int, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>map_support_point_index_support_point_location</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const dealii::Mapping&lt; spacedim-1, spacedim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mapping</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">support_points</td><td>support_point[i] is the support point index of the interface-related dof index i</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">map_support_point_index_support_point_location</td><td>map_support_point_index_support_point_location[i] is the physical location of the support point with index i</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mapping</td><td>The mapping to be used to calculate the physical locations of the support points</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This works only if all finite elements are primitive.</dd>
+<dd>
+In parallel, this returns only valid results for locally owned cells. </dd></dl>
 
 </div>
 </div>

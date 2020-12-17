@@ -158,12 +158,16 @@ $(function() {
 : <a class="el" href="class_assembly_helper.html#a3b6e5ff3a45411c2b8b42777fa94ec40">AssemblyHelper&lt; spacedim &gt;</a>
 </li>
 <li>get_h_omega()
-: <a class="el" href="class_linear_material_domain.html#a2892815e854904d44f391e99dd409320">LinearMaterialDomain&lt; spacedim &gt;</a>
-, <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a629bfeae4d8ea364fc3f72fea8016ac8">ScalarFunctional&lt; spacedim, spacedim &gt;</a>
+: <a class="el" href="class_linear_material_domain.html#a4d73bbb0e545ee21c5635e7dac071719">LinearMaterialDomain&lt; spacedim &gt;</a>
+, <a class="el" href="class_scalar_functional.html#a0f5c776b9084f350e1c0defa69c81047">ScalarFunctional&lt; dim, spacedim &gt;</a>
+, <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a8665cb5b5a57ad22217e4c112845d43b">ScalarFunctional&lt; spacedim, spacedim &gt;</a>
+, <a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#aa19331788617e6ff84a436fb2479ce03">ScalarFunctionalLocalElimination&lt; spacedim, spacedim &gt;</a>
 </li>
 <li>get_h_sigma()
-: <a class="el" href="class_linear_material_interface.html#a60351d101df9872a443cd9209efd1c2f">LinearMaterialInterface&lt; spacedim &gt;</a>
-, <a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">ScalarFunctional&lt; dim, spacedim &gt;</a>
+: <a class="el" href="class_linear_material_interface.html#af5cca6ebef9371fd07782e3ae0171d65">LinearMaterialInterface&lt; spacedim &gt;</a>
+, <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional&lt; dim, spacedim &gt;</a>
+, <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#af947eb73ba87510ec7667a7ae246bbfa">ScalarFunctional&lt; spacedim, spacedim &gt;</a>
+, <a class="el" href="class_scalar_functional_local_elimination.html#a458ebe9d4709117e66fc1e03e220fbf7">ScalarFunctionalLocalElimination&lt; dim, spacedim &gt;</a>
 </li>
 <li>get_independent_fields_domain()
 : <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ade98e0e1e1a8ebc3f8ad1ef7cf3268fa">DependentField&lt; spacedim, spacedim &gt;</a>
@@ -180,6 +184,10 @@ $(function() {
 </li>
 <li>get_initial_fields_vector()
 : <a class="el" href="class_assembly_helper.html#a4043c993c8902ad5d3045a13ed42e6f8">AssemblyHelper&lt; spacedim &gt;</a>
+</li>
+<li>get_is_local()
+: <a class="el" href="class_dependent_field.html#aabc31c47b3f6cb69da28758d9672d8d8">DependentField&lt; dim, spacedim &gt;</a>
+, <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#abf60a16e3b158c7c67c5e04d8ad41b5c">DependentField&lt; spacedim, spacedim &gt;</a>
 </li>
 <li>get_locally_owned_dofs()
 : <a class="el" href="class_do_f_handler_system.html#aa07844f26a5f98734535b29790bd9dca">DoFHandlerSystem&lt; spacedim &gt;</a>
@@ -199,6 +207,18 @@ $(function() {
 <li>get_locally_relevant_indices_blocks()
 : <a class="el" href="class_assembly_helper.html#a5f47fad7f7f2a83a7f54cd38825c703a">AssemblyHelper&lt; spacedim &gt;</a>
 </li>
+<li>get_map_dof_index_component_domain()
+: <a class="el" href="class_do_f_handler_system.html#a99e00b1efebbfee99db0478c3eac7787">DoFHandlerSystem&lt; spacedim &gt;</a>
+</li>
+<li>get_map_dof_index_component_interface()
+: <a class="el" href="class_do_f_handler_system.html#ac2617866e4d92dfb309a0212e2bc116d">DoFHandlerSystem&lt; spacedim &gt;</a>
+</li>
+<li>get_map_dof_index_support_point_index_domain()
+: <a class="el" href="class_do_f_handler_system.html#a298db5cd2cd488abbacb72c66fc9703e">DoFHandlerSystem&lt; spacedim &gt;</a>
+</li>
+<li>get_map_dof_index_support_point_index_interface()
+: <a class="el" href="class_do_f_handler_system.html#a0af24410554802a908ce2800550007b8">DoFHandlerSystem&lt; spacedim &gt;</a>
+</li>
 <li>get_material_ids()
 : <a class="el" href="class_interface_cell_domain_cells.html#a6823df36e862abe155a90e25d95cf76e">InterfaceCellDomainCells&lt; spacedim &gt;</a>
 , <a class="el" href="class_interface_cell_domain_cells_do_f.html#a4823f0f9c791b61d6fb75699952464e5">InterfaceCellDomainCellsDoF&lt; spacedim &gt;</a>
@@ -209,6 +229,8 @@ $(function() {
 <li>get_maximum_step()
 : <a class="el" href="class_scalar_functional.html#ae4f5fbd69cabfda73cc2b30ae0263ca5">ScalarFunctional&lt; dim, spacedim &gt;</a>
 , <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#add1852ebe7ad8b1178063ff725748856">ScalarFunctional&lt; spacedim, spacedim &gt;</a>
+, <a class="el" href="class_scalar_functional_local_elimination.html#abd08e15318c711bd4fdb2a66d378460f">ScalarFunctionalLocalElimination&lt; dim, spacedim &gt;</a>
+, <a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a510939a9d4c429a5b779b1dbc8adf26f">ScalarFunctionalLocalElimination&lt; spacedim, spacedim &gt;</a>
 </li>
 <li>get_maximum_step_length()
 : <a class="el" href="class_assembly_helper.html#a310594206df2622027fdc48e84600bf7">AssemblyHelper&lt; spacedim &gt;</a>
@@ -223,7 +245,7 @@ $(function() {
 : <a class="el" href="class_assembly_helper.html#a781fcbb9a157621c8db25d8ef46aca13">AssemblyHelper&lt; spacedim &gt;</a>
 </li>
 <li>get_nonprimitive_scalar_functional_values()
-: <a class="el" href="class_assembly_helper.html#abe88d8ccfd69bbfcfc56551c5c7d67e9">AssemblyHelper&lt; spacedim &gt;</a>
+: <a class="el" href="class_assembly_helper.html#acf6ef2dced66e223684e5df97182f428">AssemblyHelper&lt; spacedim &gt;</a>
 </li>
 <li>get_potential_contribution()
 : <a class="el" href="class_total_potential_contribution.html#a515786e58c1fda7baf168be8f4a13720">TotalPotentialContribution&lt; spacedim &gt;</a>
@@ -270,15 +292,15 @@ $(function() {
 , <a class="el" href="class_triangulation_system.html#a1d468c78ec2c3c57b66bf2c307201eea">TriangulationSystem&lt; spacedim &gt;</a>
 </li>
 <li>get_triangulation_domain()
-: <a class="el" href="classparallel_1_1_triangulation_system.html#a68d45d1980bf4a8aa4ed8db4f4985eef">parallel::TriangulationSystem&lt; spacedim &gt;</a>
-, <a class="el" href="class_triangulation_system.html#a70637dc46ee4a36433c3ec3c5dc544c5">TriangulationSystem&lt; spacedim &gt;</a>
+: <a class="el" href="classparallel_1_1_triangulation_system.html#a4901a2f0e26104d5a085253620b98f52">parallel::TriangulationSystem&lt; spacedim &gt;</a>
+, <a class="el" href="class_triangulation_system.html#a4c4e1d0589f962d92532586d808c7da2">TriangulationSystem&lt; spacedim &gt;</a>
 </li>
 <li>get_triangulation_interface()
 : <a class="el" href="classparallel_1_1_triangulation_system.html#ab799af10ed705dcf903bcd78325762b0">parallel::TriangulationSystem&lt; spacedim &gt;</a>
 , <a class="el" href="class_triangulation_system.html#af6c6bc5c73c44896c976bf8e118fa67c">TriangulationSystem&lt; spacedim &gt;</a>
 </li>
 <li>get_triangulation_system()
-: <a class="el" href="class_assembly_helper.html#a16f9d21a79922d4879e37916b414f7d0">AssemblyHelper&lt; spacedim &gt;</a>
+: <a class="el" href="class_assembly_helper.html#a42cc83a6b33fe48b04fa8f4c9907cbb8">AssemblyHelper&lt; spacedim &gt;</a>
 </li>
 <li>get_u_omega_global_component_index()
 : <a class="el" href="class_assembly_helper.html#af65861aae14b724a631feaf56c82ae9a">AssemblyHelper&lt; spacedim &gt;</a>

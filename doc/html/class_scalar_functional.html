@@ -77,8 +77,9 @@ Inheritance diagram for ScalarFunctional&lt; dim, spacedim &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_scalar_functional__inherit__graph.png" border="0" usemap="#_scalar_functional_3_01dim_00_01spacedim_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="_scalar_functional_3_01dim_00_01spacedim_01_4_inherit__map" id="_scalar_functional_3_01dim_00_01spacedim_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,80,179,121"/>
-<area shape="rect" href="https://dealii.org/9.0.0/doxygen/deal.II/classSubscriptor.html" title=" " alt="" coords="45,5,139,32"/>
+<area shape="rect" title=" " alt="" coords="37,80,211,121"/>
+<area shape="rect" href="class_scalar_functional_local_elimination.html" title=" " alt="" coords="5,169,243,211"/>
+<area shape="rect" href="https://dealii.org/9.0.0/doxygen/deal.II/classSubscriptor.html" title=" " alt="" coords="77,5,171,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -99,10 +100,14 @@ Collaboration diagram for ScalarFunctional&lt; dim, spacedim &gt;:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac0618ada3b80400784ee8553a66aade9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional.html#ac0618ada3b80400784ee8553a66aade9">ScalarFunctional</a> (const std::vector&lt; <a class="el" href="class_dependent_field.html">DependentField</a>&lt; dim, spacedim &gt;&gt; <a class="el" href="class_scalar_functional.html#a86662b03a63219227993a2c6c07aefc1">e_sigma</a>, const std::set&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacetypes.html#afb65af4be8a9a1d09a0c3ecc967c9d4c">types::material_id</a> &gt; <a class="el" href="class_scalar_functional.html#ae3b6dd6934e1cd55fcc55cf344179407">domain_of_integration</a>, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classQuadrature.html">Quadrature</a>&lt; dim &gt; <a class="el" href="class_scalar_functional.html#adea9ff214aeb2a1d8c3712a9d2433883">quadrature</a>, const std::string <a class="el" href="class_scalar_functional.html#a4d184688053b3443d10e228e4a8eba60">name</a>, const unsigned int <a class="el" href="class_scalar_functional.html#a7e12423f4b29e9e0aaa0f7f9c2d1c0eb">n_ref_sets</a>=0, const unsigned int <a class="el" href="class_scalar_functional.html#a8b1617930242870f22eef5e306cb717f">n_hidden</a>=0, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html">Function</a>&lt; spacedim &gt; *const <a class="el" href="class_scalar_functional.html#a602d0bc2c945822c6b756fc63183ae2b">initial_vals_hidden</a>=nullptr)</td></tr>
 <tr class="separator:ac0618ada3b80400784ee8553a66aade9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b9874b2fd591c844ecfcd1db8212c54"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">get_h_sigma</a> (const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;<a class="el" href="class_scalar_functional.html#a86662b03a63219227993a2c6c07aefc1">e_sigma</a>, const std::vector&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt;&gt; &amp;e_sigma_ref_sets, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;hidden_vars, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt; &amp;x, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classTensor.html">Tensor</a>&lt; 1, spacedim &gt; &amp;n, double &amp;h_sigma, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;h_sigma_1, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFullMatrix.html">FullMatrix</a>&lt; double &gt; &amp;h_sigma_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const =0</td></tr>
-<tr class="separator:a1b9874b2fd591c844ecfcd1db8212c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb295fb739a743d5a1273025eb8dae72"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">get_h_sigma</a> (<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;<a class="el" href="class_scalar_functional.html#a86662b03a63219227993a2c6c07aefc1">e_sigma</a>, const std::vector&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt;&gt; &amp;e_sigma_ref_sets, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;hidden_vars, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt; &amp;x, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classTensor.html">Tensor</a>&lt; 1, spacedim &gt; &amp;n, double &amp;h_sigma, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;h_sigma_1, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFullMatrix.html">FullMatrix</a>&lt; double &gt; &amp;h_sigma_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const =0</td></tr>
+<tr class="separator:adb295fb739a743d5a1273025eb8dae72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f5c776b9084f350e1c0defa69c81047"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional.html#a0f5c776b9084f350e1c0defa69c81047">get_h_omega</a> (<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;<a class="el" href="class_scalar_functional.html#aff467b5588c5a8a28b805ae886205f9c">e_omega</a>, const std::vector&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt;&gt; &amp;e_omega_ref_sets, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;hidden_vars, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt; &amp;x, double &amp;h_omega, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;h_omega_1, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFullMatrix.html">FullMatrix</a>&lt; double &gt; &amp;h_omega_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const</td></tr>
+<tr class="separator:a0f5c776b9084f350e1c0defa69c81047"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4f5fbd69cabfda73cc2b30ae0263ca5"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional.html#ae4f5fbd69cabfda73cc2b30ae0263ca5">get_maximum_step</a> (const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;<a class="el" href="class_scalar_functional.html#a86662b03a63219227993a2c6c07aefc1">e_sigma</a>, const std::vector&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt;&gt; &amp;e_sigma_ref_sets, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;delta_e_sigma, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;hidden_vars, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt; &amp;x, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classTensor.html">Tensor</a>&lt; 1, spacedim &gt; &amp;n) const</td></tr>
 <tr class="separator:ae4f5fbd69cabfda73cc2b30ae0263ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71310146c6cc3180e25d90f7b7329c44"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional.html#a71310146c6cc3180e25d90f7b7329c44">get_maximum_step</a> (const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;<a class="el" href="class_scalar_functional.html#aff467b5588c5a8a28b805ae886205f9c">e_omega</a>, const std::vector&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt;&gt; &amp;e_omega_ref_sets, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;delta_e_omega, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;hidden_vars, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt; &amp;x) const</td></tr>
+<tr class="separator:a71310146c6cc3180e25d90f7b7329c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c0a2095a33e657a7a984e706ed7f968"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional.html#a0c0a2095a33e657a7a984e706ed7f968">compare_derivatives_with_numerical_derivatives</a> (<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;<a class="el" href="class_scalar_functional.html#a86662b03a63219227993a2c6c07aefc1">e_sigma</a>, const std::vector&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt;&gt; &amp;e_sigma_ref_sets, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;hidden_vars, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt; &amp;x, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classTensor.html">Tensor</a>&lt; 1, spacedim &gt; &amp;n, const std::string detailed_printout_file=&quot;&quot;, const double <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacePhysics_1_1Elasticity_1_1Kinematics.html#a338a944a393875e2dd499457d1055841">epsilon</a>=1<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacePhysics_1_1Elasticity_1_1Kinematics.html#a9587d5229555daa5b1fa1ba2f8a40adb">e</a>-8) const</td></tr>
 <tr class="separator:a0c0a2095a33e657a7a984e706ed7f968"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed36f35e6d2c9f9a93ee2749d01f2a51"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional.html#aed36f35e6d2c9f9a93ee2749d01f2a51">~ScalarFunctional</a> ()</td></tr>
@@ -139,6 +144,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a602d0bc2c945822c6b756fc63183ae2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86662b03a63219227993a2c6c07aefc1"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_dependent_field.html">DependentField</a>&lt; dim, spacedim &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional.html#a86662b03a63219227993a2c6c07aefc1">e_sigma</a></td></tr>
 <tr class="separator:a86662b03a63219227993a2c6c07aefc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff467b5588c5a8a28b805ae886205f9c"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_dependent_field.html">DependentField</a>&lt; dim, spacedim &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional.html#aff467b5588c5a8a28b805ae886205f9c">e_omega</a> = std::vector&lt;<a class="el" href="class_dependent_field.html">DependentField</a>&lt;dim, spacedim&gt;&gt;()</td></tr>
+<tr class="separator:aff467b5588c5a8a28b805ae886205f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adea9ff214aeb2a1d8c3712a9d2433883"><td class="memItemLeft" align="right" valign="top">const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classQuadrature.html">Quadrature</a>&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional.html#adea9ff214aeb2a1d8c3712a9d2433883">quadrature</a></td></tr>
 <tr class="separator:adea9ff214aeb2a1d8c3712a9d2433883"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b1617930242870f22eef5e306cb717f"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional.html#a8b1617930242870f22eef5e306cb717f">n_hidden</a></td></tr>
@@ -332,9 +339,9 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Function comparing the computed derivatives of the integrand <img class="formulaInl" alt="$h^\Sigma_\tau$" src="form_5.png"/> provided by <a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">ScalarFunctional::get_h_sigma()</a> with corresponding numerically computed finite difference based derivatives.</p>
-<p>In the case of the first derivative, the numerical derivatives are obtained based on the values for <img class="formulaInl" alt="$h^\Sigma_\tau$" src="form_5.png"/> provided by <a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">ScalarFunctional::get_h_sigma()</a>; and in the case of the second derivatives, the numerical derivatives are obtained based on the values for the first derivatives of <img class="formulaInl" alt="$h^\Sigma_\tau$" src="form_5.png"/> provided by <a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">ScalarFunctional::get_h_sigma()</a> ). In both cases, a simple forward finite difference approach is used. Generally, the first numerical derivative can only be "correct" if the computation of the value of <img class="formulaInl" alt="$h^\Sigma_\tau$" src="form_5.png"/> is correctly implemented in the function <a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">ScalarFunctional::get_h_sigma()</a>; and likewise the second numerical derivative can only be "correct" if the computation of the first derivative of <img class="formulaInl" alt="$h^\Sigma_\tau$" src="form_5.png"/> is correctly implemented in the function <a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">ScalarFunctional::get_h_sigma()</a>.</p>
-<p>This function is essentially meant for testing of user defined functions <a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">ScalarFunctional::get_h_sigma()</a>.</p>
+<p>Function comparing the computed derivatives of the integrand <img class="formulaInl" alt="$h^\Sigma_\tau$" src="form_5.png"/> provided by <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional::get_h_sigma()</a> with corresponding numerically computed finite difference based derivatives.</p>
+<p>In the case of the first derivative, the numerical derivatives are obtained based on the values for <img class="formulaInl" alt="$h^\Sigma_\tau$" src="form_5.png"/> provided by <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional::get_h_sigma()</a>; and in the case of the second derivatives, the numerical derivatives are obtained based on the values for the first derivatives of <img class="formulaInl" alt="$h^\Sigma_\tau$" src="form_5.png"/> provided by <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional::get_h_sigma()</a> ). In both cases, a simple forward finite difference approach is used. Generally, the first numerical derivative can only be "correct" if the computation of the value of <img class="formulaInl" alt="$h^\Sigma_\tau$" src="form_5.png"/> is correctly implemented in the function <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional::get_h_sigma()</a>; and likewise the second numerical derivative can only be "correct" if the computation of the first derivative of <img class="formulaInl" alt="$h^\Sigma_\tau$" src="form_5.png"/> is correctly implemented in the function <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional::get_h_sigma()</a>.</p>
+<p>This function is essentially meant for testing of user defined functions <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional::get_h_sigma()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">e_sigma</td><td>Values of <img class="formulaInl" alt="$e^\Sigma_\nu$" src="form_22.png"/> (the ordering is defined by the ordering of the dependent fields in <a class="el" href="class_scalar_functional.html#a86662b03a63219227993a2c6c07aefc1">ScalarFunctional::e_sigma</a>)</td></tr>
@@ -350,8 +357,75 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
 
 </div>
 </div>
-<a id="a1b9874b2fd591c844ecfcd1db8212c54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b9874b2fd591c844ecfcd1db8212c54">&#9670;&nbsp;</a></span>get_h_sigma()</h2>
+<a id="a0f5c776b9084f350e1c0defa69c81047"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f5c776b9084f350e1c0defa69c81047">&#9670;&nbsp;</a></span>get_h_omega()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; dim, spacedim &gt;::get_h_omega </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>e_omega</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>e_omega_ref_sets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>hidden_vars</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>h_omega</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>h_omega_1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFullMatrix.html">FullMatrix</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>h_omega_2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::tuple&lt; bool, bool, bool &gt;&#160;</td>
+          <td class="paramname"><em>requested_quantities</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function (</p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a8665cb5b5a57ad22217e4c112845d43b">ScalarFunctional&lt;spacedim, spacedim&gt;::get_h_omega</a>) exists only to allow for using the same code for domain and interface related scalar functionals. It should never be called and therefore throws an exception. </dd></dl>
+
+</div>
+</div>
+<a id="adb295fb739a743d5a1273025eb8dae72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb295fb739a743d5a1273025eb8dae72">&#9670;&nbsp;</a></span>get_h_sigma()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -364,7 +438,7 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
         <tr>
           <td class="memname">virtual bool <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; dim, spacedim &gt;::get_h_sigma </td>
           <td>(</td>
-          <td class="paramtype">const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>e_sigma</em>, </td>
         </tr>
         <tr>
@@ -428,10 +502,10 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Function for evaluation of integrand <img class="formulaInl" alt="$h^\Sigma_\tau$" src="form_5.png"/> and computation of first and second derivatives w.r.t. the dependent fields <img class="formulaInl" alt="$e^\Sigma_\nu$" src="form_22.png"/>.</p>
-<p>This function is pure virtual, and, therefore, it is not possible to instantiate objects of this class. Rather, derived user defined classes must implement this function.</p>
+<p>Derived user defined scalar functionals implement this function or it's other version in case local dependent fields are involved.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">e_sigma</td><td>Values of <img class="formulaInl" alt="$e^\Sigma_\nu$" src="form_22.png"/> (the ordering is defined by the ordering of the dependent fields in <a class="el" href="class_scalar_functional.html#a86662b03a63219227993a2c6c07aefc1">ScalarFunctional::e_sigma</a>)</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">e_sigma</td><td>Values of <img class="formulaInl" alt="$e^\Sigma_\nu$" src="form_22.png"/> (the ordering is defined by the ordering of the dependent fields in <a class="el" href="class_scalar_functional.html#a86662b03a63219227993a2c6c07aefc1">ScalarFunctional::e_sigma</a>). Note that this vector is non-const, as in the case of local dependent fields updated values of these may be returned.</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">e_sigma_ref_sets</td><td>Sets of reference values of <img class="formulaInl" alt="$e^\Sigma_\nu$" src="form_22.png"/> (as required according to <a class="el" href="class_scalar_functional.html#a7e12423f4b29e9e0aaa0f7f9c2d1c0eb">ScalarFunctional::n_ref_sets</a>)</td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">hidden_vars</td><td>Values of "hidden" variables associated with the integrand <img class="formulaInl" alt="$h^\Sigma_\tau$" src="form_5.png"/>. This vector has the size <a class="el" href="class_scalar_functional.html#a8b1617930242870f22eef5e306cb717f">ScalarFunctional::n_hidden</a>. The inputs are the previously known values of the hidden variables, which may be overwritten by the function (the user can decide during assembly of the finite element system whether the returned updated values of the hidden variables are really used to update the stored values of the hidden variables or whether they are discarded)</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Location of material point at which integrand <img class="formulaInl" alt="$h^\Sigma_\tau$" src="form_5.png"/> and derivatives thereof are evaluated</td></tr>
@@ -445,10 +519,61 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>false</code> if the evaluation of the integrand <img class="formulaInl" alt="$h^\Sigma_\tau$" src="form_5.png"/> and its derivatives was successful, and <code>true</code> if an error prevented the proper calculation of these quantities (e.g. because a dependent field, which should be non-negative, was actually negative) </dd></dl>
 
+<p>Implemented in <a class="el" href="class_scalar_functional_local_elimination.html#a458ebe9d4709117e66fc1e03e220fbf7">ScalarFunctionalLocalElimination&lt; dim, spacedim &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a71310146c6cc3180e25d90f7b7329c44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71310146c6cc3180e25d90f7b7329c44">&#9670;&nbsp;</a></span>get_maximum_step() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; dim, spacedim &gt;::get_maximum_step </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>e_omega</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>e_omega_ref_sets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>delta_e_omega</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>hidden_vars</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function (</p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#add1852ebe7ad8b1178063ff725748856">ScalarFunctional&lt;spacedim, spacedim&gt;::get_maximum_step</a>) exists only to allow for using the same code for domain and interface related scalar functionals. It should never be called and therefore throws an exception. </dd></dl>
+
 </div>
 </div>
 <a id="ae4f5fbd69cabfda73cc2b30ae0263ca5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4f5fbd69cabfda73cc2b30ae0263ca5">&#9670;&nbsp;</a></span>get_maximum_step()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4f5fbd69cabfda73cc2b30ae0263ca5">&#9670;&nbsp;</a></span>get_maximum_step() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -520,6 +645,8 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The maximum <img class="formulaInl" alt="$\alpha$" src="form_114.png"/> such that <img class="formulaInl" alt="$e^\Sigma_\nu + \alpha \Delta e^\Sigma_\nu$" src="form_115.png"/> is a permissible state; the standard implementation returns DBL_MAX </dd></dl>
 
+<p>Reimplemented in <a class="el" href="class_scalar_functional_local_elimination.html#abd08e15318c711bd4fdb2a66d378460f">ScalarFunctionalLocalElimination&lt; dim, spacedim &gt;</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -537,6 +664,23 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
       </table>
 </div><div class="memdoc">
 <p>Set of <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacetypes.html#afb65af4be8a9a1d09a0c3ecc967c9d4c">types::material_id</a>s determining the interfacial domain of integration (i.e. those regions of the total interface <img class="formulaInl" alt="$\Sigma$" src="form_82.png"/>, where the integrand <img class="formulaInl" alt="$h^\Sigma_\tau$" src="form_5.png"/> is non-zero). </p>
+
+</div>
+</div>
+<a id="aff467b5588c5a8a28b805ae886205f9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff467b5588c5a8a28b805ae886205f9c">&#9670;&nbsp;</a></span>e_omega</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="class_dependent_field.html">DependentField</a>&lt;dim, spacedim&gt; &gt; <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; dim, spacedim &gt;::e_omega = std::vector&lt;<a class="el" href="class_dependent_field.html">DependentField</a>&lt;dim, spacedim&gt;&gt;()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This member exists only to allow for using the same code for domain and interface related scalar functionals.. </p>
 
 </div>
 </div>

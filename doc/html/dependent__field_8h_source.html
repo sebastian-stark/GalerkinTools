@@ -136,213 +136,253 @@ $(function() {
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">bool</span></div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <a class="code" href="class_dependent_field_term.html#a204178ccb13a1280b96cf2ad8cf24695">operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="class_dependent_field_term.html">DependentFieldTerm</a>&amp; dependent_field_2)</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;};</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dim, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> spacedim&gt;</div>
-<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="class_dependent_field.html">  163</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_dependent_field.html">DependentField</a></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;{</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    std::set&lt; DependentFieldTerm&lt;dim, spacedim&gt; &gt;</div>
-<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="class_dependent_field.html#aa6326d64fd7828c935946136ec5ec122">  174</a></span>&#160;    <a class="code" href="class_dependent_field.html#aa6326d64fd7828c935946136ec5ec122">terms_interface</a>;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    std::set&lt; DependentFieldTerm&lt;dim+1, spacedim&gt; &gt;</div>
-<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="class_dependent_field.html#a05ba04a9f0f50fd881055f3abf46c9f5">  182</a></span>&#160;    <a class="code" href="class_dependent_field.html#a05ba04a9f0f50fd881055f3abf46c9f5">terms_neighbor_plus</a>;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    std::set&lt; DependentFieldTerm&lt;dim+1, spacedim&gt; &gt;</div>
-<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="class_dependent_field.html#a9ac1d390137d52ef6c58b230d540ce38">  190</a></span>&#160;    <a class="code" href="class_dependent_field.html#a9ac1d390137d52ef6c58b230d540ce38">terms_neighbor_minus</a>;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    std::set&lt; DependentFieldTerm&lt;0, spacedim&gt; &gt;</div>
-<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="class_dependent_field.html#aa1ba265eae76489d22d3eecd595931c5">  196</a></span>&#160;    <a class="code" href="class_dependent_field.html#aa1ba265eae76489d22d3eecd595931c5">terms_independent_scalars</a>;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordtype">double</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="class_dependent_field.html#a32b37c78e04a16b6b606442f156c8ca9">  202</a></span>&#160;    <a class="code" href="class_dependent_field.html#a32b37c78e04a16b6b606442f156c8ca9">constant</a>=0.0;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
-<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="class_dependent_field.html#a698b255f131279d1edb97b3c525153a0">  209</a></span>&#160;    <span class="keyword">const</span> std::string <a class="code" href="class_dependent_field.html#a698b255f131279d1edb97b3c525153a0">name</a>;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <a class="code" href="class_dependent_field.html#a5a47b8f5b0e51b29bf6f3ca6e18fda9c">DependentField</a>( <span class="keyword">const</span> std::string <a class="code" href="class_dependent_field.html#a698b255f131279d1edb97b3c525153a0">name</a> );</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                  coefficient,</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field.html">IndependentField&lt;dim, spacedim&gt;</a>&amp;  independent_field,</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                      component = 0,</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                <span class="keyword">const</span> std::vector&lt;unsigned int&gt;         derivatives=std::vector&lt;unsigned int&gt;());</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                      coefficient,</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field.html">IndependentField&lt;dim+1, spacedim&gt;</a>&amp;    independent_field,</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                          component,</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;                <span class="keyword">const</span> std::vector&lt;unsigned int&gt;             derivatives,</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;                <span class="keyword">const</span> <a class="code" href="triangulation__system_8h.html#a44f3c00e36c1d6e3c389ae693c09b435">InterfaceSide</a>                         side);</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                      coefficient,</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field.html">IndependentField&lt;dim+1, spacedim&gt;</a>&amp;    independent_field,</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                          component,</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                <span class="keyword">const</span> <a class="code" href="triangulation__system_8h.html#a44f3c00e36c1d6e3c389ae693c09b435">InterfaceSide</a>                         side);</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                  coefficient,</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field.html">IndependentField&lt;dim, spacedim&gt;</a>&amp;  independent_field,</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                      component,</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                      derivative);</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                      coefficient,</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field.html">IndependentField&lt;dim+1, spacedim&gt;</a>&amp;    independent_field,</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                          component,</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                          derivative,</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                <span class="keyword">const</span> <a class="code" href="triangulation__system_8h.html#a44f3c00e36c1d6e3c389ae693c09b435">InterfaceSide</a>                         side);</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; </div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                  coefficient,</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field_3_010_00_01spacedim_01_4.html">IndependentField&lt;0, spacedim&gt;</a>&amp;    independent_field);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <a class="code" href="class_dependent_field_term.html#a017b2119451d74e4dbbe203503d498c4">operator==</a>(<span class="keyword">const</span> <a class="code" href="class_dependent_field_term.html">DependentFieldTerm</a>&amp; dependent_field_2)</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;};</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dim, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> spacedim&gt;</div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="class_dependent_field.html">  174</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_dependent_field.html">DependentField</a></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;{</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    std::set&lt; DependentFieldTerm&lt;dim, spacedim&gt; &gt;</div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="class_dependent_field.html#aa6326d64fd7828c935946136ec5ec122">  185</a></span>&#160;    <a class="code" href="class_dependent_field.html#aa6326d64fd7828c935946136ec5ec122">terms_interface</a>;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    std::set&lt; DependentFieldTerm&lt;dim+1, spacedim&gt; &gt;</div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="class_dependent_field.html#a05ba04a9f0f50fd881055f3abf46c9f5">  193</a></span>&#160;    <a class="code" href="class_dependent_field.html#a05ba04a9f0f50fd881055f3abf46c9f5">terms_neighbor_plus</a>;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    std::set&lt; DependentFieldTerm&lt;dim+1, spacedim&gt; &gt;</div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="class_dependent_field.html#a9ac1d390137d52ef6c58b230d540ce38">  201</a></span>&#160;    <a class="code" href="class_dependent_field.html#a9ac1d390137d52ef6c58b230d540ce38">terms_neighbor_minus</a>;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    std::set&lt; DependentFieldTerm&lt;0, spacedim&gt; &gt;</div>
+<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="class_dependent_field.html#aa1ba265eae76489d22d3eecd595931c5">  207</a></span>&#160;    <a class="code" href="class_dependent_field.html#aa1ba265eae76489d22d3eecd595931c5">terms_independent_scalars</a>;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno"><a class="line" href="class_dependent_field.html#a32b37c78e04a16b6b606442f156c8ca9">  213</a></span>&#160;    <a class="code" href="class_dependent_field.html#a32b37c78e04a16b6b606442f156c8ca9">constant</a> = 0.0;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="class_dependent_field.html#aacdabff2601b1f0efcdce7a4413b47bc">  219</a></span>&#160;    <a class="code" href="class_dependent_field.html#aacdabff2601b1f0efcdce7a4413b47bc">is_local</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="class_dependent_field.html#a698b255f131279d1edb97b3c525153a0">  226</a></span>&#160;    <span class="keyword">const</span> std::string <a class="code" href="class_dependent_field.html#a698b255f131279d1edb97b3c525153a0">name</a>;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <a class="code" href="class_dependent_field.html#a5a47b8f5b0e51b29bf6f3ca6e18fda9c">DependentField</a>( <span class="keyword">const</span> std::string <a class="code" href="class_dependent_field.html#a698b255f131279d1edb97b3c525153a0">name</a> );</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                  coefficient,</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field.html">IndependentField&lt;dim, spacedim&gt;</a>&amp;  independent_field,</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                      component = 0,</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                <span class="keyword">const</span> std::vector&lt;unsigned int&gt;         derivatives=std::vector&lt;unsigned int&gt;());</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                      coefficient,</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field.html">IndependentField&lt;dim+1, spacedim&gt;</a>&amp;    independent_field,</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                          component,</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                <span class="keyword">const</span> std::vector&lt;unsigned int&gt;             derivatives,</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                <span class="keyword">const</span> <a class="code" href="triangulation__system_8h.html#a44f3c00e36c1d6e3c389ae693c09b435">InterfaceSide</a>                         side);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                      coefficient,</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field.html">IndependentField&lt;dim+1, spacedim&gt;</a>&amp;    independent_field,</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                          component,</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                <span class="keyword">const</span> <a class="code" href="triangulation__system_8h.html#a44f3c00e36c1d6e3c389ae693c09b435">InterfaceSide</a>                         side);</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                  coefficient,</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field.html">IndependentField&lt;dim, spacedim&gt;</a>&amp;  independent_field,</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                      component,</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                      derivative);</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                      coefficient,</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field.html">IndependentField&lt;dim+1, spacedim&gt;</a>&amp;    independent_field,</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                          component,</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                          derivative,</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                <span class="keyword">const</span> <a class="code" href="triangulation__system_8h.html#a44f3c00e36c1d6e3c389ae693c09b435">InterfaceSide</a>                         side);</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span> <a class="code" href="class_dependent_field.html#a32b37c78e04a16b6b606442f156c8ca9">constant</a>);</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <span class="keyword">const</span> std::set&lt; DependentFieldTerm&lt;dim, spacedim&gt; &gt;&amp;</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    <a class="code" href="class_dependent_field.html#a4011707cbf799347a63e92d196d0e5e1">get_terms_interface</a>()</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; </div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="keyword">const</span> std::set&lt; DependentFieldTerm&lt;dim+1, spacedim&gt; &gt;&amp;</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <a class="code" href="class_dependent_field.html#a61f0205166754053e5f7beaa8edf7784">get_terms_neighbor</a>(<span class="keyword">const</span> <a class="code" href="triangulation__system_8h.html#a44f3c00e36c1d6e3c389ae693c09b435">InterfaceSide</a> side)</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keyword">const</span> std::set&lt; DependentFieldTerm&lt;0, spacedim&gt; &gt;&amp;</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <a class="code" href="class_dependent_field.html#aab79e0a11ed661b0399d89d646ac2043">get_terms_independent_scalars</a>()</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; </div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    <span class="keywordtype">double</span></div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <a class="code" href="class_dependent_field.html#a213c5de7c4726eb823590de0510f1ff1">get_constant</a>()</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160; </div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    std::set&lt;const IndependentField&lt;dim, spacedim&gt;*&gt;</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    <a class="code" href="class_dependent_field.html#a33760e356c5704614ed8cf7c532b4de6">get_independent_fields_interface</a>()</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160; </div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    std::set&lt;const IndependentField&lt;dim+1, spacedim&gt;*&gt;</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <a class="code" href="class_dependent_field.html#ac12fccee9603f2cf36990af16d8da604">get_independent_fields_neighbors</a>()</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160; </div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    std::set&lt;const IndependentField&lt;0, spacedim&gt;*&gt;</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    <a class="code" href="class_dependent_field.html#a15eb8101d33f2f09ada4cdf2cde73ad7">get_independent_scalars</a>()</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160; </div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    <a class="code" href="class_dependent_field.html#adf0ad81e2d7b609b7dfde60a77f92a20">print</a>()</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160; </div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;};</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                  coefficient,</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field_3_010_00_01spacedim_01_4.html">IndependentField&lt;0, spacedim&gt;</a>&amp;    independent_field);</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span> <a class="code" href="class_dependent_field.html#a32b37c78e04a16b6b606442f156c8ca9">constant</a>);</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160; </div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    <span class="keyword">const</span> std::set&lt; DependentFieldTerm&lt;dim, spacedim&gt; &gt;&amp;</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <a class="code" href="class_dependent_field.html#a4011707cbf799347a63e92d196d0e5e1">get_terms_interface</a>()</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    <span class="keyword">const</span> std::set&lt; DependentFieldTerm&lt;dim+1, spacedim&gt; &gt;&amp;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    <a class="code" href="class_dependent_field.html#a61f0205166754053e5f7beaa8edf7784">get_terms_neighbor</a>(<span class="keyword">const</span> <a class="code" href="triangulation__system_8h.html#a44f3c00e36c1d6e3c389ae693c09b435">InterfaceSide</a> side)</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160; </div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <span class="keyword">const</span> std::set&lt; DependentFieldTerm&lt;0, spacedim&gt; &gt;&amp;</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    <a class="code" href="class_dependent_field.html#aab79e0a11ed661b0399d89d646ac2043">get_terms_independent_scalars</a>()</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160; </div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <a class="code" href="class_dependent_field.html#a213c5de7c4726eb823590de0510f1ff1">get_constant</a>()</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160; </div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    std::set&lt;const IndependentField&lt;dim, spacedim&gt;*&gt;</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <a class="code" href="class_dependent_field.html#a33760e356c5704614ed8cf7c532b4de6">get_independent_fields_interface</a>()</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160; </div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    std::set&lt;const IndependentField&lt;dim+1, spacedim&gt;*&gt;</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    <a class="code" href="class_dependent_field.html#ac12fccee9603f2cf36990af16d8da604">get_independent_fields_neighbors</a>()</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160; </div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> spacedim&gt;</div>
-<div class="line"><a name="l00474"></a><span class="lineno"><a class="line" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html">  474</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_dependent_field.html">DependentField</a>&lt;spacedim, spacedim&gt;</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;{</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    std::set&lt;const IndependentField&lt;0, spacedim&gt;*&gt;</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    <a class="code" href="class_dependent_field.html#a15eb8101d33f2f09ada4cdf2cde73ad7">get_independent_scalars</a>()</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160; </div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    <a class="code" href="class_dependent_field.html#adf0ad81e2d7b609b7dfde60a77f92a20">print</a>()</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160; </div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160; </div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    std::set&lt;DependentFieldTerm&lt;spacedim, spacedim&gt;&gt;</div>
-<div class="line"><a name="l00485"></a><span class="lineno"><a class="line" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ace23fb05e85b4c967793e8ffce58f332">  485</a></span>&#160;    <a class="code" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ace23fb05e85b4c967793e8ffce58f332">terms_domain</a>;</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160; </div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    std::set&lt;DependentFieldTerm&lt;0, spacedim&gt;&gt;</div>
-<div class="line"><a name="l00491"></a><span class="lineno"><a class="line" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a54061701af0eea90b02e56612f1491cc">  491</a></span>&#160;    <a class="code" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a54061701af0eea90b02e56612f1491cc">terms_independent_scalars</a>;</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160; </div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <span class="keywordtype">double</span></div>
-<div class="line"><a name="l00497"></a><span class="lineno"><a class="line" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a24efc9c0928896be871908f050c406fc">  497</a></span>&#160;    <a class="code" href="class_dependent_field.html#a32b37c78e04a16b6b606442f156c8ca9">constant</a> = 0.0;</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160; </div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160; </div>
-<div class="line"><a name="l00504"></a><span class="lineno"><a class="line" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a99a47f4c10f0e472dbdc2b0945712e23">  504</a></span>&#160;    <span class="keyword">const</span> std::string <a class="code" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a99a47f4c10f0e472dbdc2b0945712e23">name</a>;</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    <a class="code" href="class_dependent_field.html#aabc31c47b3f6cb69da28758d9672d8d8">get_is_local</a>()</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160; </div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    <a class="code" href="class_dependent_field.html#a1c56c4e18d320e9c402f3adde546c681">operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="class_dependent_field.html">DependentField</a>&amp; dependent_field_2)</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160; </div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    <a class="code" href="class_dependent_field.html#a808b18c7b0fc7c05204aed47b1509ce4">operator==</a>(<span class="keyword">const</span> <a class="code" href="class_dependent_field.html">DependentField</a>&amp; dependent_field_2)</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160; </div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    <a class="code" href="class_dependent_field.html#a5a47b8f5b0e51b29bf6f3ca6e18fda9c">DependentField</a>( <span class="keyword">const</span> std::string <a class="code" href="class_dependent_field.html#a698b255f131279d1edb97b3c525153a0">name</a> );</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160; </div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                      coefficient,</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field.html">IndependentField&lt;spacedim, spacedim&gt;</a>&amp; independent_field,</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                          component = 0,</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;                <span class="keyword">const</span> std::vector&lt;unsigned int&gt;             derivatives=std::vector&lt;unsigned int&gt;());</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160; </div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                      coefficient,</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field.html">IndependentField&lt;spacedim, spacedim&gt;</a>&amp; independent_field,</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                          component,</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                          derivative);</div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160; </div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                  coefficient,</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field_3_010_00_01spacedim_01_4.html">IndependentField&lt;0, spacedim&gt;</a>&amp;    independent_field);</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160; </div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(<span class="keywordtype">double</span> <a class="code" href="class_dependent_field.html#a32b37c78e04a16b6b606442f156c8ca9">constant</a>);</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160; </div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;    <span class="keyword">const</span> std::set&lt; DependentFieldTerm&lt;spacedim, spacedim&gt; &gt;&amp;</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;    get_terms_domain()</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160; </div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;    <span class="keyword">const</span> std::set&lt; DependentFieldTerm&lt;0, spacedim&gt; &gt;&amp;</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    <a class="code" href="class_dependent_field.html#aab79e0a11ed661b0399d89d646ac2043">get_terms_independent_scalars</a>()</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;    <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160; </div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    <span class="keywordtype">double</span></div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;    <a class="code" href="class_dependent_field.html#a213c5de7c4726eb823590de0510f1ff1">get_constant</a>()</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160; </div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;    std::set&lt;const IndependentField&lt;spacedim, spacedim&gt;*&gt;</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    get_independent_fields_domain()</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160; </div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    std::set&lt;const IndependentField&lt;0, spacedim&gt;*&gt;</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;    <a class="code" href="class_dependent_field.html#a15eb8101d33f2f09ada4cdf2cde73ad7">get_independent_scalars</a>()</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160; </div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    <a class="code" href="class_dependent_field.html#adf0ad81e2d7b609b7dfde60a77f92a20">print</a>()</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160; </div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;};</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160; </div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;GALERKIN_TOOLS_NAMESPACE_CLOSE</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;DEAL_II_NAMESPACE_CLOSE</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160; </div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GALERKINTOOLS_DEPENDENTFIELD_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;};</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160; </div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> spacedim&gt;</div>
+<div class="line"><a name="l00520"></a><span class="lineno"><a class="line" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html">  520</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_dependent_field.html">DependentField</a>&lt;spacedim, spacedim&gt;</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;{</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160; </div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160; </div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    std::set&lt;DependentFieldTerm&lt;spacedim, spacedim&gt;&gt;</div>
+<div class="line"><a name="l00531"></a><span class="lineno"><a class="line" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ace23fb05e85b4c967793e8ffce58f332">  531</a></span>&#160;    <a class="code" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ace23fb05e85b4c967793e8ffce58f332">terms_domain</a>;</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160; </div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    std::set&lt;DependentFieldTerm&lt;0, spacedim&gt;&gt;</div>
+<div class="line"><a name="l00537"></a><span class="lineno"><a class="line" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a54061701af0eea90b02e56612f1491cc">  537</a></span>&#160;    <a class="code" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a54061701af0eea90b02e56612f1491cc">terms_independent_scalars</a>;</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160; </div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00543"></a><span class="lineno"><a class="line" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a24efc9c0928896be871908f050c406fc">  543</a></span>&#160;    <a class="code" href="class_dependent_field.html#a32b37c78e04a16b6b606442f156c8ca9">constant</a> = 0.0;</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160; </div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00550"></a><span class="lineno"><a class="line" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ae43bf948e8f45545dd7e744689b47d5b">  550</a></span>&#160;    <a class="code" href="class_dependent_field.html#aacdabff2601b1f0efcdce7a4413b47bc">is_local</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160; </div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160; </div>
+<div class="line"><a name="l00557"></a><span class="lineno"><a class="line" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a99a47f4c10f0e472dbdc2b0945712e23">  557</a></span>&#160;    <span class="keyword">const</span> std::string <a class="code" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a99a47f4c10f0e472dbdc2b0945712e23">name</a>;</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160; </div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    <a class="code" href="class_dependent_field.html#a5a47b8f5b0e51b29bf6f3ca6e18fda9c">DependentField</a>( <span class="keyword">const</span> std::string <a class="code" href="class_dependent_field.html#a698b255f131279d1edb97b3c525153a0">name</a> );</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160; </div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                      coefficient,</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field.html">IndependentField&lt;spacedim, spacedim&gt;</a>&amp; independent_field,</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                          component = 0,</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;                <span class="keyword">const</span> std::vector&lt;unsigned int&gt;             derivatives=std::vector&lt;unsigned int&gt;());</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160; </div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                      coefficient,</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field.html">IndependentField&lt;spacedim, spacedim&gt;</a>&amp; independent_field,</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                          component,</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                          derivative);</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160; </div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(   <span class="keywordtype">double</span>                                  coefficient,</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;                <span class="keyword">const</span> <a class="code" href="class_independent_field_3_010_00_01spacedim_01_4.html">IndependentField&lt;0, spacedim&gt;</a>&amp;    independent_field);</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160; </div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    <a class="code" href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">add_term</a>(<span class="keywordtype">double</span> <a class="code" href="class_dependent_field.html#a32b37c78e04a16b6b606442f156c8ca9">constant</a>);</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160; </div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    <span class="keyword">const</span> std::set&lt; DependentFieldTerm&lt;spacedim, spacedim&gt; &gt;&amp;</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    get_terms_domain()</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160; </div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    <span class="keyword">const</span> std::set&lt; DependentFieldTerm&lt;0, spacedim&gt; &gt;&amp;</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    <a class="code" href="class_dependent_field.html#aab79e0a11ed661b0399d89d646ac2043">get_terms_independent_scalars</a>()</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160; </div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    <a class="code" href="class_dependent_field.html#a213c5de7c4726eb823590de0510f1ff1">get_constant</a>()</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160; </div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    std::set&lt;const IndependentField&lt;spacedim, spacedim&gt;*&gt;</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    get_independent_fields_domain()</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160; </div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;    std::set&lt;const IndependentField&lt;0, spacedim&gt;*&gt;</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    <a class="code" href="class_dependent_field.html#a15eb8101d33f2f09ada4cdf2cde73ad7">get_independent_scalars</a>()</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160; </div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    <a class="code" href="class_dependent_field.html#adf0ad81e2d7b609b7dfde60a77f92a20">print</a>()</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160; </div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;    <a class="code" href="class_dependent_field.html#aabc31c47b3f6cb69da28758d9672d8d8">get_is_local</a>()</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160; </div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;    <a class="code" href="class_dependent_field.html#a1c56c4e18d320e9c402f3adde546c681">operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html">DependentField&lt;spacedim, spacedim&gt;</a>&amp; dependent_field_2)</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160; </div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    <a class="code" href="class_dependent_field.html#a808b18c7b0fc7c05204aed47b1509ce4">operator==</a>(<span class="keyword">const</span> <a class="code" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html">DependentField&lt;spacedim, spacedim&gt;</a>&amp; dependent_field_2)</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;    <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160; </div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;};</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160; </div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;GALERKIN_TOOLS_NAMESPACE_CLOSE</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;DEAL_II_NAMESPACE_CLOSE</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160; </div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GALERKINTOOLS_DEPENDENTFIELD_H_ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_dependent_field_html_aab79e0a11ed661b0399d89d646ac2043"><div class="ttname"><a href="class_dependent_field.html#aab79e0a11ed661b0399d89d646ac2043">DependentField::get_terms_independent_scalars</a></div><div class="ttdeci">const std::set&lt; DependentFieldTerm&lt; 0, spacedim &gt; &gt; &amp; get_terms_independent_scalars() const</div></div>
 <div class="ttc" id="aclass_dependent_field_html_a61f0205166754053e5f7beaa8edf7784"><div class="ttname"><a href="class_dependent_field.html#a61f0205166754053e5f7beaa8edf7784">DependentField::get_terms_neighbor</a></div><div class="ttdeci">const std::set&lt; DependentFieldTerm&lt; dim+1, spacedim &gt; &gt; &amp; get_terms_neighbor(const InterfaceSide side) const</div></div>
 <div class="ttc" id="aclass_dependent_field_term_html_a149a09f602b0baadba9033d6a8da448c"><div class="ttname"><a href="class_dependent_field_term.html#a149a09f602b0baadba9033d6a8da448c">DependentFieldTerm::DependentFieldTerm</a></div><div class="ttdeci">DependentFieldTerm(const double coefficient, const IndependentField&lt; dim, spacedim &gt; &amp;independent_field, const unsigned int component=0, const std::vector&lt; unsigned int &gt; derivatives=std::vector&lt; unsigned int &gt;())</div></div>
-<div class="ttc" id="aclass_dependent_field_3_01spacedim_00_01spacedim_01_4_html_a54061701af0eea90b02e56612f1491cc"><div class="ttname"><a href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a54061701af0eea90b02e56612f1491cc">DependentField&lt; spacedim, spacedim &gt;::terms_independent_scalars</a></div><div class="ttdeci">std::set&lt; DependentFieldTerm&lt; 0, spacedim &gt; &gt; terms_independent_scalars</div><div class="ttdef"><b>Definition:</b> dependent_field.h:491</div></div>
-<div class="ttc" id="aclass_dependent_field_html_a698b255f131279d1edb97b3c525153a0"><div class="ttname"><a href="class_dependent_field.html#a698b255f131279d1edb97b3c525153a0">DependentField::name</a></div><div class="ttdeci">const std::string name</div><div class="ttdef"><b>Definition:</b> dependent_field.h:209</div></div>
-<div class="ttc" id="aclass_dependent_field_html_aa6326d64fd7828c935946136ec5ec122"><div class="ttname"><a href="class_dependent_field.html#aa6326d64fd7828c935946136ec5ec122">DependentField::terms_interface</a></div><div class="ttdeci">std::set&lt; DependentFieldTerm&lt; dim, spacedim &gt; &gt; terms_interface</div><div class="ttdef"><b>Definition:</b> dependent_field.h:174</div></div>
+<div class="ttc" id="aclass_dependent_field_term_html_a017b2119451d74e4dbbe203503d498c4"><div class="ttname"><a href="class_dependent_field_term.html#a017b2119451d74e4dbbe203503d498c4">DependentFieldTerm::operator==</a></div><div class="ttdeci">bool operator==(const DependentFieldTerm &amp;dependent_field_2) const</div></div>
+<div class="ttc" id="aclass_dependent_field_3_01spacedim_00_01spacedim_01_4_html_a54061701af0eea90b02e56612f1491cc"><div class="ttname"><a href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a54061701af0eea90b02e56612f1491cc">DependentField&lt; spacedim, spacedim &gt;::terms_independent_scalars</a></div><div class="ttdeci">std::set&lt; DependentFieldTerm&lt; 0, spacedim &gt; &gt; terms_independent_scalars</div><div class="ttdef"><b>Definition:</b> dependent_field.h:537</div></div>
+<div class="ttc" id="aclass_dependent_field_html_a698b255f131279d1edb97b3c525153a0"><div class="ttname"><a href="class_dependent_field.html#a698b255f131279d1edb97b3c525153a0">DependentField::name</a></div><div class="ttdeci">const std::string name</div><div class="ttdef"><b>Definition:</b> dependent_field.h:226</div></div>
+<div class="ttc" id="aclass_dependent_field_html_aa6326d64fd7828c935946136ec5ec122"><div class="ttname"><a href="class_dependent_field.html#aa6326d64fd7828c935946136ec5ec122">DependentField::terms_interface</a></div><div class="ttdeci">std::set&lt; DependentFieldTerm&lt; dim, spacedim &gt; &gt; terms_interface</div><div class="ttdef"><b>Definition:</b> dependent_field.h:185</div></div>
 <div class="ttc" id="aclass_dependent_field_html_adf0ad81e2d7b609b7dfde60a77f92a20"><div class="ttname"><a href="class_dependent_field.html#adf0ad81e2d7b609b7dfde60a77f92a20">DependentField::print</a></div><div class="ttdeci">void print() const</div></div>
-<div class="ttc" id="aclass_dependent_field_html_a05ba04a9f0f50fd881055f3abf46c9f5"><div class="ttname"><a href="class_dependent_field.html#a05ba04a9f0f50fd881055f3abf46c9f5">DependentField::terms_neighbor_plus</a></div><div class="ttdeci">std::set&lt; DependentFieldTerm&lt; dim+1, spacedim &gt; &gt; terms_neighbor_plus</div><div class="ttdef"><b>Definition:</b> dependent_field.h:182</div></div>
+<div class="ttc" id="aclass_dependent_field_html_a05ba04a9f0f50fd881055f3abf46c9f5"><div class="ttname"><a href="class_dependent_field.html#a05ba04a9f0f50fd881055f3abf46c9f5">DependentField::terms_neighbor_plus</a></div><div class="ttdeci">std::set&lt; DependentFieldTerm&lt; dim+1, spacedim &gt; &gt; terms_neighbor_plus</div><div class="ttdef"><b>Definition:</b> dependent_field.h:193</div></div>
 <div class="ttc" id="aclass_dependent_field_html_a33760e356c5704614ed8cf7c532b4de6"><div class="ttname"><a href="class_dependent_field.html#a33760e356c5704614ed8cf7c532b4de6">DependentField::get_independent_fields_interface</a></div><div class="ttdeci">std::set&lt; const IndependentField&lt; dim, spacedim &gt; * &gt; get_independent_fields_interface() const</div></div>
 <div class="ttc" id="atriangulation__system_8h_html"><div class="ttname"><a href="triangulation__system_8h.html">triangulation_system.h</a></div></div>
-<div class="ttc" id="aclass_dependent_field_3_01spacedim_00_01spacedim_01_4_html_ace23fb05e85b4c967793e8ffce58f332"><div class="ttname"><a href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ace23fb05e85b4c967793e8ffce58f332">DependentField&lt; spacedim, spacedim &gt;::terms_domain</a></div><div class="ttdeci">std::set&lt; DependentFieldTerm&lt; spacedim, spacedim &gt; &gt; terms_domain</div><div class="ttdef"><b>Definition:</b> dependent_field.h:485</div></div>
-<div class="ttc" id="aclass_dependent_field_html"><div class="ttname"><a href="class_dependent_field.html">DependentField</a></div><div class="ttdef"><b>Definition:</b> dependent_field.h:163</div></div>
-<div class="ttc" id="aclass_dependent_field_html_aa1ba265eae76489d22d3eecd595931c5"><div class="ttname"><a href="class_dependent_field.html#aa1ba265eae76489d22d3eecd595931c5">DependentField::terms_independent_scalars</a></div><div class="ttdeci">std::set&lt; DependentFieldTerm&lt; 0, spacedim &gt; &gt; terms_independent_scalars</div><div class="ttdef"><b>Definition:</b> dependent_field.h:196</div></div>
+<div class="ttc" id="aclass_dependent_field_3_01spacedim_00_01spacedim_01_4_html_ace23fb05e85b4c967793e8ffce58f332"><div class="ttname"><a href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ace23fb05e85b4c967793e8ffce58f332">DependentField&lt; spacedim, spacedim &gt;::terms_domain</a></div><div class="ttdeci">std::set&lt; DependentFieldTerm&lt; spacedim, spacedim &gt; &gt; terms_domain</div><div class="ttdef"><b>Definition:</b> dependent_field.h:531</div></div>
+<div class="ttc" id="aclass_dependent_field_html"><div class="ttname"><a href="class_dependent_field.html">DependentField</a></div><div class="ttdef"><b>Definition:</b> dependent_field.h:174</div></div>
+<div class="ttc" id="aclass_dependent_field_html_aa1ba265eae76489d22d3eecd595931c5"><div class="ttname"><a href="class_dependent_field.html#aa1ba265eae76489d22d3eecd595931c5">DependentField::terms_independent_scalars</a></div><div class="ttdeci">std::set&lt; DependentFieldTerm&lt; 0, spacedim &gt; &gt; terms_independent_scalars</div><div class="ttdef"><b>Definition:</b> dependent_field.h:207</div></div>
 <div class="ttc" id="aclass_dependent_field_term_html_ac6f3ac40d4ee2c8b9f9bbdfa34079b74"><div class="ttname"><a href="class_dependent_field_term.html#ac6f3ac40d4ee2c8b9f9bbdfa34079b74">DependentFieldTerm::component</a></div><div class="ttdeci">const unsigned int component</div><div class="ttdef"><b>Definition:</b> dependent_field.h:78</div></div>
 <div class="ttc" id="aclass_dependent_field_term_html_a89d1c3fea36e6fe105232097a321e095"><div class="ttname"><a href="class_dependent_field_term.html#a89d1c3fea36e6fe105232097a321e095">DependentFieldTerm::independent_field</a></div><div class="ttdeci">const SmartPointer&lt; const IndependentField&lt; dim, spacedim &gt; &gt; independent_field</div><div class="ttdef"><b>Definition:</b> dependent_field.h:69</div></div>
+<div class="ttc" id="aclass_dependent_field_html_aabc31c47b3f6cb69da28758d9672d8d8"><div class="ttname"><a href="class_dependent_field.html#aabc31c47b3f6cb69da28758d9672d8d8">DependentField::get_is_local</a></div><div class="ttdeci">bool get_is_local() const</div></div>
 <div class="ttc" id="aclass_dependent_field_term_html_af09c5452c3e8e71e9ee99db304b90135"><div class="ttname"><a href="class_dependent_field_term.html#af09c5452c3e8e71e9ee99db304b90135">DependentFieldTerm::derivatives</a></div><div class="ttdeci">const std::vector&lt; unsigned int &gt; derivatives</div><div class="ttdef"><b>Definition:</b> dependent_field.h:87</div></div>
 <div class="ttc" id="aclass_dependent_field_term_html_a59a9183a32ac55fb728f3797b68a9f8f"><div class="ttname"><a href="class_dependent_field_term.html#a59a9183a32ac55fb728f3797b68a9f8f">DependentFieldTerm::coefficient</a></div><div class="ttdeci">const double coefficient</div><div class="ttdef"><b>Definition:</b> dependent_field.h:62</div></div>
 <div class="ttc" id="aclass_dependent_field_term_html_ae901f99afbdd336f73cf550e62c93ae1"><div class="ttname"><a href="class_dependent_field_term.html#ae901f99afbdd336f73cf550e62c93ae1">DependentFieldTerm::n_derivatives</a></div><div class="ttdeci">unsigned int n_derivatives() const</div></div>
+<div class="ttc" id="aclass_dependent_field_html_aacdabff2601b1f0efcdce7a4413b47bc"><div class="ttname"><a href="class_dependent_field.html#aacdabff2601b1f0efcdce7a4413b47bc">DependentField::is_local</a></div><div class="ttdeci">bool is_local</div><div class="ttdef"><b>Definition:</b> dependent_field.h:219</div></div>
 <div class="ttc" id="aclass_dependent_field_html_ac12fccee9603f2cf36990af16d8da604"><div class="ttname"><a href="class_dependent_field.html#ac12fccee9603f2cf36990af16d8da604">DependentField::get_independent_fields_neighbors</a></div><div class="ttdeci">std::set&lt; const IndependentField&lt; dim+1, spacedim &gt; * &gt; get_independent_fields_neighbors() const</div></div>
 <div class="ttc" id="aclass_dependent_field_html_a15eb8101d33f2f09ada4cdf2cde73ad7"><div class="ttname"><a href="class_dependent_field.html#a15eb8101d33f2f09ada4cdf2cde73ad7">DependentField::get_independent_scalars</a></div><div class="ttdeci">std::set&lt; const IndependentField&lt; 0, spacedim &gt; * &gt; get_independent_scalars() const</div></div>
-<div class="ttc" id="aclass_dependent_field_html_a32b37c78e04a16b6b606442f156c8ca9"><div class="ttname"><a href="class_dependent_field.html#a32b37c78e04a16b6b606442f156c8ca9">DependentField::constant</a></div><div class="ttdeci">double constant</div><div class="ttdef"><b>Definition:</b> dependent_field.h:202</div></div>
+<div class="ttc" id="aclass_dependent_field_html_a808b18c7b0fc7c05204aed47b1509ce4"><div class="ttname"><a href="class_dependent_field.html#a808b18c7b0fc7c05204aed47b1509ce4">DependentField::operator==</a></div><div class="ttdeci">bool operator==(const DependentField &amp;dependent_field_2) const</div></div>
+<div class="ttc" id="aclass_dependent_field_html_a32b37c78e04a16b6b606442f156c8ca9"><div class="ttname"><a href="class_dependent_field.html#a32b37c78e04a16b6b606442f156c8ca9">DependentField::constant</a></div><div class="ttdeci">double constant</div><div class="ttdef"><b>Definition:</b> dependent_field.h:213</div></div>
 <div class="ttc" id="aindependent__field_8h_html"><div class="ttname"><a href="independent__field_8h.html">independent_field.h</a></div></div>
 <div class="ttc" id="aclassSmartPointer_html"><div class="ttname"><a href="https://dealii.org/9.0.0/doxygen/deal.II/classSmartPointer.html">SmartPointer</a></div></div>
 <div class="ttc" id="aclass_dependent_field_html_a5a47b8f5b0e51b29bf6f3ca6e18fda9c"><div class="ttname"><a href="class_dependent_field.html#a5a47b8f5b0e51b29bf6f3ca6e18fda9c">DependentField::DependentField</a></div><div class="ttdeci">DependentField(const std::string name)</div></div>
 <div class="ttc" id="atriangulation__system_8h_html_a44f3c00e36c1d6e3c389ae693c09b435"><div class="ttname"><a href="triangulation__system_8h.html#a44f3c00e36c1d6e3c389ae693c09b435">InterfaceSide</a></div><div class="ttdeci">InterfaceSide</div><div class="ttdef"><b>Definition:</b> triangulation_system.h:67</div></div>
 <div class="ttc" id="aclass_dependent_field_term_html"><div class="ttname"><a href="class_dependent_field_term.html">DependentFieldTerm</a></div><div class="ttdef"><b>Definition:</b> dependent_field.h:53</div></div>
+<div class="ttc" id="aclass_dependent_field_html_a1c56c4e18d320e9c402f3adde546c681"><div class="ttname"><a href="class_dependent_field.html#a1c56c4e18d320e9c402f3adde546c681">DependentField::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const DependentField &amp;dependent_field_2) const</div></div>
 <div class="ttc" id="aclass_dependent_field_term_html_a204178ccb13a1280b96cf2ad8cf24695"><div class="ttname"><a href="class_dependent_field_term.html#a204178ccb13a1280b96cf2ad8cf24695">DependentFieldTerm::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const DependentFieldTerm &amp;dependent_field_2) const</div></div>
 <div class="ttc" id="aclass_independent_field_html"><div class="ttname"><a href="class_independent_field.html">IndependentField</a></div><div class="ttdef"><b>Definition:</b> independent_field.h:74</div></div>
-<div class="ttc" id="aclass_dependent_field_3_01spacedim_00_01spacedim_01_4_html_a99a47f4c10f0e472dbdc2b0945712e23"><div class="ttname"><a href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a99a47f4c10f0e472dbdc2b0945712e23">DependentField&lt; spacedim, spacedim &gt;::name</a></div><div class="ttdeci">const std::string name</div><div class="ttdef"><b>Definition:</b> dependent_field.h:504</div></div>
+<div class="ttc" id="aclass_dependent_field_3_01spacedim_00_01spacedim_01_4_html_a99a47f4c10f0e472dbdc2b0945712e23"><div class="ttname"><a href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a99a47f4c10f0e472dbdc2b0945712e23">DependentField&lt; spacedim, spacedim &gt;::name</a></div><div class="ttdeci">const std::string name</div><div class="ttdef"><b>Definition:</b> dependent_field.h:557</div></div>
 <div class="ttc" id="aclass_dependent_field_html_a213c5de7c4726eb823590de0510f1ff1"><div class="ttname"><a href="class_dependent_field.html#a213c5de7c4726eb823590de0510f1ff1">DependentField::get_constant</a></div><div class="ttdeci">double get_constant() const</div></div>
 <div class="ttc" id="aclass_dependent_field_term_html_a7f7b45969b939cfead095d2681d2f612"><div class="ttname"><a href="class_dependent_field_term.html#a7f7b45969b939cfead095d2681d2f612">DependentFieldTerm::first_derivative</a></div><div class="ttdeci">double first_derivative() const</div></div>
+<div class="ttc" id="aclass_dependent_field_3_01spacedim_00_01spacedim_01_4_html"><div class="ttname"><a href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html">DependentField&lt; spacedim, spacedim &gt;</a></div><div class="ttdef"><b>Definition:</b> dependent_field.h:520</div></div>
 <div class="ttc" id="aclass_dependent_field_html_a4011707cbf799347a63e92d196d0e5e1"><div class="ttname"><a href="class_dependent_field.html#a4011707cbf799347a63e92d196d0e5e1">DependentField::get_terms_interface</a></div><div class="ttdeci">const std::set&lt; DependentFieldTerm&lt; dim, spacedim &gt; &gt; &amp; get_terms_interface() const</div></div>
-<div class="ttc" id="aclass_dependent_field_html_a9ac1d390137d52ef6c58b230d540ce38"><div class="ttname"><a href="class_dependent_field.html#a9ac1d390137d52ef6c58b230d540ce38">DependentField::terms_neighbor_minus</a></div><div class="ttdeci">std::set&lt; DependentFieldTerm&lt; dim+1, spacedim &gt; &gt; terms_neighbor_minus</div><div class="ttdef"><b>Definition:</b> dependent_field.h:190</div></div>
-<div class="ttc" id="aclass_independent_field_3_010_00_01spacedim_01_4_html"><div class="ttname"><a href="class_independent_field_3_010_00_01spacedim_01_4.html">IndependentField&lt; 0, spacedim &gt;</a></div><div class="ttdef"><b>Definition:</b> independent_field.h:189</div></div>
+<div class="ttc" id="aclass_dependent_field_html_a9ac1d390137d52ef6c58b230d540ce38"><div class="ttname"><a href="class_dependent_field.html#a9ac1d390137d52ef6c58b230d540ce38">DependentField::terms_neighbor_minus</a></div><div class="ttdeci">std::set&lt; DependentFieldTerm&lt; dim+1, spacedim &gt; &gt; terms_neighbor_minus</div><div class="ttdef"><b>Definition:</b> dependent_field.h:201</div></div>
+<div class="ttc" id="aclass_independent_field_3_010_00_01spacedim_01_4_html"><div class="ttname"><a href="class_independent_field_3_010_00_01spacedim_01_4.html">IndependentField&lt; 0, spacedim &gt;</a></div><div class="ttdef"><b>Definition:</b> independent_field.h:198</div></div>
 <div class="ttc" id="aclass_dependent_field_html_a0726cab14197769ad07bd8f071e395ea"><div class="ttname"><a href="class_dependent_field.html#a0726cab14197769ad07bd8f071e395ea">DependentField::add_term</a></div><div class="ttdeci">void add_term(double coefficient, const IndependentField&lt; dim, spacedim &gt; &amp;independent_field, const unsigned int component=0, const std::vector&lt; unsigned int &gt; derivatives=std::vector&lt; unsigned int &gt;())</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

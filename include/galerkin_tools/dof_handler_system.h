@@ -838,6 +838,62 @@ public:
 										std::set<unsigned int>&	indices)
 	const;
 
+	/**
+	 * @param[out]	components				components[i] is the component of the domain-related dof index i
+	 *
+	 * @note	This works only if all finite elements are primitive.
+	 *
+	 * @note	In parallel, this returns only valid components for locally owned cells.
+	 */
+	void
+	get_map_dof_index_component_interface(std::vector<unsigned int>&	components)
+	const;
+
+	/**
+	 * @param[out]	components				components[i] is the component of the interface-related dof index i
+	 *
+	 * @note	This works only if all finite elements are primitive.
+	 *
+	 * @note	In parallel, this returns only valid components for locally owned cells.
+	 */
+	void
+	get_map_dof_index_component_domain(std::vector<unsigned int>&	components)
+	const;
+
+	/**
+	 * @param[out]	support_points										support_point[i] is the support point index of the interface-related dof index i
+	 *
+	 * @param[out]	map_support_point_index_support_point_location		map_support_point_index_support_point_location[i] is the physical location of the support point with index i
+	 *
+	 * @param[in]	mapping												The mapping to be used to calculate the physical locations of the support points
+	 *
+	 * @note	This works only if all finite elements are primitive.
+	 *
+	 * @note	In parallel, this returns only valid results for locally owned cells.
+	 */
+	void
+	get_map_dof_index_support_point_index_interface(	std::vector<unsigned int>&						support_points,
+														std::map<unsigned int, Point<spacedim>>&		map_support_point_index_support_point_location,
+														const dealii::Mapping<spacedim-1, spacedim>&	mapping)
+	const;
+
+	/**
+	 * @param[out]	support_points										support_point[i] is the support point index of the domain-related dof index i
+	 *
+	 * @param[out]	map_support_point_index_support_point_location		map_support_point_index_support_point_location[i] is the physical location of the support point with index i
+	 *
+	 * @param[in]	mapping												The mapping to be used to calculate the physical locations of the support points
+	 *
+	 * @note	This works only if all finite elements are primitive.
+	 *
+	 * @note	In parallel, this returns only valid results for locally owned cells.
+	 */
+	void
+	get_map_dof_index_support_point_index_domain(	std::vector<unsigned int>&					support_points,
+													std::map<unsigned int, Point<spacedim>>&	map_support_point_index_support_point_location,
+													const dealii::Mapping<spacedim>&			mapping)
+	const;
+
 };
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE

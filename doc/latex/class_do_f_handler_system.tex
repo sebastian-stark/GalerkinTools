@@ -86,6 +86,14 @@ unsigned int \mbox{\hyperlink{class_do_f_handler_system_a93c1f41edb851a7322dd183
 void \mbox{\hyperlink{class_do_f_handler_system_a0d49f02ccbdd681028ce66fea9341fe1}{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+interface}} (const unsigned int component, std\+::set$<$ unsigned int $>$ \&indices) const
 \item 
 void \mbox{\hyperlink{class_do_f_handler_system_aa4bb80864110f7917ae86525e3c0d799}{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+domain}} (const unsigned int component, std\+::set$<$ unsigned int $>$ \&indices) const
+\item 
+void \mbox{\hyperlink{class_do_f_handler_system_ac2617866e4d92dfb309a0212e2bc116d}{get\+\_\+map\+\_\+dof\+\_\+index\+\_\+component\+\_\+interface}} (std\+::vector$<$ unsigned int $>$ \&components) const
+\item 
+void \mbox{\hyperlink{class_do_f_handler_system_a99e00b1efebbfee99db0478c3eac7787}{get\+\_\+map\+\_\+dof\+\_\+index\+\_\+component\+\_\+domain}} (std\+::vector$<$ unsigned int $>$ \&components) const
+\item 
+void \mbox{\hyperlink{class_do_f_handler_system_a0af24410554802a908ce2800550007b8}{get\+\_\+map\+\_\+dof\+\_\+index\+\_\+support\+\_\+point\+\_\+index\+\_\+interface}} (std\+::vector$<$ unsigned int $>$ \&support\+\_\+points, std\+::map$<$ unsigned int, \textbf{ Point}$<$ spacedim $>$$>$ \&map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location, const dealii\+::\+Mapping$<$ spacedim-\/1, spacedim $>$ \&mapping) const
+\item 
+void \mbox{\hyperlink{class_do_f_handler_system_a298db5cd2cd488abbacb72c66fc9703e}{get\+\_\+map\+\_\+dof\+\_\+index\+\_\+support\+\_\+point\+\_\+index\+\_\+domain}} (std\+::vector$<$ unsigned int $>$ \&support\+\_\+points, std\+::map$<$ unsigned int, \textbf{ Point}$<$ spacedim $>$$>$ \&map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location, const dealii\+::\+Mapping$<$ spacedim $>$ \&mapping) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
@@ -406,6 +414,82 @@ const \textbf{ Index\+Set}\& \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+
 \begin{DoxyReturn}{Returns}
 The set of locally relevant dofs (possibly renumbered according to \mbox{\hyperlink{class_do_f_handler_system_aef6159c606a24ac7daadcd3fe082b3b6}{Do\+F\+Handler\+System\+::dof\+\_\+renumbering}}) 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_do_f_handler_system_a99e00b1efebbfee99db0478c3eac7787}\label{class_do_f_handler_system_a99e00b1efebbfee99db0478c3eac7787}} 
+\index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!get\_map\_dof\_index\_component\_domain@{get\_map\_dof\_index\_component\_domain}}
+\index{get\_map\_dof\_index\_component\_domain@{get\_map\_dof\_index\_component\_domain}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{get\_map\_dof\_index\_component\_domain()}{get\_map\_dof\_index\_component\_domain()}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+map\+\_\+dof\+\_\+index\+\_\+component\+\_\+domain (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{components }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em components} & components\mbox{[}i\mbox{]} is the component of the interface-\/related dof index i\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This works only if all finite elements are primitive.
+
+In parallel, this returns only valid components for locally owned cells. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_do_f_handler_system_ac2617866e4d92dfb309a0212e2bc116d}\label{class_do_f_handler_system_ac2617866e4d92dfb309a0212e2bc116d}} 
+\index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!get\_map\_dof\_index\_component\_interface@{get\_map\_dof\_index\_component\_interface}}
+\index{get\_map\_dof\_index\_component\_interface@{get\_map\_dof\_index\_component\_interface}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{get\_map\_dof\_index\_component\_interface()}{get\_map\_dof\_index\_component\_interface()}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+map\+\_\+dof\+\_\+index\+\_\+component\+\_\+interface (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{components }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em components} & components\mbox{[}i\mbox{]} is the component of the domain-\/related dof index i\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This works only if all finite elements are primitive.
+
+In parallel, this returns only valid components for locally owned cells. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_do_f_handler_system_a298db5cd2cd488abbacb72c66fc9703e}\label{class_do_f_handler_system_a298db5cd2cd488abbacb72c66fc9703e}} 
+\index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!get\_map\_dof\_index\_support\_point\_index\_domain@{get\_map\_dof\_index\_support\_point\_index\_domain}}
+\index{get\_map\_dof\_index\_support\_point\_index\_domain@{get\_map\_dof\_index\_support\_point\_index\_domain}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{get\_map\_dof\_index\_support\_point\_index\_domain()}{get\_map\_dof\_index\_support\_point\_index\_domain()}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+map\+\_\+dof\+\_\+index\+\_\+support\+\_\+point\+\_\+index\+\_\+domain (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{support\+\_\+points,  }\item[{std\+::map$<$ unsigned int, \textbf{ Point}$<$ spacedim $>$$>$ \&}]{map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location,  }\item[{const dealii\+::\+Mapping$<$ spacedim $>$ \&}]{mapping }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em support\+\_\+points} & support\+\_\+point\mbox{[}i\mbox{]} is the support point index of the domain-\/related dof index i\\
+\hline
+\mbox{\texttt{ out}}  & {\em map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location} & map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location\mbox{[}i\mbox{]} is the physical location of the support point with index i\\
+\hline
+\mbox{\texttt{ in}}  & {\em mapping} & The mapping to be used to calculate the physical locations of the support points\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This works only if all finite elements are primitive.
+
+In parallel, this returns only valid results for locally owned cells. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_do_f_handler_system_a0af24410554802a908ce2800550007b8}\label{class_do_f_handler_system_a0af24410554802a908ce2800550007b8}} 
+\index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!get\_map\_dof\_index\_support\_point\_index\_interface@{get\_map\_dof\_index\_support\_point\_index\_interface}}
+\index{get\_map\_dof\_index\_support\_point\_index\_interface@{get\_map\_dof\_index\_support\_point\_index\_interface}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{get\_map\_dof\_index\_support\_point\_index\_interface()}{get\_map\_dof\_index\_support\_point\_index\_interface()}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+map\+\_\+dof\+\_\+index\+\_\+support\+\_\+point\+\_\+index\+\_\+interface (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{support\+\_\+points,  }\item[{std\+::map$<$ unsigned int, \textbf{ Point}$<$ spacedim $>$$>$ \&}]{map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location,  }\item[{const dealii\+::\+Mapping$<$ spacedim-\/1, spacedim $>$ \&}]{mapping }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em support\+\_\+points} & support\+\_\+point\mbox{[}i\mbox{]} is the support point index of the interface-\/related dof index i\\
+\hline
+\mbox{\texttt{ out}}  & {\em map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location} & map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location\mbox{[}i\mbox{]} is the physical location of the support point with index i\\
+\hline
+\mbox{\texttt{ in}}  & {\em mapping} & The mapping to be used to calculate the physical locations of the support points\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This works only if all finite elements are primitive.
+
+In parallel, this returns only valid results for locally owned cells. 
+\end{DoxyNote}
 \mbox{\Hypertarget{class_do_f_handler_system_a91bdc19b8c8226f827aed689ad654ffe}\label{class_do_f_handler_system_a91bdc19b8c8226f827aed689ad654ffe}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!get\_n\_dofs\_per\_processor@{get\_n\_dofs\_per\_processor}}
 \index{get\_n\_dofs\_per\_processor@{get\_n\_dofs\_per\_processor}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}

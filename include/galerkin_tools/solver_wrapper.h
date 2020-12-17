@@ -248,6 +248,18 @@ private:
 	Ax;
 
 	/**
+	 *  Array storing the column scaling matrix if apply_scaling==2
+	 */
+	dealii::Vector<double>
+	C_inv;
+
+	/**
+	 *  Array storing the row scaling matrix if apply_scaling==2
+	 */
+	dealii::Vector<double>
+	R_inv;
+
+	/**
 	 *  Maximum number of numerical factorizations to keep in memory (PARDISO internal).
 	 */
 	int
@@ -318,6 +330,34 @@ private:
 	 */
 	int get_matrix_type();
 
+	/**
+	 * Scales the system and computes BlockSolverWrapperPARDISO::C_inv and BlockSolverWrapperPARDISO::f_scaled
+	 *
+	 * @param[in]	K_stretched		the matrix
+	 *
+	 * @param[in]	f_stretched		the r.h.s.
+	 */
+	void
+	scale_system(	TwoBlockMatrix<dealii::SparseMatrix<double>>*	K_stretched,
+					dealii::BlockVector<double>*					f_stretched);
+
+	/**
+	 * Scales the solution by multiplying it by BlockSolverWrapperPARDISO::C_inv
+	 *
+	 * and undoes the scaling of K and f
+	 *
+	 * @param[inout]	solution	the solution vector
+	 *
+	 * @param[inout]	K_stretched	the original matrix
+	 *
+	 * @param[inout]	f_stretched	the original r.h.s.
+	 */
+	void
+	scale_solution(	dealii::Vector<double>&							solution,
+					TwoBlockMatrix<dealii::SparseMatrix<double>>*	K_stretched,
+					dealii::BlockVector<double>*					f_stretched)
+	const;
+
 public:
 
 	/**
@@ -334,7 +374,7 @@ public:
 	 * @warning		The user must ensure that BlockSolverWrapperPARDISO::analyze=0 or BlockSolverWrapperPARDISO::analyze=1
 	 * 				whenever the sparsity pattern of the matrix has changed (or during the first call). Currently, no internal checking is performed.
 	 *
-	 * @warning		The scaling of the matrix is only recomputed if BlockSolverWrapperPARDISO::analyze <2. Otherwise, the most recently computed scaling will be used.
+	 * @warning		In case that scaling==1, the scaling of the matrix is only recomputed if BlockSolverWrapperPARDISO::analyze <2. Otherwise, the most recently computed scaling will be used.
 	 */
 	unsigned int
 	analyze = 0;
@@ -368,10 +408,19 @@ public:
 	/**
 	 * whether to compute a scaling of the matrix during analysis:<br>
 	 * 0: no scaling<br>
-	 * 1: scaling
+	 * 1: matched scaling of PARDISO package<br>
+	 * 2: iterative scaling method of D. Ruiz (D.Ruiz: A Scaling Algorithm to Equilibrate Both Rows and Columns Norms in Matrices, 2001)
 	 */
 	unsigned int
 	apply_scaling = 0;
+
+	/**
+	 * relative tolerance for the iterative procedure if apply_scaling == 2 (1 is the highest tolerance and 0 the lowest tolerance)
+	 *
+	 * For 0.0 only a single iteration is performed
+	 */
+	double
+	iterative_scaling_tolerance = 0.9;
 
 	/**
 	 * pivoting type for symmetric indefinite matrices<br>
@@ -394,6 +443,12 @@ public:
 	pivot_perturbation = 8;
 
 	/**
+	 * If @p true: use user defined permutation
+	 */
+	bool
+	user_perm = false;
+
+	/**
 	 * Maximum allowable residual
 	 */
 	double
@@ -401,10 +456,16 @@ public:
 
 	/**
 	 * indicates whether to use default parameters of PARDISO. If @p true, BlockSolverWrapperPARDISO::ordering_method, BlockSolverWrapperPARDISO::apply_scaling, BlockSolverWrapperPARDISO::pivoting_method,
-	 * BlockSolverWrapperPARDISO::n_iterative_refinements are ignored.
+	 * BlockSolverWrapperPARDISO::n_iterative_refinements, BlockSolverWrapperPARDISO::pivot_perturbation, BlockSolverWrapperPARDISO::user_perm are ignored.
 	 */
 	bool
 	use_defaults = true;
+
+	/**
+	 * user defined permutation vector
+	 */
+	std::vector<int>*
+	perm;
 
 	/**
 	 * @copydoc SolverWrapper::solve
@@ -423,7 +484,6 @@ public:
 	DeclException1(	ExcPARDISORes,
 					double,
 					<< "PARDISO residual too large: res = " << arg1 << ".");
-
 
 };
 

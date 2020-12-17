@@ -99,6 +99,12 @@ public:
 	e_sigma;
 
 	/**
+	 * This member exists only to allow for using the same code for domain and interface related scalar functionals..
+	 */
+	const std::vector<DependentField<dim, spacedim>>
+	e_omega= std::vector<DependentField<dim, spacedim>>();
+
+	/**
 	 * Quadrature rule when integrating over the domain determined by ScalarFunctional::domain_of_integration
 	 */
 	const Quadrature<dim>
@@ -153,11 +159,11 @@ public:
 	 * %Function for evaluation of integrand \f$h^\Sigma_\tau\f$ and computation of
 	 * first and second derivatives w.r.t. the dependent fields \f$e^\Sigma_\nu\f$.
 	 *
-	 * This function is pure virtual, and, therefore, it is not possible to instantiate objects of this class.
-	 * Rather, derived user defined classes must implement this function.
+	 * Derived user defined scalar functionals implement this function or it's other version in case local dependent fields are involved.
 	 *
-	 * @param[in]	 	e_sigma					Values of \f$e^\Sigma_\nu\f$ (the ordering is defined by the ordering of
-	 * 											the dependent fields in ScalarFunctional::e_sigma)
+	 * @param[inout] 	e_sigma					Values of \f$e^\Sigma_\nu\f$ (the ordering is defined by the ordering of
+	 * 											the dependent fields in ScalarFunctional::e_sigma). Note that this vector is non-const, as in the case
+	 * 											of local dependent fields updated values of these may be returned.
 	 *
 	 * @param[in]	 	e_sigma_ref_sets		Sets of reference values of \f$e^\Sigma_\nu\f$ (as required according to ScalarFunctional::n_ref_sets)
 	 *
@@ -192,7 +198,7 @@ public:
 	 */
 	virtual
 	bool
-	get_h_sigma(const Vector<double>& 					e_sigma,
+	get_h_sigma(Vector<double>& 						e_sigma,
 				const std::vector<Vector<double>>&		e_sigma_ref_sets,
 				Vector<double>&							hidden_vars,
 				const Point<spacedim>&					x,
@@ -202,6 +208,21 @@ public:
 				FullMatrix<double>& 					h_sigma_2,
 				const std::tuple<bool, bool, bool> 		requested_quantities)
 	const = 0;
+
+	/**
+	 * This function (@see ScalarFunctional<spacedim, spacedim>::get_h_omega) exists only to allow for using the same code for domain and interface related scalar functionals.
+	 * It should never be called and therefore throws an exception.
+	 */
+	bool
+	get_h_omega(Vector<double>& 						e_omega,
+				const std::vector<Vector<double>>&		e_omega_ref_sets,
+				Vector<double>&							hidden_vars,
+				const Point<spacedim>&					x,
+				double&									h_omega,
+				Vector<double>&							h_omega_1,
+				FullMatrix<double>& 					h_omega_2,
+				const std::tuple<bool, bool, bool> 		requested_quantities)
+	const;
 
 	/**
 	 * %Function for evaluation of the maximum permissible step length
@@ -231,6 +252,18 @@ public:
 						const Vector<double>&					hidden_vars,
 						const Point<spacedim>&					x,
 						const Tensor<1, spacedim>&				n)
+	const;
+
+	/**
+	 * This function (@see ScalarFunctional<spacedim, spacedim>::get_maximum_step) exists only to allow for using the same code for domain and interface related scalar functionals.
+	 * It should never be called and therefore throws an exception.
+	 */
+	double
+	get_maximum_step(	const Vector<double>& 					e_omega,
+						const std::vector<Vector<double>>&		e_omega_ref_sets,
+						const Vector<double>& 					delta_e_omega,
+						const Vector<double>&					hidden_vars,
+						const Point<spacedim>&					x)
 	const;
 
 	/**
@@ -340,6 +373,12 @@ public:
 	e_omega;
 
 	/**
+	 * This member exists only to allow for using the same code for domain and interface related scalar functionals..
+	 */
+	const std::vector<DependentField<spacedim, spacedim>>
+	e_sigma = std::vector<DependentField<spacedim, spacedim>>();
+
+	/**
 	 * Quadrature rule when integrating over the domain determined by ScalarFunctional<spacedim, spacedim>::domain_of_integration
 	 */
 	const Quadrature<spacedim>
@@ -398,7 +437,8 @@ public:
 	 * Rather, derived user defined classes must implement this function.
 	 *
 	 * @param[in]	 	e_omega					Values of \f$e^\Omega_\lambda\f$ (the ordering is defined by the ordering of
-	 * 											the dependent fields in ScalarFunctional<spacedim, spacedim>::e_omega)
+	 * 											the dependent fields in ScalarFunctional<spacedim, spacedim>::e_omega). Note that this vector is non-const, as in the case
+	 * 											of local dependent fields updated values of these may be returned.
 	 *
 	 * @param[in]	 	e_omega_ref_sets		Sets of reference values of \f$e^\Omega_\lambda\f$ (as required according to ScalarFunctional<spacedim, spacedim>::n_ref_sets)
 	 *
@@ -431,15 +471,32 @@ public:
 	 */
 	virtual
 	bool
-	get_h_omega(	const Vector<double>& 				e_omega,
+	get_h_omega(	Vector<double>& 					e_omega,
 					const std::vector<Vector<double>>&	e_omega_ref_sets,
 					Vector<double>& 					hidden_vars,
 					const Point<spacedim>& 				x,
 					double& 							h_omega,
 					Vector<double>& 					h_omega_1,
 					FullMatrix<double>& 				h_omega_2,
-					const std::tuple<bool, bool, bool> 	requested_quantities)
+					const std::tuple<bool, bool, bool> 	requested_quantities
+					)
 	const = 0;
+
+	/**
+	 * This function (@see ScalarFunctional::get_h_sigma) exists only to allow for using the same code for domain and interface related scalar functionals.
+	 * It should never be called and therefore throws an exception.
+	 */
+	bool
+	get_h_sigma(Vector<double>& 						e_sigma,
+				const std::vector<Vector<double>>&		e_sigma_ref_sets,
+				Vector<double>&							hidden_vars,
+				const Point<spacedim>&					x,
+				const Tensor<1, spacedim>&				n,
+				double&									h_sigma,
+				Vector<double>&							h_sigma_1,
+				FullMatrix<double>& 					h_sigma_2,
+				const std::tuple<bool, bool, bool> 		requested_quantities)
+	const;
 
 	/**
 	 * %Function for evaluation of the maximum permissible step length
@@ -466,6 +523,19 @@ public:
 						const Vector<double>& 					delta_e_omega,
 						const Vector<double>& 					hidden_vars,
 						const Point<spacedim>& 					x)
+	const;
+
+	/**
+	 * This function (@see ScalarFunctional::get_maximum_step) exists only to allow for using the same code for domain and interface related scalar functionals.
+	 * It should never be called and therefore throws an exception.
+	 */
+	double
+	get_maximum_step(	const Vector<double>& 					e_sigma,
+						const std::vector<Vector<double>>&		e_sigma_ref_sets,
+						const Vector<double>& 					delta_e_sigma,
+						const Vector<double>& 					hidden_vars,
+						const Point<spacedim>& 					x,
+						const Tensor<1,spacedim>&				n)
 	const;
 
 	/**
@@ -537,6 +607,257 @@ public:
 	 */
 	virtual ~ScalarFunctional();
 };
+
+/**
+ * An interface related scalar functional with functionality to eliminate local dependent fields.
+ * This scalar functional uses a Newton-Raphson algorithm in order to eliminate local dependent fields in that the gradient of the scalar functional
+ * w.r.t. the local dependent fields is zero. To achieve this, the values of the local dependent fields are modified in a way that the corresponding gradients become zero.
+ *
+ * The scalar functional may be constructed from several other scalar functionals (as a sum of these).
+ *
+ *
+ * @tparam dim		The dimension of the object on which the ScalarFunctional is defined.
+ *
+ * @tparam spacedim	The spatial dimension of the problem
+ */
+template<unsigned int dim, unsigned int spacedim>
+class ScalarFunctionalLocalElimination : public ScalarFunctional<dim, spacedim>
+{
+
+private:
+
+	/**
+	 * The scalar functionals which form this scalar functional (those scalar functionals are simply summed up)
+	 */
+	const std::vector<ScalarFunctional<dim,spacedim>*>
+	scalar_functionals;
+
+	/**
+	 * This maps, for each underlying scalar functional, its dependent field indices to the dependent field indices of the combined scalar functional
+	 */
+	std::vector<std::vector<unsigned int>>
+	map_dependent_fields;
+
+	/**
+	 * This contains the dependent field indices of the nonlocal dependent field (in the indexing of the combined scalar functional)
+	 */
+	std::vector<unsigned int>
+	indices_nonlocal_dependent_fields;
+
+	/**
+	 * This contains the dependent field indices of the local dependent field (in the indexing of the combined scalar functional)
+	 */
+	std::vector<unsigned int>
+	indices_local_dependent_fields;
+
+	/**
+	 * Safety distance to an inadmissible state within a single Newton-Raphson iteration during determination of the values of the local dependent fields (0 < @p safety_distance < 1.0).
+	 * The Newton step length will be decreased such that the "distance" between the solution and the
+	 * boundary of the domain of admissibility is decreased by @p safety_distance at most during a single iteration (1.0 would correspond to no safety distance at all).
+	 * This is used to avoid ill-conditioning problems resulting from a too quick approach of the
+	 * boundary of the domain of admissibility.
+	 */
+	double
+	safety_distance = 0.9;
+
+	/**
+	 * The threshold for the residual to be used during the Newton-Raphson iteration.
+	 *
+	 * The Hessian of the first Newton-Raphson step is used to determine a scaling for the residual such that each element of the residual is divided by the maximum norm of the corresponding row of the Hessian.
+	 * The Newton-Raphson is terminated if the 2-norm of the (scaled) residual is less then sqrt(N)*threshold_residual, with N being the number of local dependent fields.
+	 */
+	double
+	threshold_residual = 1e-12;
+
+public:
+
+
+	/**
+	 * The constructor of the class.
+	 *
+	 * @param[in]	scalar_functionals		ScalarFunctionalLocalElimination::scalar_functionals
+	 *
+	 * @param[in]	name					ScalarFunctional::name
+	 */
+	ScalarFunctionalLocalElimination(	const std::vector<ScalarFunctional<dim,spacedim>*>	scalar_functionals,
+										const std::string 									name = "ScalarFunctionalLocalElimination");
+
+	/**
+	 * @see ScalarFunctional::get_h_sigma
+	 *
+	 * This uses all get_h_sigma of the scalar functionals in ScalarFunctionalLocalElimination::scalar_functionals to construct the final result.
+	 * In this context, a Newton-Raphson iteration is used to eliminate the local dependent fields such that @p h_sigma_1 is zero for all local dependent fields.
+	 * The modified values of the local dependent fields need to be returned in @p e_sigma_local (the size of this quantity is equal to the number of local dependent fields and
+	 * the order is according to their occurence in @p e_sigma)
+	 */
+	virtual
+	bool
+	get_h_sigma(Vector<double>&		 				e_sigma,
+				const std::vector<Vector<double>>&	e_sigma_ref_sets,
+				Vector<double>& 					hidden_vars,
+				const Point<spacedim>& 				x,
+				const Tensor<1,spacedim>& 			n,
+				double& 							h_sigma,
+				Vector<double>& 					h_sigma_1,
+				FullMatrix<double>& 				h_sigma_2,
+				const std::tuple<bool, bool, bool>	requested_quantities)
+	const;
+
+	/**
+	 * @see ScalarFunctional::get_maximum_step
+	 *
+	 * This function calls the maximum step functions of all scalar functionals in ScalarFunctionalLocalElimination::scalar_functionals and returns the minimal possible maximum step.
+	 * In this context, all values in @p delta_e_sigma corresponding to local dependent fields should be zero when calling this function since an external modification of these values is not reasonable
+	 */
+	virtual
+	double
+	get_maximum_step(	const Vector<double>& 					e_sigma,
+						const std::vector<Vector<double>>&		e_sigma_ref_sets,
+						const Vector<double>& 					delta_e_sigma,
+						const Vector<double>&					hidden_vars,
+						const Point<spacedim>&					x,
+						const Tensor<1, spacedim>&				n)
+	const;
+
+	/**
+	 * Sets ScalarFunctionalLocalElimination::safety_distance
+	 */
+	void
+	set_safety_distance(const double safety_distance);
+
+	/**
+	 * Sets ScalarFunctionalLocalElimination::threshold_residual
+	 */
+	void
+	set_threshold_residual(const double threshold_residual);
+
+};
+
+/**
+ * An interface related scalar functional with functionality to eliminate local dependent fields.
+ * This scalar functional uses a Newton-Raphson algorithm in order to eliminate local dependent fields in that the gradient of the scalar functional
+ * w.r.t. the local dependent fields is zero. To achieve this, the values of the local dependent fields are modified in a way that the corresponding gradients become zero.
+ *
+ * The scalar functional may be constructed from several other scalar functionals (as a sum of these).
+ *
+ *
+ * @tparam dim		The dimension of the object on which the ScalarFunctional is defined.
+ *
+ * @tparam spacedim	The spatial dimension of the problem
+ */
+template<unsigned int spacedim>
+class ScalarFunctionalLocalElimination<spacedim, spacedim> : public ScalarFunctional<spacedim, spacedim>
+{
+
+private:
+
+	/**
+	 * The scalar functionals which form this scalar functional (those scalar functionals are simply summed up)
+	 */
+	const std::vector<ScalarFunctional<spacedim,spacedim>*>
+	scalar_functionals;
+
+	/**
+	 * This maps, for each underlying scalar functional, its dependent field indices to the dependent field indices of the combined scalar functional
+	 */
+	std::vector<std::vector<unsigned int>>
+	map_dependent_fields;
+
+	/**
+	 * This contains the dependent field indices of the nonlocal dependent field (in the indexing of the combined scalar functional)
+	 */
+	std::vector<unsigned int>
+	indices_nonlocal_dependent_fields;
+
+	/**
+	 * This contains the dependent field indices of the local dependent field (in the indexing of the combined scalar functional)
+	 */
+	std::vector<unsigned int>
+	indices_local_dependent_fields;
+
+	/**
+	 * Safety distance to an inadmissible state within a single Newton-Raphson iteration during determination of the values of the local dependent fields (0 < @p safety_distance < 1.0).
+	 * The Newton step length will be decreased such that the "distance" between the solution and the
+	 * boundary of the domain of admissibility is decreased by @p safety_distance at most during a single iteration (1.0 would correspond to no safety distance at all).
+	 * This is used to avoid ill-conditioning problems resulting from a too quick approach of the
+	 * boundary of the domain of admissibility.
+	 */
+	double
+	safety_distance = 0.9;
+
+	/**
+	 * The threshold for the residual to be used during the Newton-Raphson iteration.
+	 *
+	 * The Hessian of the first Newton-Raphson step is used to determine a scaling for the residual such that each element of the residual is divided by the maximum norm of the corresponding row of the Hessian.
+	 * The Newton-Raphson is terminated if the 2-norm of the (scaled) residual is less then sqrt(N)*threshold_residual, with N being the number of local dependent fields.
+	 */
+	double
+	threshold_residual = 1e-12;
+
+public:
+
+
+	/**
+	 * The constructor of the class.
+	 *
+	 * @param[in]	scalar_functionals		ScalarFunctionalLocalElimination<spacedim, spacedim>::scalar_functionals
+	 *
+	 * @param[in]	name					ScalarFunctional<spacedim, spacedim>::name
+	 */
+	ScalarFunctionalLocalElimination(	const std::vector<ScalarFunctional<spacedim,spacedim>*>	scalar_functionals,
+										const std::string 										name = "ScalarFunctionalLocalElimination");
+
+	/**
+	 * @see ScalarFunctional<spacedim, spacedim>::get_h_omega
+	 *
+	 * This uses all get_h_omega of the scalar functionals in ScalarFunctionalLocalElimination<spacedim, spacedim>::scalar_functionals to construct the final result.
+	 * In this context, a Newton-Raphson iteration is used to eliminate the local dependent fields such that @p h_omega_1 is zero for all local dependent fields.
+	 * The modified values of the local dependent fields need to be returned in @p e_omega_local (the size of this quantity is equal to the number of local dependent fields and
+	 * the order is according to their occurence in @p e_omega)
+	 *
+	 */
+	virtual
+	bool
+	get_h_omega(	Vector<double>& 					e_omega,
+					const std::vector<Vector<double>>&	e_omega_ref_sets,
+					Vector<double>& 					hidden_vars,
+					const Point<spacedim>& 				x,
+					double& 							h_omega,
+					Vector<double>& 					h_omega_1,
+					FullMatrix<double>& 				h_omega_2,
+					const std::tuple<bool, bool, bool> 	requested_quantities)
+	const;
+
+	/**
+	 * @see ScalarFunctional<spacedim, spacedim>::get_maximum_step
+	 *
+	 * This function calls the maximum step functions of all scalar functionals in ScalarFunctionalLocalElimination::scalar_functionals and returns the minimal possible maximum step.
+	 * In this context, all values in @p delta_e_omega corresponding to local dependent fields should be zero when calling this function since an external modification of these values is not reasonable
+	 */
+	virtual
+	double
+	get_maximum_step(	const Vector<double>& 					e_omega,
+						const std::vector<Vector<double>>&		e_omega_ref_sets,
+						const Vector<double>& 					delta_e_omega,
+						const Vector<double>& 					hidden_vars,
+						const Point<spacedim>& 					x)
+	const;
+
+	/**
+	 * Sets ScalarFunctionalLocalElimination<spacedim,spacedim>::safety_distance
+	 */
+	void
+	set_safety_distance(const double safety_distance);
+
+	/**
+	 * Sets ScalarFunctionalLocalElimination<spacedim,spacedim>::threshold_residual
+	 */
+	void
+	set_threshold_residual(const double threshold_residual);
+
+};
+
+
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE
 DEAL_II_NAMESPACE_CLOSE

@@ -125,6 +125,12 @@ public:
 	initial_vals;
 
 	/**
+	 * if this is true, the independent field is assumed to be local. In this case, it must be discretized by an FE_DGQArbitraryNodes of deal.II.
+	 */
+	const bool
+	is_local = false;
+
+	/**
 	 * The constructor of the class for the case that IndependentField::n_components copies of
 	 * a scalar valued finite element are used for discretization of the
 	 * \f$K\f$-vector of independent fields represented by the IndependentField
@@ -141,12 +147,15 @@ public:
 	 * @param[in]	initial_vals		IndependentField::initial_vals, if a null pointer is
 	 * 									provided, the initial values of the independent fields
 	 * 									are assumed to be zero.
+	 *
+	 * @param[in]	is_local			IndependentField::is_local
 	 */
 	IndependentField(	const std::string 					name,
 						const FiniteElement<dim, spacedim>& fe,
 						const unsigned int 					n_components,
 						const std::set<types::material_id>	non_zero_regions,
-						const Function<spacedim> *const		initial_vals = nullptr);
+						const Function<spacedim> *const		initial_vals = nullptr,
+						const bool							is_local = false);
 
 	/**
 	 * The constructor of the class for the case that a vector valued finite

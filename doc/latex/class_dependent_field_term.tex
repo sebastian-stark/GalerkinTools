@@ -23,6 +23,8 @@ double \mbox{\hyperlink{class_dependent_field_term_a7f7b45969b939cfead095d2681d2
 unsigned int \mbox{\hyperlink{class_dependent_field_term_ae901f99afbdd336f73cf550e62c93ae1}{n\+\_\+derivatives}} () const
 \item 
 bool \mbox{\hyperlink{class_dependent_field_term_a204178ccb13a1280b96cf2ad8cf24695}{operator$<$}} (const \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}} \&dependent\+\_\+field\+\_\+2) const
+\item 
+bool \mbox{\hyperlink{class_dependent_field_term_a017b2119451d74e4dbbe203503d498c4}{operator==}} (const \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}} \&dependent\+\_\+field\+\_\+2) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -106,6 +108,23 @@ The size of \mbox{\hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db
 bool \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$ \&}]{dependent\+\_\+field\+\_\+2 }\end{DoxyParamCaption}) const}
 
 A comparison operator, which allows to use \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}} in {\ttfamily std\+::map} and {\ttfamily std\+::set}. The comparison operator is based on a lexicographic ordering according to the members \mbox{\hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field}}, \mbox{\hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{Dependent\+Field\+Term\+::component}}, \mbox{\hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{Dependent\+Field\+Term\+::derivatives}}. This means that the member \mbox{\hyperlink{class_dependent_field_term_a59a9183a32ac55fb728f3797b68a9f8f}{Dependent\+Field\+Term\+::coefficient}} does not factor into the comparison, which effectively means that two \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}} objects are considered equal if they are associated with the same \mbox{\hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field}}, \mbox{\hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{Dependent\+Field\+Term\+::component}}, \mbox{\hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{Dependent\+Field\+Term\+::derivatives}} (the same \mbox{\hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field}} here really means \char`\"{}exactly the same object\char`\"{}).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dependent\+\_\+field\+\_\+2} & The \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}} to compare with\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean indicating result of comparison 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dependent_field_term_a017b2119451d74e4dbbe203503d498c4}\label{class_dependent_field_term_a017b2119451d74e4dbbe203503d498c4}} 
+\index{DependentFieldTerm$<$ dim, spacedim $>$@{DependentFieldTerm$<$ dim, spacedim $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!DependentFieldTerm$<$ dim, spacedim $>$@{DependentFieldTerm$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+bool \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$ \&}]{dependent\+\_\+field\+\_\+2 }\end{DoxyParamCaption}) const}
+
+A comparison operator, which allows to check for equality of two \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}.
 
 
 \begin{DoxyParams}[1]{Parameters}

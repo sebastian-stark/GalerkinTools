@@ -20,6 +20,7 @@
 #include <galerkin_tools/independent_field.h>
 
 #include <deal.II/fe/fe_nothing.h>
+#include <deal.II/fe/fe_dgq.h>
 
 using namespace std;
 
@@ -31,19 +32,23 @@ IndependentField<dim, spacedim>::IndependentField(	const string						name,
 													const FiniteElement<dim, spacedim>&	fe,
 													const unsigned int					n_components,
 													const set<types::material_id>		non_zero_regions,
-													const Function<spacedim>* const		initial_vals)
+													const Function<spacedim>* const		initial_vals,
+													const bool							is_local)
 :
 name(name),
 fe(fe.clone()),
 n_components(n_components),
 non_zero_regions(non_zero_regions),
-initial_vals(initial_vals)
+initial_vals(initial_vals),
+is_local(is_local)
 {
 	Assert(	fe.n_components() == 1,
 			ExcMessage("Vector valued finite elements are not allowed with this constructor, use the constructor without the argument n_components!"));
 	if(initial_vals != nullptr)
 		Assert(	initial_vals->n_components == this->n_components,
 				ExcMessage("The dealii::Function object for the initial values must have exactly the same number of components as the independent field!"));
+	if(is_local)
+		Assert((dynamic_cast<const FE_DGQArbitraryNodes<dim, spacedim>*>(&fe) != nullptr), ExcMessage("Local independent fields must generally be discretized by FE_DGQArbitraryNodes."));
 }
 
 template<unsigned int dim, unsigned int spacedim>

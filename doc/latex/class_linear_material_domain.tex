@@ -26,11 +26,8 @@ Collaboration diagram for Linear\+Material\+Domain$<$ spacedim $>$\+:\nopagebrea
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_linear_material_domain_a7f91a980e9475691513443cd6b2efbc1}{Linear\+Material\+Domain}} (const std\+::vector$<$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ spacedim, spacedim $>$$>$ \mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_adfed9b70b743ba245a39c3e63b951f96}{e\+\_\+omega}}, const std\+::set$<$ \textbf{ types\+::material\+\_\+id} $>$ \mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_aa192395f822a64f60df43bf9d36c2f3a}{domain\+\_\+of\+\_\+integration}}, const \textbf{ Quadrature}$<$ spacedim $>$ \mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_ab83ee3ae077b211137824b006098382e}{quadrature}}, const \textbf{ Full\+Matrix}$<$ double $>$ \mbox{\hyperlink{class_linear_material_domain_a8ac95fcf4f77790670b8520ba9593a7c}{C}}, const \textbf{ Vector}$<$ double $>$ \mbox{\hyperlink{class_linear_material_domain_a7ea9ab6930c0b0aa826e809ef245b0e2}{y}}, const std\+::string \mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a195248af3821548af3000872e9e6d00e}{name}}=\char`\"{}Linear\+Material\+Domain\char`\"{})
-\end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
 \item 
-bool \mbox{\hyperlink{class_linear_material_domain_a2892815e854904d44f391e99dd409320}{get\+\_\+h\+\_\+omega}} (const \textbf{ Vector}$<$ double $>$ \&\mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_adfed9b70b743ba245a39c3e63b951f96}{e\+\_\+omega}}, const std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&e\+\_\+omega\+\_\+ref\+\_\+sets, \textbf{ Vector}$<$ double $>$ \&hidden\+\_\+vars, const \textbf{ Point}$<$ spacedim $>$ \&x, double \&h\+\_\+omega, \textbf{ Vector}$<$ double $>$ \&h\+\_\+omega\+\_\+1, \textbf{ Full\+Matrix}$<$ double $>$ \&h\+\_\+omega\+\_\+2, const std\+::tuple$<$ bool, bool, bool $>$ requested\+\_\+quantities) const
+bool \mbox{\hyperlink{class_linear_material_domain_a4d73bbb0e545ee21c5635e7dac071719}{get\+\_\+h\+\_\+omega}} (\textbf{ Vector}$<$ double $>$ \&\mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_adfed9b70b743ba245a39c3e63b951f96}{e\+\_\+omega}}, const std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&e\+\_\+omega\+\_\+ref\+\_\+sets, \textbf{ Vector}$<$ double $>$ \&hidden\+\_\+vars, const \textbf{ Point}$<$ spacedim $>$ \&x, double \&h\+\_\+omega, \textbf{ Vector}$<$ double $>$ \&h\+\_\+omega\+\_\+1, \textbf{ Full\+Matrix}$<$ double $>$ \&h\+\_\+omega\+\_\+2, const std\+::tuple$<$ bool, bool, bool $>$ requested\+\_\+quantities) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -76,14 +73,14 @@ The constructor of the class.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_linear_material_domain_a2892815e854904d44f391e99dd409320}\label{class_linear_material_domain_a2892815e854904d44f391e99dd409320}} 
+\mbox{\Hypertarget{class_linear_material_domain_a4d73bbb0e545ee21c5635e7dac071719}\label{class_linear_material_domain_a4d73bbb0e545ee21c5635e7dac071719}} 
 \index{LinearMaterialDomain$<$ spacedim $>$@{LinearMaterialDomain$<$ spacedim $>$}!get\_h\_omega@{get\_h\_omega}}
 \index{get\_h\_omega@{get\_h\_omega}!LinearMaterialDomain$<$ spacedim $>$@{LinearMaterialDomain$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_h\_omega()}{get\_h\_omega()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-bool \mbox{\hyperlink{class_linear_material_domain}{Linear\+Material\+Domain}}$<$ spacedim $>$\+::get\+\_\+h\+\_\+omega (\begin{DoxyParamCaption}\item[{const \textbf{ Vector}$<$ double $>$ \&}]{e\+\_\+omega,  }\item[{const std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&}]{e\+\_\+omega\+\_\+ref\+\_\+sets,  }\item[{\textbf{ Vector}$<$ double $>$ \&}]{hidden\+\_\+vars,  }\item[{const \textbf{ Point}$<$ spacedim $>$ \&}]{x,  }\item[{double \&}]{h\+\_\+omega,  }\item[{\textbf{ Vector}$<$ double $>$ \&}]{h\+\_\+omega\+\_\+1,  }\item[{\textbf{ Full\+Matrix}$<$ double $>$ \&}]{h\+\_\+omega\+\_\+2,  }\item[{const std\+::tuple$<$ bool, bool, bool $>$}]{requested\+\_\+quantities }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+bool \mbox{\hyperlink{class_linear_material_domain}{Linear\+Material\+Domain}}$<$ spacedim $>$\+::get\+\_\+h\+\_\+omega (\begin{DoxyParamCaption}\item[{\textbf{ Vector}$<$ double $>$ \&}]{e\+\_\+omega,  }\item[{const std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&}]{e\+\_\+omega\+\_\+ref\+\_\+sets,  }\item[{\textbf{ Vector}$<$ double $>$ \&}]{hidden\+\_\+vars,  }\item[{const \textbf{ Point}$<$ spacedim $>$ \&}]{x,  }\item[{double \&}]{h\+\_\+omega,  }\item[{\textbf{ Vector}$<$ double $>$ \&}]{h\+\_\+omega\+\_\+1,  }\item[{\textbf{ Full\+Matrix}$<$ double $>$ \&}]{h\+\_\+omega\+\_\+2,  }\item[{const std\+::tuple$<$ bool, bool, bool $>$}]{requested\+\_\+quantities }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
-See \mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a629bfeae4d8ea364fc3f72fea8016ac8}{Scalar\+Functional$<$spacedim, spacedim$>$\+::get\+\_\+h\+\_\+omega}} for detailed information on this method.
+See \mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a8665cb5b5a57ad22217e4c112845d43b}{Scalar\+Functional$<$spacedim, spacedim$>$\+::get\+\_\+h\+\_\+omega}} for detailed information on this method.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -109,7 +106,7 @@ See \mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a62
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a629bfeae4d8ea364fc3f72fea8016ac8}{Scalar\+Functional$<$ spacedim, spacedim $>$}}.
+Implements \mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a8665cb5b5a57ad22217e4c112845d43b}{Scalar\+Functional$<$ spacedim, spacedim $>$}}.
 
 
 

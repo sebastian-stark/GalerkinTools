@@ -64,7 +64,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_linear_material_interface-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -102,11 +101,8 @@ Collaboration diagram for LinearMaterialInterface&lt; spacedim &gt;:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac10a5c148dd81edab41d22dd207c78a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_material_interface.html#ac10a5c148dd81edab41d22dd207c78a2">LinearMaterialInterface</a> (const std::vector&lt; <a class="el" href="class_dependent_field.html">DependentField</a>&lt; spacedim-1, spacedim &gt;&gt; e_sigma, const std::set&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacetypes.html#afb65af4be8a9a1d09a0c3ecc967c9d4c">types::material_id</a> &gt; domain_of_integration, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classQuadrature.html">Quadrature</a>&lt; spacedim-1 &gt; quadrature, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFullMatrix.html">FullMatrix</a>&lt; double &gt; <a class="el" href="class_linear_material_interface.html#ae0b1ef211453e5fd3e1416ff37c315db">C</a>, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; <a class="el" href="class_linear_material_interface.html#a3864513d7662e4d1c91e606467befd59">y</a>, const std::string name=&quot;LinearMaterialInterface&quot;)</td></tr>
 <tr class="separator:ac10a5c148dd81edab41d22dd207c78a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a60351d101df9872a443cd9209efd1c2f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_material_interface.html#a60351d101df9872a443cd9209efd1c2f">get_h_sigma</a> (const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;e_sigma, const std::vector&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt;&gt; &amp;e_sigma_ref_sets, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;hidden_vars, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt; &amp;x, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classTensor.html">Tensor</a>&lt; 1, spacedim &gt; &amp;n, double &amp;h_sigma, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;h_sigma_1, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFullMatrix.html">FullMatrix</a>&lt; double &gt; &amp;h_sigma_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const</td></tr>
-<tr class="separator:a60351d101df9872a443cd9209efd1c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5cca6ebef9371fd07782e3ae0171d65"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linear_material_interface.html#af5cca6ebef9371fd07782e3ae0171d65">get_h_sigma</a> (<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;e_sigma, const std::vector&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt;&gt; &amp;e_sigma_ref_sets, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;hidden_vars, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt; &amp;x, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classTensor.html">Tensor</a>&lt; 1, spacedim &gt; &amp;n, double &amp;h_sigma, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;h_sigma_1, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFullMatrix.html">FullMatrix</a>&lt; double &gt; &amp;h_sigma_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const</td></tr>
+<tr class="separator:af5cca6ebef9371fd07782e3ae0171d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -188,21 +184,18 @@ template&lt;unsigned int spacedim&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a60351d101df9872a443cd9209efd1c2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60351d101df9872a443cd9209efd1c2f">&#9670;&nbsp;</a></span>get_h_sigma()</h2>
+<a id="af5cca6ebef9371fd07782e3ae0171d65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5cca6ebef9371fd07782e3ae0171d65">&#9670;&nbsp;</a></span>get_h_sigma()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;unsigned int spacedim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="class_linear_material_interface.html">LinearMaterialInterface</a>&lt; spacedim &gt;::get_h_sigma </td>
           <td>(</td>
-          <td class="paramtype">const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>e_sigma</em>, </td>
         </tr>
         <tr>
@@ -259,13 +252,8 @@ template&lt;unsigned int spacedim&gt; </div>
           <td></td><td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p>See <a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">ScalarFunctional::get_h_sigma</a> for detailed information on this method.</p>
+<p>See <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional::get_h_sigma</a> for detailed information on this method.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">e_sigma</td><td><img class="formulaInl" alt="$\boldsymbol{e}^\Sigma$" src="form_104.png"/></td></tr>

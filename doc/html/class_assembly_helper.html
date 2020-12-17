@@ -105,12 +105,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a60a2aa2aa08149682feca02e458232d4"><td class="memTemplParams" colspan="2">template&lt;class SparsityPatternType &gt; </td></tr>
 <tr class="memitem:a60a2aa2aa08149682feca02e458232d4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a60a2aa2aa08149682feca02e458232d4">generate_sparsity_pattern_by_simulation</a> (SparsityPatternType &amp;dsp_K, const AffineConstraints&lt; double &gt; &amp;constraints) const</td></tr>
 <tr class="separator:a60a2aa2aa08149682feca02e458232d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae02fef45662d1703b0f29d7d9cead7c1"><td class="memTemplParams" colspan="2">template&lt;class SolutionVectorType , class RHSVectorType , class MatrixType &gt; </td></tr>
-<tr class="memitem:ae02fef45662d1703b0f29d7d9cead7c1"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#ae02fef45662d1703b0f29d7d9cead7c1">assemble_system</a> (const SolutionVectorType &amp;solution, const std::vector&lt; const SolutionVectorType * &gt; solution_ref_sets, const AffineConstraints&lt; double &gt; &amp;constraints, double &amp;potential_value, RHSVectorType &amp;f, MatrixType &amp;K, const std::tuple&lt; bool, bool, bool &gt; requested_quantities=std::make_tuple(true, true, true)) const</td></tr>
-<tr class="separator:ae02fef45662d1703b0f29d7d9cead7c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5146802e9d7d4bc5df7fe35909da3e44"><td class="memTemplParams" colspan="2">template&lt;class SolutionVectorType , class RHSVectorType , class MatrixType &gt; </td></tr>
+<tr class="memitem:a5146802e9d7d4bc5df7fe35909da3e44"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a5146802e9d7d4bc5df7fe35909da3e44">assemble_system</a> (const SolutionVectorType &amp;solution, const std::vector&lt; const SolutionVectorType * &gt; solution_ref_sets, const AffineConstraints&lt; double &gt; &amp;constraints, double &amp;potential_value, RHSVectorType &amp;f, MatrixType &amp;K, const std::tuple&lt; bool, bool, bool &gt; requested_quantities=std::make_tuple(true, true, true), std::map&lt; unsigned int, double &gt; *local_solution=nullptr) const</td></tr>
+<tr class="separator:a5146802e9d7d4bc5df7fe35909da3e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf6ef2dced66e223684e5df97182f428"><td class="memTemplParams" colspan="2">template&lt;class VectorType &gt; </td></tr>
 <tr class="memitem:acf6ef2dced66e223684e5df97182f428"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#acf6ef2dced66e223684e5df97182f428">get_nonprimitive_scalar_functional_values</a> (const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> &amp;solution, const std::vector&lt; const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> * &gt; solution_ref_sets, std::map&lt; const <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; spacedim, spacedim &gt; *, double &gt; &amp;nonprimitive_scalar_functional_values_domain, std::map&lt; const <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; spacedim-1, spacedim &gt; *, double &gt; &amp;nonprimitive_scalar_functional_values_interface) const</td></tr>
 <tr class="separator:acf6ef2dced66e223684e5df97182f428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2940850798972b003cf33d37e705490e"><td class="memTemplParams" colspan="2">template&lt;class VectorType &gt; </td></tr>
+<tr class="memitem:a2940850798972b003cf33d37e705490e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a2940850798972b003cf33d37e705490e">call_scalar_functionals</a> (const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> &amp;solution, const std::vector&lt; const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> * &gt; &amp;solution_ref_sets, const std::set&lt; const <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; spacedim, spacedim &gt; * &gt; &amp;scalar_functionals_domain_to_call, const std::set&lt; const <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; spacedim-1, spacedim &gt; * &gt; &amp;scalar_functionals_interface_to_call) const</td></tr>
+<tr class="separator:a2940850798972b003cf33d37e705490e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a310594206df2622027fdc48e84600bf7"><td class="memTemplParams" colspan="2">template&lt;class VectorType &gt; </td></tr>
 <tr class="memitem:a310594206df2622027fdc48e84600bf7"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a310594206df2622027fdc48e84600bf7">get_maximum_step_length</a> (const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> &amp;solution, const std::vector&lt; const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> * &gt; solution_ref_sets, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> &amp;delta_solution) const</td></tr>
 <tr class="separator:a310594206df2622027fdc48e84600bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -289,6 +292,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ae92560183f1d2060265f0744a84f0349"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a26b40224e3f04e5168accc91486493"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a1a26b40224e3f04e5168accc91486493">coupled_dof_indices_scalar_functionals_domain</a></td></tr>
 <tr class="separator:a1a26b40224e3f04e5168accc91486493"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9fc6d318c2f7a2eab5097b6a76c9083"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#aa9fc6d318c2f7a2eab5097b6a76c9083">coupled_dof_indices_scalar_functionals_domain_local</a></td></tr>
+<tr class="separator:aa9fc6d318c2f7a2eab5097b6a76c9083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b7242925e5a0be85830ed7eae581442"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a6b7242925e5a0be85830ed7eae581442">coupled_dof_indices_scalar_functionals_domain_nonlocal</a></td></tr>
+<tr class="separator:a6b7242925e5a0be85830ed7eae581442"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab346e146cf91fb7a0688076551b37355"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#ab346e146cf91fb7a0688076551b37355">coupled_dof_indices_scalar_functionals_interface</a></td></tr>
 <tr class="separator:ab346e146cf91fb7a0688076551b37355"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12299d82365553a21fef8529c8fe8a17"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a12299d82365553a21fef8529c8fe8a17">coupled_dof_indices_scalar_functionals_interface_minus</a></td></tr>
@@ -307,6 +314,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a75e6f76c0b12b91c5feb230251f0137f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad93b109608d4425d318434e01cb6246c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; double &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#ad93b109608d4425d318434e01cb6246c">d_omega</a></td></tr>
 <tr class="separator:ad93b109608d4425d318434e01cb6246c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a547c7d4ffd7379860f15095d494b1d68"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; bool &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a547c7d4ffd7379860f15095d494b1d68">e_omega_local</a></td></tr>
+<tr class="separator:a547c7d4ffd7379860f15095d494b1d68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa266cc07e9670319481da52d633d2583"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; std::vector&lt; std::tuple&lt; const double, const unsigned int, std::vector&lt; unsigned int &gt; &gt; &gt; &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#aa266cc07e9670319481da52d633d2583">a_sigma</a></td></tr>
 <tr class="separator:aa266cc07e9670319481da52d633d2583"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af58c9a1c7093edc306070913aa1b9be2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; std::vector&lt; std::tuple&lt; const double, const unsigned int, const unsigned int, std::vector&lt; unsigned int &gt; &gt; &gt; &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#af58c9a1c7093edc306070913aa1b9be2">b_sigma</a></td></tr>
@@ -323,6 +332,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ab3d4370661ba726010ee687ef0e98140"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48d7d677120eb1c84b4983f470246e02"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; double &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a48d7d677120eb1c84b4983f470246e02">d_sigma</a></td></tr>
 <tr class="separator:a48d7d677120eb1c84b4983f470246e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16aa77ea3867740a280fd50f5578adfc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; bool &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a16aa77ea3867740a280fd50f5578adfc">e_sigma_local</a></td></tr>
+<tr class="separator:a16aa77ea3867740a280fd50f5578adfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Members containing the FEValues, FEFaceValues, and FESubfaceValues objects needed during assembly</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>These data structures make sure that the <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFEValues.html">FEValues</a>, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFEFaceValues.html">FEFaceValues</a>, and <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFESubfaceValues.html">FESubfaceValues</a> objects are re-used wherever possible and that only those objects are reinitialized for which this is really necessary when a new cell is visited. </p>
 </div></td></tr>
@@ -448,8 +459,8 @@ template&lt;unsigned int spacedim&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae02fef45662d1703b0f29d7d9cead7c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae02fef45662d1703b0f29d7d9cead7c1">&#9670;&nbsp;</a></span>assemble_system()</h2>
+<a id="a5146802e9d7d4bc5df7fe35909da3e44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5146802e9d7d4bc5df7fe35909da3e44">&#9670;&nbsp;</a></span>assemble_system()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -498,7 +509,13 @@ template&lt;class SolutionVectorType , class RHSVectorType , class MatrixType &g
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::tuple&lt; bool, bool, bool &gt;&#160;</td>
-          <td class="paramname"><em>requested_quantities</em> = <code>std::make_tuple(true,&#160;true,&#160;true)</code>&#160;</td>
+          <td class="paramname"><em>requested_quantities</em> = <code>std::make_tuple(true,&#160;true,&#160;true)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; unsigned int, double &gt; *&#160;</td>
+          <td class="paramname"><em>local_solution</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -514,12 +531,13 @@ template&lt;class SolutionVectorType , class RHSVectorType , class MatrixType &g
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">solution</td><td>Point of linearization <img class="formulaInl" alt="$\boldsymbol{\hat u}^\mathrm{s} = \begin{pmatrix} \boldsymbol{\hat u} \\ \boldsymbol{\hat \lambda} \end{pmatrix}$" src="form_44.png"/>, where the values of <img class="formulaInl" alt="$\boldsymbol{\hat \lambda}$" src="form_45.png"/> are not used during assembly and are, therefore, arbitrary. The appropriate size of <code>solution</code> can be obtained from <a class="el" href="class_assembly_helper.html#ae821c8ae9c8fa6f8e85d20ecd5ad7e39">AssemblyHelper::system_size()</a>.</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">solution_ref_sets</td><td>Sets of reference solution vectors, which can e.g. be the solution vectors of previous times steps. Make sure that you pass at least as many reference sets here as are required by the <a class="el" href="class_scalar_functional.html">ScalarFunctional</a> objects (see <a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">ScalarFunctional::get_h_sigma()</a> and <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a629bfeae4d8ea364fc3f72fea8016ac8">ScalarFunctional&lt;spacedim, spacedim&gt;::get_h_omega()</a>) and the <a class="el" href="class_total_potential_contribution.html">TotalPotentialContribution</a> objects (see <a class="el" href="class_total_potential_contribution.html#a515786e58c1fda7baf168be8f4a13720">TotalPotentialContribution::get_potential_contribution()</a>) to complete their computations. In general, the order of the sets of reference values in <a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">ScalarFunctional::get_h_sigma()</a>, <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a629bfeae4d8ea364fc3f72fea8016ac8">ScalarFunctional&lt;spacedim, spacedim&gt;::get_h_omega()</a>, and <a class="el" href="class_total_potential_contribution.html#a515786e58c1fda7baf168be8f4a13720">TotalPotentialContribution::get_potential_contribution()</a> corresponds to the order in <code>solution_ref_sets</code>. If e.g. a function <a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">ScalarFunctional::get_h_sigma()</a> requires two reference sets of dependent variable values while <code>solution_ref_sets</code> contains more than two reference sets of dof values, the first two sets from <code>solution_ref_sets</code> will be used to obtain the reference sets of dependent variable values.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">solution_ref_sets</td><td>Sets of reference solution vectors, which can e.g. be the solution vectors of previous times steps. Make sure that you pass at least as many reference sets here as are required by the <a class="el" href="class_scalar_functional.html">ScalarFunctional</a> objects (see <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional::get_h_sigma()</a> and <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a8665cb5b5a57ad22217e4c112845d43b">ScalarFunctional&lt;spacedim, spacedim&gt;::get_h_omega()</a>) and the <a class="el" href="class_total_potential_contribution.html">TotalPotentialContribution</a> objects (see <a class="el" href="class_total_potential_contribution.html#a515786e58c1fda7baf168be8f4a13720">TotalPotentialContribution::get_potential_contribution()</a>) to complete their computations. In general, the order of the sets of reference values in <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional::get_h_sigma()</a>, <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a8665cb5b5a57ad22217e4c112845d43b">ScalarFunctional&lt;spacedim, spacedim&gt;::get_h_omega()</a>, and <a class="el" href="class_total_potential_contribution.html#a515786e58c1fda7baf168be8f4a13720">TotalPotentialContribution::get_potential_contribution()</a> corresponds to the order in <code>solution_ref_sets</code>. If e.g. a function <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional::get_h_sigma()</a> requires two reference sets of dependent variable values while <code>solution_ref_sets</code> contains more than two reference sets of dof values, the first two sets from <code>solution_ref_sets</code> will be used to obtain the reference sets of dependent variable values.</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">constraints</td><td>Constraints to be applied to the finite element system. These must be the same as those used for generating the sparsity pattern for <code>system_matrix</code> with <a class="el" href="class_assembly_helper.html#a60a2aa2aa08149682feca02e458232d4">AssemblyHelper::generate_sparsity_pattern_by_simulation()</a>.</td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">potential_value</td><td>Value of the total potential (the correct calculation of the total potential value of course requires that all <a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">ScalarFunctional::get_h_sigma()</a>, <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a629bfeae4d8ea364fc3f72fea8016ac8">ScalarFunctional&lt;spacedim, spacedim&gt;::get_h_omega()</a> and <a class="el" href="class_total_potential_contribution.html#a515786e58c1fda7baf168be8f4a13720">TotalPotentialContribution::get_potential_contribution()</a> functions compute the respective values and not only compute the derivatives.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">potential_value</td><td>Value of the total potential (the correct calculation of the total potential value of course requires that all <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional::get_h_sigma()</a>, <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a8665cb5b5a57ad22217e4c112845d43b">ScalarFunctional&lt;spacedim, spacedim&gt;::get_h_omega()</a> and <a class="el" href="class_total_potential_contribution.html#a515786e58c1fda7baf168be8f4a13720">TotalPotentialContribution::get_potential_contribution()</a> functions compute the respective values and not only compute the derivatives.</td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">f</td><td>The right hand side of the (stretched) finite element system <img class="formulaInl" alt="$-\boldsymbol{f}^\mathrm{s}$" src="form_46.png"/> with <code>constraints</code> incorporated. This vector must be passed in with the correct size, which can be obtained from <a class="el" href="class_assembly_helper.html#ae821c8ae9c8fa6f8e85d20ecd5ad7e39">AssemblyHelper::system_size()</a>.</td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">K</td><td>The (stretched) system matrix <img class="formulaInl" alt="$\boldsymbol{K}^\mathrm{s}$" src="form_42.png"/> with <code>constraints</code> incorporated. The matrix must be passed in with the correct size, which can be obtained from <a class="el" href="class_assembly_helper.html#ae821c8ae9c8fa6f8e85d20ecd5ad7e39">AssemblyHelper::system_size()</a>, and the appropriate sparsity pattern generated by <a class="el" href="class_assembly_helper.html#a60a2aa2aa08149682feca02e458232d4">AssemblyHelper::generate_sparsity_pattern_by_simulation()</a> using <code>constraints</code>.</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">requested_quantities</td><td>Tuple indicating which quantities are actually to be computed (e.g. (<code>true</code>, <code>false</code>, <code>true</code>) indicates that <code>potential_value</code> and <code>K</code> are to be computed)</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">local_solution</td><td>Map between global dof indices and updated local solution in case that there are local independent fields</td></tr>
   </table>
   </dd>
 </dl>
@@ -530,6 +548,66 @@ template&lt;class SolutionVectorType , class RHSVectorType , class MatrixType &g
     <tr><td class="paramname">SolutionVectorType</td><td>The type used for <code>solution</code> and <code>solution_ref_sets</code> (in parallel this vector type must permit read access to ghosted entries while write access is not required)</td></tr>
     <tr><td class="paramname">RHSVectorType</td><td>The type used for <code>f</code> (in parallel this vector type must permit write access to ghosted entries while read access is not required)</td></tr>
     <tr><td class="paramname">MatrixType</td><td>The type used for <code>K</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2940850798972b003cf33d37e705490e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2940850798972b003cf33d37e705490e">&#9670;&nbsp;</a></span>call_scalar_functionals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+<div class="memtemplate">
+template&lt;class VectorType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_assembly_helper.html">AssemblyHelper</a>&lt; spacedim &gt;::call_scalar_functionals </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> &amp;&#160;</td>
+          <td class="paramname"><em>solution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>solution_ref_sets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::set&lt; const <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; spacedim, spacedim &gt; * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>scalar_functionals_domain_to_call</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::set&lt; const <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; spacedim-1, spacedim &gt; * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>scalar_functionals_interface_to_call</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Method simply calling the <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a8665cb5b5a57ad22217e4c112845d43b">ScalarFunctional&lt;spacedim, spacedim&gt;::get_h_omega()</a> and <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional::get_h_sigma()</a> functions with the solution <code>solution</code> and the reference solution <code>solution_ref_sets</code>, without doing any assembly of the finite element system.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">solution</td><td>the global solution vector</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">solution_ref_sets</td><td>a set of reference solution vectors (e.g. solutions at previous time steps), which may enter into the calculation of the scalar functionals</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">scalar_functionals_domain_to_call</td><td>domain-related scalar functionals to be evaluated</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">scalar_functionals_interface_to_call</td><td>interface-related scalar functionals to be evaluated</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">VectorType</td><td>The type used for the solution vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -577,14 +655,14 @@ template&lt;class VectorType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This method compares the finite element system obtained with <a class="el" href="class_assembly_helper.html#ae02fef45662d1703b0f29d7d9cead7c1">AssemblyHelper::assemble_system()</a> with numerically computed equivalents.</p>
+<p>This method compares the finite element system obtained with <a class="el" href="class_assembly_helper.html#a5146802e9d7d4bc5df7fe35909da3e44">AssemblyHelper::assemble_system()</a> with numerically computed equivalents.</p>
 <p>The numerically computed right hand side is based on a finite difference quotient of the total potential, and the numerically computed system matrix is based on a finite difference quotient of the right hand side of the finite element system. I.e., the numerically computed right hand side can only be "correct" (to within the accuracy of the finite difference approach) if the total potential is correctly implemented; and the numerically computed system matrix can only be "correct" (to within the accuracy of the finite difference approach) if the right hand side is correctly implemented. This fact can be used to check the implementation, which is the main purpose of this method.</p>
-<p>For comparison of the finite element systems, the dense system <img class="formulaInl" alt="$\left( \boldsymbol{K} + \boldsymbol{L} \boldsymbol{\Pi} \boldsymbol{L}^\top \right) \Delta\boldsymbol{\hat u} = - \boldsymbol{f}$" src="form_47.png"/> is used instead of the stretched system provided by <a class="el" href="class_assembly_helper.html#ae02fef45662d1703b0f29d7d9cead7c1">AssemblyHelper::assemble_system()</a>. This, however, means that this method is dealing internally with dense matrices. As a consequence, the method can only be used for very small test problems.</p>
+<p>For comparison of the finite element systems, the dense system <img class="formulaInl" alt="$\left( \boldsymbol{K} + \boldsymbol{L} \boldsymbol{\Pi} \boldsymbol{L}^\top \right) \Delta\boldsymbol{\hat u} = - \boldsymbol{f}$" src="form_47.png"/> is used instead of the stretched system provided by <a class="el" href="class_assembly_helper.html#a5146802e9d7d4bc5df7fe35909da3e44">AssemblyHelper::assemble_system()</a>. This, however, means that this method is dealing internally with dense matrices. As a consequence, the method can only be used for very small test problems.</p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Presently, the method does not allow to take into account any constraints. This should be incorporated in future releases of the library.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">solution</td><td>Point of linearization <img class="formulaInl" alt="$\begin{pmatrix} \boldsymbol{\hat u} \\ \boldsymbol{\hat \lambda} \end{pmatrix}$" src="form_48.png"/>, where the values of <img class="formulaInl" alt="$\boldsymbol{\hat \lambda}$" src="form_45.png"/> are not used and are, therefore, arbitrary. The appropriate size of <code>solution</code> can be obtained from <a class="el" href="class_assembly_helper.html#ae821c8ae9c8fa6f8e85d20ecd5ad7e39">AssemblyHelper::system_size()</a>.</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">solution_ref_sets</td><td>Sets of reference solution vectors, which can e.g. be the solution vectors of previous times steps. Make sure that you pass at least as many reference sets here as are required by the <a class="el" href="class_scalar_functional.html">ScalarFunctional</a> objects (see <a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">ScalarFunctional::get_h_sigma()</a> and <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a629bfeae4d8ea364fc3f72fea8016ac8">ScalarFunctional&lt;spacedim, spacedim&gt;::get_h_omega()</a>) and the <a class="el" href="class_total_potential_contribution.html">TotalPotentialContribution</a> objects (see <a class="el" href="class_total_potential_contribution.html#a515786e58c1fda7baf168be8f4a13720">TotalPotentialContribution::get_potential_contribution()</a>) to complete their computations. In general, the order of the sets of reference values in <a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">ScalarFunctional::get_h_sigma()</a>, <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a629bfeae4d8ea364fc3f72fea8016ac8">ScalarFunctional&lt;spacedim, spacedim&gt;::get_h_omega()</a>, and <a class="el" href="class_total_potential_contribution.html#a515786e58c1fda7baf168be8f4a13720">TotalPotentialContribution::get_potential_contribution()</a> corresponds to the order in <code>solution_ref_sets</code>. If e.g. a function <a class="el" href="class_scalar_functional.html#a1b9874b2fd591c844ecfcd1db8212c54">ScalarFunctional::get_h_sigma()</a> requires two reference sets of dependent variable values while <code>solution_ref_sets</code> contains more than two reference sets of dof values, the first two sets from <code>solution_ref_sets</code> will be used to obtain the reference sets of dependent variable values.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">solution_ref_sets</td><td>Sets of reference solution vectors, which can e.g. be the solution vectors of previous times steps. Make sure that you pass at least as many reference sets here as are required by the <a class="el" href="class_scalar_functional.html">ScalarFunctional</a> objects (see <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional::get_h_sigma()</a> and <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a8665cb5b5a57ad22217e4c112845d43b">ScalarFunctional&lt;spacedim, spacedim&gt;::get_h_omega()</a>) and the <a class="el" href="class_total_potential_contribution.html">TotalPotentialContribution</a> objects (see <a class="el" href="class_total_potential_contribution.html#a515786e58c1fda7baf168be8f4a13720">TotalPotentialContribution::get_potential_contribution()</a>) to complete their computations. In general, the order of the sets of reference values in <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional::get_h_sigma()</a>, <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a8665cb5b5a57ad22217e4c112845d43b">ScalarFunctional&lt;spacedim, spacedim&gt;::get_h_omega()</a>, and <a class="el" href="class_total_potential_contribution.html#a515786e58c1fda7baf168be8f4a13720">TotalPotentialContribution::get_potential_contribution()</a> corresponds to the order in <code>solution_ref_sets</code>. If e.g. a function <a class="el" href="class_scalar_functional.html#adb295fb739a743d5a1273025eb8dae72">ScalarFunctional::get_h_sigma()</a> requires two reference sets of dependent variable values while <code>solution_ref_sets</code> contains more than two reference sets of dof values, the first two sets from <code>solution_ref_sets</code> will be used to obtain the reference sets of dependent variable values.</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">detailed_printout_file</td><td>A file to which detailed printout is written (if no file name is provided, the results of the comparison will just be written to screen)</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">epsilon</td><td>Step width for finite difference computation </td></tr>
   </table>
@@ -2919,6 +2997,56 @@ template&lt;unsigned int spacedim&gt; </div>
 
 </div>
 </div>
+<a id="aa9fc6d318c2f7a2eab5097b6a76c9083"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9fc6d318c2f7a2eab5097b6a76c9083">&#9670;&nbsp;</a></span>coupled_dof_indices_scalar_functionals_domain_local</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;std::vector&lt;unsigned int&gt; &gt; &gt; <a class="el" href="class_assembly_helper.html">AssemblyHelper</a>&lt; spacedim &gt;::coupled_dof_indices_scalar_functionals_domain_local</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Essentially the same as <a class="el" href="class_assembly_helper.html#a1a26b40224e3f04e5168accc91486493">AssemblyHelper::coupled_dof_indices_scalar_functionals_domain</a>. However, only dofs related to local independent field are included </p>
+
+</div>
+</div>
+<a id="a6b7242925e5a0be85830ed7eae581442"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b7242925e5a0be85830ed7eae581442">&#9670;&nbsp;</a></span>coupled_dof_indices_scalar_functionals_domain_nonlocal</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;std::vector&lt;unsigned int&gt; &gt; &gt; <a class="el" href="class_assembly_helper.html">AssemblyHelper</a>&lt; spacedim &gt;::coupled_dof_indices_scalar_functionals_domain_nonlocal</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Essentially the same as <a class="el" href="class_assembly_helper.html#a1a26b40224e3f04e5168accc91486493">AssemblyHelper::coupled_dof_indices_scalar_functionals_domain</a>. However, only dofs related to nonlocal independent field are included </p>
+
+</div>
+</div>
 <a id="ab346e146cf91fb7a0688076551b37355"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab346e146cf91fb7a0688076551b37355">&#9670;&nbsp;</a></span>coupled_dof_indices_scalar_functionals_interface</h2>
 
@@ -3074,6 +3202,58 @@ template&lt;unsigned int spacedim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>The <a class="el" href="class_do_f_handler_system.html">DoFHandlerSystem</a> </p>
+
+</div>
+</div>
+<a id="a547c7d4ffd7379860f15095d494b1d68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a547c7d4ffd7379860f15095d494b1d68">&#9670;&nbsp;</a></span>e_omega_local</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;std::vector&lt;bool&gt; &gt; &gt; <a class="el" href="class_assembly_helper.html">AssemblyHelper</a>&lt; spacedim &gt;::e_omega_local</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This member contains information about whether the dependent field is local.</p>
+<p><a class="el" href="class_assembly_helper.html#a547c7d4ffd7379860f15095d494b1d68">AssemblyHelper::e_omega_local</a>[<code>u</code>][<code>v</code>][<code>k</code>] contains whether the <code>k-th</code> dependent field of the <code>v-th</code> scalar functional on the domain portion with internal index <code>u</code> is local. </p>
+
+</div>
+</div>
+<a id="a16aa77ea3867740a280fd50f5578adfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16aa77ea3867740a280fd50f5578adfc">&#9670;&nbsp;</a></span>e_sigma_local</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;std::vector&lt;bool&gt; &gt; &gt; <a class="el" href="class_assembly_helper.html">AssemblyHelper</a>&lt; spacedim &gt;::e_sigma_local</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This member contains information about whether the dependent field is local.</p>
+<p><a class="el" href="class_assembly_helper.html#a16aa77ea3867740a280fd50f5578adfc">AssemblyHelper::e_sigma_local</a>[<code>u</code>][<code>v</code>][<code>k</code>] contains whether the <code>k-th</code> dependent field of the <code>v-th</code> scalar functional on the domain portion with internal index <code>u</code> is local. </p>
 
 </div>
 </div>

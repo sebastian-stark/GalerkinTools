@@ -28,7 +28,7 @@ GALERKIN_TOOLS_NAMESPACE_OPEN
 
 template<unsigned int spacedim>
 bool
-LinearMaterialDomain<spacedim>::get_h_omega(const Vector<double>& 			e_omega,
+LinearMaterialDomain<spacedim>::get_h_omega(Vector<double>& 				e_omega,
 											const vector<Vector<double>>&	/*e_omega_ref_sets*/,
 											Vector<double>&					/*hidden_vars*/,
 											const Point<spacedim>&			/*x*/,
@@ -85,7 +85,7 @@ y(y)
 
 template<unsigned int spacedim>
 bool
-LinearMaterialInterface<spacedim>::get_h_sigma(	const Vector<double>& 			e_sigma,
+LinearMaterialInterface<spacedim>::get_h_sigma(	Vector<double>& 				e_sigma,
 												const vector<Vector<double>>&	/*e_sigma_ref_sets*/,
 												Vector<double>& 				/*hidden_vars*/,
 												const Point<spacedim>& 			/*x*/,

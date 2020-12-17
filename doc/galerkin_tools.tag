@@ -84,6 +84,8 @@
     <filename>scalar__functional_8h.html</filename>
     <class kind="class">ScalarFunctional</class>
     <class kind="class">ScalarFunctional&lt; spacedim, spacedim &gt;</class>
+    <class kind="class">ScalarFunctionalLocalElimination</class>
+    <class kind="class">ScalarFunctionalLocalElimination&lt; spacedim, spacedim &gt;</class>
   </compound>
   <compound kind="file">
     <name>solver_wrapper.h</name>
@@ -379,8 +381,8 @@
       <type>bool</type>
       <name>assemble_system</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>ae02fef45662d1703b0f29d7d9cead7c1</anchor>
-      <arglist>(const SolutionVectorType &amp;solution, const std::vector&lt; const SolutionVectorType * &gt; solution_ref_sets, const AffineConstraints&lt; double &gt; &amp;constraints, double &amp;potential_value, RHSVectorType &amp;f, MatrixType &amp;K, const std::tuple&lt; bool, bool, bool &gt; requested_quantities=std::make_tuple(true, true, true)) const</arglist>
+      <anchor>a5146802e9d7d4bc5df7fe35909da3e44</anchor>
+      <arglist>(const SolutionVectorType &amp;solution, const std::vector&lt; const SolutionVectorType * &gt; solution_ref_sets, const AffineConstraints&lt; double &gt; &amp;constraints, double &amp;potential_value, RHSVectorType &amp;f, MatrixType &amp;K, const std::tuple&lt; bool, bool, bool &gt; requested_quantities=std::make_tuple(true, true, true), std::map&lt; unsigned int, double &gt; *local_solution=nullptr) const</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -388,6 +390,13 @@
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>acf6ef2dced66e223684e5df97182f428</anchor>
       <arglist>(const VectorType &amp;solution, const std::vector&lt; const VectorType * &gt; solution_ref_sets, std::map&lt; const ScalarFunctional&lt; spacedim, spacedim &gt; *, double &gt; &amp;nonprimitive_scalar_functional_values_domain, std::map&lt; const ScalarFunctional&lt; spacedim-1, spacedim &gt; *, double &gt; &amp;nonprimitive_scalar_functional_values_interface) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>call_scalar_functionals</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a2940850798972b003cf33d37e705490e</anchor>
+      <arglist>(const VectorType &amp;solution, const std::vector&lt; const VectorType * &gt; &amp;solution_ref_sets, const std::set&lt; const ScalarFunctional&lt; spacedim, spacedim &gt; * &gt; &amp;scalar_functionals_domain_to_call, const std::set&lt; const ScalarFunctional&lt; spacedim-1, spacedim &gt; * &gt; &amp;scalar_functionals_interface_to_call) const</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -881,6 +890,20 @@
     </member>
     <member kind="variable" protection="private">
       <type>std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;</type>
+      <name>coupled_dof_indices_scalar_functionals_domain_local</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>aa9fc6d318c2f7a2eab5097b6a76c9083</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;</type>
+      <name>coupled_dof_indices_scalar_functionals_domain_nonlocal</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a6b7242925e5a0be85830ed7eae581442</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;</type>
       <name>coupled_dof_indices_scalar_functionals_interface</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>ab346e146cf91fb7a0688076551b37355</anchor>
@@ -943,6 +966,13 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; bool &gt; &gt; &gt;</type>
+      <name>e_omega_local</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a547c7d4ffd7379860f15095d494b1d68</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
       <type>std::vector&lt; std::vector&lt; std::vector&lt; std::vector&lt; std::tuple&lt; const double, const unsigned int, std::vector&lt; unsigned int &gt; &gt; &gt; &gt; &gt; &gt;</type>
       <name>a_sigma</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
@@ -996,6 +1026,13 @@
       <name>d_sigma</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>a48d7d677120eb1c84b4983f470246e02</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; bool &gt; &gt; &gt;</type>
+      <name>e_sigma_local</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a16aa77ea3867740a280fd50f5578adfc</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -1315,6 +1352,20 @@
     </member>
     <member kind="variable" protection="private">
       <type>std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;</type>
+      <name>coupled_dof_indices_scalar_functionals_domain_local</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>aa9fc6d318c2f7a2eab5097b6a76c9083</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;</type>
+      <name>coupled_dof_indices_scalar_functionals_domain_nonlocal</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a6b7242925e5a0be85830ed7eae581442</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;</type>
       <name>coupled_dof_indices_scalar_functionals_interface</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>ab346e146cf91fb7a0688076551b37355</anchor>
@@ -1377,6 +1428,13 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; bool &gt; &gt; &gt;</type>
+      <name>e_omega_local</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a547c7d4ffd7379860f15095d494b1d68</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
       <type>std::vector&lt; std::vector&lt; std::vector&lt; std::vector&lt; std::tuple&lt; const double, const unsigned int, std::vector&lt; unsigned int &gt; &gt; &gt; &gt; &gt; &gt;</type>
       <name>a_sigma</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
@@ -1430,6 +1488,13 @@
       <name>d_sigma</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>a48d7d677120eb1c84b4983f470246e02</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; bool &gt; &gt; &gt;</type>
+      <name>e_sigma_local</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a16aa77ea3867740a280fd50f5578adfc</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -1632,8 +1697,8 @@
       <type>bool</type>
       <name>assemble_system</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>ae02fef45662d1703b0f29d7d9cead7c1</anchor>
-      <arglist>(const SolutionVectorType &amp;solution, const std::vector&lt; const SolutionVectorType * &gt; solution_ref_sets, const AffineConstraints&lt; double &gt; &amp;constraints, double &amp;potential_value, RHSVectorType &amp;f, MatrixType &amp;K, const std::tuple&lt; bool, bool, bool &gt; requested_quantities=std::make_tuple(true, true, true)) const</arglist>
+      <anchor>a5146802e9d7d4bc5df7fe35909da3e44</anchor>
+      <arglist>(const SolutionVectorType &amp;solution, const std::vector&lt; const SolutionVectorType * &gt; solution_ref_sets, const AffineConstraints&lt; double &gt; &amp;constraints, double &amp;potential_value, RHSVectorType &amp;f, MatrixType &amp;K, const std::tuple&lt; bool, bool, bool &gt; requested_quantities=std::make_tuple(true, true, true), std::map&lt; unsigned int, double &gt; *local_solution=nullptr) const</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -1641,6 +1706,13 @@
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>acf6ef2dced66e223684e5df97182f428</anchor>
       <arglist>(const VectorType &amp;solution, const std::vector&lt; const VectorType * &gt; solution_ref_sets, std::map&lt; const ScalarFunctional&lt; spacedim, spacedim &gt; *, double &gt; &amp;nonprimitive_scalar_functional_values_domain, std::map&lt; const ScalarFunctional&lt; spacedim-1, spacedim &gt; *, double &gt; &amp;nonprimitive_scalar_functional_values_interface) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>call_scalar_functionals</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a2940850798972b003cf33d37e705490e</anchor>
+      <arglist>(const VectorType &amp;solution, const std::vector&lt; const VectorType * &gt; &amp;solution_ref_sets, const std::set&lt; const ScalarFunctional&lt; spacedim, spacedim &gt; * &gt; &amp;scalar_functionals_domain_to_call, const std::set&lt; const ScalarFunctional&lt; spacedim-1, spacedim &gt; * &gt; &amp;scalar_functionals_interface_to_call) const</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -2101,6 +2173,13 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
+      <type>double</type>
+      <name>iterative_scaling_tolerance</name>
+      <anchorfile>class_block_solver_wrapper_p_a_r_d_i_s_o.html</anchorfile>
+      <anchor>ae11f723031b3f4f4e9038964a2e010bf</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
       <type>unsigned int</type>
       <name>pivoting_method</name>
       <anchorfile>class_block_solver_wrapper_p_a_r_d_i_s_o.html</anchorfile>
@@ -2122,6 +2201,13 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
+      <type>bool</type>
+      <name>user_perm</name>
+      <anchorfile>class_block_solver_wrapper_p_a_r_d_i_s_o.html</anchorfile>
+      <anchor>a6146a36c55b7c7dcb0645917f92f518b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
       <type>double</type>
       <name>res_max</name>
       <anchorfile>class_block_solver_wrapper_p_a_r_d_i_s_o.html</anchorfile>
@@ -2133,6 +2219,13 @@
       <name>use_defaults</name>
       <anchorfile>class_block_solver_wrapper_p_a_r_d_i_s_o.html</anchorfile>
       <anchor>ad8bf45c0568b751a2773a57a5b00ba5d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::vector&lt; int &gt; *</type>
+      <name>perm</name>
+      <anchorfile>class_block_solver_wrapper_p_a_r_d_i_s_o.html</anchorfile>
+      <anchor>a13bbf006d1fdf50f06535d9d7ab7434f</anchor>
       <arglist></arglist>
     </member>
     <member kind="function" protection="private">
@@ -2169,6 +2262,20 @@
       <anchorfile>class_block_solver_wrapper_p_a_r_d_i_s_o.html</anchorfile>
       <anchor>a3ec780cd305a0fe8326a6acb5c9283e9</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>scale_system</name>
+      <anchorfile>class_block_solver_wrapper_p_a_r_d_i_s_o.html</anchorfile>
+      <anchor>a39b2c196237df4d28c3b806eb6d672a5</anchor>
+      <arglist>(TwoBlockMatrix&lt; dealii::SparseMatrix&lt; double &gt;&gt; *K_stretched, dealii::BlockVector&lt; double &gt; *f_stretched)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>scale_solution</name>
+      <anchorfile>class_block_solver_wrapper_p_a_r_d_i_s_o.html</anchorfile>
+      <anchor>adfd5663c48d37c37005935176012b334</anchor>
+      <arglist>(dealii::Vector&lt; double &gt; &amp;solution, TwoBlockMatrix&lt; dealii::SparseMatrix&lt; double &gt;&gt; *K_stretched, dealii::BlockVector&lt; double &gt; *f_stretched) const</arglist>
     </member>
     <member kind="variable" protection="private">
       <type>bool</type>
@@ -2224,6 +2331,20 @@
       <name>Ax</name>
       <anchorfile>class_block_solver_wrapper_p_a_r_d_i_s_o.html</anchorfile>
       <anchor>ad32493c27639c20286aea67e702f3442</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>dealii::Vector&lt; double &gt;</type>
+      <name>C_inv</name>
+      <anchorfile>class_block_solver_wrapper_p_a_r_d_i_s_o.html</anchorfile>
+      <anchor>adbd0f34a5205de9e8e0c5eec7540d093</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>dealii::Vector&lt; double &gt;</type>
+      <name>R_inv</name>
+      <anchorfile>class_block_solver_wrapper_p_a_r_d_i_s_o.html</anchorfile>
+      <anchor>a68470095b86444392c91a1c9d6a6fa86</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -2515,6 +2636,27 @@
       <anchor>adf0ad81e2d7b609b7dfde60a77f92a20</anchor>
       <arglist>() const</arglist>
     </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>get_is_local</name>
+      <anchorfile>class_dependent_field.html</anchorfile>
+      <anchor>aabc31c47b3f6cb69da28758d9672d8d8</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator&lt;</name>
+      <anchorfile>class_dependent_field.html</anchorfile>
+      <anchor>a1c56c4e18d320e9c402f3adde546c681</anchor>
+      <arglist>(const DependentField &amp;dependent_field_2) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>class_dependent_field.html</anchorfile>
+      <anchor>a808b18c7b0fc7c05204aed47b1509ce4</anchor>
+      <arglist>(const DependentField &amp;dependent_field_2) const</arglist>
+    </member>
     <member kind="variable">
       <type>const std::string</type>
       <name>name</name>
@@ -2555,6 +2697,13 @@
       <name>constant</name>
       <anchorfile>class_dependent_field.html</anchorfile>
       <anchor>a32b37c78e04a16b6b606442f156c8ca9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>is_local</name>
+      <anchorfile>class_dependent_field.html</anchorfile>
+      <anchor>aacdabff2601b1f0efcdce7a4413b47bc</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -2639,6 +2788,27 @@
       <anchor>ad08ab17b8ea5d0bc07a0c6755d43ab10</anchor>
       <arglist>() const</arglist>
     </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>get_is_local</name>
+      <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>abf60a16e3b158c7c67c5e04d8ad41b5c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator&lt;</name>
+      <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a2897cd7975ebb9fa67a53c491fc8a7d8</anchor>
+      <arglist>(const DependentField&lt; spacedim, spacedim &gt; &amp;dependent_field_2) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a83626491df9b2bbd6f7d2f3587cbf7e0</anchor>
+      <arglist>(const DependentField&lt; spacedim, spacedim &gt; &amp;dependent_field_2) const</arglist>
+    </member>
     <member kind="variable">
       <type>const std::string</type>
       <name>name</name>
@@ -2665,6 +2835,13 @@
       <name>constant</name>
       <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>a24efc9c0928896be871908f050c406fc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>is_local</name>
+      <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>ae43bf948e8f45545dd7e744689b47d5b</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -2699,6 +2876,13 @@
       <name>operator&lt;</name>
       <anchorfile>class_dependent_field_term.html</anchorfile>
       <anchor>a204178ccb13a1280b96cf2ad8cf24695</anchor>
+      <arglist>(const DependentFieldTerm &amp;dependent_field_2) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>class_dependent_field_term.html</anchorfile>
+      <anchor>a017b2119451d74e4dbbe203503d498c4</anchor>
       <arglist>(const DependentFieldTerm &amp;dependent_field_2) const</arglist>
     </member>
     <member kind="variable">
@@ -3068,6 +3252,34 @@
       <anchorfile>class_do_f_handler_system.html</anchorfile>
       <anchor>aa4bb80864110f7917ae86525e3c0d799</anchor>
       <arglist>(const unsigned int component, std::set&lt; unsigned int &gt; &amp;indices) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>get_map_dof_index_component_interface</name>
+      <anchorfile>class_do_f_handler_system.html</anchorfile>
+      <anchor>ac2617866e4d92dfb309a0212e2bc116d</anchor>
+      <arglist>(std::vector&lt; unsigned int &gt; &amp;components) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>get_map_dof_index_component_domain</name>
+      <anchorfile>class_do_f_handler_system.html</anchorfile>
+      <anchor>a99e00b1efebbfee99db0478c3eac7787</anchor>
+      <arglist>(std::vector&lt; unsigned int &gt; &amp;components) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>get_map_dof_index_support_point_index_interface</name>
+      <anchorfile>class_do_f_handler_system.html</anchorfile>
+      <anchor>a0af24410554802a908ce2800550007b8</anchor>
+      <arglist>(std::vector&lt; unsigned int &gt; &amp;support_points, std::map&lt; unsigned int, Point&lt; spacedim &gt;&gt; &amp;map_support_point_index_support_point_location, const dealii::Mapping&lt; spacedim-1, spacedim &gt; &amp;mapping) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>get_map_dof_index_support_point_index_domain</name>
+      <anchorfile>class_do_f_handler_system.html</anchorfile>
+      <anchor>a298db5cd2cd488abbacb72c66fc9703e</anchor>
+      <arglist>(std::vector&lt; unsigned int &gt; &amp;support_points, std::map&lt; unsigned int, Point&lt; spacedim &gt;&gt; &amp;map_support_point_index_support_point_location, const dealii::Mapping&lt; spacedim &gt; &amp;mapping) const</arglist>
     </member>
     <member kind="function" protection="private">
       <type>void</type>
@@ -3498,8 +3710,8 @@
       <type></type>
       <name>IndependentField</name>
       <anchorfile>class_independent_field.html</anchorfile>
-      <anchor>a03c2bec3886170c288c59381886afd90</anchor>
-      <arglist>(const std::string name, const FiniteElement&lt; dim, spacedim &gt; &amp;fe, const unsigned int n_components, const std::set&lt; types::material_id &gt; non_zero_regions, const Function&lt; spacedim &gt; *const initial_vals=nullptr)</arglist>
+      <anchor>a3f0ac68d656acd513c729e7c9926f8c0</anchor>
+      <arglist>(const std::string name, const FiniteElement&lt; dim, spacedim &gt; &amp;fe, const unsigned int n_components, const std::set&lt; types::material_id &gt; non_zero_regions, const Function&lt; spacedim &gt; *const initial_vals=nullptr, const bool is_local=false)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -3548,6 +3760,13 @@
       <name>initial_vals</name>
       <anchorfile>class_independent_field.html</anchorfile>
       <anchor>a274c902785d2937a6065f7e09f3976c3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const bool</type>
+      <name>is_local</name>
+      <anchorfile>class_independent_field.html</anchorfile>
+      <anchor>a8e77d8d321a259bec955a71f55ef41e5</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -3600,8 +3819,8 @@
       <type></type>
       <name>IndependentField</name>
       <anchorfile>class_independent_field.html</anchorfile>
-      <anchor>a03c2bec3886170c288c59381886afd90</anchor>
-      <arglist>(const std::string name, const FiniteElement&lt; dim, spacedim &gt; &amp;fe, const unsigned int n_components, const std::set&lt; types::material_id &gt; non_zero_regions, const Function&lt; spacedim &gt; *const initial_vals=nullptr)</arglist>
+      <anchor>a3f0ac68d656acd513c729e7c9926f8c0</anchor>
+      <arglist>(const std::string name, const FiniteElement&lt; dim, spacedim &gt; &amp;fe, const unsigned int n_components, const std::set&lt; types::material_id &gt; non_zero_regions, const Function&lt; spacedim &gt; *const initial_vals=nullptr, const bool is_local=false)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -3650,6 +3869,13 @@
       <name>initial_vals</name>
       <anchorfile>class_independent_field.html</anchorfile>
       <anchor>a274c902785d2937a6065f7e09f3976c3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const bool</type>
+      <name>is_local</name>
+      <anchorfile>class_independent_field.html</anchorfile>
+      <anchor>a8e77d8d321a259bec955a71f55ef41e5</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -3920,12 +4146,12 @@
       <anchor>a7f91a980e9475691513443cd6b2efbc1</anchor>
       <arglist>(const std::vector&lt; DependentField&lt; spacedim, spacedim &gt;&gt; e_omega, const std::set&lt; types::material_id &gt; domain_of_integration, const Quadrature&lt; spacedim &gt; quadrature, const FullMatrix&lt; double &gt; C, const Vector&lt; double &gt; y, const std::string name=&quot;LinearMaterialDomain&quot;)</arglist>
     </member>
-    <member kind="function" protection="private">
+    <member kind="function">
       <type>bool</type>
       <name>get_h_omega</name>
       <anchorfile>class_linear_material_domain.html</anchorfile>
-      <anchor>a2892815e854904d44f391e99dd409320</anchor>
-      <arglist>(const Vector&lt; double &gt; &amp;e_omega, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_omega_ref_sets, Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, double &amp;h_omega, Vector&lt; double &gt; &amp;h_omega_1, FullMatrix&lt; double &gt; &amp;h_omega_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const</arglist>
+      <anchor>a4d73bbb0e545ee21c5635e7dac071719</anchor>
+      <arglist>(Vector&lt; double &gt; &amp;e_omega, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_omega_ref_sets, Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, double &amp;h_omega, Vector&lt; double &gt; &amp;h_omega_1, FullMatrix&lt; double &gt; &amp;h_omega_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const</arglist>
     </member>
     <member kind="variable" protection="private">
       <type>const FullMatrix&lt; double &gt;</type>
@@ -3953,12 +4179,12 @@
       <anchor>ac10a5c148dd81edab41d22dd207c78a2</anchor>
       <arglist>(const std::vector&lt; DependentField&lt; spacedim-1, spacedim &gt;&gt; e_sigma, const std::set&lt; types::material_id &gt; domain_of_integration, const Quadrature&lt; spacedim-1 &gt; quadrature, const FullMatrix&lt; double &gt; C, const Vector&lt; double &gt; y, const std::string name=&quot;LinearMaterialInterface&quot;)</arglist>
     </member>
-    <member kind="function" protection="private">
+    <member kind="function">
       <type>bool</type>
       <name>get_h_sigma</name>
       <anchorfile>class_linear_material_interface.html</anchorfile>
-      <anchor>a60351d101df9872a443cd9209efd1c2f</anchor>
-      <arglist>(const Vector&lt; double &gt; &amp;e_sigma, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_sigma_ref_sets, Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, const Tensor&lt; 1, spacedim &gt; &amp;n, double &amp;h_sigma, Vector&lt; double &gt; &amp;h_sigma_1, FullMatrix&lt; double &gt; &amp;h_sigma_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const</arglist>
+      <anchor>af5cca6ebef9371fd07782e3ae0171d65</anchor>
+      <arglist>(Vector&lt; double &gt; &amp;e_sigma, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_sigma_ref_sets, Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, const Tensor&lt; 1, spacedim &gt; &amp;n, double &amp;h_sigma, Vector&lt; double &gt; &amp;h_sigma_1, FullMatrix&lt; double &gt; &amp;h_sigma_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const</arglist>
     </member>
     <member kind="variable" protection="private">
       <type>const FullMatrix&lt; double &gt;</type>
@@ -4201,8 +4427,15 @@
       <type>virtual bool</type>
       <name>get_h_sigma</name>
       <anchorfile>class_scalar_functional.html</anchorfile>
-      <anchor>a1b9874b2fd591c844ecfcd1db8212c54</anchor>
-      <arglist>(const Vector&lt; double &gt; &amp;e_sigma, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_sigma_ref_sets, Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, const Tensor&lt; 1, spacedim &gt; &amp;n, double &amp;h_sigma, Vector&lt; double &gt; &amp;h_sigma_1, FullMatrix&lt; double &gt; &amp;h_sigma_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const =0</arglist>
+      <anchor>adb295fb739a743d5a1273025eb8dae72</anchor>
+      <arglist>(Vector&lt; double &gt; &amp;e_sigma, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_sigma_ref_sets, Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, const Tensor&lt; 1, spacedim &gt; &amp;n, double &amp;h_sigma, Vector&lt; double &gt; &amp;h_sigma_1, FullMatrix&lt; double &gt; &amp;h_sigma_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const =0</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>get_h_omega</name>
+      <anchorfile>class_scalar_functional.html</anchorfile>
+      <anchor>a0f5c776b9084f350e1c0defa69c81047</anchor>
+      <arglist>(Vector&lt; double &gt; &amp;e_omega, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_omega_ref_sets, Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, double &amp;h_omega, Vector&lt; double &gt; &amp;h_omega_1, FullMatrix&lt; double &gt; &amp;h_omega_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual double</type>
@@ -4210,6 +4443,13 @@
       <anchorfile>class_scalar_functional.html</anchorfile>
       <anchor>ae4f5fbd69cabfda73cc2b30ae0263ca5</anchor>
       <arglist>(const Vector&lt; double &gt; &amp;e_sigma, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_sigma_ref_sets, const Vector&lt; double &gt; &amp;delta_e_sigma, const Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, const Tensor&lt; 1, spacedim &gt; &amp;n) const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>get_maximum_step</name>
+      <anchorfile>class_scalar_functional.html</anchorfile>
+      <anchor>a71310146c6cc3180e25d90f7b7329c44</anchor>
+      <arglist>(const Vector&lt; double &gt; &amp;e_omega, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_omega_ref_sets, const Vector&lt; double &gt; &amp;delta_e_omega, const Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x) const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -4244,6 +4484,13 @@
       <name>e_sigma</name>
       <anchorfile>class_scalar_functional.html</anchorfile>
       <anchor>a86662b03a63219227993a2c6c07aefc1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const std::vector&lt; DependentField&lt; dim, spacedim &gt; &gt;</type>
+      <name>e_omega</name>
+      <anchorfile>class_scalar_functional.html</anchorfile>
+      <anchor>aff467b5588c5a8a28b805ae886205f9c</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -4291,8 +4538,15 @@
       <type>virtual bool</type>
       <name>get_h_omega</name>
       <anchorfile>class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
-      <anchor>a629bfeae4d8ea364fc3f72fea8016ac8</anchor>
-      <arglist>(const Vector&lt; double &gt; &amp;e_omega, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_omega_ref_sets, Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, double &amp;h_omega, Vector&lt; double &gt; &amp;h_omega_1, FullMatrix&lt; double &gt; &amp;h_omega_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const =0</arglist>
+      <anchor>a8665cb5b5a57ad22217e4c112845d43b</anchor>
+      <arglist>(Vector&lt; double &gt; &amp;e_omega, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_omega_ref_sets, Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, double &amp;h_omega, Vector&lt; double &gt; &amp;h_omega_1, FullMatrix&lt; double &gt; &amp;h_omega_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const =0</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>get_h_sigma</name>
+      <anchorfile>class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>af947eb73ba87510ec7667a7ae246bbfa</anchor>
+      <arglist>(Vector&lt; double &gt; &amp;e_sigma, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_sigma_ref_sets, Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, const Tensor&lt; 1, spacedim &gt; &amp;n, double &amp;h_sigma, Vector&lt; double &gt; &amp;h_sigma_1, FullMatrix&lt; double &gt; &amp;h_sigma_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual double</type>
@@ -4300,6 +4554,13 @@
       <anchorfile>class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>add1852ebe7ad8b1178063ff725748856</anchor>
       <arglist>(const Vector&lt; double &gt; &amp;e_omega, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_omega_ref_sets, const Vector&lt; double &gt; &amp;delta_e_omega, const Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x) const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>get_maximum_step</name>
+      <anchorfile>class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a43097fde6921f2dcf85f173540eb1414</anchor>
+      <arglist>(const Vector&lt; double &gt; &amp;e_sigma, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_sigma_ref_sets, const Vector&lt; double &gt; &amp;delta_e_sigma, const Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, const Tensor&lt; 1, spacedim &gt; &amp;n) const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -4344,6 +4605,13 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
+      <type>const std::vector&lt; DependentField&lt; spacedim, spacedim &gt; &gt;</type>
+      <name>e_sigma</name>
+      <anchorfile>class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>afe519345583b2a9d1dcf3a29ea2172f1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
       <type>const Quadrature&lt; spacedim &gt;</type>
       <name>quadrature</name>
       <anchorfile>class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
@@ -4369,6 +4637,173 @@
       <name>n_ref_sets</name>
       <anchorfile>class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>acee2c3c289e5b2b680996facc2f79e78</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ScalarFunctionalLocalElimination</name>
+    <filename>class_scalar_functional_local_elimination.html</filename>
+    <templarg>dim</templarg>
+    <templarg>spacedim</templarg>
+    <base>ScalarFunctional</base>
+    <member kind="function">
+      <type></type>
+      <name>ScalarFunctionalLocalElimination</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>ad24025d5ac8d43d2e87479dbd9d70fa3</anchor>
+      <arglist>(const std::vector&lt; ScalarFunctional&lt; dim, spacedim &gt; * &gt; scalar_functionals, const std::string name=&quot;ScalarFunctionalLocalElimination&quot;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>get_h_sigma</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>a458ebe9d4709117e66fc1e03e220fbf7</anchor>
+      <arglist>(Vector&lt; double &gt; &amp;e_sigma, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_sigma_ref_sets, Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, const Tensor&lt; 1, spacedim &gt; &amp;n, double &amp;h_sigma, Vector&lt; double &gt; &amp;h_sigma_1, FullMatrix&lt; double &gt; &amp;h_sigma_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual double</type>
+      <name>get_maximum_step</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>abd08e15318c711bd4fdb2a66d378460f</anchor>
+      <arglist>(const Vector&lt; double &gt; &amp;e_sigma, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_sigma_ref_sets, const Vector&lt; double &gt; &amp;delta_e_sigma, const Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, const Tensor&lt; 1, spacedim &gt; &amp;n) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_safety_distance</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>ae75a23326905e96e1787ef10fd8af930</anchor>
+      <arglist>(const double safety_distance)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_threshold_residual</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>a0165ca6758e3818dbd279a109ed65d3c</anchor>
+      <arglist>(const double threshold_residual)</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>const std::vector&lt; ScalarFunctional&lt; dim, spacedim &gt; * &gt;</type>
+      <name>scalar_functionals</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>a473e3bc585587839f7f7349f9a25bf28</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; unsigned int &gt; &gt;</type>
+      <name>map_dependent_fields</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>a7a7cbe368936cfb0224e7885a8959c4b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; unsigned int &gt;</type>
+      <name>indices_nonlocal_dependent_fields</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>aa4ab80a82bf275b6a93d916b14094119</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; unsigned int &gt;</type>
+      <name>indices_local_dependent_fields</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>a3bf2fb48e6b00f9aa9ddcfa41958e97b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>safety_distance</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>a469c7e8629c32b215aba04c805617d9d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>threshold_residual</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>a5335c4ea520dfca402e0fb3155e94406</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ScalarFunctionalLocalElimination&lt; spacedim, spacedim &gt;</name>
+    <filename>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</filename>
+    <templarg>spacedim</templarg>
+    <base>ScalarFunctional&lt; spacedim, spacedim &gt;</base>
+    <member kind="function">
+      <type></type>
+      <name>ScalarFunctionalLocalElimination</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a03d4f058a313e7b904df1cc132b522eb</anchor>
+      <arglist>(const std::vector&lt; ScalarFunctional&lt; spacedim, spacedim &gt; * &gt; scalar_functionals, const std::string name=&quot;ScalarFunctionalLocalElimination&quot;)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>get_h_omega</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>aa19331788617e6ff84a436fb2479ce03</anchor>
+      <arglist>(Vector&lt; double &gt; &amp;e_omega, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_omega_ref_sets, Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, double &amp;h_omega, Vector&lt; double &gt; &amp;h_omega_1, FullMatrix&lt; double &gt; &amp;h_omega_2, const std::tuple&lt; bool, bool, bool &gt; requested_quantities) const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual double</type>
+      <name>get_maximum_step</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a510939a9d4c429a5b779b1dbc8adf26f</anchor>
+      <arglist>(const Vector&lt; double &gt; &amp;e_omega, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_omega_ref_sets, const Vector&lt; double &gt; &amp;delta_e_omega, const Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_safety_distance</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a53352820c3f0493793196010232ef96a</anchor>
+      <arglist>(const double safety_distance)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_threshold_residual</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>ac82db99b2b08cd32f74fadd57ef18e19</anchor>
+      <arglist>(const double threshold_residual)</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>const std::vector&lt; ScalarFunctional&lt; spacedim, spacedim &gt; * &gt;</type>
+      <name>scalar_functionals</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>afff9951bc0ac7a5dfc55c01ffb36177a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; unsigned int &gt; &gt;</type>
+      <name>map_dependent_fields</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>aedf208eb036ffafb16871cdfd3d197b1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; unsigned int &gt;</type>
+      <name>indices_nonlocal_dependent_fields</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a61ad599742d84546820fd9cc5e45233f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; unsigned int &gt;</type>
+      <name>indices_local_dependent_fields</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a18685402dee1f52cb687fab1f019b360</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>safety_distance</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a55ab0ce1d909f96e614b84c3ee00bcb3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>threshold_residual</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a2a268af4bf9867e51446fbd33c488fe9</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -4583,6 +5018,102 @@
       <name>C</name>
       <anchorfile>class_total_potential_contribution.html</anchorfile>
       <anchor>adea8f8f88243adec43df300e8c8d4593</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>parallel::TriangulationSystem</name>
+    <filename>classparallel_1_1_triangulation_system.html</filename>
+    <templarg>spacedim</templarg>
+    <member kind="function">
+      <type></type>
+      <name>TriangulationSystem</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a312a7db9393869aa3c9b84b1e316342b</anchor>
+      <arglist>(dealii::parallel::distributed::Triangulation&lt; spacedim, spacedim &gt; &amp;tria_domain, const bool fix_vertex_positions=false)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~TriangulationSystem</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>ad12682d17e85ee169fd53cdbe0536f16</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual const dealii::parallel::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
+      <name>get_triangulation_domain</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a68d45d1980bf4a8aa4ed8db4f4985eef</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual const dealii::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
+      <name>get_triangulation_interface</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a7ac3f351759406d1e340ddafc2dc7c75</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual dealii::parallel::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
+      <name>get_triangulation_domain</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a4901a2f0e26104d5a085253620b98f52</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual dealii::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
+      <name>get_triangulation_interface</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>ab799af10ed705dcf903bcd78325762b0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>close</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a5a7ef73bec1fbe698480e1bd7c6cd8a7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>write_meshes_per_processor_as_vtu</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a6220dec5dd926987eedf084273062f9c</anchor>
+      <arglist>(const std::string file_name_domain, const std::string file_name_interface) const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual std::pair&lt; const unsigned int, const unsigned int &gt;</type>
+      <name>get_this_proc_n_procs</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>afbde3803f2243308fa33593d6b5f17b4</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="virtual">
+      <type>virtual void</type>
+      <name>pre_refinement_domain</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a79e9789e83e12900c85cf8de0644271f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="virtual">
+      <type>virtual void</type>
+      <name>post_refinement_domain</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>a951181f2ad877283d458fa19db42efb2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>update_interface_subdomain_ids</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>ae214de5a3053ae320a1eb6d879f03b43</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>MPI_Comm</type>
+      <name>mpi_communicator</name>
+      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
+      <anchor>aff7cdcf04d5a4fb633d714130da893b0</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -4904,102 +5435,6 @@
       <name>AssemblyHelper</name>
       <anchorfile>class_triangulation_system.html</anchorfile>
       <anchor>af4019c2e39cc934d646aaa35c3c52773</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>parallel::TriangulationSystem</name>
-    <filename>classparallel_1_1_triangulation_system.html</filename>
-    <templarg>spacedim</templarg>
-    <member kind="function">
-      <type></type>
-      <name>TriangulationSystem</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a312a7db9393869aa3c9b84b1e316342b</anchor>
-      <arglist>(dealii::parallel::distributed::Triangulation&lt; spacedim, spacedim &gt; &amp;tria_domain, const bool fix_vertex_positions=false)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~TriangulationSystem</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>ad12682d17e85ee169fd53cdbe0536f16</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual const dealii::parallel::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
-      <name>get_triangulation_domain</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a68d45d1980bf4a8aa4ed8db4f4985eef</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual const dealii::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
-      <name>get_triangulation_interface</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a7ac3f351759406d1e340ddafc2dc7c75</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual dealii::parallel::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
-      <name>get_triangulation_domain</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a4901a2f0e26104d5a085253620b98f52</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual dealii::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
-      <name>get_triangulation_interface</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>ab799af10ed705dcf903bcd78325762b0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>close</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a5a7ef73bec1fbe698480e1bd7c6cd8a7</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>write_meshes_per_processor_as_vtu</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a6220dec5dd926987eedf084273062f9c</anchor>
-      <arglist>(const std::string file_name_domain, const std::string file_name_interface) const</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual std::pair&lt; const unsigned int, const unsigned int &gt;</type>
-      <name>get_this_proc_n_procs</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>afbde3803f2243308fa33593d6b5f17b4</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>pre_refinement_domain</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a79e9789e83e12900c85cf8de0644271f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>post_refinement_domain</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a951181f2ad877283d458fa19db42efb2</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>update_interface_subdomain_ids</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>ae214de5a3053ae320a1eb6d879f03b43</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>MPI_Comm</type>
-      <name>mpi_communicator</name>
-      <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>aff7cdcf04d5a4fb633d714130da893b0</anchor>
       <arglist></arglist>
     </member>
   </compound>

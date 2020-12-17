@@ -336,7 +336,7 @@ BlockSolverWrapperPARDISO::initialize_matrix(	const SparseMatrix<double>& matrix
 		int mtype = get_matrix_type();
 		int error = 0;
 		if(initialized)
-			pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, nullptr, Ap.data(), Ai.data(), nullptr, &nrhs, iparm, &msglvl, nullptr, nullptr, &error,  dparm);
+			pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, nullptr, Ap.data(), Ai.data(),  perm == nullptr ? nullptr : perm->data(), &nrhs, iparm, &msglvl, nullptr, nullptr, &error,  dparm);
 		AssertThrow(error == 0, ExcPARDISOError("pardiso", error));
 	}
 
@@ -385,6 +385,7 @@ BlockSolverWrapperPARDISO::initialize_matrix(	const SparseMatrix<double>& matrix
 		Assert(Ap.back() - 1 == N_nonzero, ExcMessage("Either this is a bug in the implementation of the PARDISO interface or the matrix supplied is not associated with a symmetric sparsity pattern!"));
 
 		std::vector<int> row_pointers = Ap;
+
 		for (int row = 0; row < N; ++row)
 		{
 			for(auto p = matrix.begin(row); p != matrix.end(row); ++p)
@@ -428,7 +429,7 @@ BlockSolverWrapperPARDISO::initialize_matrix(	const SparseMatrix<double>& matrix
 			Assert((ordering_method == 0) || (ordering_method == 2), ExcMessage("Only values 0 and 2 allowed for ordering method"));
 			iparm[1] = ordering_method;
 
-			Assert((apply_scaling == 0) || (apply_scaling == 1), ExcMessage("Only values 0 and 1 allowed for apply_scaling"));
+			Assert((apply_scaling == 0) || (apply_scaling == 1) || (apply_scaling == 2), ExcMessage("Only values 0, 1 and 2 allowed for apply_scaling"));
 			iparm[10] = iparm[12] = apply_scaling;
 			if(matrix_type == 2)
 			{
@@ -436,7 +437,9 @@ BlockSolverWrapperPARDISO::initialize_matrix(	const SparseMatrix<double>& matrix
 				iparm[20] = pivoting_method;
 			}
 		    iparm[7] = n_iterative_refinements;
-		    iparm[9] = 10;
+		    iparm[9] = pivot_perturbation;
+		    if(user_perm)
+		    	iparm[4] = 1;
 		}
 
 		// determine number of processors
@@ -455,6 +458,7 @@ BlockSolverWrapperPARDISO::initialize_matrix(	const SparseMatrix<double>& matrix
 		}*/
 	}
 
+
 	return;
 }
 
@@ -467,7 +471,7 @@ BlockSolverWrapperPARDISO::analyze_matrix()
 		int mtype = get_matrix_type();
 
 		int error = 0;
-		pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, Ax.data(), Ap.data(), Ai.data(), nullptr, &nrhs, iparm, &msglvl, nullptr, nullptr, &error, dparm);
+		pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, Ax.data(), Ap.data(), Ai.data(), perm == nullptr ? nullptr : perm->data(), &nrhs, iparm, &msglvl, nullptr, nullptr, &error, dparm);
 		AssertThrow(error == 0, ExcPARDISOError("pardiso", error));
 	}
 
@@ -509,7 +513,7 @@ BlockSolverWrapperPARDISO::vmult(	Vector<double>& 		x,
     int mtype = get_matrix_type();
 
     int error = 0;
-	pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, Ax.data(), Ap.data(), Ai.data(), nullptr, &nrhs, iparm, &msglvl, const_cast<double*>(f.data()), x.data(), &error,  dparm);
+	pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, Ax.data(), Ap.data(), Ai.data(),  perm == nullptr ? nullptr : perm->data(), &nrhs, iparm, &msglvl, const_cast<double*>(f.data()), x.data(), &error,  dparm);
 
 	/**
 	 * check residual (TODO: it seems to be a bug in PARDISO that it does not complain about large residuals)
@@ -542,13 +546,186 @@ BlockSolverWrapperPARDISO::get_matrix_type()
 	}
 }
 
+void
+BlockSolverWrapperPARDISO::scale_system(TwoBlockMatrix<SparseMatrix<double>>*	K_stretched,
+										BlockVector<double>*					f_stretched)
+{
+	const unsigned int N = K_stretched->m();
+	const unsigned int N_A = f_stretched->block(0).size();
+	const unsigned int N_B = f_stretched->block(1).size();
+	auto& A = K_stretched->get_A();
+	auto& B = K_stretched->get_B();
+	auto& C = K_stretched->get_C();
+	auto& D = K_stretched->get_D();
+	auto& f_0 = f_stretched->block(0);
+	auto& f_1 = f_stretched->block(1);
+
+	C_inv.reinit(N);
+	R_inv.reinit(N);
+	for(unsigned int m = 0; m < N; ++m)
+		C_inv[m] = R_inv[m] = 1.0;
+
+	Vector<double> C_max(N), R_max(N);
+
+	for(;;)
+	{
+		C_max = 0.0;
+		R_max = 0.0;
+		if(N_A > 0)
+		{
+			for (unsigned int row = 0; row < N_A; ++row)
+			{
+				for(auto p = A.begin(row); p != A.end(row); ++p)
+				{
+					if( fabs(p->value()) > C_max[p->column()])
+						C_max[p->column()] = fabs(p->value());
+					if( fabs(p->value()) > R_max[p->row()])
+						R_max[p->row()] = fabs(p->value());
+				}
+				if(N_B > 0)
+				{
+					for(auto p = B.begin(row); p != B.end(row); ++p)
+					{
+						if( fabs(p->value()) > C_max[p->column() + N_A])
+							C_max[p->column() + N_A] = fabs(p->value());
+						if( fabs(p->value()) > R_max[p->row()])
+							R_max[p->row()] = fabs(p->value());
+					}
+					for(auto p = C.begin(row); p != C.end(row); ++p)
+					{
+						if( fabs(p->value()) > C_max[p->row()])
+							C_max[p->row()] = fabs(p->value());
+						if( fabs(p->value()) > R_max[p->column() + N_A])
+							R_max[p->column() + N_A] = fabs(p->value());
+					}
+				}
+			}
+		}
+		if(N_B > 0)
+		{
+			for (unsigned int row = 0; row < N_B; ++row)
+			{
+				for(auto p = D.begin(row); p != D.end(row); ++p)
+				{
+					if( fabs(p->value()) > C_max[p->column() + N_A])
+						C_max[p->column() + N_A] = fabs(p->value());
+					if( fabs(p->value()) > R_max[p->row() + N_A])
+						R_max[p->row() + N_A] = fabs(p->value());
+				}
+			}
+		}
+
+		double C_max_min = 1.0, R_max_min = 1.0;
+		for(unsigned int m = 0; m < N; ++m)
+		{
+			if(C_max[m] < C_max_min)
+				C_max_min = C_max[m];
+			if(R_max[m] < R_max_min)
+				R_max_min = R_max[m];
+		}
+
+		for(unsigned int m = 0; m < N; ++m)
+		{
+			C_max[m] = 1.0 / sqrt(C_max[m]);
+			R_max[m] = 1.0 / sqrt(R_max[m]);
+		}
+
+		for(unsigned int m = 0; m < N; ++m)
+		{
+			C_inv[m] = C_inv[m] * C_max[m];
+			R_inv[m] = R_inv[m] * R_max[m];
+		}
+
+
+		if(N_A > 0)
+		{
+			for (unsigned int row = 0; row < N_A; ++row)
+			{
+				for(auto p = A.begin(row); p != A.end(row); ++p)
+					p->value() = p->value() * C_max[p->column()] * R_max[p->row()];
+				if(N_B > 0)
+				{
+					for(auto p = B.begin(row); p != B.end(row); ++p)
+						p->value() = p->value() * C_max[N_A + p->column()] * R_max[p->row()];
+					for(auto p = C.begin(row); p != C.end(row); ++p)
+						p->value() = p->value() * C_max[p->row()] * R_max[N_A + p->column()];
+				}
+			}
+		}
+		if(N_B > 0)
+		{
+			for (unsigned int row = 0; row < N_B; ++row)
+				for(auto p = D.begin(row); p !=D.end(row); ++p)
+					p->value() = p->value() * C_max[p->column() + N_A] * R_max[p->row() + N_A];
+		}
+
+		if( (C_max_min > iterative_scaling_tolerance) && (R_max_min > iterative_scaling_tolerance)  )
+			break;
+	}
+
+	if(N_A > 0)
+		for(unsigned int m = 0; m < N_A; ++m)
+			f_0[m] = R_inv[m] * f_0[m];
+	if(N_B > 0)
+		for(unsigned int m = 0; m < N_B; ++m)
+			f_1[m] = R_inv[m + N_A] * f_1[m];
+
+}
+
+void
+BlockSolverWrapperPARDISO::scale_solution(	dealii::Vector<double>&							solution,
+											TwoBlockMatrix<dealii::SparseMatrix<double>>*	K_stretched,
+											dealii::BlockVector<double>*					f_stretched)
+const
+{
+	const unsigned int N_A = f_stretched->block(0).size();
+	const unsigned int N_B = f_stretched->block(1).size();
+	auto& A = K_stretched->get_A();
+	auto& B = K_stretched->get_B();
+	auto& C = K_stretched->get_C();
+	auto& D = K_stretched->get_D();
+	auto& f_0 = f_stretched->block(0);
+	auto& f_1 = f_stretched->block(1);
+
+	if(N_A > 0)
+	{
+		for (unsigned int row = 0; row < N_A; ++row)
+		{
+			for(auto p = A.begin(row); p != A.end(row); ++p)
+				p->value() = p->value() / C_inv[p->column()] / R_inv[p->row()];
+			if(N_B > 0)
+			{
+				for(auto p = B.begin(row); p != B.end(row); ++p)
+					p->value() = p->value() / C_inv[N_A + p->column()] / R_inv[p->row()];
+				for(auto p = C.begin(row); p != C.end(row); ++p)
+					p->value() = p->value() / C_inv[p->row()] / R_inv[N_A + p->column()];
+			}
+		}
+	}
+	if(N_B > 0)
+	{
+		for (unsigned int row = 0; row < N_B; ++row)
+			for(auto p = D.begin(row); p !=D.end(row); ++p)
+				p->value() = p->value() / C_inv[p->column() + N_A] / R_inv[p->row() + N_A];
+	}
+
+	if(N_A > 0)
+		for(unsigned int m = 0; m < N_A; ++m)
+			f_0[m] = f_0[m] / R_inv[m];
+	if(N_B > 0)
+		for(unsigned int m = 0; m < N_B; ++m)
+			f_1[m] = f_1[m] / R_inv[m + N_A];
+	for(unsigned int m = 0; m < N_A + N_B; ++m)
+		solution[m] = solution[m] * C_inv[m];
+}
+
 BlockSolverWrapperPARDISO::~BlockSolverWrapperPARDISO()
 {
 	int phase = -1;
 	int mtype = get_matrix_type();
 	int error = 0;
 	if(initialized)
-		pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, nullptr, Ap.data(), Ai.data(), nullptr, &nrhs, iparm, &msglvl, nullptr, nullptr, &error,  dparm);
+		pardiso(pt, &maxfct, &mnum, &mtype, &phase, &N, nullptr, Ap.data(), Ai.data(),  perm == nullptr ? nullptr : perm->data(), &nrhs, iparm, &msglvl, nullptr, nullptr, &error,  dparm);
 	AssertThrow(error == 0, ExcPARDISOError("pardiso", error));
 }
 
@@ -558,6 +735,9 @@ BlockSolverWrapperPARDISO::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_s
 								const BlockVector<double>&						f_stretched,
 								const bool 										/*symmetric*/)
 {
+
+	if(apply_scaling == 2)
+		scale_system(const_cast<TwoBlockMatrix<SparseMatrix<double>>*>(&K_stretched), const_cast<BlockVector<double>*>(&f_stretched));
 
 	//matrix sub blocks
 	const auto& K = K_stretched.get_A();
@@ -589,6 +769,8 @@ BlockSolverWrapperPARDISO::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_s
 	else if(size_w == 0)
 	{
 		vmult(solution, f_stretched.block(0));
+		if(apply_scaling == 2)
+			scale_solution(solution, const_cast<TwoBlockMatrix<SparseMatrix<double>>*>(&K_stretched), const_cast<BlockVector<double>*>(&f_stretched));
 		return;
 	}
 
@@ -651,6 +833,8 @@ BlockSolverWrapperPARDISO::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_s
 	for(unsigned int m = 0; m < size_w; ++m)
 		solution[m + size_f] = -minus_lambda[m];
 
+	if(apply_scaling == 2)
+		scale_solution(solution, const_cast<TwoBlockMatrix<SparseMatrix<double>>*>(&K_stretched), const_cast<BlockVector<double>*>(&f_stretched));
 	return;
 
 }

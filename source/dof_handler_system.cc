@@ -647,6 +647,135 @@ const
 
 template<unsigned int spacedim>
 void
+DoFHandlerSystem<spacedim>::get_map_dof_index_component_interface(std::vector<unsigned int>& components)
+const
+{
+	components.resize(n_dofs_interface(), 0);
+
+	vector<unsigned int> dof_indices_local_global;
+	for(const auto& interface_cell_domain_cells : interface_active_iterators())
+	{
+		const auto& interface_cell = interface_cell_domain_cells.interface_cell;
+		if(interface_cell->is_locally_owned())
+		{
+			const unsigned int n_dofs = interface_cell->get_fe().dofs_per_cell;
+			dof_indices_local_global.resize(n_dofs);
+			interface_cell.get_dof_indices(dof_indices_local_global);
+			for(unsigned int sf = 0; sf < n_dofs; ++sf)
+				components[dof_indices_local_global[sf]] = interface_cell->get_fe().system_to_component_index(sf).first;
+		}
+	}
+	return;
+}
+
+template<unsigned int spacedim>
+void
+DoFHandlerSystem<spacedim>::get_map_dof_index_component_domain(std::vector<unsigned int>& components)
+const
+{
+	components.resize(n_dofs_domain(), 0);
+
+	vector<unsigned int> dof_indices_local_global;
+	for(const auto& domain_cell : domain_active_iterators())
+	{
+		if(domain_cell->is_locally_owned())
+		{
+			const unsigned int n_dofs = domain_cell->get_fe().dofs_per_cell;
+			dof_indices_local_global.resize(n_dofs);
+			domain_cell.get_dof_indices(dof_indices_local_global);
+			for(unsigned int sf = 0; sf < n_dofs; ++sf)
+				components[dof_indices_local_global[sf]] = domain_cell->get_fe().system_to_component_index(sf).first;
+		}
+	}
+	return;
+}
+
+template<unsigned int spacedim>
+struct PointComparator
+{
+	bool operator()(const Point<spacedim>& p1, const Point<spacedim>& p2)
+	const
+	{
+	    return make_tuple(spacedim < 1 ? 0.0 : p1[0], spacedim < 2 ? 0.0 : p1[1], spacedim < 3 ? 0.0 : p1[2]) < make_tuple(spacedim < 1 ? 0.0 : p2[0], spacedim < 2 ? 0.0 : p2[1], spacedim < 3 ? 0.0 : p2[2]);
+    }
+};
+
+template<unsigned int spacedim>
+void
+DoFHandlerSystem<spacedim>::get_map_dof_index_support_point_index_interface(vector<unsigned int>&					support_points,
+																			map<unsigned int, Point<spacedim>>&		map_support_point_index_support_point_location,
+																			const Mapping<spacedim-1, spacedim>&	mapping)
+const
+{
+	support_points.resize(n_dofs_interface());
+	map<Point<spacedim>, unsigned int, PointComparator<spacedim>> map_support_point_location_support_point_index;
+	vector<unsigned int> dof_indices_local_global;
+	Point<spacedim> support_point;
+	Point<spacedim-1> unit_support_point_interface;
+	unsigned int support_point_counter = 0;
+	for(const auto& interface_cell_domain_cells : interface_active_iterators())
+	{
+		const auto& interface_cell = interface_cell_domain_cells.interface_cell;
+		if(interface_cell->is_locally_owned())
+		{
+			const unsigned int n_dofs = interface_cell->get_fe().dofs_per_cell;
+			dof_indices_local_global.resize(n_dofs);
+			interface_cell.get_dof_indices(dof_indices_local_global);
+			for(unsigned int sf = 0; sf < n_dofs; ++sf)
+			{
+				unit_support_point_interface = interface_cell->get_fe().unit_support_point(sf);
+				support_point = mapping.transform_unit_to_real_cell(interface_cell, unit_support_point_interface);
+				if(map_support_point_location_support_point_index.find(support_point) == map_support_point_location_support_point_index.end())
+				{
+					map_support_point_location_support_point_index[support_point] = support_point_counter;
+					map_support_point_index_support_point_location[support_point_counter] = support_point;
+					support_point_counter++;
+				}
+				support_points[dof_indices_local_global[sf]] = map_support_point_location_support_point_index[support_point];
+			}
+		}
+	}
+	return;
+}
+
+template<unsigned int spacedim>
+void
+DoFHandlerSystem<spacedim>::get_map_dof_index_support_point_index_domain(	vector<unsigned int>&				support_points,
+																			map<unsigned int, Point<spacedim>>&	map_support_point_index_support_point_location,
+																			const Mapping<spacedim>&			mapping)
+const
+{
+	support_points.resize(n_dofs_domain());
+	map<Point<spacedim>, unsigned int, PointComparator<spacedim>> map_support_point_location_support_point_index;
+	vector<unsigned int> dof_indices_local_global;
+	Point<spacedim> support_point, unit_support_point_domain;
+	unsigned int support_point_counter = 0;
+	for(const auto& domain_cell : domain_active_iterators())
+	{
+		if(domain_cell->is_locally_owned())
+		{
+			const unsigned int n_dofs = domain_cell->get_fe().dofs_per_cell;
+			dof_indices_local_global.resize(n_dofs);
+			domain_cell.get_dof_indices(dof_indices_local_global);
+			for(unsigned int sf = 0; sf < n_dofs; ++sf)
+			{
+				unit_support_point_domain = domain_cell->get_fe().unit_support_point(sf);
+				support_point = mapping.transform_unit_to_real_cell(domain_cell, unit_support_point_domain);
+				if(map_support_point_location_support_point_index.find(support_point) == map_support_point_location_support_point_index.end())
+				{
+					map_support_point_location_support_point_index[support_point] = support_point_counter;
+					map_support_point_index_support_point_location[support_point_counter] = support_point;
+					support_point_counter++;
+				}
+				support_points[dof_indices_local_global[sf]] = map_support_point_location_support_point_index[support_point];
+			}
+		}
+	}
+	return;
+}
+
+template<unsigned int spacedim>
+void
 DoFHandlerSystem<spacedim>::update_interface_domain_relation()
 {
 	active_interface_cell_domain_cells.clear();

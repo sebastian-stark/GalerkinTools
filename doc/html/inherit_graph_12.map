@@ -10,9 +10,11 @@
 <area shape="rect" id="node10" href="$class_point_constraint.html" title=" " alt="" coords="172,449,339,491"/>
 <area shape="rect" id="node11" href="$class_point_constraint_3_01spacedim_00_01spacedim_01_4.html" title=" " alt="" coords="153,515,357,556"/>
 <area shape="rect" id="node12" href="$class_scalar_functional.html" title=" " alt="" coords="169,580,342,621"/>
-<area shape="rect" id="node13" href="$class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html" title=" " alt="" coords="150,645,361,687"/>
-<area shape="rect" id="node15" href="$class_total_potential_contribution.html" title=" " alt="" coords="160,711,351,752"/>
-<area shape="rect" id="node16" href="$class_triangulation_system.html" title=" " alt="" coords="177,776,333,817"/>
-<area shape="rect" id="node4" href="$class_do_f_renumbering_offset.html" title=" " alt="" coords="411,71,585,98"/>
-<area shape="rect" id="node14" href="$class_linear_material_domain.html" title=" " alt="" coords="415,645,581,687"/>
+<area shape="rect" id="node14" href="$class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html" title=" " alt="" coords="150,645,361,687"/>
+<area shape="rect" id="node17" href="$class_total_potential_contribution.html" title=" " alt="" coords="160,711,351,752"/>
+<area shape="rect" id="node18" href="$class_triangulation_system.html" title=" " alt="" coords="177,776,333,817"/>
+<area shape="rect" id="node4" href="$class_do_f_renumbering_offset.html" title=" " alt="" coords="442,71,617,98"/>
+<area shape="rect" id="node13" href="$class_scalar_functional_local_elimination.html" title=" " alt="" coords="411,580,648,621"/>
+<area shape="rect" id="node15" href="$class_linear_material_domain.html" title=" " alt="" coords="446,645,613,687"/>
+<area shape="rect" id="node16" href="$class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html" title=" " alt="" coords="411,711,648,752"/>
 </map>

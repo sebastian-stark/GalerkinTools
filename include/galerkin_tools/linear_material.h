@@ -49,39 +49,6 @@ private:
 	const Vector<double>
 	y;
 
-	/**
-	 * See ScalarFunctional<spacedim, spacedim>::get_h_omega for detailed information on this method.
-	 *
-	 * @param[in]	 	e_omega					\f$\boldsymbol{e}^\Omega\f$
-	 *
-	 * @param[in]	 	e_omega_ref_sets		Sets of reference values of \f$\boldsymbol{e}^\Omega\f$. None are required here.
-	 *
-	 * @param[inout]	hidden_vars				Values of "hidden" variables associated with the integrand \f$h^\Omega_\rho\f$. Here, no hidden variables are present.
-	 *
-	 * @param[in]		x						Location of material point
-	 *
-	 * @param[out] 		h_omega					\f$\dfrac{1}{2} {\boldsymbol{e}^\Omega}^\top \boldsymbol{C} {\boldsymbol{e}^\Omega} + \boldsymbol{y}^\top \boldsymbol{e}^\Omega\f$
-	 *
-	 * @param[out] 		h_omega_1				\f$\boldsymbol{C} {\boldsymbol{e}^\Omega} + \boldsymbol{y}^\top\f$
-	 *
-	 * @param[out] 		h_omega_2				\f$\boldsymbol{C}\f$
-	 *
-	 * @param[in] 		requested_quantities	A tuple indicating which quantities are actually to be computed
-	 *
-	 * @return									@p false if the evaluation of @p h_omega, @p h_omega_1, and @p h_omega_2 was successful, and @p true
-	 * 											if an error prevented the proper calculation of these quantities
-	 */
-	bool
-	get_h_omega(const Vector<double>& 				e_omega,
-				const std::vector<Vector<double>>&	e_omega_ref_sets,
-				Vector<double>&						hidden_vars,
-				const Point<spacedim>&				x,
-				double&								h_omega,
-				Vector<double>&						h_omega_1,
-				FullMatrix<double>&					h_omega_2,
-				const std::tuple<bool, bool, bool>	requested_quantities)
-	const;
-
 public:
 
 	/**
@@ -105,6 +72,39 @@ public:
 							const FullMatrix<double>								C,
 							const Vector<double>									y,
 							const std::string										name = "LinearMaterialDomain");
+
+	/**
+	 * See ScalarFunctional<spacedim, spacedim>::get_h_omega for detailed information on this method.
+	 *
+	 * @param[in]	 	e_omega					\f$\boldsymbol{e}^\Omega\f$
+	 *
+	 * @param[in]	 	e_omega_ref_sets		Sets of reference values of \f$\boldsymbol{e}^\Omega\f$. None are required here.
+	 *
+	 * @param[inout]	hidden_vars				Values of "hidden" variables associated with the integrand \f$h^\Omega_\rho\f$. Here, no hidden variables are present.
+	 *
+	 * @param[in]		x						Location of material point
+	 *
+	 * @param[out] 		h_omega					\f$\dfrac{1}{2} {\boldsymbol{e}^\Omega}^\top \boldsymbol{C} {\boldsymbol{e}^\Omega} + \boldsymbol{y}^\top \boldsymbol{e}^\Omega\f$
+	 *
+	 * @param[out] 		h_omega_1				\f$\boldsymbol{C} {\boldsymbol{e}^\Omega} + \boldsymbol{y}^\top\f$
+	 *
+	 * @param[out] 		h_omega_2				\f$\boldsymbol{C}\f$
+	 *
+	 * @param[in] 		requested_quantities	A tuple indicating which quantities are actually to be computed
+	 *
+	 * @return									@p false if the evaluation of @p h_omega, @p h_omega_1, and @p h_omega_2 was successful, and @p true
+	 * 											if an error prevented the proper calculation of these quantities
+	 */
+	bool
+	get_h_omega(Vector<double>& 					e_omega,
+				const std::vector<Vector<double>>&	e_omega_ref_sets,
+				Vector<double>&						hidden_vars,
+				const Point<spacedim>&				x,
+				double&								h_omega,
+				Vector<double>&						h_omega_1,
+				FullMatrix<double>&					h_omega_2,
+				const std::tuple<bool, bool, bool>	requested_quantities)
+	const;
 };
 
 /**
@@ -129,6 +129,30 @@ private:
 	 */
 	const Vector<double>
 	y;
+
+public:
+
+	/**
+	 * The constructor of the class.
+	 *
+	 * @param[in]	e_sigma					ScalarFunctional::e_sigma
+	 *
+	 * @param[in]	domain_of_integration	ScalarFunctional::domain_of_integration
+	 *
+	 * @param[in]	quadrature				ScalarFunctional::quadrature
+	 *
+	 * @param[in]	C						LinearMaterialInterface::C
+	 *
+	 * @param[in]	y						LinearMaterialInterface::y
+	 *
+	 * @param[in]	name					ScalarFunctional::name
+	 */
+	LinearMaterialInterface(	const std::vector<DependentField<spacedim-1,spacedim>>	e_sigma,
+								const std::set<types::material_id>						domain_of_integration,
+								const Quadrature<spacedim-1>							quadrature,
+								const FullMatrix<double>								C,
+								const Vector<double>									y,
+								const std::string										name = "LinearMaterialInterface");
 
 	/**
 	 * See ScalarFunctional::get_h_sigma for detailed information on this method.
@@ -155,7 +179,7 @@ private:
 	 * 											if an error prevented the proper calculation of these quantities
 	 */
 	bool
-	get_h_sigma(const Vector<double>& 				e_sigma,
+	get_h_sigma(Vector<double>& 					e_sigma,
 				const std::vector<Vector<double>>&	e_sigma_ref_sets,
 				Vector<double>& 					hidden_vars,
 				const Point<spacedim>& 				x,
@@ -165,30 +189,6 @@ private:
 				FullMatrix<double>& 				h_sigma_2,
 				const std::tuple<bool, bool, bool>	requested_quantities)
 	const;
-
-public:
-
-	/**
-	 * The constructor of the class.
-	 *
-	 * @param[in]	e_sigma					ScalarFunctional::e_sigma
-	 *
-	 * @param[in]	domain_of_integration	ScalarFunctional::domain_of_integration
-	 *
-	 * @param[in]	quadrature				ScalarFunctional::quadrature
-	 *
-	 * @param[in]	C						LinearMaterialInterface::C
-	 *
-	 * @param[in]	y						LinearMaterialInterface::y
-	 *
-	 * @param[in]	name					ScalarFunctional::name
-	 */
-	LinearMaterialInterface(	const std::vector<DependentField<spacedim-1,spacedim>>	e_sigma,
-								const std::set<types::material_id>						domain_of_integration,
-								const Quadrature<spacedim-1>							quadrature,
-								const FullMatrix<double>								C,
-								const Vector<double>									y,
-								const std::string										name = "LinearMaterialInterface");
 };
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE
