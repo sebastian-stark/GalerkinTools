@@ -17,6 +17,8 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
+#include <math.h>
+
 #include <galerkin_tools/scalar_functional.h>
 #include <deal.II/lac/lapack_full_matrix.h>
 using namespace std;
@@ -269,7 +271,10 @@ template<unsigned int dim, unsigned int spacedim>
 			const vector<unsigned int>&								indices_nonlocal_dependent_fields,
 			const vector<unsigned int>&								indices_local_dependent_fields,
 			const double&											safety_distance,
-			const double&											threshold_residual)
+			const double&											threshold_residual,
+			const unsigned int&										max_iter,
+			const unsigned int&										max_cutbacks,
+			const bool&												use_line_search)
 	{
 		const unsigned int NA = indices_local_dependent_fields.size();
 		const unsigned int NB = indices_nonlocal_dependent_fields.size();
@@ -280,6 +285,7 @@ template<unsigned int dim, unsigned int spacedim>
 		if(get_system<dim, spacedim>(e, e_ref_sets, hidden_vars, x, n, h, h_1, h_2, f_A, f_B, AA, AB, BA, BB, scalar_functionals, map_dependent_fields, indices_nonlocal_dependent_fields, indices_local_dependent_fields))
 			return true;
 
+
 		if(NA > 0)
 		{
 			// compute row scaling for calculation of residual
@@ -288,23 +294,18 @@ template<unsigned int dim, unsigned int spacedim>
 					if(fabs(AA(m,n)) > scaling[m])
 						scaling[m] = fabs(AA(m,n));
 
-	// iterate
+			// compute current residual
+			for(unsigned int m = 0; m < NA; ++m)
+				f_A_scaled[m] = f_A[m] / scaling[m];
+			double residual = f_A_scaled.l2_norm();
+
+			// iterate
 			unsigned int iter = 0;
+			double residual_old = 0.0;
 			for(;;)
 			{
-				// compute current residual
-				for(unsigned int m = 0; m < NA; ++m)
-					f_A_scaled[m] = f_A[m] / scaling[m];
-				const double residual = f_A_scaled.l2_norm();
-
-				if(iter == 50)
-				{
-					cout << "No convergence " << endl;
-					cout << "residual = " << residual << endl;
-					break;
-				}
-
-				if(residual < threshold_residual)
+				// check residual
+				if(residual < sqrt(NA) * threshold_residual)
 					break;
 
 				// determine increment to solution
@@ -321,11 +322,52 @@ template<unsigned int dim, unsigned int spacedim>
 				for(unsigned int m = 0; m < NA; ++m)
 					e[indices_local_dependent_fields[m]] += delta_A[m];
 
-				// re-compute the system
-				AA.reinit(NA, NA);
-				if(get_system<dim, spacedim>(e, e_ref_sets, hidden_vars, x, n, h, h_1, h_2, f_A, f_B, AA, AB, BA, BB, scalar_functionals, map_dependent_fields, indices_nonlocal_dependent_fields, indices_local_dependent_fields))
-					return true;
+				// do line search
+				unsigned int cutbacks = 0;
+				for(;;)
+				{
+					// rebuild system
+					AA.reinit(NA, NA);
+					if(get_system<dim, spacedim>(e, e_ref_sets, hidden_vars, x, n, h, h_1, h_2, f_A, f_B, AA, AB, BA, BB, scalar_functionals, map_dependent_fields, indices_nonlocal_dependent_fields, indices_local_dependent_fields))
+						return true;
+
+					// recalculate residual
+					for(unsigned int m = 0; m < NA; ++m)
+						f_A_scaled[m] = f_A[m] / scaling[m];
+					residual = f_A_scaled.l2_norm();
+
+					// stop if no line search requested
+					if(!use_line_search)
+						break;
+
+					// also don't line search in the first iteration or if the residual has decreased
+					if( (iter == 0) || (residual < residual_old) )
+						break;
+					else
+					{
+						++cutbacks;
+						cout << "Local cutback" << endl;
+						if(cutbacks > max_cutbacks)
+						{
+							cout << "Exceeded number of cutbacks. Quit line search." << endl;
+							break;
+						}
+
+						delta_A *= -0.5;
+						for(unsigned int m = 0; m < NA; ++m)
+							e[indices_local_dependent_fields[m]] += delta_A[m];
+						delta_A *= -1.0;
+					}
+				}
+
+				residual_old = residual;
 				++iter;
+
+				if(iter > max_iter)
+				{
+					cout << "No local convergence, stopping with residual " << residual << endl;
+					break;
+				}
 			}
 
 			// write consistent tangent, etc.
@@ -825,7 +867,7 @@ ScalarFunctionalLocalElimination<spacedim, spacedim>::get_h_omega(	Vector<double
 																	const tuple<bool, bool, bool> 	requested_quantities)
 const
 {
-	return Implementation::get_h<spacedim, spacedim>(e_omega, e_omega_ref_sets, hidden_vars, x, nullptr, h_omega, h_omega_1, h_omega_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_nonlocal_dependent_fields, indices_local_dependent_fields, safety_distance, threshold_residual);
+	return Implementation::get_h<spacedim, spacedim>(e_omega, e_omega_ref_sets, hidden_vars, x, nullptr, h_omega, h_omega_1, h_omega_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_nonlocal_dependent_fields, indices_local_dependent_fields, safety_distance, threshold_residual, max_iter, max_cutbacks, use_line_search);
 }
 
 template<unsigned int spacedim>
@@ -855,6 +897,27 @@ ScalarFunctionalLocalElimination<spacedim, spacedim>::set_threshold_residual(con
 {
 	Assert(threshold_residual > 0.0, ExcMessage("Threshold for residual must be greater than 0"));
 	this->threshold_residual = threshold_residual;
+}
+
+template<unsigned int spacedim>
+void
+ScalarFunctionalLocalElimination<spacedim, spacedim>::set_max_iter(const unsigned int max_iter)
+{
+	this->max_iter = max_iter;
+}
+
+template<unsigned int spacedim>
+void
+ScalarFunctionalLocalElimination<spacedim, spacedim>::set_max_cutbacks(const unsigned int max_cutbacks)
+{
+	this->max_cutbacks = max_cutbacks;
+}
+
+template<unsigned int spacedim>
+void
+ScalarFunctionalLocalElimination<spacedim, spacedim>::set_use_line_search(const bool use_line_search)
+{
+	this->use_line_search = use_line_search;
 }
 
 template<unsigned int dim, unsigned int spacedim>
@@ -905,7 +968,7 @@ ScalarFunctionalLocalElimination<dim, spacedim>::get_h_sigma(Vector<double>&		 	
 															const tuple<bool, bool, bool>	requested_quantities)
 const
 {
-	return Implementation::get_h<dim, spacedim>(e_sigma, e_sigma_ref_sets, hidden_vars, x, &n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_nonlocal_dependent_fields, indices_local_dependent_fields, safety_distance, threshold_residual);
+	return Implementation::get_h<dim, spacedim>(e_sigma, e_sigma_ref_sets, hidden_vars, x, &n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_nonlocal_dependent_fields, indices_local_dependent_fields, safety_distance, threshold_residual, max_iter, max_cutbacks, use_line_search);
 }
 
 template<unsigned int dim, unsigned int spacedim>
@@ -938,6 +1001,26 @@ ScalarFunctionalLocalElimination<dim, spacedim>::set_threshold_residual(const do
 	this->threshold_residual = threshold_residual;
 }
 
+template<unsigned int dim, unsigned int spacedim>
+void
+ScalarFunctionalLocalElimination<dim, spacedim>::set_max_iter(const unsigned int max_iter)
+{
+	this->max_iter = max_iter;
+}
+
+template<unsigned int dim, unsigned int spacedim>
+void
+ScalarFunctionalLocalElimination<dim, spacedim>::set_max_cutbacks(const unsigned int max_cutbacks)
+{
+	this->max_cutbacks = max_cutbacks;
+}
+
+template<unsigned int dim, unsigned int spacedim>
+void
+ScalarFunctionalLocalElimination<dim, spacedim>::set_use_line_search(const bool use_line_search)
+{
+	this->use_line_search = use_line_search;
+}
 
 template class ScalarFunctional<3,3>;
 template class ScalarFunctional<2,2>;

@@ -669,6 +669,24 @@ private:
 	double
 	threshold_residual = 1e-12;
 
+	/**
+	 * maximum number of Newton-Raphson iterations
+	 */
+	unsigned int
+	max_iter = 100;
+
+	/**
+	 * maximum number of cutbacks (= step bisections) during line search
+	 */
+	unsigned int
+	max_cutbacks = 10;
+
+	/**
+	 * whether to use the bisection line search, which tries to ensure a decreasing residual between successive iterates
+	 */
+	bool
+	use_line_search = true;
+
 public:
 
 
@@ -730,6 +748,24 @@ public:
 	 */
 	void
 	set_threshold_residual(const double threshold_residual);
+
+	/**
+	 * Sets ScalarFunctionalLocalElimination::max_iter
+	 */
+	void
+	set_max_iter(const unsigned int max_iter);
+
+	/**
+	 * Sets ScalarFunctionalLocalElimination::max_cutbacks
+	 */
+	void
+	set_max_cutbacks(const unsigned int max_cutbacks);
+
+	/**
+	 * Sets ScalarFunctionalLocalElimination::use_line_search
+	 */
+	void
+	set_use_line_search(const bool use_line_search);
 
 };
 
@@ -794,6 +830,24 @@ private:
 	double
 	threshold_residual = 1e-12;
 
+	/**
+	 * maximum number of Newton-Raphson iterations
+	 */
+	unsigned int
+	max_iter = 100;
+
+	/**
+	 * maximum number of cutbacks (= step bisections) during line search
+	 */
+	unsigned int
+	max_cutbacks = 10;
+
+	/**
+	 * whether to use the bisection line search, which tries to ensure a decreasing residual between successive iterates
+	 */
+	bool
+	use_line_search = true;
+
 public:
 
 
@@ -854,6 +908,25 @@ public:
 	 */
 	void
 	set_threshold_residual(const double threshold_residual);
+
+
+	/**
+	 * Sets ScalarFunctionalLocalElimination<spacedim,spacedim>::max_iter
+	 */
+	void
+	set_max_iter(const unsigned int max_iter);
+
+	/**
+	 * Sets ScalarFunctionalLocalElimination<spacedim,spacedim>::max_cutbacks
+	 */
+	void
+	set_max_cutbacks(const unsigned int max_cutbacks);
+
+	/**
+	 * Sets ScalarFunctionalLocalElimination<spacedim,spacedim>::use_line_search
+	 */
+	void
+	set_use_line_search(const bool use_line_search);
 
 };
 

@@ -465,7 +465,7 @@ public:
 	 * user defined permutation vector
 	 */
 	std::vector<int>*
-	perm;
+	perm = nullptr;
 
 	/**
 	 * @copydoc SolverWrapper::solve
