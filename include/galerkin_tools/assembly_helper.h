@@ -64,7 +64,7 @@ private:
 	 * the current cell
 	 */
 	const TriaIterator<CellAccessor<dim, spacedim>>*
-	cell;
+	cell = nullptr;
 
 public:
 

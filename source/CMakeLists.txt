@@ -65,6 +65,10 @@ ELSE()
     "If you want to use MA57, you must set an environment variable \"MA57_LIBRARIES\" that contains the path to the MA57 library and Metis4 (e.g. MA57_LIBRARIES = /path/to/libma57.so;/path/to/libmetis.a).")
 ENDIF()
 
+#find OMP
+
+
+
 #define the debug and release targets of the library galerkin_tools
 FOREACH(_build "debug" "release")
 

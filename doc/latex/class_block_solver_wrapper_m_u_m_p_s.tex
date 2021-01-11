@@ -1,0 +1,241 @@
+\hypertarget{class_block_solver_wrapper_m_u_m_p_s}{}\doxysection{Block\+Solver\+Wrapper\+M\+U\+M\+PS Class Reference}
+\label{class_block_solver_wrapper_m_u_m_p_s}\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+
+
+{\ttfamily \#include $<$solver\+\_\+wrapper.\+h$>$}
+
+
+
+Inheritance diagram for Block\+Solver\+Wrapper\+M\+U\+M\+PS\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_block_solver_wrapper_m_u_m_p_s__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Block\+Solver\+Wrapper\+M\+U\+M\+PS\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_block_solver_wrapper_m_u_m_p_s__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_abb4b34a355239e02e36ac9f6b1928c7e}{initialize\+\_\+matrix}} (const \textbf{ Sparse\+Matrix}$<$ double $>$ \&matrix)
+\item 
+void \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_aadddfe6082fe3d3321bc29ef31c1640a}{initialize\+\_\+matrix}} (std\+::vector$<$ int $>$ \&\mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_ab2c3ba49a45e5570cc498e5b91ae9050}{irn}}, std\+::vector$<$ int $>$ \&\mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a7573f600b4965a19b556651512d3b26b}{jcn}}, std\+::vector$<$ double $>$ \&\mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a1cc5cb669452e8c75033caa3a2a869fc}{A}}, unsigned int n)
+\item 
+virtual void \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a9eb5cbca0cf547d391332c379c3acea9}{analyze\+\_\+matrix}} ()
+\item 
+virtual void \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a39b279f0e0f1c0ecb30702763719d433}{factorize\+\_\+matrix}} ()
+\item 
+virtual void \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a5e1a3f5918cb70bf9c73391c35b8cf9a}{vmult}} (\textbf{ Vector}$<$ double $>$ \&x, const \textbf{ Vector}$<$ double $>$ \&f)
+\item 
+\mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_acce2c39c5e2f289db6b85343a8ab2bdb}{Block\+Solver\+Wrapper\+M\+U\+M\+PS}} (int sym=0)
+\item 
+\mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a2d2be6d9c412fc9fdc8a76c116c67104}{$\sim$\+Block\+Solver\+Wrapper\+M\+U\+M\+PS}} ()
+\item 
+virtual void \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_ae8fdb5cb19687c9e09d4328da66b7d97}{solve}} (const \mbox{\hyperlink{class_two_block_matrix}{Two\+Block\+Matrix}}$<$ \textbf{ dealii\+::\+Sparse\+Matrix}$<$ double $>$$>$ \&K\+\_\+stretched, \textbf{ dealii\+::\+Vector}$<$ double $>$ \&solution, const \textbf{ dealii\+::\+Block\+Vector}$<$ double $>$ \&f\+\_\+stretched, const bool symmetric=false)
+\item 
+\mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a9568838820205928af55c2a03aecd263}{Decl\+Exception2}} (M\+U\+M\+P\+S\+Error, std\+::string, int,$<$$<$ \char`\"{}M\+U\+M\+PS routine \char`\"{}$<$$<$ arg1$<$$<$ \char`\"{} returned error status \char`\"{}$<$$<$ arg2$<$$<$ \char`\"{}.\char`\"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+D\+M\+U\+M\+P\+S\+\_\+\+S\+T\+R\+U\+C\+\_\+C \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_ad5e82030212e5207e08d9395f015a27c}{id}}
+\item 
+int $\ast$ \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_ad83b47666c9b0979ac729cd402005703}{icntl}} = nullptr
+\item 
+double $\ast$ \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a51302d5ca5d87e7209c7d8a3913191a1}{cntl}} = nullptr
+\item 
+unsigned int \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a8be8b4fb9d6a6ebf7184327b5121f1e5}{analyze}} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_ab2c3ba49a45e5570cc498e5b91ae9050}{irn}} = std\+::vector$<$int$>$()
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a7573f600b4965a19b556651512d3b26b}{jcn}} = std\+::vector$<$int$>$()
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a1cc5cb669452e8c75033caa3a2a869fc}{A}} = std\+::vector$<$double$>$()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \mbox{\hyperlink{class_solver_wrapper}{Solver\+Wrapper}} for the M\+U\+M\+PS solver (only for sequential use). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_acce2c39c5e2f289db6b85343a8ab2bdb}\label{class_block_solver_wrapper_m_u_m_p_s_acce2c39c5e2f289db6b85343a8ab2bdb}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{BlockSolverWrapperMUMPS()}{BlockSolverWrapperMUMPS()}}
+{\footnotesize\ttfamily Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::\+Block\+Solver\+Wrapper\+M\+U\+M\+PS (\begin{DoxyParamCaption}\item[{int}]{sym = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Constructor
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sym} & S\+YM parameter of M\+U\+M\+PS \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_a2d2be6d9c412fc9fdc8a76c116c67104}\label{class_block_solver_wrapper_m_u_m_p_s_a2d2be6d9c412fc9fdc8a76c116c67104}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!````~BlockSolverWrapperMUMPS@{$\sim$BlockSolverWrapperMUMPS}}
+\index{````~BlockSolverWrapperMUMPS@{$\sim$BlockSolverWrapperMUMPS}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{$\sim$BlockSolverWrapperMUMPS()}{~BlockSolverWrapperMUMPS()}}
+{\footnotesize\ttfamily Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::$\sim$\+Block\+Solver\+Wrapper\+M\+U\+M\+PS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_a9eb5cbca0cf547d391332c379c3acea9}\label{class_block_solver_wrapper_m_u_m_p_s_a9eb5cbca0cf547d391332c379c3acea9}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!analyze\_matrix@{analyze\_matrix}}
+\index{analyze\_matrix@{analyze\_matrix}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{analyze\_matrix()}{analyze\_matrix()}}
+{\footnotesize\ttfamily virtual void Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::analyze\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function analyses the given matrix. Whether this function does anything depends upon the value of \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a8be8b4fb9d6a6ebf7184327b5121f1e5}{Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::analyze}}. \mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_a9568838820205928af55c2a03aecd263}\label{class_block_solver_wrapper_m_u_m_p_s_a9568838820205928af55c2a03aecd263}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!DeclException2@{DeclException2}}
+\index{DeclException2@{DeclException2}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{DeclException2()}{DeclException2()}}
+{\footnotesize\ttfamily Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::\+Decl\+Exception2 (\begin{DoxyParamCaption}\item[{M\+U\+M\+P\+S\+Error}]{,  }\item[{std\+::string}]{,  }\item[{int}]{,  }\item[{$<$$<$ \char`\"{}M\+U\+M\+PS routine \char`\"{}$<$$<$ arg1$<$$<$ \char`\"{} returned error status \char`\"{}$<$$<$ arg2$<$$<$ \char`\"{}.\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_a39b279f0e0f1c0ecb30702763719d433}\label{class_block_solver_wrapper_m_u_m_p_s_a39b279f0e0f1c0ecb30702763719d433}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!factorize\_matrix@{factorize\_matrix}}
+\index{factorize\_matrix@{factorize\_matrix}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{factorize\_matrix()}{factorize\_matrix()}}
+{\footnotesize\ttfamily virtual void Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::factorize\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function factorizes the matrix. \mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_abb4b34a355239e02e36ac9f6b1928c7e}\label{class_block_solver_wrapper_m_u_m_p_s_abb4b34a355239e02e36ac9f6b1928c7e}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!initialize\_matrix@{initialize\_matrix}}
+\index{initialize\_matrix@{initialize\_matrix}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{initialize\_matrix()}{initialize\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::initialize\+\_\+matrix (\begin{DoxyParamCaption}\item[{const \textbf{ Sparse\+Matrix}$<$ double $>$ \&}]{matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the data structures storing the matrix up.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em matrix} & The matrix A \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_aadddfe6082fe3d3321bc29ef31c1640a}\label{class_block_solver_wrapper_m_u_m_p_s_aadddfe6082fe3d3321bc29ef31c1640a}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!initialize\_matrix@{initialize\_matrix}}
+\index{initialize\_matrix@{initialize\_matrix}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{initialize\_matrix()}{initialize\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::initialize\+\_\+matrix (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{irn,  }\item[{std\+::vector$<$ int $>$ \&}]{jcn,  }\item[{std\+::vector$<$ double $>$ \&}]{A,  }\item[{unsigned int}]{n }\end{DoxyParamCaption})}
+
+Sets the data structures storing the matrix up from raw data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em irn} & row indices\\
+\hline
+\mbox{\texttt{ in}}  & {\em jcn} & column indices\\
+\hline
+\mbox{\texttt{ in}}  & {\em A} & values, A\mbox{[}i\mbox{]} corresponds to A(irn\mbox{[}i\mbox{]}, jcn\mbox{[}j\mbox{]})\\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & size of matrix \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_ae8fdb5cb19687c9e09d4328da66b7d97}\label{class_block_solver_wrapper_m_u_m_p_s_ae8fdb5cb19687c9e09d4328da66b7d97}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!solve@{solve}}
+\index{solve@{solve}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily virtual void Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::solve (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_two_block_matrix}{Two\+Block\+Matrix}}$<$ \textbf{ dealii\+::\+Sparse\+Matrix}$<$ double $>$$>$ \&}]{K\+\_\+stretched,  }\item[{\textbf{ dealii\+::\+Vector}$<$ double $>$ \&}]{solution,  }\item[{const \textbf{ dealii\+::\+Block\+Vector}$<$ double $>$ \&}]{f\+\_\+stretched,  }\item[{const bool}]{symmetric = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+
+
+The solve function for the system of linear equations in the stretched form
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em K\+\_\+stretched} & The stretched system\+\_\+matrix\\
+\hline
+\mbox{\texttt{ out}}  & {\em solution} & The stretched solution vector\\
+\hline
+\mbox{\texttt{ in}}  & {\em f\+\_\+stretched} & The stretched right hand side vector\\
+\hline
+\mbox{\texttt{ in}}  & {\em symmetric} & A bool indicating whether {\ttfamily system\+\_\+matrix} is symmetric \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_a5e1a3f5918cb70bf9c73391c35b8cf9a}\label{class_block_solver_wrapper_m_u_m_p_s_a5e1a3f5918cb70bf9c73391c35b8cf9a}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!vmult@{vmult}}
+\index{vmult@{vmult}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{vmult()}{vmult()}}
+{\footnotesize\ttfamily virtual void Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::vmult (\begin{DoxyParamCaption}\item[{\textbf{ Vector}$<$ double $>$ \&}]{x,  }\item[{const \textbf{ Vector}$<$ double $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Multiply the inverse of A by {\ttfamily f} and store the result into {\ttfamily x}. I.\+e., solve Ax=f for x. This uses the factors computed by \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a39b279f0e0f1c0ecb30702763719d433}{Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::factorize\+\_\+matrix()}}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em x} & solution \\
+\hline
+\mbox{\texttt{ in}}  & {\em f} & rhs \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_a1cc5cb669452e8c75033caa3a2a869fc}\label{class_block_solver_wrapper_m_u_m_p_s_a1cc5cb669452e8c75033caa3a2a869fc}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!A@{A}}
+\index{A@{A}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{A}{A}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::A = std\+::vector$<$double$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+Array storing the numerical values of the non-\/zero entries of the matrix A, A\mbox{[}i\mbox{]} is A(irn\mbox{[}i\mbox{]}, jcn\mbox{[}i\mbox{]}) \mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_a8be8b4fb9d6a6ebf7184327b5121f1e5}\label{class_block_solver_wrapper_m_u_m_p_s_a8be8b4fb9d6a6ebf7184327b5121f1e5}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!analyze@{analyze}}
+\index{analyze@{analyze}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{analyze}{analyze}}
+{\footnotesize\ttfamily unsigned int Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::analyze = 0}
+
+Key indicating when to analyze the matrix structure\+:~\newline
+ 0 -\/ before each factorization (default)~\newline
+ 1 -\/ only before the next factorization (afterwards, \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a8be8b4fb9d6a6ebf7184327b5121f1e5}{Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::analyze}} will be set to 2)~\newline
+ $>$=2 -\/ do not recompute
+
+\begin{DoxyWarning}{Warning}
+The user must ensure that \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a8be8b4fb9d6a6ebf7184327b5121f1e5}{Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::analyze}}=0 or \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a8be8b4fb9d6a6ebf7184327b5121f1e5}{Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::analyze}}=1 whenever the sparsity pattern of the matrix has changed (or during the first call). Currently, no internal checking is performed. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_a51302d5ca5d87e7209c7d8a3913191a1}\label{class_block_solver_wrapper_m_u_m_p_s_a51302d5ca5d87e7209c7d8a3913191a1}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!cntl@{cntl}}
+\index{cntl@{cntl}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{cntl}{cntl}}
+{\footnotesize\ttfamily double$\ast$ Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::cntl = nullptr}
+
+real control array of M\+U\+M\+PS \mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_ad83b47666c9b0979ac729cd402005703}\label{class_block_solver_wrapper_m_u_m_p_s_ad83b47666c9b0979ac729cd402005703}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!icntl@{icntl}}
+\index{icntl@{icntl}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{icntl}{icntl}}
+{\footnotesize\ttfamily int$\ast$ Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::icntl = nullptr}
+
+integer control array of M\+U\+M\+PS \mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_ad5e82030212e5207e08d9395f015a27c}\label{class_block_solver_wrapper_m_u_m_p_s_ad5e82030212e5207e08d9395f015a27c}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!id@{id}}
+\index{id@{id}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily D\+M\+U\+M\+P\+S\+\_\+\+S\+T\+R\+U\+C\+\_\+C Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::id}
+
+The main data structure of M\+U\+M\+PS \mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_ab2c3ba49a45e5570cc498e5b91ae9050}\label{class_block_solver_wrapper_m_u_m_p_s_ab2c3ba49a45e5570cc498e5b91ae9050}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!irn@{irn}}
+\index{irn@{irn}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{irn}{irn}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::irn = std\+::vector$<$int$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+The row indices \mbox{\Hypertarget{class_block_solver_wrapper_m_u_m_p_s_a7573f600b4965a19b556651512d3b26b}\label{class_block_solver_wrapper_m_u_m_p_s_a7573f600b4965a19b556651512d3b26b}} 
+\index{BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}!jcn@{jcn}}
+\index{jcn@{jcn}!BlockSolverWrapperMUMPS@{BlockSolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{jcn}{jcn}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Block\+Solver\+Wrapper\+M\+U\+M\+P\+S\+::jcn = std\+::vector$<$int$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+The column indices 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\mbox{\hyperlink{solver__wrapper_8h}{solver\+\_\+wrapper.\+h}}\end{DoxyCompactItemize}

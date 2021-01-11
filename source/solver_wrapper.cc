@@ -189,6 +189,17 @@ SolverWrapperPETSc::solve(	const parallel::TwoBlockMatrix<PETScWrappers::MPI::Sp
 		for(const auto m : solution_petsc.locally_owned_elements())
 			solution(m) = solution_petsc(m);
 		solution.compress(VectorOperation::insert);
+
+		// check residual
+		PETScWrappers::MPI::Vector res_petsc(f_stretched.block(0).locally_owned_elements(), comm);
+		K.vmult(res_petsc, solution_petsc);
+		const auto& f_ = f_stretched.block(0);
+		res_petsc.compress(VectorOperation::insert);
+		for(const auto m : solution_petsc.locally_owned_elements())
+			res_petsc(m) = res_petsc(m) - f_(m);
+		res_petsc.compress(VectorOperation::insert);
+		cout << "MUMPS Residual = " << res_petsc.l2_norm() << endl;
+
 		return;
 	}
 
@@ -482,7 +493,6 @@ BlockSolverWrapperPARDISO::analyze_matrix()
 	return;
 }
 
-
 void
 BlockSolverWrapperPARDISO::factorize_matrix()
 {
@@ -771,6 +781,15 @@ BlockSolverWrapperPARDISO::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_s
 		vmult(solution, f_stretched.block(0));
 		if(apply_scaling == 2)
 			scale_solution(solution, const_cast<TwoBlockMatrix<SparseMatrix<double>>*>(&K_stretched), const_cast<BlockVector<double>*>(&f_stretched));
+
+		// check residual
+		Vector<double> res(f_stretched.block(0).size());
+		K.vmult(res, solution);
+		const auto& f = f_stretched.block(0);
+		for(unsigned int m = 0; m < solution.size(); ++m)
+			res(m) = res(m) - f(m);
+		cout << "PARDISO Residual = " << res.l2_norm() << endl;
+
 		return;
 	}
 
@@ -841,6 +860,230 @@ BlockSolverWrapperPARDISO::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_s
 
 #endif // GALERKIN_TOOLS_WITH_PARDISO
 #endif // DEAL_II_WITH_UMFPACK
+
+#ifdef DEAL_II_WITH_PETSC
+#ifdef DEAL_II_PETSC_WITH_MUMPS
+#ifdef DEAL_II_WITH_MPI
+
+void
+BlockSolverWrapperMUMPS::initialize_matrix(	const SparseMatrix<double>& matrix)
+{
+	Assert(matrix.m() == matrix.n(), ExcNotQuadratic());
+
+	irn.resize(matrix.n_nonzero_elements());
+	jcn.resize(matrix.n_nonzero_elements());
+	A.resize(matrix.n_nonzero_elements());
+
+	id.n = matrix.m();
+	id.a = A.data();
+	id.nnz = matrix.n_nonzero_elements();
+	id.irn = irn.data();
+	id.jcn = jcn.data();
+
+	int counter = 0;
+	for (unsigned int row = 0; row < matrix.m(); ++row)
+	{
+		for(auto p = matrix.begin(row); p != matrix.end(row); ++p)
+		{
+			irn[counter] = p->row() + 1;
+			jcn[counter] = p->column() + 1;
+			if( (id.sym != 0) && (p->row() != p->column()))
+				A[counter] = 0.5 * std::real(p->value());
+			else
+				A[counter] = std::real(p->value());
+			++counter;
+		}
+	}
+
+	return;
+}
+
+void
+BlockSolverWrapperMUMPS::initialize_matrix(	vector<int>&	irn,
+											vector<int>&	jcn,
+											vector<double>&	A,
+											unsigned int	n)
+{
+
+	id.n = n;
+	id.a = A.data();
+	id.nnz = irn.size();
+	id.irn = irn.data();
+	id.jcn = jcn.data();
+	return;
+}
+
+void
+BlockSolverWrapperMUMPS::analyze_matrix()
+{
+	if(analyze < 2)
+	{
+		id.job = 1;
+		dmumps_c(&id);
+	}
+
+	// Matrix was only analyzed in this step
+	if(analyze == 1)
+		analyze = 2;
+
+	return;
+}
+
+void
+BlockSolverWrapperMUMPS::factorize_matrix()
+{
+	id.job = 2;
+	dmumps_c(&id);
+
+	return;
+}
+
+void
+BlockSolverWrapperMUMPS::vmult(	Vector<double>& 		x,
+								const Vector<double>&	f )
+{
+	x = f;
+	id.rhs = x.data();
+
+	id.job = 3;
+	dmumps_c(&id);
+
+	return;
+}
+
+void
+BlockSolverWrapperMUMPS::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_stretched,
+		 	 	 	 	 		Vector<double>&								solution,
+								const BlockVector<double>&					f_stretched,
+								const bool 									/*symmetric*/)
+{
+
+	//matrix sub blocks
+	const auto& K = K_stretched.get_A();
+	const auto& L_U = K_stretched.get_B();
+	const auto& L_V = K_stretched.get_C();
+	const auto& D = K_stretched.get_D();
+
+	//size of top diagonal block of stretched system
+	const unsigned int size_f = K_stretched.get_block_0_size();
+	//size of bottom diagonal block of stretched system
+	const unsigned int size_w = K_stretched.get_block_1_size();
+
+	// initialize solver, analyze and factorize
+	if(size_f > 0)
+	{
+		initialize_matrix(K);
+		analyze_matrix();
+		factorize_matrix();
+	}
+
+	// if one of the blocks is zero sized, solve directly with the other and return
+	if(size_f == 0)
+	{
+		SparseDirectUMFPACK direct_solver_D;
+		direct_solver_D.initialize(D);
+		direct_solver_D.vmult(solution, f_stretched.block(0));
+		return;
+	}
+	else if(size_w == 0)
+	{
+		vmult(solution, f_stretched.block(0));
+
+		// check residual
+		Vector<double> res(f_stretched.block(0).size());
+		K.vmult(res, solution);
+		const auto& f = f_stretched.block(0);
+		for(unsigned int m = 0; m < solution.size(); ++m)
+			res(m) = res(m) - f(m);
+		cout << "MUMPS Residual = " << res.l2_norm() << endl;
+
+		return;
+	}
+
+	//vector sub blocks
+	const auto& f = f_stretched.block(0);
+	const auto& w = f_stretched.block(1);
+
+	//step 0 (u_0 = inv(K) * f)
+	Vector<double> u_0(size_f);
+	vmult(u_0, f);
+
+	//step 1 (compute C = inv(K)*L_U)
+	DynamicSparsityPattern dsp_C(size_f, size_w);
+	for(unsigned int m = 0; m < size_f; ++m)
+		for(unsigned int n = 0; n < size_w; ++n)
+			dsp_C.add(m, n);
+	SparsityPattern sp_C;
+	sp_C.copy_from(dsp_C);
+	SparseMatrix<double> C(sp_C);
+	Vector<double> L_U_n(size_f);
+	for(unsigned int n = 0; n < size_w; ++n)
+	{
+		for(unsigned int m = 0; m < size_f; ++m)
+			L_U_n[m] = L_U.el(m, n);
+		const auto L_U_n_ = L_U_n;
+		vmult(L_U_n, L_U_n_);
+		for(unsigned int m = 0; m < size_f; ++m)
+			C.set(m, n, L_U_n[m]);
+	}
+
+	//step 2 (compute F = L_V^T*C - D)
+	DynamicSparsityPattern dsp_F(size_w, size_w);
+	for(unsigned int m = 0; m < size_w; ++m)
+		for(unsigned int n = 0; n < size_w; ++n)
+			dsp_F.add(m, n);
+	SparsityPattern sp_F;
+	sp_F.copy_from(dsp_F);
+	SparseMatrix<double> F(sp_F);
+	L_V.Tmmult(F, C, Vector<double>(), false);
+	for(unsigned int m = 0; m < size_w; ++m)
+		for(unsigned int n = 0; n < size_w; ++n)
+			F.add(m, n, -D.el(m, n));
+
+	//step 3 (compute -lambda = inv(F) * (w - L_V^T*u_0))
+	Vector<double> minus_lambda(size_w);
+	L_V.Tvmult(minus_lambda, u_0);
+	for(unsigned int m = 0; m < size_w; ++m)
+		minus_lambda[m] = w[m] - minus_lambda[m];
+
+	SparseDirectUMFPACK inv_F;
+	inv_F.initialize(F);
+	inv_F.solve(minus_lambda);
+
+	//step 4 (compute u = u_0 - C*lambda)
+	C.vmult_add(u_0, minus_lambda);
+
+	//step 5 (transfer solution)
+	for(unsigned int m = 0; m < size_f; ++m)
+		solution[m] = u_0[m];
+	for(unsigned int m = 0; m < size_w; ++m)
+		solution[m + size_f] = -minus_lambda[m];
+	return;
+
+}
+
+
+BlockSolverWrapperMUMPS::BlockSolverWrapperMUMPS(int sym)
+{
+	id.job = -1;
+	id.par = 1;
+	id.sym = sym;
+	id.comm_fortran = -987654;
+	dmumps_c(&id);
+	icntl = id.icntl;
+	cntl = id.cntl;
+}
+
+BlockSolverWrapperMUMPS::~BlockSolverWrapperMUMPS()
+{
+	id.job = -2;
+	dmumps_c(&id);
+}
+
+#endif // DEAL_II_WITH_PETSC
+#endif // DEAL_II_PETSC_WITH_MUMPS
+#endif // DEAL_II_WITH_MPI
+
 
 #ifdef DEAL_II_WITH_UMFPACK
 

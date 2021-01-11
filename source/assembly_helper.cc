@@ -2183,6 +2183,7 @@ const
 	//the actual loop over the cells
 	for(const auto& domain_cell : dof_handler_system.domain_active_iterators())
 	{
+
 		if(domain_cell->is_locally_owned())
 		{
 			//the internal material index needs only to be updated if the cell has another material_id than the one visited before
@@ -2296,9 +2297,9 @@ const
 								local_field_indices.push_back(m);
 								is_local_field[m] = true;
 #ifdef DEBUG
-								const Point<spacedim> unit_support_point = domain_cell->get_fe().unit_support_point(m);
-								const Point<spacedim> support_point = mapping_domain->transform_unit_to_real_cell(domain_cell, unit_support_point);
-								Assert(support_point.distance(q_points[q_point]) < 1e-14, ExcMessage("Was not able to relate dependent fields locally to dof indices. This can be a bug or it may also be that the support points associated with a local independent field do not coincide with the corresponding quadrature points. Check that the quadrature scheme used is consistent with the support point locations of the finite element used for the local field."));
+								const Point<spacedim> unit_support_point = domain_cell->get_fe().unit_support_point(dof_indices_local[m]);
+								const Point<spacedim> quadrature_point = scalar_functional->quadrature.get_points()[q_point];
+								Assert(unit_support_point.distance(quadrature_point) < 1e-14, ExcMessage("Was not able to relate dependent fields locally to dof indices. This can be a bug or it may also be that the support points associated with a local independent field do not coincide with the corresponding quadrature points. Check that the quadrature scheme used is consistent with the support point locations of the finite element used for the local field."));
 #endif
 								break;
 							}
@@ -2352,6 +2353,7 @@ const
 						de_omega_dsol_T.mmult(K_cell, h_omega_2_de_omega_dsol_T, true);
 					}
 				}
+
 				scalar_functional->modify_K_cell_f_cell(domain_cell,
 														K_cell,
 														f_cell,
@@ -5035,6 +5037,7 @@ const
 	//the actual loop over the cells
 	for(const auto& domain_cell : dof_handler_system.domain_active_iterators())
 	{
+
 		if(domain_cell->is_locally_owned())
 		{
 			//the internal material index needs only to be updated if the cell has another material_id than the one visited before
@@ -5217,6 +5220,7 @@ const
 	//the actual loop over the cells
 	for(const auto& interface_cell_domain_cells : dof_handler_system.interface_active_iterators())
 	{
+
 		if(interface_cell_domain_cells.interface_cell->is_locally_owned())
 		{
 			//find out the material id's characterizing the interface
@@ -5238,6 +5242,7 @@ const
 			//loop scalar functionals on cell which enter the total potential non-primitively
 			for(unsigned int scalar_functional_nonprimitive_n = 0; scalar_functional_nonprimitive_n < scalar_functionals_interface_nonprimitive[internal_index].size(); ++scalar_functional_nonprimitive_n)
 			{
+
 				//get the actual index of the scalar functional
 				const unsigned int scalar_functional_n = scalar_functionals_interface_nonprimitive[internal_index][scalar_functional_nonprimitive_n];
 

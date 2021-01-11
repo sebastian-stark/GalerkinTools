@@ -656,6 +656,9 @@ private:
 	 * boundary of the domain of admissibility is decreased by @p safety_distance at most during a single iteration (1.0 would correspond to no safety distance at all).
 	 * This is used to avoid ill-conditioning problems resulting from a too quick approach of the
 	 * boundary of the domain of admissibility.
+	 *
+	 * Additionally, the routines will return an error if the total increment to the local variables (between the initial state and the result of the Newton-Raphson iteration)
+	 * is such that the "distance" between the local solution and the boundary of the domain of admissibility is decreased by more than safety_distance.
 	 */
 	double
 	safety_distance = 0.9;
@@ -667,13 +670,13 @@ private:
 	 * The Newton-Raphson is terminated if the 2-norm of the (scaled) residual is less then sqrt(N)*threshold_residual, with N being the number of local dependent fields.
 	 */
 	double
-	threshold_residual = 1e-12;
+	threshold_residual = 1e-10;
 
 	/**
 	 * maximum number of Newton-Raphson iterations
 	 */
 	unsigned int
-	max_iter = 100;
+	max_iter = 10;
 
 	/**
 	 * maximum number of cutbacks (= step bisections) during line search
@@ -766,7 +769,6 @@ public:
 	 */
 	void
 	set_use_line_search(const bool use_line_search);
-
 };
 
 /**
@@ -817,6 +819,9 @@ private:
 	 * boundary of the domain of admissibility is decreased by @p safety_distance at most during a single iteration (1.0 would correspond to no safety distance at all).
 	 * This is used to avoid ill-conditioning problems resulting from a too quick approach of the
 	 * boundary of the domain of admissibility.
+	 *
+	 * Additionally, the routines will return an error if the total increment to the local variables (between the initial state and the result of the Newton-Raphson iteration)
+	 * is such that the "distance" between the local solution and the boundary of the domain of admissibility is decreased by more than safety_distance.
 	 */
 	double
 	safety_distance = 0.9;
@@ -828,13 +833,13 @@ private:
 	 * The Newton-Raphson is terminated if the 2-norm of the (scaled) residual is less then sqrt(N)*threshold_residual, with N being the number of local dependent fields.
 	 */
 	double
-	threshold_residual = 1e-12;
+	threshold_residual = 1e-10;
 
 	/**
 	 * maximum number of Newton-Raphson iterations
 	 */
 	unsigned int
-	max_iter = 100;
+	max_iter = 10;
 
 	/**
 	 * maximum number of cutbacks (= step bisections) during line search

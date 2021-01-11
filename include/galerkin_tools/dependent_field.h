@@ -116,11 +116,7 @@ public:
 	/**
 	 * A comparison operator, which allows to use DependentFieldTerm in @p std::map and @p std::set.
 	 * The comparison operator is based on a lexicographic ordering according to the members
-	 * DependentFieldTerm::independent_field, DependentFieldTerm::component, DependentFieldTerm::derivatives.
-	 * This means that the member DependentFieldTerm::coefficient does not factor into the comparison, which effectively
-	 * means that two DependentFieldTerm objects are considered equal if they are associated with the same
-	 * DependentFieldTerm::independent_field, DependentFieldTerm::component, DependentFieldTerm::derivatives (the same
-	 * DependentFieldTerm::independent_field here really means "exactly the same object").
+	 * DependentFieldTerm::coefficient, DependentFieldTerm::independent_field, DependentFieldTerm::component, DependentFieldTerm::derivatives.
 	 *
 	 * @param[in]	dependent_field_2	The DependentFieldTerm to compare with
 	 *
@@ -141,6 +137,33 @@ public:
 	operator==(const DependentFieldTerm& dependent_field_2)
 	const;
 };
+
+/**
+ * A custom comparator for dependent field terms. This is used to allow for std::sets of dependent fields in DependentField and DependentField<spacedim,spacedim>.
+ * Coefficients of the dependent field terms are not included in the comparison.
+ */
+template<unsigned int dim, unsigned int spacedim>
+struct DependentFieldComparatorWithoutCoefficient
+{
+	/**
+	 * A comparison operator, which allows to use DependentFieldTerm in @p std::map and @p std::set.
+	 * The comparison operator is based on a lexicographic ordering according to the members
+	 * DependentFieldTerm::independent_field, DependentFieldTerm::component, DependentFieldTerm::derivatives.
+	 * This means that the member DependentFieldTerm::coefficient does not factor into the comparison, which effectively
+	 * means that two DependentFieldTerm objects are considered equal if they are associated with the same
+	 * DependentFieldTerm::independent_field, DependentFieldTerm::component, DependentFieldTerm::derivatives (the same
+	 * DependentFieldTerm::independent_field here really means "exactly the same object").
+	 *
+	 * @param[in]	dependent_field_2	The DependentFieldTerm to compare with
+	 *
+	 * @return 							Boolean indicating result of comparison
+	 */
+	bool
+	operator() (const DependentFieldTerm<dim, spacedim>& dependent_field_1,
+				const DependentFieldTerm<dim, spacedim>& dependent_field_2)
+	const;
+};
+
 
 /**
  * This class is used to define an interface related dependent field \f$e^\Sigma_\nu\f$ (\f$\nu \in N=\left\{1 \hdots N^\mathrm{e,\Sigma}\right\}\f$) according to
@@ -181,7 +204,7 @@ private:
 	 * \f$\sum_{\eta \in H} \left[ a^\Sigma_{\nu\eta} u^\Sigma_\eta + b^\Sigma_{\nu\eta i} \dfrac{\partial u^\Sigma_\eta}{\partial x_i} \right]\f$
 	 * of the dependent field.
 	 */
-	std::set< DependentFieldTerm<dim, spacedim> >
+	std::set< DependentFieldTerm<dim, spacedim>, DependentFieldComparatorWithoutCoefficient<dim, spacedim> >
 	terms_interface;
 
 	/**
@@ -189,7 +212,7 @@ private:
 	 * \f$\sum_{\epsilon \in E} \left[ a^+_{\nu\epsilon} (u^\Omega_\epsilon)^+ + b^+_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^+ \right]\f$
 	 * of the dependent field.
 	 */
-	std::set< DependentFieldTerm<dim+1, spacedim> >
+	std::set< DependentFieldTerm<dim+1, spacedim>, DependentFieldComparatorWithoutCoefficient<dim+1, spacedim> >
 	terms_neighbor_plus;
 
 	/**
@@ -197,13 +220,13 @@ private:
 	 * \f$\sum_{\epsilon \in E} \left[ a^-_{\nu\epsilon} (u^\Omega_\epsilon)^- + b^-_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^- \right]\f$
 	 * of the dependent field.
 	 */
-	std::set< DependentFieldTerm<dim+1, spacedim> >
+	std::set< DependentFieldTerm<dim+1, spacedim>, DependentFieldComparatorWithoutCoefficient<dim+1, spacedim> >
 	terms_neighbor_minus;
 
 	/**
 	 * This set contains all summands making up the term \f$\sum_{\iota \in I}c^\Sigma_{\nu\iota} C_\iota\f$ of the dependent field.
 	 */
-	std::set< DependentFieldTerm<0, spacedim> >
+	std::set< DependentFieldTerm<0, spacedim>, DependentFieldComparatorWithoutCoefficient<0, spacedim> >
 	terms_independent_scalars;
 
 	/**
@@ -414,7 +437,7 @@ public:
 	/**
 	 * @return A const reference to DependentField::terms_interface
 	 */
-	const std::set< DependentFieldTerm<dim, spacedim> >&
+	const std::set< DependentFieldTerm<dim, spacedim>, DependentFieldComparatorWithoutCoefficient<dim, spacedim> >&
 	get_terms_interface()
 	const;
 
@@ -425,14 +448,14 @@ public:
 	 * @return 				A const reference to DependentField::terms_neighbor_minus or
 	 * 						DependentField::terms_neighbor_plus depending on @p side
 	 */
-	const std::set< DependentFieldTerm<dim+1, spacedim> >&
+	const std::set< DependentFieldTerm<dim+1, spacedim>, DependentFieldComparatorWithoutCoefficient<dim+1, spacedim> >&
 	get_terms_neighbor(const InterfaceSide side)
 	const;
 
 	/**
 	 * @return A const reference to DependentField::terms_independent_scalars
 	 */
-	const std::set< DependentFieldTerm<0, spacedim> >&
+	const std::set< DependentFieldTerm<0, spacedim>, DependentFieldComparatorWithoutCoefficient<0, spacedim> >&
 	get_terms_independent_scalars()
 	const;
 
@@ -527,13 +550,13 @@ private:
 	 * \f$\sum_{\epsilon \in E} \left[ a^\Omega_{\lambda\epsilon} u^\Omega_\epsilon + b^\Omega_{\lambda \epsilon i} \dfrac{\partial u^\Omega_\epsilon}{\partial x_i} \right]\f$
 	 * of the dependent field.
 	 */
-	std::set<DependentFieldTerm<spacedim, spacedim>>
+	std::set<DependentFieldTerm<spacedim, spacedim>, DependentFieldComparatorWithoutCoefficient<spacedim, spacedim>>
 	terms_domain;
 
 	/**
 	 * This set contains all summands making up the term \f$\sum_{\iota \in I}c^\Omega_{\lambda\iota} C_\iota\f$ of the dependent field.
 	 */
-	std::set<DependentFieldTerm<0, spacedim>>
+	std::set<DependentFieldTerm<0, spacedim>, DependentFieldComparatorWithoutCoefficient<0, spacedim>>
 	terms_independent_scalars;
 
 	/**
@@ -651,14 +674,14 @@ public:
 	/**
 	 * @return A const reference to DependentField<spacedim, spacedim>::terms_domain
 	 */
-	const std::set< DependentFieldTerm<spacedim, spacedim> >&
+	const std::set< DependentFieldTerm<spacedim, spacedim>, DependentFieldComparatorWithoutCoefficient<spacedim, spacedim> >&
 	get_terms_domain()
 	const;
 
 	/**
 	 * @return A const reference to DependentField<spacedim, spacedim>::terms_independent_scalars
 	 */
-	const std::set< DependentFieldTerm<0, spacedim> >&
+	const std::set< DependentFieldTerm<0, spacedim>, DependentFieldComparatorWithoutCoefficient<0, spacedim> >&
 	get_terms_independent_scalars()
 	const;
 

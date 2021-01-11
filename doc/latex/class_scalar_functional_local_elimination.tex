@@ -34,6 +34,12 @@ virtual double \mbox{\hyperlink{class_scalar_functional_local_elimination_abd08e
 void \mbox{\hyperlink{class_scalar_functional_local_elimination_ae75a23326905e96e1787ef10fd8af930}{set\+\_\+safety\+\_\+distance}} (const double \mbox{\hyperlink{class_scalar_functional_local_elimination_a469c7e8629c32b215aba04c805617d9d}{safety\+\_\+distance}})
 \item 
 void \mbox{\hyperlink{class_scalar_functional_local_elimination_a0165ca6758e3818dbd279a109ed65d3c}{set\+\_\+threshold\+\_\+residual}} (const double \mbox{\hyperlink{class_scalar_functional_local_elimination_a5335c4ea520dfca402e0fb3155e94406}{threshold\+\_\+residual}})
+\item 
+void \mbox{\hyperlink{class_scalar_functional_local_elimination_a5b45946eed402b1865271accc58a9dc5}{set\+\_\+max\+\_\+iter}} (const unsigned int \mbox{\hyperlink{class_scalar_functional_local_elimination_ad9ee2f4e07556665b70531a917a7e07d}{max\+\_\+iter}})
+\item 
+void \mbox{\hyperlink{class_scalar_functional_local_elimination_ad4e02a446f53fe5ee185e43d99defa51}{set\+\_\+max\+\_\+cutbacks}} (const unsigned int \mbox{\hyperlink{class_scalar_functional_local_elimination_af814289c235283b9ce685c5aabb32b51}{max\+\_\+cutbacks}})
+\item 
+void \mbox{\hyperlink{class_scalar_functional_local_elimination_a1a0fb740473442c270f6c76b146f6c61}{set\+\_\+use\+\_\+line\+\_\+search}} (const bool \mbox{\hyperlink{class_scalar_functional_local_elimination_a61f8cd4268582affd339a30ae6a5ea6e}{use\+\_\+line\+\_\+search}})
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -48,7 +54,13 @@ std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_scalar_functional_local
 \item 
 double \mbox{\hyperlink{class_scalar_functional_local_elimination_a469c7e8629c32b215aba04c805617d9d}{safety\+\_\+distance}} = 0.\+9
 \item 
-double \mbox{\hyperlink{class_scalar_functional_local_elimination_a5335c4ea520dfca402e0fb3155e94406}{threshold\+\_\+residual}} = 1\textbf{ e}-\/12
+double \mbox{\hyperlink{class_scalar_functional_local_elimination_a5335c4ea520dfca402e0fb3155e94406}{threshold\+\_\+residual}} = 1\textbf{ e}-\/10
+\item 
+unsigned int \mbox{\hyperlink{class_scalar_functional_local_elimination_ad9ee2f4e07556665b70531a917a7e07d}{max\+\_\+iter}} = 10
+\item 
+unsigned int \mbox{\hyperlink{class_scalar_functional_local_elimination_af814289c235283b9ce685c5aabb32b51}{max\+\_\+cutbacks}} = 10
+\item 
+bool \mbox{\hyperlink{class_scalar_functional_local_elimination_a61f8cd4268582affd339a30ae6a5ea6e}{use\+\_\+line\+\_\+search}} = true
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
@@ -118,7 +130,21 @@ This function calls the maximum step functions of all scalar functionals in \mbo
 
 Reimplemented from \mbox{\hyperlink{class_scalar_functional_ae4f5fbd69cabfda73cc2b30ae0263ca5}{Scalar\+Functional$<$ dim, spacedim $>$}}.
 
-\mbox{\Hypertarget{class_scalar_functional_local_elimination_ae75a23326905e96e1787ef10fd8af930}\label{class_scalar_functional_local_elimination_ae75a23326905e96e1787ef10fd8af930}} 
+\mbox{\Hypertarget{class_scalar_functional_local_elimination_ad4e02a446f53fe5ee185e43d99defa51}\label{class_scalar_functional_local_elimination_ad4e02a446f53fe5ee185e43d99defa51}} 
+\index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!set\_max\_cutbacks@{set\_max\_cutbacks}}
+\index{set\_max\_cutbacks@{set\_max\_cutbacks}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{set\_max\_cutbacks()}{set\_max\_cutbacks()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::set\+\_\+max\+\_\+cutbacks (\begin{DoxyParamCaption}\item[{const unsigned int}]{max\+\_\+cutbacks }\end{DoxyParamCaption})}
+
+Sets \mbox{\hyperlink{class_scalar_functional_local_elimination_af814289c235283b9ce685c5aabb32b51}{Scalar\+Functional\+Local\+Elimination\+::max\+\_\+cutbacks}} \mbox{\Hypertarget{class_scalar_functional_local_elimination_a5b45946eed402b1865271accc58a9dc5}\label{class_scalar_functional_local_elimination_a5b45946eed402b1865271accc58a9dc5}} 
+\index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!set\_max\_iter@{set\_max\_iter}}
+\index{set\_max\_iter@{set\_max\_iter}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{set\_max\_iter()}{set\_max\_iter()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::set\+\_\+max\+\_\+iter (\begin{DoxyParamCaption}\item[{const unsigned int}]{max\+\_\+iter }\end{DoxyParamCaption})}
+
+Sets \mbox{\hyperlink{class_scalar_functional_local_elimination_ad9ee2f4e07556665b70531a917a7e07d}{Scalar\+Functional\+Local\+Elimination\+::max\+\_\+iter}} \mbox{\Hypertarget{class_scalar_functional_local_elimination_ae75a23326905e96e1787ef10fd8af930}\label{class_scalar_functional_local_elimination_ae75a23326905e96e1787ef10fd8af930}} 
 \index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!set\_safety\_distance@{set\_safety\_distance}}
 \index{set\_safety\_distance@{set\_safety\_distance}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{set\_safety\_distance()}{set\_safety\_distance()}}
@@ -132,7 +158,14 @@ Sets \mbox{\hyperlink{class_scalar_functional_local_elimination_a469c7e8629c32b2
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
 void \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::set\+\_\+threshold\+\_\+residual (\begin{DoxyParamCaption}\item[{const double}]{threshold\+\_\+residual }\end{DoxyParamCaption})}
 
-Sets \mbox{\hyperlink{class_scalar_functional_local_elimination_a5335c4ea520dfca402e0fb3155e94406}{Scalar\+Functional\+Local\+Elimination\+::threshold\+\_\+residual}} 
+Sets \mbox{\hyperlink{class_scalar_functional_local_elimination_a5335c4ea520dfca402e0fb3155e94406}{Scalar\+Functional\+Local\+Elimination\+::threshold\+\_\+residual}} \mbox{\Hypertarget{class_scalar_functional_local_elimination_a1a0fb740473442c270f6c76b146f6c61}\label{class_scalar_functional_local_elimination_a1a0fb740473442c270f6c76b146f6c61}} 
+\index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!set\_use\_line\_search@{set\_use\_line\_search}}
+\index{set\_use\_line\_search@{set\_use\_line\_search}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{set\_use\_line\_search()}{set\_use\_line\_search()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::set\+\_\+use\+\_\+line\+\_\+search (\begin{DoxyParamCaption}\item[{const bool}]{use\+\_\+line\+\_\+search }\end{DoxyParamCaption})}
+
+Sets \mbox{\hyperlink{class_scalar_functional_local_elimination_a61f8cd4268582affd339a30ae6a5ea6e}{Scalar\+Functional\+Local\+Elimination\+::use\+\_\+line\+\_\+search}} 
 
 \doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{class_scalar_functional_local_elimination_a3bf2fb48e6b00f9aa9ddcfa41958e97b}\label{class_scalar_functional_local_elimination_a3bf2fb48e6b00f9aa9ddcfa41958e97b}} 
@@ -156,14 +189,30 @@ This contains the dependent field indices of the nonlocal dependent field (in th
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
 std\+::vector$<$std\+::vector$<$unsigned int$>$ $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::map\+\_\+dependent\+\_\+fields\hspace{0.3cm}{\ttfamily [private]}}
 
-This maps, for each underlying scalar functional, its dependent field indices to the dependent field indices of the combined scalar functional \mbox{\Hypertarget{class_scalar_functional_local_elimination_a469c7e8629c32b215aba04c805617d9d}\label{class_scalar_functional_local_elimination_a469c7e8629c32b215aba04c805617d9d}} 
+This maps, for each underlying scalar functional, its dependent field indices to the dependent field indices of the combined scalar functional \mbox{\Hypertarget{class_scalar_functional_local_elimination_af814289c235283b9ce685c5aabb32b51}\label{class_scalar_functional_local_elimination_af814289c235283b9ce685c5aabb32b51}} 
+\index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!max\_cutbacks@{max\_cutbacks}}
+\index{max\_cutbacks@{max\_cutbacks}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{max\_cutbacks}{max\_cutbacks}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+unsigned int \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::max\+\_\+cutbacks = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+maximum number of cutbacks (= step bisections) during line search \mbox{\Hypertarget{class_scalar_functional_local_elimination_ad9ee2f4e07556665b70531a917a7e07d}\label{class_scalar_functional_local_elimination_ad9ee2f4e07556665b70531a917a7e07d}} 
+\index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!max\_iter@{max\_iter}}
+\index{max\_iter@{max\_iter}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{max\_iter}{max\_iter}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+unsigned int \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::max\+\_\+iter = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+maximum number of Newton-\/\+Raphson iterations \mbox{\Hypertarget{class_scalar_functional_local_elimination_a469c7e8629c32b215aba04c805617d9d}\label{class_scalar_functional_local_elimination_a469c7e8629c32b215aba04c805617d9d}} 
 \index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!safety\_distance@{safety\_distance}}
 \index{safety\_distance@{safety\_distance}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{safety\_distance}{safety\_distance}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
 double \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::safety\+\_\+distance = 0.\+9\hspace{0.3cm}{\ttfamily [private]}}
 
-Safety distance to an inadmissible state within a single Newton-\/\+Raphson iteration during determination of the values of the local dependent fields (0 $<$ {\ttfamily safety\+\_\+distance} $<$ 1.\+0). The Newton step length will be decreased such that the \char`\"{}distance\char`\"{} between the solution and the boundary of the domain of admissibility is decreased by {\ttfamily safety\+\_\+distance} at most during a single iteration (1.\+0 would correspond to no safety distance at all). This is used to avoid ill-\/conditioning problems resulting from a too quick approach of the boundary of the domain of admissibility. \mbox{\Hypertarget{class_scalar_functional_local_elimination_a473e3bc585587839f7f7349f9a25bf28}\label{class_scalar_functional_local_elimination_a473e3bc585587839f7f7349f9a25bf28}} 
+Safety distance to an inadmissible state within a single Newton-\/\+Raphson iteration during determination of the values of the local dependent fields (0 $<$ {\ttfamily safety\+\_\+distance} $<$ 1.\+0). The Newton step length will be decreased such that the \char`\"{}distance\char`\"{} between the solution and the boundary of the domain of admissibility is decreased by {\ttfamily safety\+\_\+distance} at most during a single iteration (1.\+0 would correspond to no safety distance at all). This is used to avoid ill-\/conditioning problems resulting from a too quick approach of the boundary of the domain of admissibility.
+
+Additionally, the routines will return an error if the total increment to the local variables (between the initial state and the result of the Newton-\/\+Raphson iteration) is such that the \char`\"{}distance\char`\"{} between the local solution and the boundary of the domain of admissibility is decreased by more than safety\+\_\+distance. \mbox{\Hypertarget{class_scalar_functional_local_elimination_a473e3bc585587839f7f7349f9a25bf28}\label{class_scalar_functional_local_elimination_a473e3bc585587839f7f7349f9a25bf28}} 
 \index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!scalar\_functionals@{scalar\_functionals}}
 \index{scalar\_functionals@{scalar\_functionals}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{scalar\_functionals}{scalar\_functionals}}
@@ -175,11 +224,18 @@ The scalar functionals which form this scalar functional (those scalar functiona
 \index{threshold\_residual@{threshold\_residual}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{threshold\_residual}{threshold\_residual}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-double \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::threshold\+\_\+residual = 1\textbf{ e}-\/12\hspace{0.3cm}{\ttfamily [private]}}
+double \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::threshold\+\_\+residual = 1\textbf{ e}-\/10\hspace{0.3cm}{\ttfamily [private]}}
 
 The threshold for the residual to be used during the Newton-\/\+Raphson iteration.
 
-The Hessian of the first Newton-\/\+Raphson step is used to determine a scaling for the residual such that each element of the residual is divided by the maximum norm of the corresponding row of the Hessian. The Newton-\/\+Raphson is terminated if the 2-\/norm of the (scaled) residual is less then sqrt(\+N)$\ast$threshold\+\_\+residual, with N being the number of local dependent fields. 
+The Hessian of the first Newton-\/\+Raphson step is used to determine a scaling for the residual such that each element of the residual is divided by the maximum norm of the corresponding row of the Hessian. The Newton-\/\+Raphson is terminated if the 2-\/norm of the (scaled) residual is less then sqrt(\+N)$\ast$threshold\+\_\+residual, with N being the number of local dependent fields. \mbox{\Hypertarget{class_scalar_functional_local_elimination_a61f8cd4268582affd339a30ae6a5ea6e}\label{class_scalar_functional_local_elimination_a61f8cd4268582affd339a30ae6a5ea6e}} 
+\index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!use\_line\_search@{use\_line\_search}}
+\index{use\_line\_search@{use\_line\_search}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{use\_line\_search}{use\_line\_search}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+bool \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::use\+\_\+line\+\_\+search = true\hspace{0.3cm}{\ttfamily [private]}}
+
+whether to use the bisection line search, which tries to ensure a decreasing residual between successive iterates 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

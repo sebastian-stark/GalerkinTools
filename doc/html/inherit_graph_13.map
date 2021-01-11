@@ -1,3 +1,20 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_total_potential.html" title=" " alt="" coords="5,5,209,32"/>
+<area shape="rect" id="node1" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="5,391,100,418"/>
+<area shape="rect" id="node2" href="$class_dirichlet_constraint.html" title=" " alt="" coords="183,5,327,47"/>
+<area shape="rect" id="node3" href="$class_do_f_renumbering.html" title=" " alt="" coords="188,71,323,98"/>
+<area shape="rect" id="node5" href="$class_independent_field.html" title=" " alt="" coords="167,123,344,164"/>
+<area shape="rect" id="node6" href="$class_independent_field_3_010_00_01spacedim_01_4.html" title=" " alt="" coords="175,188,335,229"/>
+<area shape="rect" id="node7" href="$class_independent_field.html" title=" " alt="" coords="148,253,363,295"/>
+<area shape="rect" id="node8" href="$class_interface_cell_domain_cells.html" title=" " alt="" coords="161,319,349,360"/>
+<area shape="rect" id="node9" href="$class_interface_cell_domain_cells_do_f.html" title=" " alt="" coords="161,384,349,425"/>
+<area shape="rect" id="node10" href="$class_point_constraint.html" title=" " alt="" coords="172,449,339,491"/>
+<area shape="rect" id="node11" href="$class_point_constraint_3_01spacedim_00_01spacedim_01_4.html" title=" " alt="" coords="153,515,357,556"/>
+<area shape="rect" id="node12" href="$class_scalar_functional.html" title=" " alt="" coords="169,580,342,621"/>
+<area shape="rect" id="node14" href="$class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html" title=" " alt="" coords="150,645,361,687"/>
+<area shape="rect" id="node17" href="$class_total_potential_contribution.html" title=" " alt="" coords="160,711,351,752"/>
+<area shape="rect" id="node18" href="$class_triangulation_system.html" title=" " alt="" coords="177,776,333,817"/>
+<area shape="rect" id="node4" href="$class_do_f_renumbering_offset.html" title=" " alt="" coords="442,71,617,98"/>
+<area shape="rect" id="node13" href="$class_scalar_functional_local_elimination.html" title=" " alt="" coords="411,580,648,621"/>
+<area shape="rect" id="node15" href="$class_linear_material_domain.html" title=" " alt="" coords="446,645,613,687"/>
+<area shape="rect" id="node16" href="$class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html" title=" " alt="" coords="411,711,648,752"/>
 </map>

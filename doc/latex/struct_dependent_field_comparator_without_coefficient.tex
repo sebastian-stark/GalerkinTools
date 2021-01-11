@@ -1,0 +1,42 @@
+\hypertarget{struct_dependent_field_comparator_without_coefficient}{}\doxysection{Dependent\+Field\+Comparator\+Without\+Coefficient$<$ dim, spacedim $>$ Struct Template Reference}
+\label{struct_dependent_field_comparator_without_coefficient}\index{DependentFieldComparatorWithoutCoefficient$<$ dim, spacedim $>$@{DependentFieldComparatorWithoutCoefficient$<$ dim, spacedim $>$}}
+
+
+{\ttfamily \#include $<$dependent\+\_\+field.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient_a0392f0fc6339ac9d803b21a13ff5cf45}{operator()}} (const \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$ \&dependent\+\_\+field\+\_\+1, const \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$ \&dependent\+\_\+field\+\_\+2) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$unsigned int dim, unsigned int spacedim$>$\newline
+struct Dependent\+Field\+Comparator\+Without\+Coefficient$<$ dim, spacedim $>$}
+
+A custom comparator for dependent field terms. This is used to allow for std\+::sets of dependent fields in \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}} and \mbox{\hyperlink{class_dependent_field_3_01spacedim_00_01spacedim_01_4}{Dependent\+Field$<$spacedim,spacedim$>$}}. Coefficients of the dependent field terms are not included in the comparison. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_dependent_field_comparator_without_coefficient_a0392f0fc6339ac9d803b21a13ff5cf45}\label{struct_dependent_field_comparator_without_coefficient_a0392f0fc6339ac9d803b21a13ff5cf45}} 
+\index{DependentFieldComparatorWithoutCoefficient$<$ dim, spacedim $>$@{DependentFieldComparatorWithoutCoefficient$<$ dim, spacedim $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!DependentFieldComparatorWithoutCoefficient$<$ dim, spacedim $>$@{DependentFieldComparatorWithoutCoefficient$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+bool \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$ dim, spacedim $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$ \&}]{dependent\+\_\+field\+\_\+1,  }\item[{const \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$ \&}]{dependent\+\_\+field\+\_\+2 }\end{DoxyParamCaption}) const}
+
+A comparison operator, which allows to use \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}} in {\ttfamily std\+::map} and {\ttfamily std\+::set}. The comparison operator is based on a lexicographic ordering according to the members \mbox{\hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field}}, \mbox{\hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{Dependent\+Field\+Term\+::component}}, \mbox{\hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{Dependent\+Field\+Term\+::derivatives}}. This means that the member \mbox{\hyperlink{class_dependent_field_term_a59a9183a32ac55fb728f3797b68a9f8f}{Dependent\+Field\+Term\+::coefficient}} does not factor into the comparison, which effectively means that two \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}} objects are considered equal if they are associated with the same \mbox{\hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field}}, \mbox{\hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{Dependent\+Field\+Term\+::component}}, \mbox{\hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{Dependent\+Field\+Term\+::derivatives}} (the same \mbox{\hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{Dependent\+Field\+Term\+::independent\+\_\+field}} here really means \char`\"{}exactly the same object\char`\"{}).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dependent\+\_\+field\+\_\+2} & The \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}} to compare with\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean indicating result of comparison 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\mbox{\hyperlink{dependent__field_8h}{dependent\+\_\+field.\+h}}\end{DoxyCompactItemize}

@@ -77,7 +77,7 @@ bool
 DependentFieldTerm<dim, spacedim>::operator<(const DependentFieldTerm& dependent_field_2)
 const
 {
-    return tie(independent_field, component, derivatives) < tie(dependent_field_2.independent_field, dependent_field_2.component, dependent_field_2.derivatives);
+    return tie(coefficient, independent_field, component, derivatives) < tie(dependent_field_2.coefficient, dependent_field_2.independent_field, dependent_field_2.component, dependent_field_2.derivatives);
 }
 
 template<unsigned int dim, unsigned int spacedim>
@@ -85,7 +85,17 @@ bool
 DependentFieldTerm<dim, spacedim>::operator==(const DependentFieldTerm& dependent_field_2)
 const
 {
-    return tie(independent_field, component, derivatives) == tie(dependent_field_2.independent_field, dependent_field_2.component, dependent_field_2.derivatives);
+    return tie(coefficient, independent_field, component, derivatives) == tie(dependent_field_2.coefficient, dependent_field_2.independent_field, dependent_field_2.component, dependent_field_2.derivatives);
+}
+
+template<unsigned int dim, unsigned int spacedim>
+bool
+DependentFieldComparatorWithoutCoefficient<dim, spacedim>::operator()(	const DependentFieldTerm<dim, spacedim>& dependent_field_1,
+																		const DependentFieldTerm<dim, spacedim>& dependent_field_2)
+const
+{
+    return tie(dependent_field_1.independent_field, dependent_field_1.component, dependent_field_1.derivatives) < tie(dependent_field_2.independent_field, dependent_field_2.component, dependent_field_2.derivatives);
+
 }
 
 template<unsigned int dim, unsigned int spacedim>
@@ -200,7 +210,7 @@ DependentField<dim, spacedim>::add_term(double constant)
 }
 
 template<unsigned int dim, unsigned int spacedim>
-const set< DependentFieldTerm<dim, spacedim> >&
+const set< DependentFieldTerm<dim, spacedim>, DependentFieldComparatorWithoutCoefficient<dim, spacedim> >&
 DependentField<dim, spacedim>::get_terms_interface()
 const
 {
@@ -208,7 +218,7 @@ const
 }
 
 template<unsigned int dim, unsigned int spacedim>
-const set< DependentFieldTerm<dim+1, spacedim> >&
+const set< DependentFieldTerm<dim+1, spacedim>, DependentFieldComparatorWithoutCoefficient<dim+1, spacedim> >&
 DependentField<dim, spacedim>::get_terms_neighbor(const InterfaceSide side)
 const
 {
@@ -219,7 +229,7 @@ const
 }
 
 template<unsigned int dim, unsigned int spacedim>
-const set< DependentFieldTerm<0, spacedim> >&
+const set< DependentFieldTerm<0, spacedim>, DependentFieldComparatorWithoutCoefficient<0, spacedim> >&
 DependentField<dim, spacedim>::get_terms_independent_scalars()
 const
 {
@@ -403,7 +413,7 @@ DependentField<spacedim, spacedim>::add_term(double constant)
 }
 
 template<unsigned int spacedim>
-const set< DependentFieldTerm<spacedim, spacedim> >&
+const set< DependentFieldTerm<spacedim, spacedim>, DependentFieldComparatorWithoutCoefficient<spacedim, spacedim> >&
 DependentField<spacedim, spacedim>::get_terms_domain()
 const
 {
@@ -411,7 +421,7 @@ const
 }
 
 template<unsigned int spacedim>
-const set< DependentFieldTerm<0, spacedim> >&
+const set< DependentFieldTerm<0, spacedim>, DependentFieldComparatorWithoutCoefficient<0, spacedim> >&
 DependentField<spacedim, spacedim>::get_terms_independent_scalars()
 const
 {
@@ -507,6 +517,12 @@ template class DependentFieldTerm<2,3>;
 template class DependentFieldTerm<1,2>;
 template class DependentFieldTerm<0,3>;
 template class DependentFieldTerm<0,2>;
+template struct DependentFieldComparatorWithoutCoefficient<2,2>;
+template struct DependentFieldComparatorWithoutCoefficient<3,3>;
+template struct DependentFieldComparatorWithoutCoefficient<1,2>;
+template struct DependentFieldComparatorWithoutCoefficient<2,3>;
+template struct DependentFieldComparatorWithoutCoefficient<0,2>;
+template struct DependentFieldComparatorWithoutCoefficient<0,3>;
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE
 DEAL_II_NAMESPACE_CLOSE

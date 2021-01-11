@@ -17,6 +17,7 @@
     <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>dependent__field_8h.html</filename>
     <class kind="class">DependentFieldTerm</class>
+    <class kind="struct">DependentFieldComparatorWithoutCoefficient</class>
     <class kind="class">DependentField</class>
     <class kind="class">DependentField&lt; spacedim, spacedim &gt;</class>
   </compound>
@@ -97,6 +98,7 @@
     <class kind="class">SolverWrapperPETSc</class>
     <class kind="class">SolverWrapperPETScIterative</class>
     <class kind="class">BlockSolverWrapperPARDISO</class>
+    <class kind="class">BlockSolverWrapperMUMPS</class>
     <class kind="class">BlockSolverWrapperUMFPACK2</class>
     <class kind="class">BlockSolverWrapperMA57</class>
     <member kind="function">
@@ -2106,6 +2108,123 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>BlockSolverWrapperMUMPS</name>
+    <filename>class_block_solver_wrapper_m_u_m_p_s.html</filename>
+    <base>SolverWrapper&lt; dealii::Vector&lt; double &gt;, dealii::BlockVector&lt; double &gt;, TwoBlockMatrix&lt; dealii::SparseMatrix&lt; double &gt; &gt;, TwoBlockSparsityPattern &gt;</base>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>initialize_matrix</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>abb4b34a355239e02e36ac9f6b1928c7e</anchor>
+      <arglist>(const SparseMatrix&lt; double &gt; &amp;matrix)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>initialize_matrix</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>aadddfe6082fe3d3321bc29ef31c1640a</anchor>
+      <arglist>(std::vector&lt; int &gt; &amp;irn, std::vector&lt; int &gt; &amp;jcn, std::vector&lt; double &gt; &amp;A, unsigned int n)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>analyze_matrix</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a9eb5cbca0cf547d391332c379c3acea9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>factorize_matrix</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a39b279f0e0f1c0ecb30702763719d433</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>vmult</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a5e1a3f5918cb70bf9c73391c35b8cf9a</anchor>
+      <arglist>(Vector&lt; double &gt; &amp;x, const Vector&lt; double &gt; &amp;f)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>BlockSolverWrapperMUMPS</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>acce2c39c5e2f289db6b85343a8ab2bdb</anchor>
+      <arglist>(int sym=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~BlockSolverWrapperMUMPS</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a2d2be6d9c412fc9fdc8a76c116c67104</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>solve</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>ae8fdb5cb19687c9e09d4328da66b7d97</anchor>
+      <arglist>(const TwoBlockMatrix&lt; dealii::SparseMatrix&lt; double &gt;&gt; &amp;K_stretched, dealii::Vector&lt; double &gt; &amp;solution, const dealii::BlockVector&lt; double &gt; &amp;f_stretched, const bool symmetric=false)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>DeclException2</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a9568838820205928af55c2a03aecd263</anchor>
+      <arglist>(MUMPSError, std::string, int,&lt;&lt; &quot;MUMPS routine &quot;&lt;&lt; arg1&lt;&lt; &quot; returned error status &quot;&lt;&lt; arg2&lt;&lt; &quot;.&quot;)</arglist>
+    </member>
+    <member kind="variable">
+      <type>DMUMPS_STRUC_C</type>
+      <name>id</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>ad5e82030212e5207e08d9395f015a27c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int *</type>
+      <name>icntl</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>ad83b47666c9b0979ac729cd402005703</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double *</type>
+      <name>cntl</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a51302d5ca5d87e7209c7d8a3913191a1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>unsigned int</type>
+      <name>analyze</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a8be8b4fb9d6a6ebf7184327b5121f1e5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; int &gt;</type>
+      <name>irn</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>ab2c3ba49a45e5570cc498e5b91ae9050</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; int &gt;</type>
+      <name>jcn</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a7573f600b4965a19b556651512d3b26b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; double &gt;</type>
+      <name>A</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a1cc5cb669452e8c75033caa3a2a869fc</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>BlockSolverWrapperPARDISO</name>
     <filename>class_block_solver_wrapper_p_a_r_d_i_s_o.html</filename>
     <base>SolverWrapper&lt; dealii::Vector&lt; double &gt;, dealii::BlockVector&lt; double &gt;, TwoBlockMatrix&lt; dealii::SparseMatrix&lt; double &gt; &gt;, TwoBlockSparsityPattern &gt;</base>
@@ -2581,24 +2700,24 @@
       <arglist>(double constant)</arglist>
     </member>
     <member kind="function">
-      <type>const std::set&lt; DependentFieldTerm&lt; dim, spacedim &gt; &gt; &amp;</type>
+      <type>const std::set&lt; DependentFieldTerm&lt; dim, spacedim &gt;, DependentFieldComparatorWithoutCoefficient&lt; dim, spacedim &gt; &gt; &amp;</type>
       <name>get_terms_interface</name>
       <anchorfile>class_dependent_field.html</anchorfile>
-      <anchor>a4011707cbf799347a63e92d196d0e5e1</anchor>
+      <anchor>a01793fd56b83754bec50e9d4e0c94cae</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>const std::set&lt; DependentFieldTerm&lt; dim+1, spacedim &gt; &gt; &amp;</type>
+      <type>const std::set&lt; DependentFieldTerm&lt; dim+1, spacedim &gt;, DependentFieldComparatorWithoutCoefficient&lt; dim+1, spacedim &gt; &gt; &amp;</type>
       <name>get_terms_neighbor</name>
       <anchorfile>class_dependent_field.html</anchorfile>
-      <anchor>a61f0205166754053e5f7beaa8edf7784</anchor>
+      <anchor>aa88f72409a02de7505ff5ac5d694ed36</anchor>
       <arglist>(const InterfaceSide side) const</arglist>
     </member>
     <member kind="function">
-      <type>const std::set&lt; DependentFieldTerm&lt; 0, spacedim &gt; &gt; &amp;</type>
+      <type>const std::set&lt; DependentFieldTerm&lt; 0, spacedim &gt;, DependentFieldComparatorWithoutCoefficient&lt; 0, spacedim &gt; &gt; &amp;</type>
       <name>get_terms_independent_scalars</name>
       <anchorfile>class_dependent_field.html</anchorfile>
-      <anchor>aab79e0a11ed661b0399d89d646ac2043</anchor>
+      <anchor>a89fed0663944d7f392ddd4b75bcb60a8</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -2665,31 +2784,31 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::set&lt; DependentFieldTerm&lt; dim, spacedim &gt; &gt;</type>
+      <type>std::set&lt; DependentFieldTerm&lt; dim, spacedim &gt;, DependentFieldComparatorWithoutCoefficient&lt; dim, spacedim &gt; &gt;</type>
       <name>terms_interface</name>
       <anchorfile>class_dependent_field.html</anchorfile>
-      <anchor>aa6326d64fd7828c935946136ec5ec122</anchor>
+      <anchor>a463f490ef397b9b65112c94932afcd5c</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::set&lt; DependentFieldTerm&lt; dim+1, spacedim &gt; &gt;</type>
+      <type>std::set&lt; DependentFieldTerm&lt; dim+1, spacedim &gt;, DependentFieldComparatorWithoutCoefficient&lt; dim+1, spacedim &gt; &gt;</type>
       <name>terms_neighbor_plus</name>
       <anchorfile>class_dependent_field.html</anchorfile>
-      <anchor>a05ba04a9f0f50fd881055f3abf46c9f5</anchor>
+      <anchor>a3f7812cd53686afce899438ae999999a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::set&lt; DependentFieldTerm&lt; dim+1, spacedim &gt; &gt;</type>
+      <type>std::set&lt; DependentFieldTerm&lt; dim+1, spacedim &gt;, DependentFieldComparatorWithoutCoefficient&lt; dim+1, spacedim &gt; &gt;</type>
       <name>terms_neighbor_minus</name>
       <anchorfile>class_dependent_field.html</anchorfile>
-      <anchor>a9ac1d390137d52ef6c58b230d540ce38</anchor>
+      <anchor>a406b6490dcd17d80737500184131a3e7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::set&lt; DependentFieldTerm&lt; 0, spacedim &gt; &gt;</type>
+      <type>std::set&lt; DependentFieldTerm&lt; 0, spacedim &gt;, DependentFieldComparatorWithoutCoefficient&lt; 0, spacedim &gt; &gt;</type>
       <name>terms_independent_scalars</name>
       <anchorfile>class_dependent_field.html</anchorfile>
-      <anchor>aa1ba265eae76489d22d3eecd595931c5</anchor>
+      <anchor>a642147ff57d5412554508f293182c649</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -2747,17 +2866,17 @@
       <arglist>(double constant)</arglist>
     </member>
     <member kind="function">
-      <type>const std::set&lt; DependentFieldTerm&lt; spacedim, spacedim &gt; &gt; &amp;</type>
+      <type>const std::set&lt; DependentFieldTerm&lt; spacedim, spacedim &gt;, DependentFieldComparatorWithoutCoefficient&lt; spacedim, spacedim &gt; &gt; &amp;</type>
       <name>get_terms_domain</name>
       <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
-      <anchor>a59cfeaf401a5bc3b14c6abcd6e1c86b5</anchor>
+      <anchor>a953203ce2a0a0e5f9463184f43b19229</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>const std::set&lt; DependentFieldTerm&lt; 0, spacedim &gt; &gt; &amp;</type>
+      <type>const std::set&lt; DependentFieldTerm&lt; 0, spacedim &gt;, DependentFieldComparatorWithoutCoefficient&lt; 0, spacedim &gt; &gt; &amp;</type>
       <name>get_terms_independent_scalars</name>
       <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
-      <anchor>a07f80d40431bdc283ca35e6cf75dc89a</anchor>
+      <anchor>a93ca298c0f912330b2535e886d6ccdf0</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -2817,17 +2936,17 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::set&lt; DependentFieldTerm&lt; spacedim, spacedim &gt; &gt;</type>
+      <type>std::set&lt; DependentFieldTerm&lt; spacedim, spacedim &gt;, DependentFieldComparatorWithoutCoefficient&lt; spacedim, spacedim &gt; &gt;</type>
       <name>terms_domain</name>
       <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
-      <anchor>ace23fb05e85b4c967793e8ffce58f332</anchor>
+      <anchor>a2fc7920fe455597e911f68c56b8d4dbf</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::set&lt; DependentFieldTerm&lt; 0, spacedim &gt; &gt;</type>
+      <type>std::set&lt; DependentFieldTerm&lt; 0, spacedim &gt;, DependentFieldComparatorWithoutCoefficient&lt; 0, spacedim &gt; &gt;</type>
       <name>terms_independent_scalars</name>
       <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
-      <anchor>a54061701af0eea90b02e56612f1491cc</anchor>
+      <anchor>a3a6a89ad2fe38606f09573e6e1450879</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -2843,6 +2962,19 @@
       <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>ae43bf948e8f45545dd7e744689b47d5b</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>DependentFieldComparatorWithoutCoefficient</name>
+    <filename>struct_dependent_field_comparator_without_coefficient.html</filename>
+    <templarg>dim</templarg>
+    <templarg>spacedim</templarg>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator()</name>
+      <anchorfile>struct_dependent_field_comparator_without_coefficient.html</anchorfile>
+      <anchor>a0392f0fc6339ac9d803b21a13ff5cf45</anchor>
+      <arglist>(const DependentFieldTerm&lt; dim, spacedim &gt; &amp;dependent_field_1, const DependentFieldTerm&lt; dim, spacedim &gt; &amp;dependent_field_2) const</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -4681,6 +4813,27 @@
       <anchor>a0165ca6758e3818dbd279a109ed65d3c</anchor>
       <arglist>(const double threshold_residual)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_max_iter</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>a5b45946eed402b1865271accc58a9dc5</anchor>
+      <arglist>(const unsigned int max_iter)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_max_cutbacks</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>ad4e02a446f53fe5ee185e43d99defa51</anchor>
+      <arglist>(const unsigned int max_cutbacks)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_use_line_search</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>a1a0fb740473442c270f6c76b146f6c61</anchor>
+      <arglist>(const bool use_line_search)</arglist>
+    </member>
     <member kind="variable" protection="private">
       <type>const std::vector&lt; ScalarFunctional&lt; dim, spacedim &gt; * &gt;</type>
       <name>scalar_functionals</name>
@@ -4721,6 +4874,27 @@
       <name>threshold_residual</name>
       <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
       <anchor>a5335c4ea520dfca402e0fb3155e94406</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>unsigned int</type>
+      <name>max_iter</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>ad9ee2f4e07556665b70531a917a7e07d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>unsigned int</type>
+      <name>max_cutbacks</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>af814289c235283b9ce685c5aabb32b51</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>use_line_search</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>a61f8cd4268582affd339a30ae6a5ea6e</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -4764,6 +4938,27 @@
       <anchor>ac82db99b2b08cd32f74fadd57ef18e19</anchor>
       <arglist>(const double threshold_residual)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_max_iter</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a7db53d103eae56be4c342d59b241d539</anchor>
+      <arglist>(const unsigned int max_iter)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_max_cutbacks</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a9669b2078915bd408a42612e0b68c008</anchor>
+      <arglist>(const unsigned int max_cutbacks)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_use_line_search</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>ae835e407763fa55661c3405b77be1ef0</anchor>
+      <arglist>(const bool use_line_search)</arglist>
+    </member>
     <member kind="variable" protection="private">
       <type>const std::vector&lt; ScalarFunctional&lt; spacedim, spacedim &gt; * &gt;</type>
       <name>scalar_functionals</name>
@@ -4804,6 +4999,27 @@
       <name>threshold_residual</name>
       <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>a2a268af4bf9867e51446fbd33c488fe9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>unsigned int</type>
+      <name>max_iter</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a329bf04de49be40085b0b70bf4d5a039</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>unsigned int</type>
+      <name>max_cutbacks</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a230b126730b702170f6b7edd1d23c735</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>use_line_search</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>ac3301f2f6f6e71675ab4d21487484946</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -5439,6 +5655,46 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>parallel::TwoBlockMatrix</name>
+    <filename>classparallel_1_1_two_block_matrix.html</filename>
+    <templarg></templarg>
+    <member kind="function">
+      <type></type>
+      <name>TwoBlockMatrix</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a93990616301e671f9a967fbc49029674</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TwoBlockMatrix</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>afa9b3f1c3d74a211c334c8f6e59b52f6</anchor>
+      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reinit</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a0e112695034c69aa8a430efd9e7c37ef</anchor>
+      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
+    </member>
+    <member kind="function">
+      <type>dealii::GalerkinTools::parallel::TwoBlockMatrix&lt; MatrixType &gt; &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a8e2ba56ebc9ee5ad1fe7b1d8604e9669</anchor>
+      <arglist>(const double value)</arglist>
+    </member>
+    <member kind="function">
+      <type>const MPI_Comm &amp;</type>
+      <name>get_communicator</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>add0cc2ee49d139e1dbc5554fd62dd5f5</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>TwoBlockMatrix</name>
     <filename>class_two_block_matrix.html</filename>
     <templarg></templarg>
@@ -5686,46 +5942,6 @@
       <anchorfile>class_two_block_matrix.html</anchorfile>
       <anchor>a7d63b4c4c1e499c9f9913444dc5fd6b6</anchor>
       <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>parallel::TwoBlockMatrix</name>
-    <filename>classparallel_1_1_two_block_matrix.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type></type>
-      <name>TwoBlockMatrix</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a93990616301e671f9a967fbc49029674</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>TwoBlockMatrix</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>afa9b3f1c3d74a211c334c8f6e59b52f6</anchor>
-      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reinit</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a0e112695034c69aa8a430efd9e7c37ef</anchor>
-      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
-    </member>
-    <member kind="function">
-      <type>dealii::GalerkinTools::parallel::TwoBlockMatrix&lt; MatrixType &gt; &amp;</type>
-      <name>operator=</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a8e2ba56ebc9ee5ad1fe7b1d8604e9669</anchor>
-      <arglist>(const double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>const MPI_Comm &amp;</type>
-      <name>get_communicator</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>add0cc2ee49d139e1dbc5554fd62dd5f5</anchor>
-      <arglist>() const</arglist>
     </member>
   </compound>
   <compound kind="class">
