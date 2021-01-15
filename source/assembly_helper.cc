@@ -685,10 +685,7 @@ pout(cout, this_proc == 0)
 		{
 			for(unsigned int shapefun = 0; shapefun<fe_collection_domain[fe_system_n].dofs_per_cell; ++shapefun)
 			{
-				const unsigned int base_element = fe_collection_domain[fe_system_n].system_to_base_index(shapefun).first.first;
-				//we check here that the finite element is defined in terms of support points, because it seems to be possible
-				//that has_support_on_face() returns true even if a finite element has no support points defined
-				if(fe_collection_domain[fe_system_n].base_element(base_element).has_support_points() && fe_collection_domain[fe_system_n].has_support_on_face(shapefun, face))
+				if(fe_collection_domain[fe_system_n].has_support_on_face(shapefun, face))
 				{
 					//we can safely do this because we have checked that the finite element is defined in terms of support points
 					const unsigned int component = fe_collection_domain[fe_system_n].system_to_component_index(shapefun).first;
@@ -1271,14 +1268,41 @@ const
 					for(unsigned int component = 0; component < u_omega_n->n_components; ++component)
 					{
 						const unsigned int global_component_index = global_component_indices_u_omega.at(u_omega_n) + component;
+						const auto base_element_index_component = domain_cell->get_fe().component_to_base_index(global_component_index);
+						const auto& base_element = domain_cell->get_fe().base_element(base_element_index_component.first);
 						const auto& shapefuns = components_to_shapefuns_domain[fe_system_id][global_component_index];
-						for(const auto& shapefun : shapefuns)
+						if(shapefuns.size() == 0)
+							continue;
+						if(base_element.has_support_points())
 						{
-							unit_support_point_domain = domain_cell->get_fe().unit_support_point(shapefun);
-							support_point = mapping_domain->transform_unit_to_real_cell(domain_cell, unit_support_point_domain);
-							const double u_omega_val = u_omega_n->initial_vals->value(support_point, component);
-							const unsigned int global_dof_index = dof_indices_local_global[shapefun];
-							initial_fields[global_dof_index] = u_omega_val;
+							for(const auto& shapefun : shapefuns)
+							{
+								unit_support_point_domain = domain_cell->get_fe().unit_support_point(shapefun);
+								support_point = mapping_domain->transform_unit_to_real_cell(domain_cell, unit_support_point_domain);
+								const double u_omega_val = u_omega_n->initial_vals->value(support_point, component);
+								const unsigned int global_dof_index = dof_indices_local_global[shapefun];
+								initial_fields[global_dof_index] = u_omega_val;
+							}
+						}
+						else if(base_element.n_components() == 1)
+						{
+							const auto constant_modes = base_element.get_constant_modes().first;
+							for(unsigned int m = 0; m < constant_modes.size(1); ++m)
+							Assert(constant_modes.size(0) >= 1, ExcMessage("The base element for which initial values are to be prescribed does apparently not exhibit a constant mode"));
+							const double u_omega_val = u_omega_n->initial_vals->value(domain_cell->center(), component);
+							for(const auto& shapefun : shapefuns)
+							{
+								const unsigned int dof_index_in_base_element = domain_cell->get_fe().system_to_base_index(shapefun).second;
+								if(constant_modes[0][dof_index_in_base_element])
+								{
+									const unsigned int global_dof_index = dof_indices_local_global[shapefun];
+									initial_fields[global_dof_index] = u_omega_val;
+								}
+							}
+						}
+						else
+						{
+							Assert(false, ExcMessage("You have tried to prescribe initial values for a finite element for which this is not implemented yet"));
 						}
 					}
 				}
@@ -1508,7 +1532,7 @@ const
 	{
 		if(constraint->get_constraint_is_active())
 		{
-			const unsigned int dof_index = get_dof_index_at_point_omega(constraint->independent_field, constraint->component, constraint->get_X());
+			const unsigned int dof_index = constraint->ignore_point == false ? get_dof_index_at_point_omega(constraint->independent_field, constraint->component, constraint->get_X()) : dof_handler_system.get_single_dof_index_component_domain(get_u_omega_global_component_index(*(constraint->independent_field)) + constraint->component);
 			if(dof_index != numbers::invalid_size_type)
 			{
 				if( (!constraint_matrix.is_constrained(dof_index)) && (!constraints_ignore.is_constrained(dof_index)) )
@@ -1545,7 +1569,7 @@ const
 	{
 		if(constraint->get_constraint_is_active())
 		{
-			const unsigned int dof_index = get_dof_index_at_point_sigma(constraint->independent_field, constraint->component, constraint->get_X());
+			const unsigned int dof_index = constraint->ignore_point == false ? get_dof_index_at_point_sigma(constraint->independent_field, constraint->component, constraint->get_X()) : dof_handler_system.get_single_dof_index_component_interface(get_u_sigma_global_component_index(*(constraint->independent_field)) + constraint->component);
 			if(dof_index != numbers::invalid_size_type)
 			{
 				if( (!constraint_matrix.is_constrained(dof_index)) && (!constraints_ignore.is_constrained(dof_index)) )

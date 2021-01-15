@@ -1306,8 +1306,10 @@ public:
 	 *
 	 * @tparam		VectorType				The type used for the initial fields vector
 	 *
-	 * @warning		Currently, this method only works if all finite elements are associated with support points.
-	 * 				If this is not the case, the method will fail.
+	 * @warning		Currently, this method only works if the underlying base elements are either associated with support points or only have a single vector component.
+	 * 				In the former case, the values at the support points are assigned. In the latter case, a constant value based on the initial field value at the center
+	 * 				is prescribed for each cell if the element has constant modes allowing for this procedure.
+	 * 				Other cases are not currently implemented.
 	 */
 	template<class VectorType>
 	void

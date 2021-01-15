@@ -87,14 +87,16 @@ PointConstraint<dim, spacedim>::PointConstraint(const IndependentField<dim, spac
 												const Point<spacedim>					X,
 												const Function<spacedim>* const 		constraint_inhomogeneity,
 												const IndependentField<0, spacedim>*	independent_scalar,
-												const Function<spacedim>* const 		coefficient_c)
+												const Function<spacedim>* const 		coefficient_c,
+												const bool								ignore_point)
 :
 X(X),
 independent_field(&independent_field),
 component(component),
 constraint_inhomogeneity(constraint_inhomogeneity),
 independent_scalar(independent_scalar),
-coefficient_c(coefficient_c)
+coefficient_c(coefficient_c),
+ignore_point(ignore_point)
 {
 	Assert(component < independent_field.n_components, ExcMessage("You are trying to constrain a degree of freedom which does not exist!"));
 	if(constraint_inhomogeneity != nullptr)
@@ -155,14 +157,16 @@ PointConstraint<spacedim, spacedim>::PointConstraint(	const IndependentField<spa
 														const Point<spacedim>						X,
 														const Function<spacedim>* const 			constraint_inhomogeneity,
 														const IndependentField<0, spacedim>*		independent_scalar,
-														const Function<spacedim>* const 			coefficient_c)
+														const Function<spacedim>* const 			coefficient_c,
+														const bool									ignore_point)
 :
 X(X),
 independent_field(&independent_field),
 component(component),
 constraint_inhomogeneity(constraint_inhomogeneity),
 independent_scalar(independent_scalar),
-coefficient_c(coefficient_c)
+coefficient_c(coefficient_c),
+ignore_point(ignore_point)
 {
 	Assert(component < independent_field.n_components, ExcMessage("You are trying to constrain a degree of freedom which does not exist!"));
 	if(constraint_inhomogeneity != nullptr)

@@ -249,6 +249,13 @@ public:
 	coefficient_c;
 
 	/**
+	 * If this is true, the point PointConstraint::X is ignored and an arbitrary dof index of the independent field is constrained.
+	 * This is useful to fix the constant of a field, which is discretized by a finite element without support points.
+	 */
+	const bool
+	ignore_point = false;
+
+	/**
 	 * The constructor of the class
 	 *
 	 * @param[in]	independent_field			PointConstraint::independent_field
@@ -262,13 +269,16 @@ public:
 	 * @param[in]	independent_scalar			PointConstraint::independent_scalar
 	 *
 	 * @param[in]	coefficient_c				PointConstraint::coefficient_c
+	 *
+	 * @param[in]	ignore_point				PointConstraint::ignore_point
 	 */
 	PointConstraint(const IndependentField<dim, spacedim>& 	independent_field,
 					const unsigned int						component,
 					const Point<spacedim>					X,
 					const Function<spacedim>* const			constraint_inhomogeneity = nullptr,
 					const IndependentField<0, spacedim>*	independent_scalar = nullptr,
-					const Function<spacedim>* const			coefficient_c = nullptr);
+					const Function<spacedim>* const			coefficient_c = nullptr,
+					const bool								ignore_point = false);
 
 	/**
 	 * The destructor of PointConstraint essentially checks before destruction that the
@@ -392,6 +402,13 @@ public:
 	coefficient_c;
 
 	/**
+	 * If this is true, the point PointConstraint::X is ignored and an arbitrary dof index of the independent field is constrained.
+	 * This is useful to fix the constant of a field, which is discretized by a finite element without support points.
+	 */
+	const bool
+	ignore_point = false;
+
+	/**
 	 * The constructor of the class
 	 *
 	 * @param[in]	independent_field			PointConstraint<spacedim,spacedim>::independent_field
@@ -405,13 +422,16 @@ public:
 	 * @param[in]	independent_scalar			PointConstraint::independent_scalar
 	 *
 	 * @param[in]	coefficient_c				PointConstraint::coefficient_c
+	 *
+	 * @param[in]	ignore_point				PointConstraint::ignore_point
 	 */
 	PointConstraint(const IndependentField<spacedim, spacedim>& independent_field,
 					const unsigned int							component,
 					const Point<spacedim>						X,
 					const Function<spacedim>* const				constraint_inhomogeneity = nullptr,
 					const IndependentField<0, spacedim>*		independent_scalar = nullptr,
-					const Function<spacedim>* const				coefficient_c = nullptr);
+					const Function<spacedim>* const				coefficient_c = nullptr,
+					const bool									ignore_point = false);
 
 	/**
 	 * The destructor of PointConstraint<spacedim,spacedim> essentially checks before destruction that the
