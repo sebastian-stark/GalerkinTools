@@ -93,9 +93,9 @@ const std\+::vector$<$ \textbf{ Index\+Set} $>$ \mbox{\hyperlink{class_assembly_
 \item 
 const std\+::vector$<$ \textbf{ Index\+Set} $>$ \mbox{\hyperlink{class_assembly_helper_af1a81fd16e7692501189d9c0bd96bc2d}{get\+\_\+locally\+\_\+owned\+\_\+indices\+\_\+blocks}} () const
 \item 
-unsigned int \mbox{\hyperlink{class_assembly_helper_a9950dbca7be157c964bd7403fccfde8a}{get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+omega}} (const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ $\ast$\mbox{\hyperlink{class_assembly_helper_a1952a054a839a7a683ca108013e7d976}{u\+\_\+omega}}, const unsigned int component, const \textbf{ Point}$<$ spacedim $>$ p) const
+unsigned int \mbox{\hyperlink{class_assembly_helper_ad798d22d994c4c18a05503ae9db4b408}{get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+omega}} (const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ $\ast$\mbox{\hyperlink{class_assembly_helper_a1952a054a839a7a683ca108013e7d976}{u\+\_\+omega}}, const unsigned int component, const \textbf{ Point}$<$ spacedim $>$ p, const std\+::set$<$ unsigned int $>$ ignore\+\_\+dofs=std\+::set$<$ unsigned int $>$()) const
 \item 
-unsigned int \mbox{\hyperlink{class_assembly_helper_a1272cbcddc6b23108d3e090c2e704339}{get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+sigma}} (const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim-\/1, spacedim $>$ $\ast$\mbox{\hyperlink{class_assembly_helper_a696fe649b3503561235aa1ccbf2ddeef}{u\+\_\+sigma}}, const unsigned int component, const \textbf{ Point}$<$ spacedim $>$ p) const
+unsigned int \mbox{\hyperlink{class_assembly_helper_a256dc4f0fc5c62f130d75734ea94249f}{get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+sigma}} (const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim-\/1, spacedim $>$ $\ast$\mbox{\hyperlink{class_assembly_helper_a696fe649b3503561235aa1ccbf2ddeef}{u\+\_\+sigma}}, const unsigned int component, const \textbf{ Point}$<$ spacedim $>$ p, const std\+::set$<$ unsigned int $>$ ignore\+\_\+dofs=std\+::set$<$ unsigned int $>$()) const
 \item 
 void \mbox{\hyperlink{class_assembly_helper_ab0dabb84cc4a0497dbeb73a9eec3071d}{print\+\_\+dof\+\_\+information}} (const unsigned int dof\+\_\+index) const
 \end{DoxyCompactItemize}
@@ -681,12 +681,12 @@ Function returning the \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handle
 \begin{DoxyReturn}{Returns}
 the \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}} \mbox{\hyperlink{class_assembly_helper_a885e660c749e91a35e3279643ebcd87f}{Assembly\+Helper\+::dof\+\_\+handler\+\_\+system}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_assembly_helper_a9950dbca7be157c964bd7403fccfde8a}\label{class_assembly_helper_a9950dbca7be157c964bd7403fccfde8a}} 
+\mbox{\Hypertarget{class_assembly_helper_ad798d22d994c4c18a05503ae9db4b408}\label{class_assembly_helper_ad798d22d994c4c18a05503ae9db4b408}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!get\_dof\_index\_at\_point\_omega@{get\_dof\_index\_at\_point\_omega}}
 \index{get\_dof\_index\_at\_point\_omega@{get\_dof\_index\_at\_point\_omega}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_index\_at\_point\_omega()}{get\_dof\_index\_at\_point\_omega()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-unsigned int \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+omega (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ $\ast$}]{u\+\_\+omega,  }\item[{const unsigned int}]{component,  }\item[{const \textbf{ Point}$<$ spacedim $>$}]{p }\end{DoxyParamCaption}) const}
+unsigned int \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+omega (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ $\ast$}]{u\+\_\+omega,  }\item[{const unsigned int}]{component,  }\item[{const \textbf{ Point}$<$ spacedim $>$}]{p,  }\item[{const std\+::set$<$ unsigned int $>$}]{ignore\+\_\+dofs = {\ttfamily std\+:\+:set$<$~unsigned~int~$>$()} }\end{DoxyParamCaption}) const}
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -696,16 +696,18 @@ unsigned int \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ space
 \hline
 \mbox{\texttt{ in}}  & {\em p} & point\\
 \hline
+\mbox{\texttt{ in}}  & {\em ignore\+\_\+dofs} & dofs to ignore during search -\/ this allows for finding duplicate dofs\\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 global dof index of {\ttfamily component} of {\ttfamily u\+\_\+omega} at point {\ttfamily point} . This requires that the FE used for the independent field has support points defined. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_assembly_helper_a1272cbcddc6b23108d3e090c2e704339}\label{class_assembly_helper_a1272cbcddc6b23108d3e090c2e704339}} 
+\mbox{\Hypertarget{class_assembly_helper_a256dc4f0fc5c62f130d75734ea94249f}\label{class_assembly_helper_a256dc4f0fc5c62f130d75734ea94249f}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!get\_dof\_index\_at\_point\_sigma@{get\_dof\_index\_at\_point\_sigma}}
 \index{get\_dof\_index\_at\_point\_sigma@{get\_dof\_index\_at\_point\_sigma}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_index\_at\_point\_sigma()}{get\_dof\_index\_at\_point\_sigma()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-unsigned int \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+sigma (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim-\/1, spacedim $>$ $\ast$}]{u\+\_\+sigma,  }\item[{const unsigned int}]{component,  }\item[{const \textbf{ Point}$<$ spacedim $>$}]{p }\end{DoxyParamCaption}) const}
+unsigned int \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+sigma (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim-\/1, spacedim $>$ $\ast$}]{u\+\_\+sigma,  }\item[{const unsigned int}]{component,  }\item[{const \textbf{ Point}$<$ spacedim $>$}]{p,  }\item[{const std\+::set$<$ unsigned int $>$}]{ignore\+\_\+dofs = {\ttfamily std\+:\+:set$<$~unsigned~int~$>$()} }\end{DoxyParamCaption}) const}
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -714,6 +716,8 @@ unsigned int \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ space
 \mbox{\texttt{ in}}  & {\em component} & component\\
 \hline
 \mbox{\texttt{ in}}  & {\em p} & point\\
+\hline
+\mbox{\texttt{ in}}  & {\em ignore\+\_\+dofs} & dofs to ignore during search -\/ this allows for finding duplicate dofs\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -771,7 +775,7 @@ Method returning the global initial fields vector (i.\+e., a vector containing t
 \hline
 \end{DoxyTemplParams}
 \begin{DoxyWarning}{Warning}
-Currently, this method only works if all finite elements are associated with support points. If this is not the case, the method will fail. 
+Currently, this method only works if the underlying base elements are either associated with support points or only have a single vector component. In the former case, the values at the support points are assigned. In the latter case, a constant value based on the initial field value at the center is prescribed for each cell if the element has constant modes allowing for this procedure. Other cases are not currently implemented. 
 \end{DoxyWarning}
 \mbox{\Hypertarget{class_assembly_helper_a8ecc73fbc0e71716805c97498a83833a}\label{class_assembly_helper_a8ecc73fbc0e71716805c97498a83833a}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!get\_locally\_owned\_indices@{get\_locally\_owned\_indices}}

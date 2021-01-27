@@ -25,7 +25,7 @@ Collaboration diagram for Point\+Constraint$<$ dim, spacedim $>$\+:\nopagebreak
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_point_constraint_afa8c8b7998265207f2555a09fbe214ef}{Point\+Constraint}} (const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&\mbox{\hyperlink{class_point_constraint_a8d27c23d2d6e1e64f8b2a36f7c950efb}{independent\+\_\+field}}, const unsigned int \mbox{\hyperlink{class_point_constraint_af15fcbe78e2f8233ae1ff4b52b9d9de5}{component}}, const \textbf{ Point}$<$ spacedim $>$ \mbox{\hyperlink{class_point_constraint_ac021367793862b52580cc292bb7b0ea7}{X}}, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_point_constraint_ace3fa5f9542ee73d502abd78f48da032}{constraint\+\_\+inhomogeneity}}=nullptr, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$\mbox{\hyperlink{class_point_constraint_a4f6c27593a39a2b1064020c256120f0a}{independent\+\_\+scalar}}=nullptr, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_point_constraint_a5b1a621c07e8ece928f44e2dabd01d25}{coefficient\+\_\+c}}=nullptr)
+\mbox{\hyperlink{class_point_constraint_a3820c38236423c0bf32129258b8f24f8}{Point\+Constraint}} (const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&\mbox{\hyperlink{class_point_constraint_a8d27c23d2d6e1e64f8b2a36f7c950efb}{independent\+\_\+field}}, const unsigned int \mbox{\hyperlink{class_point_constraint_af15fcbe78e2f8233ae1ff4b52b9d9de5}{component}}, const \textbf{ Point}$<$ spacedim $>$ \mbox{\hyperlink{class_point_constraint_ac021367793862b52580cc292bb7b0ea7}{X}}, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_point_constraint_ace3fa5f9542ee73d502abd78f48da032}{constraint\+\_\+inhomogeneity}}=nullptr, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$\mbox{\hyperlink{class_point_constraint_a4f6c27593a39a2b1064020c256120f0a}{independent\+\_\+scalar}}=nullptr, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_point_constraint_a5b1a621c07e8ece928f44e2dabd01d25}{coefficient\+\_\+c}}=nullptr, const bool \mbox{\hyperlink{class_point_constraint_a5c2605fac61aab48c65d76137c172a78}{ignore\+\_\+point}}=false)
 \item 
 virtual \mbox{\hyperlink{class_point_constraint_afcaa6aaeb90f8128f121ac3797f77f03}{$\sim$\+Point\+Constraint}} ()
 \item 
@@ -51,6 +51,8 @@ const \textbf{ Smart\+Pointer}$<$ const \textbf{ Function}$<$ spacedim $>$ $>$ \
 const \textbf{ Smart\+Pointer}$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $>$ \mbox{\hyperlink{class_point_constraint_a4f6c27593a39a2b1064020c256120f0a}{independent\+\_\+scalar}}
 \item 
 const \textbf{ Smart\+Pointer}$<$ const \textbf{ Function}$<$ spacedim $>$ $>$ \mbox{\hyperlink{class_point_constraint_a5b1a621c07e8ece928f44e2dabd01d25}{coefficient\+\_\+c}}
+\item 
+const bool \mbox{\hyperlink{class_point_constraint_a5c2605fac61aab48c65d76137c172a78}{ignore\+\_\+point}} = false
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -80,12 +82,12 @@ The Dirichlet type condition has the form $u^\Sigma_\eta(\boldsymbol{X}) = b^\Si
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_point_constraint_afa8c8b7998265207f2555a09fbe214ef}\label{class_point_constraint_afa8c8b7998265207f2555a09fbe214ef}} 
+\mbox{\Hypertarget{class_point_constraint_a3820c38236423c0bf32129258b8f24f8}\label{class_point_constraint_a3820c38236423c0bf32129258b8f24f8}} 
 \index{PointConstraint$<$ dim, spacedim $>$@{PointConstraint$<$ dim, spacedim $>$}!PointConstraint@{PointConstraint}}
 \index{PointConstraint@{PointConstraint}!PointConstraint$<$ dim, spacedim $>$@{PointConstraint$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{PointConstraint()}{PointConstraint()}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-\mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ dim, spacedim $>$\+::\mbox{\hyperlink{class_point_constraint}{Point\+Constraint}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&}]{independent\+\_\+field,  }\item[{const unsigned int}]{component,  }\item[{const \textbf{ Point}$<$ spacedim $>$}]{X,  }\item[{const \textbf{ Function}$<$ spacedim $>$ $\ast$const}]{constraint\+\_\+inhomogeneity = {\ttfamily nullptr},  }\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$}]{independent\+\_\+scalar = {\ttfamily nullptr},  }\item[{const \textbf{ Function}$<$ spacedim $>$ $\ast$const}]{coefficient\+\_\+c = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ dim, spacedim $>$\+::\mbox{\hyperlink{class_point_constraint}{Point\+Constraint}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&}]{independent\+\_\+field,  }\item[{const unsigned int}]{component,  }\item[{const \textbf{ Point}$<$ spacedim $>$}]{X,  }\item[{const \textbf{ Function}$<$ spacedim $>$ $\ast$const}]{constraint\+\_\+inhomogeneity = {\ttfamily nullptr},  }\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$}]{independent\+\_\+scalar = {\ttfamily nullptr},  }\item[{const \textbf{ Function}$<$ spacedim $>$ $\ast$const}]{coefficient\+\_\+c = {\ttfamily nullptr},  }\item[{const bool}]{ignore\+\_\+point = {\ttfamily false} }\end{DoxyParamCaption})}
 
 The constructor of the class
 
@@ -101,7 +103,9 @@ The constructor of the class
 \hline
 \mbox{\texttt{ in}}  & {\em independent\+\_\+scalar} & \mbox{\hyperlink{class_point_constraint_a4f6c27593a39a2b1064020c256120f0a}{Point\+Constraint\+::independent\+\_\+scalar}}\\
 \hline
-\mbox{\texttt{ in}}  & {\em coefficient\+\_\+c} & \mbox{\hyperlink{class_point_constraint_a5b1a621c07e8ece928f44e2dabd01d25}{Point\+Constraint\+::coefficient\+\_\+c}} \\
+\mbox{\texttt{ in}}  & {\em coefficient\+\_\+c} & \mbox{\hyperlink{class_point_constraint_a5b1a621c07e8ece928f44e2dabd01d25}{Point\+Constraint\+::coefficient\+\_\+c}}\\
+\hline
+\mbox{\texttt{ in}}  & {\em ignore\+\_\+point} & \mbox{\hyperlink{class_point_constraint_a5c2605fac61aab48c65d76137c172a78}{Point\+Constraint\+::ignore\+\_\+point}} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_point_constraint_afcaa6aaeb90f8128f121ac3797f77f03}\label{class_point_constraint_afcaa6aaeb90f8128f121ac3797f77f03}} 
@@ -201,7 +205,14 @@ A \textbf{ Function} (or, rather, an instance of a derived class) specifying the
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
 bool \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ dim, spacedim $>$\+::constraint\+\_\+is\+\_\+active = true\hspace{0.3cm}{\ttfamily [private]}}
 
-Bool indicating whether constraint is currently active \mbox{\Hypertarget{class_point_constraint_a8d27c23d2d6e1e64f8b2a36f7c950efb}\label{class_point_constraint_a8d27c23d2d6e1e64f8b2a36f7c950efb}} 
+Bool indicating whether constraint is currently active \mbox{\Hypertarget{class_point_constraint_a5c2605fac61aab48c65d76137c172a78}\label{class_point_constraint_a5c2605fac61aab48c65d76137c172a78}} 
+\index{PointConstraint$<$ dim, spacedim $>$@{PointConstraint$<$ dim, spacedim $>$}!ignore\_point@{ignore\_point}}
+\index{ignore\_point@{ignore\_point}!PointConstraint$<$ dim, spacedim $>$@{PointConstraint$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{ignore\_point}{ignore\_point}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+const bool \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ dim, spacedim $>$\+::ignore\+\_\+point = false}
+
+If this is true, the point \mbox{\hyperlink{class_point_constraint_ac021367793862b52580cc292bb7b0ea7}{Point\+Constraint\+::X}} is ignored and an arbitrary dof index of the independent field is constrained. This is useful to fix the constant of a field, which is discretized by a finite element without support points. \mbox{\Hypertarget{class_point_constraint_a8d27c23d2d6e1e64f8b2a36f7c950efb}\label{class_point_constraint_a8d27c23d2d6e1e64f8b2a36f7c950efb}} 
 \index{PointConstraint$<$ dim, spacedim $>$@{PointConstraint$<$ dim, spacedim $>$}!independent\_field@{independent\_field}}
 \index{independent\_field@{independent\_field}!PointConstraint$<$ dim, spacedim $>$@{PointConstraint$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{independent\_field}{independent\_field}}

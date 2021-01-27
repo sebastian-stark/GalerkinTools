@@ -104,8 +104,8 @@ Collaboration diagram for PointConstraint&lt; dim, spacedim &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afa8c8b7998265207f2555a09fbe214ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point_constraint.html#afa8c8b7998265207f2555a09fbe214ef">PointConstraint</a> (const <a class="el" href="class_independent_field.html">IndependentField</a>&lt; dim, spacedim &gt; &amp;<a class="el" href="class_point_constraint.html#a8d27c23d2d6e1e64f8b2a36f7c950efb">independent_field</a>, const unsigned int <a class="el" href="class_point_constraint.html#af15fcbe78e2f8233ae1ff4b52b9d9de5">component</a>, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt; <a class="el" href="class_point_constraint.html#ac021367793862b52580cc292bb7b0ea7">X</a>, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html">Function</a>&lt; spacedim &gt; *const <a class="el" href="class_point_constraint.html#ace3fa5f9542ee73d502abd78f48da032">constraint_inhomogeneity</a>=nullptr, const <a class="el" href="class_independent_field.html">IndependentField</a>&lt; 0, spacedim &gt; *<a class="el" href="class_point_constraint.html#a4f6c27593a39a2b1064020c256120f0a">independent_scalar</a>=nullptr, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html">Function</a>&lt; spacedim &gt; *const <a class="el" href="class_point_constraint.html#a5b1a621c07e8ece928f44e2dabd01d25">coefficient_c</a>=nullptr)</td></tr>
-<tr class="separator:afa8c8b7998265207f2555a09fbe214ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3820c38236423c0bf32129258b8f24f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point_constraint.html#a3820c38236423c0bf32129258b8f24f8">PointConstraint</a> (const <a class="el" href="class_independent_field.html">IndependentField</a>&lt; dim, spacedim &gt; &amp;<a class="el" href="class_point_constraint.html#a8d27c23d2d6e1e64f8b2a36f7c950efb">independent_field</a>, const unsigned int <a class="el" href="class_point_constraint.html#af15fcbe78e2f8233ae1ff4b52b9d9de5">component</a>, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt; <a class="el" href="class_point_constraint.html#ac021367793862b52580cc292bb7b0ea7">X</a>, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html">Function</a>&lt; spacedim &gt; *const <a class="el" href="class_point_constraint.html#ace3fa5f9542ee73d502abd78f48da032">constraint_inhomogeneity</a>=nullptr, const <a class="el" href="class_independent_field.html">IndependentField</a>&lt; 0, spacedim &gt; *<a class="el" href="class_point_constraint.html#a4f6c27593a39a2b1064020c256120f0a">independent_scalar</a>=nullptr, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html">Function</a>&lt; spacedim &gt; *const <a class="el" href="class_point_constraint.html#a5b1a621c07e8ece928f44e2dabd01d25">coefficient_c</a>=nullptr, const bool <a class="el" href="class_point_constraint.html#a5c2605fac61aab48c65d76137c172a78">ignore_point</a>=false)</td></tr>
+<tr class="separator:a3820c38236423c0bf32129258b8f24f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcaa6aaeb90f8128f121ac3797f77f03"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point_constraint.html#afcaa6aaeb90f8128f121ac3797f77f03">~PointConstraint</a> ()</td></tr>
 <tr class="separator:afcaa6aaeb90f8128f121ac3797f77f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afeb601e598e753c669abcd86d84ac3d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point_constraint.html#afeb601e598e753c669abcd86d84ac3d3">set_constraint_is_active</a> (const bool <a class="el" href="class_point_constraint.html#ae09c78d247df993db4fced0460889161">constraint_is_active</a>)</td></tr>
@@ -154,6 +154,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a4f6c27593a39a2b1064020c256120f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b1a621c07e8ece928f44e2dabd01d25"><td class="memItemLeft" align="right" valign="top">const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classSmartPointer.html">SmartPointer</a>&lt; const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html">Function</a>&lt; spacedim &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point_constraint.html#a5b1a621c07e8ece928f44e2dabd01d25">coefficient_c</a></td></tr>
 <tr class="separator:a5b1a621c07e8ece928f44e2dabd01d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c2605fac61aab48c65d76137c172a78"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point_constraint.html#a5c2605fac61aab48c65d76137c172a78">ignore_point</a> = false</td></tr>
+<tr class="separator:a5c2605fac61aab48c65d76137c172a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -184,8 +186,8 @@ class PointConstraint&lt; dim, spacedim &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="afa8c8b7998265207f2555a09fbe214ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa8c8b7998265207f2555a09fbe214ef">&#9670;&nbsp;</a></span>PointConstraint()</h2>
+<a id="a3820c38236423c0bf32129258b8f24f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3820c38236423c0bf32129258b8f24f8">&#9670;&nbsp;</a></span>PointConstraint()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -226,7 +228,13 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html">Function</a>&lt; spacedim &gt; *const&#160;</td>
-          <td class="paramname"><em>coefficient_c</em> = <code>nullptr</code>&#160;</td>
+          <td class="paramname"><em>coefficient_c</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>ignore_point</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -243,7 +251,8 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
     <tr><td class="paramdir">[in]</td><td class="paramname">X</td><td><a class="el" href="class_point_constraint.html#ac021367793862b52580cc292bb7b0ea7">PointConstraint::X</a></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">constraint_inhomogeneity</td><td><a class="el" href="class_point_constraint.html#ace3fa5f9542ee73d502abd78f48da032">PointConstraint::constraint_inhomogeneity</a></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">independent_scalar</td><td><a class="el" href="class_point_constraint.html#a4f6c27593a39a2b1064020c256120f0a">PointConstraint::independent_scalar</a></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">coefficient_c</td><td><a class="el" href="class_point_constraint.html#a5b1a621c07e8ece928f44e2dabd01d25">PointConstraint::coefficient_c</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">coefficient_c</td><td><a class="el" href="class_point_constraint.html#a5b1a621c07e8ece928f44e2dabd01d25">PointConstraint::coefficient_c</a></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ignore_point</td><td><a class="el" href="class_point_constraint.html#a5c2605fac61aab48c65d76137c172a78">PointConstraint::ignore_point</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -474,6 +483,23 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Bool indicating whether constraint is currently active </p>
+
+</div>
+</div>
+<a id="a5c2605fac61aab48c65d76137c172a78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c2605fac61aab48c65d76137c172a78">&#9670;&nbsp;</a></span>ignore_point</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="class_point_constraint.html">PointConstraint</a>&lt; dim, spacedim &gt;::ignore_point = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>If this is true, the point <a class="el" href="class_point_constraint.html#ac021367793862b52580cc292bb7b0ea7">PointConstraint::X</a> is ignored and an arbitrary dof index of the independent field is constrained. This is useful to fix the constant of a field, which is discretized by a finite element without support points. </p>
 
 </div>
 </div>

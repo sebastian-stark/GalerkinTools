@@ -958,6 +958,9 @@ BlockSolverWrapperMUMPS::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_str
 								const bool 									/*symmetric*/)
 {
 
+	cout << f_stretched.block(0).l2_norm() << endl;
+//	AssertThrow(false, ExcMessage("Stop"));
+
 	//matrix sub blocks
 	const auto& K = K_stretched.get_A();
 	const auto& L_U = K_stretched.get_B();

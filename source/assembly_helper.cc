@@ -2381,6 +2381,8 @@ const
 				scalar_functional->modify_K_cell_f_cell(domain_cell,
 														K_cell,
 														f_cell,
+														solution_local,
+														solution_local_C,
 														this->coupled_dof_indices_scalar_functionals_domain[internal_index][scalar_functional_n],
 														this->coupled_C_indices_scalar_functionals_domain[internal_index][scalar_functional_n]);
 
@@ -4556,7 +4558,8 @@ template<unsigned int spacedim>
 unsigned int
 AssemblyHelper<spacedim>::get_dof_index_at_point_omega(	const IndependentField<spacedim, spacedim>* u_omega,
 														const unsigned int							component,
-														const Point<spacedim>						p)
+														const Point<spacedim>						p,
+														const set<unsigned int>						ignore_dofs)
 const
 {
 
@@ -4584,7 +4587,8 @@ const
 						{
 							vector<unsigned int> dof_indices_local_global(domain_cell->get_fe().dofs_per_cell);
 							domain_cell.get_dof_indices(dof_indices_local_global);
-							return dof_indices_local_global[shapefun];
+							if(ignore_dofs.find(dof_indices_local_global[shapefun]) == ignore_dofs.end())
+								return dof_indices_local_global[shapefun];
 						}
 					}
 				}
@@ -4600,7 +4604,8 @@ template<unsigned int spacedim>
 unsigned int
 AssemblyHelper<spacedim>::get_dof_index_at_point_sigma(	const IndependentField<spacedim-1, spacedim>*	u_sigma,
 														const unsigned int								component,
-														const Point<spacedim>							p)
+														const Point<spacedim>							p,
+														const set<unsigned int>							ignore_dofs)
 const
 {
 
@@ -4630,7 +4635,8 @@ const
 						{
 							vector<unsigned int> dof_indices_local_global(interface_cell->get_fe().dofs_per_cell);
 							interface_cell.get_dof_indices(dof_indices_local_global);
-							return dof_indices_local_global[shapefun];
+							if(ignore_dofs.find(dof_indices_local_global[shapefun]) == ignore_dofs.end())
+								return dof_indices_local_global[shapefun];
 						}
 					}
 				}

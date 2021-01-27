@@ -1895,13 +1895,16 @@ public:
 	 *
 	 * @param[in]	p			point
 	 *
+	 * @param[in]	ignore_dofs	dofs to ignore during search - this allows for finding duplicate dofs
+	 *
 	 * @return		global dof index of @p component of @p u_omega at point @p point . This requires that the FE used
 	 * 				for the independent field has support points defined.
 	 */
 	unsigned int
 	get_dof_index_at_point_omega(	const IndependentField<spacedim, spacedim>* u_omega,
 									const unsigned int							component,
-									const Point<spacedim>						p)
+									const Point<spacedim>						p,
+									const std::set<unsigned int>				ignore_dofs = std::set<unsigned int>())
 	const;
 
 	/**
@@ -1912,13 +1915,16 @@ public:
 	 *
 	 * @param[in]	p			point
 	 *
+	 * @param[in]	ignore_dofs	dofs to ignore during search - this allows for finding duplicate dofs
+	 *
 	 * @return		global dof index of @p component of @p u_sigma at point @p point . This requires that the FE used
 	 * 				for the independent field has support points defined.
 	 */
 	unsigned int
 	get_dof_index_at_point_sigma(	const IndependentField<spacedim-1, spacedim>*	u_sigma,
 									const unsigned int								component,
-									const Point<spacedim>							p)
+									const Point<spacedim>							p,
+									const std::set<unsigned int>					ignore_dofs = std::set<unsigned int>())
 	const;
 
 	/**

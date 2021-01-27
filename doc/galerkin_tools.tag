@@ -558,15 +558,15 @@
       <type>unsigned int</type>
       <name>get_dof_index_at_point_omega</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a9950dbca7be157c964bd7403fccfde8a</anchor>
-      <arglist>(const IndependentField&lt; spacedim, spacedim &gt; *u_omega, const unsigned int component, const Point&lt; spacedim &gt; p) const</arglist>
+      <anchor>ad798d22d994c4c18a05503ae9db4b408</anchor>
+      <arglist>(const IndependentField&lt; spacedim, spacedim &gt; *u_omega, const unsigned int component, const Point&lt; spacedim &gt; p, const std::set&lt; unsigned int &gt; ignore_dofs=std::set&lt; unsigned int &gt;()) const</arglist>
     </member>
     <member kind="function">
       <type>unsigned int</type>
       <name>get_dof_index_at_point_sigma</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a1272cbcddc6b23108d3e090c2e704339</anchor>
-      <arglist>(const IndependentField&lt; spacedim-1, spacedim &gt; *u_sigma, const unsigned int component, const Point&lt; spacedim &gt; p) const</arglist>
+      <anchor>a256dc4f0fc5c62f130d75734ea94249f</anchor>
+      <arglist>(const IndependentField&lt; spacedim-1, spacedim &gt; *u_sigma, const unsigned int component, const Point&lt; spacedim &gt; p, const std::set&lt; unsigned int &gt; ignore_dofs=std::set&lt; unsigned int &gt;()) const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -1874,15 +1874,15 @@
       <type>unsigned int</type>
       <name>get_dof_index_at_point_omega</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a9950dbca7be157c964bd7403fccfde8a</anchor>
-      <arglist>(const IndependentField&lt; spacedim, spacedim &gt; *u_omega, const unsigned int component, const Point&lt; spacedim &gt; p) const</arglist>
+      <anchor>ad798d22d994c4c18a05503ae9db4b408</anchor>
+      <arglist>(const IndependentField&lt; spacedim, spacedim &gt; *u_omega, const unsigned int component, const Point&lt; spacedim &gt; p, const std::set&lt; unsigned int &gt; ignore_dofs=std::set&lt; unsigned int &gt;()) const</arglist>
     </member>
     <member kind="function">
       <type>unsigned int</type>
       <name>get_dof_index_at_point_sigma</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a1272cbcddc6b23108d3e090c2e704339</anchor>
-      <arglist>(const IndependentField&lt; spacedim-1, spacedim &gt; *u_sigma, const unsigned int component, const Point&lt; spacedim &gt; p) const</arglist>
+      <anchor>a256dc4f0fc5c62f130d75734ea94249f</anchor>
+      <arglist>(const IndependentField&lt; spacedim-1, spacedim &gt; *u_sigma, const unsigned int component, const Point&lt; spacedim &gt; p, const std::set&lt; unsigned int &gt; ignore_dofs=std::set&lt; unsigned int &gt;()) const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -4343,8 +4343,8 @@
       <type></type>
       <name>PointConstraint</name>
       <anchorfile>class_point_constraint.html</anchorfile>
-      <anchor>afa8c8b7998265207f2555a09fbe214ef</anchor>
-      <arglist>(const IndependentField&lt; dim, spacedim &gt; &amp;independent_field, const unsigned int component, const Point&lt; spacedim &gt; X, const Function&lt; spacedim &gt; *const constraint_inhomogeneity=nullptr, const IndependentField&lt; 0, spacedim &gt; *independent_scalar=nullptr, const Function&lt; spacedim &gt; *const coefficient_c=nullptr)</arglist>
+      <anchor>a3820c38236423c0bf32129258b8f24f8</anchor>
+      <arglist>(const IndependentField&lt; dim, spacedim &gt; &amp;independent_field, const unsigned int component, const Point&lt; spacedim &gt; X, const Function&lt; spacedim &gt; *const constraint_inhomogeneity=nullptr, const IndependentField&lt; 0, spacedim &gt; *independent_scalar=nullptr, const Function&lt; spacedim &gt; *const coefficient_c=nullptr, const bool ignore_point=false)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -4423,6 +4423,13 @@
       <anchor>a5b1a621c07e8ece928f44e2dabd01d25</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>const bool</type>
+      <name>ignore_point</name>
+      <anchorfile>class_point_constraint.html</anchorfile>
+      <anchor>a5c2605fac61aab48c65d76137c172a78</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="variable" protection="private">
       <type>bool</type>
       <name>constraint_is_active</name>
@@ -4447,8 +4454,8 @@
       <type></type>
       <name>PointConstraint</name>
       <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
-      <anchor>a48676bf468995063cf5536d25ef30282</anchor>
-      <arglist>(const IndependentField&lt; spacedim, spacedim &gt; &amp;independent_field, const unsigned int component, const Point&lt; spacedim &gt; X, const Function&lt; spacedim &gt; *const constraint_inhomogeneity=nullptr, const IndependentField&lt; 0, spacedim &gt; *independent_scalar=nullptr, const Function&lt; spacedim &gt; *const coefficient_c=nullptr)</arglist>
+      <anchor>a13052c609467fb9bfda281e37699b196</anchor>
+      <arglist>(const IndependentField&lt; spacedim, spacedim &gt; &amp;independent_field, const unsigned int component, const Point&lt; spacedim &gt; X, const Function&lt; spacedim &gt; *const constraint_inhomogeneity=nullptr, const IndependentField&lt; 0, spacedim &gt; *independent_scalar=nullptr, const Function&lt; spacedim &gt; *const coefficient_c=nullptr, const bool ignore_point=false)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -4525,6 +4532,13 @@
       <name>coefficient_c</name>
       <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>a15e0c3b340dca72427147c35ca40f3f3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const bool</type>
+      <name>ignore_point</name>
+      <anchorfile>class_point_constraint_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>ad6e6b3c5bb689c75b6aca0ef87df1b12</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -4698,8 +4712,8 @@
       <type>virtual void</type>
       <name>modify_K_cell_f_cell</name>
       <anchorfile>class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
-      <anchor>a9d98d5f98629c097d73455d8a1fd5643</anchor>
-      <arglist>(const DomainCellDoFIterator&lt; spacedim &gt; &amp;domain_cell, FullMatrix&lt; double &gt; &amp;K_cell, Vector&lt; double &gt; &amp;f_cell, const std::vector&lt; unsigned int &gt; &amp;scalar_functional_indices_to_cell_shapefuns, const std::vector&lt; unsigned int &gt; &amp;scalar_functional_indices_to_independent_scalar_indices) const</arglist>
+      <anchor>a82e5b4fd75d39a441d6ec47576274553</anchor>
+      <arglist>(const DomainCellDoFIterator&lt; spacedim &gt; &amp;domain_cell, FullMatrix&lt; double &gt; &amp;K_cell, Vector&lt; double &gt; &amp;f_cell, const Vector&lt; double &gt; &amp;solution, const Vector&lt; double &gt; &amp;solution_C, const std::vector&lt; unsigned int &gt; &amp;scalar_functional_indices_to_cell_shapefuns, const std::vector&lt; unsigned int &gt; &amp;scalar_functional_indices_to_independent_scalar_indices) const</arglist>
     </member>
     <member kind="function">
       <type>void</type>

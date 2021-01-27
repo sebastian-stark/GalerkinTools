@@ -547,6 +547,10 @@ public:
 	 *
 	 * @param[inout]	f_cell													The cell rhs. This vector is indexed by the scalar functional related indexing (indices related to cells come first followed by indices related to independent scalars).
 	 *
+	 * @param[in]		solution												The local solution vector (ordering according to scalar_functional_indices_to_cell_shapefuns)
+	 *
+	 * @param[in]		solution_C												The local solution vector for the independent scalars (ordering according to scalar_functional_indices_to_independent_scalar_indices)
+	 *
 	 * @param[in]		scalar_functional_indices_to_cell_shapefuns				This relates the scalar functional related indices to the cell shape function indices. In particular, the i-th component of this vector is the cell shape function
 	 * 																			corresponding to the i-th scalar functional related index.
 	 *
@@ -558,6 +562,8 @@ public:
 	modify_K_cell_f_cell(	const DomainCellDoFIterator<spacedim>&	domain_cell,
 							FullMatrix<double>&						K_cell,
 							Vector<double>&							f_cell,
+							const Vector<double>&					solution,
+							const Vector<double>&					solution_C,
 							const std::vector<unsigned int>&		scalar_functional_indices_to_cell_shapefuns,
 							const std::vector<unsigned int>&		scalar_functional_indices_to_independent_scalar_indices)
 	const;

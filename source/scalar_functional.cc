@@ -508,6 +508,8 @@ void
 ScalarFunctional<spacedim, spacedim>::modify_K_cell_f_cell(	const DomainCellDoFIterator<spacedim>&	/*domain_cell*/,
 															FullMatrix<double>&						/*K_cell*/,
 															Vector<double>&							/*f_cell*/,
+															const Vector<double>&					/*solution*/,
+															const Vector<double>&					/*solution_C*/,
 															const std::vector<unsigned int>&		/*scalar_functional_indices_to_cell_shapefuns*/,
 															const std::vector<unsigned int>&		/*scalar_functional_indices_to_independent_scalar_indices*/)
 const

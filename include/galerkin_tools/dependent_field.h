@@ -154,7 +154,9 @@ struct DependentFieldComparatorWithoutCoefficient
 	 * DependentFieldTerm::independent_field, DependentFieldTerm::component, DependentFieldTerm::derivatives (the same
 	 * DependentFieldTerm::independent_field here really means "exactly the same object").
 	 *
-	 * @param[in]	dependent_field_2	The DependentFieldTerm to compare with
+	 * @param[in]	dependent_field_1	The first DependentFieldTerm to compare
+	 *
+	 * @param[in]	dependent_field_2	The second DependentFieldTerm to compare
 	 *
 	 * @return 							Boolean indicating result of comparison
 	 */
