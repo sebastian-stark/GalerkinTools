@@ -10,6 +10,8 @@
 
 CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
 
+PROJECT("DEAL.II STEP 46")
+
 #name of executable and source files from which executable is compiled
 SET(_target "dealii_step46")
 SET(_target_src ${_target}.cc)
@@ -61,21 +63,13 @@ ENDIF()
 #set up the target
 ADD_EXECUTABLE(${_target} ${_target_src})
 
-#define compile flags and definitions (according to what has been used to compile deal.II)
-SET_PROPERTY(TARGET ${_target} APPEND_STRING PROPERTY COMPILE_FLAGS " ${DEAL_II_CXX_FLAGS} ${DEAL_II_CXX_FLAGS_${TARGET_BUILD_TYPE_TOUPPER}}")
-SET_PROPERTY(TARGET ${_target} APPEND PROPERTY COMPILE_DEFINITIONS "${DEAL_II_USER_DEFINITIONS};${DEAL_II_USER_DEFINITIONS_${TARGET_BUILD_TYPE_TOUPPER}}")
+#define compile flags and definitions (according to what has been used to compile incrementalFE)
+SET_PROPERTY(TARGET ${_target} APPEND_STRING PROPERTY COMPILE_FLAGS " ${INCREMENTAL_FE_COMPILE_FLAGS_${_build_toupper}}")
+SET_PROPERTY(TARGET ${_target} APPEND PROPERTY COMPILE_DEFINITIONS "${INCREMENTAL_FE_COMPILE_DEFINITIONS_${_build_toupper}}")
 
-#link against galerkin_tools, include headers of galerkin_tools
-#work around the cache of cmake
-UNSET(GALERKIN_TOOLS_LIBRARY CACHE)
-FIND_LIBRARY(GALERKIN_TOOLS_LIBRARY ${GALERKIN_TOOLS_TARGET_${_build_toupper}} HINTS ${GALERKIN_TOOLS_INSTALL_PATH_LIBRARIES})
-IF(${GALERKIN_TOOLS_LIBRARY} MATCHES "GALERKIN_TOOLS_LIBRARY-NOTFOUND")
-  MESSAGE(FATAL_ERROR "\n"
-    "*** Could not locate galerkin_tools ***\n")
-ELSE()
-  TARGET_LINK_LIBRARIES(${_target} ${GALERKIN_TOOLS_LIBRARY})
-  TARGET_INCLUDE_DIRECTORIES(${_target} PRIVATE ${GALERKIN_TOOLS_INSTALL_PATH_HEADERS})
-ENDIF()
+#link against deal.II, include headers of deal.II
+TARGET_LINK_LIBRARIES(${_target} ${DEAL_II_LIBRARIES_${_build_toupper}})
+TARGET_INCLUDE_DIRECTORIES(${_target} PRIVATE ${DEAL_II_INCLUDE_DIRS})
 
 #link against incremental_fe, include headers of incremental_fe
 #work around the cache of cmake
@@ -89,6 +83,14 @@ ELSE()
   TARGET_INCLUDE_DIRECTORIES(${_target} PRIVATE ${INCREMENTAL_FE_INSTALL_PATH_HEADERS})
 ENDIF()
 
-#link against deal.II, include headers of deal.II
-TARGET_LINK_LIBRARIES(${_target} ${DEAL_II_LIBRARIES_${_build_toupper}})
-TARGET_INCLUDE_DIRECTORIES(${_target} PRIVATE ${DEAL_II_INCLUDE_DIRS})
+#link against galerkin_tools, include headers of galerkin_tools
+#work around the cache of cmake
+UNSET(GALERKIN_TOOLS_LIBRARY CACHE)
+FIND_LIBRARY(GALERKIN_TOOLS_LIBRARY ${GALERKIN_TOOLS_TARGET_${_build_toupper}} HINTS ${GALERKIN_TOOLS_INSTALL_PATH_LIBRARIES})
+IF(${GALERKIN_TOOLS_LIBRARY} MATCHES "GALERKIN_TOOLS_LIBRARY-NOTFOUND")
+  MESSAGE(FATAL_ERROR "\n"
+    "*** Could not locate galerkin_tools ***\n")
+ELSE()
+  TARGET_LINK_LIBRARIES(${_target} ${GALERKIN_TOOLS_LIBRARY})
+  TARGET_INCLUDE_DIRECTORIES(${_target} PRIVATE ${GALERKIN_TOOLS_INSTALL_PATH_HEADERS})
+ENDIF()

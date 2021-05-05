@@ -66,9 +66,9 @@ template<unsigned int spacedim>
 class InterfaceTerm:public ScalarFunctional<spacedim-1, spacedim>
 {
 
-private:
+public:
 
-	bool get_h_sigma(	const Vector<double>&			/*e_sigma*/,
+	bool get_h_sigma(		Vector<double>&			/*e_sigma*/,
 						const vector<Vector<double>>&	/*e_sigma_ref_sets*/,
 						Vector<double>&					/*hidden_vars*/,
 						const Point<spacedim>&			/*x*/,
@@ -106,7 +106,6 @@ private:
 		return 0;
 	}
 
-public:
 	InterfaceTerm(	const vector<DependentField<spacedim-1,spacedim>> e_sigma,
 					const set<types::material_id> domain_of_integration,
 					const Quadrature<spacedim-1> quadrature)
@@ -403,6 +402,7 @@ int main()
 
 	SolverWrapperUMFPACK solver_wrapper;
 	solver_wrapper.solve(K, solution, f);
+	constraints.distribute(solution);
 
 	assembly_helper.write_output_independent_fields(solution, "output_domain", "");
 
