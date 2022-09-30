@@ -29,7 +29,7 @@
 #include <deal.II/lac/petsc_sparse_matrix.h>
 
 #ifdef DEAL_II_WITH_MPI
-#include <mpi/mpi.h>
+#include <mpi.h>
 #endif
 
 #include <galerkin_tools/config.h>

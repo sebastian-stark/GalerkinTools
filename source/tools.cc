@@ -208,17 +208,17 @@ Auxiliary::compute_dof_renumbering_contiguous(	const DoFHandlerSystem<spacedim>&
 	const auto& dof_handler_interface = dof_handler_system.get_dof_handler_interface();
 
 	//determine dof_offsets_domain and dof_offsets_interface
-	const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&(dof_handler_domain.get_triangulation()));
+	const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::distributed::Triangulation<spacedim, spacedim>*>(&(dof_handler_domain.get_triangulation()));
 	if( (tria_domain_ptr != nullptr) && (dof_handler_system.n_dofs_domain() != 0) && (dof_handler_system.n_dofs_interface() != 0))
 	{
-		const auto tria_interface_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim-1, spacedim>*>(&(dof_handler_interface.get_triangulation()));
+		const auto tria_interface_ptr = dynamic_cast<const dealii::GalerkinTools::parallel::Triangulation<spacedim-1, spacedim>*>(&(dof_handler_interface.get_triangulation()));
 
 		Assert(dof_handler_domain.locally_owned_dofs().is_contiguous(), ExcMessage("You can call compute_offsets only if the locally owned domain related dofs are contiguous!"));
 		Assert(dof_handler_interface.locally_owned_dofs().is_contiguous(), ExcMessage("You can call compute_offsets only if the locally owned interface related dofs are contiguous!"));
 
 		//number of locally owned dofs
-		const auto n_locally_owned_dofs_per_processor_domain = dof_handler_domain.n_locally_owned_dofs_per_processor();
-		const auto n_locally_owned_dofs_per_processor_interface = dof_handler_interface.n_locally_owned_dofs_per_processor();
+		const auto n_locally_owned_dofs_per_processor_domain = get_n_locally_owned_dofs_per_processor(dof_handler_domain);
+		const auto n_locally_owned_dofs_per_processor_interface = get_n_locally_owned_dofs_per_processor(dof_handler_interface);
 
 		//number of participating processors and number of this processor
 		const unsigned int n_procs = n_locally_owned_dofs_per_processor_domain.size();
@@ -461,10 +461,10 @@ Auxiliary::compute_map_dofs(const DoFHandlerSystem<spacedim>&	dhs_1,
 	//communicate
 #ifdef DEAL_II_WITH_MPI
 	//add up contributions of different processors
-	const dealii::parallel::Triangulation<spacedim, spacedim>* tria_domain_ptr;
-	tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&(dhs_1.get_dof_handler_domain().get_triangulation()));
+	const dealii::parallel::distributed::Triangulation<spacedim, spacedim>* tria_domain_ptr;
+	tria_domain_ptr = dynamic_cast<const dealii::parallel::distributed::Triangulation<spacedim, spacedim>*>(&(dhs_1.get_dof_handler_domain().get_triangulation()));
 	if(tria_domain_ptr == nullptr)
-		tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&(dhs_2.get_dof_handler_domain().get_triangulation()));
+		tria_domain_ptr = dynamic_cast<const dealii::parallel::distributed::Triangulation<spacedim, spacedim>*>(&(dhs_2.get_dof_handler_domain().get_triangulation()));
 	if(tria_domain_ptr != nullptr)
 	{
 		int ierr = MPI_Allreduce(MPI_IN_PLACE, map_dofs.data(), map_dofs.size(), MPI_UNSIGNED, MPI_SUM, tria_domain_ptr->get_communicator());
@@ -548,8 +548,41 @@ Auxiliary::communicate_bool(const bool		local_bool,
 }
 #endif // DEAL_II_WITH_MPI
 
+#ifdef DEAL_II_WITH_MPI
+
+template<int dim, int spacedim>
+vector<unsigned int>
+Auxiliary::get_n_locally_owned_dofs_per_processor(const DoFHandler<dim, spacedim>& dof_handler)
+{
+	const MPI_Comm mpi_communicator = dof_handler.get_communicator();
+
+	//collect sizes
+	int n_procs, this_proc;
+	MPI_Comm_size(mpi_communicator, &n_procs);
+	MPI_Comm_rank(mpi_communicator, &this_proc);
+
+	vector<unsigned int> n_locally_owned_dofs_per_processor(n_procs, 0);
+
+	if(n_procs > 1)
+	{
+		n_locally_owned_dofs_per_processor[this_proc] = dof_handler.n_locally_owned_dofs();
+
+		unsigned int send_value = n_locally_owned_dofs_per_processor[this_proc];
+		int ierr =  MPI_Allgather(&send_value, 1, MPI_UNSIGNED, n_locally_owned_dofs_per_processor.data(), 1, MPI_UNSIGNED, mpi_communicator);
+		AssertThrowMPI(ierr);
+	}
+	else if(n_procs == 1)
+		n_locally_owned_dofs_per_processor[0] = dof_handler.n_locally_owned_dofs();
+	
+	return n_locally_owned_dofs_per_processor;
+}
+
+#endif // DEAL_II_WITH_MPI
+
+
 
 #ifdef DEAL_II_WITH_MPI
+
 template
 void
 Auxiliary::compute_dof_renumbering_contiguous<2>(	const DoFHandlerSystem<2>&,
@@ -572,6 +605,26 @@ void
 Auxiliary::compute_map_dofs<3>(	const DoFHandlerSystem<3>&,
 								const DoFHandlerSystem<3>&,
 								vector<unsigned int>&);
+
+#ifdef DEAL_II_WITH_MPI
+
+template
+vector<unsigned int>
+Auxiliary::get_n_locally_owned_dofs_per_processor<1,2>(const DoFHandler<1,2>&);
+
+template
+vector<unsigned int>
+Auxiliary::get_n_locally_owned_dofs_per_processor<2,2>(const DoFHandler<2,2>&);
+
+template
+vector<unsigned int>
+Auxiliary::get_n_locally_owned_dofs_per_processor<2,3>(const DoFHandler<2,3>&);
+
+template
+vector<unsigned int>
+Auxiliary::get_n_locally_owned_dofs_per_processor<3,3>(const DoFHandler<3,3>&);
+
+#endif // DEAL_II_WITH_MPI
 
 GALERKIN_TOOLS_NAMESPACE_CLOSE
 DEAL_II_NAMESPACE_CLOSE

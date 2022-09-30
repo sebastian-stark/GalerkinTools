@@ -34,7 +34,7 @@ template<unsigned int spacedim>
 InterfaceCellDoFIterator<spacedim>::InterfaceCellDoFIterator(	const TriaIterator<CellAccessor<spacedim-1, spacedim>>&	interface_cell,
 																const DoFHandlerSystem<spacedim>& 						dof_handler_system)
 :
-hp::DoFHandler<spacedim-1, spacedim>::active_cell_iterator(*interface_cell, &dof_handler_system.get_dof_handler_interface()),
+DoFHandler<spacedim-1, spacedim>::active_cell_iterator(*interface_cell, &dof_handler_system.get_dof_handler_interface()),
 dof_handler_system(dof_handler_system)
 {
 }
@@ -42,7 +42,7 @@ dof_handler_system(dof_handler_system)
 template<unsigned int spacedim>
 InterfaceCellDoFIterator<spacedim>::InterfaceCellDoFIterator(const DoFHandlerSystem<spacedim>& dof_handler_system)
 :
-hp::DoFHandler<spacedim-1, spacedim>::active_cell_iterator(dof_handler_system.get_dof_handler_interface().end()),
+DoFHandler<spacedim-1, spacedim>::active_cell_iterator(dof_handler_system.get_dof_handler_interface().end()),
 dof_handler_system(dof_handler_system)
 {
 }
@@ -67,7 +67,7 @@ template<unsigned int spacedim>
 DomainCellDoFIterator<spacedim>::DomainCellDoFIterator(	const TriaIterator<CellAccessor<spacedim, spacedim>>& 	domain_cell,
 														const DoFHandlerSystem<spacedim>& 						dof_handler_system)
 :
-hp::DoFHandler<spacedim, spacedim>::active_cell_iterator(*domain_cell, &dof_handler_system.get_dof_handler_domain()),
+DoFHandler<spacedim, spacedim>::active_cell_iterator(*domain_cell, &dof_handler_system.get_dof_handler_domain()),
 dof_handler_system(dof_handler_system)
 {
 }
@@ -75,7 +75,7 @@ dof_handler_system(dof_handler_system)
 template<unsigned int spacedim>
 DomainCellDoFIterator<spacedim>::DomainCellDoFIterator(const DoFHandlerSystem<spacedim>& dof_handler_system)
 :
-hp::DoFHandler<spacedim, spacedim>::active_cell_iterator(dof_handler_system.get_dof_handler_domain().end()),
+DoFHandler<spacedim, spacedim>::active_cell_iterator(dof_handler_system.get_dof_handler_domain().end()),
 dof_handler_system(dof_handler_system)
 {
 }
@@ -159,8 +159,8 @@ DoFHandlerSystem<spacedim>::DoFHandlerSystem(const TriangulationSystem<spacedim>
 tria_system(&tria_system)
 {
 	//create the dof handlers
-	dof_handler_domain=shared_ptr<hp::DoFHandler<spacedim, spacedim>>(new hp::DoFHandler<spacedim, spacedim>(tria_system.get_triangulation_domain()));
-	dof_handler_interface=shared_ptr<hp::DoFHandler<spacedim-1, spacedim>>(new hp::DoFHandler<spacedim-1, spacedim>(tria_system.get_triangulation_interface()));
+	dof_handler_domain=shared_ptr<DoFHandler<spacedim, spacedim>>(new DoFHandler<spacedim, spacedim>(tria_system.get_triangulation_domain()));
+	dof_handler_interface=shared_ptr<DoFHandler<spacedim-1, spacedim>>(new DoFHandler<spacedim-1, spacedim>(tria_system.get_triangulation_interface()));
 
 	//generate active_interface_cell_domain_cells
 	update_interface_domain_relation();
@@ -176,15 +176,6 @@ DoFHandlerSystem<spacedim>::~DoFHandlerSystem()
 	for(auto &connection : tria_listeners)
 		connection.disconnect();
 	tria_listeners.clear();
-}
-
-template<unsigned int spacedim>
-void
-DoFHandlerSystem<spacedim>::set_fe(const hp::FECollection<spacedim, spacedim>& fe_collection_domain,
-											const hp::FECollection<spacedim-1, spacedim>& fe_collection_interface)
-{
-	dof_handler_domain->set_fe(fe_collection_domain);
-	dof_handler_interface->set_fe(fe_collection_interface);
 }
 
 template<unsigned int spacedim>
@@ -221,7 +212,7 @@ DoFHandlerSystem<spacedim>::distribute_dofs(const hp::FECollection<spacedim, spa
 	if(this_proc_n_procs.second > 1)
 	{
 #ifdef DEAL_II_WITH_MPI
-		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&(dof_handler_domain->get_triangulation()));
+		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::distributed::Triangulation<spacedim, spacedim>*>(&(dof_handler_domain->get_triangulation()));
 		Assert(tria_domain_ptr != nullptr, ExcMessage("Internal error!"));
 
 		unsigned int send_value = n_dofs_per_processor[this_proc_n_procs.first];
@@ -336,7 +327,7 @@ const
 
 
 template<unsigned int spacedim>
-const hp::DoFHandler<spacedim, spacedim>&
+const DoFHandler<spacedim, spacedim>&
 DoFHandlerSystem<spacedim>::get_dof_handler_domain()
 const
 {
@@ -344,7 +335,7 @@ const
 }
 
 template<unsigned int spacedim>
-const hp::DoFHandler<spacedim-1, spacedim>&
+const DoFHandler<spacedim-1, spacedim>&
 DoFHandlerSystem<spacedim>::get_dof_handler_interface()
 const
 {
@@ -352,14 +343,14 @@ const
 }
 
 template<unsigned int spacedim>
-hp::DoFHandler<spacedim, spacedim>&
+DoFHandler<spacedim, spacedim>&
 DoFHandlerSystem<spacedim>::get_dof_handler_domain()
 {
 	return *(dof_handler_domain.get());
 }
 
 template<unsigned int spacedim>
-hp::DoFHandler<spacedim-1, spacedim>&
+DoFHandler<spacedim-1, spacedim>&
 DoFHandlerSystem<spacedim>::get_dof_handler_interface()
 {
 	return *(dof_handler_interface.get());
@@ -511,7 +502,7 @@ const
 		vector<unsigned int> dof_indices(this_proc_n_procs.second);
 		dof_indices[this_proc_n_procs.first] = dof_index;
 #ifdef DEAL_II_WITH_MPI
-		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&(dof_handler_domain->get_triangulation()));
+		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::distributed::Triangulation<spacedim, spacedim>*>(&(dof_handler_domain->get_triangulation()));
 		Assert(tria_domain_ptr != nullptr, ExcMessage("Internal error!"));
 		unsigned int send_value = dof_indices[this_proc_n_procs.first];
 		int ierr =  MPI_Allgather(&send_value, 1, MPI_UNSIGNED, dof_indices.data(), 1, MPI_UNSIGNED, tria_domain_ptr->get_communicator());
@@ -568,7 +559,7 @@ const
 		vector<unsigned int> dof_indices(this_proc_n_procs.second);
 		dof_indices[this_proc_n_procs.first] = dof_index;
 #ifdef DEAL_II_WITH_MPI
-		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&(dof_handler_domain->get_triangulation()));
+		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::distributed::Triangulation<spacedim, spacedim>*>(&(dof_handler_domain->get_triangulation()));
 		Assert(tria_domain_ptr != nullptr, ExcMessage("Internal error!"));
 		unsigned int send_value = dof_indices[this_proc_n_procs.first];
 		int ierr =  MPI_Allgather(&send_value, 1, MPI_UNSIGNED, dof_indices.data(), 1, MPI_UNSIGNED, tria_domain_ptr->get_communicator());

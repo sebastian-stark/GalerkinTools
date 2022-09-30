@@ -802,14 +802,38 @@ namespace parallel
 {
 
 /**
- * This class derives from parallel::Triangulation and provides an interface triangulation appropriate for
- * use within the parallel::TriangulationSystem.
- * The main additional functionality of this class over parallel::Triangulation is that the subdomain ids
+ * This class derives from parallel::distributed::Triangulation and provides an interface triangulation appropriate for
+ * use within the parallel::distributed::TriangulationSystem.
+ * The main additional functionality of this class over parallel::distributed::Triangulation is that the subdomain ids
  * can be assigned manually. The triangulation can only work properly, if the partitioning is done consistently.
  */
 template<unsigned int dim, unsigned int spacedim = dim>
 class Triangulation : public dealii::parallel::DistributedTriangulationBase<dim, spacedim>
 {
+protected:
+
+	virtual
+	void
+	update_cell_relations()
+	override;
+
+	virtual
+	void
+	save(const std::string& filename)
+	const
+	override;
+
+	virtual
+	void
+	load(const std::string& filename)
+	override;
+
+	virtual
+	void
+	load(	const std::string&	filename,
+		const bool		autopartition)
+	override;
+
 public:
 	Triangulation(MPI_Comm mpi_communicator);
 
@@ -834,7 +858,7 @@ public:
  * refer to the documentation of this class).
  *
  * For the domain triangulation the parallel::distributed::Triangulation class is used. In contrast,
- * for the interface triangulation the parallel::Triangulation class is used, which allows for the
+ * for the interface triangulation the parallel::distributed::Triangulation class is used, which allows for the
  * necessary manual management of the partitioning of the triangulation.
  *
  * Regarding ownership of interface cells, the convention used is that the ownership of interface cells is
@@ -892,9 +916,9 @@ private:
 
 public:
 	/**
-	 * Constructor of the parallel::TriangulationSystem. Note that the constructor does not copy the @p tria_domain
+	 * Constructor of the parallel::distributed::TriangulationSystem. Note that the constructor does not copy the @p tria_domain
 	 * object supplied, but rather stores a pointer to it. So do not change it after construction of the
-	 * parallel::TriangulationSystem unless you're knowing exactly what you are doing (the only change to the
+	 * parallel::distributed::TriangulationSystem unless you're knowing exactly what you are doing (the only change to the
 	 * domain triangulation, which is admissible, is mesh refinement). No checking on external changes
 	 * of the domain triangulation is currently performed and, therefore, doing so may lead to errors
 	 * which are hard to debug.
@@ -916,7 +940,7 @@ public:
 	 * @return	This returns a const reference to the domain triangulation.
 	 */
 	virtual
-	const dealii::parallel::Triangulation<spacedim, spacedim>&
+	const dealii::parallel::distributed::Triangulation<spacedim, spacedim>&
 	get_triangulation_domain()
 	const;
 
@@ -924,7 +948,7 @@ public:
 	 * @return	This returns a const reference to the interface triangulation.
 	 */
 	virtual
-	const dealii::parallel::Triangulation<spacedim-1, spacedim>&
+	const dealii::GalerkinTools::parallel::Triangulation<spacedim-1, spacedim>&
 	get_triangulation_interface()
 	const;
 
@@ -932,14 +956,14 @@ public:
 	 * @return	This returns a reference to the domain triangulation.
 	 */
 	virtual
-	dealii::parallel::Triangulation<spacedim, spacedim>&
+	dealii::parallel::distributed::Triangulation<spacedim, spacedim>&
 	get_triangulation_domain();
 
 	/**
 	 * @return	This returns a reference to the interface triangulation.
 	 */
 	virtual
-	dealii::parallel::Triangulation<spacedim-1, spacedim>&
+	dealii::GalerkinTools::parallel::Triangulation<spacedim-1, spacedim>&
 	get_triangulation_interface();
 
 	/**

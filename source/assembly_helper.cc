@@ -2899,7 +2899,7 @@ const
 		if(n_procs > 1)
 		{
 #ifdef DEAL_II_WITH_MPI
-			const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&(tria_system.get_triangulation_domain()));
+			const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::distributed::Triangulation<spacedim, spacedim>*>(&(tria_system.get_triangulation_domain()));
 			Assert(tria_domain_ptr != nullptr, ExcMessage("Internal error!"));
 			int ierr = MPI_Allreduce(MPI_IN_PLACE, primitive_scalar_functionals_values.data(), primitive_scalar_functionals_values.size(), MPI_DOUBLE, MPI_SUM, tria_domain_ptr->get_communicator());
 			AssertThrowMPI(ierr);
@@ -2929,7 +2929,7 @@ const
 	if(n_procs > 1)
 	{
 #ifdef DEAL_II_WITH_MPI
-		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&(tria_system.get_triangulation_domain()));
+		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::distributed::Triangulation<spacedim, spacedim>*>(&(tria_system.get_triangulation_domain()));
 		Assert(tria_domain_ptr != nullptr, ExcMessage("Internal error!"));
 		return Auxiliary::communicate_bool(error, tria_domain_ptr->get_communicator());
 #else
@@ -3402,7 +3402,7 @@ const
 	if(n_procs > 1)
 	{
 #ifdef DEAL_II_WITH_MPI
-		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&tria_system.get_triangulation_domain());
+		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::distributed::Triangulation<spacedim, spacedim>*>(&tria_system.get_triangulation_domain());
 		Assert(tria_domain_ptr != nullptr, ExcMessage("Internal error!"));
 
 		vector<double> max_step_global_vect(n_procs);
@@ -3649,7 +3649,7 @@ const
 	if(file_name_domain != "")
 	{
 		//DataOut object for domain
-		DataOut<spacedim,hp::DoFHandler<spacedim> > data_out_domain;
+		DataOut<spacedim, spacedim> data_out_domain;
 
 		//solution names and component interpretation of domain quantities
 		vector<string> solution_names_domain;
@@ -3674,7 +3674,7 @@ const
 			for(const auto& dp_sptr : dp_domain)
 				data_out_domain.add_data_vector(dof_handler_system.get_dof_handler_domain(), solution_domain, *dp_sptr);
 		}
-		data_out_domain.build_patches(*mapping_domain, n_subdivisions, DataOut<spacedim,hp::DoFHandler<spacedim> >::curved_inner_cells);
+		data_out_domain.build_patches(*mapping_domain, n_subdivisions, DataOut<spacedim, spacedim>::curved_inner_cells);
 		ofstream output_domain((file_name_domain_base + processor_number + ".vtu").c_str());
 		data_out_domain.write_vtu(output_domain);
 
@@ -3696,7 +3696,7 @@ const
 	if(file_name_interface != "")
 	{
 		//DataOut object for interface
-		DataOut<spacedim-1, hp::DoFHandler<spacedim-1, spacedim> > data_out_interface;
+		DataOut<spacedim-1, spacedim> data_out_interface;
 
 		//solution names and component interpretation of interface quantities
 		vector<string> solution_names_interface;
@@ -3721,7 +3721,7 @@ const
 			for(const auto& dp_sptr : dp_interface)
 				data_out_interface.add_data_vector(dof_handler_system.get_dof_handler_interface(), solution_interface, *dp_sptr);
 		}
-		data_out_interface.build_patches(*mapping_interface, n_subdivisions, DataOut<spacedim-1, hp::DoFHandler<spacedim-1, spacedim> >::curved_inner_cells);
+		data_out_interface.build_patches(*mapping_interface, n_subdivisions, DataOut<spacedim-1, spacedim>::curved_inner_cells);
 		ofstream output_interface((file_name_interface_base + processor_number + ".vtu").c_str());
 		data_out_interface.write_vtu(output_interface);
 
@@ -4731,7 +4731,7 @@ AssemblyHelper<spacedim>::distribute_dofs()
 
 template<unsigned int spacedim>
 void
-AssemblyHelper<spacedim>::initialize_fe_values_domain(	const typename hp::DoFHandler<spacedim, spacedim>::active_cell_iterator&	cell,
+AssemblyHelper<spacedim>::initialize_fe_values_domain(	const typename DoFHandler<spacedim, spacedim>::active_cell_iterator&	cell,
 														const unsigned int															internal_index,
 														const bool																	nonprimitive)
 const
@@ -5399,7 +5399,7 @@ const
 	if(n_procs > 1)
 	{
 #ifdef DEAL_II_WITH_MPI
-		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>*>(&(tria_system.get_triangulation_domain()));
+		const auto tria_domain_ptr = dynamic_cast<const dealii::parallel::distributed::Triangulation<spacedim, spacedim>*>(&(tria_system.get_triangulation_domain()));
 		Assert(tria_domain_ptr != nullptr, ExcMessage("Internal error!"));
 		int ierr = MPI_Allreduce(MPI_IN_PLACE, nonprimitive_scalar_functional_values.data(), nonprimitive_scalar_functional_values.size(), MPI_DOUBLE, MPI_SUM, tria_domain_ptr->get_communicator());
 		AssertThrowMPI(ierr);

@@ -20,7 +20,7 @@
 #ifndef GALERKINTOOLS_DOFHANDLERSYSTEM_H_
 #define GALERKINTOOLS_DOFHANDLERSYSTEM_H_
 
-#include <deal.II/hp/dof_handler.h>
+#include <deal.II/dofs/dof_handler.h>
 #include <deal.II/lac/la_parallel_vector.h>
 
 #include <galerkin_tools/config.h>
@@ -43,7 +43,7 @@ class DoFHandlerSystem;
  *
  */
 template<unsigned int spacedim>
-class InterfaceCellDoFIterator : public hp::DoFHandler<spacedim-1, spacedim>::active_cell_iterator
+class InterfaceCellDoFIterator : public DoFHandler<spacedim-1, spacedim>::active_cell_iterator
 {
 private:
 
@@ -92,7 +92,7 @@ public:
  *
  */
 template<unsigned int spacedim>
-class DomainCellDoFIterator : public hp::DoFHandler<spacedim, spacedim>::active_cell_iterator
+class DomainCellDoFIterator : public DoFHandler<spacedim, spacedim>::active_cell_iterator
 {
 private:
 
@@ -158,7 +158,7 @@ public:
 	/**
 	 * A convenience typedef for a deal.II cell iterator referring to an interface cell (with dof information)
 	 */
-	typedef typename hp::DoFHandler<spacedim-1, spacedim>::cell_iterator
+	typedef typename DoFHandler<spacedim-1, spacedim>::cell_iterator
 	InterfaceCellDoF;
 
 	/**
@@ -170,7 +170,7 @@ public:
 	/**
 	 * A convenience typedef for a deal.II cell iterator referring to a domain cell (with dof information)
 	 */
-	typedef typename hp::DoFHandler<spacedim, spacedim>::cell_iterator
+	typedef typename DoFHandler<spacedim, spacedim>::cell_iterator
 	DomainCellDoF;
 
 	/**
@@ -314,7 +314,7 @@ public:
  * are defined on the entire domain \f$\Omega\f$ and the entire interface \f$\Sigma\f$, respectively.
  * However, certain independent fields may be extended by zero to certain portions of the domain and interface,
  * respectively (just because they are not needed there according to the model). In order to be able to
- * conveniently deal with this situation, hp::DoFHandler%s are used internally. This allows to use
+ * conveniently deal with this situation, DoFHandler%s are used internally. This allows to use
  * FE_Nothing finite elements everywhere, where an independent field is zero (see also step-46 in the deal.II tutorial).
  *
  * @tparam	spacedim	spatial dimension
@@ -335,7 +335,7 @@ public:
 	/**
 	 * A convenience typedef for a deal.II cell iterator referring to an interface cell (with dof information)
 	 */
-	typedef typename hp::DoFHandler<spacedim-1, spacedim>::cell_iterator
+	typedef typename DoFHandler<spacedim-1, spacedim>::cell_iterator
 	InterfaceCellDoF;
 
 	/**
@@ -347,7 +347,7 @@ public:
 	/**
 	 * A convenience typedef for a deal.II cell iterator referring to a domain cell (with dof information)
 	 */
-	typedef typename hp::DoFHandler<spacedim, spacedim>::cell_iterator
+	typedef typename DoFHandler<spacedim, spacedim>::cell_iterator
 	DomainCellDoF;
 
 private:
@@ -359,15 +359,15 @@ private:
 	tria_system;
 
 	/**
-	 * hp::DoFHandler for domain related dofs
+	 * DoFHandler for domain related dofs
 	 */
-	std::shared_ptr<hp::DoFHandler<spacedim, spacedim>>
+	std::shared_ptr<DoFHandler<spacedim, spacedim>>
 	dof_handler_domain;
 
 	/**
-	 * hp::DoFHandler for interface related dofs
+	 * DoFHandler for interface related dofs
 	 */
-	std::shared_ptr<hp::DoFHandler<spacedim-1, spacedim>>
+	std::shared_ptr<DoFHandler<spacedim-1, spacedim>>
 	dof_handler_interface;
 
 	/**
@@ -573,19 +573,6 @@ public:
 					const unsigned int								n_additional_dofs = 0);
 
 	/**
-	 * This function sets the FECollection objects to be used. However, it does not distribute any dofs
-	 *
-	 * @param[in]	fe_collection_domain	the fe collection to be used for the distribution of dofs
-	 * 										on the domain
-	 *
-	 * @param[in]	fe_collection_interface	the fe collection to be used for the distribution of dofs
-	 * 										on the interface
-	 */
-	void
-	set_fe(	const hp::FECollection<spacedim, spacedim>&		fe_collection_domain,
-			const hp::FECollection<spacedim-1, spacedim>&	fe_collection_interface);
-
-	/**
 	 * @return	An iterator (with dof information) to the first active interface cell. Note that this is not
 	 * 			a deal.II iterator. Rather, it is an iterator to the first element
 	 * 			in DoFHandlerSystem::active_interface_cell_domain_cells.
@@ -688,27 +675,27 @@ public:
 	/**
 	 * @return	domain related dof handler
 	 */
-	const hp::DoFHandler<spacedim, spacedim>&
+	const DoFHandler<spacedim, spacedim>&
 	get_dof_handler_domain()
 	const;
 
 	/**
 	 * @return	interface related dof handler
 	 */
-	const hp::DoFHandler<spacedim-1, spacedim>&
+	const DoFHandler<spacedim-1, spacedim>&
 	get_dof_handler_interface()
 	const;
 
 	/**
 	 * @return	domain related dof handler (warning: this is a non-const reference, which is mainly intended for dof renumbering)
 	 */
-	hp::DoFHandler<spacedim, spacedim>&
+	DoFHandler<spacedim, spacedim>&
 	get_dof_handler_domain();
 
 	/**
 	 * @return	interface related dof handler (warning: this is a non-const reference, which is mainly intended for dof renumbering)
 	 */
-	hp::DoFHandler<spacedim-1, spacedim>&
+	DoFHandler<spacedim-1, spacedim>&
 	get_dof_handler_interface();
 
 	/**

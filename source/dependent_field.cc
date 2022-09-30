@@ -21,6 +21,7 @@
 
 #include <iostream>
 #include <stdio.h>
+#include <sstream>
 
 #include <deal.II/base/exceptions.h>
 
@@ -285,47 +286,61 @@ DependentField<dim, spacedim>::print()
 const
 {
 	cout <<this->name << "=";
+	set<string> output_terms;
 	for(const auto& term : terms_interface)
 	{
-		cout << " + " << term.coefficient << "*" << term.independent_field->name << "_" << term.component;
+		stringstream output_term;
+		output_term  << term.coefficient << "*" << term.independent_field->name << "_" << term.component;
 		if(term.n_derivatives() > 0)
 		{
-			cout << ",";
+			output_term << ",";
 			for(const auto derivative : term.derivatives)
-				cout << derivative;
+				output_term << derivative;
 		}
+		output_terms.insert(output_term.str());
 	}
 
 	for(const auto& term : terms_independent_scalars)
-		cout << " + " << term.coefficient << "*" << term.independent_field->name;
-
-	cout << " + " << constant;
+	{
+		stringstream output_term;
+		output_term << term.coefficient << "*" << term.independent_field->name;
+		output_terms.insert(output_term.str());
+	}
 
 	for(const auto& term : terms_neighbor_minus)
 	{
-		cout << " + " << term.coefficient << "*" << term.independent_field->name << "_" << term.component;
+		stringstream output_term;
+		output_term << term.coefficient << "*" << term.independent_field->name << "_" << term.component;
 		if(term.n_derivatives() > 0)
 		{
-			cout << ",";
+			output_term << ",";
 			for(const auto derivative : term.derivatives)
-				cout << derivative;
+				output_term << derivative;
 		}
-		cout << "(-)";
+		output_term << "(-)";
+		output_terms.insert(output_term.str());
 	}
 
 	for(const auto& term : terms_neighbor_plus)
 	{
-		cout << " + " << term.coefficient << "*" << term.independent_field->name << "_" << term.component;
+		stringstream output_term;
+		output_term << term.coefficient << "*" << term.independent_field->name << "_" << term.component;
 		if(term.n_derivatives() > 0)
 		{
-			cout << ",";
+			output_term << ",";
 			for(const auto derivative : term.derivatives)
-				cout << derivative;
+				output_term << derivative;
 		}
-		cout << "(+)";
+		output_term << "(+)";
+		output_terms.insert(output_term.str());
 	}
 
-	cout << endl;
+	for(const auto& output_term : output_terms)
+		cout << output_term << " + ";
+
+	stringstream output_term;
+	output_term << constant;
+	cout << output_term.str() << endl;
 }
 
 template<unsigned int dim, unsigned int spacedim>
@@ -464,23 +479,33 @@ DependentField<spacedim, spacedim>::print()
 const
 {
 	cout <<this->name << "=";
+	set<string> output_terms;
 	for(const auto& term : terms_domain)
 	{
-		cout << " + " << term.coefficient << "*" << term.independent_field->name << "_" << term.component;
+		stringstream output_term;
+		output_term << term.coefficient << "*" << term.independent_field->name << "_" << term.component;
 		if(term.n_derivatives() > 0)
 		{
-			cout << ",";
+			output_term << ",";
 			for(const auto derivative : term.derivatives)
-				cout << derivative;
+				output_term << derivative;
 		}
+		output_terms.insert(output_term.str());
 	}
 
 	for(const auto& term : terms_independent_scalars)
-		cout << " + " << term.coefficient << "*" << term.independent_field->name;
+	{
+		stringstream output_term;
+		output_term << term.coefficient << "*" << term.independent_field->name;
+		output_terms.insert(output_term.str());
+	}
 
-	cout << " + " << constant;
+	for(const auto& output_term : output_terms)
+		cout << output_term << " + ";
 
-	cout << endl;
+	stringstream output_term;
+	output_term << constant;
+	cout << output_term.str() << endl;
 }
 
 template<unsigned int spacedim>

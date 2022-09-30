@@ -222,6 +222,23 @@ communicate_bool(	const bool		local_bool,
 
 #endif //DEAL_II_WITH_MPI
 
+
+#ifdef DEAL_II_WITH_MPI
+
+/**
+ * %Auxiliary function extracting the number of locally owned dofs for each processor from a dof handler.
+ *
+ * @param[in]	dof_handler	The dof handler
+ *
+ * @return			The vector with the locally owned dofs for each processor
+ */
+template<int dim, int spacedim>
+std::vector<unsigned int>
+get_n_locally_owned_dofs_per_processor(const DoFHandler<dim, spacedim>& dof_handler);
+
+#endif //DEAL_II_WITH_MPI
+
+
 }
 
 

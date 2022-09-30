@@ -1019,7 +1019,7 @@ private:
 	 * 								the scalar functionals entering non-primitively into the total potential
 	 */
 	void
-	initialize_fe_values_domain(const typename hp::DoFHandler<spacedim, spacedim>::active_cell_iterator& 	cell,
+	initialize_fe_values_domain(const typename DoFHandler<spacedim, spacedim>::active_cell_iterator& 	cell,
 								const unsigned int 															internal_index,
 								const bool 																	nonprimitive = false )
 	const;

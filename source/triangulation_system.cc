@@ -448,7 +448,7 @@ TriangulationSystem<spacedim>::generate_active_interface_cells_domain_cells_recu
 			{
 				const DomainCell& domain_cell_neighbor_child_n = domain_cell->neighbor_child_on_subface(face, interface_cell_child_n);
 				const unsigned int face_neighbor = domain_cell->neighbor_of_neighbor(face);
-				Assert(	( domain_cell_neighbor_child_n->active() && interface_cell->child(interface_cell_child_n)->active() ) || no_assert,
+				Assert(	( domain_cell_neighbor_child_n->is_active() && interface_cell->child(interface_cell_child_n)->is_active() ) || no_assert,
 						ExcMessage("Interface and domain mesh inconsistent!"));
 				if(fix_vertex_positions)
 				{
@@ -481,10 +481,10 @@ TriangulationSystem<spacedim>::generate_active_interface_cells_domain_cells_recu
 	{
 		//the interface cell has no children
 		//->neither the domain cell on the + nor the domain cell on the - cell can have children (otherwise the mesh is invalid)
-		Assert(	( domain_cell->active() && interface_cell->active() ) || no_assert ,
+		Assert(	( domain_cell->is_active() && interface_cell->is_active() ) || no_assert ,
 				ExcMessage("Interface and domain mesh inconsistent!"));
 		if(!(domain_cell->face(face)->at_boundary()))
-			Assert(	domain_cell->neighbor(face)->active()  || no_assert,
+			Assert(	domain_cell->neighbor(face)->is_active()  || no_assert,
 					ExcMessage("Interface and domain mesh inconsistent!"));
 		if(fix_vertex_positions)
 		{
@@ -853,12 +853,43 @@ Triangulation<dim, spacedim>::finalize_subdomain_assignment()
 }
 
 template<unsigned int dim, unsigned int spacedim>
+void
+Triangulation<dim, spacedim>::update_cell_relations()
+{
+	Assert(false, ExcNotImplemented());
+}
+
+template<unsigned int dim, unsigned int spacedim>
+void
+Triangulation<dim, spacedim>::save(const string& /*filename*/)
+const
+{
+	Assert(false, ExcNotImplemented());
+}
+
+template<unsigned int dim, unsigned int spacedim>
+void
+Triangulation<dim, spacedim>::load(const string& /*filename*/)
+{
+	Assert(false, ExcNotImplemented());
+}
+
+template<unsigned int dim, unsigned int spacedim>
+void
+Triangulation<dim, spacedim>::load(	const string&	/*filename*/,
+					const bool	/*autopartition*/)
+{
+	Assert(false, ExcNotImplemented());
+}
+
+template<unsigned int dim, unsigned int spacedim>
 bool
 Triangulation<dim, spacedim>::is_multilevel_hierarchy_constructed()
 const
 {
 	return false;
 }
+
 template<unsigned int spacedim>
 TriangulationSystem<spacedim>::TriangulationSystem(	dealii::parallel::distributed::Triangulation<spacedim, spacedim>&	tria_domain,
 													const bool															fix_vertex_positions)
@@ -866,42 +897,42 @@ TriangulationSystem<spacedim>::TriangulationSystem(	dealii::parallel::distribute
 dealii::GalerkinTools::TriangulationSystem<spacedim>(tria_domain, fix_vertex_positions),
 mpi_communicator(tria_domain.get_communicator())
 {
-	//reset the interface triangulation to use a parallel::Triangulation
+	//reset the interface triangulation to use a parallel::distributed::Triangulation
 	this->tria_interface.reset(new dealii::GalerkinTools::parallel::Triangulation<spacedim-1, spacedim>(mpi_communicator));
 }
 
 template<unsigned int spacedim>
-const dealii::parallel::Triangulation<spacedim, spacedim>&
+const dealii::parallel::distributed::Triangulation<spacedim, spacedim>&
 TriangulationSystem<spacedim>::get_triangulation_domain()
 const
 {
-	return dynamic_cast<const dealii::parallel::Triangulation<spacedim, spacedim>&>(*this->tria_domain);
+	return dynamic_cast<const dealii::parallel::distributed::Triangulation<spacedim, spacedim>&>(*this->tria_domain);
 }
 
 template<unsigned int spacedim>
-const dealii::parallel::Triangulation<spacedim-1, spacedim>&
+const dealii::GalerkinTools::parallel::Triangulation<spacedim-1, spacedim>&
 TriangulationSystem<spacedim>::get_triangulation_interface()
 const
 {
 	Assert(	this->closed,
 			ExcMessage("It does not make sense to ask for the interface triangulation before TriangulationSystem::close() has been called, because this would return an empty triangulation!"));
-	return dynamic_cast<const dealii::parallel::Triangulation<spacedim-1, spacedim>&>(*this->tria_interface);
+	return dynamic_cast<const dealii::GalerkinTools::parallel::Triangulation<spacedim-1, spacedim>&>(*this->tria_interface);
 }
 
 template<unsigned int spacedim>
-dealii::parallel::Triangulation<spacedim, spacedim>&
+dealii::parallel::distributed::Triangulation<spacedim, spacedim>&
 TriangulationSystem<spacedim>::get_triangulation_domain()
 {
-	return dynamic_cast<dealii::parallel::Triangulation<spacedim, spacedim>&>(*this->tria_domain);
+	return dynamic_cast<dealii::parallel::distributed::Triangulation<spacedim, spacedim>&>(*this->tria_domain);
 }
 
 template<unsigned int spacedim>
-dealii::parallel::Triangulation<spacedim-1, spacedim>&
+dealii::GalerkinTools::parallel::Triangulation<spacedim-1, spacedim>&
 TriangulationSystem<spacedim>::get_triangulation_interface()
 {
 	Assert(	this->closed,
 			ExcMessage("It does not make sense to ask for the interface triangulation before TriangulationSystem::close() has been called, because this would return an empty triangulation!"));
-	return dynamic_cast<dealii::parallel::Triangulation<spacedim-1, spacedim>&>(*this->tria_interface);
+	return dynamic_cast<dealii::GalerkinTools::parallel::Triangulation<spacedim-1, spacedim>&>(*this->tria_interface);
 }
 
 template<unsigned int spacedim>
