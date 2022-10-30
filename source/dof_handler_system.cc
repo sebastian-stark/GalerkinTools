@@ -403,7 +403,7 @@ const
 	//hanging node constraints on interface
 	//in 2d there are no hanging nodes on interfaces - so this has only to be done in 3d
 	AffineConstraints<double> interface_hanging_node_constraints;
-	if(spacedim > 2)
+	if( (spacedim > 2) && (get_dof_handler_interface().n_dofs() > 0))
 	{
 		if(this_procs_n_procs.second > 1)
 		{
