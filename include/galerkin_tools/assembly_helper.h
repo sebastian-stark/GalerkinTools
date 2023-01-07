@@ -939,6 +939,12 @@ private:
 	ConditionalOStream
 	pout;
 
+	/**
+	 * Absolute tolerance for checking proper alignment of corresponding quadrature points on interfaces (quadrature points on domain cell faces and corresponding interface cells)
+	 */
+	double
+	quadrature_point_alignment_tol = 1e-8;
+
 ///@}
 
 
@@ -1936,6 +1942,17 @@ public:
 	print_dof_information(const unsigned int dof_index)
 	const;
 
+
+///@}
+
+	/** @name Miscellaneous memberfunctions */
+	///@{
+
+		/**
+		 * @param[in]	quadrature_point_alignment_tol	Sets AssemblyHelper::quadrature_point_alignment_tol
+		 */
+		void
+		set_quadrature_point_alignment_tol(const double quadrature_point_alignment_tol);
 
 ///@}
 

@@ -1633,6 +1633,7 @@ const
 	}
 }
 
+
 template<unsigned int spacedim>
 template<class SparsityPatternType>
 void
@@ -2762,11 +2763,11 @@ const
 					}
 
 					//check that quadrature points are aligned with each other
-					Assert(	x.distance(fe_values_interface[internal_index][scalar_functional_n]->get_fe_values_domain(InterfaceSide::minus).quadrature_point(q_point)) < 1e-8,
+					Assert(	x.distance(fe_values_interface[internal_index][scalar_functional_n]->get_fe_values_domain(InterfaceSide::minus).quadrature_point(q_point)) < quadrature_point_alignment_tol,
 							ExcMessage("Internal error: Quadrature points are not aligned on interface or boundary!"));
 					if(interface_cell_domain_cells.refinement_case != InterfaceRefinementCase::at_boundary)
 					{
-						Assert(	x.distance(fe_values_interface[internal_index][scalar_functional_n]->get_fe_values_domain(InterfaceSide::plus).quadrature_point(q_point)) < 1e-8,
+						Assert(	x.distance(fe_values_interface[internal_index][scalar_functional_n]->get_fe_values_domain(InterfaceSide::plus).quadrature_point(q_point)) < quadrature_point_alignment_tol,
 								ExcMessage("Internal error: Quadrature points are not aligned on interface or boundary!"));
 					}
 				}
@@ -4696,6 +4697,13 @@ const
 }
 
 template<unsigned int spacedim>
+void
+AssemblyHelper<spacedim>::set_quadrature_point_alignment_tol(const double quadrature_point_alignment_tol)
+{
+	this->quadrature_point_alignment_tol = quadrature_point_alignment_tol;
+}
+
+template<unsigned int spacedim>
 const vector<IndexSet>
 AssemblyHelper<spacedim>::get_locally_owned_indices_blocks()
 const
@@ -5385,10 +5393,10 @@ const
 
 					//check that quadrature points are aligned with each other
 					//these checks can be removed in release
-					Assert(	x.distance(fe_values_interface[internal_index][scalar_functional_n]->get_fe_values_domain(InterfaceSide::minus).quadrature_point(q_point)) < 1e-8,
+					Assert(	x.distance(fe_values_interface[internal_index][scalar_functional_n]->get_fe_values_domain(InterfaceSide::minus).quadrature_point(q_point)) < quadrature_point_alignment_tol,
 							ExcMessage("Internal error: Quadrature points are not aligned on interface or boundary!"));
 					if(interface_cell_domain_cells.refinement_case != InterfaceRefinementCase::at_boundary)
-						Assert(	x.distance(fe_values_interface[internal_index][scalar_functional_n]->get_fe_values_domain(InterfaceSide::plus).quadrature_point(q_point)) < 1e-8,
+						Assert(	x.distance(fe_values_interface[internal_index][scalar_functional_n]->get_fe_values_domain(InterfaceSide::plus).quadrature_point(q_point)) < quadrature_point_alignment_tol,
 								ExcMessage("Internal error: Quadrature points are not aligned on interface or boundary!"));
 				}
 			}
