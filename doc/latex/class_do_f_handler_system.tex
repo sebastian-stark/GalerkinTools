@@ -18,11 +18,11 @@ Collaboration diagram for Do\+F\+Handler\+System$<$ spacedim $>$\+:\nopagebreak
 \item 
 typedef \textbf{ Tria\+Iterator}$<$ \textbf{ Cell\+Accessor}$<$ spacedim-\/1, spacedim $>$ $>$ \mbox{\hyperlink{class_do_f_handler_system_a64bfb9dab5f61c2583896a7d086cb1f2}{Interface\+Cell}}
 \item 
-typedef \textbf{ hp\+::\+Do\+F\+Handler}$<$ spacedim-\/1, spacedim $>$\+::\textbf{ cell\+\_\+iterator} \mbox{\hyperlink{class_do_f_handler_system_a82e65f8c260f076489bd92615221a1d0}{Interface\+Cell\+DoF}}
+typedef \textbf{ Do\+F\+Handler}$<$ spacedim-\/1, spacedim $>$\+::\textbf{ cell\+\_\+iterator} \mbox{\hyperlink{class_do_f_handler_system_ab74b04bb37380033195cfb081f505214}{Interface\+Cell\+DoF}}
 \item 
 typedef \textbf{ Tria\+Iterator}$<$ \textbf{ Cell\+Accessor}$<$ spacedim, spacedim $>$ $>$ \mbox{\hyperlink{class_do_f_handler_system_a84df955a5d8da7e1439a10f2a64811c0}{Domain\+Cell}}
 \item 
-typedef \textbf{ hp\+::\+Do\+F\+Handler}$<$ spacedim, spacedim $>$\+::\textbf{ cell\+\_\+iterator} \mbox{\hyperlink{class_do_f_handler_system_a01c54960bba8faa935d32f2d3d2fe914}{Domain\+Cell\+DoF}}
+typedef \textbf{ Do\+F\+Handler}$<$ spacedim, spacedim $>$\+::\textbf{ cell\+\_\+iterator} \mbox{\hyperlink{class_do_f_handler_system_a24490ae81fcdaf7b94e1ef0cae46d096}{Domain\+Cell\+DoF}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -32,8 +32,6 @@ typedef \textbf{ hp\+::\+Do\+F\+Handler}$<$ spacedim, spacedim $>$\+::\textbf{ c
 \mbox{\hyperlink{class_do_f_handler_system_a5a2f0389f4f4216b9841d9c518cb107e}{$\sim$\+Do\+F\+Handler\+System}} ()
 \item 
 void \mbox{\hyperlink{class_do_f_handler_system_ac6e0950ae9d140b0a9185bcfffe167d6}{distribute\+\_\+dofs}} (const \textbf{ hp\+::\+F\+E\+Collection}$<$ spacedim, spacedim $>$ \&fe\+\_\+collection\+\_\+domain, const \textbf{ hp\+::\+F\+E\+Collection}$<$ spacedim-\/1, spacedim $>$ \&fe\+\_\+collection\+\_\+interface, const unsigned int n\+\_\+additional\+\_\+dofs=0)
-\item 
-void \mbox{\hyperlink{class_do_f_handler_system_a1cbcc00826aca94736d3aebef157da72}{set\+\_\+fe}} (const \textbf{ hp\+::\+F\+E\+Collection}$<$ spacedim, spacedim $>$ \&fe\+\_\+collection\+\_\+domain, const \textbf{ hp\+::\+F\+E\+Collection}$<$ spacedim-\/1, spacedim $>$ \&fe\+\_\+collection\+\_\+interface)
 \item 
 std\+::vector$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$ $>$\+::iterator \mbox{\hyperlink{class_do_f_handler_system_a88d93ac03defd1b296238de4eb122841}{interface\+\_\+begin\+\_\+active}} ()
 \item 
@@ -59,13 +57,13 @@ void \mbox{\hyperlink{class_do_f_handler_system_add1750163fd42999c1892dce94114a4
 \item 
 unsigned int \mbox{\hyperlink{class_do_f_handler_system_ac7c2592ff045c5a7cf4c2ee1de0e2c73}{get\+\_\+dof\+\_\+index}} (const unsigned int \&dof\+\_\+index) const
 \item 
-const \textbf{ hp\+::\+Do\+F\+Handler}$<$ spacedim, spacedim $>$ \& \mbox{\hyperlink{class_do_f_handler_system_a5e8db4b37a83d3bed6f119611b6a7ee1}{get\+\_\+dof\+\_\+handler\+\_\+domain}} () const
+const \textbf{ Do\+F\+Handler}$<$ spacedim, spacedim $>$ \& \mbox{\hyperlink{class_do_f_handler_system_a213bc9448c093924d8e44c2523492327}{get\+\_\+dof\+\_\+handler\+\_\+domain}} () const
 \item 
-const \textbf{ hp\+::\+Do\+F\+Handler}$<$ spacedim-\/1, spacedim $>$ \& \mbox{\hyperlink{class_do_f_handler_system_a05e0e239c6dd5d25e012d9c5bd2314a2}{get\+\_\+dof\+\_\+handler\+\_\+interface}} () const
+const \textbf{ Do\+F\+Handler}$<$ spacedim-\/1, spacedim $>$ \& \mbox{\hyperlink{class_do_f_handler_system_a47e09ae23ad1f653f0234afe845e4eec}{get\+\_\+dof\+\_\+handler\+\_\+interface}} () const
 \item 
-\textbf{ hp\+::\+Do\+F\+Handler}$<$ spacedim, spacedim $>$ \& \mbox{\hyperlink{class_do_f_handler_system_a47b35524f131eb242ade5a674096be90}{get\+\_\+dof\+\_\+handler\+\_\+domain}} ()
+\textbf{ Do\+F\+Handler}$<$ spacedim, spacedim $>$ \& \mbox{\hyperlink{class_do_f_handler_system_aaa5597e66f5a62935b83f9c862e3ae9d}{get\+\_\+dof\+\_\+handler\+\_\+domain}} ()
 \item 
-\textbf{ hp\+::\+Do\+F\+Handler}$<$ spacedim-\/1, spacedim $>$ \& \mbox{\hyperlink{class_do_f_handler_system_a7e006440056a4a246c2bdf14347c62d9}{get\+\_\+dof\+\_\+handler\+\_\+interface}} ()
+\textbf{ Do\+F\+Handler}$<$ spacedim-\/1, spacedim $>$ \& \mbox{\hyperlink{class_do_f_handler_system_a4d0745d916a6ab3beb6857337b4ffc20}{get\+\_\+dof\+\_\+handler\+\_\+interface}} ()
 \item 
 const \textbf{ Index\+Set} \& \mbox{\hyperlink{class_do_f_handler_system_aa07844f26a5f98734535b29790bd9dca}{get\+\_\+locally\+\_\+owned\+\_\+dofs}} () const
 \item 
@@ -117,9 +115,9 @@ void \mbox{\hyperlink{class_do_f_handler_system_a6ef88586f9bc65676fad4a5281a489c
 \item 
 const \textbf{ Smart\+Pointer}$<$ const \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}}$<$ spacedim $>$ $>$ \mbox{\hyperlink{class_do_f_handler_system_a06d93193cb47591db138cd8f41953796}{tria\+\_\+system}}
 \item 
-std\+::shared\+\_\+ptr$<$ \textbf{ hp\+::\+Do\+F\+Handler}$<$ spacedim, spacedim $>$ $>$ \mbox{\hyperlink{class_do_f_handler_system_ac3c43d8113395b0011179231ff6c58aa}{dof\+\_\+handler\+\_\+domain}}
+std\+::shared\+\_\+ptr$<$ \textbf{ Do\+F\+Handler}$<$ spacedim, spacedim $>$ $>$ \mbox{\hyperlink{class_do_f_handler_system_a342ca54f8d2447244d380db5025dab03}{dof\+\_\+handler\+\_\+domain}}
 \item 
-std\+::shared\+\_\+ptr$<$ \textbf{ hp\+::\+Do\+F\+Handler}$<$ spacedim-\/1, spacedim $>$ $>$ \mbox{\hyperlink{class_do_f_handler_system_aa9480c1fcf0d9170c026ef6611074d06}{dof\+\_\+handler\+\_\+interface}}
+std\+::shared\+\_\+ptr$<$ \textbf{ Do\+F\+Handler}$<$ spacedim-\/1, spacedim $>$ $>$ \mbox{\hyperlink{class_do_f_handler_system_aa76badc239ecf29fa6021994d3411b6c}{dof\+\_\+handler\+\_\+interface}}
 \item 
 std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_do_f_handler_system_a15c27ca30c5905b44691779c755cd69c}{dof\+\_\+indices\+\_\+C}}
 \item 
@@ -158,7 +156,7 @@ Class defining a dof handler system consisting of a dof handler for domain relat
 
 The standard ordering (i.\+e. without explicit renumbering) used in this library is that the domain related dofs are followed by the interface related dofs, which are in turn followed by the additional dofs not related to a mesh.
 
-Conceptually, all independent fields $u^\Omega_\epsilon$ and $u^\Sigma_\eta$ are defined on the entire domain $\Omega$ and the entire interface $\Sigma$, respectively. However, certain independent fields may be extended by zero to certain portions of the domain and interface, respectively (just because they are not needed there according to the model). In order to be able to conveniently deal with this situation, \textbf{ hp\+::\+Do\+F\+Handler}s are used internally. This allows to use \textbf{ F\+E\+\_\+\+Nothing} finite elements everywhere, where an independent field is zero (see also step-\/46 in the deal.\+II tutorial).
+Conceptually, all independent fields $u^\Omega_\epsilon$ and $u^\Sigma_\eta$ are defined on the entire domain $\Omega$ and the entire interface $\Sigma$, respectively. However, certain independent fields may be extended by zero to certain portions of the domain and interface, respectively (just because they are not needed there according to the model). In order to be able to conveniently deal with this situation, \textbf{ Do\+F\+Handler}s are used internally. This allows to use \textbf{ F\+E\+\_\+\+Nothing} finite elements everywhere, where an independent field is zero (see also step-\/46 in the deal.\+II tutorial).
 
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -175,12 +173,12 @@ Conceptually, all independent fields $u^\Omega_\epsilon$ and $u^\Sigma_\eta$ are
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 typedef \textbf{ Tria\+Iterator}$<$\textbf{ Cell\+Accessor}$<$spacedim, spacedim$>$ $>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_do_f_handler_system_a84df955a5d8da7e1439a10f2a64811c0}{Domain\+Cell}}}
 
-A convenience typedef for a deal.\+II \textbf{ Tria\+Iterator} referring to a domain cell \mbox{\Hypertarget{class_do_f_handler_system_a01c54960bba8faa935d32f2d3d2fe914}\label{class_do_f_handler_system_a01c54960bba8faa935d32f2d3d2fe914}} 
+A convenience typedef for a deal.\+II \textbf{ Tria\+Iterator} referring to a domain cell \mbox{\Hypertarget{class_do_f_handler_system_a24490ae81fcdaf7b94e1ef0cae46d096}\label{class_do_f_handler_system_a24490ae81fcdaf7b94e1ef0cae46d096}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!DomainCellDoF@{DomainCellDoF}}
 \index{DomainCellDoF@{DomainCellDoF}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{DomainCellDoF}{DomainCellDoF}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-typedef \textbf{ hp\+::\+Do\+F\+Handler}$<$spacedim, spacedim$>$\+::\textbf{ cell\+\_\+iterator} \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_do_f_handler_system_a01c54960bba8faa935d32f2d3d2fe914}{Domain\+Cell\+DoF}}}
+typedef \textbf{ Do\+F\+Handler}$<$spacedim, spacedim$>$\+::\textbf{ cell\+\_\+iterator} \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_do_f_handler_system_a24490ae81fcdaf7b94e1ef0cae46d096}{Domain\+Cell\+DoF}}}
 
 A convenience typedef for a deal.\+II cell iterator referring to a domain cell (with dof information) \mbox{\Hypertarget{class_do_f_handler_system_a64bfb9dab5f61c2583896a7d086cb1f2}\label{class_do_f_handler_system_a64bfb9dab5f61c2583896a7d086cb1f2}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!InterfaceCell@{InterfaceCell}}
@@ -189,12 +187,12 @@ A convenience typedef for a deal.\+II cell iterator referring to a domain cell (
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 typedef \textbf{ Tria\+Iterator}$<$\textbf{ Cell\+Accessor}$<$spacedim-\/1, spacedim$>$ $>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_do_f_handler_system_a64bfb9dab5f61c2583896a7d086cb1f2}{Interface\+Cell}}}
 
-A convenience typedef for a deal.\+II \textbf{ Tria\+Iterator} referring to an interface cell \mbox{\Hypertarget{class_do_f_handler_system_a82e65f8c260f076489bd92615221a1d0}\label{class_do_f_handler_system_a82e65f8c260f076489bd92615221a1d0}} 
+A convenience typedef for a deal.\+II \textbf{ Tria\+Iterator} referring to an interface cell \mbox{\Hypertarget{class_do_f_handler_system_ab74b04bb37380033195cfb081f505214}\label{class_do_f_handler_system_ab74b04bb37380033195cfb081f505214}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!InterfaceCellDoF@{InterfaceCellDoF}}
 \index{InterfaceCellDoF@{InterfaceCellDoF}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{InterfaceCellDoF}{InterfaceCellDoF}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-typedef \textbf{ hp\+::\+Do\+F\+Handler}$<$spacedim-\/1, spacedim$>$\+::\textbf{ cell\+\_\+iterator} \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_do_f_handler_system_a82e65f8c260f076489bd92615221a1d0}{Interface\+Cell\+DoF}}}
+typedef \textbf{ Do\+F\+Handler}$<$spacedim-\/1, spacedim$>$\+::\textbf{ cell\+\_\+iterator} \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_do_f_handler_system_ab74b04bb37380033195cfb081f505214}{Interface\+Cell\+DoF}}}
 
 A convenience typedef for a deal.\+II cell iterator referring to an interface cell (with dof information) 
 
@@ -288,42 +286,42 @@ An iterator (with dof information) to the first active domain cell. Note that th
 \begin{DoxyReturn}{Returns}
 An iterator (with dof information) to past the last active domain cell. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_do_f_handler_system_a47b35524f131eb242ade5a674096be90}\label{class_do_f_handler_system_a47b35524f131eb242ade5a674096be90}} 
+\mbox{\Hypertarget{class_do_f_handler_system_aaa5597e66f5a62935b83f9c862e3ae9d}\label{class_do_f_handler_system_aaa5597e66f5a62935b83f9c862e3ae9d}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!get\_dof\_handler\_domain@{get\_dof\_handler\_domain}}
 \index{get\_dof\_handler\_domain@{get\_dof\_handler\_domain}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_handler\_domain()}{get\_dof\_handler\_domain()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\textbf{ hp\+::\+Do\+F\+Handler}$<$spacedim, spacedim$>$\& \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+handler\+\_\+domain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\textbf{ Do\+F\+Handler}$<$spacedim, spacedim$>$\& \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+handler\+\_\+domain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyReturn}{Returns}
 domain related dof handler (warning\+: this is a non-\/const reference, which is mainly intended for dof renumbering) 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_do_f_handler_system_a5e8db4b37a83d3bed6f119611b6a7ee1}\label{class_do_f_handler_system_a5e8db4b37a83d3bed6f119611b6a7ee1}} 
+\mbox{\Hypertarget{class_do_f_handler_system_a213bc9448c093924d8e44c2523492327}\label{class_do_f_handler_system_a213bc9448c093924d8e44c2523492327}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!get\_dof\_handler\_domain@{get\_dof\_handler\_domain}}
 \index{get\_dof\_handler\_domain@{get\_dof\_handler\_domain}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_handler\_domain()}{get\_dof\_handler\_domain()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-const \textbf{ hp\+::\+Do\+F\+Handler}$<$spacedim, spacedim$>$\& \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+handler\+\_\+domain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+const \textbf{ Do\+F\+Handler}$<$spacedim, spacedim$>$\& \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+handler\+\_\+domain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
 domain related dof handler 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_do_f_handler_system_a7e006440056a4a246c2bdf14347c62d9}\label{class_do_f_handler_system_a7e006440056a4a246c2bdf14347c62d9}} 
+\mbox{\Hypertarget{class_do_f_handler_system_a4d0745d916a6ab3beb6857337b4ffc20}\label{class_do_f_handler_system_a4d0745d916a6ab3beb6857337b4ffc20}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!get\_dof\_handler\_interface@{get\_dof\_handler\_interface}}
 \index{get\_dof\_handler\_interface@{get\_dof\_handler\_interface}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_handler\_interface()}{get\_dof\_handler\_interface()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\textbf{ hp\+::\+Do\+F\+Handler}$<$spacedim-\/1, spacedim$>$\& \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+handler\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\textbf{ Do\+F\+Handler}$<$spacedim-\/1, spacedim$>$\& \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+handler\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyReturn}{Returns}
 interface related dof handler (warning\+: this is a non-\/const reference, which is mainly intended for dof renumbering) 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_do_f_handler_system_a05e0e239c6dd5d25e012d9c5bd2314a2}\label{class_do_f_handler_system_a05e0e239c6dd5d25e012d9c5bd2314a2}} 
+\mbox{\Hypertarget{class_do_f_handler_system_a47e09ae23ad1f653f0234afe845e4eec}\label{class_do_f_handler_system_a47e09ae23ad1f653f0234afe845e4eec}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!get\_dof\_handler\_interface@{get\_dof\_handler\_interface}}
 \index{get\_dof\_handler\_interface@{get\_dof\_handler\_interface}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_handler\_interface()}{get\_dof\_handler\_interface()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-const \textbf{ hp\+::\+Do\+F\+Handler}$<$spacedim-\/1, spacedim$>$\& \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+handler\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+const \textbf{ Do\+F\+Handler}$<$spacedim-\/1, spacedim$>$\& \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+handler\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
 interface related dof handler 
@@ -619,7 +617,7 @@ Number of dofs not related to a mesh
 unsigned int \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::n\+\_\+dofs\+\_\+domain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
-Number of dofs on domain (i.\+e., the number of dofs currently associated with \mbox{\hyperlink{class_do_f_handler_system_ac3c43d8113395b0011179231ff6c58aa}{Do\+F\+Handler\+System\+::dof\+\_\+handler\+\_\+domain}}) 
+Number of dofs on domain (i.\+e., the number of dofs currently associated with \mbox{\hyperlink{class_do_f_handler_system_a342ca54f8d2447244d380db5025dab03}{Do\+F\+Handler\+System\+::dof\+\_\+handler\+\_\+domain}}) 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_do_f_handler_system_ab0157b6d29707c6657d21610f2bfe05d}\label{class_do_f_handler_system_ab0157b6d29707c6657d21610f2bfe05d}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!n\_dofs\_interface@{n\_dofs\_interface}}
@@ -629,24 +627,8 @@ Number of dofs on domain (i.\+e., the number of dofs currently associated with \
 unsigned int \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::n\+\_\+dofs\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
-Number of dofs on interface (i.\+e., the number of dofs currently associated with \mbox{\hyperlink{class_do_f_handler_system_aa9480c1fcf0d9170c026ef6611074d06}{Do\+F\+Handler\+System\+::dof\+\_\+handler\+\_\+interface}}) 
+Number of dofs on interface (i.\+e., the number of dofs currently associated with \mbox{\hyperlink{class_do_f_handler_system_aa76badc239ecf29fa6021994d3411b6c}{Do\+F\+Handler\+System\+::dof\+\_\+handler\+\_\+interface}}) 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_do_f_handler_system_a1cbcc00826aca94736d3aebef157da72}\label{class_do_f_handler_system_a1cbcc00826aca94736d3aebef157da72}} 
-\index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!set\_fe@{set\_fe}}
-\index{set\_fe@{set\_fe}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
-\doxysubsubsection{\texorpdfstring{set\_fe()}{set\_fe()}}
-{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::set\+\_\+fe (\begin{DoxyParamCaption}\item[{const \textbf{ hp\+::\+F\+E\+Collection}$<$ spacedim, spacedim $>$ \&}]{fe\+\_\+collection\+\_\+domain,  }\item[{const \textbf{ hp\+::\+F\+E\+Collection}$<$ spacedim-\/1, spacedim $>$ \&}]{fe\+\_\+collection\+\_\+interface }\end{DoxyParamCaption})}
-
-This function sets the F\+E\+Collection objects to be used. However, it does not distribute any dofs
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em fe\+\_\+collection\+\_\+domain} & the fe collection to be used for the distribution of dofs on the domain\\
-\hline
-\mbox{\texttt{ in}}  & {\em fe\+\_\+collection\+\_\+interface} & the fe collection to be used for the distribution of dofs on the interface \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{class_do_f_handler_system_ab24852414baf7b391b67d21644bd66f8}\label{class_do_f_handler_system_ab24852414baf7b391b67d21644bd66f8}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!set\_locally\_owned\_dofs@{set\_locally\_owned\_dofs}}
 \index{set\_locally\_owned\_dofs@{set\_locally\_owned\_dofs}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
@@ -780,21 +762,21 @@ This is necssary to get access to the current renumbering scheme
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 std\+::vector$<$\mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$spacedim$>$ $>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells\hspace{0.3cm}{\ttfamily [private]}}
 
-This vector contains the interface cells and corresponding domain cells of the active mesh (with dof information). This member is the equivalent to \mbox{\hyperlink{class_triangulation_system_a516c7a253cefbc5e208714538b21424d}{Triangulation\+System\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}} \mbox{\Hypertarget{class_do_f_handler_system_ac3c43d8113395b0011179231ff6c58aa}\label{class_do_f_handler_system_ac3c43d8113395b0011179231ff6c58aa}} 
+This vector contains the interface cells and corresponding domain cells of the active mesh (with dof information). This member is the equivalent to \mbox{\hyperlink{class_triangulation_system_a516c7a253cefbc5e208714538b21424d}{Triangulation\+System\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}} \mbox{\Hypertarget{class_do_f_handler_system_a342ca54f8d2447244d380db5025dab03}\label{class_do_f_handler_system_a342ca54f8d2447244d380db5025dab03}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!dof\_handler\_domain@{dof\_handler\_domain}}
 \index{dof\_handler\_domain@{dof\_handler\_domain}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{dof\_handler\_domain}{dof\_handler\_domain}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::shared\+\_\+ptr$<$\textbf{ hp\+::\+Do\+F\+Handler}$<$spacedim, spacedim$>$ $>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::dof\+\_\+handler\+\_\+domain\hspace{0.3cm}{\ttfamily [private]}}
+std\+::shared\+\_\+ptr$<$\textbf{ Do\+F\+Handler}$<$spacedim, spacedim$>$ $>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::dof\+\_\+handler\+\_\+domain\hspace{0.3cm}{\ttfamily [private]}}
 
-\textbf{ hp\+::\+Do\+F\+Handler} for domain related dofs \mbox{\Hypertarget{class_do_f_handler_system_aa9480c1fcf0d9170c026ef6611074d06}\label{class_do_f_handler_system_aa9480c1fcf0d9170c026ef6611074d06}} 
+\textbf{ Do\+F\+Handler} for domain related dofs \mbox{\Hypertarget{class_do_f_handler_system_aa76badc239ecf29fa6021994d3411b6c}\label{class_do_f_handler_system_aa76badc239ecf29fa6021994d3411b6c}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!dof\_handler\_interface@{dof\_handler\_interface}}
 \index{dof\_handler\_interface@{dof\_handler\_interface}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{dof\_handler\_interface}{dof\_handler\_interface}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::shared\+\_\+ptr$<$\textbf{ hp\+::\+Do\+F\+Handler}$<$spacedim-\/1, spacedim$>$ $>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::dof\+\_\+handler\+\_\+interface\hspace{0.3cm}{\ttfamily [private]}}
+std\+::shared\+\_\+ptr$<$\textbf{ Do\+F\+Handler}$<$spacedim-\/1, spacedim$>$ $>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::dof\+\_\+handler\+\_\+interface\hspace{0.3cm}{\ttfamily [private]}}
 
-\textbf{ hp\+::\+Do\+F\+Handler} for interface related dofs \mbox{\Hypertarget{class_do_f_handler_system_a15c27ca30c5905b44691779c755cd69c}\label{class_do_f_handler_system_a15c27ca30c5905b44691779c755cd69c}} 
+\textbf{ Do\+F\+Handler} for interface related dofs \mbox{\Hypertarget{class_do_f_handler_system_a15c27ca30c5905b44691779c755cd69c}\label{class_do_f_handler_system_a15c27ca30c5905b44691779c755cd69c}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!dof\_indices\_C@{dof\_indices\_C}}
 \index{dof\_indices\_C@{dof\_indices\_C}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{dof\_indices\_C}{dof\_indices\_C}}

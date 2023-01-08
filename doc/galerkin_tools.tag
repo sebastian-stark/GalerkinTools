@@ -247,6 +247,13 @@
       <anchor>ad0ff28386be7b54b3487ae36e5a074fa</anchor>
       <arglist>(const bool local_bool, const MPI_Comm &amp;mpi_communicator)</arglist>
     </member>
+    <member kind="function">
+      <type>std::vector&lt; unsigned int &gt;</type>
+      <name>get_n_locally_owned_dofs_per_processor</name>
+      <anchorfile>namespace_auxiliary.html</anchorfile>
+      <anchor>aaa9fb90b2f2308f766b8130578ab9c39</anchor>
+      <arglist>(const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>total_potential.h</name>
@@ -575,6 +582,20 @@
       <anchor>ab0dabb84cc4a0497dbeb73a9eec3071d</anchor>
       <arglist>(const unsigned int dof_index) const</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_quadrature_point_alignment_tol</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a60553b183a382aff3072ea7b6f5b86dd</anchor>
+      <arglist>(const double quadrature_point_alignment_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_cylindrical_symmetry</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a5744ed966169526d69508706b7b8f2d2</anchor>
+      <arglist>(const bool cylindrical_symmetry)</arglist>
+    </member>
     <member kind="function" protection="private">
       <type>void</type>
       <name>convert_dependent_fields_to_shapefunctions</name>
@@ -600,8 +621,8 @@
       <type>void</type>
       <name>initialize_fe_values_domain</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a2c394d614e7ffe8b81ba1a8623db611d</anchor>
-      <arglist>(const typename hp::DoFHandler&lt; spacedim, spacedim &gt;::active_cell_iterator &amp;cell, const unsigned int internal_index, const bool nonprimitive=false) const</arglist>
+      <anchor>a95639ce05d10d6aa37ea6ae5962753e2</anchor>
+      <arglist>(const typename DoFHandler&lt; spacedim, spacedim &gt;::active_cell_iterator &amp;cell, const unsigned int internal_index, const bool nonprimitive=false) const</arglist>
     </member>
     <member kind="function" protection="private">
       <type>void</type>
@@ -1122,6 +1143,20 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
+      <type>double</type>
+      <name>quadrature_point_alignment_tol</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>aa37920e596dca3985e6d28b9d4e3d882</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>cylindrical_symmetry</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>aa2548bfa4a097088e3759ce2a1319aa8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
       <type>const TotalPotential&lt; spacedim &gt;</type>
       <name>total_potential</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
@@ -1583,6 +1618,20 @@
       <anchor>a717eb6ebc7c62fe00063edcf264f3ecc</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>quadrature_point_alignment_tol</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>aa37920e596dca3985e6d28b9d4e3d882</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>cylindrical_symmetry</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>aa2548bfa4a097088e3759ce2a1319aa8</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="private">
       <type>void</type>
       <name>convert_dependent_fields_to_shapefunctions</name>
@@ -1608,8 +1657,8 @@
       <type>void</type>
       <name>initialize_fe_values_domain</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a2c394d614e7ffe8b81ba1a8623db611d</anchor>
-      <arglist>(const typename hp::DoFHandler&lt; spacedim, spacedim &gt;::active_cell_iterator &amp;cell, const unsigned int internal_index, const bool nonprimitive=false) const</arglist>
+      <anchor>a95639ce05d10d6aa37ea6ae5962753e2</anchor>
+      <arglist>(const typename DoFHandler&lt; spacedim, spacedim &gt;::active_cell_iterator &amp;cell, const unsigned int internal_index, const bool nonprimitive=false) const</arglist>
     </member>
     <member kind="function" protection="private">
       <type>void</type>
@@ -1890,6 +1939,20 @@
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>ab0dabb84cc4a0497dbeb73a9eec3071d</anchor>
       <arglist>(const unsigned int dof_index) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_quadrature_point_alignment_tol</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a60553b183a382aff3072ea7b6f5b86dd</anchor>
+      <arglist>(const double quadrature_point_alignment_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_cylindrical_symmetry</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a5744ed966169526d69508706b7b8f2d2</anchor>
+      <arglist>(const bool cylindrical_symmetry)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -3155,10 +3218,10 @@
       <arglist></arglist>
     </member>
     <member kind="typedef">
-      <type>hp::DoFHandler&lt; spacedim-1, spacedim &gt;::cell_iterator</type>
+      <type>DoFHandler&lt; spacedim-1, spacedim &gt;::cell_iterator</type>
       <name>InterfaceCellDoF</name>
       <anchorfile>class_do_f_handler_system.html</anchorfile>
-      <anchor>a82e65f8c260f076489bd92615221a1d0</anchor>
+      <anchor>ab74b04bb37380033195cfb081f505214</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
@@ -3169,10 +3232,10 @@
       <arglist></arglist>
     </member>
     <member kind="typedef">
-      <type>hp::DoFHandler&lt; spacedim, spacedim &gt;::cell_iterator</type>
+      <type>DoFHandler&lt; spacedim, spacedim &gt;::cell_iterator</type>
       <name>DomainCellDoF</name>
       <anchorfile>class_do_f_handler_system.html</anchorfile>
-      <anchor>a01c54960bba8faa935d32f2d3d2fe914</anchor>
+      <anchor>a24490ae81fcdaf7b94e1ef0cae46d096</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -3195,13 +3258,6 @@
       <anchorfile>class_do_f_handler_system.html</anchorfile>
       <anchor>ac6e0950ae9d140b0a9185bcfffe167d6</anchor>
       <arglist>(const hp::FECollection&lt; spacedim, spacedim &gt; &amp;fe_collection_domain, const hp::FECollection&lt; spacedim-1, spacedim &gt; &amp;fe_collection_interface, const unsigned int n_additional_dofs=0)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>set_fe</name>
-      <anchorfile>class_do_f_handler_system.html</anchorfile>
-      <anchor>a1cbcc00826aca94736d3aebef157da72</anchor>
-      <arglist>(const hp::FECollection&lt; spacedim, spacedim &gt; &amp;fe_collection_domain, const hp::FECollection&lt; spacedim-1, spacedim &gt; &amp;fe_collection_interface)</arglist>
     </member>
     <member kind="function">
       <type>std::vector&lt; InterfaceCellDomainCellsDoF&lt; spacedim &gt; &gt;::iterator</type>
@@ -3288,31 +3344,31 @@
       <arglist>(const unsigned int &amp;dof_index) const</arglist>
     </member>
     <member kind="function">
-      <type>const hp::DoFHandler&lt; spacedim, spacedim &gt; &amp;</type>
+      <type>const DoFHandler&lt; spacedim, spacedim &gt; &amp;</type>
       <name>get_dof_handler_domain</name>
       <anchorfile>class_do_f_handler_system.html</anchorfile>
-      <anchor>a5e8db4b37a83d3bed6f119611b6a7ee1</anchor>
+      <anchor>a213bc9448c093924d8e44c2523492327</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>const hp::DoFHandler&lt; spacedim-1, spacedim &gt; &amp;</type>
+      <type>const DoFHandler&lt; spacedim-1, spacedim &gt; &amp;</type>
       <name>get_dof_handler_interface</name>
       <anchorfile>class_do_f_handler_system.html</anchorfile>
-      <anchor>a05e0e239c6dd5d25e012d9c5bd2314a2</anchor>
+      <anchor>a47e09ae23ad1f653f0234afe845e4eec</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>hp::DoFHandler&lt; spacedim, spacedim &gt; &amp;</type>
+      <type>DoFHandler&lt; spacedim, spacedim &gt; &amp;</type>
       <name>get_dof_handler_domain</name>
       <anchorfile>class_do_f_handler_system.html</anchorfile>
-      <anchor>a47b35524f131eb242ade5a674096be90</anchor>
+      <anchor>aaa5597e66f5a62935b83f9c862e3ae9d</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>hp::DoFHandler&lt; spacedim-1, spacedim &gt; &amp;</type>
+      <type>DoFHandler&lt; spacedim-1, spacedim &gt; &amp;</type>
       <name>get_dof_handler_interface</name>
       <anchorfile>class_do_f_handler_system.html</anchorfile>
-      <anchor>a7e006440056a4a246c2bdf14347c62d9</anchor>
+      <anchor>a4d0745d916a6ab3beb6857337b4ffc20</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -3470,17 +3526,17 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::shared_ptr&lt; hp::DoFHandler&lt; spacedim, spacedim &gt; &gt;</type>
+      <type>std::shared_ptr&lt; DoFHandler&lt; spacedim, spacedim &gt; &gt;</type>
       <name>dof_handler_domain</name>
       <anchorfile>class_do_f_handler_system.html</anchorfile>
-      <anchor>ac3c43d8113395b0011179231ff6c58aa</anchor>
+      <anchor>a342ca54f8d2447244d380db5025dab03</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::shared_ptr&lt; hp::DoFHandler&lt; spacedim-1, spacedim &gt; &gt;</type>
+      <type>std::shared_ptr&lt; DoFHandler&lt; spacedim-1, spacedim &gt; &gt;</type>
       <name>dof_handler_interface</name>
       <anchorfile>class_do_f_handler_system.html</anchorfile>
-      <anchor>aa9480c1fcf0d9170c026ef6611074d06</anchor>
+      <anchor>aa76badc239ecf29fa6021994d3411b6c</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -4161,10 +4217,10 @@
       <arglist></arglist>
     </member>
     <member kind="typedef">
-      <type>hp::DoFHandler&lt; spacedim-1, spacedim &gt;::cell_iterator</type>
+      <type>DoFHandler&lt; spacedim-1, spacedim &gt;::cell_iterator</type>
       <name>InterfaceCellDoF</name>
       <anchorfile>class_interface_cell_domain_cells_do_f.html</anchorfile>
-      <anchor>a65f6a62d58c8378667cab3df94251ab6</anchor>
+      <anchor>ac24e469237fddaf0310a5f818ba13afd</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
@@ -4175,10 +4231,10 @@
       <arglist></arglist>
     </member>
     <member kind="typedef">
-      <type>hp::DoFHandler&lt; spacedim, spacedim &gt;::cell_iterator</type>
+      <type>DoFHandler&lt; spacedim, spacedim &gt;::cell_iterator</type>
       <name>DomainCellDoF</name>
       <anchorfile>class_interface_cell_domain_cells_do_f.html</anchorfile>
-      <anchor>a464c96faf99349555566e4e469fdd34e</anchor>
+      <anchor>a78225607ebf9880311f4fdeb30c5a89d</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -5270,31 +5326,31 @@
       <arglist>()=default</arglist>
     </member>
     <member kind="function" virtualness="virtual">
-      <type>virtual const dealii::parallel::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
+      <type>virtual const dealii::parallel::distributed::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
       <name>get_triangulation_domain</name>
       <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a68d45d1980bf4a8aa4ed8db4f4985eef</anchor>
+      <anchor>a8dfd7da98adf853fd6ec27cbfccec90b</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
-      <type>virtual const dealii::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
+      <type>virtual const dealii::GalerkinTools::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
       <name>get_triangulation_interface</name>
       <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a7ac3f351759406d1e340ddafc2dc7c75</anchor>
+      <anchor>acaac838c580c71c0152b1eef7c084ebb</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
-      <type>virtual dealii::parallel::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
+      <type>virtual dealii::parallel::distributed::Triangulation&lt; spacedim, spacedim &gt; &amp;</type>
       <name>get_triangulation_domain</name>
       <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>a4901a2f0e26104d5a085253620b98f52</anchor>
+      <anchor>abadd4ec597f43a8992f6477690c9f6c4</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" virtualness="virtual">
-      <type>virtual dealii::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
+      <type>virtual dealii::GalerkinTools::parallel::Triangulation&lt; spacedim-1, spacedim &gt; &amp;</type>
       <name>get_triangulation_interface</name>
       <anchorfile>classparallel_1_1_triangulation_system.html</anchorfile>
-      <anchor>ab799af10ed705dcf903bcd78325762b0</anchor>
+      <anchor>ad5c8bebc3b72cae7e1ec086790b2f76d</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" virtualness="virtual">
@@ -6230,6 +6286,13 @@
       <anchorfile>namespace_auxiliary.html</anchorfile>
       <anchor>ad0ff28386be7b54b3487ae36e5a074fa</anchor>
       <arglist>(const bool local_bool, const MPI_Comm &amp;mpi_communicator)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; unsigned int &gt;</type>
+      <name>get_n_locally_owned_dofs_per_processor</name>
+      <anchorfile>namespace_auxiliary.html</anchorfile>
+      <anchor>aaa9fb90b2f2308f766b8130578ab9c39</anchor>
+      <arglist>(const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler)</arglist>
     </member>
   </compound>
   <compound kind="namespace">

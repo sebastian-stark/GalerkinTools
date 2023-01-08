@@ -174,6 +174,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a256dc4f0fc5c62f130d75734ea94249f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0dabb84cc4a0497dbeb73a9eec3071d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#ab0dabb84cc4a0497dbeb73a9eec3071d">print_dof_information</a> (const unsigned int dof_index) const</td></tr>
 <tr class="separator:ab0dabb84cc4a0497dbeb73a9eec3071d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Miscellaneous memberfunctions</div></td></tr>
+<tr class="memitem:a60553b183a382aff3072ea7b6f5b86dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a60553b183a382aff3072ea7b6f5b86dd">set_quadrature_point_alignment_tol</a> (const double <a class="el" href="class_assembly_helper.html#aa37920e596dca3985e6d28b9d4e3d882">quadrature_point_alignment_tol</a>)</td></tr>
+<tr class="separator:a60553b183a382aff3072ea7b6f5b86dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5744ed966169526d69508706b7b8f2d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a5744ed966169526d69508706b7b8f2d2">set_cylindrical_symmetry</a> (const bool <a class="el" href="class_assembly_helper.html#aa2548bfa4a097088e3759ce2a1319aa8">cylindrical_symmetry</a>)</td></tr>
+<tr class="separator:a5744ed966169526d69508706b7b8f2d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -189,8 +194,8 @@ Private Member Functions</h2></td></tr>
 </div></td></tr>
 <tr class="memitem:a953859cc4cd745a1b51fdec5418be682"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a953859cc4cd745a1b51fdec5418be682">distribute_dofs</a> ()</td></tr>
 <tr class="separator:a953859cc4cd745a1b51fdec5418be682"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c394d614e7ffe8b81ba1a8623db611d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a2c394d614e7ffe8b81ba1a8623db611d">initialize_fe_values_domain</a> (const typename <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classhp_1_1DoFHandler.html">hp::DoFHandler</a>&lt; spacedim, spacedim &gt;::<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;cell, const unsigned int internal_index, const bool nonprimitive=false) const</td></tr>
-<tr class="separator:a2c394d614e7ffe8b81ba1a8623db611d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95639ce05d10d6aa37ea6ae5962753e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a95639ce05d10d6aa37ea6ae5962753e2">initialize_fe_values_domain</a> (const typename <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; spacedim, spacedim &gt;::<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;cell, const unsigned int internal_index, const bool nonprimitive=false) const</td></tr>
+<tr class="separator:a95639ce05d10d6aa37ea6ae5962753e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a223bbebe8a1f0aa09a53ee19257b927e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a223bbebe8a1f0aa09a53ee19257b927e">initialize_fe_values_interface</a> (const <a class="el" href="class_interface_cell_domain_cells_do_f.html">InterfaceCellDomainCellsDoF</a>&lt; spacedim &gt; &amp;interface_cell_domain_cells, const unsigned int internal_index, const bool nonprimitive=false) const</td></tr>
 <tr class="separator:a223bbebe8a1f0aa09a53ee19257b927e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e29275d9ec1c479375707fbc670bc8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a5e29275d9ec1c479375707fbc670bc8c">compute_e_omega</a> (const unsigned int internal_index, const unsigned int scalar_functional_index, const unsigned int q_point, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;solution_u_omega, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;solution_C, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;e_omega, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFullMatrix.html">FullMatrix</a>&lt; double &gt; &amp;de_omega_dsol_T, const bool compute_derivative=true, const bool ignore_constants=false) const</td></tr>
@@ -362,6 +367,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a87945d87baf37637673fd124b3803fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a717eb6ebc7c62fe00063edcf264f3ecc"><td class="memItemLeft" align="right" valign="top"><a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classConditionalOStream.html">ConditionalOStream</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a717eb6ebc7c62fe00063edcf264f3ecc">pout</a></td></tr>
 <tr class="separator:a717eb6ebc7c62fe00063edcf264f3ecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa37920e596dca3985e6d28b9d4e3d882"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#aa37920e596dca3985e6d28b9d4e3d882">quadrature_point_alignment_tol</a> = 1<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacePhysics_1_1Elasticity_1_1Kinematics.html#a9587d5229555daa5b1fa1ba2f8a40adb">e</a>-8</td></tr>
+<tr class="separator:aa37920e596dca3985e6d28b9d4e3d882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2548bfa4a097088e3759ce2a1319aa8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#aa2548bfa4a097088e3759ce2a1319aa8">cylindrical_symmetry</a> = false</td></tr>
+<tr class="separator:aa2548bfa4a097088e3759ce2a1319aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;unsigned int spacedim&gt;<br />
@@ -1978,8 +1987,8 @@ template&lt;unsigned int spacedim&gt; </div>
 
 </div>
 </div>
-<a id="a2c394d614e7ffe8b81ba1a8623db611d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c394d614e7ffe8b81ba1a8623db611d">&#9670;&nbsp;</a></span>initialize_fe_values_domain()</h2>
+<a id="a95639ce05d10d6aa37ea6ae5962753e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95639ce05d10d6aa37ea6ae5962753e2">&#9670;&nbsp;</a></span>initialize_fe_values_domain()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1992,7 +2001,7 @@ template&lt;unsigned int spacedim&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_assembly_helper.html">AssemblyHelper</a>&lt; spacedim &gt;::initialize_fe_values_domain </td>
           <td>(</td>
-          <td class="paramtype">const typename <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classhp_1_1DoFHandler.html">hp::DoFHandler</a>&lt; spacedim, spacedim &gt;::<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;&#160;</td>
+          <td class="paramtype">const typename <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a>&lt; spacedim, spacedim &gt;::<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__Iterators.html#ga661664adfd3a341a678e5ac62f85185a">active_cell_iterator</a> &amp;&#160;</td>
           <td class="paramname"><em>cell</em>, </td>
         </tr>
         <tr>
@@ -2353,6 +2362,58 @@ template&lt;unsigned int spacedim&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">dof_index</td><td>The dof index </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5744ed966169526d69508706b7b8f2d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5744ed966169526d69508706b7b8f2d2">&#9670;&nbsp;</a></span>set_cylindrical_symmetry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_assembly_helper.html">AssemblyHelper</a>&lt; spacedim &gt;::set_cylindrical_symmetry </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>cylindrical_symmetry</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname"><a class="el" href="class_assembly_helper.html#aa2548bfa4a097088e3759ce2a1319aa8">AssemblyHelper::cylindrical_symmetry</a></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a60553b183a382aff3072ea7b6f5b86dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60553b183a382aff3072ea7b6f5b86dd">&#9670;&nbsp;</a></span>set_quadrature_point_alignment_tol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_assembly_helper.html">AssemblyHelper</a>&lt; spacedim &gt;::set_quadrature_point_alignment_tol </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>quadrature_point_alignment_tol</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">quadrature_point_alignment_tol</td><td>Sets <a class="el" href="class_assembly_helper.html#aa37920e596dca3985e6d28b9d4e3d882">AssemblyHelper::quadrature_point_alignment_tol</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -3142,6 +3203,31 @@ template&lt;unsigned int spacedim&gt; </div>
 
 </div>
 </div>
+<a id="aa2548bfa4a097088e3759ce2a1319aa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2548bfa4a097088e3759ce2a1319aa8">&#9670;&nbsp;</a></span>cylindrical_symmetry</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_assembly_helper.html">AssemblyHelper</a>&lt; spacedim &gt;::cylindrical_symmetry = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>If this is set to true, cylindrical symmetry is assumed. I.e., the integrand is multiplied by a factor of 2*pi*x_0 at each quadrature point. </p>
+
+</div>
+</div>
 <a id="ad93b109608d4425d318434e01cb6246c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad93b109608d4425d318434e01cb6246c">&#9670;&nbsp;</a></span>d_omega</h2>
 
@@ -3803,6 +3889,31 @@ template&lt;unsigned int spacedim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Stream used for standard output to screen (makes sure that output is printed only on one processor in parallel) </p>
+
+</div>
+</div>
+<a id="aa37920e596dca3985e6d28b9d4e3d882"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa37920e596dca3985e6d28b9d4e3d882">&#9670;&nbsp;</a></span>quadrature_point_alignment_tol</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_assembly_helper.html">AssemblyHelper</a>&lt; spacedim &gt;::quadrature_point_alignment_tol = 1<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacePhysics_1_1Elasticity_1_1Kinematics.html#a9587d5229555daa5b1fa1ba2f8a40adb">e</a>-8</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Absolute tolerance for checking proper alignment of corresponding quadrature points on interfaces (quadrature points on domain cell faces and corresponding interface cells) </p>
 
 </div>
 </div>

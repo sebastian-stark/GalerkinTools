@@ -2347,6 +2347,17 @@ const
 					if(scalar_functional->get_h_omega(e_omega, e_omega_ref_sets, hidden_vars, x, h_omega, h_omega_1, h_omega_2, requested_quantities))
 						error = true;
 
+					// take cylindrical symmetry into account if requested
+					if(cylindrical_symmetry)
+					{
+						if(get<0>(requested_quantities))
+							h_omega *= 2.0 * numbers::PI * x[0];
+						if(get<1>(requested_quantities))
+							h_omega_1 *= 2.0 * numbers::PI * x[0];
+						if(get<2>(requested_quantities))
+							h_omega_2 *= 2.0 * numbers::PI * x[0];
+					}
+
 #ifdef DEBUG
 					if(get<1>(requested_quantities))
 					{
@@ -2742,6 +2753,17 @@ const
 					//evaluate the integrand of the scalar functional and its derivatives w.r.t. the independent variables
 					if(scalar_functional->get_h_sigma(e_sigma, e_sigma_ref_sets, hidden_vars, x, n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities))
 						error = true;
+
+					// take radial symmetry into account if requested
+					if(cylindrical_symmetry)
+					{
+						if(get<0>(requested_quantities))
+							h_sigma *= 2.0 * numbers::PI * x[0];
+						if(get<1>(requested_quantities))
+							h_sigma_1 *= 2.0 * numbers::PI * x[0];
+						if(get<2>(requested_quantities))
+							h_sigma_2 *= 2.0 * numbers::PI * x[0];
+					}
 
 					//add contribution to the value of the scalar functional if it enters the total potential primitively
 					//(values of scalar functionals entering the total potential non-primitively have been computed earlier
@@ -4704,6 +4726,14 @@ AssemblyHelper<spacedim>::set_quadrature_point_alignment_tol(const double quadra
 }
 
 template<unsigned int spacedim>
+void
+AssemblyHelper<spacedim>::set_cylindrical_symmetry(const bool cylindrical_symmetry)
+{
+	Assert(spacedim == 2, ExcMessage("Cylindrical symmetry is only possible with a two-dimensional model."));
+	this->cylindrical_symmetry = cylindrical_symmetry;
+}
+
+template<unsigned int spacedim>
 const vector<IndexSet>
 AssemblyHelper<spacedim>::get_locally_owned_indices_blocks()
 const
@@ -5156,6 +5186,17 @@ const
 					if(scalar_functional->get_h_omega(e_omega, e_omega_ref_sets, hidden_vars, x, h_omega, h_omega_1, h_omega_2, requested_quantities))
 						error = true;
 
+					// take radial symmetry into account if requested
+					if(cylindrical_symmetry)
+					{
+						if(get<0>(requested_quantities))
+							h_omega *= 2.0 * numbers::PI * x[0];
+						if(get<1>(requested_quantities))
+							h_omega_1 *= 2.0 * numbers::PI * x[0];
+						if(get<2>(requested_quantities))
+							h_omega_2 *= 2.0 * numbers::PI * x[0];
+					}
+
 					//add contribution to the value of the scalar functional
 					nonprimitive_scalar_functional_values[nonprimitive_index] += h_omega * JxW[q_point];
 				}
@@ -5388,6 +5429,17 @@ const
 					if(scalar_functional->get_h_sigma(e_sigma, e_sigma_ref_sets, hidden_vars, x, n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities))
 						error = true;
 
+					// take radial symmetry into account if requested
+					if(cylindrical_symmetry)
+					{
+						if(get<0>(requested_quantities))
+							h_sigma *= 2.0 * numbers::PI * x[0];
+						if(get<1>(requested_quantities))
+							h_sigma_1 *= 2.0 * numbers::PI * x[0];
+						if(get<2>(requested_quantities))
+							h_sigma_2 *= 2.0 * numbers::PI * x[0];
+					}
+
 					//add contribution to the value of the scalar functional
 					nonprimitive_scalar_functional_values[nonprimitive_index] += h_sigma * JxW[q_point];
 
@@ -5570,6 +5622,18 @@ const
 					const auto& x = q_points[q_point];
 
 					scalar_functional->get_h_omega(e_omega, e_omega_ref_sets, hidden_vars, x, h_omega, h_omega_1, h_omega_2, requested_quantities);
+
+					// take radial symmetry into account if requested
+					if(cylindrical_symmetry)
+					{
+						if(get<0>(requested_quantities))
+							h_omega *= 2.0 * numbers::PI * x[0];
+						if(get<1>(requested_quantities))
+							h_omega_1 *= 2.0 * numbers::PI * x[0];
+						if(get<2>(requested_quantities))
+							h_omega_2 *= 2.0 * numbers::PI * x[0];
+					}
+
 				}
 			}
 		}
@@ -5792,6 +5856,17 @@ const
 
 					//evaluate the integrand of the scalar functional
 					scalar_functional->get_h_sigma(e_sigma, e_sigma_ref_sets, hidden_vars, x, n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities);
+
+					// take radial symmetry into account if requested
+					if(cylindrical_symmetry)
+					{
+						if(get<0>(requested_quantities))
+							h_sigma *= 2.0 * numbers::PI * x[0];
+						if(get<1>(requested_quantities))
+							h_sigma_1 *= 2.0 * numbers::PI * x[0];
+						if(get<2>(requested_quantities))
+							h_sigma_2 *= 2.0 * numbers::PI * x[0];
+					}
 
 					//check that quadrature points are aligned with each other
 					//these checks can be removed in release

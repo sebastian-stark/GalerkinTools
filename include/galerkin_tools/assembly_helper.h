@@ -945,6 +945,12 @@ private:
 	double
 	quadrature_point_alignment_tol = 1e-8;
 
+	/**
+	 * If this is set to true, cylindrical symmetry is assumed. I.e., the integrand is multiplied by a factor of 2*pi*x_0 at each quadrature point.
+	 */
+	bool
+	cylindrical_symmetry = false;
+
 ///@}
 
 
@@ -1948,11 +1954,17 @@ public:
 	/** @name Miscellaneous memberfunctions */
 	///@{
 
-		/**
-		 * @param[in]	quadrature_point_alignment_tol	Sets AssemblyHelper::quadrature_point_alignment_tol
-		 */
-		void
-		set_quadrature_point_alignment_tol(const double quadrature_point_alignment_tol);
+	/**
+	 * @param[in]	quadrature_point_alignment_tol	Sets AssemblyHelper::quadrature_point_alignment_tol
+	 */
+	void
+	set_quadrature_point_alignment_tol(const double quadrature_point_alignment_tol);
+
+	/**
+	 * @param[in]	AssemblyHelper::cylindrical_symmetry
+	 */
+	void
+	set_cylindrical_symmetry(const bool cylindrical_symmetry);
 
 ///@}
 

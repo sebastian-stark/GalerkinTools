@@ -100,6 +100,14 @@ unsigned int \mbox{\hyperlink{class_assembly_helper_a256dc4f0fc5c62f130d75734ea9
 void \mbox{\hyperlink{class_assembly_helper_ab0dabb84cc4a0497dbeb73a9eec3071d}{print\+\_\+dof\+\_\+information}} (const unsigned int dof\+\_\+index) const
 \end{DoxyCompactItemize}
 \end{Indent}
+\begin{Indent}\textbf{ Miscellaneous memberfunctions}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_assembly_helper_a60553b183a382aff3072ea7b6f5b86dd}{set\+\_\+quadrature\+\_\+point\+\_\+alignment\+\_\+tol}} (const double \mbox{\hyperlink{class_assembly_helper_aa37920e596dca3985e6d28b9d4e3d882}{quadrature\+\_\+point\+\_\+alignment\+\_\+tol}})
+\item 
+void \mbox{\hyperlink{class_assembly_helper_a5744ed966169526d69508706b7b8f2d2}{set\+\_\+cylindrical\+\_\+symmetry}} (const bool \mbox{\hyperlink{class_assembly_helper_aa2548bfa4a097088e3759ce2a1319aa8}{cylindrical\+\_\+symmetry}})
+\end{DoxyCompactItemize}
+\end{Indent}
 \doxysubsection*{Private Member Functions}
 \begin{Indent}\textbf{ Member functions used during construction of an Assembly\+Helper object}\par
 {\em These functions are essentially introduced to clean up tthe constructor of the class a bit. They are only used during construction of an \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}} object. }\begin{DoxyCompactItemize}
@@ -114,7 +122,7 @@ void \mbox{\hyperlink{class_assembly_helper_a1c187fbb8171d6a1ff2ff6344cb454ed}{i
 \item 
 void \mbox{\hyperlink{class_assembly_helper_a953859cc4cd745a1b51fdec5418be682}{distribute\+\_\+dofs}} ()
 \item 
-void \mbox{\hyperlink{class_assembly_helper_a2c394d614e7ffe8b81ba1a8623db611d}{initialize\+\_\+fe\+\_\+values\+\_\+domain}} (const typename \textbf{ hp\+::\+Do\+F\+Handler}$<$ spacedim, spacedim $>$\+::\textbf{ active\+\_\+cell\+\_\+iterator} \&cell, const unsigned int internal\+\_\+index, const bool nonprimitive=false) const
+void \mbox{\hyperlink{class_assembly_helper_a95639ce05d10d6aa37ea6ae5962753e2}{initialize\+\_\+fe\+\_\+values\+\_\+domain}} (const typename \textbf{ Do\+F\+Handler}$<$ spacedim, spacedim $>$\+::\textbf{ active\+\_\+cell\+\_\+iterator} \&cell, const unsigned int internal\+\_\+index, const bool nonprimitive=false) const
 \item 
 void \mbox{\hyperlink{class_assembly_helper_a223bbebe8a1f0aa09a53ee19257b927e}{initialize\+\_\+fe\+\_\+values\+\_\+interface}} (const \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$ \&interface\+\_\+cell\+\_\+domain\+\_\+cells, const unsigned int internal\+\_\+index, const bool nonprimitive=false) const
 \item 
@@ -292,6 +300,10 @@ const unsigned int \mbox{\hyperlink{class_assembly_helper_a2aad83ae1bfe5338794cf
 const unsigned int \mbox{\hyperlink{class_assembly_helper_a87945d87baf37637673fd124b3803fd5}{n\+\_\+procs}}
 \item 
 \textbf{ Conditional\+O\+Stream} \mbox{\hyperlink{class_assembly_helper_a717eb6ebc7c62fe00063edcf264f3ecc}{pout}}
+\item 
+double \mbox{\hyperlink{class_assembly_helper_aa37920e596dca3985e6d28b9d4e3d882}{quadrature\+\_\+point\+\_\+alignment\+\_\+tol}} = 1\textbf{ e}-\/8
+\item 
+bool \mbox{\hyperlink{class_assembly_helper_aa2548bfa4a097088e3759ce2a1319aa8}{cylindrical\+\_\+symmetry}} = false
 \end{DoxyCompactItemize}
 \end{Indent}
 
@@ -1034,12 +1046,12 @@ std\+::map$<$const \mbox{\hyperlink{class_independent_field}{Independent\+Field}
 \begin{DoxyReturn}{Returns}
 map between interface related \mbox{\hyperlink{class_independent_field}{Independent\+Field}} objects and the global component indices (in the \textbf{ F\+E\+System}) of the first components of the respective \mbox{\hyperlink{class_independent_field}{Independent\+Field}} objects 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_assembly_helper_a2c394d614e7ffe8b81ba1a8623db611d}\label{class_assembly_helper_a2c394d614e7ffe8b81ba1a8623db611d}} 
+\mbox{\Hypertarget{class_assembly_helper_a95639ce05d10d6aa37ea6ae5962753e2}\label{class_assembly_helper_a95639ce05d10d6aa37ea6ae5962753e2}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!initialize\_fe\_values\_domain@{initialize\_fe\_values\_domain}}
 \index{initialize\_fe\_values\_domain@{initialize\_fe\_values\_domain}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{initialize\_fe\_values\_domain()}{initialize\_fe\_values\_domain()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::initialize\+\_\+fe\+\_\+values\+\_\+domain (\begin{DoxyParamCaption}\item[{const typename \textbf{ hp\+::\+Do\+F\+Handler}$<$ spacedim, spacedim $>$\+::\textbf{ active\+\_\+cell\+\_\+iterator} \&}]{cell,  }\item[{const unsigned int}]{internal\+\_\+index,  }\item[{const bool}]{nonprimitive = {\ttfamily false} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::initialize\+\_\+fe\+\_\+values\+\_\+domain (\begin{DoxyParamCaption}\item[{const typename \textbf{ Do\+F\+Handler}$<$ spacedim, spacedim $>$\+::\textbf{ active\+\_\+cell\+\_\+iterator} \&}]{cell,  }\item[{const unsigned int}]{internal\+\_\+index,  }\item[{const bool}]{nonprimitive = {\ttfamily false} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
 
 Method to initialize the required \textbf{ F\+E\+Values} objects for assembly of the contribution of a domain cell to the finite element system.
 
@@ -1188,6 +1200,30 @@ Function for printing out information about a dof
 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em dof\+\_\+index} & The dof index \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_assembly_helper_a5744ed966169526d69508706b7b8f2d2}\label{class_assembly_helper_a5744ed966169526d69508706b7b8f2d2}} 
+\index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!set\_cylindrical\_symmetry@{set\_cylindrical\_symmetry}}
+\index{set\_cylindrical\_symmetry@{set\_cylindrical\_symmetry}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{set\_cylindrical\_symmetry()}{set\_cylindrical\_symmetry()}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::set\+\_\+cylindrical\+\_\+symmetry (\begin{DoxyParamCaption}\item[{const bool}]{cylindrical\+\_\+symmetry }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \mbox{\hyperlink{class_assembly_helper_aa2548bfa4a097088e3759ce2a1319aa8}{Assembly\+Helper\+::cylindrical\+\_\+symmetry}}} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_assembly_helper_a60553b183a382aff3072ea7b6f5b86dd}\label{class_assembly_helper_a60553b183a382aff3072ea7b6f5b86dd}} 
+\index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!set\_quadrature\_point\_alignment\_tol@{set\_quadrature\_point\_alignment\_tol}}
+\index{set\_quadrature\_point\_alignment\_tol@{set\_quadrature\_point\_alignment\_tol}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{set\_quadrature\_point\_alignment\_tol()}{set\_quadrature\_point\_alignment\_tol()}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::set\+\_\+quadrature\+\_\+point\+\_\+alignment\+\_\+tol (\begin{DoxyParamCaption}\item[{const double}]{quadrature\+\_\+point\+\_\+alignment\+\_\+tol }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em quadrature\+\_\+point\+\_\+alignment\+\_\+tol} & Sets \mbox{\hyperlink{class_assembly_helper_aa37920e596dca3985e6d28b9d4e3d882}{Assembly\+Helper\+::quadrature\+\_\+point\+\_\+alignment\+\_\+tol}} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_assembly_helper_ae821c8ae9c8fa6f8e85d20ecd5ad7e39}\label{class_assembly_helper_ae821c8ae9c8fa6f8e85d20ecd5ad7e39}} 
@@ -1491,7 +1527,14 @@ This member contains information about the shape functions of a domain cell on t
 
 \mbox{\hyperlink{class_assembly_helper_af07bb528fdd350e9b467b08dc44a03e7}{Assembly\+Helper\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+interface\+\_\+plus}}\mbox{[}{\ttfamily u}\mbox{]}\mbox{[}{\ttfamily v}\mbox{]} contains all (cell related) dof indices of a domain cell on the plus side of the interface which couple for the {\ttfamily v-\/th} scalar functional on the interface portion with internal index {\ttfamily u} (the ordering of the scalar functionals on the interface portion with internal index {\ttfamily u} is given by \mbox{\hyperlink{class_assembly_helper_a29aa77e0e8e6b35c94966ea88840e462}{Assembly\+Helper\+::scalar\+\_\+functionals\+\_\+interface}}\mbox{[}{\ttfamily u}\mbox{]}).
 
-See also \mbox{\hyperlink{class_assembly_helper_a1a26b40224e3f04e5168accc91486493}{Assembly\+Helper\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain}} for further explanations regarding the relevance of this data structure. \mbox{\Hypertarget{class_assembly_helper_ad93b109608d4425d318434e01cb6246c}\label{class_assembly_helper_ad93b109608d4425d318434e01cb6246c}} 
+See also \mbox{\hyperlink{class_assembly_helper_a1a26b40224e3f04e5168accc91486493}{Assembly\+Helper\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain}} for further explanations regarding the relevance of this data structure. \mbox{\Hypertarget{class_assembly_helper_aa2548bfa4a097088e3759ce2a1319aa8}\label{class_assembly_helper_aa2548bfa4a097088e3759ce2a1319aa8}} 
+\index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!cylindrical\_symmetry@{cylindrical\_symmetry}}
+\index{cylindrical\_symmetry@{cylindrical\_symmetry}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{cylindrical\_symmetry}{cylindrical\_symmetry}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+bool \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::cylindrical\+\_\+symmetry = false\hspace{0.3cm}{\ttfamily [private]}}
+
+If this is set to true, cylindrical symmetry is assumed. I.\+e., the integrand is multiplied by a factor of 2$\ast$pi$\ast$x\+\_\+0 at each quadrature point. \mbox{\Hypertarget{class_assembly_helper_ad93b109608d4425d318434e01cb6246c}\label{class_assembly_helper_ad93b109608d4425d318434e01cb6246c}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!d\_omega@{d\_omega}}
 \index{d\_omega@{d\_omega}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{d\_omega}{d\_omega}}
@@ -1704,7 +1747,14 @@ Number of scalar functionals entering primitively into the total potential. This
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 \textbf{ Conditional\+O\+Stream} \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::pout\hspace{0.3cm}{\ttfamily [private]}}
 
-Stream used for standard output to screen (makes sure that output is printed only on one processor in parallel) \mbox{\Hypertarget{class_assembly_helper_aa6fa619e4c2582e95950e878cd06628e}\label{class_assembly_helper_aa6fa619e4c2582e95950e878cd06628e}} 
+Stream used for standard output to screen (makes sure that output is printed only on one processor in parallel) \mbox{\Hypertarget{class_assembly_helper_aa37920e596dca3985e6d28b9d4e3d882}\label{class_assembly_helper_aa37920e596dca3985e6d28b9d4e3d882}} 
+\index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!quadrature\_point\_alignment\_tol@{quadrature\_point\_alignment\_tol}}
+\index{quadrature\_point\_alignment\_tol@{quadrature\_point\_alignment\_tol}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{quadrature\_point\_alignment\_tol}{quadrature\_point\_alignment\_tol}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+double \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::quadrature\+\_\+point\+\_\+alignment\+\_\+tol = 1\textbf{ e}-\/8\hspace{0.3cm}{\ttfamily [private]}}
+
+Absolute tolerance for checking proper alignment of corresponding quadrature points on interfaces (quadrature points on domain cell faces and corresponding interface cells) \mbox{\Hypertarget{class_assembly_helper_aa6fa619e4c2582e95950e878cd06628e}\label{class_assembly_helper_aa6fa619e4c2582e95950e878cd06628e}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!scalar\_functionals\_domain@{scalar\_functionals\_domain}}
 \index{scalar\_functionals\_domain@{scalar\_functionals\_domain}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{scalar\_functionals\_domain}{scalar\_functionals\_domain}}

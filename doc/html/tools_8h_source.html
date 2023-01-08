@@ -169,16 +169,28 @@ $(function() {
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="preprocessor">#endif //DEAL_II_WITH_MPI</span></div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;}</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="preprocessor">#ifdef DEAL_II_WITH_MPI</span></div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;GALERKIN_TOOLS_NAMESPACE_CLOSE</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;DEAL_II_NAMESPACE_CLOSE</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GALERKINTOOLS_TOOLS_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> spacedim&gt;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;std::vector&lt;unsigned int&gt;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<a class="code" href="namespace_auxiliary.html#aaa9fb90b2f2308f766b8130578ab9c39">get_n_locally_owned_dofs_per_processor</a>(<span class="keyword">const</span> <a class="codeRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classDoFHandler.html">DoFHandler&lt;dim, spacedim&gt;</a>&amp; dof_handler);</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="preprocessor">#endif //DEAL_II_WITH_MPI</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;}</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;GALERKIN_TOOLS_NAMESPACE_CLOSE</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;DEAL_II_NAMESPACE_CLOSE</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GALERKINTOOLS_TOOLS_H_ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespace_auxiliary_html_aaa9fb90b2f2308f766b8130578ab9c39"><div class="ttname"><a href="namespace_auxiliary.html#aaa9fb90b2f2308f766b8130578ab9c39">Auxiliary::get_n_locally_owned_dofs_per_processor</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; get_n_locally_owned_dofs_per_processor(const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler)</div></div>
 <div class="ttc" id="anamespace_auxiliary_html_ad0ff28386be7b54b3487ae36e5a074fa"><div class="ttname"><a href="namespace_auxiliary.html#ad0ff28386be7b54b3487ae36e5a074fa">Auxiliary::communicate_bool</a></div><div class="ttdeci">bool communicate_bool(const bool local_bool, const MPI_Comm &amp;mpi_communicator)</div></div>
 <div class="ttc" id="anamespace_auxiliary_html_aca5fe5966aef4ba2293fb44095bfd86c"><div class="ttname"><a href="namespace_auxiliary.html#aca5fe5966aef4ba2293fb44095bfd86c">Auxiliary::add_to_index_set</a></div><div class="ttdeci">void add_to_index_set(const DoFRenumbering &amp;dof_renumbering, const IndexSet &amp;in, IndexSet &amp;out)</div></div>
+<div class="ttc" id="aclassDoFHandler_html"><div class="ttname"><a href="https://dealii.org/9.0.0/doxygen/deal.II/classDoFHandler.html">DoFHandler</a></div></div>
 <div class="ttc" id="ala__parallel__vector_8h_html"><div class="ttname"><a href="https://dealii.org/9.0.0/doxygen/deal.II/la__parallel__vector_8h.html">la_parallel_vector.h</a></div></div>
 <div class="ttc" id="anamespace_auxiliary_html_aa6148bcbaf5e3003717b4dd2a4da15b3"><div class="ttname"><a href="namespace_auxiliary.html#aa6148bcbaf5e3003717b4dd2a4da15b3">Auxiliary::renumber_constraints</a></div><div class="ttdeci">void renumber_constraints(AffineConstraints&lt; double &gt; &amp;constraint_matrix, const DoFRenumbering &amp;dof_renumbering=DoFRenumbering(), const bool close=true)</div></div>
 <div class="ttc" id="adof__renumbering_8h_html"><div class="ttname"><a href="dof__renumbering_8h.html">dof_renumbering.h</a></div></div>
