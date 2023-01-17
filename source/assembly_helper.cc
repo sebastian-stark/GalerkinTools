@@ -685,11 +685,14 @@ pout(cout, this_proc == 0)
 		{
 			for(unsigned int shapefun = 0; shapefun<fe_collection_domain[fe_system_n].dofs_per_cell; ++shapefun)
 			{
-				if(fe_collection_domain[fe_system_n].has_support_on_face(shapefun, face) && (fe_collection_domain[fe_system_n].has_face_support_points()))
+				if(fe_collection_domain[fe_system_n].has_support_on_face(shapefun, face))
 				{
-					//we can safely do this because we have checked that the finite element is defined in terms of support points
-					const unsigned int component = fe_collection_domain[fe_system_n].system_to_component_index(shapefun).first;
-					components_to_shapefuns_domain_facewise[fe_system_n][ component ][face].push_back(shapefun);
+					if(fe_collection_domain[fe_system_n].base_element(fe_collection_domain[fe_system_n].system_to_base_index(shapefun).first.first).has_face_support_points() && fe_collection_domain[fe_system_n].base_element(fe_collection_domain[fe_system_n].system_to_base_index(shapefun).first.first).is_primitive())
+					{
+						//we can safely do this because we have checked that the finite element is defined in terms of support points
+						const unsigned int component = fe_collection_domain[fe_system_n].system_to_component_index(shapefun).first;
+						components_to_shapefuns_domain_facewise[fe_system_n][ component ][face].push_back(shapefun);
+					}
 				}
 			}
 		}
@@ -2269,7 +2272,6 @@ const
 				const auto index_pair = get_scalar_functional_indices(scalar_functional);
 				const int nonprimitive_index = index_pair.first;
 				const int primitive_index = index_pair.second;
-
 				//initialize dependent variable vectors appropriately
 				e_omega.reinit(scalar_functional->e_omega.size());
 				for(auto& e_omega_ref_n : e_omega_ref_sets)
