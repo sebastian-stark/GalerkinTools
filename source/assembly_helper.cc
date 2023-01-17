@@ -685,7 +685,7 @@ pout(cout, this_proc == 0)
 		{
 			for(unsigned int shapefun = 0; shapefun<fe_collection_domain[fe_system_n].dofs_per_cell; ++shapefun)
 			{
-				if(fe_collection_domain[fe_system_n].has_support_on_face(shapefun, face))
+				if(fe_collection_domain[fe_system_n].has_support_on_face(shapefun, face) && (fe_collection_domain[fe_system_n].has_face_support_points()))
 				{
 					//we can safely do this because we have checked that the finite element is defined in terms of support points
 					const unsigned int component = fe_collection_domain[fe_system_n].system_to_component_index(shapefun).first;
