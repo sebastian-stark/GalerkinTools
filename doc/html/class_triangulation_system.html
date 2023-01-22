@@ -598,7 +598,7 @@ template&lt;unsigned int spacedim&gt; </div>
       </table>
 </div><div class="memdoc">
 <p>Function to execute coarsening and refinement. This method does nothing but calling the deal.II function <a class="el" href="class_triangulation_system.html#a62be2563cc8d810a71941e15490f9840">execute_coarsening_and_refinement()</a> on the domain mesh, which will in turn trigger refinement of the interface by <a class="el" href="class_triangulation_system.html#ae1862e6da3157dc8d539fdc0439e9f48">TriangulationSystem::pre_refinement_domain()</a> and <a class="el" href="class_triangulation_system.html#a8435489384095f687363d200ccfce628">TriangulationSystem::post_refinement_domain()</a>.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000015">Todo:</a></b></dt><dd>This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. </dd></dl>
 
 </div>
 </div>
@@ -1010,7 +1010,7 @@ template&lt;unsigned int spacedim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>This internal function takes care that the interface cells are refined/coarsened after any refinement of the domain cells. The underlying mechanism is that the method is attached to the domain triangulation during construction of the <a class="el" href="class_triangulation_system.html">TriangulationSystem</a>; and it will always be called immediately after the domain mesh has been refined.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. </dd></dl>
 
 </div>
 </div>
@@ -1039,7 +1039,7 @@ template&lt;unsigned int spacedim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>This function takes care that the interface cells are appropriately marked for refinement/coarsening if the domain mesh is going to be refined. The underlying mechanism is that the method is attached to the domain triangulation during construction of the <a class="el" href="class_triangulation_system.html">TriangulationSystem</a>; and it will always be called immediately before the domain mesh is actually refined (i.e., after all refinement flags of the domain mesh have been checked for consistency and mesh smoothing has been performed).</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. </dd></dl>
 
 </div>
 </div>

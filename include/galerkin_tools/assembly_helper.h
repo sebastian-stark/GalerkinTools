@@ -1403,6 +1403,9 @@ public:
 	 * @param[in]	constraints				constraints to be taken into consideration when building the sparsity pattern
 	 *
 	 * @tparam		SparsityPatternType		the type of the sparsity pattern
+	 *
+	 * @todo The treatment of local fields and locally eliminated fields needs to be completely revised!
+	 *
 	 */
 	template<class SparsityPatternType>
 	void
@@ -1461,6 +1464,8 @@ public:
 	 * @tparam		RHSVectorType			The type used for @p f (in parallel this vector type must permit write access to ghosted entries while read access is not required)
 	 *
 	 * @tparam		MatrixType				The type used for @p K
+	 *
+	 * @todo The treatment of local fields and locally eliminated fields needs to be completely revised!
 	 */
 	template<class SolutionVectorType, class RHSVectorType, class MatrixType>
 	bool

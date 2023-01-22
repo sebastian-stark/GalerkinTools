@@ -7,11 +7,14 @@ It might be worthwhile to allow for the usage of different mappings on different
 \label{todo__todo000002}%
 \Hypertarget{todo__todo000002}%
 Routines for treatment of DG terms should be implemented. 
-\item[Member \mbox{\hyperlink{class_assembly_helper_ac54f45f37a38426db1b5f85eccc7b3e9}{Assembly\+Helper$<$ spacedim $>$::compare\+\_\+derivatives\+\_\+with\+\_\+numerical\+\_\+derivatives}} (const Vector\+Type \&solution, const std\+::vector$<$ const Vector\+Type $\ast$ $>$ solution\+\_\+ref\+\_\+sets, const std\+::string detailed\+\_\+printout\+\_\+file=\char`\"{}\char`\"{}, const double epsilon=1e-\/8) const]\label{todo__todo000005}%
-\Hypertarget{todo__todo000005}%
-Presently, the method does not allow to take into account any constraints. This should be incorporated in future releases of the library. 
-\item[Member \mbox{\hyperlink{class_assembly_helper_a94bb821b6258eab0bb3a9046b6d9158a}{Assembly\+Helper$<$ spacedim $>$::compute\+\_\+distance\+\_\+to\+\_\+other\+\_\+solution}} (const Vector\+Type \&solution, const Vector\+Type \&other\+\_\+solution, const Assembly\+Helper$<$ spacedim $>$ \&other\+\_\+assembly\+\_\+helper, const \textbf{ Quadrature$<$ spacedim $>$} quadrature\+\_\+domain, const \textbf{ Quadrature}$<$ spacedim-\/1 $>$ quadrature\+\_\+interface, const \textbf{ Vector\+Tools\+::\+Norm\+Type} norm\+\_\+type=Vector\+Tools\+::\+Norm\+Type\+::\+L2\+\_\+norm, const \textbf{ Component\+Mask} component\+\_\+mask\+\_\+domain=\textbf{ Component\+Mask()}, const \textbf{ Component\+Mask} component\+\_\+mask\+\_\+interface=\textbf{ Component\+Mask()}, const double exponent=2.\+0, const \textbf{ Vector$<$ double $>$} scaling\+\_\+domain=dealii\+::\+Vector$<$ double $>$(), const \textbf{ Vector$<$ double $>$} scaling\+\_\+interface=dealii\+::\+Vector$<$ double $>$()) const]\label{todo__todo000007}%
+\item[Member \mbox{\hyperlink{class_assembly_helper_a5146802e9d7d4bc5df7fe35909da3e44}{Assembly\+Helper$<$ spacedim $>$::assemble\+\_\+system}} (const Solution\+Vector\+Type \&solution, const std\+::vector$<$ const Solution\+Vector\+Type $\ast$ $>$ solution\+\_\+ref\+\_\+sets, const Affine\+Constraints$<$ double $>$ \&constraints, double \&potential\+\_\+value, R\+H\+S\+Vector\+Type \&f, Matrix\+Type \&K, const std\+::tuple$<$ bool, bool, bool $>$ requested\+\_\+quantities=std\+::make\+\_\+tuple(true, true, true), std\+::map$<$ unsigned int, double $>$ $\ast$local\+\_\+solution=nullptr) const]\label{todo__todo000006}%
+\Hypertarget{todo__todo000006}%
+The treatment of local fields and locally eliminated fields needs to be completely revised!  
+\item[Member \mbox{\hyperlink{class_assembly_helper_ac54f45f37a38426db1b5f85eccc7b3e9}{Assembly\+Helper$<$ spacedim $>$::compare\+\_\+derivatives\+\_\+with\+\_\+numerical\+\_\+derivatives}} (const Vector\+Type \&solution, const std\+::vector$<$ const Vector\+Type $\ast$ $>$ solution\+\_\+ref\+\_\+sets, const std\+::string detailed\+\_\+printout\+\_\+file=\char`\"{}\char`\"{}, const double epsilon=1e-\/8) const]\label{todo__todo000007}%
 \Hypertarget{todo__todo000007}%
+Presently, the method does not allow to take into account any constraints. This should be incorporated in future releases of the library. 
+\item[Member \mbox{\hyperlink{class_assembly_helper_a94bb821b6258eab0bb3a9046b6d9158a}{Assembly\+Helper$<$ spacedim $>$::compute\+\_\+distance\+\_\+to\+\_\+other\+\_\+solution}} (const Vector\+Type \&solution, const Vector\+Type \&other\+\_\+solution, const Assembly\+Helper$<$ spacedim $>$ \&other\+\_\+assembly\+\_\+helper, const \textbf{ Quadrature$<$ spacedim $>$} quadrature\+\_\+domain, const \textbf{ Quadrature}$<$ spacedim-\/1 $>$ quadrature\+\_\+interface, const \textbf{ Vector\+Tools\+::\+Norm\+Type} norm\+\_\+type=Vector\+Tools\+::\+Norm\+Type\+::\+L2\+\_\+norm, const \textbf{ Component\+Mask} component\+\_\+mask\+\_\+domain=\textbf{ Component\+Mask()}, const \textbf{ Component\+Mask} component\+\_\+mask\+\_\+interface=\textbf{ Component\+Mask()}, const double exponent=2.\+0, const \textbf{ Vector$<$ double $>$} scaling\+\_\+domain=dealii\+::\+Vector$<$ double $>$(), const \textbf{ Vector$<$ double $>$} scaling\+\_\+interface=dealii\+::\+Vector$<$ double $>$()) const]\label{todo__todo000009}%
+\Hypertarget{todo__todo000009}%
 Hanging node constraints are currently not taken care of after interpolation of the solution. Also not all \textbf{ Vector\+Tools\+::\+Norm\+Type} norms are implemented yet. 
 \item[Member \mbox{\hyperlink{class_assembly_helper_a0edd25820c92a25ae87fc240f4916804}{Assembly\+Helper$<$ spacedim $>$::coupled\+\_\+\+C\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain}} ]\label{todo__todo000003}%
 \Hypertarget{todo__todo000003}%
@@ -19,31 +22,34 @@ This data structure contains redundancy because the way how the independent scal
 \item[Member \mbox{\hyperlink{class_assembly_helper_a311e176038ee2b7ca0719abb384ca57b}{Assembly\+Helper$<$ spacedim $>$::coupled\+\_\+\+C\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+interface}} ]\label{todo__todo000004}%
 \Hypertarget{todo__todo000004}%
 This data structure contains redundancy because the way how the independent scalars couple for a certain scalar functional does not depend on the interface portion. This redundancy has initially been introduced to allow for a consistent treatment of cell related dofs and independent scalar related dofs. However, its should be eliminated in later releases.  
-\item[Member \mbox{\hyperlink{class_assembly_helper_a6a6f8ff7c1a8910d84beb7761b5c821b}{Assembly\+Helper$<$ spacedim $>$::print\+\_\+assembly\+\_\+helper\+\_\+definition}} (const bool detailed\+\_\+printout\+\_\+shapefuns=true) const]\label{todo__todo000006}%
-\Hypertarget{todo__todo000006}%
-Currently this function does not print information about independent scalars and the constant terms in the dependent fields. This must be changed. 
-\item[Class \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint$<$ spacedim $>$}} ]\label{todo__todo000008}%
+\item[Member \mbox{\hyperlink{class_assembly_helper_a60a2aa2aa08149682feca02e458232d4}{Assembly\+Helper$<$ spacedim $>$::generate\+\_\+sparsity\+\_\+pattern\+\_\+by\+\_\+simulation}} (Sparsity\+Pattern\+Type \&dsp\+\_\+K, const Affine\+Constraints$<$ double $>$ \&constraints) const]\label{todo__todo000005}%
+\Hypertarget{todo__todo000005}%
+The treatment of local fields and locally eliminated fields needs to be completely revised! 
+\item[Member \mbox{\hyperlink{class_assembly_helper_a6a6f8ff7c1a8910d84beb7761b5c821b}{Assembly\+Helper$<$ spacedim $>$::print\+\_\+assembly\+\_\+helper\+\_\+definition}} (const bool detailed\+\_\+printout\+\_\+shapefuns=true) const]\label{todo__todo000008}%
 \Hypertarget{todo__todo000008}%
-It would be desirable to also allow for Dirichlet type conditions on interface related fields (these conditions would then be imposed on codim 2 objects). This is not implemented yet. 
-\item[Member \mbox{\hyperlink{class_do_f_renumbering_offset_a5df6c4b70b1394c3670ced634146c9a9}{Do\+F\+Renumbering\+Offset::dof\+\_\+offsets}} ]\label{todo__todo000009}%
-\Hypertarget{todo__todo000009}%
-It would be worthwhile to implement a more effective conversion scheme.  
-\item[Member \mbox{\hyperlink{class_independent_field_a8e77d8d321a259bec955a71f55ef41e5}{Independent\+Field$<$ dim, spacedim $>$::is\+\_\+local}} ]\label{todo__todo000010}%
+Currently this function does not print information about independent scalars and the constant terms in the dependent fields. This must be changed. 
+\item[Class \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint$<$ spacedim $>$}} ]\label{todo__todo000010}%
 \Hypertarget{todo__todo000010}%
+It would be desirable to also allow for Dirichlet type conditions on interface related fields (these conditions would then be imposed on codim 2 objects). This is not implemented yet. 
+\item[Member \mbox{\hyperlink{class_do_f_renumbering_offset_a5df6c4b70b1394c3670ced634146c9a9}{Do\+F\+Renumbering\+Offset::dof\+\_\+offsets}} ]\label{todo__todo000011}%
+\Hypertarget{todo__todo000011}%
+It would be worthwhile to implement a more effective conversion scheme.  
+\item[Member \mbox{\hyperlink{class_independent_field_a8e77d8d321a259bec955a71f55ef41e5}{Independent\+Field$<$ dim, spacedim $>$::is\+\_\+local}} ]\label{todo__todo000012}%
+\Hypertarget{todo__todo000012}%
 The latter may be relaxed to a certain degree. This needs, however, to be implemented. 
-\item[Member \mbox{\hyperlink{classparallel_1_1_triangulation_system_a951181f2ad877283d458fa19db42efb2}{parallel::Triangulation\+System$<$ spacedim $>$::post\+\_\+refinement\+\_\+domain}} ()]\label{todo__todo000015}%
+\item[Member \mbox{\hyperlink{classparallel_1_1_triangulation_system_a951181f2ad877283d458fa19db42efb2}{parallel::Triangulation\+System$<$ spacedim $>$::post\+\_\+refinement\+\_\+domain}} ()]\label{todo__todo000017}%
+\Hypertarget{todo__todo000017}%
+This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation.  
+\item[Member \mbox{\hyperlink{classparallel_1_1_triangulation_system_a79e9789e83e12900c85cf8de0644271f}{parallel::Triangulation\+System$<$ spacedim $>$::pre\+\_\+refinement\+\_\+domain}} ()]\label{todo__todo000016}%
+\Hypertarget{todo__todo000016}%
+This function will have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation.  
+\item[Member \mbox{\hyperlink{class_triangulation_system_a62be2563cc8d810a71941e15490f9840}{Triangulation\+System$<$ spacedim $>$::execute\+\_\+coarsening\+\_\+and\+\_\+refinement}} ()]\label{todo__todo000015}%
 \Hypertarget{todo__todo000015}%
 This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation.  
-\item[Member \mbox{\hyperlink{classparallel_1_1_triangulation_system_a79e9789e83e12900c85cf8de0644271f}{parallel::Triangulation\+System$<$ spacedim $>$::pre\+\_\+refinement\+\_\+domain}} ()]\label{todo__todo000014}%
+\item[Member \mbox{\hyperlink{class_triangulation_system_a8435489384095f687363d200ccfce628}{Triangulation\+System$<$ spacedim $>$::post\+\_\+refinement\+\_\+domain}} ()]\label{todo__todo000014}%
 \Hypertarget{todo__todo000014}%
-This function will have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation.  
-\item[Member \mbox{\hyperlink{class_triangulation_system_a62be2563cc8d810a71941e15490f9840}{Triangulation\+System$<$ spacedim $>$::execute\+\_\+coarsening\+\_\+and\+\_\+refinement}} ()]\label{todo__todo000013}%
+This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation.  
+\item[Member \mbox{\hyperlink{class_triangulation_system_ae1862e6da3157dc8d539fdc0439e9f48}{Triangulation\+System$<$ spacedim $>$::pre\+\_\+refinement\+\_\+domain}} ()]\label{todo__todo000013}%
 \Hypertarget{todo__todo000013}%
-This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation.  
-\item[Member \mbox{\hyperlink{class_triangulation_system_a8435489384095f687363d200ccfce628}{Triangulation\+System$<$ spacedim $>$::post\+\_\+refinement\+\_\+domain}} ()]\label{todo__todo000012}%
-\Hypertarget{todo__todo000012}%
-This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation.  
-\item[Member \mbox{\hyperlink{class_triangulation_system_ae1862e6da3157dc8d539fdc0439e9f48}{Triangulation\+System$<$ spacedim $>$::pre\+\_\+refinement\+\_\+domain}} ()]\label{todo__todo000011}%
-\Hypertarget{todo__todo000011}%
 This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. 
 \end{DoxyRefList}

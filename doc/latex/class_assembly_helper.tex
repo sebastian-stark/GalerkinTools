@@ -412,6 +412,8 @@ Note that the finite element system returned will not ensure that the constraine
 {\em Matrix\+Type} & The type used for {\ttfamily K} \\
 \hline
 \end{DoxyTemplParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]The treatment of local fields and locally eliminated fields needs to be completely revised! \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_assembly_helper_a2940850798972b003cf33d37e705490e}\label{class_assembly_helper_a2940850798972b003cf33d37e705490e}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!call\_scalar\_functionals@{call\_scalar\_functionals}}
 \index{call\_scalar\_functionals@{call\_scalar\_functionals}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
@@ -453,7 +455,7 @@ The numerically computed right hand side is based on a finite difference quotien
 For comparison of the finite element systems, the dense system $\left( \boldsymbol{K} + \boldsymbol{L} \boldsymbol{\Pi} \boldsymbol{L}^\top \right) \Delta\boldsymbol{\hat u} = - \boldsymbol{f}$ is used instead of the stretched system provided by \mbox{\hyperlink{class_assembly_helper_a5146802e9d7d4bc5df7fe35909da3e44}{Assembly\+Helper\+::assemble\+\_\+system()}}. This, however, means that this method is dealing internally with dense matrices. As a consequence, the method can only be used for very small test problems.
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]Presently, the method does not allow to take into account any constraints. This should be incorporated in future releases of the library.\end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]Presently, the method does not allow to take into account any constraints. This should be incorporated in future releases of the library.\end{DoxyRefDesc}
 
 
 
@@ -520,7 +522,7 @@ Note that the values of the independent scalars are currently not taken into acc
 The solution of the other \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}} is interpolated to the mesh of this \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}, then both solutions are subtracted and finally the norm of the resulting difference is computed numerically on the mesh of this \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}. This is done for the domain related and the interface related part separately.
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]Hanging node constraints are currently not taken care of after interpolation of the solution. Also not all \textbf{ Vector\+Tools\+::\+Norm\+Type} norms are implemented yet.\end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000009}{Todo}}]Hanging node constraints are currently not taken care of after interpolation of the solution. Also not all \textbf{ Vector\+Tools\+::\+Norm\+Type} norms are implemented yet.\end{DoxyRefDesc}
 
 
 
@@ -666,9 +668,11 @@ The sparsity pattern must be initialized correctly outside this function. For th
 \end{DoxyParams}
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Sparsity\+Pattern\+Type} & the type of the sparsity pattern \\
+{\em Sparsity\+Pattern\+Type} & the type of the sparsity pattern\\
 \hline
 \end{DoxyTemplParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]The treatment of local fields and locally eliminated fields needs to be completely revised!\end{DoxyRefDesc}
 \mbox{\Hypertarget{class_assembly_helper_a04523eef6062ced8c88d4c093b65df3d}\label{class_assembly_helper_a04523eef6062ced8c88d4c093b65df3d}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!get\_dof\_handler\_system@{get\_dof\_handler\_system}}
 \index{get\_dof\_handler\_system@{get\_dof\_handler\_system}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
@@ -1180,7 +1184,7 @@ void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\
 Outputs the problem definition for diagnostic purposes to screen (e.\+g., how the total potential looks like, which finite elements are used, which quadrature rules are used, etc.).
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]Currently this function does not print information about independent scalars and the constant terms in the dependent fields. This must be changed.\end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000008}{Todo}}]Currently this function does not print information about independent scalars and the constant terms in the dependent fields. This must be changed.\end{DoxyRefDesc}
 
 
 

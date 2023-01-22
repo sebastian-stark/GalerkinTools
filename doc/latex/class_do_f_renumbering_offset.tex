@@ -143,7 +143,7 @@ print the renumbering scheme to screen
 {\footnotesize\ttfamily std\+::vector$<$std\+::tuple$<$const unsigned int, const unsigned int, const int$>$ $>$ Do\+F\+Renumbering\+Offset\+::dof\+\_\+offsets\hspace{0.3cm}{\ttfamily [private]}}
 
 This data structure defines a fixed shift of dof numbers from a certain interval \mbox{[}dof\+\_\+start\+\_\+i, dof\+\_\+end\+\_\+i\mbox{]} to the interval \mbox{[}dof\+\_\+start\+\_\+i + offset\+\_\+i, dof\+\_\+end\+\_\+i + offset\+\_\+i\mbox{]}. The tuples (dof\+\_\+start\+\_\+i, dof\+\_\+end\+\_\+i, offset\+\_\+i) define this shift. Multiple intervals can be added and the order of adding the intervals influences how the intervals are searched during conversion of dof indices. In particular, if a certain dof index is to be converted, it is initially tried to find it in the interval added first, if it is not found there, the second interval is tried, and so forth. \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000009}{Todo}}]It would be worthwhile to implement a more effective conversion scheme. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000011}{Todo}}]It would be worthwhile to implement a more effective conversion scheme. \end{DoxyRefDesc}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

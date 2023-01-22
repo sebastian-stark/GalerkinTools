@@ -560,6 +560,7 @@ template&lt;class SolutionVectorType , class RHSVectorType , class MatrixType &g
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>The treatment of local fields and locally eliminated fields needs to be completely revised! </dd></dl>
 
 </div>
 </div>
@@ -667,7 +668,7 @@ template&lt;class VectorType &gt; </div>
 <p>This method compares the finite element system obtained with <a class="el" href="class_assembly_helper.html#a5146802e9d7d4bc5df7fe35909da3e44">AssemblyHelper::assemble_system()</a> with numerically computed equivalents.</p>
 <p>The numerically computed right hand side is based on a finite difference quotient of the total potential, and the numerically computed system matrix is based on a finite difference quotient of the right hand side of the finite element system. I.e., the numerically computed right hand side can only be "correct" (to within the accuracy of the finite difference approach) if the total potential is correctly implemented; and the numerically computed system matrix can only be "correct" (to within the accuracy of the finite difference approach) if the right hand side is correctly implemented. This fact can be used to check the implementation, which is the main purpose of this method.</p>
 <p>For comparison of the finite element systems, the dense system <img class="formulaInl" alt="$\left( \boldsymbol{K} + \boldsymbol{L} \boldsymbol{\Pi} \boldsymbol{L}^\top \right) \Delta\boldsymbol{\hat u} = - \boldsymbol{f}$" src="form_47.png"/> is used instead of the stretched system provided by <a class="el" href="class_assembly_helper.html#a5146802e9d7d4bc5df7fe35909da3e44">AssemblyHelper::assemble_system()</a>. This, however, means that this method is dealing internally with dense matrices. As a consequence, the method can only be used for very small test problems.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Presently, the method does not allow to take into account any constraints. This should be incorporated in future releases of the library.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Presently, the method does not allow to take into account any constraints. This should be incorporated in future releases of the library.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">solution</td><td>Point of linearization <img class="formulaInl" alt="$\begin{pmatrix} \boldsymbol{\hat u} \\ \boldsymbol{\hat \lambda} \end{pmatrix}$" src="form_48.png"/>, where the values of <img class="formulaInl" alt="$\boldsymbol{\hat \lambda}$" src="form_45.png"/> are not used and are, therefore, arbitrary. The appropriate size of <code>solution</code> can be obtained from <a class="el" href="class_assembly_helper.html#ae821c8ae9c8fa6f8e85d20ecd5ad7e39">AssemblyHelper::system_size()</a>.</td></tr>
@@ -858,7 +859,7 @@ template&lt;class VectorType &gt; </div>
 <p>Function computing the "distance" of the solution vector <code>solution</code> of this <a class="el" href="class_assembly_helper.html">AssemblyHelper</a> to the solution <code>other_solution</code> of another <a class="el" href="class_assembly_helper.html">AssemblyHelper</a> object (the AssemblyHelpers must be the same apart from the mesh refinement, in particular they must be based on the same coarse mesh).</p>
 <p>Note that the values of the independent scalars are currently not taken into account in this method.</p>
 <p>The solution of the other <a class="el" href="class_assembly_helper.html">AssemblyHelper</a> is interpolated to the mesh of this <a class="el" href="class_assembly_helper.html">AssemblyHelper</a>, then both solutions are subtracted and finally the norm of the resulting difference is computed numerically on the mesh of this <a class="el" href="class_assembly_helper.html">AssemblyHelper</a>. This is done for the domain related and the interface related part separately.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Hanging node constraints are currently not taken care of after interpolation of the solution. Also not all <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__numerics.html#ga69967cb7a148a7169963126249213db1">VectorTools::NormType</a> norms are implemented yet.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Hanging node constraints are currently not taken care of after interpolation of the solution. Also not all <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__numerics.html#ga69967cb7a148a7169963126249213db1">VectorTools::NormType</a> norms are implemented yet.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">solution</td><td>The solution <img class="formulaInl" alt="$\begin{pmatrix} \boldsymbol{\hat u} \\ \boldsymbol{\hat \lambda} \end{pmatrix}$" src="form_48.png"/>, where the values of <img class="formulaInl" alt="$\boldsymbol{\hat \lambda}$" src="form_45.png"/> are not used and are, therefore, arbitrary. The appropriate size of <code>solution</code> can be obtained from <a class="el" href="class_assembly_helper.html#ae821c8ae9c8fa6f8e85d20ecd5ad7e39">AssemblyHelper::system_size()</a>.</td></tr>
@@ -1217,10 +1218,11 @@ template&lt;class SparsityPatternType &gt; </div>
 </dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">SparsityPatternType</td><td>the type of the sparsity pattern </td></tr>
+    <tr><td class="paramname">SparsityPatternType</td><td>the type of the sparsity pattern</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>The treatment of local fields and locally eliminated fields needs to be completely revised!</dd></dl>
 
 </div>
 </div>
@@ -2331,7 +2333,7 @@ template&lt;unsigned int spacedim&gt; </div>
       </table>
 </div><div class="memdoc">
 <p>Outputs the problem definition for diagnostic purposes to screen (e.g., how the total potential looks like, which finite elements are used, which quadrature rules are used, etc.).</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Currently this function does not print information about independent scalars and the constant terms in the dependent fields. This must be changed.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Currently this function does not print information about independent scalars and the constant terms in the dependent fields. This must be changed.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">detailed_printout_shapefuns</td><td>if <code>true</code> print out a detailed summary about how dependent fields are related to shape functions </td></tr>
