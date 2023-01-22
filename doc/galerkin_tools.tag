@@ -2820,9 +2820,9 @@
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>get_is_local</name>
+      <name>get_is_locally_eliminated</name>
       <anchorfile>class_dependent_field.html</anchorfile>
-      <anchor>aabc31c47b3f6cb69da28758d9672d8d8</anchor>
+      <anchor>aa16f1559eca5060b0877dc3ec00cc552</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -2883,9 +2883,9 @@
     </member>
     <member kind="variable" protection="private">
       <type>bool</type>
-      <name>is_local</name>
+      <name>is_locally_eliminated</name>
       <anchorfile>class_dependent_field.html</anchorfile>
-      <anchor>aacdabff2601b1f0efcdce7a4413b47bc</anchor>
+      <anchor>a9c41e749b67a39b68a37ad9d893fb14d</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -2972,9 +2972,9 @@
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>get_is_local</name>
+      <name>get_is_locally_eliminated</name>
       <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
-      <anchor>abf60a16e3b158c7c67c5e04d8ad41b5c</anchor>
+      <anchor>a52de8c04f07a31cdd16c30344e953d11</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -3021,9 +3021,9 @@
     </member>
     <member kind="variable" protection="private">
       <type>bool</type>
-      <name>is_local</name>
+      <name>is_locally_eliminated</name>
       <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
-      <anchor>ae43bf948e8f45545dd7e744689b47d5b</anchor>
+      <anchor>ae7674c26813012938b30d350d37b7722</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -3898,8 +3898,8 @@
       <type></type>
       <name>IndependentField</name>
       <anchorfile>class_independent_field.html</anchorfile>
-      <anchor>a3f0ac68d656acd513c729e7c9926f8c0</anchor>
-      <arglist>(const std::string name, const FiniteElement&lt; dim, spacedim &gt; &amp;fe, const unsigned int n_components, const std::set&lt; types::material_id &gt; non_zero_regions, const Function&lt; spacedim &gt; *const initial_vals=nullptr, const bool is_local=false)</arglist>
+      <anchor>afb12ec32511568a9504312730542bfa1</anchor>
+      <arglist>(const std::string name, const FiniteElement&lt; dim, spacedim &gt; &amp;fe, const unsigned int n_components, const std::set&lt; types::material_id &gt; non_zero_regions, const Function&lt; spacedim &gt; *const initial_vals=nullptr, const bool is_local=false, const bool is_locally_eliminated=false)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -3955,6 +3955,13 @@
       <name>is_local</name>
       <anchorfile>class_independent_field.html</anchorfile>
       <anchor>a8e77d8d321a259bec955a71f55ef41e5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const bool</type>
+      <name>is_locally_eliminated</name>
+      <anchorfile>class_independent_field.html</anchorfile>
+      <anchor>a755514cb31014d9b39e1b3e677c4527d</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -4007,8 +4014,8 @@
       <type></type>
       <name>IndependentField</name>
       <anchorfile>class_independent_field.html</anchorfile>
-      <anchor>a3f0ac68d656acd513c729e7c9926f8c0</anchor>
-      <arglist>(const std::string name, const FiniteElement&lt; dim, spacedim &gt; &amp;fe, const unsigned int n_components, const std::set&lt; types::material_id &gt; non_zero_regions, const Function&lt; spacedim &gt; *const initial_vals=nullptr, const bool is_local=false)</arglist>
+      <anchor>afb12ec32511568a9504312730542bfa1</anchor>
+      <arglist>(const std::string name, const FiniteElement&lt; dim, spacedim &gt; &amp;fe, const unsigned int n_components, const std::set&lt; types::material_id &gt; non_zero_regions, const Function&lt; spacedim &gt; *const initial_vals=nullptr, const bool is_local=false, const bool is_locally_eliminated=false)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -4064,6 +4071,13 @@
       <name>is_local</name>
       <anchorfile>class_independent_field.html</anchorfile>
       <anchor>a8e77d8d321a259bec955a71f55ef41e5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const bool</type>
+      <name>is_locally_eliminated</name>
+      <anchorfile>class_independent_field.html</anchorfile>
+      <anchor>a755514cb31014d9b39e1b3e677c4527d</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -4920,16 +4934,16 @@
     </member>
     <member kind="variable" protection="private">
       <type>std::vector&lt; unsigned int &gt;</type>
-      <name>indices_nonlocal_dependent_fields</name>
+      <name>indices_not_eliminated_dependent_fields</name>
       <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
-      <anchor>aa4ab80a82bf275b6a93d916b14094119</anchor>
+      <anchor>a1d72179de9c2d77068d090c1b483cd5a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
       <type>std::vector&lt; unsigned int &gt;</type>
-      <name>indices_local_dependent_fields</name>
+      <name>indices_locally_eliminated_dependent_fields</name>
       <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
-      <anchor>a3bf2fb48e6b00f9aa9ddcfa41958e97b</anchor>
+      <anchor>a9a62464884767f3be49391e5ec7ec987</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -5045,16 +5059,16 @@
     </member>
     <member kind="variable" protection="private">
       <type>std::vector&lt; unsigned int &gt;</type>
-      <name>indices_nonlocal_dependent_fields</name>
+      <name>indices_not_eliminated_dependent_fields</name>
       <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
-      <anchor>a61ad599742d84546820fd9cc5e45233f</anchor>
+      <anchor>ab7e4b409e89577ec660f7c0f83de7096</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
       <type>std::vector&lt; unsigned int &gt;</type>
-      <name>indices_local_dependent_fields</name>
+      <name>indices_locally_eliminated_dependent_fields</name>
       <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
-      <anchor>a18685402dee1f52cb687fab1f019b360</anchor>
+      <anchor>aa99a6e0152120b63d6052c4b597c91f4</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">

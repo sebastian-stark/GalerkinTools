@@ -33,14 +33,16 @@ IndependentField<dim, spacedim>::IndependentField(	const string						name,
 													const unsigned int					n_components,
 													const set<types::material_id>		non_zero_regions,
 													const Function<spacedim>* const		initial_vals,
-													const bool							is_local)
+													const bool							is_local,
+													const bool							is_locally_eliminated)
 :
 name(name),
 fe(fe.clone()),
 n_components(n_components),
 non_zero_regions(non_zero_regions),
 initial_vals(initial_vals),
-is_local(is_local)
+is_local(is_local),
+is_locally_eliminated(is_locally_eliminated)
 {
 	Assert(	fe.n_components() == 1,
 			ExcMessage("Vector valued finite elements are not allowed with this constructor, use the constructor without the argument n_components!"));
@@ -48,7 +50,13 @@ is_local(is_local)
 		Assert(	initial_vals->n_components == this->n_components,
 				ExcMessage("The dealii::Function object for the initial values must have exactly the same number of components as the independent field!"));
 	if(is_local)
+	{
 		Assert((dynamic_cast<const FE_DGQArbitraryNodes<dim, spacedim>*>(&fe) != nullptr), ExcMessage("Local independent fields must generally be discretized by FE_DGQArbitraryNodes."));
+	}
+	else
+	{
+		Assert((is_locally_eliminated==false), ExcMessage("Locally eliminated independent fields must always be local fields as well!"));
+	}
 }
 
 template<unsigned int dim, unsigned int spacedim>

@@ -159,10 +159,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:afff9951bc0ac7a5dfc55c01ffb36177a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedf208eb036ffafb16871cdfd3d197b1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; unsigned int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#aedf208eb036ffafb16871cdfd3d197b1">map_dependent_fields</a></td></tr>
 <tr class="separator:aedf208eb036ffafb16871cdfd3d197b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61ad599742d84546820fd9cc5e45233f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a61ad599742d84546820fd9cc5e45233f">indices_nonlocal_dependent_fields</a></td></tr>
-<tr class="separator:a61ad599742d84546820fd9cc5e45233f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18685402dee1f52cb687fab1f019b360"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a18685402dee1f52cb687fab1f019b360">indices_local_dependent_fields</a></td></tr>
-<tr class="separator:a18685402dee1f52cb687fab1f019b360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7e4b409e89577ec660f7c0f83de7096"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#ab7e4b409e89577ec660f7c0f83de7096">indices_not_eliminated_dependent_fields</a></td></tr>
+<tr class="separator:ab7e4b409e89577ec660f7c0f83de7096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa99a6e0152120b63d6052c4b597c91f4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#aa99a6e0152120b63d6052c4b597c91f4">indices_locally_eliminated_dependent_fields</a></td></tr>
+<tr class="separator:aa99a6e0152120b63d6052c4b597c91f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55ab0ce1d909f96e614b84c3ee00bcb3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a55ab0ce1d909f96e614b84c3ee00bcb3">safety_distance</a> = 0.9</td></tr>
 <tr class="separator:a55ab0ce1d909f96e614b84c3ee00bcb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a268af4bf9867e51446fbd33c488fe9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a2a268af4bf9867e51446fbd33c488fe9">threshold_residual</a> = 1<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacePhysics_1_1Elasticity_1_1Kinematics.html#a9587d5229555daa5b1fa1ba2f8a40adb">e</a>-10</td></tr>
@@ -203,8 +203,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><h3>template&lt;unsigned int spacedim&gt;<br />
 class ScalarFunctionalLocalElimination&lt; spacedim, spacedim &gt;</h3>
 
-<p>An interface related scalar functional with functionality to eliminate local dependent fields. This scalar functional uses a Newton-Raphson algorithm in order to eliminate local dependent fields in that the gradient of the scalar functional w.r.t. the local dependent fields is zero. To achieve this, the values of the local dependent fields are modified in a way that the corresponding gradients become zero.</p>
-<p>The scalar functional may be constructed from several other scalar functionals (as a sum of these).</p>
+<p>A domain related scalar functional with functionality to eliminate local dependent fields. This scalar functional uses a Newton-Raphson algorithm in order to determine new values of the dependent fields to be eliminated such that the gradient of the scalar functional w.r.t. these dependent fields is zero. The scalar functional may be constructed from several other scalar functionals (as a sum of these).</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">dim</td><td>The dimension of the object on which the <a class="el" href="class_scalar_functional.html">ScalarFunctional</a> is defined.</td></tr>
@@ -324,7 +323,7 @@ template&lt;unsigned int spacedim&gt; </div>
 </table>
 </div><div class="memdoc">
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a8665cb5b5a57ad22217e4c112845d43b">ScalarFunctional&lt;spacedim, spacedim&gt;::get_h_omega</a></dd></dl>
-<p>This uses all get_h_omega of the scalar functionals in <a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#afff9951bc0ac7a5dfc55c01ffb36177a">ScalarFunctionalLocalElimination&lt;spacedim, spacedim&gt;::scalar_functionals</a> to construct the final result. In this context, a Newton-Raphson iteration is used to eliminate the local dependent fields such that <code>h_omega_1</code> is zero for all local dependent fields. The modified values of the local dependent fields need to be returned in <code>e_omega_local</code> (the size of this quantity is equal to the number of local dependent fields and the order is according to their occurence in <code>e_omega</code>) </p>
+<p>This uses all get_h_omega of the scalar functionals in <a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#afff9951bc0ac7a5dfc55c01ffb36177a">ScalarFunctionalLocalElimination&lt;spacedim, spacedim&gt;::scalar_functionals</a> to construct the final result. In this context, a Newton-Raphson iteration is used to eliminate the dependent fields flagged for elimination such that <code>h_omega_1</code> is zero for all locally eliminated dependent fields. </p>
 
 <p>Implements <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a8665cb5b5a57ad22217e4c112845d43b">ScalarFunctional&lt; spacedim, spacedim &gt;</a>.</p>
 
@@ -384,7 +383,7 @@ template&lt;unsigned int spacedim&gt; </div>
 </table>
 </div><div class="memdoc">
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#add1852ebe7ad8b1178063ff725748856">ScalarFunctional&lt;spacedim, spacedim&gt;::get_maximum_step</a></dd></dl>
-<p>This function calls the maximum step functions of all scalar functionals in <a class="el" href="class_scalar_functional_local_elimination.html#a473e3bc585587839f7f7349f9a25bf28">ScalarFunctionalLocalElimination::scalar_functionals</a> and returns the minimal possible maximum step. In this context, all values in <code>delta_e_omega</code> corresponding to local dependent fields should be zero when calling this function since an external modification of these values is not reasonable </p>
+<p>This function calls the maximum step functions of all scalar functionals in <a class="el" href="class_scalar_functional_local_elimination.html#a473e3bc585587839f7f7349f9a25bf28">ScalarFunctionalLocalElimination::scalar_functionals</a> and returns the minimal possible maximum step. In this context, all values in <code>delta_e_omega</code> corresponding to locally eliminated dependent fields should be zero when calling this function since an external modification of these values is not reasonable </p>
 
 <p>Reimplemented from <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#add1852ebe7ad8b1178063ff725748856">ScalarFunctional&lt; spacedim, spacedim &gt;</a>.</p>
 
@@ -496,8 +495,8 @@ template&lt;unsigned int spacedim&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a18685402dee1f52cb687fab1f019b360"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18685402dee1f52cb687fab1f019b360">&#9670;&nbsp;</a></span>indices_local_dependent_fields</h2>
+<a id="aa99a6e0152120b63d6052c4b597c91f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa99a6e0152120b63d6052c4b597c91f4">&#9670;&nbsp;</a></span>indices_locally_eliminated_dependent_fields</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -508,7 +507,7 @@ template&lt;unsigned int spacedim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;unsigned int&gt; <a class="el" href="class_scalar_functional_local_elimination.html">ScalarFunctionalLocalElimination</a>&lt; spacedim, spacedim &gt;::indices_local_dependent_fields</td>
+          <td class="memname">std::vector&lt;unsigned int&gt; <a class="el" href="class_scalar_functional_local_elimination.html">ScalarFunctionalLocalElimination</a>&lt; spacedim, spacedim &gt;::indices_locally_eliminated_dependent_fields</td>
         </tr>
       </table>
   </td>
@@ -517,12 +516,12 @@ template&lt;unsigned int spacedim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This contains the dependent field indices of the local dependent field (in the indexing of the combined scalar functional) </p>
+<p>This contains the dependent field indices of the locally eliminated dependent fields (in the indexing of the combined scalar functional) </p>
 
 </div>
 </div>
-<a id="a61ad599742d84546820fd9cc5e45233f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61ad599742d84546820fd9cc5e45233f">&#9670;&nbsp;</a></span>indices_nonlocal_dependent_fields</h2>
+<a id="ab7e4b409e89577ec660f7c0f83de7096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7e4b409e89577ec660f7c0f83de7096">&#9670;&nbsp;</a></span>indices_not_eliminated_dependent_fields</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -533,7 +532,7 @@ template&lt;unsigned int spacedim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;unsigned int&gt; <a class="el" href="class_scalar_functional_local_elimination.html">ScalarFunctionalLocalElimination</a>&lt; spacedim, spacedim &gt;::indices_nonlocal_dependent_fields</td>
+          <td class="memname">std::vector&lt;unsigned int&gt; <a class="el" href="class_scalar_functional_local_elimination.html">ScalarFunctionalLocalElimination</a>&lt; spacedim, spacedim &gt;::indices_not_eliminated_dependent_fields</td>
         </tr>
       </table>
   </td>
@@ -542,7 +541,7 @@ template&lt;unsigned int spacedim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This contains the dependent field indices of the nonlocal dependent field (in the indexing of the combined scalar functional) </p>
+<p>This contains the dependent field indices of the dependent fields which are not eliminated (in the indexing of the combined scalar functional) </p>
 
 </div>
 </div>

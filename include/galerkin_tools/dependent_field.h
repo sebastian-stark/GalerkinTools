@@ -238,10 +238,11 @@ private:
 	constant = 0.0;
 
 	/**
-	 * Indicate whether this is a local dependent field. If @p true, only local terms can be added subsequently.
+	 * Indicate whether this dependent field is equal to
+	 * an independent scalar and locally eliminated.
 	 */
 	bool
-	is_local = false;
+	is_locally_eliminated = false;
 
 public:
 
@@ -500,14 +501,14 @@ public:
 	const;
 
 	/**
-	 * This methods returns DependentField::is_local
+	 * This methods returns DependentField::is_locally_eliminated
 	 */
 	bool
-	get_is_local()
+	get_is_locally_eliminated()
 	const;
 
 	/**
-	 * A comparison operator, which allows to check for equality of two DependentField. Note that DependentField::is_local and DependentField::name are not involved in the comparison
+	 * A comparison operator, which allows to check for equality of two DependentField. Note that DependentField::locally_eliminated and DependentField::name are not involved in the comparison
 	 *
 	 * @param[in]	dependent_field_2	The DependentField to compare with
 	 *
@@ -518,7 +519,7 @@ public:
 	const;
 
 	/**
-	 * A comparison operator, which allows to check for equality of two DependentField. Note that DependentField::is_local and DependentField::name are not involved in the comparison
+	 * A comparison operator, which allows to check for equality of two DependentField. Note that DependentField::locally_eliminated and DependentField::name are not involved in the comparison
 	 *
 	 * @param[in]	dependent_field_2	The DependentField to compare with
 	 *
@@ -568,11 +569,11 @@ private:
 	constant = 0.0;
 
 	/**
-	 * Indicate whether this is a local dependent field. If @p true, only local terms can be added
-	 * to the dependent field subsequent to construction.
+	 * Indicate whether this dependent field is equal to
+	 * an independent scalar and locally eliminated.
 	 */
 	bool
-	is_local = false;
+	is_locally_eliminated = false;
 
 public:
 
@@ -718,14 +719,14 @@ public:
 	const;
 
 	/**
-	 * This methods returns DependentField<spacedim, spacedim>::is_local
+	 * This methods returns DependentField<spacedim, spacedim>::is_locally_eliminated
 	 */
 	bool
-	get_is_local()
+	get_is_locally_eliminated()
 	const;
 
 	/**
-	 * A comparison operator, which allows to check for equality of two DependentField<spacedim,spacedim>. Note that DependentField<spacedim,spacedim>::is_local and DependentField<spacedim,spacedim>::name are not involved in the comparison
+	 * A comparison operator, which allows to check for equality of two DependentField<spacedim,spacedim>. Note that DependentField<spacedim,spacedim>::is_locally_eliminated and DependentField<spacedim,spacedim>::name are not involved in the comparison
 	 *
 	 * @param[in]	dependent_field_2	The DependentField to compare with
 	 *
@@ -736,7 +737,7 @@ public:
 	const;
 
 	/**
-	 * A comparison operator, which allows to check for equality of two DependentField<spacedim,spacedim>. Note that DependentField<spacedim,spacedim>::is_local and DependentField<spacedim,spacedim>::name are not involved in the comparison
+	 * A comparison operator, which allows to check for equality of two DependentField<spacedim,spacedim>. Note that DependentField<spacedim,spacedim>::is_locally_eliminated and DependentField<spacedim,spacedim>::name are not involved in the comparison
 	 *
 	 * @param[in]	dependent_field_2	The DependentField to compare with
 	 *

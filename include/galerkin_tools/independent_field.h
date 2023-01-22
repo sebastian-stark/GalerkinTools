@@ -125,10 +125,36 @@ public:
 	initial_vals;
 
 	/**
-	 * if this is true, the independent field is assumed to be local. In this case, it must be discretized by an FE_DGQArbitraryNodes of deal.II.
+	 * If this is true, the independent field is assumed to be local.
+	 * In this case, the following restrictions apply:
+	 *
+	 *   - The independent field must be discretized by an FE_DGQArbitraryNodes of deal.II.
+	 *
+	 *   - The quadrature points used for the integration process of the scalar functionals involving the independent field must coincide with the support points of the used FE_DGQArbitraryNodes.
+	 *
+	 *   - All scalar functionals involving the independent field must be primitive.
+	 *
+	 *   - The independent field must not be associated with constraints. @todo The latter may be relaxed to a certain degree. This needs, however, to be implemented.
+	 *
+	 *   The effect of setting this to true is that the entries in the sparsity pattern can be substantially reduced.
 	 */
 	const bool
 	is_local = false;
+
+	/**
+	 * If this is true, the independent field is assumed to be locally eliminated at the quadrature point level in that the local value of the independent field
+	 * can be determined at the quadrature point level based on the previous local values of the independent field and the current and previous local values of the other field variables.
+	 *
+	 * Note also that this can only be true if IndependentField::is_local is true as well and, therefore, the restrictions for local fields apply. However, in addition it is necessary
+	 * that the scalar functional locally determines the new values of the independent field. In order to implement a simple mechanism for feeding these new values back to the global assembly scheme,
+	 * it is additionally assumed that the locally eliminated independent fields have a 1 to 1 correspondence to a dependent field in that the dependent field equals the independent field.
+	 * Thus, the mechanism for feeding the new values back is simply that the scalar functional updates the respective value of the dependent field associated with the locally eliminated independent field.
+	 *
+	 * The purpose of the mechanism just described is that "hidden/internal" variables, which are common in continuum mechanics, can be easily incorporated without the need of additional
+	 * data structures storing them.
+	 */
+	const bool
+	is_locally_eliminated = false;
 
 	/**
 	 * The constructor of the class for the case that IndependentField::n_components copies of
@@ -136,26 +162,29 @@ public:
 	 * \f$K\f$-vector of independent fields represented by the IndependentField
 	 * object.
 	 *
-	 * @param[in]	name				IndependentField::name
+	 * @param[in]	name					IndependentField::name
 	 *
-	 * @param[in]	fe					IndependentField::fe, must be a scalar valued finite element
+	 * @param[in]	fe						IndependentField::fe, must be a scalar valued finite element
 	 *
-	 * @param[in]	n_components		IndependentField::n_components
+	 * @param[in]	n_components			IndependentField::n_components
 	 *
-	 * @param[in]	non_zero_regions	IndependentField::non_zero_regions
+	 * @param[in]	non_zero_regions		IndependentField::non_zero_regions
 	 *
-	 * @param[in]	initial_vals		IndependentField::initial_vals, if a null pointer is
-	 * 									provided, the initial values of the independent fields
-	 * 									are assumed to be zero.
+	 * @param[in]	initial_vals			IndependentField::initial_vals, if a null pointer is
+	 * 										provided, the initial values of the independent fields
+	 * 										are assumed to be zero.
 	 *
-	 * @param[in]	is_local			IndependentField::is_local
+	 * @param[in]	is_local				IndependentField::is_local
+	 *
+	 * @param[in]	is_locally_eliminated	IndependentField::is_locally_eliminated
 	 */
 	IndependentField(	const std::string 					name,
 						const FiniteElement<dim, spacedim>& fe,
 						const unsigned int 					n_components,
 						const std::set<types::material_id>	non_zero_regions,
 						const Function<spacedim> *const		initial_vals = nullptr,
-						const bool							is_local = false);
+						const bool							is_local = false,
+						const bool							is_locally_eliminated = false);
 
 	/**
 	 * The constructor of the class for the case that a vector valued finite

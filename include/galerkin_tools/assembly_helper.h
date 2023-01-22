@@ -1961,7 +1961,7 @@ public:
 	set_quadrature_point_alignment_tol(const double quadrature_point_alignment_tol);
 
 	/**
-	 * @param[in]	AssemblyHelper::cylindrical_symmetry
+	 * @param[in]	cylindrical_symmetry	AssemblyHelper::cylindrical_symmetry
 	 */
 	void
 	set_cylindrical_symmetry(const bool cylindrical_symmetry);

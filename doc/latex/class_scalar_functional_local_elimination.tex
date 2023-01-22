@@ -48,9 +48,9 @@ const std\+::vector$<$ \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functio
 \item 
 std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_a7a7cbe368936cfb0224e7885a8959c4b}{map\+\_\+dependent\+\_\+fields}}
 \item 
-std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_aa4ab80a82bf275b6a93d916b14094119}{indices\+\_\+nonlocal\+\_\+dependent\+\_\+fields}}
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_a1d72179de9c2d77068d090c1b483cd5a}{indices\+\_\+not\+\_\+eliminated\+\_\+dependent\+\_\+fields}}
 \item 
-std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_a3bf2fb48e6b00f9aa9ddcfa41958e97b}{indices\+\_\+local\+\_\+dependent\+\_\+fields}}
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_a9a62464884767f3be49391e5ec7ec987}{indices\+\_\+locally\+\_\+eliminated\+\_\+dependent\+\_\+fields}}
 \item 
 double \mbox{\hyperlink{class_scalar_functional_local_elimination_a469c7e8629c32b215aba04c805617d9d}{safety\+\_\+distance}} = 0.\+9
 \item 
@@ -69,9 +69,7 @@ bool \mbox{\hyperlink{class_scalar_functional_local_elimination_a61f8cd4268582af
 \subsubsection*{template$<$unsigned int dim, unsigned int spacedim$>$\newline
 class Scalar\+Functional\+Local\+Elimination$<$ dim, spacedim $>$}
 
-An interface related scalar functional with functionality to eliminate local dependent fields. This scalar functional uses a Newton-\/\+Raphson algorithm in order to eliminate local dependent fields in that the gradient of the scalar functional w.\+r.\+t. the local dependent fields is zero. To achieve this, the values of the local dependent fields are modified in a way that the corresponding gradients become zero.
-
-The scalar functional may be constructed from several other scalar functionals (as a sum of these).
+An interface related scalar functional with functionality to eliminate local dependent fields. This scalar functional uses a Newton-\/\+Raphson algorithm in order to determine new values of the dependent fields to be eliminated such that the gradient of the scalar functional w.\+r.\+t. these dependent fields is zero. The scalar functional may be constructed from several other scalar functionals (as a sum of these).
 
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -112,7 +110,7 @@ virtual bool \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\
 \begin{DoxySeeAlso}{See also}
 \mbox{\hyperlink{class_scalar_functional_adb295fb739a743d5a1273025eb8dae72}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma}}
 \end{DoxySeeAlso}
-This uses all get\+\_\+h\+\_\+sigma of the scalar functionals in \mbox{\hyperlink{class_scalar_functional_local_elimination_a473e3bc585587839f7f7349f9a25bf28}{Scalar\+Functional\+Local\+Elimination\+::scalar\+\_\+functionals}} to construct the final result. In this context, a Newton-\/\+Raphson iteration is used to eliminate the local dependent fields such that {\ttfamily h\+\_\+sigma\+\_\+1} is zero for all local dependent fields. The modified values of the local dependent fields need to be returned in {\ttfamily e\+\_\+sigma\+\_\+local} (the size of this quantity is equal to the number of local dependent fields and the order is according to their occurence in {\ttfamily e\+\_\+sigma}) 
+This uses all get\+\_\+h\+\_\+sigma of the scalar functionals in \mbox{\hyperlink{class_scalar_functional_local_elimination_a473e3bc585587839f7f7349f9a25bf28}{Scalar\+Functional\+Local\+Elimination\+::scalar\+\_\+functionals}} to construct the final result. In this context, a Newton-\/\+Raphson iteration is used to eliminate the dependent fields flagged for elimination such that {\ttfamily h\+\_\+sigma\+\_\+1} is zero for all locally eliminated dependent fields. 
 
 Implements \mbox{\hyperlink{class_scalar_functional_adb295fb739a743d5a1273025eb8dae72}{Scalar\+Functional$<$ dim, spacedim $>$}}.
 
@@ -126,7 +124,7 @@ virtual double \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scala
 \begin{DoxySeeAlso}{See also}
 \mbox{\hyperlink{class_scalar_functional_ae4f5fbd69cabfda73cc2b30ae0263ca5}{Scalar\+Functional\+::get\+\_\+maximum\+\_\+step}}
 \end{DoxySeeAlso}
-This function calls the maximum step functions of all scalar functionals in \mbox{\hyperlink{class_scalar_functional_local_elimination_a473e3bc585587839f7f7349f9a25bf28}{Scalar\+Functional\+Local\+Elimination\+::scalar\+\_\+functionals}} and returns the minimal possible maximum step. In this context, all values in {\ttfamily delta\+\_\+e\+\_\+sigma} corresponding to local dependent fields should be zero when calling this function since an external modification of these values is not reasonable 
+This function calls the maximum step functions of all scalar functionals in \mbox{\hyperlink{class_scalar_functional_local_elimination_a473e3bc585587839f7f7349f9a25bf28}{Scalar\+Functional\+Local\+Elimination\+::scalar\+\_\+functionals}} and returns the minimal possible maximum step. In this context, all values in {\ttfamily delta\+\_\+e\+\_\+sigma} corresponding to locally eliminated dependent fields should be zero when calling this function since an external modification of these values is not reasonable 
 
 Reimplemented from \mbox{\hyperlink{class_scalar_functional_ae4f5fbd69cabfda73cc2b30ae0263ca5}{Scalar\+Functional$<$ dim, spacedim $>$}}.
 
@@ -168,21 +166,21 @@ void \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functio
 Sets \mbox{\hyperlink{class_scalar_functional_local_elimination_a61f8cd4268582affd339a30ae6a5ea6e}{Scalar\+Functional\+Local\+Elimination\+::use\+\_\+line\+\_\+search}} 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_scalar_functional_local_elimination_a3bf2fb48e6b00f9aa9ddcfa41958e97b}\label{class_scalar_functional_local_elimination_a3bf2fb48e6b00f9aa9ddcfa41958e97b}} 
-\index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!indices\_local\_dependent\_fields@{indices\_local\_dependent\_fields}}
-\index{indices\_local\_dependent\_fields@{indices\_local\_dependent\_fields}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
-\doxysubsubsection{\texorpdfstring{indices\_local\_dependent\_fields}{indices\_local\_dependent\_fields}}
+\mbox{\Hypertarget{class_scalar_functional_local_elimination_a9a62464884767f3be49391e5ec7ec987}\label{class_scalar_functional_local_elimination_a9a62464884767f3be49391e5ec7ec987}} 
+\index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!indices\_locally\_eliminated\_dependent\_fields@{indices\_locally\_eliminated\_dependent\_fields}}
+\index{indices\_locally\_eliminated\_dependent\_fields@{indices\_locally\_eliminated\_dependent\_fields}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{indices\_locally\_eliminated\_dependent\_fields}{indices\_locally\_eliminated\_dependent\_fields}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-std\+::vector$<$unsigned int$>$ \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::indices\+\_\+local\+\_\+dependent\+\_\+fields\hspace{0.3cm}{\ttfamily [private]}}
+std\+::vector$<$unsigned int$>$ \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::indices\+\_\+locally\+\_\+eliminated\+\_\+dependent\+\_\+fields\hspace{0.3cm}{\ttfamily [private]}}
 
-This contains the dependent field indices of the local dependent field (in the indexing of the combined scalar functional) \mbox{\Hypertarget{class_scalar_functional_local_elimination_aa4ab80a82bf275b6a93d916b14094119}\label{class_scalar_functional_local_elimination_aa4ab80a82bf275b6a93d916b14094119}} 
-\index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!indices\_nonlocal\_dependent\_fields@{indices\_nonlocal\_dependent\_fields}}
-\index{indices\_nonlocal\_dependent\_fields@{indices\_nonlocal\_dependent\_fields}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
-\doxysubsubsection{\texorpdfstring{indices\_nonlocal\_dependent\_fields}{indices\_nonlocal\_dependent\_fields}}
+This contains the dependent field indices of the locally eliminated dependent fields (in the indexing of the combined scalar functional) \mbox{\Hypertarget{class_scalar_functional_local_elimination_a1d72179de9c2d77068d090c1b483cd5a}\label{class_scalar_functional_local_elimination_a1d72179de9c2d77068d090c1b483cd5a}} 
+\index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!indices\_not\_eliminated\_dependent\_fields@{indices\_not\_eliminated\_dependent\_fields}}
+\index{indices\_not\_eliminated\_dependent\_fields@{indices\_not\_eliminated\_dependent\_fields}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{indices\_not\_eliminated\_dependent\_fields}{indices\_not\_eliminated\_dependent\_fields}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-std\+::vector$<$unsigned int$>$ \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::indices\+\_\+nonlocal\+\_\+dependent\+\_\+fields\hspace{0.3cm}{\ttfamily [private]}}
+std\+::vector$<$unsigned int$>$ \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::indices\+\_\+not\+\_\+eliminated\+\_\+dependent\+\_\+fields\hspace{0.3cm}{\ttfamily [private]}}
 
-This contains the dependent field indices of the nonlocal dependent field (in the indexing of the combined scalar functional) \mbox{\Hypertarget{class_scalar_functional_local_elimination_a7a7cbe368936cfb0224e7885a8959c4b}\label{class_scalar_functional_local_elimination_a7a7cbe368936cfb0224e7885a8959c4b}} 
+This contains the dependent field indices of the dependent fields which are not eliminated (in the indexing of the combined scalar functional) \mbox{\Hypertarget{class_scalar_functional_local_elimination_a7a7cbe368936cfb0224e7885a8959c4b}\label{class_scalar_functional_local_elimination_a7a7cbe368936cfb0224e7885a8959c4b}} 
 \index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!map\_dependent\_fields@{map\_dependent\_fields}}
 \index{map\_dependent\_fields@{map\_dependent\_fields}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{map\_dependent\_fields}{map\_dependent\_fields}}

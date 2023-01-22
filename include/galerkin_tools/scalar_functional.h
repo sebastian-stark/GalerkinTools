@@ -616,11 +616,9 @@ public:
 
 /**
  * An interface related scalar functional with functionality to eliminate local dependent fields.
- * This scalar functional uses a Newton-Raphson algorithm in order to eliminate local dependent fields in that the gradient of the scalar functional
- * w.r.t. the local dependent fields is zero. To achieve this, the values of the local dependent fields are modified in a way that the corresponding gradients become zero.
- *
+ * This scalar functional uses a Newton-Raphson algorithm in order to determine new values of the dependent fields to be eliminated such that the gradient of the scalar functional
+ * w.r.t. these dependent fields is zero.
  * The scalar functional may be constructed from several other scalar functionals (as a sum of these).
- *
  *
  * @tparam dim		The dimension of the object on which the ScalarFunctional is defined.
  *
@@ -645,16 +643,16 @@ private:
 	map_dependent_fields;
 
 	/**
-	 * This contains the dependent field indices of the nonlocal dependent field (in the indexing of the combined scalar functional)
+	 * This contains the dependent field indices of the dependent fields which are not eliminated (in the indexing of the combined scalar functional)
 	 */
 	std::vector<unsigned int>
-	indices_nonlocal_dependent_fields;
+	indices_not_eliminated_dependent_fields;
 
 	/**
-	 * This contains the dependent field indices of the local dependent field (in the indexing of the combined scalar functional)
+	 * This contains the dependent field indices of the locally eliminated dependent fields (in the indexing of the combined scalar functional)
 	 */
 	std::vector<unsigned int>
-	indices_local_dependent_fields;
+	indices_locally_eliminated_dependent_fields;
 
 	/**
 	 * Safety distance to an inadmissible state within a single Newton-Raphson iteration during determination of the values of the local dependent fields (0 < @p safety_distance < 1.0).
@@ -713,9 +711,7 @@ public:
 	 * @see ScalarFunctional::get_h_sigma
 	 *
 	 * This uses all get_h_sigma of the scalar functionals in ScalarFunctionalLocalElimination::scalar_functionals to construct the final result.
-	 * In this context, a Newton-Raphson iteration is used to eliminate the local dependent fields such that @p h_sigma_1 is zero for all local dependent fields.
-	 * The modified values of the local dependent fields need to be returned in @p e_sigma_local (the size of this quantity is equal to the number of local dependent fields and
-	 * the order is according to their occurence in @p e_sigma)
+	 * In this context, a Newton-Raphson iteration is used to eliminate the dependent fields flagged for elimination such that @p h_sigma_1 is zero for all locally eliminated dependent fields.
 	 */
 	virtual
 	bool
@@ -734,7 +730,7 @@ public:
 	 * @see ScalarFunctional::get_maximum_step
 	 *
 	 * This function calls the maximum step functions of all scalar functionals in ScalarFunctionalLocalElimination::scalar_functionals and returns the minimal possible maximum step.
-	 * In this context, all values in @p delta_e_sigma corresponding to local dependent fields should be zero when calling this function since an external modification of these values is not reasonable
+	 * In this context, all values in @p delta_e_sigma corresponding to locally eliminated dependent fields should be zero when calling this function since an external modification of these values is not reasonable
 	 */
 	virtual
 	double
@@ -778,12 +774,10 @@ public:
 };
 
 /**
- * An interface related scalar functional with functionality to eliminate local dependent fields.
- * This scalar functional uses a Newton-Raphson algorithm in order to eliminate local dependent fields in that the gradient of the scalar functional
- * w.r.t. the local dependent fields is zero. To achieve this, the values of the local dependent fields are modified in a way that the corresponding gradients become zero.
- *
+ * A domain related scalar functional with functionality to eliminate local dependent fields.
+ * This scalar functional uses a Newton-Raphson algorithm in order to determine new values of the dependent fields to be eliminated such that the gradient of the scalar functional
+ * w.r.t. these dependent fields is zero.
  * The scalar functional may be constructed from several other scalar functionals (as a sum of these).
- *
  *
  * @tparam dim		The dimension of the object on which the ScalarFunctional is defined.
  *
@@ -808,16 +802,16 @@ private:
 	map_dependent_fields;
 
 	/**
-	 * This contains the dependent field indices of the nonlocal dependent field (in the indexing of the combined scalar functional)
+	 * This contains the dependent field indices of the dependent fields which are not eliminated (in the indexing of the combined scalar functional)
 	 */
 	std::vector<unsigned int>
-	indices_nonlocal_dependent_fields;
+	indices_not_eliminated_dependent_fields;
 
 	/**
-	 * This contains the dependent field indices of the local dependent field (in the indexing of the combined scalar functional)
+	 * This contains the dependent field indices of the locally eliminated dependent fields (in the indexing of the combined scalar functional)
 	 */
 	std::vector<unsigned int>
-	indices_local_dependent_fields;
+	indices_locally_eliminated_dependent_fields;
 
 	/**
 	 * Safety distance to an inadmissible state within a single Newton-Raphson iteration during determination of the values of the local dependent fields (0 < @p safety_distance < 1.0).
@@ -876,10 +870,7 @@ public:
 	 * @see ScalarFunctional<spacedim, spacedim>::get_h_omega
 	 *
 	 * This uses all get_h_omega of the scalar functionals in ScalarFunctionalLocalElimination<spacedim, spacedim>::scalar_functionals to construct the final result.
-	 * In this context, a Newton-Raphson iteration is used to eliminate the local dependent fields such that @p h_omega_1 is zero for all local dependent fields.
-	 * The modified values of the local dependent fields need to be returned in @p e_omega_local (the size of this quantity is equal to the number of local dependent fields and
-	 * the order is according to their occurence in @p e_omega)
-	 *
+	 * In this context, a Newton-Raphson iteration is used to eliminate the dependent fields flagged for elimination such that @p h_omega_1 is zero for all locally eliminated dependent fields.
 	 */
 	virtual
 	bool
@@ -897,7 +888,7 @@ public:
 	 * @see ScalarFunctional<spacedim, spacedim>::get_maximum_step
 	 *
 	 * This function calls the maximum step functions of all scalar functionals in ScalarFunctionalLocalElimination::scalar_functionals and returns the minimal possible maximum step.
-	 * In this context, all values in @p delta_e_omega corresponding to local dependent fields should be zero when calling this function since an external modification of these values is not reasonable
+	 * In this context, all values in @p delta_e_omega corresponding to locally eliminated dependent fields should be zero when calling this function since an external modification of these values is not reasonable
 	 */
 	virtual
 	double

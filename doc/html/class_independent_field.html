@@ -97,8 +97,8 @@ Collaboration diagram for IndependentField&lt; dim, spacedim &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3f0ac68d656acd513c729e7c9926f8c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_independent_field.html#a3f0ac68d656acd513c729e7c9926f8c0">IndependentField</a> (const std::string <a class="el" href="class_independent_field.html#ae05f8565e4ce1a70b5b833555dc084b5">name</a>, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFiniteElement.html">FiniteElement</a>&lt; dim, spacedim &gt; &amp;<a class="el" href="class_independent_field.html#a1c583665b7710bd3b815b03ba026b6d3">fe</a>, const unsigned int <a class="el" href="class_independent_field.html#a7b19ea8c30d72cf27f05669de61f30a8">n_components</a>, const std::set&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacetypes.html#afb65af4be8a9a1d09a0c3ecc967c9d4c">types::material_id</a> &gt; <a class="el" href="class_independent_field.html#a4e09e114870c0b3761bc2e32916e5850">non_zero_regions</a>, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html">Function</a>&lt; spacedim &gt; *const <a class="el" href="class_independent_field.html#a274c902785d2937a6065f7e09f3976c3">initial_vals</a>=nullptr, const bool <a class="el" href="class_independent_field.html#a8e77d8d321a259bec955a71f55ef41e5">is_local</a>=false)</td></tr>
-<tr class="separator:a3f0ac68d656acd513c729e7c9926f8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb12ec32511568a9504312730542bfa1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_independent_field.html#afb12ec32511568a9504312730542bfa1">IndependentField</a> (const std::string <a class="el" href="class_independent_field.html#ae05f8565e4ce1a70b5b833555dc084b5">name</a>, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFiniteElement.html">FiniteElement</a>&lt; dim, spacedim &gt; &amp;<a class="el" href="class_independent_field.html#a1c583665b7710bd3b815b03ba026b6d3">fe</a>, const unsigned int <a class="el" href="class_independent_field.html#a7b19ea8c30d72cf27f05669de61f30a8">n_components</a>, const std::set&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacetypes.html#afb65af4be8a9a1d09a0c3ecc967c9d4c">types::material_id</a> &gt; <a class="el" href="class_independent_field.html#a4e09e114870c0b3761bc2e32916e5850">non_zero_regions</a>, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html">Function</a>&lt; spacedim &gt; *const <a class="el" href="class_independent_field.html#a274c902785d2937a6065f7e09f3976c3">initial_vals</a>=nullptr, const bool <a class="el" href="class_independent_field.html#a8e77d8d321a259bec955a71f55ef41e5">is_local</a>=false, const bool <a class="el" href="class_independent_field.html#a755514cb31014d9b39e1b3e677c4527d">is_locally_eliminated</a>=false)</td></tr>
+<tr class="separator:afb12ec32511568a9504312730542bfa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af953c9ecc5965d5bcbd61fab9e0b6e2b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_independent_field.html#af953c9ecc5965d5bcbd61fab9e0b6e2b">IndependentField</a> (const std::string <a class="el" href="class_independent_field.html#ae05f8565e4ce1a70b5b833555dc084b5">name</a>, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFiniteElement.html">FiniteElement</a>&lt; dim, spacedim &gt; &amp;<a class="el" href="class_independent_field.html#a1c583665b7710bd3b815b03ba026b6d3">fe</a>, const std::set&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacetypes.html#afb65af4be8a9a1d09a0c3ecc967c9d4c">types::material_id</a> &gt; <a class="el" href="class_independent_field.html#a4e09e114870c0b3761bc2e32916e5850">non_zero_regions</a>, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html">Function</a>&lt; spacedim &gt; *const <a class="el" href="class_independent_field.html#a274c902785d2937a6065f7e09f3976c3">initial_vals</a>=nullptr)</td></tr>
 <tr class="separator:af953c9ecc5965d5bcbd61fab9e0b6e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af83ee8c1600bb079a3075244a7b39481"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_independent_field.html#af83ee8c1600bb079a3075244a7b39481">~IndependentField</a> ()</td></tr>
@@ -141,6 +141,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a274c902785d2937a6065f7e09f3976c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e77d8d321a259bec955a71f55ef41e5"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_independent_field.html#a8e77d8d321a259bec955a71f55ef41e5">is_local</a> = false</td></tr>
 <tr class="separator:a8e77d8d321a259bec955a71f55ef41e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a755514cb31014d9b39e1b3e677c4527d"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_independent_field.html#a755514cb31014d9b39e1b3e677c4527d">is_locally_eliminated</a> = false</td></tr>
+<tr class="separator:a755514cb31014d9b39e1b3e677c4527d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -168,8 +170,8 @@ class IndependentField&lt; dim, spacedim &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a3f0ac68d656acd513c729e7c9926f8c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f0ac68d656acd513c729e7c9926f8c0">&#9670;&nbsp;</a></span>IndependentField() <span class="overload">[1/2]</span></h2>
+<a id="afb12ec32511568a9504312730542bfa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb12ec32511568a9504312730542bfa1">&#9670;&nbsp;</a></span>IndependentField() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,7 +212,13 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>is_local</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>is_local</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>is_locally_eliminated</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -227,7 +235,8 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
     <tr><td class="paramdir">[in]</td><td class="paramname">n_components</td><td><a class="el" href="class_independent_field.html#a7b19ea8c30d72cf27f05669de61f30a8">IndependentField::n_components</a></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">non_zero_regions</td><td><a class="el" href="class_independent_field.html#a4e09e114870c0b3761bc2e32916e5850">IndependentField::non_zero_regions</a></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">initial_vals</td><td><a class="el" href="class_independent_field.html#a274c902785d2937a6065f7e09f3976c3">IndependentField::initial_vals</a>, if a null pointer is provided, the initial values of the independent fields are assumed to be zero.</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">is_local</td><td><a class="el" href="class_independent_field.html#a8e77d8d321a259bec955a71f55ef41e5">IndependentField::is_local</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">is_local</td><td><a class="el" href="class_independent_field.html#a8e77d8d321a259bec955a71f55ef41e5">IndependentField::is_local</a></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">is_locally_eliminated</td><td><a class="el" href="class_independent_field.html#a755514cb31014d9b39e1b3e677c4527d">IndependentField::is_locally_eliminated</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -354,7 +363,34 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>if this is true, the independent field is assumed to be local. In this case, it must be discretized by an <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFE__DGQArbitraryNodes.html">FE_DGQArbitraryNodes</a> of deal.II. </p>
+<p>If this is true, the independent field is assumed to be local. In this case, the following restrictions apply:</p>
+<ul>
+<li>The independent field must be discretized by an <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFE__DGQArbitraryNodes.html">FE_DGQArbitraryNodes</a> of deal.II.</li>
+<li>The quadrature points used for the integration process of the scalar functionals involving the independent field must coincide with the support points of the used <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFE__DGQArbitraryNodes.html">FE_DGQArbitraryNodes</a>.</li>
+<li>All scalar functionals involving the independent field must be primitive.</li>
+<li>The independent field must not be associated with constraints. <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>The latter may be relaxed to a certain degree. This needs, however, to be implemented.</dd></dl>
+</li>
+</ul>
+<p>The effect of setting this to true is that the entries in the sparsity pattern can be substantially reduced. </p>
+
+</div>
+</div>
+<a id="a755514cb31014d9b39e1b3e677c4527d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a755514cb31014d9b39e1b3e677c4527d">&#9670;&nbsp;</a></span>is_locally_eliminated</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="class_independent_field.html">IndependentField</a>&lt; dim, spacedim &gt;::is_locally_eliminated = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>If this is true, the independent field is assumed to be locally eliminated at the quadrature point level in that the local value of the independent field can be determined at the quadrature point level based on the previous local values of the independent field and the current and previous local values of the other field variables.</p>
+<p>Note also that this can only be true if <a class="el" href="class_independent_field.html#a8e77d8d321a259bec955a71f55ef41e5">IndependentField::is_local</a> is true as well and, therefore, the restrictions for local fields apply. However, in addition it is necessary that the scalar functional locally determines the new values of the independent field. In order to implement a simple mechanism for feeding these new values back to the global assembly scheme, it is additionally assumed that the locally eliminated independent fields have a 1 to 1 correspondence to a dependent field in that the dependent field equals the independent field. Thus, the mechanism for feeding the new values back is simply that the scalar functional updates the respective value of the dependent field associated with the locally eliminated independent field.</p>
+<p>The purpose of the mechanism just described is that "hidden/internal" variables, which are common in continuum mechanics, can be easily incorporated without the need of additional data structures storing them. </p>
 
 </div>
 </div>

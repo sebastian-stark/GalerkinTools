@@ -98,8 +98,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9e441dd97513d30309aebff87f65c3af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad08ab17b8ea5d0bc07a0c6755d43ab10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ad08ab17b8ea5d0bc07a0c6755d43ab10">print</a> () const</td></tr>
 <tr class="separator:ad08ab17b8ea5d0bc07a0c6755d43ab10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf60a16e3b158c7c67c5e04d8ad41b5c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#abf60a16e3b158c7c67c5e04d8ad41b5c">get_is_local</a> () const</td></tr>
-<tr class="separator:abf60a16e3b158c7c67c5e04d8ad41b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52de8c04f07a31cdd16c30344e953d11"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a52de8c04f07a31cdd16c30344e953d11">get_is_locally_eliminated</a> () const</td></tr>
+<tr class="separator:a52de8c04f07a31cdd16c30344e953d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2897cd7975ebb9fa67a53c491fc8a7d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a2897cd7975ebb9fa67a53c491fc8a7d8">operator&lt;</a> (const <a class="el" href="class_dependent_field.html">DependentField</a>&lt; spacedim, spacedim &gt; &amp;dependent_field_2) const</td></tr>
 <tr class="separator:a2897cd7975ebb9fa67a53c491fc8a7d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83626491df9b2bbd6f7d2f3587cbf7e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a83626491df9b2bbd6f7d2f3587cbf7e0">operator==</a> (const <a class="el" href="class_dependent_field.html">DependentField</a>&lt; spacedim, spacedim &gt; &amp;dependent_field_2) const</td></tr>
@@ -118,8 +118,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a3a6a89ad2fe38606f09573e6e1450879"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24efc9c0928896be871908f050c406fc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a24efc9c0928896be871908f050c406fc">constant</a> = 0.0</td></tr>
 <tr class="separator:a24efc9c0928896be871908f050c406fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae43bf948e8f45545dd7e744689b47d5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ae43bf948e8f45545dd7e744689b47d5b">is_local</a> = false</td></tr>
-<tr class="separator:ae43bf948e8f45545dd7e744689b47d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7674c26813012938b30d350d37b7722"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ae7674c26813012938b30d350d37b7722">is_locally_eliminated</a> = false</td></tr>
+<tr class="separator:ae7674c26813012938b30d350d37b7722"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;unsigned int spacedim&gt;<br />
@@ -400,8 +400,8 @@ template&lt;unsigned int spacedim&gt; </div>
 
 </div>
 </div>
-<a id="abf60a16e3b158c7c67c5e04d8ad41b5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf60a16e3b158c7c67c5e04d8ad41b5c">&#9670;&nbsp;</a></span>get_is_local()</h2>
+<a id="a52de8c04f07a31cdd16c30344e953d11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52de8c04f07a31cdd16c30344e953d11">&#9670;&nbsp;</a></span>get_is_locally_eliminated()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -409,14 +409,14 @@ template&lt;unsigned int spacedim&gt; </div>
 template&lt;unsigned int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="class_dependent_field.html">DependentField</a>&lt; spacedim, spacedim &gt;::get_is_local </td>
+          <td class="memname">bool <a class="el" href="class_dependent_field.html">DependentField</a>&lt; spacedim, spacedim &gt;::get_is_locally_eliminated </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This methods returns <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ae43bf948e8f45545dd7e744689b47d5b">DependentField&lt;spacedim, spacedim&gt;::is_local</a> </p>
+<p>This methods returns <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ae7674c26813012938b30d350d37b7722">DependentField&lt;spacedim, spacedim&gt;::is_locally_eliminated</a> </p>
 
 </div>
 </div>
@@ -477,7 +477,7 @@ template&lt;unsigned int spacedim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>A comparison operator, which allows to check for equality of two <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html">DependentField&lt;spacedim,spacedim&gt;</a>. Note that <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ae43bf948e8f45545dd7e744689b47d5b">DependentField&lt;spacedim,spacedim&gt;::is_local</a> and <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a99a47f4c10f0e472dbdc2b0945712e23">DependentField&lt;spacedim,spacedim&gt;::name</a> are not involved in the comparison</p>
+<p>A comparison operator, which allows to check for equality of two <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html">DependentField&lt;spacedim,spacedim&gt;</a>. Note that <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ae7674c26813012938b30d350d37b7722">DependentField&lt;spacedim,spacedim&gt;::is_locally_eliminated</a> and <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a99a47f4c10f0e472dbdc2b0945712e23">DependentField&lt;spacedim,spacedim&gt;::name</a> are not involved in the comparison</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">dependent_field_2</td><td>The <a class="el" href="class_dependent_field.html">DependentField</a> to compare with</td></tr>
@@ -505,7 +505,7 @@ template&lt;unsigned int spacedim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>A comparison operator, which allows to check for equality of two <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html">DependentField&lt;spacedim,spacedim&gt;</a>. Note that <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ae43bf948e8f45545dd7e744689b47d5b">DependentField&lt;spacedim,spacedim&gt;::is_local</a> and <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a99a47f4c10f0e472dbdc2b0945712e23">DependentField&lt;spacedim,spacedim&gt;::name</a> are not involved in the comparison</p>
+<p>A comparison operator, which allows to check for equality of two <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html">DependentField&lt;spacedim,spacedim&gt;</a>. Note that <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#ae7674c26813012938b30d350d37b7722">DependentField&lt;spacedim,spacedim&gt;::is_locally_eliminated</a> and <a class="el" href="class_dependent_field_3_01spacedim_00_01spacedim_01_4.html#a99a47f4c10f0e472dbdc2b0945712e23">DependentField&lt;spacedim,spacedim&gt;::name</a> are not involved in the comparison</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">dependent_field_2</td><td>The <a class="el" href="class_dependent_field.html">DependentField</a> to compare with</td></tr>
@@ -562,8 +562,8 @@ template&lt;unsigned int spacedim&gt; </div>
 
 </div>
 </div>
-<a id="ae43bf948e8f45545dd7e744689b47d5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae43bf948e8f45545dd7e744689b47d5b">&#9670;&nbsp;</a></span>is_local</h2>
+<a id="ae7674c26813012938b30d350d37b7722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7674c26813012938b30d350d37b7722">&#9670;&nbsp;</a></span>is_locally_eliminated</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -574,7 +574,7 @@ template&lt;unsigned int spacedim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="class_dependent_field.html">DependentField</a>&lt; spacedim, spacedim &gt;::is_local = false</td>
+          <td class="memname">bool <a class="el" href="class_dependent_field.html">DependentField</a>&lt; spacedim, spacedim &gt;::is_locally_eliminated = false</td>
         </tr>
       </table>
   </td>
@@ -583,7 +583,7 @@ template&lt;unsigned int spacedim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Indicate whether this is a local dependent field. If <code>true</code>, only local terms can be added to the dependent field subsequent to construction. </p>
+<p>Indicate whether this dependent field is equal to an independent scalar and locally eliminated. </p>
 
 </div>
 </div>

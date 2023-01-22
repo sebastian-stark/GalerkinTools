@@ -842,10 +842,10 @@ scalar_functionals(scalar_functionals)
 
 	for(unsigned int df = 0; df < this->e_omega.size(); ++df)
 	{
-		if(this->e_omega[df].get_is_local())
-			indices_local_dependent_fields.push_back(df);
+		if(this->e_omega[df].get_is_locally_eliminated())
+			indices_locally_eliminated_dependent_fields.push_back(df);
 		else
-			indices_nonlocal_dependent_fields.push_back(df);
+			indices_not_eliminated_dependent_fields.push_back(df);
 	}
 
 	map<DependentField<spacedim,spacedim>, unsigned int> map_df_index;
@@ -872,7 +872,7 @@ const
 {
 	Vector<double> e_old = e_omega;
 	Vector<double> hidden_vars_old = hidden_vars;
-	bool error = Implementation::get_h<spacedim, spacedim>(e_omega, e_omega_ref_sets, hidden_vars, x, nullptr, h_omega, h_omega_1, h_omega_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_nonlocal_dependent_fields, indices_local_dependent_fields, safety_distance, threshold_residual, max_iter, max_cutbacks, use_line_search);
+	bool error = Implementation::get_h<spacedim, spacedim>(e_omega, e_omega_ref_sets, hidden_vars, x, nullptr, h_omega, h_omega_1, h_omega_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_not_eliminated_dependent_fields, indices_locally_eliminated_dependent_fields, safety_distance, threshold_residual, max_iter, max_cutbacks, use_line_search);
 	if(!error)
 	{
 		Vector<double> de = e_omega;
@@ -915,7 +915,7 @@ ScalarFunctionalLocalElimination<spacedim, spacedim>::get_maximum_step(	const Ve
 																		const Point<spacedim>& 			x)
 const
 {
-	return Implementation::get_maximum_step<spacedim, spacedim>(e_omega, e_omega_ref_sets, delta_e_omega, hidden_vars, x, nullptr, scalar_functionals, map_dependent_fields, indices_nonlocal_dependent_fields, indices_local_dependent_fields);
+	return Implementation::get_maximum_step<spacedim, spacedim>(e_omega, e_omega_ref_sets, delta_e_omega, hidden_vars, x, nullptr, scalar_functionals, map_dependent_fields, indices_not_eliminated_dependent_fields, indices_locally_eliminated_dependent_fields);
 }
 
 template<unsigned int spacedim>
@@ -974,10 +974,10 @@ scalar_functionals(scalar_functionals)
 
 	for(unsigned int df = 0; df < this->e_sigma.size(); ++df)
 	{
-		if(this->e_sigma[df].get_is_local())
-			indices_local_dependent_fields.push_back(df);
+		if(this->e_sigma[df].get_is_locally_eliminated())
+			indices_locally_eliminated_dependent_fields.push_back(df);
 		else
-			indices_nonlocal_dependent_fields.push_back(df);
+			indices_not_eliminated_dependent_fields.push_back(df);
 	}
 
 	map<DependentField<dim,spacedim>, unsigned int> map_df_index;
@@ -1006,7 +1006,7 @@ const
 {
 	Vector<double> e_old = e_sigma;
 	Vector<double> hidden_vars_old = hidden_vars;
-	bool error = Implementation::get_h<dim, spacedim>(e_sigma, e_sigma_ref_sets, hidden_vars, x, &n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_nonlocal_dependent_fields, indices_local_dependent_fields, safety_distance, threshold_residual, max_iter, max_cutbacks, use_line_search);
+	bool error = Implementation::get_h<dim, spacedim>(e_sigma, e_sigma_ref_sets, hidden_vars, x, &n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_not_eliminated_dependent_fields, indices_locally_eliminated_dependent_fields, safety_distance, threshold_residual, max_iter, max_cutbacks, use_line_search);
 	if(!error)
 	{
 		Vector<double> de = e_sigma;
@@ -1050,7 +1050,7 @@ ScalarFunctionalLocalElimination<dim, spacedim>::get_maximum_step(	const Vector<
 																	const Tensor<1, spacedim>&		n)
 const
 {
-	return Implementation::get_maximum_step<dim, spacedim>(e_sigma, e_sigma_ref_sets, delta_e_sigma, hidden_vars, x, &n, scalar_functionals, map_dependent_fields, indices_nonlocal_dependent_fields, indices_local_dependent_fields);
+	return Implementation::get_maximum_step<dim, spacedim>(e_sigma, e_sigma_ref_sets, delta_e_sigma, hidden_vars, x, &n, scalar_functionals, map_dependent_fields, indices_not_eliminated_dependent_fields, indices_locally_eliminated_dependent_fields);
 }
 
 template<unsigned int dim, unsigned int spacedim>

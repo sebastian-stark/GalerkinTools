@@ -108,8 +108,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a15eb8101d33f2f09ada4cdf2cde73ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf0ad81e2d7b609b7dfde60a77f92a20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field.html#adf0ad81e2d7b609b7dfde60a77f92a20">print</a> () const</td></tr>
 <tr class="separator:adf0ad81e2d7b609b7dfde60a77f92a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabc31c47b3f6cb69da28758d9672d8d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field.html#aabc31c47b3f6cb69da28758d9672d8d8">get_is_local</a> () const</td></tr>
-<tr class="separator:aabc31c47b3f6cb69da28758d9672d8d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa16f1559eca5060b0877dc3ec00cc552"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field.html#aa16f1559eca5060b0877dc3ec00cc552">get_is_locally_eliminated</a> () const</td></tr>
+<tr class="separator:aa16f1559eca5060b0877dc3ec00cc552"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c56c4e18d320e9c402f3adde546c681"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field.html#a1c56c4e18d320e9c402f3adde546c681">operator&lt;</a> (const <a class="el" href="class_dependent_field.html">DependentField</a> &amp;dependent_field_2) const</td></tr>
 <tr class="separator:a1c56c4e18d320e9c402f3adde546c681"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a808b18c7b0fc7c05204aed47b1509ce4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field.html#a808b18c7b0fc7c05204aed47b1509ce4">operator==</a> (const <a class="el" href="class_dependent_field.html">DependentField</a> &amp;dependent_field_2) const</td></tr>
@@ -132,8 +132,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a642147ff57d5412554508f293182c649"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32b37c78e04a16b6b606442f156c8ca9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field.html#a32b37c78e04a16b6b606442f156c8ca9">constant</a> = 0.0</td></tr>
 <tr class="separator:a32b37c78e04a16b6b606442f156c8ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacdabff2601b1f0efcdce7a4413b47bc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field.html#aacdabff2601b1f0efcdce7a4413b47bc">is_local</a> = false</td></tr>
-<tr class="separator:aacdabff2601b1f0efcdce7a4413b47bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c41e749b67a39b68a37ad9d893fb14d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dependent_field.html#a9c41e749b67a39b68a37ad9d893fb14d">is_locally_eliminated</a> = false</td></tr>
+<tr class="separator:a9c41e749b67a39b68a37ad9d893fb14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;unsigned int dim, unsigned int spacedim&gt;<br />
@@ -612,8 +612,8 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
 
 </div>
 </div>
-<a id="aabc31c47b3f6cb69da28758d9672d8d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabc31c47b3f6cb69da28758d9672d8d8">&#9670;&nbsp;</a></span>get_is_local()</h2>
+<a id="aa16f1559eca5060b0877dc3ec00cc552"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa16f1559eca5060b0877dc3ec00cc552">&#9670;&nbsp;</a></span>get_is_locally_eliminated()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -621,14 +621,14 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
 template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="class_dependent_field.html">DependentField</a>&lt; dim, spacedim &gt;::get_is_local </td>
+          <td class="memname">bool <a class="el" href="class_dependent_field.html">DependentField</a>&lt; dim, spacedim &gt;::get_is_locally_eliminated </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This methods returns <a class="el" href="class_dependent_field.html#aacdabff2601b1f0efcdce7a4413b47bc">DependentField::is_local</a> </p>
+<p>This methods returns <a class="el" href="class_dependent_field.html#a9c41e749b67a39b68a37ad9d893fb14d">DependentField::is_locally_eliminated</a> </p>
 
 </div>
 </div>
@@ -716,7 +716,7 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>A comparison operator, which allows to check for equality of two <a class="el" href="class_dependent_field.html">DependentField</a>. Note that <a class="el" href="class_dependent_field.html#aacdabff2601b1f0efcdce7a4413b47bc">DependentField::is_local</a> and <a class="el" href="class_dependent_field.html#a698b255f131279d1edb97b3c525153a0">DependentField::name</a> are not involved in the comparison</p>
+<p>A comparison operator, which allows to check for equality of two <a class="el" href="class_dependent_field.html">DependentField</a>. Note that DependentField::locally_eliminated and <a class="el" href="class_dependent_field.html#a698b255f131279d1edb97b3c525153a0">DependentField::name</a> are not involved in the comparison</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">dependent_field_2</td><td>The <a class="el" href="class_dependent_field.html">DependentField</a> to compare with</td></tr>
@@ -744,7 +744,7 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>A comparison operator, which allows to check for equality of two <a class="el" href="class_dependent_field.html">DependentField</a>. Note that <a class="el" href="class_dependent_field.html#aacdabff2601b1f0efcdce7a4413b47bc">DependentField::is_local</a> and <a class="el" href="class_dependent_field.html#a698b255f131279d1edb97b3c525153a0">DependentField::name</a> are not involved in the comparison</p>
+<p>A comparison operator, which allows to check for equality of two <a class="el" href="class_dependent_field.html">DependentField</a>. Note that DependentField::locally_eliminated and <a class="el" href="class_dependent_field.html#a698b255f131279d1edb97b3c525153a0">DependentField::name</a> are not involved in the comparison</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">dependent_field_2</td><td>The <a class="el" href="class_dependent_field.html">DependentField</a> to compare with</td></tr>
@@ -801,8 +801,8 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
 
 </div>
 </div>
-<a id="aacdabff2601b1f0efcdce7a4413b47bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacdabff2601b1f0efcdce7a4413b47bc">&#9670;&nbsp;</a></span>is_local</h2>
+<a id="a9c41e749b67a39b68a37ad9d893fb14d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c41e749b67a39b68a37ad9d893fb14d">&#9670;&nbsp;</a></span>is_locally_eliminated</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -813,7 +813,7 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="class_dependent_field.html">DependentField</a>&lt; dim, spacedim &gt;::is_local = false</td>
+          <td class="memname">bool <a class="el" href="class_dependent_field.html">DependentField</a>&lt; dim, spacedim &gt;::is_locally_eliminated = false</td>
         </tr>
       </table>
   </td>
@@ -822,7 +822,7 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Indicate whether this is a local dependent field. If <code>true</code>, only local terms can be added subsequently. </p>
+<p>Indicate whether this dependent field is equal to an independent scalar and locally eliminated. </p>
 
 </div>
 </div>

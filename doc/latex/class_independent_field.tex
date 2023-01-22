@@ -25,7 +25,7 @@ Collaboration diagram for Independent\+Field$<$ dim, spacedim $>$\+:\nopagebreak
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_independent_field_a3f0ac68d656acd513c729e7c9926f8c0}{Independent\+Field}} (const std\+::string \mbox{\hyperlink{class_independent_field_ae05f8565e4ce1a70b5b833555dc084b5}{name}}, const \textbf{ Finite\+Element}$<$ dim, spacedim $>$ \&\mbox{\hyperlink{class_independent_field_a1c583665b7710bd3b815b03ba026b6d3}{fe}}, const unsigned int \mbox{\hyperlink{class_independent_field_a7b19ea8c30d72cf27f05669de61f30a8}{n\+\_\+components}}, const std\+::set$<$ \textbf{ types\+::material\+\_\+id} $>$ \mbox{\hyperlink{class_independent_field_a4e09e114870c0b3761bc2e32916e5850}{non\+\_\+zero\+\_\+regions}}, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_independent_field_a274c902785d2937a6065f7e09f3976c3}{initial\+\_\+vals}}=nullptr, const bool \mbox{\hyperlink{class_independent_field_a8e77d8d321a259bec955a71f55ef41e5}{is\+\_\+local}}=false)
+\mbox{\hyperlink{class_independent_field_afb12ec32511568a9504312730542bfa1}{Independent\+Field}} (const std\+::string \mbox{\hyperlink{class_independent_field_ae05f8565e4ce1a70b5b833555dc084b5}{name}}, const \textbf{ Finite\+Element}$<$ dim, spacedim $>$ \&\mbox{\hyperlink{class_independent_field_a1c583665b7710bd3b815b03ba026b6d3}{fe}}, const unsigned int \mbox{\hyperlink{class_independent_field_a7b19ea8c30d72cf27f05669de61f30a8}{n\+\_\+components}}, const std\+::set$<$ \textbf{ types\+::material\+\_\+id} $>$ \mbox{\hyperlink{class_independent_field_a4e09e114870c0b3761bc2e32916e5850}{non\+\_\+zero\+\_\+regions}}, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_independent_field_a274c902785d2937a6065f7e09f3976c3}{initial\+\_\+vals}}=nullptr, const bool \mbox{\hyperlink{class_independent_field_a8e77d8d321a259bec955a71f55ef41e5}{is\+\_\+local}}=false, const bool \mbox{\hyperlink{class_independent_field_a755514cb31014d9b39e1b3e677c4527d}{is\+\_\+locally\+\_\+eliminated}}=false)
 \item 
 \mbox{\hyperlink{class_independent_field_af953c9ecc5965d5bcbd61fab9e0b6e2b}{Independent\+Field}} (const std\+::string \mbox{\hyperlink{class_independent_field_ae05f8565e4ce1a70b5b833555dc084b5}{name}}, const \textbf{ Finite\+Element}$<$ dim, spacedim $>$ \&\mbox{\hyperlink{class_independent_field_a1c583665b7710bd3b815b03ba026b6d3}{fe}}, const std\+::set$<$ \textbf{ types\+::material\+\_\+id} $>$ \mbox{\hyperlink{class_independent_field_a4e09e114870c0b3761bc2e32916e5850}{non\+\_\+zero\+\_\+regions}}, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_independent_field_a274c902785d2937a6065f7e09f3976c3}{initial\+\_\+vals}}=nullptr)
 \item 
@@ -45,6 +45,8 @@ const std\+::set$<$ \textbf{ types\+::material\+\_\+id} $>$ \mbox{\hyperlink{cla
 const \textbf{ Smart\+Pointer}$<$ const \textbf{ Function}$<$ spacedim $>$ $>$ \mbox{\hyperlink{class_independent_field_a274c902785d2937a6065f7e09f3976c3}{initial\+\_\+vals}}
 \item 
 const bool \mbox{\hyperlink{class_independent_field_a8e77d8d321a259bec955a71f55ef41e5}{is\+\_\+local}} = false
+\item 
+const bool \mbox{\hyperlink{class_independent_field_a755514cb31014d9b39e1b3e677c4527d}{is\+\_\+locally\+\_\+eliminated}} = false
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
@@ -75,12 +77,12 @@ The \mbox{\hyperlink{class_independent_field}{Independent\+Field}} class inherit
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_independent_field_a3f0ac68d656acd513c729e7c9926f8c0}\label{class_independent_field_a3f0ac68d656acd513c729e7c9926f8c0}} 
+\mbox{\Hypertarget{class_independent_field_afb12ec32511568a9504312730542bfa1}\label{class_independent_field_afb12ec32511568a9504312730542bfa1}} 
 \index{IndependentField$<$ dim, spacedim $>$@{IndependentField$<$ dim, spacedim $>$}!IndependentField@{IndependentField}}
 \index{IndependentField@{IndependentField}!IndependentField$<$ dim, spacedim $>$@{IndependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{IndependentField()}{IndependentField()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-\mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$\+::\mbox{\hyperlink{class_independent_field}{Independent\+Field}} (\begin{DoxyParamCaption}\item[{const std\+::string}]{name,  }\item[{const \textbf{ Finite\+Element}$<$ dim, spacedim $>$ \&}]{fe,  }\item[{const unsigned int}]{n\+\_\+components,  }\item[{const std\+::set$<$ \textbf{ types\+::material\+\_\+id} $>$}]{non\+\_\+zero\+\_\+regions,  }\item[{const \textbf{ Function}$<$ spacedim $>$ $\ast$const}]{initial\+\_\+vals = {\ttfamily nullptr},  }\item[{const bool}]{is\+\_\+local = {\ttfamily false} }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$\+::\mbox{\hyperlink{class_independent_field}{Independent\+Field}} (\begin{DoxyParamCaption}\item[{const std\+::string}]{name,  }\item[{const \textbf{ Finite\+Element}$<$ dim, spacedim $>$ \&}]{fe,  }\item[{const unsigned int}]{n\+\_\+components,  }\item[{const std\+::set$<$ \textbf{ types\+::material\+\_\+id} $>$}]{non\+\_\+zero\+\_\+regions,  }\item[{const \textbf{ Function}$<$ spacedim $>$ $\ast$const}]{initial\+\_\+vals = {\ttfamily nullptr},  }\item[{const bool}]{is\+\_\+local = {\ttfamily false},  }\item[{const bool}]{is\+\_\+locally\+\_\+eliminated = {\ttfamily false} }\end{DoxyParamCaption})}
 
 The constructor of the class for the case that \mbox{\hyperlink{class_independent_field_a7b19ea8c30d72cf27f05669de61f30a8}{Independent\+Field\+::n\+\_\+components}} copies of a scalar valued finite element are used for discretization of the $K$-\/vector of independent fields represented by the \mbox{\hyperlink{class_independent_field}{Independent\+Field}} object.
 
@@ -96,7 +98,9 @@ The constructor of the class for the case that \mbox{\hyperlink{class_independen
 \hline
 \mbox{\texttt{ in}}  & {\em initial\+\_\+vals} & \mbox{\hyperlink{class_independent_field_a274c902785d2937a6065f7e09f3976c3}{Independent\+Field\+::initial\+\_\+vals}}, if a null pointer is provided, the initial values of the independent fields are assumed to be zero.\\
 \hline
-\mbox{\texttt{ in}}  & {\em is\+\_\+local} & \mbox{\hyperlink{class_independent_field_a8e77d8d321a259bec955a71f55ef41e5}{Independent\+Field\+::is\+\_\+local}} \\
+\mbox{\texttt{ in}}  & {\em is\+\_\+local} & \mbox{\hyperlink{class_independent_field_a8e77d8d321a259bec955a71f55ef41e5}{Independent\+Field\+::is\+\_\+local}}\\
+\hline
+\mbox{\texttt{ in}}  & {\em is\+\_\+locally\+\_\+eliminated} & \mbox{\hyperlink{class_independent_field_a755514cb31014d9b39e1b3e677c4527d}{Independent\+Field\+::is\+\_\+locally\+\_\+eliminated}} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_independent_field_af953c9ecc5965d5bcbd61fab9e0b6e2b}\label{class_independent_field_af953c9ecc5965d5bcbd61fab9e0b6e2b}} 
@@ -150,7 +154,30 @@ A \textbf{ Function} (or, rather, an instance of a derived class) specifying the
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
 const bool \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$\+::is\+\_\+local = false}
 
-if this is true, the independent field is assumed to be local. In this case, it must be discretized by an \textbf{ F\+E\+\_\+\+D\+G\+Q\+Arbitrary\+Nodes} of deal.\+II. \mbox{\Hypertarget{class_independent_field_a7b19ea8c30d72cf27f05669de61f30a8}\label{class_independent_field_a7b19ea8c30d72cf27f05669de61f30a8}} 
+If this is true, the independent field is assumed to be local. In this case, the following restrictions apply\+:
+
+
+\begin{DoxyItemize}
+\item The independent field must be discretized by an \textbf{ F\+E\+\_\+\+D\+G\+Q\+Arbitrary\+Nodes} of deal.\+II.
+\item The quadrature points used for the integration process of the scalar functionals involving the independent field must coincide with the support points of the used \textbf{ F\+E\+\_\+\+D\+G\+Q\+Arbitrary\+Nodes}.
+\item All scalar functionals involving the independent field must be primitive.
+\item The independent field must not be associated with constraints. \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000010}{Todo}}]The latter may be relaxed to a certain degree. This needs, however, to be implemented.\end{DoxyRefDesc}
+
+\end{DoxyItemize}
+
+The effect of setting this to true is that the entries in the sparsity pattern can be substantially reduced. \mbox{\Hypertarget{class_independent_field_a755514cb31014d9b39e1b3e677c4527d}\label{class_independent_field_a755514cb31014d9b39e1b3e677c4527d}} 
+\index{IndependentField$<$ dim, spacedim $>$@{IndependentField$<$ dim, spacedim $>$}!is\_locally\_eliminated@{is\_locally\_eliminated}}
+\index{is\_locally\_eliminated@{is\_locally\_eliminated}!IndependentField$<$ dim, spacedim $>$@{IndependentField$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{is\_locally\_eliminated}{is\_locally\_eliminated}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
+const bool \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$\+::is\+\_\+locally\+\_\+eliminated = false}
+
+If this is true, the independent field is assumed to be locally eliminated at the quadrature point level in that the local value of the independent field can be determined at the quadrature point level based on the previous local values of the independent field and the current and previous local values of the other field variables.
+
+Note also that this can only be true if \mbox{\hyperlink{class_independent_field_a8e77d8d321a259bec955a71f55ef41e5}{Independent\+Field\+::is\+\_\+local}} is true as well and, therefore, the restrictions for local fields apply. However, in addition it is necessary that the scalar functional locally determines the new values of the independent field. In order to implement a simple mechanism for feeding these new values back to the global assembly scheme, it is additionally assumed that the locally eliminated independent fields have a 1 to 1 correspondence to a dependent field in that the dependent field equals the independent field. Thus, the mechanism for feeding the new values back is simply that the scalar functional updates the respective value of the dependent field associated with the locally eliminated independent field.
+
+The purpose of the mechanism just described is that \char`\"{}hidden/internal\char`\"{} variables, which are common in continuum mechanics, can be easily incorporated without the need of additional data structures storing them. \mbox{\Hypertarget{class_independent_field_a7b19ea8c30d72cf27f05669de61f30a8}\label{class_independent_field_a7b19ea8c30d72cf27f05669de61f30a8}} 
 \index{IndependentField$<$ dim, spacedim $>$@{IndependentField$<$ dim, spacedim $>$}!n\_components@{n\_components}}
 \index{n\_components@{n\_components}!IndependentField$<$ dim, spacedim $>$@{IndependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{n\_components}{n\_components}}
