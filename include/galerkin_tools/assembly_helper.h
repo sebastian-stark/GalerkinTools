@@ -479,16 +479,22 @@ private:
 	coupled_dof_indices_scalar_functionals_domain;
 
 	/**
-	 * Essentially the same as AssemblyHelper::coupled_dof_indices_scalar_functionals_domain. However, only dofs related to local independent field are included
+	 * Essentially the same as AssemblyHelper::coupled_dof_indices_scalar_functionals_domain. However, only dofs related to local independent fields are included
 	 */
 	std::vector<std::vector<std::vector<unsigned int>>>
 	coupled_dof_indices_scalar_functionals_domain_local;
 
 	/**
-	 * Essentially the same as AssemblyHelper::coupled_dof_indices_scalar_functionals_domain. However, only dofs related to nonlocal independent field are included
+	 * Essentially the same as AssemblyHelper::coupled_dof_indices_scalar_functionals_domain. However, only dofs related to locally eliminated independent fields are included
 	 */
 	std::vector<std::vector<std::vector<unsigned int>>>
-	coupled_dof_indices_scalar_functionals_domain_nonlocal;
+	coupled_dof_indices_scalar_functionals_domain_locally_eliminated;
+
+	/**
+	 * Essentially the same as AssemblyHelper::coupled_dof_indices_scalar_functionals_domain. However, only dofs related to independent field which are neither local nor locally eliminated are included
+	 */
+	std::vector<std::vector<std::vector<unsigned int>>>
+	coupled_dof_indices_scalar_functionals_domain_not_local;
 
 	/**
 	 * This member contains information about the shape functions of an interface cell coupling for a certain

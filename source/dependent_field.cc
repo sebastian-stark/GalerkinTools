@@ -122,6 +122,10 @@ DependentField<dim, spacedim>::add_term(	double 									coefficient,
 		Assert(constant == 0.0, ExcMessage("A locally eliminated independent field must be the only contribution to a locally eliminated dependent field"));
 		is_locally_eliminated = true;
 	}
+	if(independent_field.is_local)
+	{
+		Assert(derivatives.size() == 0, ExcMessage("Derivatives of a local dependent are not allowed!"));
+	}
 
 	const DependentFieldTerm<dim, spacedim> term(coefficient, independent_field, component, derivatives);
 	Assert(terms_interface.find(term) == terms_interface.end(), ExcMessage("You are trying to add a term to the dependent field, which already exists. This is not allowed!"));
@@ -388,6 +392,10 @@ DependentField<spacedim, spacedim>::add_term(	double 										coefficient,
 		Assert(terms_domain.size() + terms_independent_scalars.size() == 0, ExcMessage("A locally eliminated independent field must be the only contribution to a locally eliminated dependent field"));
 		Assert(constant == 0.0, ExcMessage("A locally independent field must be the only contribution to a locally eliminated dependent field"));
 		is_locally_eliminated = true;
+	}
+	if(independent_field.is_local)
+	{
+		Assert(derivatives.size() == 0, ExcMessage("Derivatives of a local dependent are not allowed!"));
 	}
 	const DependentFieldTerm<spacedim, spacedim> term(coefficient, independent_field, component, derivatives);
 	Assert(terms_domain.find(term) == terms_domain.end(), ExcMessage("You are trying to add a term to the dependent field, which already exists. This is not allowed!"));
