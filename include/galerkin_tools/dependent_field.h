@@ -239,6 +239,13 @@ private:
 
 	/**
 	 * Indicate whether this dependent field is equal to
+	 * an independent scalar and locald.
+	 */
+	bool
+	is_local = false;
+
+	/**
+	 * Indicate whether this dependent field is equal to
 	 * an independent scalar and locally eliminated.
 	 */
 	bool
@@ -501,6 +508,13 @@ public:
 	const;
 
 	/**
+	 * This methods returns DependentField::is_local
+	 */
+	bool
+	get_is_local()
+	const;
+
+	/**
 	 * This methods returns DependentField::is_locally_eliminated
 	 */
 	bool
@@ -567,6 +581,13 @@ private:
 	 */
 	double
 	constant = 0.0;
+
+	/**
+	 * Indicate whether this dependent field is equal to
+	 * an independent scalar and local.
+	 */
+	bool
+	is_local = false;
 
 	/**
 	 * Indicate whether this dependent field is equal to
@@ -716,6 +737,13 @@ public:
 	 */
 	void
 	print()
+	const;
+
+	/**
+	 * This methods returns DependentField<spacedim, spacedim>::is_local
+	 */
+	bool
+	get_is_local()
 	const;
 
 	/**

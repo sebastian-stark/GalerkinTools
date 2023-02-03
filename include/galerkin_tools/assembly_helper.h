@@ -479,15 +479,19 @@ private:
 	coupled_dof_indices_scalar_functionals_domain;
 
 	/**
-	 * Essentially the same as AssemblyHelper::coupled_dof_indices_scalar_functionals_domain. However, only dofs related to local independent fields are included
+	 * Essentially the same as AssemblyHelper::coupled_dof_indices_scalar_functionals_domain. However, only dofs related to local independent fields (but not locally eliminated fields) are included.
+	 * In addition, these dofs are sorted according to quadrature points. I.e., coupled_dof_indices_scalar_functionals_domain_local[@p u][@p v][@p q] contains all (cell related) local dof indices
+	 * which couple for the @p v-th scalar functional on the domain portion with internal index @p u at the quadrature point @p q.
 	 */
-	std::vector<std::vector<std::vector<unsigned int>>>
+	std::vector<std::vector<std::vector<std::vector<unsigned int>>>>
 	coupled_dof_indices_scalar_functionals_domain_local;
 
 	/**
-	 * Essentially the same as AssemblyHelper::coupled_dof_indices_scalar_functionals_domain. However, only dofs related to locally eliminated independent fields are included
+	 * Essentially the same as AssemblyHelper::coupled_dof_indices_scalar_functionals_domain. However, only dofs related to locally eliminated independent fields are included.
+	 * In addition, these dofs are sorted according to quadrature points. I.e., coupled_dof_indices_scalar_functionals_domain_locally_eliminated[@p u][@p v][@p q] contains all (cell related) locally eliminated dof indices
+	 * which couple for the @p v-th scalar functional on the domain portion with internal index @p u at the quadrature point @p q.
 	 */
-	std::vector<std::vector<std::vector<unsigned int>>>
+	std::vector<std::vector<std::vector<std::vector<unsigned int>>>>
 	coupled_dof_indices_scalar_functionals_domain_locally_eliminated;
 
 	/**
@@ -673,6 +677,15 @@ private:
 	 */
 	std::vector<std::vector<std::vector<bool>>>
 	e_omega_local;
+
+	/**
+	 * This member contains information about whether the dependent field is locally eliminated.
+	 *
+	 * AssemblyHelper::e_omega_locally_eliminated[@p u][@p v][@p k] contains whether the @p k-th dependent field of the
+	 * @p v-th scalar functional on the domain portion with internal index @p u is locally eliminated.
+	 */
+	std::vector<std::vector<std::vector<bool>>>
+	e_omega_locally_eliminated;
 
 	/**
 	 * This member contains information about how interface related dependent fields \f$e^\Sigma_\nu\f$ are

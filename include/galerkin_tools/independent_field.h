@@ -128,13 +128,15 @@ public:
 	 * If this is true, the independent field is assumed to be local.
 	 * In this case, the following restrictions apply:
 	 *
+     *   - local independent fields must have a 1 to 1 correspondence to a dependent field in that the dependent field equals the local independent field (this could be relaxed; however this would substantially complicate the implementation)
+	 *
 	 *   - The independent field must be discretized by an FE_DGQArbitraryNodes of deal.II.
 	 *
 	 *   - The quadrature points used for the integration process of the scalar functionals involving the independent field must coincide with the support points of the used FE_DGQArbitraryNodes.
 	 *
 	 *   - All scalar functionals involving the independent field must be primitive.
 	 *
-	 *   - The independent field must not be associated with constraints. @todo The latter may be relaxed to a certain degree. This needs, however, to be implemented.
+	 *   - The independent field must not be associated with constraints.
 	 *
 	 *   The effect of setting this to true is that the entries in the sparsity pattern can be substantially reduced.
 	 */
@@ -145,10 +147,9 @@ public:
 	 * If this is true, the independent field is assumed to be locally eliminated at the quadrature point level in that the local value of the independent field
 	 * can be determined at the quadrature point level based on the previous local values of the independent field and the current and previous local values of the other field variables.
 	 *
-	 * Note also that this can only be true if IndependentField::is_local is true as well and, therefore, the restrictions for local fields apply. However, in addition it is necessary
-	 * that the scalar functional locally determines the new values of the independent field. In order to implement a simple mechanism for feeding these new values back to the global assembly scheme,
-	 * it is additionally assumed that the locally eliminated independent fields have a 1 to 1 correspondence to a dependent field in that the dependent field equals the independent field.
-	 * Thus, the mechanism for feeding the new values back is simply that the scalar functional updates the respective value of the dependent field associated with the locally eliminated independent field.
+	 * This can only be true if IndependentField::is_local is true as well and, therefore, the restrictions for local fields apply. However, in addition it is necessary
+	 * that the scalar functional locally determines the new values of the independent field. The mechanism for feeding these new values back to the global scheme
+	 * is that the scalar functional updates the respective value of the dependent field associated with the locally eliminated independent field.
 	 *
 	 * The purpose of the mechanism just described is that "hidden/internal" variables, which are common in continuum mechanics, can be easily incorporated without the need of additional
 	 * data structures storing them.

@@ -912,17 +912,24 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;</type>
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt; &gt;</type>
       <name>coupled_dof_indices_scalar_functionals_domain_local</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>aa9fc6d318c2f7a2eab5097b6a76c9083</anchor>
+      <anchor>ab6df6b4da6a8877be35c13345426a411</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt; &gt;</type>
+      <name>coupled_dof_indices_scalar_functionals_domain_locally_eliminated</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a4d62f9d5fa67a3aff4a377641b70f883</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
       <type>std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;</type>
-      <name>coupled_dof_indices_scalar_functionals_domain_nonlocal</name>
+      <name>coupled_dof_indices_scalar_functionals_domain_not_local</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a6b7242925e5a0be85830ed7eae581442</anchor>
+      <anchor>a81d6f5bd0af1c954c9d7ff4050663e31</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -993,6 +1000,13 @@
       <name>e_omega_local</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>a547c7d4ffd7379860f15095d494b1d68</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; bool &gt; &gt; &gt;</type>
+      <name>e_omega_locally_eliminated</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>ae0a15696126a39f90d97d0d5ba23096b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -1388,17 +1402,24 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;</type>
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt; &gt;</type>
       <name>coupled_dof_indices_scalar_functionals_domain_local</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>aa9fc6d318c2f7a2eab5097b6a76c9083</anchor>
+      <anchor>ab6df6b4da6a8877be35c13345426a411</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt; &gt;</type>
+      <name>coupled_dof_indices_scalar_functionals_domain_locally_eliminated</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a4d62f9d5fa67a3aff4a377641b70f883</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
       <type>std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;</type>
-      <name>coupled_dof_indices_scalar_functionals_domain_nonlocal</name>
+      <name>coupled_dof_indices_scalar_functionals_domain_not_local</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a6b7242925e5a0be85830ed7eae581442</anchor>
+      <anchor>a81d6f5bd0af1c954c9d7ff4050663e31</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -1469,6 +1490,13 @@
       <name>e_omega_local</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>a547c7d4ffd7379860f15095d494b1d68</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; bool &gt; &gt; &gt;</type>
+      <name>e_omega_locally_eliminated</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>ae0a15696126a39f90d97d0d5ba23096b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -2820,6 +2848,13 @@
     </member>
     <member kind="function">
       <type>bool</type>
+      <name>get_is_local</name>
+      <anchorfile>class_dependent_field.html</anchorfile>
+      <anchor>aabc31c47b3f6cb69da28758d9672d8d8</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
       <name>get_is_locally_eliminated</name>
       <anchorfile>class_dependent_field.html</anchorfile>
       <anchor>aa16f1559eca5060b0877dc3ec00cc552</anchor>
@@ -2879,6 +2914,13 @@
       <name>constant</name>
       <anchorfile>class_dependent_field.html</anchorfile>
       <anchor>a32b37c78e04a16b6b606442f156c8ca9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>is_local</name>
+      <anchorfile>class_dependent_field.html</anchorfile>
+      <anchor>aacdabff2601b1f0efcdce7a4413b47bc</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -2972,6 +3014,13 @@
     </member>
     <member kind="function">
       <type>bool</type>
+      <name>get_is_local</name>
+      <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>abf60a16e3b158c7c67c5e04d8ad41b5c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
       <name>get_is_locally_eliminated</name>
       <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>a52de8c04f07a31cdd16c30344e953d11</anchor>
@@ -3017,6 +3066,13 @@
       <name>constant</name>
       <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>a24efc9c0928896be871908f050c406fc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>is_local</name>
+      <anchorfile>class_dependent_field_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>ae43bf948e8f45545dd7e744689b47d5b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">

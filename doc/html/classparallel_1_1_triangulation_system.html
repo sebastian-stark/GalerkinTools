@@ -406,7 +406,7 @@ template&lt;unsigned int spacedim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>This internal function takes care that the interface mesh is updated after any refinement/coarsening of the domain cells. The underlying mechanism is that the method is attached to the domain triangulation during construction of the <a class="el" href="classparallel_1_1_triangulation_system.html">TriangulationSystem</a>; and it will always be called immediately after the domain mesh has been refined.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. </dd></dl>
 
 </div>
 </div>
@@ -435,7 +435,7 @@ template&lt;unsigned int spacedim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>In parallel, this function does nothing except triggering the <a class="el" href="class_triangulation_system.html#ad3b16b86e7cbe4800fb5a40114cbc5fb">TriangulationSystem::pre_refinement()</a> signal.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>This function will have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000015">Todo:</a></b></dt><dd>This function will have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. </dd></dl>
 
 </div>
 </div>
