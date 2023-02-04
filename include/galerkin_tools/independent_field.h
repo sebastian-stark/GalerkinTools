@@ -128,8 +128,6 @@ public:
 	 * If this is true, the independent field is assumed to be local.
 	 * In this case, the following restrictions apply:
 	 *
-     *   - local independent fields must have a 1 to 1 correspondence to a dependent field in that the dependent field equals the local independent field (this could be relaxed; however this would substantially complicate the implementation)
-	 *
 	 *   - The independent field must be discretized by an FE_DGQArbitraryNodes of deal.II.
 	 *
 	 *   - The quadrature points used for the integration process of the scalar functionals involving the independent field must coincide with the support points of the used FE_DGQArbitraryNodes.
@@ -149,7 +147,8 @@ public:
 	 *
 	 * This can only be true if IndependentField::is_local is true as well and, therefore, the restrictions for local fields apply. However, in addition it is necessary
 	 * that the scalar functional locally determines the new values of the independent field. The mechanism for feeding these new values back to the global scheme
-	 * is that the scalar functional updates the respective value of the dependent field associated with the locally eliminated independent field.
+	 * is that the scalar functional updates the respective value of the dependent field associated with the locally eliminated independent field. To make this work, it is
+	 * necessary to assume that the locally eliminated independent field factors into the problem through a single dependent field, which equals the locally eliminated independent field.
 	 *
 	 * The purpose of the mechanism just described is that "hidden/internal" variables, which are common in continuum mechanics, can be easily incorporated without the need of additional
 	 * data structures storing them.

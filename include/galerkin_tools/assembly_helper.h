@@ -479,26 +479,55 @@ private:
 	coupled_dof_indices_scalar_functionals_domain;
 
 	/**
-	 * Essentially the same as AssemblyHelper::coupled_dof_indices_scalar_functionals_domain. However, only dofs related to local independent fields (but not locally eliminated fields) are included.
-	 * In addition, these dofs are sorted according to quadrature points. I.e., coupled_dof_indices_scalar_functionals_domain_local[@p u][@p v][@p q] contains all (cell related) local dof indices
+	 * coupled_dof_indices_scalar_functionals_domain_local[@p u][@p v][@p q].first contains all local dof indices in the cell-related indexing,
 	 * which couple for the @p v-th scalar functional on the domain portion with internal index @p u at the quadrature point @p q.
+	 *
+	 * coupled_dof_indices_scalar_functionals_domain_local[@p u][@p v][@p q].second contains all local dof indices in the scalar-functional-related indexing,
+	 * which couple for the @p v-th scalar functional on the domain portion with internal index @p u at the quadrature point @p q.
+	 *
+	 * The same elements in the two vectors of the pair contain dof indices corresponding to each other.
 	 */
-	std::vector<std::vector<std::vector<std::vector<unsigned int>>>>
+	std::vector<std::vector<std::vector<std::pair<std::vector<unsigned int>,std::vector<unsigned int>>>>>
 	coupled_dof_indices_scalar_functionals_domain_local;
 
 	/**
-	 * Essentially the same as AssemblyHelper::coupled_dof_indices_scalar_functionals_domain. However, only dofs related to locally eliminated independent fields are included.
-	 * In addition, these dofs are sorted according to quadrature points. I.e., coupled_dof_indices_scalar_functionals_domain_locally_eliminated[@p u][@p v][@p q] contains all (cell related) locally eliminated dof indices
+	 * coupled_dof_indices_scalar_functionals_domain_locally_eliminated[@p u][@p v][@p q].first contains all locally eliminated dof indices in the cell-related indexing,
 	 * which couple for the @p v-th scalar functional on the domain portion with internal index @p u at the quadrature point @p q.
+	 *
+	 * coupled_dof_indices_scalar_functionals_domain_locally_eliminated[@p u][@p v][@p q].second contains all locally eliminated dof indices in the scalar-functional-related indexing,
+	 * which couple for the @p v-th scalar functional on the domain portion with internal index @p u at the quadrature point @p q.
+	 *
+	 * The same elements in the two vectors of the pair contain dof indices corresponding to each other.
 	 */
-	std::vector<std::vector<std::vector<std::vector<unsigned int>>>>
+	std::vector<std::vector<std::vector<std::pair<std::vector<unsigned int>,std::vector<unsigned int>>>>>
 	coupled_dof_indices_scalar_functionals_domain_locally_eliminated;
 
 	/**
-	 * Essentially the same as AssemblyHelper::coupled_dof_indices_scalar_functionals_domain. However, only dofs related to independent field which are neither local nor locally eliminated are included
+	 * coupled_dof_indices_scalar_functionals_domain_not_local[@p u][@p v].first contains all non-local dof indices in the cell-related indexing,
+	 * which couple for the @p v-th scalar functional on the domain portion with internal index @p u.
+	 *
+	 * coupled_dof_indices_scalar_functionals_domain_not_local[@p u][@p v][@p q].second contains all non-local dof indices in the scalar-functional-related indexing,
+	 * which couple for the @p v-th scalar functional on the domain portion with internal index @p u.
 	 */
-	std::vector<std::vector<std::vector<unsigned int>>>
+	std::vector<std::vector<std::pair<std::vector<unsigned int>,std::vector<unsigned int>>>>
 	coupled_dof_indices_scalar_functionals_domain_not_local;
+
+	/**
+	 * has_local_locally_eliminated_dofs[@p u][@p v].first indicates whether there are local dofs for the @p v-th scalar functional on the domain portion with internal index @p u.
+	 *
+	 * has_local_locally_eliminated_dofs[@p u][@p v].second indicates whether there are locally eliminated dofs for the @p v-th scalar functional on the domain portion with internal index @p u.
+	 */
+	std::vector<std::vector<std::pair<bool,bool>>>
+	has_local_locally_eliminated_dofs_domain;
+
+	/**
+	 * This member contains information about which dof index in the scalar functional related indexing corresponds to a locally eliminated dependent field on a particular quadrature point.
+	 *
+	 * AssemblyHelper::correspondence_e_omega_locally_eliminated[@p u][@p v][@p k] contains a vector of pairs corresponding to the @p k-th dependent field of the
+	 * @p v-th scalar functional on the domain portion with internal index @p u. The vector element @p q contains the relevant scalar functional related index for the quadrature point @p q.
+	 */
+	std::vector<std::vector<std::map<unsigned int, std::vector<unsigned int>>>>
+	correspondence_e_omega_locally_eliminated;
 
 	/**
 	 * This member contains information about the shape functions of an interface cell coupling for a certain
@@ -668,24 +697,6 @@ private:
 	 */
 	std::vector<std::vector<std::vector<double>>>
 	d_omega;
-
-	/**
-	 * This member contains information about whether the dependent field is local.
-	 *
-	 * AssemblyHelper::e_omega_local[@p u][@p v][@p k] contains whether the @p k-th dependent field of the
-	 * @p v-th scalar functional on the domain portion with internal index @p u is local.
-	 */
-	std::vector<std::vector<std::vector<bool>>>
-	e_omega_local;
-
-	/**
-	 * This member contains information about whether the dependent field is locally eliminated.
-	 *
-	 * AssemblyHelper::e_omega_locally_eliminated[@p u][@p v][@p k] contains whether the @p k-th dependent field of the
-	 * @p v-th scalar functional on the domain portion with internal index @p u is locally eliminated.
-	 */
-	std::vector<std::vector<std::vector<bool>>>
-	e_omega_locally_eliminated;
 
 	/**
 	 * This member contains information about how interface related dependent fields \f$e^\Sigma_\nu\f$ are

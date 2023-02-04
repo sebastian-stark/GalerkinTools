@@ -113,15 +113,18 @@ DependentField<dim, spacedim>::add_term(	double 									coefficient,
 											const unsigned int 						component,
 											const vector<unsigned int> 				derivatives)
 {
-	Assert(is_local != true, ExcMessage("No further terms can be added to a local dependent field!"));
+	Assert(is_locally_eliminated != true, ExcMessage("No further terms can be added to a locally_eliminated dependent field!"));
+	if(independent_field.is_locally_eliminated)
+	{
+		Assert(coefficient == 1.0, ExcMessage("The coefficient must be 1.0 for a locally eliminated dependent field!"));
+		Assert(terms_interface.size() + terms_neighbor_minus.size() + terms_neighbor_plus.size() + terms_independent_scalars.size() == 0, ExcMessage("A locally eliminated independent field must be the only contribution to a locally eliminated dependent field"));
+		Assert(constant == 0.0, ExcMessage("A locally eliminated independent field must be the only contribution to a locally eliminated dependent field"));
+		is_locally_eliminated = true;
+	}
 	if(independent_field.is_local)
 	{
-		Assert(coefficient == 1.0, ExcMessage("The coefficient must be 1.0 for a local dependent field!"));
-		Assert(derivatives.size() == 0, ExcMessage("A local dependent field may not involve derivatives of a local independent field!"));
-		Assert(terms_interface.size() + terms_neighbor_minus.size() + terms_neighbor_plus.size() + terms_independent_scalars.size() == 0, ExcMessage("A local independent field must be the only contribution to a local dependent field"));
-		Assert(constant == 0.0, ExcMessage("A local independent field must be the only contribution to a local dependent field"));
+		Assert(derivatives.size() == 0, ExcMessage("A locally eliminated dependent field may not involve derivatives of a local independent field!"));
 		is_local = true;
-		is_locally_eliminated = independent_field.is_locally_eliminated;
 	}
 
 	const DependentFieldTerm<dim, spacedim> term(coefficient, independent_field, component, derivatives);
@@ -137,7 +140,7 @@ DependentField<dim, spacedim>::add_term(	double 										coefficient,
 											const vector<unsigned int> 					derivatives,
 											const InterfaceSide 						side)
 {
-	Assert(is_local != true, ExcMessage("No further terms can be added to a local dependent field!"));
+	Assert(is_locally_eliminated != true, ExcMessage("No further terms can be added to a locally_eliminated dependent field!"));
 	Assert(independent_field.is_local != true, ExcMessage("This function cannot be used in conjunction with a local independent field!"));
 	const DependentFieldTerm<dim+1, spacedim> term(coefficient, independent_field, component, derivatives);
 	if(side == InterfaceSide::minus)
@@ -159,7 +162,7 @@ DependentField<dim, spacedim>::add_term(	double 										coefficient,
 											const unsigned int 							component,
 											const InterfaceSide 						side)
 {
-	Assert(is_local != true, ExcMessage("No further terms can be added to a local dependent field!"));
+	Assert(is_locally_eliminated != true, ExcMessage("No further terms can be added to a locally_eliminated dependent field!"));
 	Assert(independent_field.is_local != true, ExcMessage("This function cannot be used in conjunction with a local independent field!"));
 	add_term(coefficient, independent_field, component, vector<unsigned int>(), side);
 }
@@ -171,7 +174,7 @@ DependentField<dim, spacedim>::add_term(	double 									coefficient,
 											const unsigned int 						component,
 											const unsigned int 						derivative)
 {
-	Assert(is_local != true, ExcMessage("No further terms can be added to a local dependent field!"));
+	Assert(is_locally_eliminated != true, ExcMessage("No further terms can be added to a locally_eliminated dependent field!"));
 	Assert(independent_field.is_local != true, ExcMessage("This function cannot be used in conjunction with a local independent field!"));
 	const vector<unsigned int> derivatives = {derivative};
 	add_term(coefficient, independent_field, component, derivatives);
@@ -185,7 +188,7 @@ DependentField<dim, spacedim>::add_term(	double 										coefficient,
 											const unsigned int 							derivative,
 											const InterfaceSide 						side)
 {
-	Assert(is_local != true, ExcMessage("No further terms can be added to a local dependent field!"));
+	Assert(is_locally_eliminated != true, ExcMessage("No further terms can be added to a locally_eliminated dependent field!"));
 	Assert(independent_field.is_local != true, ExcMessage("This function cannot be used in conjunction with a local independent field!"));
 	const vector<unsigned int> derivatives = {derivative};
 	add_term(coefficient, independent_field, component, derivatives, side);
@@ -196,7 +199,7 @@ void
 DependentField<dim, spacedim>::add_term(double 									coefficient,
 										const IndependentField<0, spacedim>& 	independent_field)
 {
-	Assert(is_local != true, ExcMessage("No further terms can be added to a local dependent field!"));
+	Assert(is_locally_eliminated != true, ExcMessage("No further terms can be added to a locally_eliminated dependent field!"));
 	const DependentFieldTerm<0, spacedim> term(coefficient, independent_field);
 	Assert(terms_independent_scalars.find(term) == terms_independent_scalars.end(), ExcMessage("You are trying to add a term to the dependent field, which already exists. This is not allowed!"));
 	terms_independent_scalars.insert(term);
@@ -206,7 +209,7 @@ template<unsigned int dim, unsigned int spacedim>
 void
 DependentField<dim, spacedim>::add_term(double constant)
 {
-	Assert(is_local != true, ExcMessage("No further terms can be added to a local dependent field!"));
+	Assert(is_locally_eliminated != true, ExcMessage("No further terms can be added to a locally_eliminated dependent field!"));
 	Assert(this->constant == 0.0, ExcMessage("You are trying to set the constant term a second time. This is not allowed except if the constant was zero before!"));
 	this->constant = constant;
 }
@@ -389,20 +392,24 @@ DependentField<spacedim, spacedim>::add_term(	double 										coefficient,
 												const unsigned int 							component,
 												const vector<unsigned int> 					derivatives)
 {
-	Assert(is_local != true, ExcMessage("No further terms can be added to a local dependent field!"));
+	Assert(is_locally_eliminated != true, ExcMessage("No further terms can be added to a locally_eliminated dependent field!"));
+	if(independent_field.is_locally_eliminated)
+	{
+		Assert(coefficient == 1.0, ExcMessage("The coefficient must be 1.0 for a locally eliminated independent field!"));
+		Assert(terms_domain.size() + terms_independent_scalars.size() == 0, ExcMessage("A locally eliminated independent field must be the only contribution to a locally eliminated dependent field"));
+		Assert(constant == 0.0, ExcMessage("A locally eliminated independent field must be the only contribution to a locally eliminated dependent field"));
+		is_locally_eliminated = true;
+	}
 	if(independent_field.is_local)
 	{
-		Assert(coefficient == 1.0, ExcMessage("The coefficient must be 1.0 for a local independent field!"));
-		Assert(derivatives.size() == 0, ExcMessage("A local dependent field may not involve derivatives of a local independent field!"));
-		Assert(terms_domain.size() + terms_independent_scalars.size() == 0, ExcMessage("A local independent field must be the only contribution to a local dependent field"));
-		Assert(constant == 0.0, ExcMessage("A local independent field must be the only contribution to a local dependent field"));
+		Assert(derivatives.size() == 0, ExcMessage("A locally eliminated dependent field may not involve derivatives of a local independent field!"));
 		is_local = true;
-		is_locally_eliminated = independent_field.is_locally_eliminated;
 	}
 	const DependentFieldTerm<spacedim, spacedim> term(coefficient, independent_field, component, derivatives);
 	Assert(terms_domain.find(term) == terms_domain.end(), ExcMessage("You are trying to add a term to the dependent field, which already exists. This is not allowed!"));
 	terms_domain.insert(term);
 }
+
 
 template<unsigned int spacedim>
 void
@@ -411,7 +418,7 @@ DependentField<spacedim, spacedim>::add_term(	double 										coefficient,
 												const unsigned int 							component,
 												const unsigned int 							derivative)
 {
-	Assert(is_local != true, ExcMessage("No further terms can be added to a local dependent field!"));
+	Assert(is_locally_eliminated != true, ExcMessage("No further terms can be added to a locally eliminated dependent field!"));
 	Assert(independent_field.is_local != true, ExcMessage("This function cannot be used in conjunction with a local independent field!"));
 	const vector<unsigned int> derivatives = {derivative};
 	add_term(coefficient, independent_field, component, derivatives);
@@ -422,7 +429,7 @@ void
 DependentField<spacedim, spacedim>::add_term(	double 									coefficient,
 												const IndependentField<0, spacedim>& 	independent_field)
 {
-	Assert(is_local != true, ExcMessage("No further terms can be added to a local dependent field!"));
+	Assert(is_locally_eliminated != true, ExcMessage("No further terms can be added to a locally eliminated dependent field!"));
 	const DependentFieldTerm<0, spacedim> term(coefficient, independent_field);
 	Assert(terms_independent_scalars.find(term) == terms_independent_scalars.end(), ExcMessage("You are trying to add a term to the dependent field, which already exists. This is not allowed!"));
 	terms_independent_scalars.insert(term);
@@ -432,7 +439,7 @@ template<unsigned int spacedim>
 void
 DependentField<spacedim, spacedim>::add_term(double constant)
 {
-	Assert(is_local != true, ExcMessage("No further terms can be added to a local dependent field!"));
+	Assert(is_locally_eliminated != true, ExcMessage("No further terms can be added to a locally eliminated dependent field!"));
 	Assert(this->constant == 0.0, ExcMessage("You are trying to set the constant term a second time. This is not allowed except if the constant was zero before!"));
 	this->constant = constant;
 }

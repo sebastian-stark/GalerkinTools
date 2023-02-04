@@ -912,24 +912,38 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::vector&lt; std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt; &gt;</type>
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; std::pair&lt; std::vector&lt; unsigned int &gt;, std::vector&lt; unsigned int &gt; &gt; &gt; &gt; &gt;</type>
       <name>coupled_dof_indices_scalar_functionals_domain_local</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>ab6df6b4da6a8877be35c13345426a411</anchor>
+      <anchor>a08edb01ba4c8d721862fb060860137d4</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::vector&lt; std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt; &gt;</type>
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; std::pair&lt; std::vector&lt; unsigned int &gt;, std::vector&lt; unsigned int &gt; &gt; &gt; &gt; &gt;</type>
       <name>coupled_dof_indices_scalar_functionals_domain_locally_eliminated</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a4d62f9d5fa67a3aff4a377641b70f883</anchor>
+      <anchor>a52d69b234032d5194e87e9b7e5fef759</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;</type>
+      <type>std::vector&lt; std::vector&lt; std::pair&lt; std::vector&lt; unsigned int &gt;, std::vector&lt; unsigned int &gt; &gt; &gt; &gt;</type>
       <name>coupled_dof_indices_scalar_functionals_domain_not_local</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a81d6f5bd0af1c954c9d7ff4050663e31</anchor>
+      <anchor>abcef951309d147d892660da4f62532d3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::pair&lt; bool, bool &gt; &gt; &gt;</type>
+      <name>has_local_locally_eliminated_dofs_domain</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a092a86e3bce3038ac36483338afca487</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::map&lt; unsigned int, std::vector&lt; unsigned int &gt; &gt; &gt; &gt;</type>
+      <name>correspondence_e_omega_locally_eliminated</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a509326b1521d7979d55dd9b811beac52</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -993,20 +1007,6 @@
       <name>d_omega</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>ad93b109608d4425d318434e01cb6246c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>std::vector&lt; std::vector&lt; std::vector&lt; bool &gt; &gt; &gt;</type>
-      <name>e_omega_local</name>
-      <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a547c7d4ffd7379860f15095d494b1d68</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>std::vector&lt; std::vector&lt; std::vector&lt; bool &gt; &gt; &gt;</type>
-      <name>e_omega_locally_eliminated</name>
-      <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>ae0a15696126a39f90d97d0d5ba23096b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -1402,24 +1402,38 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::vector&lt; std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt; &gt;</type>
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; std::pair&lt; std::vector&lt; unsigned int &gt;, std::vector&lt; unsigned int &gt; &gt; &gt; &gt; &gt;</type>
       <name>coupled_dof_indices_scalar_functionals_domain_local</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>ab6df6b4da6a8877be35c13345426a411</anchor>
+      <anchor>a08edb01ba4c8d721862fb060860137d4</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::vector&lt; std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt; &gt;</type>
+      <type>std::vector&lt; std::vector&lt; std::vector&lt; std::pair&lt; std::vector&lt; unsigned int &gt;, std::vector&lt; unsigned int &gt; &gt; &gt; &gt; &gt;</type>
       <name>coupled_dof_indices_scalar_functionals_domain_locally_eliminated</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a4d62f9d5fa67a3aff4a377641b70f883</anchor>
+      <anchor>a52d69b234032d5194e87e9b7e5fef759</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::vector&lt; std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;</type>
+      <type>std::vector&lt; std::vector&lt; std::pair&lt; std::vector&lt; unsigned int &gt;, std::vector&lt; unsigned int &gt; &gt; &gt; &gt;</type>
       <name>coupled_dof_indices_scalar_functionals_domain_not_local</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a81d6f5bd0af1c954c9d7ff4050663e31</anchor>
+      <anchor>abcef951309d147d892660da4f62532d3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::pair&lt; bool, bool &gt; &gt; &gt;</type>
+      <name>has_local_locally_eliminated_dofs_domain</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a092a86e3bce3038ac36483338afca487</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; std::vector&lt; std::map&lt; unsigned int, std::vector&lt; unsigned int &gt; &gt; &gt; &gt;</type>
+      <name>correspondence_e_omega_locally_eliminated</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>a509326b1521d7979d55dd9b811beac52</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -1483,20 +1497,6 @@
       <name>d_omega</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>ad93b109608d4425d318434e01cb6246c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>std::vector&lt; std::vector&lt; std::vector&lt; bool &gt; &gt; &gt;</type>
-      <name>e_omega_local</name>
-      <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a547c7d4ffd7379860f15095d494b1d68</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>std::vector&lt; std::vector&lt; std::vector&lt; bool &gt; &gt; &gt;</type>
-      <name>e_omega_locally_eliminated</name>
-      <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>ae0a15696126a39f90d97d0d5ba23096b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -4833,13 +4833,6 @@
       <anchorfile>class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>a43097fde6921f2dcf85f173540eb1414</anchor>
       <arglist>(const Vector&lt; double &gt; &amp;e_sigma, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_sigma_ref_sets, const Vector&lt; double &gt; &amp;delta_e_sigma, const Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, const Tensor&lt; 1, spacedim &gt; &amp;n) const</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>modify_K_cell_f_cell</name>
-      <anchorfile>class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
-      <anchor>a82e5b4fd75d39a441d6ec47576274553</anchor>
-      <arglist>(const DomainCellDoFIterator&lt; spacedim &gt; &amp;domain_cell, FullMatrix&lt; double &gt; &amp;K_cell, Vector&lt; double &gt; &amp;f_cell, const Vector&lt; double &gt; &amp;solution, const Vector&lt; double &gt; &amp;solution_C, const std::vector&lt; unsigned int &gt; &amp;scalar_functional_indices_to_cell_shapefuns, const std::vector&lt; unsigned int &gt; &amp;scalar_functional_indices_to_independent_scalar_indices) const</arglist>
     </member>
     <member kind="function">
       <type>void</type>

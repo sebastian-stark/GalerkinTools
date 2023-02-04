@@ -539,36 +539,6 @@ public:
 	const;
 
 	/**
-	 * This allows for manually manipulating the contribution (related to this scalar functional) of a certain domain cell to the global finite element matrix and rhs.
-	 *
-	 * @param[in]		domain_cell												Reference to the cell
-	 *
-	 * @param[inout]	K_cell													The cell matrix. This matrix is indexed by the scalar functional related indexing (indices related to cells come first followed by indices related to independent scalars).
-	 *
-	 * @param[inout]	f_cell													The cell rhs. This vector is indexed by the scalar functional related indexing (indices related to cells come first followed by indices related to independent scalars).
-	 *
-	 * @param[in]		solution												The local solution vector (ordering according to scalar_functional_indices_to_cell_shapefuns)
-	 *
-	 * @param[in]		solution_C												The local solution vector for the independent scalars (ordering according to scalar_functional_indices_to_independent_scalar_indices)
-	 *
-	 * @param[in]		scalar_functional_indices_to_cell_shapefuns				This relates the scalar functional related indices to the cell shape function indices. In particular, the i-th component of this vector is the cell shape function
-	 * 																			corresponding to the i-th scalar functional related index.
-	 *
-	 * @param[in]		scalar_functional_indices_to_independent_scalar_indices	This relates the scalar functional related indices to the independent scalar indices. In particular, the i-th component of this vector is the independent scalar index
-	 * 																			corresponding to the (n_dofs_cell + i)-th scalar functional related index, where n_dofs_cell is the number of cell related shape functions for this scalar functional.
-	 */
-	virtual
-	void
-	modify_K_cell_f_cell(	const DomainCellDoFIterator<spacedim>&	domain_cell,
-							FullMatrix<double>&						K_cell,
-							Vector<double>&							f_cell,
-							const Vector<double>&					solution,
-							const Vector<double>&					solution_C,
-							const std::vector<unsigned int>&		scalar_functional_indices_to_cell_shapefuns,
-							const std::vector<unsigned int>&		scalar_functional_indices_to_independent_scalar_indices)
-	const;
-
-	/**
 	 * %Function comparing the computed derivatives of the integrand \f$h^\Omega_\rho\f$ provided by ScalarFunctional<spacedim, spacedim>::get_h_omega()
  	 * with corresponding numerically computed finite difference based derivatives.
  	 *

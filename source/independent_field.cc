@@ -44,6 +44,13 @@ initial_vals(initial_vals),
 is_local(is_local),
 is_locally_eliminated(is_locally_eliminated)
 {
+#ifdef DEBUG
+	if(dim < spacedim)
+	{
+		Assert((!is_local && !is_locally_eliminated), ExcMessage("Local and locally eliminated independent fields are not yet implemented for interfaces!"));
+	}
+#endif
+
 	Assert(	fe.n_components() == 1,
 			ExcMessage("Vector valued finite elements are not allowed with this constructor, use the constructor without the argument n_components!"));
 	if(initial_vals != nullptr)
