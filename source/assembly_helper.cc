@@ -533,9 +533,9 @@ pout(cout, this_proc == 0)
 			}
 			for(const auto independent_field : independent_fields_domain_check_scalar_functional)
 			{
-				if(independent_field->is_local)
+				if(independent_field->is_locally_eliminated)
 				{
-					Assert(independent_fields_domain_check.find(independent_field) == independent_fields_domain_check.end(), ExcMessage("A local independent field can enter only a single scalar functional!"));
+					Assert(independent_fields_domain_check.find(independent_field) == independent_fields_domain_check.end(), ExcMessage("A locally eliminated independent field can enter only a single scalar functional!"));
 					independent_fields_domain_check.insert(independent_field);
 				}
 			}
@@ -554,9 +554,9 @@ pout(cout, this_proc == 0)
 			}
 			for(const auto independent_field : independent_fields_interface_check_scalar_functional)
 			{
-				if(independent_field->is_local)
+				if(independent_field->is_locally_eliminated)
 				{
-					Assert(independent_fields_interface_check.find(independent_field) == independent_fields_interface_check.end(), ExcMessage("A local independent field can enter only a single scalar functional!"));
+					Assert(independent_fields_interface_check.find(independent_field) == independent_fields_interface_check.end(), ExcMessage("A locally eliminated independent field can enter only a single scalar functional!"));
 					independent_fields_interface_check.insert(independent_field);
 				}
 			}
@@ -990,6 +990,23 @@ AssemblyHelper<spacedim>::convert_dependent_fields_to_shapefunctions()
 					}
 				}
 			}
+/*			cout << "*** internal index " << internal_index << ", scalar functional " << scalar_functional_n << "(" << scalar_functionals_domain[internal_index][scalar_functional_n]->name << ") ***" << endl;
+			for(const auto df: correspondence_e_omega_locally_eliminated[internal_index][scalar_functional_n])
+			{
+				cout << "df " << df.first << endl;
+				for(const auto dof_index : df.second)
+					cout << "   " << dof_index << endl;
+			}
+			for(const auto t : coupled_dof_indices_scalar_functionals_domain_local[internal_index][scalar_functional_n])
+			{
+				cout << "  ";
+				for(unsigned int dof = 0; dof < t.second.size(); ++dof)
+				{
+					cout << t.second[dof] << "(" << t.first[dof] << ")"  << ", ";
+				}
+				cout << endl;
+			}*/
+
 		}
 	}
 
@@ -2308,6 +2325,7 @@ const
 			//loop over scalar functionals on cell
 			for(unsigned int scalar_functional_n = 0; scalar_functional_n < scalar_functionals_domain[internal_index].size(); ++scalar_functional_n)
 			{
+
 				//this contains the local dof indices coupling on the domain cell for the scalar functional under consideration
 				const auto& dof_indices_local = coupled_dof_indices_scalar_functionals_domain[internal_index][scalar_functional_n];
 
@@ -2369,6 +2387,7 @@ const
 				const bool has_locally_eliminated_dofs = has_local_locally_eliminated_dofs_domain[internal_index][scalar_functional_n].second;
 				if(has_local_dofs || has_locally_eliminated_dofs)
 				{
+					dof_indices_global_red.resize(0);
 					for(const unsigned int dof : coupled_dof_indices_scalar_functionals_domain_not_local[internal_index][scalar_functional_n].second)
 						dof_indices_global_red.push_back(dof_indices_global[dof]);
 					for(const auto& dof_index_global_C : dof_indices_global_C)
@@ -2454,7 +2473,6 @@ const
 						for(unsigned int m = 0; m < local_dof_indices.size(); ++m)
 							for(unsigned int n = 0; n < e_omega.size(); ++n)
 								de_omega_dsol_local_T(m, n) =  de_omega_dsol_T(local_dof_indices[m], n);
-
 						if(assemble_rhs)
 						{
 							f2.reinit(local_dof_indices_global.size());
@@ -2472,49 +2490,56 @@ const
 							// K12
 							h_omega_2_de_omega_dsol_T.reinit(e_omega.size(), local_dof_indices_global.size());
 							h_omega_2.mTmult(h_omega_2_de_omega_dsol_T, de_omega_dsol_local_T);
-							de_omega_dsol_T_red.mmult(K12, h_omega_2_de_omega_dsol_T);
+							if(N_dofs_not_local > 0)
+							{
+								de_omega_dsol_T_red.mmult(K12, h_omega_2_de_omega_dsol_T);
+								K12 *= dPi_dH_omega_H_sigma_primitive[primitive_index];
+								constraints.distribute_local_to_global(K12, dof_indices_global_red, local_dof_indices_global, K);
+							}
 
 							// K22
 							de_omega_dsol_local_T.mmult(K22, h_omega_2_de_omega_dsol_T);
+							K22 *= dPi_dH_omega_H_sigma_primitive[primitive_index];
+							constraints.distribute_local_to_global(K22, f2, local_dof_indices_global, K, f, false);
 
 							// K21
-							h_omega_2_de_omega_dsol_T.reinit(e_omega.size(), dof_indices_global_red.size());
-							h_omega_2.mTmult(h_omega_2_de_omega_dsol_T, de_omega_dsol_T_red);
-							de_omega_dsol_local_T.mmult(K21, h_omega_2_de_omega_dsol_T);
-
-							K12 *= dPi_dH_omega_H_sigma_primitive[primitive_index];
-							K22 *= dPi_dH_omega_H_sigma_primitive[primitive_index];
-							K21 *= dPi_dH_omega_H_sigma_primitive[primitive_index];
+							if(N_dofs_not_local > 0)
+							{
+								h_omega_2_de_omega_dsol_T.reinit(e_omega.size(), dof_indices_global_red.size());
+								h_omega_2.mTmult(h_omega_2_de_omega_dsol_T, de_omega_dsol_T_red);
+								de_omega_dsol_local_T.mmult(K21, h_omega_2_de_omega_dsol_T);
+								K21 *= dPi_dH_omega_H_sigma_primitive[primitive_index];
+								constraints.distribute_local_to_global(K21, local_dof_indices_global, dof_indices_global_red, K);
+							}
 
 							Assert(assemble_rhs, ExcMessage("If the matrix is assembled, it is always necessary to assemble the rhs as well!"));
-							constraints.distribute_local_to_global(K12, dof_indices_global_red, local_dof_indices_global, K);
-							constraints.distribute_local_to_global(K21, local_dof_indices_global, dof_indices_global_red, K);
-							constraints.distribute_local_to_global(K22, f2, local_dof_indices_global, K, f, false);
 						}
-
 					}
 
-					//add contributions which are written cell-wise to f_cell and K_cell
-					if(assemble_rhs)
+					if(N_dofs_not_local > 0)
 					{
-						if(has_local_dofs || has_locally_eliminated_dofs)
-							de_omega_dsol_T_red.vmult(f_cell, h_omega_1, true);
-						else
-							de_omega_dsol_T.vmult(f_cell, h_omega_1, true);
-					}
-					if(assemble_matrix)
-					{
-						if(has_local_dofs || has_locally_eliminated_dofs)
+						//add contributions which are written cell-wise to f_cell and K_cell
+						if(assemble_rhs)
 						{
-							h_omega_2_de_omega_dsol_T.reinit(e_omega.size(), dof_indices_global_red.size());
-							h_omega_2.mTmult(h_omega_2_de_omega_dsol_T, de_omega_dsol_T_red);
-							de_omega_dsol_T_red.mmult(K_cell, h_omega_2_de_omega_dsol_T, true);
+							if(has_local_dofs || has_locally_eliminated_dofs)
+								de_omega_dsol_T_red.vmult(f_cell, h_omega_1, true);
+							else
+								de_omega_dsol_T.vmult(f_cell, h_omega_1, true);
 						}
-						else
+						if(assemble_matrix)
 						{
-							h_omega_2_de_omega_dsol_T.reinit(e_omega.size(), dof_indices_global.size());
-							h_omega_2.mTmult(h_omega_2_de_omega_dsol_T, de_omega_dsol_T);
-							de_omega_dsol_T.mmult(K_cell, h_omega_2_de_omega_dsol_T, true);
+							if(has_local_dofs || has_locally_eliminated_dofs)
+							{
+								h_omega_2_de_omega_dsol_T.reinit(e_omega.size(), dof_indices_global_red.size());
+								h_omega_2.mTmult(h_omega_2_de_omega_dsol_T, de_omega_dsol_T_red);
+								de_omega_dsol_T_red.mmult(K_cell, h_omega_2_de_omega_dsol_T, true);
+							}
+							else
+							{
+								h_omega_2_de_omega_dsol_T.reinit(e_omega.size(), dof_indices_global.size());
+								h_omega_2.mTmult(h_omega_2_de_omega_dsol_T, de_omega_dsol_T);
+								de_omega_dsol_T.mmult(K_cell, h_omega_2_de_omega_dsol_T, true);
+							}
 						}
 					}
 				}
@@ -2544,32 +2569,35 @@ const
 					constraints.distribute_local_to_global(rhs_cell_dummy, dof_indices_global, nonlinear_scalar_functional_indices, f, L_U_cell);
 				}
 
-				//scale rhs_cell and K_cell according to derivative of total potential contribution w.r.t. scalar functional
-				if(assemble_rhs)
+				if(N_dofs_not_local > 0)
 				{
-					if(nonprimitive_index>-1)
-						f_cell *= dPi_dH_omega_H_sigma_C_nonprimitive[nonprimitive_index];
-					else
-						f_cell *= dPi_dH_omega_H_sigma_primitive[primitive_index];
-				}
-				if(assemble_matrix)
-				{
-					if(nonprimitive_index>-1)
-						K_cell *= dPi_dH_omega_H_sigma_C_nonprimitive[nonprimitive_index];
-					else
-						K_cell *= dPi_dH_omega_H_sigma_primitive[primitive_index];
-				}
+					//scale rhs_cell and K_cell according to derivative of total potential contribution w.r.t. scalar functional
+					if(assemble_rhs)
+					{
+						if(nonprimitive_index>-1)
+							f_cell *= dPi_dH_omega_H_sigma_C_nonprimitive[nonprimitive_index];
+						else
+							f_cell *= dPi_dH_omega_H_sigma_primitive[primitive_index];
+					}
+					if(assemble_matrix)
+					{
+						if(nonprimitive_index>-1)
+							K_cell *= dPi_dH_omega_H_sigma_C_nonprimitive[nonprimitive_index];
+						else
+							K_cell *= dPi_dH_omega_H_sigma_primitive[primitive_index];
+					}
 
-				//rhs is negative of gradient
-				//(up to this point the contribution of the scalar functional on the cell to the gradient has been computed)
-				if(assemble_rhs)
+					//rhs is negative of gradient
+					//(up to this point the contribution of the scalar functional on the cell to the gradient has been computed)
+					if(assemble_rhs)
 					f_cell *= -1.0;
 
-				//distribute local contributions to global f and K
-				if(assemble_rhs && assemble_matrix)
-					constraints.distribute_local_to_global(K_cell, f_cell, (has_local_dofs || has_locally_eliminated_dofs) ? dof_indices_global_red : dof_indices_global, K, f, false);
-				else if(assemble_rhs)
-					constraints.distribute_local_to_global(f_cell, (has_local_dofs || has_locally_eliminated_dofs) ? dof_indices_global_red : dof_indices_global, f);
+					//distribute local contributions to global f and K
+					if(assemble_rhs && assemble_matrix)
+						constraints.distribute_local_to_global(K_cell, f_cell, (has_local_dofs || has_locally_eliminated_dofs) ? dof_indices_global_red : dof_indices_global, K, f, false);
+					else if(assemble_rhs)
+						constraints.distribute_local_to_global(f_cell, (has_local_dofs || has_locally_eliminated_dofs) ? dof_indices_global_red : dof_indices_global, f);
+				}
 			}
 		}
 	}
