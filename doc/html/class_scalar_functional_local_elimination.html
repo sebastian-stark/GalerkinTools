@@ -109,6 +109,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae75a23326905e96e1787ef10fd8af930"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0165ca6758e3818dbd279a109ed65d3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination.html#a0165ca6758e3818dbd279a109ed65d3c">set_threshold_residual</a> (const double <a class="el" href="class_scalar_functional_local_elimination.html#a5335c4ea520dfca402e0fb3155e94406">threshold_residual</a>)</td></tr>
 <tr class="separator:a0165ca6758e3818dbd279a109ed65d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c516efc75deb2bfc649b62f1c465760"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination.html#a2c516efc75deb2bfc649b62f1c465760">set_threshold_step_size</a> (const double <a class="el" href="class_scalar_functional_local_elimination.html#ad9b9862ea6ad4f46f72ee4ae6dfc99b9">threshold_step_size</a>)</td></tr>
+<tr class="separator:a2c516efc75deb2bfc649b62f1c465760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b45946eed402b1865271accc58a9dc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination.html#a5b45946eed402b1865271accc58a9dc5">set_max_iter</a> (const unsigned int <a class="el" href="class_scalar_functional_local_elimination.html#ad9ee2f4e07556665b70531a917a7e07d">max_iter</a>)</td></tr>
 <tr class="separator:a5b45946eed402b1865271accc58a9dc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4e02a446f53fe5ee185e43d99defa51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination.html#ad4e02a446f53fe5ee185e43d99defa51">set_max_cutbacks</a> (const unsigned int <a class="el" href="class_scalar_functional_local_elimination.html#af814289c235283b9ce685c5aabb32b51">max_cutbacks</a>)</td></tr>
@@ -164,6 +166,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a469c7e8629c32b215aba04c805617d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5335c4ea520dfca402e0fb3155e94406"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination.html#a5335c4ea520dfca402e0fb3155e94406">threshold_residual</a> = 1<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacePhysics_1_1Elasticity_1_1Kinematics.html#a9587d5229555daa5b1fa1ba2f8a40adb">e</a>-10</td></tr>
 <tr class="separator:a5335c4ea520dfca402e0fb3155e94406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9b9862ea6ad4f46f72ee4ae6dfc99b9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination.html#ad9b9862ea6ad4f46f72ee4ae6dfc99b9">threshold_step_size</a> = -1.0</td></tr>
+<tr class="separator:ad9b9862ea6ad4f46f72ee4ae6dfc99b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9ee2f4e07556665b70531a917a7e07d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination.html#ad9ee2f4e07556665b70531a917a7e07d">max_iter</a> = 10</td></tr>
 <tr class="separator:ad9ee2f4e07556665b70531a917a7e07d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af814289c235283b9ce685c5aabb32b51"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination.html#af814289c235283b9ce685c5aabb32b51">max_cutbacks</a> = 10</td></tr>
@@ -482,6 +486,27 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
 
 </div>
 </div>
+<a id="a2c516efc75deb2bfc649b62f1c465760"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c516efc75deb2bfc649b62f1c465760">&#9670;&nbsp;</a></span>set_threshold_step_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_scalar_functional_local_elimination.html">ScalarFunctionalLocalElimination</a>&lt; dim, spacedim &gt;::set_threshold_step_size </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>threshold_step_size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets <a class="el" href="class_scalar_functional_local_elimination.html#ad9b9862ea6ad4f46f72ee4ae6dfc99b9">ScalarFunctionalLocalElimination::threshold_step_size</a> </p>
+
+</div>
+</div>
 <a id="a1a0fb740473442c270f6c76b146f6c61"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a0fb740473442c270f6c76b146f6c61">&#9670;&nbsp;</a></span>set_use_line_search()</h2>
 
@@ -702,7 +727,33 @@ template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>The threshold for the residual to be used during the Newton-Raphson iteration.</p>
-<p>The Hessian of the first Newton-Raphson step is used to determine a scaling for the residual such that each element of the residual is divided by the maximum norm of the corresponding row of the Hessian. The Newton-Raphson is terminated if the 2-norm of the (scaled) residual is less then sqrt(N)*threshold_residual, with N being the number of local dependent fields. </p>
+<p>The Hessian of the first Newton-Raphson step is used to determine a scaling for the residual such that each element of the residual is divided by the maximum norm of the corresponding row of the Hessian. The Newton-Raphson is terminated if the 2-norm of the (scaled) residual is less then sqrt(N)*threshold_residual, with N being the number of local dependent fields. If the value given here is negative, the convergence check is not performed. </p>
+
+</div>
+</div>
+<a id="ad9b9862ea6ad4f46f72ee4ae6dfc99b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9b9862ea6ad4f46f72ee4ae6dfc99b9">&#9670;&nbsp;</a></span>threshold_step_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int dim, unsigned int spacedim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_scalar_functional_local_elimination.html">ScalarFunctionalLocalElimination</a>&lt; dim, spacedim &gt;::threshold_step_size = -1.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The threshold for the step-size (in the infinity norm) to be used during the Newton-Raphson iteration.</p>
+<p>If the value given here is negative, the convergence check is not performed. </p>
 
 </div>
 </div>

@@ -198,7 +198,7 @@ SolverWrapperPETSc::solve(	const parallel::TwoBlockMatrix<PETScWrappers::MPI::Sp
 		for(const auto m : solution_petsc.locally_owned_elements())
 			res_petsc(m) = res_petsc(m) - f_(m);
 		res_petsc.compress(VectorOperation::insert);
-		cout << "MUMPS Residual = " << res_petsc.l2_norm() << endl;
+		//cout << "MUMPS Residual = " << res_petsc.l2_norm() << endl;
 
 		return;
 	}
@@ -958,7 +958,7 @@ BlockSolverWrapperMUMPS::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_str
 								const bool 									/*symmetric*/)
 {
 
-	cout << f_stretched.block(0).l2_norm() << endl;
+//	cout << f_stretched.block(0).l2_norm() << endl;
 //	AssertThrow(false, ExcMessage("Stop"));
 
 	//matrix sub blocks
@@ -998,7 +998,7 @@ BlockSolverWrapperMUMPS::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_str
 		const auto& f = f_stretched.block(0);
 		for(unsigned int m = 0; m < solution.size(); ++m)
 			res(m) = res(m) - f(m);
-		cout << "MUMPS Residual = " << res.l2_norm() << endl;
+//		cout << "MUMPS Residual = " << res.l2_norm() << endl;
 
 		return;
 	}

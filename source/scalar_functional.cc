@@ -274,6 +274,7 @@ template<unsigned int dim, unsigned int spacedim>
 			const vector<unsigned int>&								indices_local_dependent_fields,
 			const double&											safety_distance,
 			const double&											threshold_residual,
+			const double&											threshold_step_size,
 			const unsigned int&										max_iter,
 			const unsigned int&										max_cutbacks,
 			const bool&												use_line_search)
@@ -306,10 +307,6 @@ template<unsigned int dim, unsigned int spacedim>
 			double residual_old = 0.0;
 			for(;;)
 			{
-				// check residual
-				if(residual < sqrt(NA) * threshold_residual)
-					break;
-
 				// determine increment to solution
 				AA.compute_lu_factorization();
 				delta_A = f_A;
@@ -343,7 +340,7 @@ template<unsigned int dim, unsigned int spacedim>
 						break;
 
 					// also don't line search in the first iteration or if the residual has decreased
-					if( (iter == 0) || (residual < residual_old) )
+					if( (iter == 0) || ((threshold_step_size > 0.0) && (delta_A.linfty_norm() < threshold_step_size)) || (residual < residual_old) )
 						break;
 					else
 					{
@@ -362,8 +359,31 @@ template<unsigned int dim, unsigned int spacedim>
 					}
 				}
 
+
 				residual_old = residual;
 				++iter;
+
+				// check convergence
+				bool converged_by_residual = true;
+				if(threshold_residual > 0.0)
+				{
+					if(!(residual < sqrt(NA) * threshold_residual))
+						converged_by_residual = false;
+				}
+
+				bool converged_by_step_size = true;
+				double step_size = 0.0;
+				if(threshold_step_size > 0.0)
+				{
+					step_size = delta_A.linfty_norm();
+					if(!(fabs(step_size) < threshold_step_size))
+						converged_by_step_size = false;
+				}
+
+				if(converged_by_residual && converged_by_step_size)
+				{
+					break;
+				}
 
 				if(iter > max_iter)
 				{
@@ -858,7 +878,7 @@ const
 {
 	Vector<double> e_old = e_omega;
 	Vector<double> hidden_vars_old = hidden_vars;
-	bool error = Implementation::get_h<spacedim, spacedim>(e_omega, e_omega_ref_sets, hidden_vars, x, nullptr, h_omega, h_omega_1, h_omega_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_not_eliminated_dependent_fields, indices_locally_eliminated_dependent_fields, safety_distance, threshold_residual, max_iter, max_cutbacks, use_line_search);
+	bool error = Implementation::get_h<spacedim, spacedim>(e_omega, e_omega_ref_sets, hidden_vars, x, nullptr, h_omega, h_omega_1, h_omega_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_not_eliminated_dependent_fields, indices_locally_eliminated_dependent_fields, safety_distance, threshold_residual, threshold_step_size, max_iter, max_cutbacks, use_line_search);
 	if(!error)
 	{
 		Vector<double> de = e_omega;
@@ -868,7 +888,7 @@ const
 		const double max_step = get_maximum_step(e_old, e_omega_ref_sets, de, hidden_vars_old, x);
 		if(max_step < 1.0/safety_distance)
 		{
-//			cout << "Error in ScalarFunctionalLocalElimination due to too quick approach of the boundary of admissibility" << endl;
+			cout << "Error in ScalarFunctionalLocalElimination due to too quick approach of the boundary of admissibility" << endl;
 			error = true;
 		}
 	}
@@ -917,8 +937,14 @@ template<unsigned int spacedim>
 void
 ScalarFunctionalLocalElimination<spacedim, spacedim>::set_threshold_residual(const double threshold_residual)
 {
-	Assert(threshold_residual > 0.0, ExcMessage("Threshold for residual must be greater than 0"));
 	this->threshold_residual = threshold_residual;
+}
+
+template<unsigned int spacedim>
+void
+ScalarFunctionalLocalElimination<spacedim, spacedim>::set_threshold_step_size(const double threshold_step_size)
+{
+	this->threshold_step_size = threshold_step_size;
 }
 
 template<unsigned int spacedim>
@@ -992,7 +1018,7 @@ const
 {
 	Vector<double> e_old = e_sigma;
 	Vector<double> hidden_vars_old = hidden_vars;
-	bool error = Implementation::get_h<dim, spacedim>(e_sigma, e_sigma_ref_sets, hidden_vars, x, &n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_not_eliminated_dependent_fields, indices_locally_eliminated_dependent_fields, safety_distance, threshold_residual, max_iter, max_cutbacks, use_line_search);
+	bool error = Implementation::get_h<dim, spacedim>(e_sigma, e_sigma_ref_sets, hidden_vars, x, &n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_not_eliminated_dependent_fields, indices_locally_eliminated_dependent_fields, safety_distance, threshold_residual, threshold_step_size, max_iter, max_cutbacks, use_line_search);
 	if(!error)
 	{
 		Vector<double> de = e_sigma;
@@ -1052,9 +1078,16 @@ template<unsigned int dim, unsigned int spacedim>
 void
 ScalarFunctionalLocalElimination<dim, spacedim>::set_threshold_residual(const double threshold_residual)
 {
-	Assert(threshold_residual > 0.0, ExcMessage("Threshold for residual must be greater than 0"));
 	this->threshold_residual = threshold_residual;
 }
+
+template<unsigned int dim, unsigned int spacedim>
+void
+ScalarFunctionalLocalElimination<dim, spacedim>::set_threshold_step_size(const double threshold_step_size)
+{
+	this->threshold_step_size = threshold_step_size;
+}
+
 
 template<unsigned int dim, unsigned int spacedim>
 void

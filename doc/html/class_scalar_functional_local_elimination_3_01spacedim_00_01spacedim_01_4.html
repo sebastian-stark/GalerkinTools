@@ -110,6 +110,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a53352820c3f0493793196010232ef96a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac82db99b2b08cd32f74fadd57ef18e19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#ac82db99b2b08cd32f74fadd57ef18e19">set_threshold_residual</a> (const double <a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a2a268af4bf9867e51446fbd33c488fe9">threshold_residual</a>)</td></tr>
 <tr class="separator:ac82db99b2b08cd32f74fadd57ef18e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c0c51e69a894bd3196ac1da7f25ca33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a2c0c51e69a894bd3196ac1da7f25ca33">set_threshold_step_size</a> (const double <a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#aa3761ab1e9111468e31135fd954cb964">threshold_step_size</a>)</td></tr>
+<tr class="separator:a2c0c51e69a894bd3196ac1da7f25ca33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7db53d103eae56be4c342d59b241d539"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a7db53d103eae56be4c342d59b241d539">set_max_iter</a> (const unsigned int <a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a329bf04de49be40085b0b70bf4d5a039">max_iter</a>)</td></tr>
 <tr class="separator:a7db53d103eae56be4c342d59b241d539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9669b2078915bd408a42612e0b68c008"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a9669b2078915bd408a42612e0b68c008">set_max_cutbacks</a> (const unsigned int <a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a230b126730b702170f6b7edd1d23c735">max_cutbacks</a>)</td></tr>
@@ -165,6 +167,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a55ab0ce1d909f96e614b84c3ee00bcb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a268af4bf9867e51446fbd33c488fe9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a2a268af4bf9867e51446fbd33c488fe9">threshold_residual</a> = 1<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacePhysics_1_1Elasticity_1_1Kinematics.html#a9587d5229555daa5b1fa1ba2f8a40adb">e</a>-10</td></tr>
 <tr class="separator:a2a268af4bf9867e51446fbd33c488fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3761ab1e9111468e31135fd954cb964"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#aa3761ab1e9111468e31135fd954cb964">threshold_step_size</a> = -1.0</td></tr>
+<tr class="separator:aa3761ab1e9111468e31135fd954cb964"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a329bf04de49be40085b0b70bf4d5a039"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a329bf04de49be40085b0b70bf4d5a039">max_iter</a> = 10</td></tr>
 <tr class="separator:a329bf04de49be40085b0b70bf4d5a039"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a230b126730b702170f6b7edd1d23c735"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a230b126730b702170f6b7edd1d23c735">max_cutbacks</a> = 10</td></tr>
@@ -467,7 +471,28 @@ template&lt;unsigned int spacedim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets <a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a2a268af4bf9867e51446fbd33c488fe9">ScalarFunctionalLocalElimination&lt;spacedim,spacedim&gt;::threshold_residual</a> </p>
+<p>Sets <a class="el" href="class_scalar_functional_local_elimination.html#a5335c4ea520dfca402e0fb3155e94406">ScalarFunctionalLocalElimination::threshold_residual</a> </p>
+
+</div>
+</div>
+<a id="a2c0c51e69a894bd3196ac1da7f25ca33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c0c51e69a894bd3196ac1da7f25ca33">&#9670;&nbsp;</a></span>set_threshold_step_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_scalar_functional_local_elimination.html">ScalarFunctionalLocalElimination</a>&lt; spacedim, spacedim &gt;::set_threshold_step_size </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>threshold_step_size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets <a class="el" href="class_scalar_functional_local_elimination.html#ad9b9862ea6ad4f46f72ee4ae6dfc99b9">ScalarFunctionalLocalElimination::threshold_step_size</a> </p>
 
 </div>
 </div>
@@ -691,7 +716,33 @@ template&lt;unsigned int spacedim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>The threshold for the residual to be used during the Newton-Raphson iteration.</p>
-<p>The Hessian of the first Newton-Raphson step is used to determine a scaling for the residual such that each element of the residual is divided by the maximum norm of the corresponding row of the Hessian. The Newton-Raphson is terminated if the 2-norm of the (scaled) residual is less then sqrt(N)*threshold_residual, with N being the number of local dependent fields. </p>
+<p>The Hessian of the first Newton-Raphson step is used to determine a scaling for the residual such that each element of the residual is divided by the maximum norm of the corresponding row of the Hessian. The Newton-Raphson is terminated if the 2-norm of the (scaled) residual is less then sqrt(N)*threshold_residual, with N being the number of local dependent fields. If the value given here is negative, the convergence check is not performed. </p>
+
+</div>
+</div>
+<a id="aa3761ab1e9111468e31135fd954cb964"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3761ab1e9111468e31135fd954cb964">&#9670;&nbsp;</a></span>threshold_step_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_scalar_functional_local_elimination.html">ScalarFunctionalLocalElimination</a>&lt; spacedim, spacedim &gt;::threshold_step_size = -1.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The threshold for the step-size (in the infinity norm) to be used during the Newton-Raphson iteration.</p>
+<p>If the value given here is negative, the convergence check is not performed. </p>
 
 </div>
 </div>

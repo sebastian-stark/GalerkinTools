@@ -4948,6 +4948,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>set_threshold_step_size</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>a2c516efc75deb2bfc649b62f1c465760</anchor>
+      <arglist>(const double threshold_step_size)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>set_max_iter</name>
       <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
       <anchor>a5b45946eed402b1865271accc58a9dc5</anchor>
@@ -5007,6 +5014,13 @@
       <name>threshold_residual</name>
       <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
       <anchor>a5335c4ea520dfca402e0fb3155e94406</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>threshold_step_size</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>ad9b9862ea6ad4f46f72ee4ae6dfc99b9</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -5073,6 +5087,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>set_threshold_step_size</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a2c0c51e69a894bd3196ac1da7f25ca33</anchor>
+      <arglist>(const double threshold_step_size)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>set_max_iter</name>
       <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>a7db53d103eae56be4c342d59b241d539</anchor>
@@ -5132,6 +5153,13 @@
       <name>threshold_residual</name>
       <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>a2a268af4bf9867e51446fbd33c488fe9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>threshold_step_size</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>aa3761ab1e9111468e31135fd954cb964</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">

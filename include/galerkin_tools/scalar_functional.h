@@ -642,9 +642,18 @@ private:
 	 *
 	 * The Hessian of the first Newton-Raphson step is used to determine a scaling for the residual such that each element of the residual is divided by the maximum norm of the corresponding row of the Hessian.
 	 * The Newton-Raphson is terminated if the 2-norm of the (scaled) residual is less then sqrt(N)*threshold_residual, with N being the number of local dependent fields.
+	 * If the value given here is negative, the convergence check is not performed.
 	 */
 	double
 	threshold_residual = 1e-10;
+
+	/**
+	 * The threshold for the step-size (in the infinity norm) to be used during the Newton-Raphson iteration.
+	 *
+	 * If the value given here is negative, the convergence check is not performed.
+	 */
+	double
+	threshold_step_size = -1.0;
 
 	/**
 	 * maximum number of Newton-Raphson iterations
@@ -725,6 +734,12 @@ public:
 	set_threshold_residual(const double threshold_residual);
 
 	/**
+	 * Sets ScalarFunctionalLocalElimination::threshold_step_size
+	 */
+	void
+	set_threshold_step_size(const double threshold_step_size);
+
+	/**
 	 * Sets ScalarFunctionalLocalElimination::max_iter
 	 */
 	void
@@ -801,9 +816,18 @@ private:
 	 *
 	 * The Hessian of the first Newton-Raphson step is used to determine a scaling for the residual such that each element of the residual is divided by the maximum norm of the corresponding row of the Hessian.
 	 * The Newton-Raphson is terminated if the 2-norm of the (scaled) residual is less then sqrt(N)*threshold_residual, with N being the number of local dependent fields.
+	 * If the value given here is negative, the convergence check is not performed.
 	 */
 	double
 	threshold_residual = 1e-10;
+
+	/**
+	 * The threshold for the step-size (in the infinity norm) to be used during the Newton-Raphson iteration.
+	 *
+	 * If the value given here is negative, the convergence check is not performed.
+	 */
+	double
+	threshold_step_size = -1.0;
 
 	/**
 	 * maximum number of Newton-Raphson iterations
@@ -876,11 +900,16 @@ public:
 	set_safety_distance(const double safety_distance);
 
 	/**
-	 * Sets ScalarFunctionalLocalElimination<spacedim,spacedim>::threshold_residual
+	 * Sets ScalarFunctionalLocalElimination::threshold_residual
 	 */
 	void
 	set_threshold_residual(const double threshold_residual);
 
+	/**
+	 * Sets ScalarFunctionalLocalElimination::threshold_step_size
+	 */
+	void
+	set_threshold_step_size(const double threshold_step_size);
 
 	/**
 	 * Sets ScalarFunctionalLocalElimination<spacedim,spacedim>::max_iter
