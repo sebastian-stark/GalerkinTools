@@ -630,12 +630,16 @@ private:
 	 * boundary of the domain of admissibility is decreased by @p safety_distance at most during a single iteration (1.0 would correspond to no safety distance at all).
 	 * This is used to avoid ill-conditioning problems resulting from a too quick approach of the
 	 * boundary of the domain of admissibility.
-	 *
-	 * Additionally, the routines will return an error if the total increment to the local variables (between the initial state and the result of the Newton-Raphson iteration)
-	 * is such that the "distance" between the local solution and the boundary of the domain of admissibility is decreased by more than safety_distance.
 	 */
 	double
 	safety_distance = 0.9;
+
+	/**
+	 * The routines will return an error if the total increment to the local variables (between the initial state and the result of the Newton-Raphson iteration)
+	 * is such that the "distance" between the local solution and the boundary of the domain of admissibility is decreased by more than safety_distance.
+	 */
+	double
+	safety_distance_step = 1.0;
 
 	/**
 	 * The threshold for the residual to be used during the Newton-Raphson iteration.
@@ -728,6 +732,12 @@ public:
 	set_safety_distance(const double safety_distance);
 
 	/**
+	 * Sets ScalarFunctionalLocalElimination::safety_step
+	 */
+	void
+	set_safety_distance_step(const double safety_step);
+
+	/**
 	 * Sets ScalarFunctionalLocalElimination::threshold_residual
 	 */
 	void
@@ -804,12 +814,16 @@ private:
 	 * boundary of the domain of admissibility is decreased by @p safety_distance at most during a single iteration (1.0 would correspond to no safety distance at all).
 	 * This is used to avoid ill-conditioning problems resulting from a too quick approach of the
 	 * boundary of the domain of admissibility.
-	 *
-	 * Additionally, the routines will return an error if the total increment to the local variables (between the initial state and the result of the Newton-Raphson iteration)
-	 * is such that the "distance" between the local solution and the boundary of the domain of admissibility is decreased by more than safety_distance.
 	 */
 	double
 	safety_distance = 0.9;
+
+	/**
+	 * The routines will return an error if the total increment to the local variables (between the initial state and the result of the Newton-Raphson iteration)
+	 * is such that the "distance" between the local solution and the boundary of the domain of admissibility is decreased by more than safety_distance.
+	 */
+	double
+	safety_distance_step = 0.9;
 
 	/**
 	 * The threshold for the residual to be used during the Newton-Raphson iteration.
@@ -898,6 +912,12 @@ public:
 	 */
 	void
 	set_safety_distance(const double safety_distance);
+
+	/**
+	 * Sets ScalarFunctionalLocalElimination<spacedim,spacedim>::safety_step
+	 */
+	void
+	set_safety_distance_step(const double safety_step);
 
 	/**
 	 * Sets ScalarFunctionalLocalElimination::threshold_residual

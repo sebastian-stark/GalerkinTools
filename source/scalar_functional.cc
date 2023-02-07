@@ -886,7 +886,7 @@ const
 			de[m] = de[m] - e_old[m];
 
 		const double max_step = get_maximum_step(e_old, e_omega_ref_sets, de, hidden_vars_old, x);
-		if(max_step < 1.0/safety_distance)
+		if(max_step < 1.0/safety_distance_step)
 		{
 			cout << "Error in ScalarFunctionalLocalElimination due to too quick approach of the boundary of admissibility" << endl;
 			error = true;
@@ -932,6 +932,16 @@ ScalarFunctionalLocalElimination<spacedim, spacedim>::set_safety_distance(const 
 	Assert(safety_distance > 0.0, ExcMessage("Safety must be larger than 0.0"));
 	this->safety_distance = safety_distance;
 }
+
+template<unsigned int spacedim>
+void
+ScalarFunctionalLocalElimination<spacedim, spacedim>::set_safety_distance_step(const double safety_distance_step)
+{
+	Assert(safety_distance_step <= 1.0, ExcMessage("Safety distance for step must be <= 1.0"));
+	Assert(safety_distance_step> 0.0, ExcMessage("Safety must be larger than 0.0"));
+	this->safety_distance_step = safety_distance_step;
+}
+
 
 template<unsigned int spacedim>
 void
@@ -1025,9 +1035,9 @@ const
 		for(unsigned int m = 0; m < de.size(); ++m)
 			de[m] = de[m] - e_old[m];
 		const double max_step = get_maximum_step(e_old, e_sigma_ref_sets, de, hidden_vars_old, x, n);
-		if(max_step < 1.0/safety_distance)
+		if(max_step < 1.0/safety_distance_step)
 		{
-//			cout << "Error in ScalarFunctionalLocalElimination due to too quick approach of the boundary of admissibility" << endl;
+			cout << "Error in ScalarFunctionalLocalElimination due to too quick approach of the boundary of admissibility" << endl;
 			error = true;
 		}
 	}
@@ -1073,6 +1083,16 @@ ScalarFunctionalLocalElimination<dim, spacedim>::set_safety_distance(const doubl
 	Assert(safety_distance > 0.0, ExcMessage("Safety must be larger than 0.0"));
 	this->safety_distance = safety_distance;
 }
+
+template<unsigned int dim, unsigned int spacedim>
+void
+ScalarFunctionalLocalElimination<dim, spacedim>::set_safety_distance_step(const double safety_distance_step)
+{
+	Assert(safety_distance_step <= 1.0, ExcMessage("Safety distance for step must be <= 1.0"));
+	Assert(safety_distance_step> 0.0, ExcMessage("Safety must be larger than 0.0"));
+	this->safety_distance_step = safety_distance_step;
+}
+
 
 template<unsigned int dim, unsigned int spacedim>
 void
