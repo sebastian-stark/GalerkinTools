@@ -56,7 +56,7 @@ IF( DEFINED ENV{MA57_LIBRARIES} )
   #TODO: deal.II can in principle be configured without LAPACK. In this case, LAPACK would have to be pulled in here ...
   IF(NOT ${DEAL_II_WITH_LAPACK})
     MESSAGE(FATAL_ERROR "\n"
-      "*** You want to use PARDISO, which requires LAPACK. But deal.II was not configured with LAPACK.")
+      "*** You want to use MA57, which requires LAPACK. But deal.II was not configured with LAPACK.")
   ENDIF()
   LINK_LIBRARIES($ENV{MA57_LIBRARIES})
   OPTION(GALERKIN_TOOLS_WITH_MA57 "Enable MA57" ON)
@@ -64,10 +64,6 @@ ELSE()
   MESSAGE("*** Could not locate MA57 ***\n\n"
     "If you want to use MA57, you must set an environment variable \"MA57_LIBRARIES\" that contains the path to the MA57 library and Metis4 (e.g. MA57_LIBRARIES = /path/to/libma57.so;/path/to/libmetis.a).")
 ENDIF()
-
-#find OMP
-
-
 
 #define the debug and release targets of the library galerkin_tools
 FOREACH(_build "debug" "release")
@@ -92,7 +88,7 @@ FOREACH(_build "debug" "release")
     #link against deal.II
     TARGET_LINK_LIBRARIES(${_target} ${DEAL_II_LIBRARIES_${_build_toupper}})
 
-    #install the library galerkin_tools (debug and release)
+    #install path for the library GalerkinTools (debug and release)
     INSTALL(TARGETS ${_target} LIBRARY DESTINATION ${GALERKIN_TOOLS_INSTALL_PATH_LIBRARIES})
 
     #the libraries to link to when using GalerkinTools (this will end up in the config file)

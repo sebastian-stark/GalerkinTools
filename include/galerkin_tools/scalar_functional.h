@@ -29,6 +29,7 @@
 #include <deal.II/base/point.h>
 #include <deal.II/base/quadrature.h>
 #include <deal.II/base/tensor.h>
+#include <deal.II/grid/cell_id.h>
 
 #include <galerkin_tools/config.h>
 #include <galerkin_tools/dependent_field.h>
@@ -67,6 +68,26 @@ GALERKIN_TOOLS_NAMESPACE_OPEN
 template<unsigned int dim, unsigned int spacedim>
 class ScalarFunctional : public Subscriptor
 {
+	/**
+	 * make AssemblyHelper a friend (needed to allow for telling ScalarFunctional, which cell and which quadrature point is currently operated on
+	 */
+	template<unsigned int p> friend class AssemblyHelper;
+
+private:
+
+	/**
+	 * this is set to the cell id of the currently active cell (i.e., the cell for which ScalarFunctional::get_h_sigma and ScalarFunctional::get_h_omega are called next by the AssemblyHelper)
+	 */
+	mutable
+	dealii::CellId
+	cell_id = dealii::CellId();
+
+	/**
+	 * this is set to the number of the currently active quadrature point (i.e., the quadrature point for which ScalarFunctional::get_h_sigma and ScalarFunctional::get_h_omega are called next by the AssemblyHelper)
+	 */
+	mutable
+	unsigned int
+	q_point = 0;
 
 public:
 
@@ -341,6 +362,26 @@ public:
 template<unsigned int spacedim>
 class ScalarFunctional<spacedim, spacedim> : public Subscriptor
 {
+	/**
+	 * make AssemblyHelper a friend (needed to allow for telling ScalarFunctional, which cell and which quadrature point is currently operated on
+	 */
+	template<unsigned int p> friend class AssemblyHelper;
+
+private:
+
+	/**
+	 * this is set to the cell id of the currently active cell (i.e., the cell for which ScalarFunctional::get_h_sigma and ScalarFunctional::get_h_omega are called next by the AssemblyHelper)
+	 */
+	mutable
+	dealii::CellId
+	cell_id = dealii::CellId();
+
+	/**
+	 * this is set to the number of the currently active quadrature point (i.e., the quadrature point for which ScalarFunctional::get_h_sigma and ScalarFunctional::get_h_omega are called next by the AssemblyHelper)
+	 */
+	mutable
+	unsigned int
+	q_point = 0;
 
 public:
 

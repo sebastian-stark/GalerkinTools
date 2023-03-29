@@ -2415,6 +2415,8 @@ const
 					const auto& x = q_points[q_point];
 
 					//evaluate the integrand of the scalar functional and its derivatives w.r.t. the independent variables
+					scalar_functional->cell_id = domain_cell->id();
+					scalar_functional->q_point = q_point;
 					if(scalar_functional->get_h_omega(e_omega, e_omega_ref_sets, hidden_vars, x, h_omega, h_omega_1, h_omega_2, requested_quantities))
 						error = true;
 
@@ -2859,6 +2861,8 @@ const
 					const auto& n = normals[q_point];
 
 					//evaluate the integrand of the scalar functional and its derivatives w.r.t. the independent variables
+					scalar_functional->cell_id = interface_cell_domain_cells.interface_cell->id();
+					scalar_functional->q_point = q_point;
 					if(scalar_functional->get_h_sigma(e_sigma, e_sigma_ref_sets, hidden_vars, x, n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities))
 						error = true;
 
@@ -5291,6 +5295,8 @@ const
 					const auto& x = q_points[q_point];
 
 					//evaluate the integrand of the scalar functional
+					scalar_functional->cell_id = domain_cell->id();
+					scalar_functional->q_point = q_point;
 					if(scalar_functional->get_h_omega(e_omega, e_omega_ref_sets, hidden_vars, x, h_omega, h_omega_1, h_omega_2, requested_quantities))
 						error = true;
 
@@ -5534,6 +5540,8 @@ const
 					const auto& n = normals[q_point];
 
 					//evaluate the integrand of the scalar functional
+					scalar_functional->cell_id = interface_cell_domain_cells.interface_cell->id();
+					scalar_functional->q_point = q_point;
 					if(scalar_functional->get_h_sigma(e_sigma, e_sigma_ref_sets, hidden_vars, x, n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities))
 						error = true;
 
@@ -5729,6 +5737,8 @@ const
 					//the location of the quadrature point in real space
 					const auto& x = q_points[q_point];
 
+					scalar_functional->cell_id = domain_cell->id();
+					scalar_functional->q_point = q_point;
 					scalar_functional->get_h_omega(e_omega, e_omega_ref_sets, hidden_vars, x, h_omega, h_omega_1, h_omega_2, requested_quantities);
 
 					// take radial symmetry into account if requested
@@ -5963,6 +5973,8 @@ const
 					const auto& n = normals[q_point];
 
 					//evaluate the integrand of the scalar functional
+					scalar_functional->cell_id = interface_cell_domain_cells.interface_cell->id();
+					scalar_functional->q_point = q_point;
 					scalar_functional->get_h_sigma(e_sigma, e_sigma_ref_sets, hidden_vars, x, n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities);
 
 					// take radial symmetry into account if requested
