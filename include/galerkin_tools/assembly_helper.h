@@ -1549,6 +1549,8 @@ public:
 	 *
 	 * @param[in]	scalar_functionals_interface_to_call	interface-related scalar functionals to be evaluated
 	 *
+	 * @param[in]	call_all_scalar_functionals				If this is set to true, all scalar functionals involved in the total potential are called irrespective of what is given in @p scalar_functionals_domain_to_call and @p scalar_functionals_interface_to_call.
+	 *
 	 * @tparam		VectorType								The type used for the solution vector
 	 */
 	template<class VectorType>
@@ -1556,7 +1558,8 @@ public:
 	call_scalar_functionals(const VectorType&												solution,
 							const std::vector<const VectorType*>&							solution_ref_sets,
 							const std::set<const ScalarFunctional<spacedim, spacedim>*>&	scalar_functionals_domain_to_call,
-							const std::set<const ScalarFunctional<spacedim-1, spacedim>*>&	scalar_functionals_interface_to_call)
+							const std::set<const ScalarFunctional<spacedim-1, spacedim>*>&	scalar_functionals_interface_to_call,
+							const bool														call_all_functionals = false)
 	const;
 
 	/**

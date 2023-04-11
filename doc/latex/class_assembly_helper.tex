@@ -35,7 +35,7 @@ void \mbox{\hyperlink{class_assembly_helper_a5b2d6681755428d4abfe718e54e3c322}{m
 \item 
 {\footnotesize template$<$class Vector\+Type $>$ }\\bool \mbox{\hyperlink{class_assembly_helper_acf6ef2dced66e223684e5df97182f428}{get\+\_\+nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values}} (const \textbf{ Vector\+Type} \&solution, const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$ solution\+\_\+ref\+\_\+sets, std\+::map$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim, spacedim $>$ $\ast$, double $>$ \&nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values\+\_\+domain, std\+::map$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim-\/1, spacedim $>$ $\ast$, double $>$ \&nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values\+\_\+interface) const
 \item 
-{\footnotesize template$<$class Vector\+Type $>$ }\\void \mbox{\hyperlink{class_assembly_helper_a2940850798972b003cf33d37e705490e}{call\+\_\+scalar\+\_\+functionals}} (const \textbf{ Vector\+Type} \&solution, const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$ \&solution\+\_\+ref\+\_\+sets, const std\+::set$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&scalar\+\_\+functionals\+\_\+domain\+\_\+to\+\_\+call, const std\+::set$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&scalar\+\_\+functionals\+\_\+interface\+\_\+to\+\_\+call) const
+{\footnotesize template$<$class Vector\+Type $>$ }\\void \mbox{\hyperlink{class_assembly_helper_a60af8e484b7663e5fe5595a6e0e07693}{call\+\_\+scalar\+\_\+functionals}} (const \textbf{ Vector\+Type} \&solution, const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$ \&solution\+\_\+ref\+\_\+sets, const std\+::set$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&scalar\+\_\+functionals\+\_\+domain\+\_\+to\+\_\+call, const std\+::set$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&scalar\+\_\+functionals\+\_\+interface\+\_\+to\+\_\+call, const bool call\+\_\+all\+\_\+functionals=false) const
 \item 
 {\footnotesize template$<$class Vector\+Type $>$ }\\double \mbox{\hyperlink{class_assembly_helper_a310594206df2622027fdc48e84600bf7}{get\+\_\+maximum\+\_\+step\+\_\+length}} (const \textbf{ Vector\+Type} \&solution, const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$ solution\+\_\+ref\+\_\+sets, const \textbf{ Vector\+Type} \&delta\+\_\+solution) const
 \item 
@@ -418,13 +418,13 @@ Note that the finite element system returned will not ensure that the constraine
 \end{DoxyTemplParams}
 \begin{DoxyRefDesc}{Todo}
 \item[\mbox{\hyperlink{todo__todo000006}{Todo}}]The treatment of local fields and locally eliminated fields needs to be completely revised! \end{DoxyRefDesc}
-\mbox{\Hypertarget{class_assembly_helper_a2940850798972b003cf33d37e705490e}\label{class_assembly_helper_a2940850798972b003cf33d37e705490e}} 
+\mbox{\Hypertarget{class_assembly_helper_a60af8e484b7663e5fe5595a6e0e07693}\label{class_assembly_helper_a60af8e484b7663e5fe5595a6e0e07693}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!call\_scalar\_functionals@{call\_scalar\_functionals}}
 \index{call\_scalar\_functionals@{call\_scalar\_functionals}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{call\_scalar\_functionals()}{call\_scalar\_functionals()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 template$<$class Vector\+Type $>$ \\
-void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::call\+\_\+scalar\+\_\+functionals (\begin{DoxyParamCaption}\item[{const \textbf{ Vector\+Type} \&}]{solution,  }\item[{const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$ \&}]{solution\+\_\+ref\+\_\+sets,  }\item[{const std\+::set$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&}]{scalar\+\_\+functionals\+\_\+domain\+\_\+to\+\_\+call,  }\item[{const std\+::set$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&}]{scalar\+\_\+functionals\+\_\+interface\+\_\+to\+\_\+call }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::call\+\_\+scalar\+\_\+functionals (\begin{DoxyParamCaption}\item[{const \textbf{ Vector\+Type} \&}]{solution,  }\item[{const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$ \&}]{solution\+\_\+ref\+\_\+sets,  }\item[{const std\+::set$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&}]{scalar\+\_\+functionals\+\_\+domain\+\_\+to\+\_\+call,  }\item[{const std\+::set$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&}]{scalar\+\_\+functionals\+\_\+interface\+\_\+to\+\_\+call,  }\item[{const bool}]{call\+\_\+all\+\_\+functionals = {\ttfamily false} }\end{DoxyParamCaption}) const}
 
 Method simply calling the \mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a8665cb5b5a57ad22217e4c112845d43b}{Scalar\+Functional$<$spacedim, spacedim$>$\+::get\+\_\+h\+\_\+omega()}} and \mbox{\hyperlink{class_scalar_functional_adb295fb739a743d5a1273025eb8dae72}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma()}} functions with the solution {\ttfamily solution} and the reference solution {\ttfamily solution\+\_\+ref\+\_\+sets}, without doing any assembly of the finite element system.
 
@@ -437,6 +437,8 @@ Method simply calling the \mbox{\hyperlink{class_scalar_functional_3_01spacedim_
 \mbox{\texttt{ in}}  & {\em scalar\+\_\+functionals\+\_\+domain\+\_\+to\+\_\+call} & domain-\/related scalar functionals to be evaluated\\
 \hline
 \mbox{\texttt{ in}}  & {\em scalar\+\_\+functionals\+\_\+interface\+\_\+to\+\_\+call} & interface-\/related scalar functionals to be evaluated\\
+\hline
+\mbox{\texttt{ in}}  & {\em call\+\_\+all\+\_\+scalar\+\_\+functionals} & If this is set to true, all scalar functionals involved in the total potential are called irrespective of what is given in {\ttfamily scalar\+\_\+functionals\+\_\+domain\+\_\+to\+\_\+call} and {\ttfamily scalar\+\_\+functionals\+\_\+interface\+\_\+to\+\_\+call}.\\
 \hline
 \end{DoxyParams}
 

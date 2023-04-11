@@ -29,7 +29,6 @@
 #include <deal.II/base/point.h>
 #include <deal.II/base/quadrature.h>
 #include <deal.II/base/tensor.h>
-#include <deal.II/grid/cell_id.h>
 
 #include <galerkin_tools/config.h>
 #include <galerkin_tools/dependent_field.h>
@@ -73,21 +72,14 @@ class ScalarFunctional : public Subscriptor
 	 */
 	template<unsigned int p> friend class AssemblyHelper;
 
-private:
+protected:
 
 	/**
-	 * this is set to the cell id of the currently active cell (i.e., the cell for which ScalarFunctional::get_h_sigma and ScalarFunctional::get_h_omega are called next by the AssemblyHelper)
+	 * this is set to a unique identifier of the currently active quadrature point
 	 */
 	mutable
-	dealii::CellId
-	cell_id = dealii::CellId();
-
-	/**
-	 * this is set to the number of the currently active quadrature point (i.e., the quadrature point for which ScalarFunctional::get_h_sigma and ScalarFunctional::get_h_omega are called next by the AssemblyHelper)
-	 */
-	mutable
-	unsigned int
-	q_point = 0;
+	std::string
+	q_point_id = "";
 
 public:
 
@@ -329,6 +321,16 @@ public:
 	const;
 
 	/**
+	 * set ScalarFunctional::q_point_id
+	 *
+	 * @param[in]	q_point_id ScalarFunctional::q_point_id
+	 */
+	virtual
+	void
+	set_q_point_id(std::string q_point_id)
+	const;
+
+	/**
 	 * The destructor of ScalarFunctional essentially checks before destruction that the
 	 * ScalarFunctional object is not used by other objects. If this is the case, the program
 	 * will be aborted.
@@ -367,21 +369,14 @@ class ScalarFunctional<spacedim, spacedim> : public Subscriptor
 	 */
 	template<unsigned int p> friend class AssemblyHelper;
 
-private:
+protected:
 
 	/**
-	 * this is set to the cell id of the currently active cell (i.e., the cell for which ScalarFunctional::get_h_sigma and ScalarFunctional::get_h_omega are called next by the AssemblyHelper)
+	 * this is set to a unique identifier of the currently active quadrature point
 	 */
 	mutable
-	dealii::CellId
-	cell_id = dealii::CellId();
-
-	/**
-	 * this is set to the number of the currently active quadrature point (i.e., the quadrature point for which ScalarFunctional::get_h_sigma and ScalarFunctional::get_h_omega are called next by the AssemblyHelper)
-	 */
-	mutable
-	unsigned int
-	q_point = 0;
+	std::string
+	q_point_id = "";
 
 public:
 
@@ -618,6 +613,16 @@ public:
 	const;
 
 	/**
+	 * set ScalarFunctional<spacedim, spacedim>::q_point_id
+	 *
+	 * @param[in]	q_point_id ScalarFunctional<spacedim, spacedim>::q_point_id
+	 */
+	virtual
+	void
+	set_q_point_id(std::string q_point_id)
+	const;
+
+	/**
 	 * The destructor of ScalarFunctional<spacedim, spacedim> essentially checks before destruction that the
 	 * ScalarFunctional<spacedim, spacedim> object is not used by other objects. If this is the case, the program
 	 * will be aborted.
@@ -807,6 +812,18 @@ public:
 	 */
 	void
 	set_use_line_search(const bool use_line_search);
+
+	/**
+	 * set ScalarFunctional::q_point_id of all scalar functionals of ScalarFunctionalLocalElimination::scalar_functionals
+	 *
+	 * @param[in]	q_point_id ScalarFunctional::q_point_id
+	 */
+	void
+	set_q_point_id(std::string q_point_id)
+	const
+	override
+	final;
+
 };
 
 /**
@@ -989,6 +1006,17 @@ public:
 	 */
 	void
 	set_use_line_search(const bool use_line_search);
+
+	/**
+	 * set ScalarFunctional<spacedim,spacedim>::q_point_id of all scalar functionals of ScalarFunctionalLocalElimination<spacedim,spacedim>::scalar_functionals
+	 *
+	 * @param[in]	q_point_id ScalarFunctional<spacedim,spacedim>::q_point_id
+	 */
+	void
+	set_q_point_id(std::string q_point_id)
+	const
+	override
+	final;
 
 };
 

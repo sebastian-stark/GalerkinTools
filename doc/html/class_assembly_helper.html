@@ -111,9 +111,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acf6ef2dced66e223684e5df97182f428"><td class="memTemplParams" colspan="2">template&lt;class VectorType &gt; </td></tr>
 <tr class="memitem:acf6ef2dced66e223684e5df97182f428"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#acf6ef2dced66e223684e5df97182f428">get_nonprimitive_scalar_functional_values</a> (const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> &amp;solution, const std::vector&lt; const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> * &gt; solution_ref_sets, std::map&lt; const <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; spacedim, spacedim &gt; *, double &gt; &amp;nonprimitive_scalar_functional_values_domain, std::map&lt; const <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; spacedim-1, spacedim &gt; *, double &gt; &amp;nonprimitive_scalar_functional_values_interface) const</td></tr>
 <tr class="separator:acf6ef2dced66e223684e5df97182f428"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2940850798972b003cf33d37e705490e"><td class="memTemplParams" colspan="2">template&lt;class VectorType &gt; </td></tr>
-<tr class="memitem:a2940850798972b003cf33d37e705490e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a2940850798972b003cf33d37e705490e">call_scalar_functionals</a> (const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> &amp;solution, const std::vector&lt; const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> * &gt; &amp;solution_ref_sets, const std::set&lt; const <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; spacedim, spacedim &gt; * &gt; &amp;scalar_functionals_domain_to_call, const std::set&lt; const <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; spacedim-1, spacedim &gt; * &gt; &amp;scalar_functionals_interface_to_call) const</td></tr>
-<tr class="separator:a2940850798972b003cf33d37e705490e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60af8e484b7663e5fe5595a6e0e07693"><td class="memTemplParams" colspan="2">template&lt;class VectorType &gt; </td></tr>
+<tr class="memitem:a60af8e484b7663e5fe5595a6e0e07693"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a60af8e484b7663e5fe5595a6e0e07693">call_scalar_functionals</a> (const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> &amp;solution, const std::vector&lt; const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> * &gt; &amp;solution_ref_sets, const std::set&lt; const <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; spacedim, spacedim &gt; * &gt; &amp;scalar_functionals_domain_to_call, const std::set&lt; const <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; spacedim-1, spacedim &gt; * &gt; &amp;scalar_functionals_interface_to_call, const bool call_all_functionals=false) const</td></tr>
+<tr class="separator:a60af8e484b7663e5fe5595a6e0e07693"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a310594206df2622027fdc48e84600bf7"><td class="memTemplParams" colspan="2">template&lt;class VectorType &gt; </td></tr>
 <tr class="memitem:a310594206df2622027fdc48e84600bf7"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_assembly_helper.html#a310594206df2622027fdc48e84600bf7">get_maximum_step_length</a> (const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> &amp;solution, const std::vector&lt; const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> * &gt; solution_ref_sets, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff">VectorType</a> &amp;delta_solution) const</td></tr>
 <tr class="separator:a310594206df2622027fdc48e84600bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -568,8 +568,8 @@ template&lt;class SolutionVectorType , class RHSVectorType , class MatrixType &g
 
 </div>
 </div>
-<a id="a2940850798972b003cf33d37e705490e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2940850798972b003cf33d37e705490e">&#9670;&nbsp;</a></span>call_scalar_functionals()</h2>
+<a id="a60af8e484b7663e5fe5595a6e0e07693"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60af8e484b7663e5fe5595a6e0e07693">&#9670;&nbsp;</a></span>call_scalar_functionals()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -600,7 +600,13 @@ template&lt;class VectorType &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::set&lt; const <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; spacedim-1, spacedim &gt; * &gt; &amp;&#160;</td>
-          <td class="paramname"><em>scalar_functionals_interface_to_call</em>&#160;</td>
+          <td class="paramname"><em>scalar_functionals_interface_to_call</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>call_all_functionals</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -616,6 +622,7 @@ template&lt;class VectorType &gt; </div>
     <tr><td class="paramdir">[in]</td><td class="paramname">solution_ref_sets</td><td>a set of reference solution vectors (e.g. solutions at previous time steps), which may enter into the calculation of the scalar functionals</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">scalar_functionals_domain_to_call</td><td>domain-related scalar functionals to be evaluated</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">scalar_functionals_interface_to_call</td><td>interface-related scalar functionals to be evaluated</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">call_all_scalar_functionals</td><td>If this is set to true, all scalar functionals involved in the total potential are called irrespective of what is given in <code>scalar_functionals_domain_to_call</code> and <code>scalar_functionals_interface_to_call</code>.</td></tr>
   </table>
   </dd>
 </dl>

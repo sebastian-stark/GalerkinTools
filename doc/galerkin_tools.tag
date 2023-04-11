@@ -404,8 +404,8 @@
       <type>void</type>
       <name>call_scalar_functionals</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a2940850798972b003cf33d37e705490e</anchor>
-      <arglist>(const VectorType &amp;solution, const std::vector&lt; const VectorType * &gt; &amp;solution_ref_sets, const std::set&lt; const ScalarFunctional&lt; spacedim, spacedim &gt; * &gt; &amp;scalar_functionals_domain_to_call, const std::set&lt; const ScalarFunctional&lt; spacedim-1, spacedim &gt; * &gt; &amp;scalar_functionals_interface_to_call) const</arglist>
+      <anchor>a60af8e484b7663e5fe5595a6e0e07693</anchor>
+      <arglist>(const VectorType &amp;solution, const std::vector&lt; const VectorType * &gt; &amp;solution_ref_sets, const std::set&lt; const ScalarFunctional&lt; spacedim, spacedim &gt; * &gt; &amp;scalar_functionals_domain_to_call, const std::set&lt; const ScalarFunctional&lt; spacedim-1, spacedim &gt; * &gt; &amp;scalar_functionals_interface_to_call, const bool call_all_functionals=false) const</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -1790,8 +1790,8 @@
       <type>void</type>
       <name>call_scalar_functionals</name>
       <anchorfile>class_assembly_helper.html</anchorfile>
-      <anchor>a2940850798972b003cf33d37e705490e</anchor>
-      <arglist>(const VectorType &amp;solution, const std::vector&lt; const VectorType * &gt; &amp;solution_ref_sets, const std::set&lt; const ScalarFunctional&lt; spacedim, spacedim &gt; * &gt; &amp;scalar_functionals_domain_to_call, const std::set&lt; const ScalarFunctional&lt; spacedim-1, spacedim &gt; * &gt; &amp;scalar_functionals_interface_to_call) const</arglist>
+      <anchor>a60af8e484b7663e5fe5595a6e0e07693</anchor>
+      <arglist>(const VectorType &amp;solution, const std::vector&lt; const VectorType * &gt; &amp;solution_ref_sets, const std::set&lt; const ScalarFunctional&lt; spacedim, spacedim &gt; * &gt; &amp;scalar_functionals_domain_to_call, const std::set&lt; const ScalarFunctional&lt; spacedim-1, spacedim &gt; * &gt; &amp;scalar_functionals_interface_to_call, const bool call_all_functionals=false) const</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -4731,6 +4731,13 @@
       <arglist>(Vector&lt; double &gt; &amp;e_sigma, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_sigma_ref_sets, Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, const Tensor&lt; 1, spacedim &gt; &amp;n, const std::string detailed_printout_file=&quot;&quot;, const double epsilon=1e-8) const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>set_q_point_id</name>
+      <anchorfile>class_scalar_functional.html</anchorfile>
+      <anchor>a88573ddc3d2467301a5ca30590d82303</anchor>
+      <arglist>(std::string q_point_id) const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~ScalarFunctional</name>
       <anchorfile>class_scalar_functional.html</anchorfile>
@@ -4793,6 +4800,20 @@
       <anchor>a7e12423f4b29e9e0aaa0f7f9c2d1c0eb</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable" protection="protected">
+      <type>std::string</type>
+      <name>q_point_id</name>
+      <anchorfile>class_scalar_functional.html</anchorfile>
+      <anchor>a1609d09f1f8c2084e4c0f8b5432dc86c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend class</type>
+      <name>AssemblyHelper</name>
+      <anchorfile>class_scalar_functional.html</anchorfile>
+      <anchor>af4019c2e39cc934d646aaa35c3c52773</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>ScalarFunctional&lt; spacedim, spacedim &gt;</name>
@@ -4840,6 +4861,13 @@
       <anchorfile>class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>ab1cbbd84088b3dae549d152e049240da</anchor>
       <arglist>(Vector&lt; double &gt; &amp;e_omega, const std::vector&lt; Vector&lt; double &gt;&gt; &amp;e_omega_ref_sets, Vector&lt; double &gt; &amp;hidden_vars, const Point&lt; spacedim &gt; &amp;x, const std::string detailed_printout_file=&quot;&quot;, const double epsilon=1e-8) const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>set_q_point_id</name>
+      <anchorfile>class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a8c1c9dc1488f810fc7dd0a4233e0b3d4</anchor>
+      <arglist>(std::string q_point_id) const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -4904,6 +4932,20 @@
       <anchor>acee2c3c289e5b2b680996facc2f79e78</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable" protection="protected">
+      <type>std::string</type>
+      <name>q_point_id</name>
+      <anchorfile>class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a6704f42ad921bc042b5be661d5737557</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend class</type>
+      <name>AssemblyHelper</name>
+      <anchorfile>class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>af4019c2e39cc934d646aaa35c3c52773</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>ScalarFunctionalLocalElimination</name>
@@ -4941,6 +4983,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>set_safety_distance_step</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>a7de6ba97eb27336b77cf1383e79ea3ad</anchor>
+      <arglist>(const double safety_step)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>set_threshold_residual</name>
       <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
       <anchor>a0165ca6758e3818dbd279a109ed65d3c</anchor>
@@ -4973,6 +5022,13 @@
       <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
       <anchor>a1a0fb740473442c270f6c76b146f6c61</anchor>
       <arglist>(const bool use_line_search)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_q_point_id</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>ac1bb9770d8d5b60aca7cd71ef86415b1</anchor>
+      <arglist>(std::string q_point_id) const override final</arglist>
     </member>
     <member kind="variable" protection="private">
       <type>const std::vector&lt; ScalarFunctional&lt; dim, spacedim &gt; * &gt;</type>
@@ -5007,6 +5063,13 @@
       <name>safety_distance</name>
       <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
       <anchor>a469c7e8629c32b215aba04c805617d9d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>safety_distance_step</name>
+      <anchorfile>class_scalar_functional_local_elimination.html</anchorfile>
+      <anchor>a75b69be34e2a90185083e0a0267781f0</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -5080,6 +5143,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>set_safety_distance_step</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>aba38dd2c4de8cd593a00e8811c4be10d</anchor>
+      <arglist>(const double safety_step)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>set_threshold_residual</name>
       <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>ac82db99b2b08cd32f74fadd57ef18e19</anchor>
@@ -5112,6 +5182,13 @@
       <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>ae835e407763fa55661c3405b77be1ef0</anchor>
       <arglist>(const bool use_line_search)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>set_q_point_id</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a3b922dbb073d2c4649e833ef52626385</anchor>
+      <arglist>(std::string q_point_id) const override final</arglist>
     </member>
     <member kind="variable" protection="private">
       <type>const std::vector&lt; ScalarFunctional&lt; spacedim, spacedim &gt; * &gt;</type>
@@ -5146,6 +5223,13 @@
       <name>safety_distance</name>
       <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
       <anchor>a55ab0ce1d909f96e614b84c3ee00bcb3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>safety_distance_step</name>
+      <anchorfile>class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html</anchorfile>
+      <anchor>a7bb7215106da6851ec4d17aeba85230c</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">

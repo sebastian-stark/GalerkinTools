@@ -33,6 +33,8 @@ virtual double \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01sp
 \item 
 void \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a53352820c3f0493793196010232ef96a}{set\+\_\+safety\+\_\+distance}} (const double \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a55ab0ce1d909f96e614b84c3ee00bcb3}{safety\+\_\+distance}})
 \item 
+void \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_aba38dd2c4de8cd593a00e8811c4be10d}{set\+\_\+safety\+\_\+distance\+\_\+step}} (const double safety\+\_\+step)
+\item 
 void \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_ac82db99b2b08cd32f74fadd57ef18e19}{set\+\_\+threshold\+\_\+residual}} (const double \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a2a268af4bf9867e51446fbd33c488fe9}{threshold\+\_\+residual}})
 \item 
 void \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a2c0c51e69a894bd3196ac1da7f25ca33}{set\+\_\+threshold\+\_\+step\+\_\+size}} (const double \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_aa3761ab1e9111468e31135fd954cb964}{threshold\+\_\+step\+\_\+size}})
@@ -42,6 +44,8 @@ void \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_
 void \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a9669b2078915bd408a42612e0b68c008}{set\+\_\+max\+\_\+cutbacks}} (const unsigned int \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a230b126730b702170f6b7edd1d23c735}{max\+\_\+cutbacks}})
 \item 
 void \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_ae835e407763fa55661c3405b77be1ef0}{set\+\_\+use\+\_\+line\+\_\+search}} (const bool \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_ac3301f2f6f6e71675ab4d21487484946}{use\+\_\+line\+\_\+search}})
+\item 
+void \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a3b922dbb073d2c4649e833ef52626385}{set\+\_\+q\+\_\+point\+\_\+id}} (std\+::string \mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a6704f42ad921bc042b5be661d5737557}{q\+\_\+point\+\_\+id}}) const override final
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -55,6 +59,8 @@ std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_scalar_functional_local
 std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_aa99a6e0152120b63d6052c4b597c91f4}{indices\+\_\+locally\+\_\+eliminated\+\_\+dependent\+\_\+fields}}
 \item 
 double \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a55ab0ce1d909f96e614b84c3ee00bcb3}{safety\+\_\+distance}} = 0.\+9
+\item 
+double \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a7bb7215106da6851ec4d17aeba85230c}{safety\+\_\+distance\+\_\+step}} = 0.\+9
 \item 
 double \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a2a268af4bf9867e51446fbd33c488fe9}{threshold\+\_\+residual}} = 1\textbf{ e}-\/10
 \item 
@@ -146,14 +152,39 @@ Sets \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 void \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ spacedim, spacedim $>$\+::set\+\_\+max\+\_\+iter (\begin{DoxyParamCaption}\item[{const unsigned int}]{max\+\_\+iter }\end{DoxyParamCaption})}
 
-Sets \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a329bf04de49be40085b0b70bf4d5a039}{Scalar\+Functional\+Local\+Elimination$<$spacedim,spacedim$>$\+::max\+\_\+iter}} \mbox{\Hypertarget{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a53352820c3f0493793196010232ef96a}\label{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a53352820c3f0493793196010232ef96a}} 
+Sets \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a329bf04de49be40085b0b70bf4d5a039}{Scalar\+Functional\+Local\+Elimination$<$spacedim,spacedim$>$\+::max\+\_\+iter}} \mbox{\Hypertarget{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a3b922dbb073d2c4649e833ef52626385}\label{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a3b922dbb073d2c4649e833ef52626385}} 
+\index{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$}!set\_q\_point\_id@{set\_q\_point\_id}}
+\index{set\_q\_point\_id@{set\_q\_point\_id}!ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{set\_q\_point\_id()}{set\_q\_point\_id()}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ spacedim, spacedim $>$\+::set\+\_\+q\+\_\+point\+\_\+id (\begin{DoxyParamCaption}\item[{std\+::string}]{q\+\_\+point\+\_\+id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+set \mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a6704f42ad921bc042b5be661d5737557}{Scalar\+Functional$<$spacedim,spacedim$>$\+::q\+\_\+point\+\_\+id}} of all scalar functionals of \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_afff9951bc0ac7a5dfc55c01ffb36177a}{Scalar\+Functional\+Local\+Elimination$<$spacedim,spacedim$>$\+::scalar\+\_\+functionals}}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em q\+\_\+point\+\_\+id} & \mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a6704f42ad921bc042b5be661d5737557}{Scalar\+Functional$<$spacedim,spacedim$>$\+::q\+\_\+point\+\_\+id}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a8c1c9dc1488f810fc7dd0a4233e0b3d4}{Scalar\+Functional$<$ spacedim, spacedim $>$}}.
+
+\mbox{\Hypertarget{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a53352820c3f0493793196010232ef96a}\label{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a53352820c3f0493793196010232ef96a}} 
 \index{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$}!set\_safety\_distance@{set\_safety\_distance}}
 \index{set\_safety\_distance@{set\_safety\_distance}!ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{set\_safety\_distance()}{set\_safety\_distance()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 void \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ spacedim, spacedim $>$\+::set\+\_\+safety\+\_\+distance (\begin{DoxyParamCaption}\item[{const double}]{safety\+\_\+distance }\end{DoxyParamCaption})}
 
-Sets \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a55ab0ce1d909f96e614b84c3ee00bcb3}{Scalar\+Functional\+Local\+Elimination$<$spacedim,spacedim$>$\+::safety\+\_\+distance}} \mbox{\Hypertarget{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_ac82db99b2b08cd32f74fadd57ef18e19}\label{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_ac82db99b2b08cd32f74fadd57ef18e19}} 
+Sets \mbox{\hyperlink{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a55ab0ce1d909f96e614b84c3ee00bcb3}{Scalar\+Functional\+Local\+Elimination$<$spacedim,spacedim$>$\+::safety\+\_\+distance}} \mbox{\Hypertarget{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_aba38dd2c4de8cd593a00e8811c4be10d}\label{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_aba38dd2c4de8cd593a00e8811c4be10d}} 
+\index{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$}!set\_safety\_distance\_step@{set\_safety\_distance\_step}}
+\index{set\_safety\_distance\_step@{set\_safety\_distance\_step}!ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{set\_safety\_distance\_step()}{set\_safety\_distance\_step()}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ spacedim, spacedim $>$\+::set\+\_\+safety\+\_\+distance\+\_\+step (\begin{DoxyParamCaption}\item[{const double}]{safety\+\_\+step }\end{DoxyParamCaption})}
+
+Sets Scalar\+Functional\+Local\+Elimination$<$spacedim,spacedim$>$\+::safety\+\_\+step \mbox{\Hypertarget{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_ac82db99b2b08cd32f74fadd57ef18e19}\label{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_ac82db99b2b08cd32f74fadd57ef18e19}} 
 \index{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$}!set\_threshold\_residual@{set\_threshold\_residual}}
 \index{set\_threshold\_residual@{set\_threshold\_residual}!ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{set\_threshold\_residual()}{set\_threshold\_residual()}}
@@ -219,9 +250,14 @@ maximum number of Newton-\/\+Raphson iterations \mbox{\Hypertarget{class_scalar_
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 double \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ spacedim, spacedim $>$\+::safety\+\_\+distance = 0.\+9\hspace{0.3cm}{\ttfamily [private]}}
 
-Safety distance to an inadmissible state within a single Newton-\/\+Raphson iteration during determination of the values of the local dependent fields (0 $<$ {\ttfamily safety\+\_\+distance} $<$ 1.\+0). The Newton step length will be decreased such that the \char`\"{}distance\char`\"{} between the solution and the boundary of the domain of admissibility is decreased by {\ttfamily safety\+\_\+distance} at most during a single iteration (1.\+0 would correspond to no safety distance at all). This is used to avoid ill-\/conditioning problems resulting from a too quick approach of the boundary of the domain of admissibility.
+Safety distance to an inadmissible state within a single Newton-\/\+Raphson iteration during determination of the values of the local dependent fields (0 $<$ {\ttfamily safety\+\_\+distance} $<$ 1.\+0). The Newton step length will be decreased such that the \char`\"{}distance\char`\"{} between the solution and the boundary of the domain of admissibility is decreased by {\ttfamily safety\+\_\+distance} at most during a single iteration (1.\+0 would correspond to no safety distance at all). This is used to avoid ill-\/conditioning problems resulting from a too quick approach of the boundary of the domain of admissibility. \mbox{\Hypertarget{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a7bb7215106da6851ec4d17aeba85230c}\label{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_a7bb7215106da6851ec4d17aeba85230c}} 
+\index{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$}!safety\_distance\_step@{safety\_distance\_step}}
+\index{safety\_distance\_step@{safety\_distance\_step}!ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{safety\_distance\_step}{safety\_distance\_step}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+double \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ spacedim, spacedim $>$\+::safety\+\_\+distance\+\_\+step = 0.\+9\hspace{0.3cm}{\ttfamily [private]}}
 
-Additionally, the routines will return an error if the total increment to the local variables (between the initial state and the result of the Newton-\/\+Raphson iteration) is such that the \char`\"{}distance\char`\"{} between the local solution and the boundary of the domain of admissibility is decreased by more than safety\+\_\+distance. \mbox{\Hypertarget{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_afff9951bc0ac7a5dfc55c01ffb36177a}\label{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_afff9951bc0ac7a5dfc55c01ffb36177a}} 
+The routines will return an error if the total increment to the local variables (between the initial state and the result of the Newton-\/\+Raphson iteration) is such that the \char`\"{}distance\char`\"{} between the local solution and the boundary of the domain of admissibility is decreased by more than safety\+\_\+distance. \mbox{\Hypertarget{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_afff9951bc0ac7a5dfc55c01ffb36177a}\label{class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4_afff9951bc0ac7a5dfc55c01ffb36177a}} 
 \index{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$}!scalar\_functionals@{scalar\_functionals}}
 \index{scalar\_functionals@{scalar\_functionals}!ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ spacedim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{scalar\_functionals}{scalar\_functionals}}

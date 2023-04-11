@@ -2415,8 +2415,7 @@ const
 					const auto& x = q_points[q_point];
 
 					//evaluate the integrand of the scalar functional and its derivatives w.r.t. the independent variables
-					scalar_functional->cell_id = domain_cell->id();
-					scalar_functional->q_point = q_point;
+					scalar_functional->set_q_point_id(domain_cell->id().to_string() + Utilities::to_string(q_point));
 					if(scalar_functional->get_h_omega(e_omega, e_omega_ref_sets, hidden_vars, x, h_omega, h_omega_1, h_omega_2, requested_quantities))
 						error = true;
 
@@ -2861,8 +2860,7 @@ const
 					const auto& n = normals[q_point];
 
 					//evaluate the integrand of the scalar functional and its derivatives w.r.t. the independent variables
-					scalar_functional->cell_id = interface_cell_domain_cells.interface_cell->id();
-					scalar_functional->q_point = q_point;
+					scalar_functional->set_q_point_id(interface_cell_domain_cells.interface_cell->id().to_string() + Utilities::to_string(q_point));
 					if(scalar_functional->get_h_sigma(e_sigma, e_sigma_ref_sets, hidden_vars, x, n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities))
 						error = true;
 
@@ -5295,8 +5293,7 @@ const
 					const auto& x = q_points[q_point];
 
 					//evaluate the integrand of the scalar functional
-					scalar_functional->cell_id = domain_cell->id();
-					scalar_functional->q_point = q_point;
+					scalar_functional->set_q_point_id(domain_cell->id().to_string() + Utilities::to_string(q_point));
 					if(scalar_functional->get_h_omega(e_omega, e_omega_ref_sets, hidden_vars, x, h_omega, h_omega_1, h_omega_2, requested_quantities))
 						error = true;
 
@@ -5540,8 +5537,7 @@ const
 					const auto& n = normals[q_point];
 
 					//evaluate the integrand of the scalar functional
-					scalar_functional->cell_id = interface_cell_domain_cells.interface_cell->id();
-					scalar_functional->q_point = q_point;
+					scalar_functional->set_q_point_id(interface_cell_domain_cells.interface_cell->id().to_string() + Utilities::to_string(q_point));
 					if(scalar_functional->get_h_sigma(e_sigma, e_sigma_ref_sets, hidden_vars, x, n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities))
 						error = true;
 
@@ -5595,7 +5591,8 @@ void
 AssemblyHelper<spacedim>::call_scalar_functionals(	const VectorType&											solution,
 													const vector<const VectorType*>&							solution_ref_sets,
 													const set<const ScalarFunctional<spacedim, spacedim>*>&		scalar_functionals_domain_to_call,
-													const set<const ScalarFunctional<spacedim-1, spacedim>*>&	scalar_functionals_interface_to_call)
+													const set<const ScalarFunctional<spacedim-1, spacedim>*>&	scalar_functionals_interface_to_call,
+													const bool													call_all_functionals)
 const
 {
 
@@ -5686,7 +5683,7 @@ const
 			{
 
 				const auto scalar_functional = scalar_functionals_domain[internal_index][scalar_functional_n];
-				if(scalar_functionals_domain_to_call.find(scalar_functional) == scalar_functionals_domain_to_call.end())
+				if((!call_all_functionals) && (scalar_functionals_domain_to_call.find(scalar_functional) == scalar_functionals_domain_to_call.end()))
 					continue;
 
 				//this contains the local dof indices coupling on the domain cell for the scalar functional under consideration
@@ -5737,8 +5734,7 @@ const
 					//the location of the quadrature point in real space
 					const auto& x = q_points[q_point];
 
-					scalar_functional->cell_id = domain_cell->id();
-					scalar_functional->q_point = q_point;
+					scalar_functional->set_q_point_id(domain_cell->id().to_string() + Utilities::to_string(q_point));
 					scalar_functional->get_h_omega(e_omega, e_omega_ref_sets, hidden_vars, x, h_omega, h_omega_1, h_omega_2, requested_quantities);
 
 					// take radial symmetry into account if requested
@@ -5874,7 +5870,7 @@ const
 			for(unsigned int scalar_functional_n = 0; scalar_functional_n < scalar_functionals_interface[internal_index].size(); ++scalar_functional_n)
 			{
 				const auto scalar_functional = scalar_functionals_interface[internal_index][scalar_functional_n];
-				if(scalar_functionals_interface_to_call.find(scalar_functional) == scalar_functionals_interface_to_call.end())
+				if((!call_all_functionals) && (scalar_functionals_interface_to_call.find(scalar_functional) == scalar_functionals_interface_to_call.end()))
 					continue;
 
 				//this contains the local dof indices coupling on the interface cell for the scalar functional under consideration
@@ -5973,8 +5969,7 @@ const
 					const auto& n = normals[q_point];
 
 					//evaluate the integrand of the scalar functional
-					scalar_functional->cell_id = interface_cell_domain_cells.interface_cell->id();
-					scalar_functional->q_point = q_point;
+					scalar_functional->set_q_point_id(interface_cell_domain_cells.interface_cell->id().to_string() + Utilities::to_string(q_point));
 					scalar_functional->get_h_sigma(e_sigma, e_sigma_ref_sets, hidden_vars, x, n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities);
 
 					// take radial symmetry into account if requested
@@ -6123,7 +6118,8 @@ void
 AssemblyHelper<2>::call_scalar_functionals<Vector<double>>(	const Vector<double>&,
 															const vector<const Vector<double>*>&,
 															const set<const ScalarFunctional<2, 2>*>&,
-															const set<const ScalarFunctional<1, 2>*>&)
+															const set<const ScalarFunctional<1, 2>*>&,
+															const bool)
 const;
 
 template
@@ -6131,7 +6127,8 @@ void
 AssemblyHelper<3>::call_scalar_functionals<Vector<double>>(	const Vector<double>&,
 															const vector<const Vector<double>*>&,
 															const set<const ScalarFunctional<3, 3>*>&,
-															const set<const ScalarFunctional<2, 3>*>&)
+															const set<const ScalarFunctional<2, 3>*>&,
+															const bool)
 const;
 
 #ifdef DEAL_II_WITH_MPI
@@ -6140,7 +6137,8 @@ void
 AssemblyHelper<2>::call_scalar_functionals<LinearAlgebra::distributed::Vector<double>>(	const LinearAlgebra::distributed::Vector<double>&,
 																						const vector<const LinearAlgebra::distributed::Vector<double>*>&,
 																						const set<const ScalarFunctional<2, 2>*>&,
-																						const set<const ScalarFunctional<1, 2>*>&)
+																						const set<const ScalarFunctional<1, 2>*>&,
+																						const bool)
 const;
 
 template
@@ -6148,7 +6146,8 @@ void
 AssemblyHelper<3>::call_scalar_functionals<LinearAlgebra::distributed::Vector<double>>(	const LinearAlgebra::distributed::Vector<double>&,
 																						const vector<const LinearAlgebra::distributed::Vector<double>*>&,
 																						const set<const ScalarFunctional<3, 3>*>&,
-																						const set<const ScalarFunctional<2, 3>*>&)
+																						const set<const ScalarFunctional<2, 3>*>&,
+																						const bool)
 const;
 #endif // DEAL_II_WITH_MPI
 

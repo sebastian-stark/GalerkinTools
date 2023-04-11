@@ -65,6 +65,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ScalarFunctional&lt; spacedim, spacedim &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -112,6 +114,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a43097fde6921f2dcf85f173540eb1414"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1cbbd84088b3dae549d152e049240da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#ab1cbbd84088b3dae549d152e049240da">compare_derivatives_with_numerical_derivatives</a> (<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;<a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#adfed9b70b743ba245a39c3e63b951f96">e_omega</a>, const std::vector&lt; <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt;&gt; &amp;e_omega_ref_sets, <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classVector.html">Vector</a>&lt; double &gt; &amp;hidden_vars, const <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classPoint.html">Point</a>&lt; spacedim &gt; &amp;x, const std::string detailed_printout_file=&quot;&quot;, const double <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacePhysics_1_1Elasticity_1_1Kinematics.html#a338a944a393875e2dd499457d1055841">epsilon</a>=1<a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/namespacePhysics_1_1Elasticity_1_1Kinematics.html#a9587d5229555daa5b1fa1ba2f8a40adb">e</a>-8) const</td></tr>
 <tr class="separator:ab1cbbd84088b3dae549d152e049240da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c1c9dc1488f810fc7dd0a4233e0b3d4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a8c1c9dc1488f810fc7dd0a4233e0b3d4">set_q_point_id</a> (std::string <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a6704f42ad921bc042b5be661d5737557">q_point_id</a>) const</td></tr>
+<tr class="separator:a8c1c9dc1488f810fc7dd0a4233e0b3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42b56519b3e4338d248c1e29e29831a6"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a42b56519b3e4338d248c1e29e29831a6">~ScalarFunctional</a> ()</td></tr>
 <tr class="separator:a42b56519b3e4338d248c1e29e29831a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classSubscriptor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classSubscriptor')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el"  href="https://dealii.org/9.0.0/doxygen/deal.II/classSubscriptor.html">Subscriptor</a></td></tr>
@@ -156,6 +160,17 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a195248af3821548af3000872e9e6d00e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acee2c3c289e5b2b680996facc2f79e78"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#acee2c3c289e5b2b680996facc2f79e78">n_ref_sets</a></td></tr>
 <tr class="separator:acee2c3c289e5b2b680996facc2f79e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a6704f42ad921bc042b5be661d5737557"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a6704f42ad921bc042b5be661d5737557">q_point_id</a> = &quot;&quot;</td></tr>
+<tr class="separator:a6704f42ad921bc042b5be661d5737557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:af4019c2e39cc934d646aaa35c3c52773"><td class="memTemplParams" colspan="2">template&lt;unsigned int p&gt; </td></tr>
+<tr class="memitem:af4019c2e39cc934d646aaa35c3c52773"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#af4019c2e39cc934d646aaa35c3c52773">AssemblyHelper</a></td></tr>
+<tr class="separator:af4019c2e39cc934d646aaa35c3c52773"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -641,6 +656,71 @@ template&lt;unsigned int spacedim&gt; </div>
 
 </div>
 </div>
+<a id="a8c1c9dc1488f810fc7dd0a4233e0b3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c1c9dc1488f810fc7dd0a4233e0b3d4">&#9670;&nbsp;</a></span>set_q_point_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; spacedim, spacedim &gt;::set_q_point_id </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>q_point_id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>set <a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a6704f42ad921bc042b5be661d5737557">ScalarFunctional&lt;spacedim, spacedim&gt;::q_point_id</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">q_point_id</td><td><a class="el" href="class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html#a6704f42ad921bc042b5be661d5737557">ScalarFunctional&lt;spacedim, spacedim&gt;::q_point_id</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html#a3b922dbb073d2c4649e833ef52626385">ScalarFunctionalLocalElimination&lt; spacedim, spacedim &gt;</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="af4019c2e39cc934d646aaa35c3c52773"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4019c2e39cc934d646aaa35c3c52773">&#9670;&nbsp;</a></span>AssemblyHelper</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+<div class="memtemplate">
+template&lt;unsigned int p&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_assembly_helper.html">AssemblyHelper</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>make <a class="el" href="class_assembly_helper.html">AssemblyHelper</a> a friend (needed to allow for telling <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>, which cell and which quadrature point is currently operated on </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="aa192395f822a64f60df43bf9d36c2f3a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa192395f822a64f60df43bf9d36c2f3a">&#9670;&nbsp;</a></span>domain_of_integration</h2>
@@ -760,6 +840,31 @@ template&lt;unsigned int spacedim&gt; </div>
       </table>
 </div><div class="memdoc">
 <p>A name for the scalar functional </p>
+
+</div>
+</div>
+<a id="a6704f42ad921bc042b5be661d5737557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6704f42ad921bc042b5be661d5737557">&#9670;&nbsp;</a></span>q_point_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int spacedim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="class_scalar_functional.html">ScalarFunctional</a>&lt; spacedim, spacedim &gt;::q_point_id = &quot;&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>this is set to a unique identifier of the currently active quadrature point </p>
 
 </div>
 </div>
