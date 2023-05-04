@@ -516,6 +516,13 @@ private:
 	jcn = std::vector<int>();
 
 	/**
+	 * Vector storing the indices of the diagonals
+	 */
+	std::vector<int>
+	d = std::vector<int>();
+
+
+	/**
 	 * Array storing the numerical values of the non-zero entries of the matrix A,
 	 * A[i] is A(irn[i], jcn[i])
 	 */
@@ -596,6 +603,18 @@ public:
 	cntl = nullptr;
 
 	/**
+	 * info array of MUMPS
+	 */
+	int*
+	info = nullptr;
+
+	/**
+	 * infog array of MUMPS
+	 */
+	int*
+	infog = nullptr;
+
+	/**
 	 * Key indicating when to analyze the matrix structure:<br>
 	 * 0 - before each factorization (default)<br>
 	 * 1 - only before the next factorization (afterwards, BlockSolverWrapperMUMPS::analyze will be set to 2)<br>
@@ -606,6 +625,25 @@ public:
 	 */
 	unsigned int
 	analyze = 0;
+
+	/**
+	 * This will use algorithm 3.3 from Nocedal and Wright: Numerical Optimization, 2nd Edition to ensure that the factorized matrix is p.d. The setting is only valid if sym = 1 has been passed in the constructor.
+	 * Furthermore, the approach is currently only implemented for the case that only the (0,0)-block of the TwoBlockMatrix exists.
+	 */
+	bool
+	modify_on_negative_pivot = false;
+
+	/**
+	 * Parameter beta of algorithm 3.3 from Nocedal and Wright: Numerical Optimization, 2nd Edition; see also BlockSolverWrapperMUMPS::modify_on_negative_pivot
+	 */
+	double
+	beta = 1e-3;
+
+	/**
+	 * Increase-factor for tau between two loops in algorithm 3.3 from Nocedal and Wright: Numerical Optimization, 2nd Edition; see also BlockSolverWrapperMUMPS::modify_on_negative_pivot
+	 */
+	double
+	increase_tau = 2.0;
 
 	/**
 	 * Constructor

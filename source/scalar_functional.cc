@@ -166,6 +166,7 @@ template<unsigned int dim, unsigned int spacedim>
 			const unsigned int N_hv = scalar_functionals[sf]->n_hidden;
 
 			h += h_sf[sf];
+
 			for(unsigned int df = 0; df < N_df; ++df)
 				h_1[map_dependent_fields[sf][df]] += h_1_sf[sf][df];
 
