@@ -303,7 +303,9 @@ template<unsigned int dim, unsigned int spacedim>
 		{
 			// compute the system and determine solution increment for local dependent fields
 			if(get_system<dim, spacedim>(e, e_ref_sets, hidden_vars, x, n, h, h_1, h_2, f_A, f_B, AA, AB, BA, BB, scalar_functionals, map_dependent_fields, indices_nonlocal_dependent_fields, indices_local_dependent_fields), false)
+			{
 				return true;
+			}
 		}
 
 		if(NA > 0)
