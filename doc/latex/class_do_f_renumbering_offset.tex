@@ -27,11 +27,11 @@ Collaboration diagram for Do\+F\+Renumbering\+Offset\+:\nopagebreak
 \item 
 void \mbox{\hyperlink{class_do_f_renumbering_offset_a39333b4c3597c2b4a967f7af3cec0054}{add\+\_\+range}} (const unsigned int dof\+\_\+start, const unsigned int dof\+\_\+end, const int offset)
 \item 
-virtual void \mbox{\hyperlink{class_do_f_renumbering_offset_a11744a010a6502ae0aa9bac11c7ff3f0}{convert\+\_\+dof\+\_\+indices}} (std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices) const
+virtual void \mbox{\hyperlink{class_do_f_renumbering_offset_a11744a010a6502ae0aa9bac11c7ff3f0}{convert\+\_\+dof\+\_\+indices}} (\textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices) const
 \item 
-virtual std\+::vector$<$ std\+::pair$<$ const unsigned int, const unsigned int $>$ $>$ \mbox{\hyperlink{class_do_f_renumbering_offset_adef238432ea7b8100c3d4d0e008a9f72}{convert\+\_\+range}} (const unsigned int range\+\_\+begin, const unsigned int range\+\_\+end) const
+virtual \textbf{ std\+::vector}$<$ std\+::pair$<$ const unsigned int, const unsigned int $>$ $>$ \mbox{\hyperlink{class_do_f_renumbering_offset_adef238432ea7b8100c3d4d0e008a9f72}{convert\+\_\+range}} (const unsigned int range\+\_\+begin, const unsigned int range\+\_\+end) const
 \item 
-const std\+::vector$<$ std\+::tuple$<$ const unsigned int, const unsigned int, const int $>$ $>$ \& \mbox{\hyperlink{class_do_f_renumbering_offset_a672fcd1ce3fa89174aceb105b00e7814}{get\+\_\+dof\+\_\+offsets}} () const
+const \textbf{ std\+::vector}$<$ std\+::tuple$<$ const unsigned int, const unsigned int, const int $>$ $>$ \& \mbox{\hyperlink{class_do_f_renumbering_offset_a672fcd1ce3fa89174aceb105b00e7814}{get\+\_\+dof\+\_\+offsets}} () const
 \item 
 void \mbox{\hyperlink{class_do_f_renumbering_offset_ac7156c58d0aa5dcb57fa0fe3ac437453}{clear}} ()
 \item 
@@ -40,7 +40,7 @@ void \mbox{\hyperlink{class_do_f_renumbering_offset_a0781d3aa455908ba49e61eafaca
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ std\+::tuple$<$ const unsigned int, const unsigned int, const int $>$ $>$ \mbox{\hyperlink{class_do_f_renumbering_offset_a5df6c4b70b1394c3670ced634146c9a9}{dof\+\_\+offsets}}
+\textbf{ std\+::vector}$<$ std\+::tuple$<$ const unsigned int, const unsigned int, const int $>$ $>$ \mbox{\hyperlink{class_do_f_renumbering_offset_a5df6c4b70b1394c3670ced634146c9a9}{dof\+\_\+offsets}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
@@ -76,7 +76,7 @@ Function resetting the object \mbox{\Hypertarget{class_do_f_renumbering_offset_a
 \index{DoFRenumberingOffset@{DoFRenumberingOffset}!convert\_dof\_indices@{convert\_dof\_indices}}
 \index{convert\_dof\_indices@{convert\_dof\_indices}!DoFRenumberingOffset@{DoFRenumberingOffset}}
 \doxysubsubsection{\texorpdfstring{convert\_dof\_indices()}{convert\_dof\_indices()}}
-{\footnotesize\ttfamily virtual void Do\+F\+Renumbering\+Offset\+::convert\+\_\+dof\+\_\+indices (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual void Do\+F\+Renumbering\+Offset\+::convert\+\_\+dof\+\_\+indices (\begin{DoxyParamCaption}\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
 This function renumbers the incoming dof indices
 
@@ -93,7 +93,7 @@ Reimplemented from \mbox{\hyperlink{class_do_f_renumbering_a3dd9e72a14b3078a9f82
 \index{DoFRenumberingOffset@{DoFRenumberingOffset}!convert\_range@{convert\_range}}
 \index{convert\_range@{convert\_range}!DoFRenumberingOffset@{DoFRenumberingOffset}}
 \doxysubsubsection{\texorpdfstring{convert\_range()}{convert\_range()}}
-{\footnotesize\ttfamily virtual std\+::vector$<$std\+::pair$<$const unsigned int, const unsigned int$>$ $>$ Do\+F\+Renumbering\+Offset\+::convert\+\_\+range (\begin{DoxyParamCaption}\item[{const unsigned int}]{range\+\_\+begin,  }\item[{const unsigned int}]{range\+\_\+end }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \textbf{ std\+::vector}$<$std\+::pair$<$const unsigned int, const unsigned int$>$ $>$ Do\+F\+Renumbering\+Offset\+::convert\+\_\+range (\begin{DoxyParamCaption}\item[{const unsigned int}]{range\+\_\+begin,  }\item[{const unsigned int}]{range\+\_\+end }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
 Converts a contiguous range \mbox{[}{\ttfamily range\+\_\+begin}, {\ttfamily range\+\_\+end}\mbox{]} of indices into one or several contiguous ranges in the new numbering
 
@@ -115,7 +115,7 @@ Reimplemented from \mbox{\hyperlink{class_do_f_renumbering_a39be83786966bdce332a
 \index{DoFRenumberingOffset@{DoFRenumberingOffset}!get\_dof\_offsets@{get\_dof\_offsets}}
 \index{get\_dof\_offsets@{get\_dof\_offsets}!DoFRenumberingOffset@{DoFRenumberingOffset}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_offsets()}{get\_dof\_offsets()}}
-{\footnotesize\ttfamily const std\+::vector$<$std\+::tuple$<$const unsigned int, const unsigned int, const int$>$ $>$\& Do\+F\+Renumbering\+Offset\+::get\+\_\+dof\+\_\+offsets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const \textbf{ std\+::vector}$<$std\+::tuple$<$const unsigned int, const unsigned int, const int$>$ $>$\& Do\+F\+Renumbering\+Offset\+::get\+\_\+dof\+\_\+offsets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{class_do_f_renumbering_offset_a5df6c4b70b1394c3670ced634146c9a9}{Do\+F\+Renumbering\+Offset\+::dof\+\_\+offsets}} 
@@ -140,7 +140,7 @@ print the renumbering scheme to screen
 \index{DoFRenumberingOffset@{DoFRenumberingOffset}!dof\_offsets@{dof\_offsets}}
 \index{dof\_offsets@{dof\_offsets}!DoFRenumberingOffset@{DoFRenumberingOffset}}
 \doxysubsubsection{\texorpdfstring{dof\_offsets}{dof\_offsets}}
-{\footnotesize\ttfamily std\+::vector$<$std\+::tuple$<$const unsigned int, const unsigned int, const int$>$ $>$ Do\+F\+Renumbering\+Offset\+::dof\+\_\+offsets\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$std\+::tuple$<$const unsigned int, const unsigned int, const int$>$ $>$ Do\+F\+Renumbering\+Offset\+::dof\+\_\+offsets\hspace{0.3cm}{\ttfamily [private]}}
 
 This data structure defines a fixed shift of dof numbers from a certain interval \mbox{[}dof\+\_\+start\+\_\+i, dof\+\_\+end\+\_\+i\mbox{]} to the interval \mbox{[}dof\+\_\+start\+\_\+i + offset\+\_\+i, dof\+\_\+end\+\_\+i + offset\+\_\+i\mbox{]}. The tuples (dof\+\_\+start\+\_\+i, dof\+\_\+end\+\_\+i, offset\+\_\+i) define this shift. Multiple intervals can be added and the order of adding the intervals influences how the intervals are searched during conversion of dof indices. In particular, if a certain dof index is to be converted, it is initially tried to find it in the interval added first, if it is not found there, the second interval is tried, and so forth. \begin{DoxyRefDesc}{Todo}
 \item[\mbox{\hyperlink{todo__todo000011}{Todo}}]It would be worthwhile to implement a more effective conversion scheme. \end{DoxyRefDesc}

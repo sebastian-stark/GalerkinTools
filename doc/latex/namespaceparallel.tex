@@ -5,33 +5,46 @@
 \item 
  \textbf{ distributed}
 \item 
+ \textbf{ fullydistributed}
+\item 
  \textbf{ internal}
 \item 
  \textbf{ shared}
 \item 
- \textbf{ Triangulation}
+ \textbf{ Triangulation\+Base}
 \end{DoxyCompactItemize}
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+class \textbf{ Cell\+Weights}
+\item 
+class \textbf{ Distributed\+Triangulation\+Base}
+\item 
 struct \textbf{ Parallel\+For\+Integer}
 \item 
-class \textbf{ Triangulation}
+class \mbox{\hyperlink{classparallel_1_1_triangulation}{Triangulation}}
+\item 
+class \textbf{ Triangulation\+Base}
 \item 
 class \mbox{\hyperlink{classparallel_1_1_triangulation_system}{Triangulation\+System}}
 \item 
 class \mbox{\hyperlink{classparallel_1_1_two_block_matrix}{Two\+Block\+Matrix}}
 \end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \textbf{ Triangulation\+Base}$<$ dim, spacedim $>$ \textbf{ Triangulation}
+\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \textbf{ transform} (const Input\+Iterator \&begin\+\_\+in, const Input\+Iterator \&end\+\_\+in, Output\+Iterator out, Predicate \&predicate, const unsigned int grainsize)
+void \textbf{ transform} (const Input\+Iterator \&begin\+\_\+in, const Input\+Iterator \&end\+\_\+in, Output\+Iterator out, const Predicate \&predicate, const unsigned int grainsize)
 \item 
-void \textbf{ transform} (const Input\+Iterator1 \&begin\+\_\+in1, const Input\+Iterator1 \&end\+\_\+in1, Input\+Iterator2 in2, Output\+Iterator out, Predicate \&predicate, const unsigned int grainsize)
+void \textbf{ transform} (const Input\+Iterator1 \&begin\+\_\+in1, const Input\+Iterator1 \&end\+\_\+in1, Input\+Iterator2 in2, Output\+Iterator out, const Predicate \&predicate, const unsigned int grainsize)
 \item 
-void \textbf{ transform} (const Input\+Iterator1 \&begin\+\_\+in1, const Input\+Iterator1 \&end\+\_\+in1, Input\+Iterator2 in2, Input\+Iterator3 in3, Output\+Iterator out, Predicate \&predicate, const unsigned int grainsize)
+void \textbf{ transform} (const Input\+Iterator1 \&begin\+\_\+in1, const Input\+Iterator1 \&end\+\_\+in1, Input\+Iterator2 in2, Input\+Iterator3 in3, Output\+Iterator out, const Predicate \&predicate, const unsigned int grainsize)
 \item 
-void \textbf{ apply\+\_\+to\+\_\+subranges} (const Range\+Type \&begin, const typename \textbf{ identity}$<$ Range\+Type $>$\+::type \&end, const \textbf{ Function} \&f, const unsigned int grainsize)
+void \textbf{ apply\+\_\+to\+\_\+subranges} (const Range\+Type \&\textbf{ begin}, const typename \textbf{ identity}$<$ Range\+Type $>$\+::\textbf{ type} \&\textbf{ end}, const \textbf{ Function} \&f, const unsigned int grainsize)
 \item 
-Result\+Type \textbf{ accumulate\+\_\+from\+\_\+subranges} (const \textbf{ Function} \&f, const Range\+Type \&begin, const typename \textbf{ identity}$<$ Range\+Type $>$\+::type \&end, const unsigned int grainsize)
+Result\+Type \textbf{ accumulate\+\_\+from\+\_\+subranges} (const \textbf{ Function} \&f, const Range\+Type \&\textbf{ begin}, const typename \textbf{ identity}$<$ Range\+Type $>$\+::\textbf{ type} \&\textbf{ end}, const unsigned int grainsize)
 \end{DoxyCompactItemize}

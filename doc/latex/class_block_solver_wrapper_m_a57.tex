@@ -27,7 +27,7 @@ Collaboration diagram for Block\+Solver\+Wrapper\+M\+A57\+:\nopagebreak
 \item 
 \mbox{\hyperlink{class_block_solver_wrapper_m_a57_ab21743d58c41e77d7d4689a855c57886}{$\sim$\+Block\+Solver\+Wrapper\+M\+A57}} ()
 \item 
-virtual void \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a33aa6e47fb423580d0cf396e25ec4d88}{solve}} (const \mbox{\hyperlink{class_two_block_matrix}{Two\+Block\+Matrix}}$<$ \textbf{ dealii\+::\+Sparse\+Matrix}$<$ double $>$$>$ \&K\+\_\+stretched, \textbf{ dealii\+::\+Vector}$<$ double $>$ \&solution, const \textbf{ dealii\+::\+Block\+Vector}$<$ double $>$ \&f\+\_\+stretched, const bool symmetric=false)
+virtual void \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a33aa6e47fb423580d0cf396e25ec4d88}{solve}} (const \mbox{\hyperlink{class_two_block_matrix}{Two\+Block\+Matrix}}$<$ \textbf{ dealii\+::\+Sparse\+Matrix}$<$ double $>$$>$ \&K\+\_\+stretched, \textbf{ dealii\+::\+Vector}$<$ double $>$ \&solution, const \textbf{ dealii\+::\+Block\+Vector}$<$ double $>$ \&f\+\_\+stretched, const bool \textbf{ symmetric}=false)
 \item 
 \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a2bdc8ae152e8af80c7e7df0ee5569415}{Decl\+Exception2}} (Exc\+M\+A57\+Error, std\+::string, int,$<$$<$ \char`\"{}M\+A57 routine \char`\"{}$<$$<$ arg1$<$$<$ \char`\"{} returned error status \char`\"{}$<$$<$ arg2$<$$<$ \char`\"{}.\char`\"{})
 \end{DoxyCompactItemize}
@@ -47,7 +47,7 @@ bool \mbox{\hyperlink{class_block_solver_wrapper_m_a57_af07ee5941bf8018886133978
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_block_solver_wrapper_m_a57_adcf3745eb9e48cdeec740bb90d56928e}{initialize\+\_\+matrix}} (const \textbf{ Sparse\+Matrix}$<$ double $>$ \&matrix)
+void \mbox{\hyperlink{class_block_solver_wrapper_m_a57_adcf3745eb9e48cdeec740bb90d56928e}{initialize\+\_\+matrix}} (const \textbf{ Sparse\+Matrix}$<$ double $>$ \&\textbf{ matrix})
 \item 
 void \mbox{\hyperlink{class_block_solver_wrapper_m_a57_aea47ef899c6123ce5434012e119358c9}{analyze\+\_\+matrix}} ()
 \item 
@@ -58,39 +58,39 @@ void \mbox{\hyperlink{class_block_solver_wrapper_m_a57_ab4fbc2f03282226b7024f657
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_ad5fb9927a34b0943f0a2b82d7ebef1c7}{C\+N\+TL}}
+\textbf{ std\+::vector}$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_ad5fb9927a34b0943f0a2b82d7ebef1c7}{C\+N\+TL}}
 \item 
-std\+::vector$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_acb7ffdcbfbd8786630359790139d08ad}{I\+C\+N\+TL}}
+\textbf{ std\+::vector}$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_acb7ffdcbfbd8786630359790139d08ad}{I\+C\+N\+TL}}
 \item 
 int \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a33c87fcd2bf1ffadc5e98b82270f1f44}{N}}
 \item 
 int \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a26814446ef196f3328196785954cf450}{NE}}
 \item 
-std\+::vector$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_ab72348911e0a660e186214e1f93a0057}{I\+RN}}
+\textbf{ std\+::vector}$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_ab72348911e0a660e186214e1f93a0057}{I\+RN}}
 \item 
-std\+::vector$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_ad032db448791365dbe27f0b3eebc7791}{J\+CN}}
+\textbf{ std\+::vector}$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_ad032db448791365dbe27f0b3eebc7791}{J\+CN}}
 \item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_abad6583801f31d2735e179450e5bb119}{A}}
+\textbf{ std\+::vector}$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_abad6583801f31d2735e179450e5bb119}{A}}
 \item 
-std\+::vector$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a946283faa9099c589f44483c02cb011f}{K\+E\+EP}}
+\textbf{ std\+::vector}$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a946283faa9099c589f44483c02cb011f}{K\+E\+EP}}
 \item 
 int \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a1a9a0911396fe053e434e4814eda5175}{L\+K\+E\+EP}}
 \item 
-std\+::vector$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a051b078fdf533ec59d3439cdbdb5dcb4}{I\+W\+O\+RK}}
+\textbf{ std\+::vector}$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a051b078fdf533ec59d3439cdbdb5dcb4}{I\+W\+O\+RK}}
 \item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_ae973be23640c5e51ab7d60b3d49379a1}{W\+O\+RK}}
+\textbf{ std\+::vector}$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_ae973be23640c5e51ab7d60b3d49379a1}{W\+O\+RK}}
 \item 
 int \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a848e0d174d9b7476b1a19124855be8ad}{L\+W\+O\+RK}}
 \item 
-std\+::vector$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_af6102b412f012d6526ac25ef9cb87a78}{I\+N\+FO}}
+\textbf{ std\+::vector}$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_af6102b412f012d6526ac25ef9cb87a78}{I\+N\+FO}}
 \item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a15d12be227fda3cc4580a7f64d48001e}{R\+I\+N\+FO}}
+\textbf{ std\+::vector}$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a15d12be227fda3cc4580a7f64d48001e}{R\+I\+N\+FO}}
 \item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a2c3ae4d295d83a1ca5a92690eff572be}{F\+A\+CT}}
+\textbf{ std\+::vector}$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a2c3ae4d295d83a1ca5a92690eff572be}{F\+A\+CT}}
 \item 
 int \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a8acd2b50bf6374917b6aa8de1cbc3069}{L\+F\+A\+CT}}
 \item 
-std\+::vector$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a3229abaff499ee2203afea8305ae9b47}{I\+F\+A\+CT}}
+\textbf{ std\+::vector}$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a3229abaff499ee2203afea8305ae9b47}{I\+F\+A\+CT}}
 \item 
 int \mbox{\hyperlink{class_block_solver_wrapper_m_a57_a3ff8ca3369a05fb896a69a276af397ce}{L\+I\+F\+A\+CT}}
 \end{DoxyCompactItemize}
@@ -192,7 +192,7 @@ Multiply the inverse of A by {\ttfamily f} and store the result into {\ttfamily 
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!A@{A}}
 \index{A@{A}!BlockSolverWrapperMA57@{BlockSolverWrapperMA57}}
 \doxysubsubsection{\texorpdfstring{A}{A}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ Block\+Solver\+Wrapper\+M\+A57\+::A\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$double$>$ Block\+Solver\+Wrapper\+M\+A57\+::A\hspace{0.3cm}{\ttfamily [private]}}
 
 Array storing the numerical values of the matrix entrie (A(k) corresponds to row I\+R\+N(k), I\+C\+N(k)) \mbox{\Hypertarget{class_block_solver_wrapper_m_a57_a7803078dafce5d8f42a998441da3633a}\label{class_block_solver_wrapper_m_a57_a7803078dafce5d8f42a998441da3633a}} 
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!analyze@{analyze}}
@@ -214,25 +214,25 @@ The scaling of the matrix is only recomputed if \mbox{\hyperlink{class_block_sol
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!CNTL@{CNTL}}
 \index{CNTL@{CNTL}!BlockSolverWrapperMA57@{BlockSolverWrapperMA57}}
 \doxysubsubsection{\texorpdfstring{CNTL}{CNTL}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+C\+N\+TL\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$double$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+C\+N\+TL\hspace{0.3cm}{\ttfamily [private]}}
 
 double control parameters of M\+A57 \mbox{\Hypertarget{class_block_solver_wrapper_m_a57_a2c3ae4d295d83a1ca5a92690eff572be}\label{class_block_solver_wrapper_m_a57_a2c3ae4d295d83a1ca5a92690eff572be}} 
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!FACT@{FACT}}
 \index{FACT@{FACT}!BlockSolverWrapperMA57@{BlockSolverWrapperMA57}}
 \doxysubsubsection{\texorpdfstring{FACT}{FACT}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+F\+A\+CT\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$double$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+F\+A\+CT\hspace{0.3cm}{\ttfamily [private]}}
 
 Factors of the matrix \mbox{\Hypertarget{class_block_solver_wrapper_m_a57_acb7ffdcbfbd8786630359790139d08ad}\label{class_block_solver_wrapper_m_a57_acb7ffdcbfbd8786630359790139d08ad}} 
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!ICNTL@{ICNTL}}
 \index{ICNTL@{ICNTL}!BlockSolverWrapperMA57@{BlockSolverWrapperMA57}}
 \doxysubsubsection{\texorpdfstring{ICNTL}{ICNTL}}
-{\footnotesize\ttfamily std\+::vector$<$int$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+I\+C\+N\+TL\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$int$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+I\+C\+N\+TL\hspace{0.3cm}{\ttfamily [private]}}
 
 integer control parameters of M\+A57 \mbox{\Hypertarget{class_block_solver_wrapper_m_a57_a3229abaff499ee2203afea8305ae9b47}\label{class_block_solver_wrapper_m_a57_a3229abaff499ee2203afea8305ae9b47}} 
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!IFACT@{IFACT}}
 \index{IFACT@{IFACT}!BlockSolverWrapperMA57@{BlockSolverWrapperMA57}}
 \doxysubsubsection{\texorpdfstring{IFACT}{IFACT}}
-{\footnotesize\ttfamily std\+::vector$<$int$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+I\+F\+A\+CT\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$int$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+I\+F\+A\+CT\hspace{0.3cm}{\ttfamily [private]}}
 
 Indexing information of factors of the matrix \mbox{\Hypertarget{class_block_solver_wrapper_m_a57_af07ee5941bf8018886133978ac1d9ad2}\label{class_block_solver_wrapper_m_a57_af07ee5941bf8018886133978ac1d9ad2}} 
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!ignore\_zeros@{ignore\_zeros}}
@@ -244,31 +244,31 @@ whether to ignore zeros in the matrix \mbox{\Hypertarget{class_block_solver_wrap
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!INFO@{INFO}}
 \index{INFO@{INFO}!BlockSolverWrapperMA57@{BlockSolverWrapperMA57}}
 \doxysubsubsection{\texorpdfstring{INFO}{INFO}}
-{\footnotesize\ttfamily std\+::vector$<$int$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+I\+N\+FO\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$int$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+I\+N\+FO\hspace{0.3cm}{\ttfamily [private]}}
 
 Info array for M\+A57 \mbox{\Hypertarget{class_block_solver_wrapper_m_a57_ab72348911e0a660e186214e1f93a0057}\label{class_block_solver_wrapper_m_a57_ab72348911e0a660e186214e1f93a0057}} 
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!IRN@{IRN}}
 \index{IRN@{IRN}!BlockSolverWrapperMA57@{BlockSolverWrapperMA57}}
 \doxysubsubsection{\texorpdfstring{IRN}{IRN}}
-{\footnotesize\ttfamily std\+::vector$<$int$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+I\+RN\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$int$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+I\+RN\hspace{0.3cm}{\ttfamily [private]}}
 
 row indices of entries (attention\+: Fortran indexing-\/$>$starts from 1) \mbox{\Hypertarget{class_block_solver_wrapper_m_a57_a051b078fdf533ec59d3439cdbdb5dcb4}\label{class_block_solver_wrapper_m_a57_a051b078fdf533ec59d3439cdbdb5dcb4}} 
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!IWORK@{IWORK}}
 \index{IWORK@{IWORK}!BlockSolverWrapperMA57@{BlockSolverWrapperMA57}}
 \doxysubsubsection{\texorpdfstring{IWORK}{IWORK}}
-{\footnotesize\ttfamily std\+::vector$<$int$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+I\+W\+O\+RK\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$int$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+I\+W\+O\+RK\hspace{0.3cm}{\ttfamily [private]}}
 
 Workspace array for M\+A57 \mbox{\Hypertarget{class_block_solver_wrapper_m_a57_ad032db448791365dbe27f0b3eebc7791}\label{class_block_solver_wrapper_m_a57_ad032db448791365dbe27f0b3eebc7791}} 
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!JCN@{JCN}}
 \index{JCN@{JCN}!BlockSolverWrapperMA57@{BlockSolverWrapperMA57}}
 \doxysubsubsection{\texorpdfstring{JCN}{JCN}}
-{\footnotesize\ttfamily std\+::vector$<$int$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+J\+CN\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$int$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+J\+CN\hspace{0.3cm}{\ttfamily [private]}}
 
 column indices of entries (attention\+: Fortran indexing-\/$>$starts from 1) \mbox{\Hypertarget{class_block_solver_wrapper_m_a57_a946283faa9099c589f44483c02cb011f}\label{class_block_solver_wrapper_m_a57_a946283faa9099c589f44483c02cb011f}} 
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!KEEP@{KEEP}}
 \index{KEEP@{KEEP}!BlockSolverWrapperMA57@{BlockSolverWrapperMA57}}
 \doxysubsubsection{\texorpdfstring{KEEP}{KEEP}}
-{\footnotesize\ttfamily std\+::vector$<$int$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+K\+E\+EP\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$int$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+K\+E\+EP\hspace{0.3cm}{\ttfamily [private]}}
 
 Array for internal use of M\+A57 \mbox{\Hypertarget{class_block_solver_wrapper_m_a57_a8acd2b50bf6374917b6aa8de1cbc3069}\label{class_block_solver_wrapper_m_a57_a8acd2b50bf6374917b6aa8de1cbc3069}} 
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!LFACT@{LFACT}}
@@ -329,7 +329,7 @@ diagnostic printing\+:~\newline
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!RINFO@{RINFO}}
 \index{RINFO@{RINFO}!BlockSolverWrapperMA57@{BlockSolverWrapperMA57}}
 \doxysubsubsection{\texorpdfstring{RINFO}{RINFO}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+R\+I\+N\+FO\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$double$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+R\+I\+N\+FO\hspace{0.3cm}{\ttfamily [private]}}
 
 R\+I\+N\+FO array for M\+A57 \mbox{\Hypertarget{class_block_solver_wrapper_m_a57_afb7094d6e048412f94d7ec7fdabf64f5}\label{class_block_solver_wrapper_m_a57_afb7094d6e048412f94d7ec7fdabf64f5}} 
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!use\_iterative\_refinement@{use\_iterative\_refinement}}
@@ -341,7 +341,7 @@ indicates whether to use iterative refinement \mbox{\Hypertarget{class_block_sol
 \index{BlockSolverWrapperMA57@{BlockSolverWrapperMA57}!WORK@{WORK}}
 \index{WORK@{WORK}!BlockSolverWrapperMA57@{BlockSolverWrapperMA57}}
 \doxysubsubsection{\texorpdfstring{WORK}{WORK}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+W\+O\+RK\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$double$>$ Block\+Solver\+Wrapper\+M\+A57\+::\+W\+O\+RK\hspace{0.3cm}{\ttfamily [private]}}
 
 another Workspace array for M\+A57 
 

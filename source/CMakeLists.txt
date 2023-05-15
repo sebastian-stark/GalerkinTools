@@ -17,6 +17,7 @@ SET(_target_src
     dof_renumbering.cc
     two_block_sparsity_pattern.cc
     two_block_matrix.cc
+    fe_dgq_anisotropic.cc
 )
 
 #link against lapacke and include header lapacke.h

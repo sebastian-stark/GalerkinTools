@@ -86,11 +86,11 @@ Collaboration diagram for FunctionCell&lt; dim, spacedim &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_function_cell__coll__graph.png" border="0" usemap="#_function_cell_3_01dim_00_01spacedim_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="_function_cell_3_01dim_00_01spacedim_01_4_coll__map" id="_function_cell_3_01dim_00_01spacedim_01_4_coll__map">
-<area shape="rect" title=" " alt="" coords="61,275,207,316"/>
-<area shape="rect" title=" " alt="" coords="5,178,220,205"/>
-<area shape="rect" href="https://dealii.org/9.0.0/doxygen/deal.II/classTriaIterator.html" title=" " alt="" coords="245,171,437,212"/>
-<area shape="rect" href="https://dealii.org/9.0.0/doxygen/deal.II/classTriaRawIterator.html" title=" " alt="" coords="235,95,446,121"/>
-<area shape="rect" title=" " alt="" coords="301,5,381,32"/>
+<area shape="rect" title=" " alt="" coords="915,27,1061,69"/>
+<area shape="rect" title=" " alt="" coords="624,5,839,32"/>
+<area shape="rect" href="https://dealii.org/9.0.0/doxygen/deal.II/classTriaIterator.html" title=" " alt="" coords="635,57,827,98"/>
+<area shape="rect" href="https://dealii.org/9.0.0/doxygen/deal.II/classTriaRawIterator.html" title=" " alt="" coords="389,64,575,91"/>
+<area shape="rect" href="https://dealii.org/9.0.0/doxygen/deal.II/classMatrixTableIterators_1_1Accessor.html" title=" " alt="" coords="5,42,280,113"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -114,7 +114,7 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><h3>template&lt;unsigned int dim, unsigned int spacedim&gt;<br />
 class FunctionCell&lt; dim, spacedim &gt;</h3>
 
-<p>Special <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html">Function</a> class allowing to pass the cell information when asking for the initial value of an unknown field at a finite element support point. Objects of this type can be given to the constructor of an <a class="el" href="class_independent_field.html">IndependentField</a>; and when the initial solution vector is set up with a call to <a class="el" href="class_assembly_helper.html#a4043c993c8902ad5d3045a13ed42e6f8">AssemblyHelper::get_initial_fields_vector()</a>, <a class="el" href="class_function_cell.html#a3ef39628d9141076b3418fe2bb529dfe">FunctionCell::cell</a> will be appropriately set before each call to the <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html#ad1042427bea49b5f021111e4d75a7b60">Function::value()</a>, so that one can find out through <a class="el" href="class_function_cell.html#ab3f22f3fa0cb7c3eec847f883fb7fecd">FunctionCell::get_cell()</a> on which cell the support point lies, for which <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html#ad1042427bea49b5f021111e4d75a7b60">Function::value()</a> currently has to provide with initial values.</p>
+<p>Special <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html">Function</a> class allowing to pass the cell information when asking for the initial value of an unknown field at a finite element support point. Objects of this type can be given to the constructor of an <a class="el" href="class_independent_field.html">IndependentField</a>; and when the initial solution vector is set up with a call to <a class="el" href="class_assembly_helper.html#a4043c993c8902ad5d3045a13ed42e6f8">AssemblyHelper::get_initial_fields_vector()</a>, <a class="el" href="class_function_cell.html#a3ef39628d9141076b3418fe2bb529dfe">FunctionCell::cell</a> will be appropriately set before each call to the <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html#acbfcab66b2fc63bfea59268f40772bb4">Function::value()</a>, so that one can find out through <a class="el" href="class_function_cell.html#ab3f22f3fa0cb7c3eec847f883fb7fecd">FunctionCell::get_cell()</a> on which cell the support point lies, for which <a class="elRef" href="https://dealii.org/9.0.0/doxygen/deal.II/classFunction.html#acbfcab66b2fc63bfea59268f40772bb4">Function::value()</a> currently has to provide with initial values.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">dim</td><td>dimensionality of the object for which <a class="el" href="class_function_cell.html">FunctionCell</a> has to provide with initial values</td></tr>

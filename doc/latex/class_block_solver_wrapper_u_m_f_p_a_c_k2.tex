@@ -27,7 +27,7 @@ Collaboration diagram for Block\+Solver\+Wrapper\+U\+M\+F\+P\+A\+C\+K2\+:\nopage
 \item 
 \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a8f298590602e05af072f1ce4178199f2}{$\sim$\+Block\+Solver\+Wrapper\+U\+M\+F\+P\+A\+C\+K2}} ()
 \item 
-virtual void \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a651cb9299e8f368ba7294367260f9759}{solve}} (const \mbox{\hyperlink{class_two_block_matrix}{Two\+Block\+Matrix}}$<$ \textbf{ dealii\+::\+Sparse\+Matrix}$<$ double $>$$>$ \&K\+\_\+stretched, \textbf{ dealii\+::\+Vector}$<$ double $>$ \&solution, const \textbf{ dealii\+::\+Block\+Vector}$<$ double $>$ \&f\+\_\+stretched, const bool symmetric=false)
+virtual void \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a651cb9299e8f368ba7294367260f9759}{solve}} (const \mbox{\hyperlink{class_two_block_matrix}{Two\+Block\+Matrix}}$<$ \textbf{ dealii\+::\+Sparse\+Matrix}$<$ double $>$$>$ \&K\+\_\+stretched, \textbf{ dealii\+::\+Vector}$<$ double $>$ \&solution, const \textbf{ dealii\+::\+Block\+Vector}$<$ double $>$ \&f\+\_\+stretched, const bool \textbf{ symmetric}=false)
 \item 
 \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_aa454139937c8f01d8e893a7e09d3b1a2}{Decl\+Exception2}} (\textbf{ Exc\+U\+M\+F\+P\+A\+C\+K\+Error}, std\+::string, int,$<$$<$ \char`\"{}U\+M\+F\+P\+A\+CK routine \char`\"{}$<$$<$ arg1$<$$<$ \char`\"{} returned error status \char`\"{}$<$$<$ arg2$<$$<$ \char`\"{}.\char`\"{})
 \end{DoxyCompactItemize}
@@ -41,7 +41,7 @@ unsigned int \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_af782617
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a8df429ef59e02922971ed01dd4780cee}{initialize\+\_\+matrix}} (const \textbf{ Sparse\+Matrix}$<$ double $>$ \&matrix)
+void \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a8df429ef59e02922971ed01dd4780cee}{initialize\+\_\+matrix}} (const \textbf{ Sparse\+Matrix}$<$ double $>$ \&\textbf{ matrix})
 \item 
 void \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_afc9d5243e71aa81bd391e36976ef5623}{analyze\+\_\+matrix}} ()
 \item 
@@ -52,9 +52,9 @@ void \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_ac308e6181b48e7e
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a295fca0b28991ae43c7bdfb72b5cdcb2}{control}} = std\+::vector$<$double$>$(U\+M\+F\+P\+A\+C\+K\+\_\+\+C\+O\+N\+T\+R\+OL)
+\textbf{ std\+::vector}$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a295fca0b28991ae43c7bdfb72b5cdcb2}{control}} = \textbf{ std\+::vector}$<$double$>$(U\+M\+F\+P\+A\+C\+K\+\_\+\+C\+O\+N\+T\+R\+OL)
 \item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a8dfbe8f5e1f1cf26460ba584b4eb02b6}{info}} = std\+::vector$<$double$>$(U\+M\+F\+P\+A\+C\+K\+\_\+\+I\+N\+FO)
+\textbf{ std\+::vector}$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a8dfbe8f5e1f1cf26460ba584b4eb02b6}{info}} = \textbf{ std\+::vector}$<$double$>$(U\+M\+F\+P\+A\+C\+K\+\_\+\+I\+N\+FO)
 \item 
 unsigned int \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a85d397826a36330bf3602d510acdd8d4}{N}}
 \item 
@@ -62,11 +62,11 @@ void $\ast$ \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a399387c1
 \item 
 void $\ast$ \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_ac3a439162324f36f5162439c075d02eb}{numeric\+\_\+decomposition}} = nullptr
 \item 
-std\+::vector$<$ Suite\+Sparse\+\_\+long $>$ \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a18e53f152f97e51caab8dcf3efd5eaf1}{Ap}}
+\textbf{ std\+::vector}$<$ Suite\+Sparse\+\_\+long $>$ \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a18e53f152f97e51caab8dcf3efd5eaf1}{Ap}}
 \item 
-std\+::vector$<$ Suite\+Sparse\+\_\+long $>$ \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a088fc386567b26c63b8d1a25a9319c75}{Ai}}
+\textbf{ std\+::vector}$<$ Suite\+Sparse\+\_\+long $>$ \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a088fc386567b26c63b8d1a25a9319c75}{Ai}}
 \item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a57a4f7722dbbdd1ec2efa416f1cbb47c}{Ax}}
+\textbf{ std\+::vector}$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a57a4f7722dbbdd1ec2efa416f1cbb47c}{Ax}}
 \end{DoxyCompactItemize}
 
 
@@ -166,7 +166,7 @@ Multiply the inverse of A by {\ttfamily f} and store the result into {\ttfamily 
 \index{BlockSolverWrapperUMFPACK2@{BlockSolverWrapperUMFPACK2}!Ai@{Ai}}
 \index{Ai@{Ai}!BlockSolverWrapperUMFPACK2@{BlockSolverWrapperUMFPACK2}}
 \doxysubsubsection{\texorpdfstring{Ai}{Ai}}
-{\footnotesize\ttfamily std\+::vector$<$Suite\+Sparse\+\_\+long$>$ Block\+Solver\+Wrapper\+U\+M\+F\+P\+A\+C\+K2\+::\+Ai\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$Suite\+Sparse\+\_\+long$>$ Block\+Solver\+Wrapper\+U\+M\+F\+P\+A\+C\+K2\+::\+Ai\hspace{0.3cm}{\ttfamily [private]}}
 
 Array storing the column indices of non-\/zero entries of A \mbox{\Hypertarget{class_block_solver_wrapper_u_m_f_p_a_c_k2_a5869a4301c4e7a3ae64aa8998131d8c7}\label{class_block_solver_wrapper_u_m_f_p_a_c_k2_a5869a4301c4e7a3ae64aa8998131d8c7}} 
 \index{BlockSolverWrapperUMFPACK2@{BlockSolverWrapperUMFPACK2}!analyze@{analyze}}
@@ -186,25 +186,25 @@ The user must ensure that \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_
 \index{BlockSolverWrapperUMFPACK2@{BlockSolverWrapperUMFPACK2}!Ap@{Ap}}
 \index{Ap@{Ap}!BlockSolverWrapperUMFPACK2@{BlockSolverWrapperUMFPACK2}}
 \doxysubsubsection{\texorpdfstring{Ap}{Ap}}
-{\footnotesize\ttfamily std\+::vector$<$Suite\+Sparse\+\_\+long$>$ Block\+Solver\+Wrapper\+U\+M\+F\+P\+A\+C\+K2\+::\+Ap\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$Suite\+Sparse\+\_\+long$>$ Block\+Solver\+Wrapper\+U\+M\+F\+P\+A\+C\+K2\+::\+Ap\hspace{0.3cm}{\ttfamily [private]}}
 
 Array saying which row starts where in \mbox{\hyperlink{class_block_solver_wrapper_u_m_f_p_a_c_k2_a088fc386567b26c63b8d1a25a9319c75}{Block\+Solver\+Wrapper\+U\+M\+F\+P\+A\+C\+K2\+::\+Ai}} \mbox{\Hypertarget{class_block_solver_wrapper_u_m_f_p_a_c_k2_a57a4f7722dbbdd1ec2efa416f1cbb47c}\label{class_block_solver_wrapper_u_m_f_p_a_c_k2_a57a4f7722dbbdd1ec2efa416f1cbb47c}} 
 \index{BlockSolverWrapperUMFPACK2@{BlockSolverWrapperUMFPACK2}!Ax@{Ax}}
 \index{Ax@{Ax}!BlockSolverWrapperUMFPACK2@{BlockSolverWrapperUMFPACK2}}
 \doxysubsubsection{\texorpdfstring{Ax}{Ax}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ Block\+Solver\+Wrapper\+U\+M\+F\+P\+A\+C\+K2\+::\+Ax\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$double$>$ Block\+Solver\+Wrapper\+U\+M\+F\+P\+A\+C\+K2\+::\+Ax\hspace{0.3cm}{\ttfamily [private]}}
 
 Array storing the numerical values of the non-\/zero entries of the matrix A \mbox{\Hypertarget{class_block_solver_wrapper_u_m_f_p_a_c_k2_a295fca0b28991ae43c7bdfb72b5cdcb2}\label{class_block_solver_wrapper_u_m_f_p_a_c_k2_a295fca0b28991ae43c7bdfb72b5cdcb2}} 
 \index{BlockSolverWrapperUMFPACK2@{BlockSolverWrapperUMFPACK2}!control@{control}}
 \index{control@{control}!BlockSolverWrapperUMFPACK2@{BlockSolverWrapperUMFPACK2}}
 \doxysubsubsection{\texorpdfstring{control}{control}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ Block\+Solver\+Wrapper\+U\+M\+F\+P\+A\+C\+K2\+::control = std\+::vector$<$double$>$(U\+M\+F\+P\+A\+C\+K\+\_\+\+C\+O\+N\+T\+R\+OL)\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$double$>$ Block\+Solver\+Wrapper\+U\+M\+F\+P\+A\+C\+K2\+::control = \textbf{ std\+::vector}$<$double$>$(U\+M\+F\+P\+A\+C\+K\+\_\+\+C\+O\+N\+T\+R\+OL)\hspace{0.3cm}{\ttfamily [private]}}
 
 Control array for the solver routines. \mbox{\Hypertarget{class_block_solver_wrapper_u_m_f_p_a_c_k2_a8dfbe8f5e1f1cf26460ba584b4eb02b6}\label{class_block_solver_wrapper_u_m_f_p_a_c_k2_a8dfbe8f5e1f1cf26460ba584b4eb02b6}} 
 \index{BlockSolverWrapperUMFPACK2@{BlockSolverWrapperUMFPACK2}!info@{info}}
 \index{info@{info}!BlockSolverWrapperUMFPACK2@{BlockSolverWrapperUMFPACK2}}
 \doxysubsubsection{\texorpdfstring{info}{info}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ Block\+Solver\+Wrapper\+U\+M\+F\+P\+A\+C\+K2\+::info = std\+::vector$<$double$>$(U\+M\+F\+P\+A\+C\+K\+\_\+\+I\+N\+FO)\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$double$>$ Block\+Solver\+Wrapper\+U\+M\+F\+P\+A\+C\+K2\+::info = \textbf{ std\+::vector}$<$double$>$(U\+M\+F\+P\+A\+C\+K\+\_\+\+I\+N\+FO)\hspace{0.3cm}{\ttfamily [private]}}
 
 Info array for the solver routines. \mbox{\Hypertarget{class_block_solver_wrapper_u_m_f_p_a_c_k2_a85d397826a36330bf3602d510acdd8d4}\label{class_block_solver_wrapper_u_m_f_p_a_c_k2_a85d397826a36330bf3602d510acdd8d4}} 
 \index{BlockSolverWrapperUMFPACK2@{BlockSolverWrapperUMFPACK2}!N@{N}}

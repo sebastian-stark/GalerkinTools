@@ -1,12 +1,13 @@
 var searchData=
 [
-  ['k_5fvectors_15371',['k_vectors',['https://dealii.org/9.0.0/doxygen/deal.II/classFESeries_1_1Fourier.html#a85490837aee6fbaa19637abe46939e83',1,'FESeries::Fourier']]],
-  ['kdtree_15372',['kdtree',['https://dealii.org/9.0.0/doxygen/deal.II/classKDTree.html#a7906d7f17537888267c1e0e1d9b7ef8d',1,'KDTree::kdtree()'],['https://dealii.org/9.0.0/doxygen/deal.II/classKDTree.html#a7906d7f17537888267c1e0e1d9b7ef8d',1,'KDTree&lt; spacedim &gt;::kdtree()']]],
-  ['keep_15373',['KEEP',['../class_block_solver_wrapper_m_a57.html#a946283faa9099c589f44483c02cb011f',1,'BlockSolverWrapperMA57']]],
-  ['kernel_5fsize_15374',['kernel_size',['https://dealii.org/9.0.0/doxygen/deal.II/classRelaxationBlock_1_1AdditionalData.html#aff8aa50b0eabb26191b96be6ac009efc',1,'RelaxationBlock::AdditionalData']]],
-  ['key_5fpattern_15375',['key_pattern',['https://dealii.org/9.0.0/doxygen/deal.II/classPatterns_1_1Map.html#ac0966371bda728fb35c1f07f3dc17ad0',1,'Patterns::Map']]],
-  ['key_5fvalue_5fseparator_15376',['key_value_separator',['https://dealii.org/9.0.0/doxygen/deal.II/classPatterns_1_1Map.html#af7e1e7fcf27e14abef21b138750f5b7d',1,'Patterns::Map']]],
-  ['kinsol_5fmem_15377',['kinsol_mem',['https://dealii.org/9.0.0/doxygen/deal.II/classSUNDIALS_1_1KINSOL.html#af60479a46e6972eea3bd9381be07787b',1,'SUNDIALS::KINSOL']]],
-  ['krylov_5fspace_5fsignal_15378',['krylov_space_signal',['https://dealii.org/9.0.0/doxygen/deal.II/classSolverGMRES.html#aae118cd4ba16372e19101273f0ad9c64',1,'SolverGMRES']]],
-  ['ksp_15379',['ksp',['https://dealii.org/9.0.0/doxygen/deal.II/structPETScWrappers_1_1SolverBase_1_1SolverData.html#a3b67abc1b21e164f52a19d0a3852689e',1,'PETScWrappers::SolverBase::SolverData']]]
+  ['k_5fvectors_20006',['k_vectors',['https://dealii.org/9.0.0/doxygen/deal.II/classFESeries_1_1Fourier.html#a251febced13f3f0eab81105d370c023c',1,'FESeries::Fourier']]],
+  ['kdtree_20007',['kdtree',['https://dealii.org/9.0.0/doxygen/deal.II/classKDTree.html#a7906d7f17537888267c1e0e1d9b7ef8d',1,'KDTree::kdtree()'],['https://dealii.org/9.0.0/doxygen/deal.II/classKDTree.html#a7906d7f17537888267c1e0e1d9b7ef8d',1,'KDTree&lt; spacedim &gt;::kdtree()']]],
+  ['keep_20008',['KEEP',['../class_block_solver_wrapper_m_a57.html#a946283faa9099c589f44483c02cb011f',1,'BlockSolverWrapperMA57']]],
+  ['keepdeclarationorder_20009',['KeepDeclarationOrder',['https://dealii.org/9.0.0/doxygen/deal.II/group__Exceptions.html#ga8364dda711b93753c6809eefe2a8e827a50ae66aa378db81bb360ce7cdf96e3e1',1,'ParameterHandler::KeepDeclarationOrder()'],['https://dealii.org/9.0.0/doxygen/deal.II/group__Exceptions.html#ga8364dda711b93753c6809eefe2a8e827a50ae66aa378db81bb360ce7cdf96e3e1',1,'KeepDeclarationOrder()(Global Namespace)']]],
+  ['kernel_5fsize_20010',['kernel_size',['https://dealii.org/9.0.0/doxygen/deal.II/classRelaxationBlock_1_1AdditionalData.html#aff8aa50b0eabb26191b96be6ac009efc',1,'RelaxationBlock::AdditionalData']]],
+  ['key_5fpattern_20011',['key_pattern',['https://dealii.org/9.0.0/doxygen/deal.II/group__Exceptions.html#gac0966371bda728fb35c1f07f3dc17ad0',1,'Patterns::Map::key_pattern()'],['https://dealii.org/9.0.0/doxygen/deal.II/group__Exceptions.html#gac0966371bda728fb35c1f07f3dc17ad0',1,'key_pattern()(Global Namespace)']]],
+  ['key_5fvalue_5fseparator_20012',['key_value_separator',['https://dealii.org/9.0.0/doxygen/deal.II/group__Exceptions.html#gaf7e1e7fcf27e14abef21b138750f5b7d',1,'Patterns::Map::key_value_separator()'],['https://dealii.org/9.0.0/doxygen/deal.II/group__Exceptions.html#gaf7e1e7fcf27e14abef21b138750f5b7d',1,'key_value_separator()(Global Namespace)']]],
+  ['kinsol_5fmem_20013',['kinsol_mem',['https://dealii.org/9.0.0/doxygen/deal.II/classSUNDIALS_1_1KINSOL.html#af60479a46e6972eea3bd9381be07787b',1,'SUNDIALS::KINSOL']]],
+  ['krylov_5fspace_5fsignal_20014',['krylov_space_signal',['https://dealii.org/9.0.0/doxygen/deal.II/classSolverGMRES.html#a420bf7dc093c87df4ae351fe75ddfe2a',1,'SolverGMRES::krylov_space_signal()'],['https://dealii.org/9.0.0/doxygen/deal.II/classSolverGMRES.html#a420bf7dc093c87df4ae351fe75ddfe2a',1,'SolverGMRES&lt; Vector&lt; double &gt; &gt;::krylov_space_signal()']]],
+  ['ksp_20015',['ksp',['https://dealii.org/9.0.0/doxygen/deal.II/structPETScWrappers_1_1SolverBase_1_1SolverData.html#a3b67abc1b21e164f52a19d0a3852689e',1,'PETScWrappers::SolverBase::SolverData::ksp()'],['https://dealii.org/9.0.0/doxygen/deal.II/structPETScWrappers_1_1SparseDirectMUMPS_1_1SolverDataMUMPS.html#a2d3894b66468ce36744fc2807dc96f60',1,'PETScWrappers::SparseDirectMUMPS::SolverDataMUMPS::ksp()']]]
 ];

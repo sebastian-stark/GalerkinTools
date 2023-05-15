@@ -42,9 +42,9 @@ typedef \textbf{ Do\+F\+Handler}$<$ spacedim, spacedim $>$\+::\textbf{ cell\+\_\
 \item 
 std\+::tuple$<$ const \textbf{ types\+::material\+\_\+id}, const \textbf{ types\+::material\+\_\+id}, const \textbf{ types\+::material\+\_\+id} $>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a4823f0f9c791b61d6fb75699952464e5}{get\+\_\+material\+\_\+ids}} () const
 \item 
-void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_ab6ff11f2adfa7cd1fd13a2d3e9b3b130}{get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface}} (std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+minus, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+plus) const
+void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_ab6ff11f2adfa7cd1fd13a2d3e9b3b130}{get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface}} (\textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global, \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+minus, \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+plus) const
 \item 
-void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a69d8ac580b83b2469ba1cc611bb5776b}{get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface}} (std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global) const
+void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a69d8ac580b83b2469ba1cc611bb5776b}{get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface}} (\textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -144,7 +144,7 @@ The destructor of \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Inter
 \index{get\_dof\_indices\_local\_global\_interface@{get\_dof\_indices\_local\_global\_interface}!InterfaceCellDomainCellsDoF$<$ spacedim $>$@{InterfaceCellDomainCellsDoF$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_indices\_local\_global\_interface()}{get\_dof\_indices\_local\_global\_interface()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface (\begin{DoxyParamCaption}\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global }\end{DoxyParamCaption}) const}
 
 Method to get the map between local and global dof indices related to the interface cell \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a5fe7922af91545598d89c77ba42a59da}{Interface\+Cell\+Domain\+Cells\+Do\+F\+::interface\+\_\+cell}}.
 
@@ -158,7 +158,7 @@ Method to get the map between local and global dof indices related to the interf
 \index{get\_dof\_indices\_local\_global\_interface@{get\_dof\_indices\_local\_global\_interface}!InterfaceCellDomainCellsDoF$<$ spacedim $>$@{InterfaceCellDomainCellsDoF$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_indices\_local\_global\_interface()}{get\_dof\_indices\_local\_global\_interface()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+minus,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+plus }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface (\begin{DoxyParamCaption}\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global,  }\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+minus,  }\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+plus }\end{DoxyParamCaption}) const}
 
 Method to get the maps between local and global dof indices related to the interface cell \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a5fe7922af91545598d89c77ba42a59da}{Interface\+Cell\+Domain\+Cells\+Do\+F\+::interface\+\_\+cell}} and the neighboring domain cells \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_ac8c84df4298d2d5be54dc8bf81e48c4b}{Interface\+Cell\+Domain\+Cells\+Do\+F\+::domain\+\_\+cell\+\_\+minus}} and \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a8fd9dbd3a1e53023ecca7917b004bab1}{Interface\+Cell\+Domain\+Cells\+Do\+F\+::domain\+\_\+cell\+\_\+plus}}.
 

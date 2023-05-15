@@ -33,11 +33,11 @@ typedef \textbf{ Do\+F\+Handler}$<$ spacedim, spacedim $>$\+::\textbf{ cell\+\_\
 \item 
 void \mbox{\hyperlink{class_do_f_handler_system_ac6e0950ae9d140b0a9185bcfffe167d6}{distribute\+\_\+dofs}} (const \textbf{ hp\+::\+F\+E\+Collection}$<$ spacedim, spacedim $>$ \&fe\+\_\+collection\+\_\+domain, const \textbf{ hp\+::\+F\+E\+Collection}$<$ spacedim-\/1, spacedim $>$ \&fe\+\_\+collection\+\_\+interface, const unsigned int n\+\_\+additional\+\_\+dofs=0)
 \item 
-std\+::vector$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$ $>$\+::iterator \mbox{\hyperlink{class_do_f_handler_system_a88d93ac03defd1b296238de4eb122841}{interface\+\_\+begin\+\_\+active}} ()
+\textbf{ std\+::vector}$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$ $>$\+::\textbf{ iterator} \mbox{\hyperlink{class_do_f_handler_system_a88d93ac03defd1b296238de4eb122841}{interface\+\_\+begin\+\_\+active}} ()
 \item 
-std\+::vector$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$ $>$\+::iterator \mbox{\hyperlink{class_do_f_handler_system_aecbc22a86943c1bc921a13ec7e2333f2}{interface\+\_\+end\+\_\+active}} ()
+\textbf{ std\+::vector}$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$ $>$\+::\textbf{ iterator} \mbox{\hyperlink{class_do_f_handler_system_aecbc22a86943c1bc921a13ec7e2333f2}{interface\+\_\+end\+\_\+active}} ()
 \item 
-const std\+::vector$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$ $>$ \& \mbox{\hyperlink{class_do_f_handler_system_a80010f3d2b4f0f524cc4ed79e1f93762}{interface\+\_\+active\+\_\+iterators}} () const
+const \textbf{ std\+::vector}$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$ $>$ \& \mbox{\hyperlink{class_do_f_handler_system_a80010f3d2b4f0f524cc4ed79e1f93762}{interface\+\_\+active\+\_\+iterators}} () const
 \item 
 \mbox{\hyperlink{class_domain_cell_do_f_iterator}{Domain\+Cell\+Do\+F\+Iterator}}$<$ spacedim $>$ \mbox{\hyperlink{class_do_f_handler_system_af005d3cdba9149ba44e8d0545f5d9135}{domain\+\_\+begin\+\_\+active}} () const
 \item 
@@ -53,7 +53,7 @@ unsigned int \mbox{\hyperlink{class_do_f_handler_system_a3391c5a179b3d2952e7de0e
 \item 
 unsigned int \mbox{\hyperlink{class_do_f_handler_system_aa0613fb931568c1f5efde3c4f6b97c9f}{n\+\_\+dofs}} () const
 \item 
-void \mbox{\hyperlink{class_do_f_handler_system_add1750163fd42999c1892dce94114a43}{get\+\_\+dof\+\_\+indices}} (std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices) const
+void \mbox{\hyperlink{class_do_f_handler_system_add1750163fd42999c1892dce94114a43}{get\+\_\+dof\+\_\+indices}} (\textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices) const
 \item 
 unsigned int \mbox{\hyperlink{class_do_f_handler_system_ac7c2592ff045c5a7cf4c2ee1de0e2c73}{get\+\_\+dof\+\_\+index}} (const unsigned int \&dof\+\_\+index) const
 \item 
@@ -71,27 +71,27 @@ const \textbf{ Index\+Set} \& \mbox{\hyperlink{class_do_f_handler_system_af5e18e
 \item 
 void \mbox{\hyperlink{class_do_f_handler_system_ab31e887efe0c3703e3a777287c250ed0}{attach\+\_\+dof\+\_\+renumbering}} (const \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} \&\mbox{\hyperlink{class_do_f_handler_system_aef6159c606a24ac7daadcd3fe082b3b6}{dof\+\_\+renumbering}})
 \item 
-void \mbox{\hyperlink{class_do_f_handler_system_ac4c0dda51291e1a0d5ddaaa23c07475a}{make\+\_\+hanging\+\_\+node\+\_\+constraints}} (Affine\+Constraints$<$ double $>$ \&constraint\+\_\+matrix) const
+void \mbox{\hyperlink{class_do_f_handler_system_ac4c0dda51291e1a0d5ddaaa23c07475a}{make\+\_\+hanging\+\_\+node\+\_\+constraints}} (\textbf{ Affine\+Constraints}$<$ double $>$ \&constraint\+\_\+matrix) const
 \item 
-{\footnotesize template$<$class Vector\+Type $>$ }\\void \mbox{\hyperlink{class_do_f_handler_system_a106000629dee3e614dc87b2678d5a4e0}{split\+\_\+vector}} (const \textbf{ Vector\+Type} \&in\+\_\+vect, \textbf{ Vector\+Type} \&out\+\_\+vect\+\_\+domain, \textbf{ Vector\+Type} \&out\+\_\+vect\+\_\+interface, \textbf{ Vector\+Type} \&out\+\_\+vect\+\_\+C) const
+{\footnotesize template$<$class Vector\+Type $>$ }\\void \mbox{\hyperlink{class_do_f_handler_system_a106000629dee3e614dc87b2678d5a4e0}{split\+\_\+vector}} (const Vector\+Type \&in\+\_\+vect, Vector\+Type \&out\+\_\+vect\+\_\+domain, Vector\+Type \&out\+\_\+vect\+\_\+interface, Vector\+Type \&out\+\_\+vect\+\_\+C) const
 \item 
-const std\+::vector$<$ unsigned int $>$ \& \mbox{\hyperlink{class_do_f_handler_system_a91bdc19b8c8226f827aed689ad654ffe}{get\+\_\+n\+\_\+dofs\+\_\+per\+\_\+processor}} () const
+const \textbf{ std\+::vector}$<$ unsigned int $>$ \& \mbox{\hyperlink{class_do_f_handler_system_a91bdc19b8c8226f827aed689ad654ffe}{get\+\_\+n\+\_\+dofs\+\_\+per\+\_\+processor}} () const
 \item 
 unsigned int \mbox{\hyperlink{class_do_f_handler_system_a0df45d966fef705935ef71943f3e373d}{get\+\_\+single\+\_\+dof\+\_\+index\+\_\+component\+\_\+interface}} (const unsigned int component) const
 \item 
 unsigned int \mbox{\hyperlink{class_do_f_handler_system_a93c1f41edb851a7322dd183089d11e81}{get\+\_\+single\+\_\+dof\+\_\+index\+\_\+component\+\_\+domain}} (const unsigned int component) const
 \item 
-void \mbox{\hyperlink{class_do_f_handler_system_a0d49f02ccbdd681028ce66fea9341fe1}{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+interface}} (const unsigned int component, std\+::set$<$ unsigned int $>$ \&indices) const
+void \mbox{\hyperlink{class_do_f_handler_system_a0d49f02ccbdd681028ce66fea9341fe1}{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+interface}} (const unsigned int component, \textbf{ std\+::set}$<$ unsigned int $>$ \&indices) const
 \item 
-void \mbox{\hyperlink{class_do_f_handler_system_aa4bb80864110f7917ae86525e3c0d799}{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+domain}} (const unsigned int component, std\+::set$<$ unsigned int $>$ \&indices) const
+void \mbox{\hyperlink{class_do_f_handler_system_aa4bb80864110f7917ae86525e3c0d799}{get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+domain}} (const unsigned int component, \textbf{ std\+::set}$<$ unsigned int $>$ \&indices) const
 \item 
-void \mbox{\hyperlink{class_do_f_handler_system_ac2617866e4d92dfb309a0212e2bc116d}{get\+\_\+map\+\_\+dof\+\_\+index\+\_\+component\+\_\+interface}} (std\+::vector$<$ unsigned int $>$ \&components) const
+void \mbox{\hyperlink{class_do_f_handler_system_ac2617866e4d92dfb309a0212e2bc116d}{get\+\_\+map\+\_\+dof\+\_\+index\+\_\+component\+\_\+interface}} (\textbf{ std\+::vector}$<$ unsigned int $>$ \&\textbf{ components}) const
 \item 
-void \mbox{\hyperlink{class_do_f_handler_system_a99e00b1efebbfee99db0478c3eac7787}{get\+\_\+map\+\_\+dof\+\_\+index\+\_\+component\+\_\+domain}} (std\+::vector$<$ unsigned int $>$ \&components) const
+void \mbox{\hyperlink{class_do_f_handler_system_a99e00b1efebbfee99db0478c3eac7787}{get\+\_\+map\+\_\+dof\+\_\+index\+\_\+component\+\_\+domain}} (\textbf{ std\+::vector}$<$ unsigned int $>$ \&\textbf{ components}) const
 \item 
-void \mbox{\hyperlink{class_do_f_handler_system_a0af24410554802a908ce2800550007b8}{get\+\_\+map\+\_\+dof\+\_\+index\+\_\+support\+\_\+point\+\_\+index\+\_\+interface}} (std\+::vector$<$ unsigned int $>$ \&support\+\_\+points, std\+::map$<$ unsigned int, \textbf{ Point}$<$ spacedim $>$$>$ \&map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location, const dealii\+::\+Mapping$<$ spacedim-\/1, spacedim $>$ \&mapping) const
+void \mbox{\hyperlink{class_do_f_handler_system_a0af24410554802a908ce2800550007b8}{get\+\_\+map\+\_\+dof\+\_\+index\+\_\+support\+\_\+point\+\_\+index\+\_\+interface}} (\textbf{ std\+::vector}$<$ unsigned int $>$ \&support\+\_\+points, std\+::map$<$ unsigned int, \textbf{ Point}$<$ spacedim $>$$>$ \&map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location, const dealii\+::\+Mapping$<$ spacedim-\/1, spacedim $>$ \&mapping) const
 \item 
-void \mbox{\hyperlink{class_do_f_handler_system_a298db5cd2cd488abbacb72c66fc9703e}{get\+\_\+map\+\_\+dof\+\_\+index\+\_\+support\+\_\+point\+\_\+index\+\_\+domain}} (std\+::vector$<$ unsigned int $>$ \&support\+\_\+points, std\+::map$<$ unsigned int, \textbf{ Point}$<$ spacedim $>$$>$ \&map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location, const dealii\+::\+Mapping$<$ spacedim $>$ \&mapping) const
+void \mbox{\hyperlink{class_do_f_handler_system_a298db5cd2cd488abbacb72c66fc9703e}{get\+\_\+map\+\_\+dof\+\_\+index\+\_\+support\+\_\+point\+\_\+index\+\_\+domain}} (\textbf{ std\+::vector}$<$ unsigned int $>$ \&support\+\_\+points, std\+::map$<$ unsigned int, \textbf{ Point}$<$ spacedim $>$$>$ \&map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location, const dealii\+::\+Mapping$<$ spacedim $>$ \&mapping) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
@@ -119,11 +119,11 @@ std\+::shared\+\_\+ptr$<$ \textbf{ Do\+F\+Handler}$<$ spacedim, spacedim $>$ $>$
 \item 
 std\+::shared\+\_\+ptr$<$ \textbf{ Do\+F\+Handler}$<$ spacedim-\/1, spacedim $>$ $>$ \mbox{\hyperlink{class_do_f_handler_system_aa76badc239ecf29fa6021994d3411b6c}{dof\+\_\+handler\+\_\+interface}}
 \item 
-std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_do_f_handler_system_a15c27ca30c5905b44691779c755cd69c}{dof\+\_\+indices\+\_\+C}}
+\textbf{ std\+::vector}$<$ unsigned int $>$ \mbox{\hyperlink{class_do_f_handler_system_a15c27ca30c5905b44691779c755cd69c}{dof\+\_\+indices\+\_\+C}}
 \item 
-std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_do_f_handler_system_a7b2e77b2c718b0b13d861da7c0530b28}{locally\+\_\+owned\+\_\+dof\+\_\+indices\+\_\+C}}
+\textbf{ std\+::vector}$<$ unsigned int $>$ \mbox{\hyperlink{class_do_f_handler_system_a7b2e77b2c718b0b13d861da7c0530b28}{locally\+\_\+owned\+\_\+dof\+\_\+indices\+\_\+C}}
 \item 
-std\+::vector$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$ $>$ \mbox{\hyperlink{class_do_f_handler_system_af0119b14377300f7f0457a18bb7dcd67}{active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}}
+\textbf{ std\+::vector}$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$ $>$ \mbox{\hyperlink{class_do_f_handler_system_af0119b14377300f7f0457a18bb7dcd67}{active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}}
 \item 
 \textbf{ Smart\+Pointer}$<$ const \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} $>$ \mbox{\hyperlink{class_do_f_handler_system_aef6159c606a24ac7daadcd3fe082b3b6}{dof\+\_\+renumbering}} = nullptr
 \item 
@@ -131,13 +131,13 @@ std\+::vector$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interf
 \item 
 \textbf{ Index\+Set} \mbox{\hyperlink{class_do_f_handler_system_a6b2de0e80cf0e67e62391cc84f8a7be5}{locally\+\_\+relevant\+\_\+dofs}}
 \item 
-std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_do_f_handler_system_acfe853db91a67d1f78e08d62d91bab1b}{n\+\_\+dofs\+\_\+per\+\_\+processor}}
+\textbf{ std\+::vector}$<$ unsigned int $>$ \mbox{\hyperlink{class_do_f_handler_system_acfe853db91a67d1f78e08d62d91bab1b}{n\+\_\+dofs\+\_\+per\+\_\+processor}}
 \item 
 \textbf{ Index\+Set} \mbox{\hyperlink{class_do_f_handler_system_a257ddb680d9f8276f7b802884dd8e577}{locally\+\_\+owned\+\_\+dofs\+\_\+standard\+\_\+numbering}}
 \item 
 \textbf{ Index\+Set} \mbox{\hyperlink{class_do_f_handler_system_a0e6744c40aada76d695f2c564f4c5040}{locally\+\_\+relevant\+\_\+dofs\+\_\+standard\+\_\+numbering}}
 \item 
-std\+::vector$<$ boost\+::signals2\+::connection $>$ \mbox{\hyperlink{class_do_f_handler_system_a286776a935dacb3d1c79a90f4ca7e5d8}{tria\+\_\+listeners}}
+\textbf{ std\+::vector}$<$ boost\+::signals2\+::connection $>$ \mbox{\hyperlink{class_do_f_handler_system_a286776a935dacb3d1c79a90f4ca7e5d8}{tria\+\_\+listeners}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -345,7 +345,7 @@ Function returning the global dof index of the n-\/th dof not related to the mes
 \index{get\_dof\_indices@{get\_dof\_indices}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_indices()}{get\_dof\_indices()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices (\begin{DoxyParamCaption}\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices }\end{DoxyParamCaption}) const}
 
 Function returning the global dof indices of the dofs not related to a mesh
 
@@ -359,7 +359,7 @@ Function returning the global dof indices of the dofs not related to a mesh
 \index{get\_dof\_indices\_component\_domain@{get\_dof\_indices\_component\_domain}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_indices\_component\_domain()}{get\_dof\_indices\_component\_domain()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+domain (\begin{DoxyParamCaption}\item[{const unsigned int}]{component,  }\item[{std\+::set$<$ unsigned int $>$ \&}]{indices }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+domain (\begin{DoxyParamCaption}\item[{const unsigned int}]{component,  }\item[{\textbf{ std\+::set}$<$ unsigned int $>$ \&}]{indices }\end{DoxyParamCaption}) const}
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -378,7 +378,7 @@ In parallel, this searches in the locally owned dofs.
 \index{get\_dof\_indices\_component\_interface@{get\_dof\_indices\_component\_interface}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_indices\_component\_interface()}{get\_dof\_indices\_component\_interface()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+interface (\begin{DoxyParamCaption}\item[{const unsigned int}]{component,  }\item[{std\+::set$<$ unsigned int $>$ \&}]{indices }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices\+\_\+component\+\_\+interface (\begin{DoxyParamCaption}\item[{const unsigned int}]{component,  }\item[{\textbf{ std\+::set}$<$ unsigned int $>$ \&}]{indices }\end{DoxyParamCaption}) const}
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -417,7 +417,7 @@ The set of locally relevant dofs (possibly renumbered according to \mbox{\hyperl
 \index{get\_map\_dof\_index\_component\_domain@{get\_map\_dof\_index\_component\_domain}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_map\_dof\_index\_component\_domain()}{get\_map\_dof\_index\_component\_domain()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+map\+\_\+dof\+\_\+index\+\_\+component\+\_\+domain (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{components }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+map\+\_\+dof\+\_\+index\+\_\+component\+\_\+domain (\begin{DoxyParamCaption}\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{components }\end{DoxyParamCaption}) const}
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -434,7 +434,7 @@ In parallel, this returns only valid components for locally owned cells.
 \index{get\_map\_dof\_index\_component\_interface@{get\_map\_dof\_index\_component\_interface}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_map\_dof\_index\_component\_interface()}{get\_map\_dof\_index\_component\_interface()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+map\+\_\+dof\+\_\+index\+\_\+component\+\_\+interface (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{components }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+map\+\_\+dof\+\_\+index\+\_\+component\+\_\+interface (\begin{DoxyParamCaption}\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{components }\end{DoxyParamCaption}) const}
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -451,7 +451,7 @@ In parallel, this returns only valid components for locally owned cells.
 \index{get\_map\_dof\_index\_support\_point\_index\_domain@{get\_map\_dof\_index\_support\_point\_index\_domain}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_map\_dof\_index\_support\_point\_index\_domain()}{get\_map\_dof\_index\_support\_point\_index\_domain()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+map\+\_\+dof\+\_\+index\+\_\+support\+\_\+point\+\_\+index\+\_\+domain (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{support\+\_\+points,  }\item[{std\+::map$<$ unsigned int, \textbf{ Point}$<$ spacedim $>$$>$ \&}]{map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location,  }\item[{const dealii\+::\+Mapping$<$ spacedim $>$ \&}]{mapping }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+map\+\_\+dof\+\_\+index\+\_\+support\+\_\+point\+\_\+index\+\_\+domain (\begin{DoxyParamCaption}\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{support\+\_\+points,  }\item[{std\+::map$<$ unsigned int, \textbf{ Point}$<$ spacedim $>$$>$ \&}]{map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location,  }\item[{const dealii\+::\+Mapping$<$ spacedim $>$ \&}]{mapping }\end{DoxyParamCaption}) const}
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -472,7 +472,7 @@ In parallel, this returns only valid results for locally owned cells.
 \index{get\_map\_dof\_index\_support\_point\_index\_interface@{get\_map\_dof\_index\_support\_point\_index\_interface}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_map\_dof\_index\_support\_point\_index\_interface()}{get\_map\_dof\_index\_support\_point\_index\_interface()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+map\+\_\+dof\+\_\+index\+\_\+support\+\_\+point\+\_\+index\+\_\+interface (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{support\+\_\+points,  }\item[{std\+::map$<$ unsigned int, \textbf{ Point}$<$ spacedim $>$$>$ \&}]{map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location,  }\item[{const dealii\+::\+Mapping$<$ spacedim-\/1, spacedim $>$ \&}]{mapping }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+map\+\_\+dof\+\_\+index\+\_\+support\+\_\+point\+\_\+index\+\_\+interface (\begin{DoxyParamCaption}\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{support\+\_\+points,  }\item[{std\+::map$<$ unsigned int, \textbf{ Point}$<$ spacedim $>$$>$ \&}]{map\+\_\+support\+\_\+point\+\_\+index\+\_\+support\+\_\+point\+\_\+location,  }\item[{const dealii\+::\+Mapping$<$ spacedim-\/1, spacedim $>$ \&}]{mapping }\end{DoxyParamCaption}) const}
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -493,7 +493,7 @@ In parallel, this returns only valid results for locally owned cells.
 \index{get\_n\_dofs\_per\_processor@{get\_n\_dofs\_per\_processor}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_n\_dofs\_per\_processor()}{get\_n\_dofs\_per\_processor()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-const std\+::vector$<$unsigned int$>$\& \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+n\+\_\+dofs\+\_\+per\+\_\+processor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+const \textbf{ std\+::vector}$<$unsigned int$>$\& \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::get\+\_\+n\+\_\+dofs\+\_\+per\+\_\+processor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
 The number of dofs per processor (the n-\/th element of the vector corresponds to the n-\/th processor) 
@@ -547,7 +547,7 @@ In parallel, this will select one of the dofs and return this dof on all process
 \index{interface\_active\_iterators@{interface\_active\_iterators}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{interface\_active\_iterators()}{interface\_active\_iterators()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-const std\+::vector$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$spacedim$>$ $>$\& \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::interface\+\_\+active\+\_\+iterators (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+const \textbf{ std\+::vector}$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$spacedim$>$ $>$\& \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::interface\+\_\+active\+\_\+iterators (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
 This returns a const reference to \mbox{\hyperlink{class_do_f_handler_system_af0119b14377300f7f0457a18bb7dcd67}{Do\+F\+Handler\+System\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}}, which is essentially be meant for range based loops instead of using the functions \mbox{\hyperlink{class_do_f_handler_system_a88d93ac03defd1b296238de4eb122841}{Do\+F\+Handler\+System\+::interface\+\_\+begin\+\_\+active()}} and \mbox{\hyperlink{class_do_f_handler_system_aecbc22a86943c1bc921a13ec7e2333f2}{Do\+F\+Handler\+System\+::interface\+\_\+end\+\_\+active()}} (hence the name of the function). 
@@ -557,7 +557,7 @@ This returns a const reference to \mbox{\hyperlink{class_do_f_handler_system_af0
 \index{interface\_begin\_active@{interface\_begin\_active}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{interface\_begin\_active()}{interface\_begin\_active()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$spacedim$>$ $>$\+::iterator \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::interface\+\_\+begin\+\_\+active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\textbf{ std\+::vector}$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$spacedim$>$ $>$\+::\textbf{ iterator} \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::interface\+\_\+begin\+\_\+active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyReturn}{Returns}
 An iterator (with dof information) to the first active interface cell. Note that this is not a deal.\+II iterator. Rather, it is an iterator to the first element in \mbox{\hyperlink{class_do_f_handler_system_af0119b14377300f7f0457a18bb7dcd67}{Do\+F\+Handler\+System\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}}. However, through the returned iterator, deal.\+II iterators to the interface cells and adjacent domain cells can be obtained. 
@@ -567,7 +567,7 @@ An iterator (with dof information) to the first active interface cell. Note that
 \index{interface\_end\_active@{interface\_end\_active}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{interface\_end\_active()}{interface\_end\_active()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$spacedim$>$ $>$\+::iterator \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::interface\+\_\+end\+\_\+active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\textbf{ std\+::vector}$<$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$spacedim$>$ $>$\+::\textbf{ iterator} \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::interface\+\_\+end\+\_\+active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyReturn}{Returns}
 An iterator (with dof information) to past the last active interface cell. Note that this is not a deal.\+II iterator. Rather, it is an iterator to the past the end element in \mbox{\hyperlink{class_do_f_handler_system_af0119b14377300f7f0457a18bb7dcd67}{Do\+F\+Handler\+System\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}}. 
@@ -577,7 +577,7 @@ An iterator (with dof information) to past the last active interface cell. Note 
 \index{make\_hanging\_node\_constraints@{make\_hanging\_node\_constraints}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{make\_hanging\_node\_constraints()}{make\_hanging\_node\_constraints()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::make\+\_\+hanging\+\_\+node\+\_\+constraints (\begin{DoxyParamCaption}\item[{Affine\+Constraints$<$ double $>$ \&}]{constraint\+\_\+matrix }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::make\+\_\+hanging\+\_\+node\+\_\+constraints (\begin{DoxyParamCaption}\item[{\textbf{ Affine\+Constraints}$<$ double $>$ \&}]{constraint\+\_\+matrix }\end{DoxyParamCaption}) const}
 
 Method generating the hanging node constraints (both for the domain related as well as the interface related dofs).
 
@@ -663,7 +663,7 @@ Function setting \mbox{\hyperlink{class_do_f_handler_system_a0e6744c40aada76d695
 \doxysubsubsection{\texorpdfstring{split\_vector()}{split\_vector()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 template$<$class Vector\+Type $>$ \\
-void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::split\+\_\+vector (\begin{DoxyParamCaption}\item[{const \textbf{ Vector\+Type} \&}]{in\+\_\+vect,  }\item[{\textbf{ Vector\+Type} \&}]{out\+\_\+vect\+\_\+domain,  }\item[{\textbf{ Vector\+Type} \&}]{out\+\_\+vect\+\_\+interface,  }\item[{\textbf{ Vector\+Type} \&}]{out\+\_\+vect\+\_\+C }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::split\+\_\+vector (\begin{DoxyParamCaption}\item[{const Vector\+Type \&}]{in\+\_\+vect,  }\item[{Vector\+Type \&}]{out\+\_\+vect\+\_\+domain,  }\item[{Vector\+Type \&}]{out\+\_\+vect\+\_\+interface,  }\item[{Vector\+Type \&}]{out\+\_\+vect\+\_\+C }\end{DoxyParamCaption}) const}
 
 This function renumbers a distributed vector, which is renumbered according to \mbox{\hyperlink{class_do_f_handler_system_aef6159c606a24ac7daadcd3fe082b3b6}{Do\+F\+Handler\+System\+::dof\+\_\+renumbering}}, back to the standard numbering of this \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}} and splits it into the domain part, the interface part, and the additional dof part.
 
@@ -760,7 +760,7 @@ This is necssary to get access to the current renumbering scheme
 \index{active\_interface\_cell\_domain\_cells@{active\_interface\_cell\_domain\_cells}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{active\_interface\_cell\_domain\_cells}{active\_interface\_cell\_domain\_cells}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$\mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$spacedim$>$ $>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ std\+::vector}$<$\mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$spacedim$>$ $>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells\hspace{0.3cm}{\ttfamily [private]}}
 
 This vector contains the interface cells and corresponding domain cells of the active mesh (with dof information). This member is the equivalent to \mbox{\hyperlink{class_triangulation_system_a516c7a253cefbc5e208714538b21424d}{Triangulation\+System\+::active\+\_\+interface\+\_\+cell\+\_\+domain\+\_\+cells}} \mbox{\Hypertarget{class_do_f_handler_system_a342ca54f8d2447244d380db5025dab03}\label{class_do_f_handler_system_a342ca54f8d2447244d380db5025dab03}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!dof\_handler\_domain@{dof\_handler\_domain}}
@@ -781,7 +781,7 @@ std\+::shared\+\_\+ptr$<$\textbf{ Do\+F\+Handler}$<$spacedim-\/1, spacedim$>$ $>
 \index{dof\_indices\_C@{dof\_indices\_C}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{dof\_indices\_C}{dof\_indices\_C}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$unsigned int$>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::dof\+\_\+indices\+\_\+C\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ std\+::vector}$<$unsigned int$>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::dof\+\_\+indices\+\_\+C\hspace{0.3cm}{\ttfamily [private]}}
 
 A vector with the dof indices of the additional dofs which are not related to a mesh These numbers are consecutive and start after the finite element related dofs. \mbox{\Hypertarget{class_do_f_handler_system_aef6159c606a24ac7daadcd3fe082b3b6}\label{class_do_f_handler_system_aef6159c606a24ac7daadcd3fe082b3b6}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!dof\_renumbering@{dof\_renumbering}}
@@ -797,7 +797,7 @@ Note that the dof numbering can be influenced in two ways\+: (1) Renumbering of 
 \index{locally\_owned\_dof\_indices\_C@{locally\_owned\_dof\_indices\_C}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{locally\_owned\_dof\_indices\_C}{locally\_owned\_dof\_indices\_C}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$unsigned int$>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::locally\+\_\+owned\+\_\+dof\+\_\+indices\+\_\+C\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ std\+::vector}$<$unsigned int$>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::locally\+\_\+owned\+\_\+dof\+\_\+indices\+\_\+C\hspace{0.3cm}{\ttfamily [private]}}
 
 A vector with the locally owned dof indices of the additional dofs which are not related to a mesh \mbox{\Hypertarget{class_do_f_handler_system_ad72a701a3581187eec846c831ba384c5}\label{class_do_f_handler_system_ad72a701a3581187eec846c831ba384c5}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!locally\_owned\_dofs@{locally\_owned\_dofs}}
@@ -832,14 +832,14 @@ The index set with the locally relevant dofs (i.\+e., without application of ren
 \index{n\_dofs\_per\_processor@{n\_dofs\_per\_processor}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{n\_dofs\_per\_processor}{n\_dofs\_per\_processor}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$unsigned int$>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::n\+\_\+dofs\+\_\+per\+\_\+processor\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ std\+::vector}$<$unsigned int$>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::n\+\_\+dofs\+\_\+per\+\_\+processor\hspace{0.3cm}{\ttfamily [private]}}
 
 A vector with the numbers of locally owned dofs per processor \mbox{\Hypertarget{class_do_f_handler_system_a286776a935dacb3d1c79a90f4ca7e5d8}\label{class_do_f_handler_system_a286776a935dacb3d1c79a90f4ca7e5d8}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!tria\_listeners@{tria\_listeners}}
 \index{tria\_listeners@{tria\_listeners}!DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{tria\_listeners}{tria\_listeners}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$boost\+::signals2\+::connection$>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::tria\+\_\+listeners\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ std\+::vector}$<$boost\+::signals2\+::connection$>$ \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$\+::tria\+\_\+listeners\hspace{0.3cm}{\ttfamily [private]}}
 
 A list of connections with which this object connects to the triangulations to get information about when the triangulations change. \mbox{\Hypertarget{class_do_f_handler_system_a06d93193cb47591db138cd8f41953796}\label{class_do_f_handler_system_a06d93193cb47591db138cd8f41953796}} 
 \index{DoFHandlerSystem$<$ spacedim $>$@{DoFHandlerSystem$<$ spacedim $>$}!tria\_system@{tria\_system}}

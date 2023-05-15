@@ -1549,7 +1549,7 @@ public:
 	 *
 	 * @param[in]	scalar_functionals_interface_to_call	interface-related scalar functionals to be evaluated
 	 *
-	 * @param[in]	call_all_scalar_functionals				If this is set to true, all scalar functionals involved in the total potential are called irrespective of what is given in @p scalar_functionals_domain_to_call and @p scalar_functionals_interface_to_call.
+	 * @param[in]	call_all_functionals					If this is set to true, all scalar functionals involved in the total potential are called irrespective of what is given in @p scalar_functionals_domain_to_call and @p scalar_functionals_interface_to_call.
 	 *
 	 * @tparam		VectorType								The type used for the solution vector
 	 */

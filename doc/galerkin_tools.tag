@@ -47,6 +47,12 @@
     <class kind="class">DoFRenumberingOffset</class>
   </compound>
   <compound kind="file">
+    <name>fe_dgq_anisotropic.h</name>
+    <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
+    <filename>fe__dgq__anisotropic_8h.html</filename>
+    <class kind="class">FE_DGQAnisotropic</class>
+  </compound>
+  <compound kind="file">
     <name>fe_values_interface.h</name>
     <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>fe__values__interface_8h.html</filename>
@@ -273,6 +279,7 @@
     <filename>triangulation__system_8h.html</filename>
     <class kind="class">InterfaceCellDomainCells</class>
     <class kind="class">TriangulationSystem</class>
+    <class kind="class">parallel::Triangulation</class>
     <class kind="class">parallel::TriangulationSystem</class>
     <namespace>parallel</namespace>
     <member kind="enumeration">
@@ -2287,10 +2294,45 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
+      <type>int *</type>
+      <name>info</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>ad890f0e1ce9499cf91ae9a8d6b89b0b7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int *</type>
+      <name>infog</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a59f1340cb4c1f1d5baefb9b81aef6857</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
       <type>unsigned int</type>
       <name>analyze</name>
       <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
       <anchor>a8be8b4fb9d6a6ebf7184327b5121f1e5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>modify_on_negative_pivot</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>ab22891ea06bef2419ef6190aa99e7bf3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>beta</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a04279ba9065c9f59bd7a30c92c7804ac</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>increase_tau</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a120c310cd94f46b4186c56b37170cc25</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -2305,6 +2347,13 @@
       <name>jcn</name>
       <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
       <anchor>a7573f600b4965a19b556651512d3b26b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; int &gt;</type>
+      <name>d</name>
+      <anchorfile>class_block_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>af481ade4d2832ade039399a08959f91f</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -3794,6 +3843,97 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>FE_DGQAnisotropic</name>
+    <filename>class_f_e___d_g_q_anisotropic.html</filename>
+    <templarg>dim</templarg>
+    <templarg>spacedim</templarg>
+    <base>FE_Poly&lt; dim, dim &gt;</base>
+    <member kind="function">
+      <type></type>
+      <name>FE_DGQAnisotropic</name>
+      <anchorfile>class_f_e___d_g_q_anisotropic.html</anchorfile>
+      <anchor>a1504042c3096ba9e4b958ec699667d6c</anchor>
+      <arglist>(const Quadrature&lt; 1 &gt; &amp;points_x, const Quadrature&lt; 1 &gt; &amp;points_y, const Quadrature&lt; 1 &gt; &amp;points_z)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>FE_DGQAnisotropic</name>
+      <anchorfile>class_f_e___d_g_q_anisotropic.html</anchorfile>
+      <anchor>a3e6e9cd0f18fe42ec99aebaff5364cce</anchor>
+      <arglist>(const Quadrature&lt; 1 &gt; &amp;points_x, const Quadrature&lt; 1 &gt; &amp;points_y)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>convert_generalized_support_point_values_to_dof_values</name>
+      <anchorfile>class_f_e___d_g_q_anisotropic.html</anchorfile>
+      <anchor>a16f2216f14a001d5e16704c41ffb7f09</anchor>
+      <arglist>(const std::vector&lt; Vector&lt; double &gt;&gt; &amp;support_point_values, std::vector&lt; double &gt; &amp;nodal_values) const override</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; FiniteElement&lt; dim, spacedim &gt; &gt;</type>
+      <name>clone</name>
+      <anchorfile>class_f_e___d_g_q_anisotropic.html</anchorfile>
+      <anchor>aba12ce2e8eec0366c87b26d62b3d8d89</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>std::string</type>
+      <name>get_name</name>
+      <anchorfile>class_f_e___d_g_q_anisotropic.html</anchorfile>
+      <anchor>af639aedcc90606523198e7037c142e2e</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>FiniteElementDomination::Domination</type>
+      <name>compare_for_domination</name>
+      <anchorfile>class_f_e___d_g_q_anisotropic.html</anchorfile>
+      <anchor>aa1ecc8619e7841cff95c9ad226bfe373</anchor>
+      <arglist>(const FiniteElement&lt; dim, spacedim &gt; &amp;fe_other, const unsigned int codim) const override</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; std::pair&lt; unsigned int, unsigned int &gt; &gt;</type>
+      <name>hp_vertex_dof_identities</name>
+      <anchorfile>class_f_e___d_g_q_anisotropic.html</anchorfile>
+      <anchor>a14f2f28e2672694817fae015e37164db</anchor>
+      <arglist>(const FiniteElement&lt; dim, spacedim &gt; &amp;fe_other) const override</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; std::pair&lt; unsigned int, unsigned int &gt; &gt;</type>
+      <name>hp_line_dof_identities</name>
+      <anchorfile>class_f_e___d_g_q_anisotropic.html</anchorfile>
+      <anchor>a531c3309fd09eb4a5699a930ca7c3bc2</anchor>
+      <arglist>(const FiniteElement&lt; dim, spacedim &gt; &amp;fe_other) const override</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; std::pair&lt; unsigned int, unsigned int &gt; &gt;</type>
+      <name>hp_quad_dof_identities</name>
+      <anchorfile>class_f_e___d_g_q_anisotropic.html</anchorfile>
+      <anchor>ad9aa1f1d252a4db26754c8da9fd7c9e0</anchor>
+      <arglist>(const FiniteElement&lt; dim, spacedim &gt; &amp;fe_other, const unsigned int face_no=0) const override</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>const unsigned int</type>
+      <name>degree_x</name>
+      <anchorfile>class_f_e___d_g_q_anisotropic.html</anchorfile>
+      <anchor>acdf735a7ef2198784ac1771a47d22b1b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>const unsigned int</type>
+      <name>degree_y</name>
+      <anchorfile>class_f_e___d_g_q_anisotropic.html</anchorfile>
+      <anchor>ad48f8d9428ac7719985eea4fde6c9b54</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>const unsigned int</type>
+      <name>degree_z</name>
+      <anchorfile>class_f_e___d_g_q_anisotropic.html</anchorfile>
+      <anchor>aa585c966670d06d56d5b15acc3e76b2f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>FEValuesInterface</name>
     <filename>class_f_e_values_interface.html</filename>
     <templarg>spacedim</templarg>
@@ -4059,81 +4199,6 @@
       <name>n_components</name>
       <anchorfile>class_independent_field_3_010_00_01spacedim_01_4.html</anchorfile>
       <anchor>a248c2226570c71914f5219e7e3052561</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>IndependentField&lt; spacedim, spacedim &gt;</name>
-    <filename>class_independent_field.html</filename>
-    <base>Subscriptor</base>
-    <member kind="function">
-      <type></type>
-      <name>IndependentField</name>
-      <anchorfile>class_independent_field.html</anchorfile>
-      <anchor>afb12ec32511568a9504312730542bfa1</anchor>
-      <arglist>(const std::string name, const FiniteElement&lt; dim, spacedim &gt; &amp;fe, const unsigned int n_components, const std::set&lt; types::material_id &gt; non_zero_regions, const Function&lt; spacedim &gt; *const initial_vals=nullptr, const bool is_local=false, const bool is_locally_eliminated=false)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>IndependentField</name>
-      <anchorfile>class_independent_field.html</anchorfile>
-      <anchor>af953c9ecc5965d5bcbd61fab9e0b6e2b</anchor>
-      <arglist>(const std::string name, const FiniteElement&lt; dim, spacedim &gt; &amp;fe, const std::set&lt; types::material_id &gt; non_zero_regions, const Function&lt; spacedim &gt; *const initial_vals=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~IndependentField</name>
-      <anchorfile>class_independent_field.html</anchorfile>
-      <anchor>af83ee8c1600bb079a3075244a7b39481</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable">
-      <type>const std::string</type>
-      <name>name</name>
-      <anchorfile>class_independent_field.html</anchorfile>
-      <anchor>ae05f8565e4ce1a70b5b833555dc084b5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const std::unique_ptr&lt; const FiniteElement&lt; dim, spacedim &gt; &gt;</type>
-      <name>fe</name>
-      <anchorfile>class_independent_field.html</anchorfile>
-      <anchor>a1c583665b7710bd3b815b03ba026b6d3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const unsigned int</type>
-      <name>n_components</name>
-      <anchorfile>class_independent_field.html</anchorfile>
-      <anchor>a7b19ea8c30d72cf27f05669de61f30a8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const std::set&lt; types::material_id &gt;</type>
-      <name>non_zero_regions</name>
-      <anchorfile>class_independent_field.html</anchorfile>
-      <anchor>a4e09e114870c0b3761bc2e32916e5850</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const SmartPointer&lt; const Function&lt; spacedim &gt; &gt;</type>
-      <name>initial_vals</name>
-      <anchorfile>class_independent_field.html</anchorfile>
-      <anchor>a274c902785d2937a6065f7e09f3976c3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const bool</type>
-      <name>is_local</name>
-      <anchorfile>class_independent_field.html</anchorfile>
-      <anchor>a8e77d8d321a259bec955a71f55ef41e5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const bool</type>
-      <name>is_locally_eliminated</name>
-      <anchorfile>class_independent_field.html</anchorfile>
-      <anchor>a755514cb31014d9b39e1b3e677c4527d</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -5483,6 +5548,61 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>parallel::Triangulation</name>
+    <filename>classparallel_1_1_triangulation.html</filename>
+    <templarg>dim</templarg>
+    <templarg>spacedim</templarg>
+    <member kind="function">
+      <type></type>
+      <name>Triangulation</name>
+      <anchorfile>classparallel_1_1_triangulation.html</anchorfile>
+      <anchor>abd6ed252f25fe0342e85e7a00aaf9fe3</anchor>
+      <arglist>(MPI_Comm mpi_communicator)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>finalize_subdomain_assignment</name>
+      <anchorfile>classparallel_1_1_triangulation.html</anchorfile>
+      <anchor>ae058708cfbddedd508afce57b6e3b284</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>is_multilevel_hierarchy_constructed</name>
+      <anchorfile>classparallel_1_1_triangulation.html</anchorfile>
+      <anchor>abe47f077f6c88940ed25ee571e4586b5</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>update_cell_relations</name>
+      <anchorfile>classparallel_1_1_triangulation.html</anchorfile>
+      <anchor>a9fe60e2814d4d9a5993db43daaf7f64b</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>save</name>
+      <anchorfile>classparallel_1_1_triangulation.html</anchorfile>
+      <anchor>ad722763b534f5ec0b8a768c07ab6f6d9</anchor>
+      <arglist>(const std::string &amp;filename) const override</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>load</name>
+      <anchorfile>classparallel_1_1_triangulation.html</anchorfile>
+      <anchor>ab7745a3a3f606c6526f60038303b1453</anchor>
+      <arglist>(const std::string &amp;filename) override</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>load</name>
+      <anchorfile>classparallel_1_1_triangulation.html</anchorfile>
+      <anchor>a843b296ec1cff052b49efb02ff02681f</anchor>
+      <arglist>(const std::string &amp;filename, const bool autopartition) override</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>parallel::TriangulationSystem</name>
     <filename>classparallel_1_1_triangulation_system.html</filename>
     <templarg>spacedim</templarg>
@@ -5900,46 +6020,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>parallel::TwoBlockMatrix</name>
-    <filename>classparallel_1_1_two_block_matrix.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type></type>
-      <name>TwoBlockMatrix</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a93990616301e671f9a967fbc49029674</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>TwoBlockMatrix</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>afa9b3f1c3d74a211c334c8f6e59b52f6</anchor>
-      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reinit</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a0e112695034c69aa8a430efd9e7c37ef</anchor>
-      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
-    </member>
-    <member kind="function">
-      <type>dealii::GalerkinTools::parallel::TwoBlockMatrix&lt; MatrixType &gt; &amp;</type>
-      <name>operator=</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a8e2ba56ebc9ee5ad1fe7b1d8604e9669</anchor>
-      <arglist>(const double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>const MPI_Comm &amp;</type>
-      <name>get_communicator</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>add0cc2ee49d139e1dbc5554fd62dd5f5</anchor>
-      <arglist>() const</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>TwoBlockMatrix</name>
     <filename>class_two_block_matrix.html</filename>
     <templarg></templarg>
@@ -6187,6 +6267,46 @@
       <anchorfile>class_two_block_matrix.html</anchorfile>
       <anchor>a7d63b4c4c1e499c9f9913444dc5fd6b6</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>parallel::TwoBlockMatrix</name>
+    <filename>classparallel_1_1_two_block_matrix.html</filename>
+    <templarg></templarg>
+    <member kind="function">
+      <type></type>
+      <name>TwoBlockMatrix</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a93990616301e671f9a967fbc49029674</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TwoBlockMatrix</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>afa9b3f1c3d74a211c334c8f6e59b52f6</anchor>
+      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reinit</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a0e112695034c69aa8a430efd9e7c37ef</anchor>
+      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
+    </member>
+    <member kind="function">
+      <type>dealii::GalerkinTools::parallel::TwoBlockMatrix&lt; MatrixType &gt; &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a8e2ba56ebc9ee5ad1fe7b1d8604e9669</anchor>
+      <arglist>(const double value)</arglist>
+    </member>
+    <member kind="function">
+      <type>const MPI_Comm &amp;</type>
+      <name>get_communicator</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>add0cc2ee49d139e1dbc5554fd62dd5f5</anchor>
+      <arglist>() const</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -6473,6 +6593,7 @@
   <compound kind="namespace">
     <name>parallel</name>
     <filename>namespaceparallel.html</filename>
+    <class kind="class">parallel::Triangulation</class>
     <class kind="class">parallel::TriangulationSystem</class>
     <class kind="class">parallel::TwoBlockMatrix</class>
   </compound>

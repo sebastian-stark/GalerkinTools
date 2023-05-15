@@ -25,17 +25,17 @@ Collaboration diagram for parallel\+::Triangulation\+System$<$ spacedim $>$\+:\n
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classparallel_1_1_triangulation_system_a312a7db9393869aa3c9b84b1e316342b}{Triangulation\+System}} (dealii\+::parallel\+::distributed\+::\+Triangulation$<$ spacedim, spacedim $>$ \&tria\+\_\+domain, const bool fix\+\_\+vertex\+\_\+positions=false)
+\mbox{\hyperlink{classparallel_1_1_triangulation_system_a312a7db9393869aa3c9b84b1e316342b}{Triangulation\+System}} (\textbf{ dealii\+::parallel\+::distributed\+::\+Triangulation}$<$ spacedim, spacedim $>$ \&tria\+\_\+domain, const bool fix\+\_\+vertex\+\_\+positions=false)
 \item 
 virtual \mbox{\hyperlink{classparallel_1_1_triangulation_system_ad12682d17e85ee169fd53cdbe0536f16}{$\sim$\+Triangulation\+System}} ()=default
 \item 
-virtual const dealii\+::parallel\+::distributed\+::\+Triangulation$<$ spacedim, spacedim $>$ \& \mbox{\hyperlink{classparallel_1_1_triangulation_system_a8dfd7da98adf853fd6ec27cbfccec90b}{get\+\_\+triangulation\+\_\+domain}} () const
+virtual const \textbf{ dealii\+::parallel\+::distributed\+::\+Triangulation}$<$ spacedim, spacedim $>$ \& \mbox{\hyperlink{classparallel_1_1_triangulation_system_a8dfd7da98adf853fd6ec27cbfccec90b}{get\+\_\+triangulation\+\_\+domain}} () const
 \item 
-virtual const dealii\+::\+Galerkin\+Tools\+::parallel\+::\+Triangulation$<$ spacedim-\/1, spacedim $>$ \& \mbox{\hyperlink{classparallel_1_1_triangulation_system_acaac838c580c71c0152b1eef7c084ebb}{get\+\_\+triangulation\+\_\+interface}} () const
+virtual const \textbf{ dealii\+::\+Galerkin\+Tools\+::parallel\+::\+Triangulation}$<$ spacedim-\/1, spacedim $>$ \& \mbox{\hyperlink{classparallel_1_1_triangulation_system_acaac838c580c71c0152b1eef7c084ebb}{get\+\_\+triangulation\+\_\+interface}} () const
 \item 
-virtual dealii\+::parallel\+::distributed\+::\+Triangulation$<$ spacedim, spacedim $>$ \& \mbox{\hyperlink{classparallel_1_1_triangulation_system_abadd4ec597f43a8992f6477690c9f6c4}{get\+\_\+triangulation\+\_\+domain}} ()
+virtual \textbf{ dealii\+::parallel\+::distributed\+::\+Triangulation}$<$ spacedim, spacedim $>$ \& \mbox{\hyperlink{classparallel_1_1_triangulation_system_abadd4ec597f43a8992f6477690c9f6c4}{get\+\_\+triangulation\+\_\+domain}} ()
 \item 
-virtual dealii\+::\+Galerkin\+Tools\+::parallel\+::\+Triangulation$<$ spacedim-\/1, spacedim $>$ \& \mbox{\hyperlink{classparallel_1_1_triangulation_system_ad5c8bebc3b72cae7e1ec086790b2f76d}{get\+\_\+triangulation\+\_\+interface}} ()
+virtual \textbf{ dealii\+::\+Galerkin\+Tools\+::parallel\+::\+Triangulation}$<$ spacedim-\/1, spacedim $>$ \& \mbox{\hyperlink{classparallel_1_1_triangulation_system_ad5c8bebc3b72cae7e1ec086790b2f76d}{get\+\_\+triangulation\+\_\+interface}} ()
 \item 
 virtual void \mbox{\hyperlink{classparallel_1_1_triangulation_system_a5a7ef73bec1fbe698480e1bd7c6cd8a7}{close}} ()
 \item 
@@ -84,7 +84,7 @@ In general, the complete coarse domain mesh with all \textbf{ types\+::material\
 \index{TriangulationSystem@{TriangulationSystem}!parallel::TriangulationSystem$<$ spacedim $>$@{parallel::TriangulationSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{TriangulationSystem()}{TriangulationSystem()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}}$<$ spacedim $>$\+::\mbox{\hyperlink{classparallel_1_1_triangulation_system}{Triangulation\+System}} (\begin{DoxyParamCaption}\item[{dealii\+::parallel\+::distributed\+::\+Triangulation$<$ spacedim, spacedim $>$ \&}]{tria\+\_\+domain,  }\item[{const bool}]{fix\+\_\+vertex\+\_\+positions = {\ttfamily false} }\end{DoxyParamCaption})}
+\mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}}$<$ spacedim $>$\+::\mbox{\hyperlink{classparallel_1_1_triangulation_system}{Triangulation\+System}} (\begin{DoxyParamCaption}\item[{\textbf{ dealii\+::parallel\+::distributed\+::\+Triangulation}$<$ spacedim, spacedim $>$ \&}]{tria\+\_\+domain,  }\item[{const bool}]{fix\+\_\+vertex\+\_\+positions = {\ttfamily false} }\end{DoxyParamCaption})}
 
 Constructor of the parallel\+::distributed\+::\+Triangulation\+System. Note that the constructor does not copy the {\ttfamily tria\+\_\+domain} object supplied, but rather stores a pointer to it. So do not change it after construction of the parallel\+::distributed\+::\+Triangulation\+System unless you\textquotesingle{}re knowing exactly what you are doing (the only change to the domain triangulation, which is admissible, is mesh refinement). No checking on external changes of the domain triangulation is currently performed and, therefore, doing so may lead to errors which are hard to debug.
 
@@ -127,7 +127,7 @@ The number of this processor and the total number of participating processors
 \index{get\_triangulation\_domain@{get\_triangulation\_domain}!parallel::TriangulationSystem$<$ spacedim $>$@{parallel::TriangulationSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_triangulation\_domain()}{get\_triangulation\_domain()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-virtual dealii\+::parallel\+::distributed\+::\+Triangulation$<$spacedim, spacedim$>$\& \mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+domain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+virtual \textbf{ dealii\+::parallel\+::distributed\+::\+Triangulation}$<$spacedim, spacedim$>$\& \mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+domain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 \begin{DoxyReturn}{Returns}
 This returns a reference to the domain triangulation. 
@@ -137,7 +137,7 @@ This returns a reference to the domain triangulation.
 \index{get\_triangulation\_domain@{get\_triangulation\_domain}!parallel::TriangulationSystem$<$ spacedim $>$@{parallel::TriangulationSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_triangulation\_domain()}{get\_triangulation\_domain()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-virtual const dealii\+::parallel\+::distributed\+::\+Triangulation$<$spacedim, spacedim$>$\& \mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+domain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+virtual const \textbf{ dealii\+::parallel\+::distributed\+::\+Triangulation}$<$spacedim, spacedim$>$\& \mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+domain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
 \begin{DoxyReturn}{Returns}
 This returns a const reference to the domain triangulation. 
@@ -147,7 +147,7 @@ This returns a const reference to the domain triangulation.
 \index{get\_triangulation\_interface@{get\_triangulation\_interface}!parallel::TriangulationSystem$<$ spacedim $>$@{parallel::TriangulationSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_triangulation\_interface()}{get\_triangulation\_interface()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-virtual dealii\+::\+Galerkin\+Tools\+::parallel\+::\+Triangulation$<$spacedim-\/1, spacedim$>$\& \mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+virtual \textbf{ dealii\+::\+Galerkin\+Tools\+::parallel\+::\+Triangulation}$<$spacedim-\/1, spacedim$>$\& \mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 \begin{DoxyReturn}{Returns}
 This returns a reference to the interface triangulation. 
@@ -157,7 +157,7 @@ This returns a reference to the interface triangulation.
 \index{get\_triangulation\_interface@{get\_triangulation\_interface}!parallel::TriangulationSystem$<$ spacedim $>$@{parallel::TriangulationSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_triangulation\_interface()}{get\_triangulation\_interface()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-virtual const dealii\+::\+Galerkin\+Tools\+::parallel\+::\+Triangulation$<$spacedim-\/1, spacedim$>$\& \mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+virtual const \textbf{ dealii\+::\+Galerkin\+Tools\+::parallel\+::\+Triangulation}$<$spacedim-\/1, spacedim$>$\& \mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}}$<$ spacedim $>$\+::get\+\_\+triangulation\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
 \begin{DoxyReturn}{Returns}
 This returns a const reference to the interface triangulation. 

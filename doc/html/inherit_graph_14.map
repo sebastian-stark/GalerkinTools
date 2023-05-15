@@ -1,3 +1,23 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_total_potential.html" title=" " alt="" coords="5,5,209,32"/>
+<area shape="rect" id="node1" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classFiniteElementData.html" title=" " alt="" coords="5,13,159,54"/>
+<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classFiniteElement.html" title=" " alt="" coords="207,5,445,61"/>
+<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classFE__Poly.html" title=" " alt="" coords="531,20,693,47"/>
+<area shape="rect" id="node4" href="$class_f_e___d_g_q_anisotropic.html" title=" " alt="" coords="779,13,937,54"/>
+<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="35,407,129,433"/>
+<area shape="rect" id="node6" href="$class_dirichlet_constraint.html" title=" " alt="" coords="254,86,398,127"/>
+<area shape="rect" id="node7" href="$class_do_f_renumbering.html" title=" " alt="" coords="259,152,393,179"/>
+<area shape="rect" id="node9" href="$class_independent_field.html" title=" " alt="" coords="237,203,415,245"/>
+<area shape="rect" id="node10" href="$class_independent_field_3_010_00_01spacedim_01_4.html" title=" " alt="" coords="246,269,406,310"/>
+<area shape="rect" id="node11" href="$class_interface_cell_domain_cells.html" title=" " alt="" coords="232,334,420,375"/>
+<area shape="rect" id="node12" href="$class_interface_cell_domain_cells_do_f.html" title=" " alt="" coords="232,399,420,441"/>
+<area shape="rect" id="node13" href="$class_point_constraint.html" title=" " alt="" coords="243,465,409,506"/>
+<area shape="rect" id="node14" href="$class_point_constraint_3_01spacedim_00_01spacedim_01_4.html" title=" " alt="" coords="224,530,428,571"/>
+<area shape="rect" id="node15" href="$class_scalar_functional.html" title=" " alt="" coords="239,595,413,637"/>
+<area shape="rect" id="node17" href="$class_scalar_functional_3_01spacedim_00_01spacedim_01_4.html" title=" " alt="" coords="221,661,431,702"/>
+<area shape="rect" id="node20" href="$class_total_potential_contribution.html" title=" " alt="" coords="231,726,421,767"/>
+<area shape="rect" id="node21" href="$class_triangulation_system.html" title=" " alt="" coords="248,791,404,833"/>
+<area shape="rect" id="node8" href="$class_do_f_renumbering_offset.html" title=" " alt="" coords="525,152,699,179"/>
+<area shape="rect" id="node16" href="$class_scalar_functional_local_elimination.html" title=" " alt="" coords="493,595,731,637"/>
+<area shape="rect" id="node18" href="$class_linear_material_domain.html" title=" " alt="" coords="529,661,695,702"/>
+<area shape="rect" id="node19" href="$class_scalar_functional_local_elimination_3_01spacedim_00_01spacedim_01_4.html" title=" " alt="" coords="493,726,731,767"/>
 </map>

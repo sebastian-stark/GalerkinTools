@@ -1,0 +1,110 @@
+\hypertarget{classparallel_1_1_triangulation}{}\doxysection{parallel\+::Triangulation$<$ dim, spacedim $>$ Class Template Reference}
+\label{classparallel_1_1_triangulation}\index{parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}}
+
+
+{\ttfamily \#include $<$triangulation\+\_\+system.\+h$>$}
+
+
+
+Inheritance diagram for parallel\+::Triangulation$<$ dim, spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{classparallel_1_1_triangulation__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for parallel\+::Triangulation$<$ dim, spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{classparallel_1_1_triangulation__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classparallel_1_1_triangulation_abd6ed252f25fe0342e85e7a00aaf9fe3}{Triangulation}} (M\+P\+I\+\_\+\+Comm mpi\+\_\+communicator)
+\item 
+void \mbox{\hyperlink{classparallel_1_1_triangulation_ae058708cfbddedd508afce57b6e3b284}{finalize\+\_\+subdomain\+\_\+assignment}} ()
+\item 
+virtual bool \mbox{\hyperlink{classparallel_1_1_triangulation_abe47f077f6c88940ed25ee571e4586b5}{is\+\_\+multilevel\+\_\+hierarchy\+\_\+constructed}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classparallel_1_1_triangulation_a9fe60e2814d4d9a5993db43daaf7f64b}{update\+\_\+cell\+\_\+relations}} () override
+\item 
+virtual void \mbox{\hyperlink{classparallel_1_1_triangulation_ad722763b534f5ec0b8a768c07ab6f6d9}{save}} (const std\+::string \&filename) const override
+\item 
+virtual void \mbox{\hyperlink{classparallel_1_1_triangulation_ab7745a3a3f606c6526f60038303b1453}{load}} (const std\+::string \&filename) override
+\item 
+virtual void \mbox{\hyperlink{classparallel_1_1_triangulation_a843b296ec1cff052b49efb02ff02681f}{load}} (const std\+::string \&filename, const bool autopartition) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$unsigned int dim, unsigned int spacedim = dim$>$\newline
+class parallel\+::\+Triangulation$<$ dim, spacedim $>$}
+
+This class derives from \textbf{ parallel\+::distributed\+::\+Triangulation} and provides an interface triangulation appropriate for use within the parallel\+::distributed\+::\+Triangulation\+System. The main additional functionality of this class over \textbf{ parallel\+::distributed\+::\+Triangulation} is that the subdomain ids can be assigned manually. The triangulation can only work properly, if the partitioning is done consistently. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classparallel_1_1_triangulation_abd6ed252f25fe0342e85e7a00aaf9fe3}\label{classparallel_1_1_triangulation_abd6ed252f25fe0342e85e7a00aaf9fe3}} 
+\index{parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}!Triangulation@{Triangulation}}
+\index{Triangulation@{Triangulation}!parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{Triangulation()}{Triangulation()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim = dim$>$ \\
+\mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Triangulation}}$<$ dim, spacedim $>$\+::\mbox{\hyperlink{classparallel_1_1_triangulation}{Triangulation}} (\begin{DoxyParamCaption}\item[{M\+P\+I\+\_\+\+Comm}]{mpi\+\_\+communicator }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classparallel_1_1_triangulation_ae058708cfbddedd508afce57b6e3b284}\label{classparallel_1_1_triangulation_ae058708cfbddedd508afce57b6e3b284}} 
+\index{parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}!finalize\_subdomain\_assignment@{finalize\_subdomain\_assignment}}
+\index{finalize\_subdomain\_assignment@{finalize\_subdomain\_assignment}!parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{finalize\_subdomain\_assignment()}{finalize\_subdomain\_assignment()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim = dim$>$ \\
+void \mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Triangulation}}$<$ dim, spacedim $>$\+::finalize\+\_\+subdomain\+\_\+assignment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function must be called after any change of the subdomain ids in order to make sure that cached variables are updated \mbox{\Hypertarget{classparallel_1_1_triangulation_abe47f077f6c88940ed25ee571e4586b5}\label{classparallel_1_1_triangulation_abe47f077f6c88940ed25ee571e4586b5}} 
+\index{parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}!is\_multilevel\_hierarchy\_constructed@{is\_multilevel\_hierarchy\_constructed}}
+\index{is\_multilevel\_hierarchy\_constructed@{is\_multilevel\_hierarchy\_constructed}!parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{is\_multilevel\_hierarchy\_constructed()}{is\_multilevel\_hierarchy\_constructed()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim = dim$>$ \\
+virtual bool \mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Triangulation}}$<$ dim, spacedim $>$\+::is\+\_\+multilevel\+\_\+hierarchy\+\_\+constructed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Return if multilevel hierarchy is supported and has been constructed (here always false). \mbox{\Hypertarget{classparallel_1_1_triangulation_ab7745a3a3f606c6526f60038303b1453}\label{classparallel_1_1_triangulation_ab7745a3a3f606c6526f60038303b1453}} 
+\index{parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}!load@{load}}
+\index{load@{load}!parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim = dim$>$ \\
+virtual void \mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Triangulation}}$<$ dim, spacedim $>$\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{classparallel_1_1_triangulation_a843b296ec1cff052b49efb02ff02681f}\label{classparallel_1_1_triangulation_a843b296ec1cff052b49efb02ff02681f}} 
+\index{parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}!load@{load}}
+\index{load@{load}!parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim = dim$>$ \\
+virtual void \mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Triangulation}}$<$ dim, spacedim $>$\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename,  }\item[{const bool}]{autopartition }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{classparallel_1_1_triangulation_ad722763b534f5ec0b8a768c07ab6f6d9}\label{classparallel_1_1_triangulation_ad722763b534f5ec0b8a768c07ab6f6d9}} 
+\index{parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}!save@{save}}
+\index{save@{save}!parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim = dim$>$ \\
+virtual void \mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Triangulation}}$<$ dim, spacedim $>$\+::save (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{classparallel_1_1_triangulation_a9fe60e2814d4d9a5993db43daaf7f64b}\label{classparallel_1_1_triangulation_a9fe60e2814d4d9a5993db43daaf7f64b}} 
+\index{parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}!update\_cell\_relations@{update\_cell\_relations}}
+\index{update\_cell\_relations@{update\_cell\_relations}!parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{update\_cell\_relations()}{update\_cell\_relations()}}
+{\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim = dim$>$ \\
+virtual void \mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Triangulation}}$<$ dim, spacedim $>$\+::update\+\_\+cell\+\_\+relations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\mbox{\hyperlink{triangulation__system_8h}{triangulation\+\_\+system.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,227 @@
+\hypertarget{class_f_e___d_g_q_anisotropic}{}\doxysection{F\+E\+\_\+\+D\+G\+Q\+Anisotropic$<$ dim, spacedim $>$ Class Template Reference}
+\label{class_f_e___d_g_q_anisotropic}\index{FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}}
+
+
+{\ttfamily \#include $<$fe\+\_\+dgq\+\_\+anisotropic.\+h$>$}
+
+
+
+Inheritance diagram for F\+E\+\_\+\+D\+G\+Q\+Anisotropic$<$ dim, spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{class_f_e___d_g_q_anisotropic__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for F\+E\+\_\+\+D\+G\+Q\+Anisotropic$<$ dim, spacedim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_f_e___d_g_q_anisotropic__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_e___d_g_q_anisotropic_a1504042c3096ba9e4b958ec699667d6c}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}} (const \textbf{ Quadrature}$<$ 1 $>$ \&points\+\_\+x, const \textbf{ Quadrature}$<$ 1 $>$ \&points\+\_\+y, const \textbf{ Quadrature}$<$ 1 $>$ \&points\+\_\+z)
+\item 
+\mbox{\hyperlink{class_f_e___d_g_q_anisotropic_a3e6e9cd0f18fe42ec99aebaff5364cce}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}} (const \textbf{ Quadrature}$<$ 1 $>$ \&points\+\_\+x, const \textbf{ Quadrature}$<$ 1 $>$ \&points\+\_\+y)
+\item 
+virtual void \mbox{\hyperlink{class_f_e___d_g_q_anisotropic_a16f2216f14a001d5e16704c41ffb7f09}{convert\+\_\+generalized\+\_\+support\+\_\+point\+\_\+values\+\_\+to\+\_\+dof\+\_\+values}} (const \textbf{ std\+::vector}$<$ \textbf{ Vector}$<$ double $>$$>$ \&support\+\_\+point\+\_\+values, \textbf{ std\+::vector}$<$ double $>$ \&nodal\+\_\+values) const override
+\item 
+std\+::unique\+\_\+ptr$<$ \textbf{ Finite\+Element}$<$ dim, spacedim $>$ $>$ \mbox{\hyperlink{class_f_e___d_g_q_anisotropic_aba12ce2e8eec0366c87b26d62b3d8d89}{clone}} () const override
+\item 
+std\+::string \mbox{\hyperlink{class_f_e___d_g_q_anisotropic_af639aedcc90606523198e7037c142e2e}{get\+\_\+name}} () const override
+\item 
+\textbf{ Finite\+Element\+Domination\+::\+Domination} \mbox{\hyperlink{class_f_e___d_g_q_anisotropic_aa1ecc8619e7841cff95c9ad226bfe373}{compare\+\_\+for\+\_\+domination}} (const \textbf{ Finite\+Element}$<$ dim, spacedim $>$ \&fe\+\_\+other, const unsigned int codim) const override
+\item 
+\textbf{ std\+::vector}$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ \mbox{\hyperlink{class_f_e___d_g_q_anisotropic_a14f2f28e2672694817fae015e37164db}{hp\+\_\+vertex\+\_\+dof\+\_\+identities}} (const \textbf{ Finite\+Element}$<$ dim, spacedim $>$ \&fe\+\_\+other) const override
+\item 
+\textbf{ std\+::vector}$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ \mbox{\hyperlink{class_f_e___d_g_q_anisotropic_a531c3309fd09eb4a5699a930ca7c3bc2}{hp\+\_\+line\+\_\+dof\+\_\+identities}} (const \textbf{ Finite\+Element}$<$ dim, spacedim $>$ \&fe\+\_\+other) const override
+\item 
+\textbf{ std\+::vector}$<$ std\+::pair$<$ unsigned int, unsigned int $>$ $>$ \mbox{\hyperlink{class_f_e___d_g_q_anisotropic_ad9aa1f1d252a4db26754c8da9fd7c9e0}{hp\+\_\+quad\+\_\+dof\+\_\+identities}} (const \textbf{ Finite\+Element}$<$ dim, spacedim $>$ \&fe\+\_\+other, const unsigned int face\+\_\+no=0) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned int \mbox{\hyperlink{class_f_e___d_g_q_anisotropic_acdf735a7ef2198784ac1771a47d22b1b}{degree\+\_\+x}}
+\item 
+const unsigned int \mbox{\hyperlink{class_f_e___d_g_q_anisotropic_ad48f8d9428ac7719985eea4fde6c9b54}{degree\+\_\+y}}
+\item 
+const unsigned int \mbox{\hyperlink{class_f_e___d_g_q_anisotropic_aa585c966670d06d56d5b15acc3e76b2f}{degree\+\_\+z}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$int dim, int spacedim = dim$>$\newline
+class F\+E\+\_\+\+D\+G\+Q\+Anisotropic$<$ dim, spacedim $>$}
+
+Implementation of scalar, discontinuous tensor product elements based on support points, which may be distributed anisotropically. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_f_e___d_g_q_anisotropic_a1504042c3096ba9e4b958ec699667d6c}\label{class_f_e___d_g_q_anisotropic_a1504042c3096ba9e4b958ec699667d6c}} 
+\index{FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}!FE\_DGQAnisotropic@{FE\_DGQAnisotropic}}
+\index{FE\_DGQAnisotropic@{FE\_DGQAnisotropic}!FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{FE\_DGQAnisotropic()}{FE\_DGQAnisotropic()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$int dim, int spacedim = dim$>$ \\
+\mbox{\hyperlink{class_f_e___d_g_q_anisotropic}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}}$<$ dim, spacedim $>$\+::\mbox{\hyperlink{class_f_e___d_g_q_anisotropic}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}} (\begin{DoxyParamCaption}\item[{const \textbf{ Quadrature}$<$ 1 $>$ \&}]{points\+\_\+x,  }\item[{const \textbf{ Quadrature}$<$ 1 $>$ \&}]{points\+\_\+y,  }\item[{const \textbf{ Quadrature}$<$ 1 $>$ \&}]{points\+\_\+z }\end{DoxyParamCaption})}
+
+Constructor for 3d anisotropic tensor product polynomials with support points generated from a set of points represented by deal.\+II quadrature rules.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em points\+\_\+x} & support points in x-\/direction\\
+\hline
+\mbox{\texttt{ in}}  & {\em points\+\_\+y} & support points in y-\/direction\\
+\hline
+\mbox{\texttt{ in}}  & {\em points\+\_\+z} & support points in z-\/direction \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_f_e___d_g_q_anisotropic_a3e6e9cd0f18fe42ec99aebaff5364cce}\label{class_f_e___d_g_q_anisotropic_a3e6e9cd0f18fe42ec99aebaff5364cce}} 
+\index{FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}!FE\_DGQAnisotropic@{FE\_DGQAnisotropic}}
+\index{FE\_DGQAnisotropic@{FE\_DGQAnisotropic}!FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{FE\_DGQAnisotropic()}{FE\_DGQAnisotropic()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$int dim, int spacedim = dim$>$ \\
+\mbox{\hyperlink{class_f_e___d_g_q_anisotropic}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}}$<$ dim, spacedim $>$\+::\mbox{\hyperlink{class_f_e___d_g_q_anisotropic}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}} (\begin{DoxyParamCaption}\item[{const \textbf{ Quadrature}$<$ 1 $>$ \&}]{points\+\_\+x,  }\item[{const \textbf{ Quadrature}$<$ 1 $>$ \&}]{points\+\_\+y }\end{DoxyParamCaption})}
+
+Constructor for 2d anisotropic tensor product polynomials with support points generated from a set of points represented by deal.\+II quadrature rules.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em points\+\_\+x} & support points in x-\/direction\\
+\hline
+\mbox{\texttt{ in}}  & {\em points\+\_\+y} & support points in y-\/direction \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_f_e___d_g_q_anisotropic_aba12ce2e8eec0366c87b26d62b3d8d89}\label{class_f_e___d_g_q_anisotropic_aba12ce2e8eec0366c87b26d62b3d8d89}} 
+\index{FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}!clone@{clone}}
+\index{clone@{clone}!FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily template$<$int dim, int spacedim = dim$>$ \\
+std\+::unique\+\_\+ptr$<$\textbf{ Finite\+Element}$<$dim, spacedim$>$ $>$ \mbox{\hyperlink{class_f_e___d_g_q_anisotropic}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}}$<$ dim, spacedim $>$\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+
+Implements \textbf{ Finite\+Element$<$ Polynomial\+Type\+::dimension, Polynomial\+Type\+::dimension $>$}.
+
+\mbox{\Hypertarget{class_f_e___d_g_q_anisotropic_aa1ecc8619e7841cff95c9ad226bfe373}\label{class_f_e___d_g_q_anisotropic_aa1ecc8619e7841cff95c9ad226bfe373}} 
+\index{FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}!compare\_for\_domination@{compare\_for\_domination}}
+\index{compare\_for\_domination@{compare\_for\_domination}!FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{compare\_for\_domination()}{compare\_for\_domination()}}
+{\footnotesize\ttfamily template$<$int dim, int spacedim = dim$>$ \\
+\textbf{ Finite\+Element\+Domination\+::\+Domination} \mbox{\hyperlink{class_f_e___d_g_q_anisotropic}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}}$<$ dim, spacedim $>$\+::compare\+\_\+for\+\_\+domination (\begin{DoxyParamCaption}\item[{const \textbf{ Finite\+Element}$<$ dim, spacedim $>$ \&}]{fe\+\_\+other,  }\item[{const unsigned int}]{codim }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+
+Reimplemented from \textbf{ Finite\+Element$<$ Polynomial\+Type\+::dimension, Polynomial\+Type\+::dimension $>$}.
+
+\mbox{\Hypertarget{class_f_e___d_g_q_anisotropic_a16f2216f14a001d5e16704c41ffb7f09}\label{class_f_e___d_g_q_anisotropic_a16f2216f14a001d5e16704c41ffb7f09}} 
+\index{FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}!convert\_generalized\_support\_point\_values\_to\_dof\_values@{convert\_generalized\_support\_point\_values\_to\_dof\_values}}
+\index{convert\_generalized\_support\_point\_values\_to\_dof\_values@{convert\_generalized\_support\_point\_values\_to\_dof\_values}!FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{convert\_generalized\_support\_point\_values\_to\_dof\_values()}{convert\_generalized\_support\_point\_values\_to\_dof\_values()}}
+{\footnotesize\ttfamily template$<$int dim, int spacedim = dim$>$ \\
+virtual void \mbox{\hyperlink{class_f_e___d_g_q_anisotropic}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}}$<$ dim, spacedim $>$\+::convert\+\_\+generalized\+\_\+support\+\_\+point\+\_\+values\+\_\+to\+\_\+dof\+\_\+values (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::vector}$<$ \textbf{ Vector}$<$ double $>$$>$ \&}]{support\+\_\+point\+\_\+values,  }\item[{\textbf{ std\+::vector}$<$ double $>$ \&}]{nodal\+\_\+values }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+
+Reimplemented from \textbf{ Finite\+Element$<$ Polynomial\+Type\+::dimension, Polynomial\+Type\+::dimension $>$}.
+
+\mbox{\Hypertarget{class_f_e___d_g_q_anisotropic_af639aedcc90606523198e7037c142e2e}\label{class_f_e___d_g_q_anisotropic_af639aedcc90606523198e7037c142e2e}} 
+\index{FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}!get\_name@{get\_name}}
+\index{get\_name@{get\_name}!FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{get\_name()}{get\_name()}}
+{\footnotesize\ttfamily template$<$int dim, int spacedim = dim$>$ \\
+std\+::string \mbox{\hyperlink{class_f_e___d_g_q_anisotropic}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}}$<$ dim, spacedim $>$\+::get\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return a string that uniquely identifies a finite element. This class returns {\ttfamily F\+E\+\_\+\+D\+G\+Q\+Anisotropic$<$dim$>$(degree\+\_\+x, degree\+\_\+y, degree\+\_\+z)}, with {\ttfamily dim}, {\ttfamily degree\+\_\+x}, {\ttfamily degree\+\_\+y} and {\ttfamily degree\+\_\+z} replaced by appropriate values. 
+
+Implements \textbf{ Finite\+Element$<$ Polynomial\+Type\+::dimension, Polynomial\+Type\+::dimension $>$}.
+
+\mbox{\Hypertarget{class_f_e___d_g_q_anisotropic_a531c3309fd09eb4a5699a930ca7c3bc2}\label{class_f_e___d_g_q_anisotropic_a531c3309fd09eb4a5699a930ca7c3bc2}} 
+\index{FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}!hp\_line\_dof\_identities@{hp\_line\_dof\_identities}}
+\index{hp\_line\_dof\_identities@{hp\_line\_dof\_identities}!FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{hp\_line\_dof\_identities()}{hp\_line\_dof\_identities()}}
+{\footnotesize\ttfamily template$<$int dim, int spacedim = dim$>$ \\
+\textbf{ std\+::vector}$<$std\+::pair$<$unsigned int, unsigned int$>$ $>$ \mbox{\hyperlink{class_f_e___d_g_q_anisotropic}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}}$<$ dim, spacedim $>$\+::hp\+\_\+line\+\_\+dof\+\_\+identities (\begin{DoxyParamCaption}\item[{const \textbf{ Finite\+Element}$<$ dim, spacedim $>$ \&}]{fe\+\_\+other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+
+Reimplemented from \textbf{ Finite\+Element$<$ Polynomial\+Type\+::dimension, Polynomial\+Type\+::dimension $>$}.
+
+\mbox{\Hypertarget{class_f_e___d_g_q_anisotropic_ad9aa1f1d252a4db26754c8da9fd7c9e0}\label{class_f_e___d_g_q_anisotropic_ad9aa1f1d252a4db26754c8da9fd7c9e0}} 
+\index{FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}!hp\_quad\_dof\_identities@{hp\_quad\_dof\_identities}}
+\index{hp\_quad\_dof\_identities@{hp\_quad\_dof\_identities}!FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{hp\_quad\_dof\_identities()}{hp\_quad\_dof\_identities()}}
+{\footnotesize\ttfamily template$<$int dim, int spacedim = dim$>$ \\
+\textbf{ std\+::vector}$<$std\+::pair$<$unsigned int, unsigned int$>$ $>$ \mbox{\hyperlink{class_f_e___d_g_q_anisotropic}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}}$<$ dim, spacedim $>$\+::hp\+\_\+quad\+\_\+dof\+\_\+identities (\begin{DoxyParamCaption}\item[{const \textbf{ Finite\+Element}$<$ dim, spacedim $>$ \&}]{fe\+\_\+other,  }\item[{const unsigned int}]{face\+\_\+no = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+
+
+\mbox{\Hypertarget{class_f_e___d_g_q_anisotropic_a14f2f28e2672694817fae015e37164db}\label{class_f_e___d_g_q_anisotropic_a14f2f28e2672694817fae015e37164db}} 
+\index{FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}!hp\_vertex\_dof\_identities@{hp\_vertex\_dof\_identities}}
+\index{hp\_vertex\_dof\_identities@{hp\_vertex\_dof\_identities}!FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{hp\_vertex\_dof\_identities()}{hp\_vertex\_dof\_identities()}}
+{\footnotesize\ttfamily template$<$int dim, int spacedim = dim$>$ \\
+\textbf{ std\+::vector}$<$std\+::pair$<$unsigned int, unsigned int$>$ $>$ \mbox{\hyperlink{class_f_e___d_g_q_anisotropic}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}}$<$ dim, spacedim $>$\+::hp\+\_\+vertex\+\_\+dof\+\_\+identities (\begin{DoxyParamCaption}\item[{const \textbf{ Finite\+Element}$<$ dim, spacedim $>$ \&}]{fe\+\_\+other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+
+
+
+
+Reimplemented from \textbf{ Finite\+Element$<$ Polynomial\+Type\+::dimension, Polynomial\+Type\+::dimension $>$}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_f_e___d_g_q_anisotropic_acdf735a7ef2198784ac1771a47d22b1b}\label{class_f_e___d_g_q_anisotropic_acdf735a7ef2198784ac1771a47d22b1b}} 
+\index{FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}!degree\_x@{degree\_x}}
+\index{degree\_x@{degree\_x}!FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{degree\_x}{degree\_x}}
+{\footnotesize\ttfamily template$<$int dim, int spacedim = dim$>$ \\
+const unsigned int \mbox{\hyperlink{class_f_e___d_g_q_anisotropic}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}}$<$ dim, spacedim $>$\+::degree\+\_\+x\hspace{0.3cm}{\ttfamily [private]}}
+
+Degree in x-\/direction \mbox{\Hypertarget{class_f_e___d_g_q_anisotropic_ad48f8d9428ac7719985eea4fde6c9b54}\label{class_f_e___d_g_q_anisotropic_ad48f8d9428ac7719985eea4fde6c9b54}} 
+\index{FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}!degree\_y@{degree\_y}}
+\index{degree\_y@{degree\_y}!FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{degree\_y}{degree\_y}}
+{\footnotesize\ttfamily template$<$int dim, int spacedim = dim$>$ \\
+const unsigned int \mbox{\hyperlink{class_f_e___d_g_q_anisotropic}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}}$<$ dim, spacedim $>$\+::degree\+\_\+y\hspace{0.3cm}{\ttfamily [private]}}
+
+Degree in y-\/direction \mbox{\Hypertarget{class_f_e___d_g_q_anisotropic_aa585c966670d06d56d5b15acc3e76b2f}\label{class_f_e___d_g_q_anisotropic_aa585c966670d06d56d5b15acc3e76b2f}} 
+\index{FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}!degree\_z@{degree\_z}}
+\index{degree\_z@{degree\_z}!FE\_DGQAnisotropic$<$ dim, spacedim $>$@{FE\_DGQAnisotropic$<$ dim, spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{degree\_z}{degree\_z}}
+{\footnotesize\ttfamily template$<$int dim, int spacedim = dim$>$ \\
+const unsigned int \mbox{\hyperlink{class_f_e___d_g_q_anisotropic}{F\+E\+\_\+\+D\+G\+Q\+Anisotropic}}$<$ dim, spacedim $>$\+::degree\+\_\+z\hspace{0.3cm}{\ttfamily [private]}}
+
+Degree in z-\/direction 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\mbox{\hyperlink{fe__dgq__anisotropic_8h}{fe\+\_\+dgq\+\_\+anisotropic.\+h}}\end{DoxyCompactItemize}

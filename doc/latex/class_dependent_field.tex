@@ -9,9 +9,9 @@
 \item 
 \mbox{\hyperlink{class_dependent_field_a5a47b8f5b0e51b29bf6f3ca6e18fda9c}{Dependent\+Field}} (const std\+::string \mbox{\hyperlink{class_dependent_field_a698b255f131279d1edb97b3c525153a0}{name}})
 \item 
-void \mbox{\hyperlink{class_dependent_field_a0726cab14197769ad07bd8f071e395ea}{add\+\_\+term}} (double coefficient, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&independent\+\_\+field, const unsigned int component=0, const std\+::vector$<$ unsigned int $>$ derivatives=std\+::vector$<$ unsigned int $>$())
+void \mbox{\hyperlink{class_dependent_field_a0726cab14197769ad07bd8f071e395ea}{add\+\_\+term}} (double coefficient, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&independent\+\_\+field, const unsigned int component=0, const \textbf{ std\+::vector}$<$ unsigned int $>$ derivatives=\textbf{ std\+::vector}$<$ unsigned int $>$())
 \item 
-void \mbox{\hyperlink{class_dependent_field_a852ed477f6ee71ad85a6690d4a5e56fe}{add\+\_\+term}} (double coefficient, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim+1, spacedim $>$ \&independent\+\_\+field, const unsigned int component, const std\+::vector$<$ unsigned int $>$ derivatives, const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} side)
+void \mbox{\hyperlink{class_dependent_field_a852ed477f6ee71ad85a6690d4a5e56fe}{add\+\_\+term}} (double coefficient, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim+1, spacedim $>$ \&independent\+\_\+field, const unsigned int component, const \textbf{ std\+::vector}$<$ unsigned int $>$ derivatives, const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} side)
 \item 
 void \mbox{\hyperlink{class_dependent_field_acb8979c891a45ed7326eb47df41c0129}{add\+\_\+term}} (double coefficient, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim+1, spacedim $>$ \&independent\+\_\+field, const unsigned int component, const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} side)
 \item 
@@ -23,19 +23,19 @@ void \mbox{\hyperlink{class_dependent_field_adf9e4863ca954a9fa70c57aef68849f8}{a
 \item 
 void \mbox{\hyperlink{class_dependent_field_a72196bff18c2c28a1e811877e739f4ee}{add\+\_\+term}} (double \mbox{\hyperlink{class_dependent_field_a32b37c78e04a16b6b606442f156c8ca9}{constant}})
 \item 
-const std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$ dim, spacedim $>$ $>$ \& \mbox{\hyperlink{class_dependent_field_a01793fd56b83754bec50e9d4e0c94cae}{get\+\_\+terms\+\_\+interface}} () const
+const \textbf{ std\+::set}$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$ dim, spacedim $>$ $>$ \& \mbox{\hyperlink{class_dependent_field_a01793fd56b83754bec50e9d4e0c94cae}{get\+\_\+terms\+\_\+interface}} () const
 \item 
-const std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim+1, spacedim $>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$ dim+1, spacedim $>$ $>$ \& \mbox{\hyperlink{class_dependent_field_aa88f72409a02de7505ff5ac5d694ed36}{get\+\_\+terms\+\_\+neighbor}} (const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} side) const
+const \textbf{ std\+::set}$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim+1, spacedim $>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$ dim+1, spacedim $>$ $>$ \& \mbox{\hyperlink{class_dependent_field_aa88f72409a02de7505ff5ac5d694ed36}{get\+\_\+terms\+\_\+neighbor}} (const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} side) const
 \item 
-const std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ 0, spacedim $>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$ 0, spacedim $>$ $>$ \& \mbox{\hyperlink{class_dependent_field_a89fed0663944d7f392ddd4b75bcb60a8}{get\+\_\+terms\+\_\+independent\+\_\+scalars}} () const
+const \textbf{ std\+::set}$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ 0, spacedim $>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$ 0, spacedim $>$ $>$ \& \mbox{\hyperlink{class_dependent_field_a89fed0663944d7f392ddd4b75bcb60a8}{get\+\_\+terms\+\_\+independent\+\_\+scalars}} () const
 \item 
 double \mbox{\hyperlink{class_dependent_field_a213c5de7c4726eb823590de0510f1ff1}{get\+\_\+constant}} () const
 \item 
-std\+::set$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ $\ast$ $>$ \mbox{\hyperlink{class_dependent_field_a33760e356c5704614ed8cf7c532b4de6}{get\+\_\+independent\+\_\+fields\+\_\+interface}} () const
+\textbf{ std\+::set}$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ $\ast$ $>$ \mbox{\hyperlink{class_dependent_field_a33760e356c5704614ed8cf7c532b4de6}{get\+\_\+independent\+\_\+fields\+\_\+interface}} () const
 \item 
-std\+::set$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim+1, spacedim $>$ $\ast$ $>$ \mbox{\hyperlink{class_dependent_field_ac12fccee9603f2cf36990af16d8da604}{get\+\_\+independent\+\_\+fields\+\_\+neighbors}} () const
+\textbf{ std\+::set}$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim+1, spacedim $>$ $\ast$ $>$ \mbox{\hyperlink{class_dependent_field_ac12fccee9603f2cf36990af16d8da604}{get\+\_\+independent\+\_\+fields\+\_\+neighbors}} () const
 \item 
-std\+::set$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$ $>$ \mbox{\hyperlink{class_dependent_field_a15eb8101d33f2f09ada4cdf2cde73ad7}{get\+\_\+independent\+\_\+scalars}} () const
+\textbf{ std\+::set}$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$ $>$ \mbox{\hyperlink{class_dependent_field_a15eb8101d33f2f09ada4cdf2cde73ad7}{get\+\_\+independent\+\_\+scalars}} () const
 \item 
 void \mbox{\hyperlink{class_dependent_field_adf0ad81e2d7b609b7dfde60a77f92a20}{print}} () const
 \item 
@@ -55,13 +55,13 @@ const std\+::string \mbox{\hyperlink{class_dependent_field_a698b255f131279d1edb9
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$ dim, spacedim $>$ $>$ \mbox{\hyperlink{class_dependent_field_a463f490ef397b9b65112c94932afcd5c}{terms\+\_\+interface}}
+\textbf{ std\+::set}$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$ dim, spacedim $>$ $>$ \mbox{\hyperlink{class_dependent_field_a463f490ef397b9b65112c94932afcd5c}{terms\+\_\+interface}}
 \item 
-std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim+1, spacedim $>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$ dim+1, spacedim $>$ $>$ \mbox{\hyperlink{class_dependent_field_a3f7812cd53686afce899438ae999999a}{terms\+\_\+neighbor\+\_\+plus}}
+\textbf{ std\+::set}$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim+1, spacedim $>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$ dim+1, spacedim $>$ $>$ \mbox{\hyperlink{class_dependent_field_a3f7812cd53686afce899438ae999999a}{terms\+\_\+neighbor\+\_\+plus}}
 \item 
-std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim+1, spacedim $>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$ dim+1, spacedim $>$ $>$ \mbox{\hyperlink{class_dependent_field_a406b6490dcd17d80737500184131a3e7}{terms\+\_\+neighbor\+\_\+minus}}
+\textbf{ std\+::set}$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim+1, spacedim $>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$ dim+1, spacedim $>$ $>$ \mbox{\hyperlink{class_dependent_field_a406b6490dcd17d80737500184131a3e7}{terms\+\_\+neighbor\+\_\+minus}}
 \item 
-std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ 0, spacedim $>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$ 0, spacedim $>$ $>$ \mbox{\hyperlink{class_dependent_field_a642147ff57d5412554508f293182c649}{terms\+\_\+independent\+\_\+scalars}}
+\textbf{ std\+::set}$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ 0, spacedim $>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$ 0, spacedim $>$ $>$ \mbox{\hyperlink{class_dependent_field_a642147ff57d5412554508f293182c649}{terms\+\_\+independent\+\_\+scalars}}
 \item 
 double \mbox{\hyperlink{class_dependent_field_a32b37c78e04a16b6b606442f156c8ca9}{constant}} = 0.\+0
 \item 
@@ -151,7 +151,7 @@ It is currently not allowed to add the same term (i.\+e. with the same {\ttfamil
 \index{add\_term@{add\_term}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{add\_term()}{add\_term()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::add\+\_\+term (\begin{DoxyParamCaption}\item[{double}]{coefficient,  }\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim+1, spacedim $>$ \&}]{independent\+\_\+field,  }\item[{const unsigned int}]{component,  }\item[{const std\+::vector$<$ unsigned int $>$}]{derivatives,  }\item[{const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}}}]{side }\end{DoxyParamCaption})}
+void \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::add\+\_\+term (\begin{DoxyParamCaption}\item[{double}]{coefficient,  }\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim+1, spacedim $>$ \&}]{independent\+\_\+field,  }\item[{const unsigned int}]{component,  }\item[{const \textbf{ std\+::vector}$<$ unsigned int $>$}]{derivatives,  }\item[{const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}}}]{side }\end{DoxyParamCaption})}
 
 Add a term to \mbox{\hyperlink{class_dependent_field_a3f7812cd53686afce899438ae999999a}{Dependent\+Field\+::terms\+\_\+neighbor\+\_\+plus}} or \mbox{\hyperlink{class_dependent_field_a406b6490dcd17d80737500184131a3e7}{Dependent\+Field\+::terms\+\_\+neighbor\+\_\+minus}}.
 
@@ -227,7 +227,7 @@ It is currently not allowed to add the same term (i.\+e. with the same {\ttfamil
 \index{add\_term@{add\_term}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{add\_term()}{add\_term()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::add\+\_\+term (\begin{DoxyParamCaption}\item[{double}]{coefficient,  }\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&}]{independent\+\_\+field,  }\item[{const unsigned int}]{component = {\ttfamily 0},  }\item[{const std\+::vector$<$ unsigned int $>$}]{derivatives = {\ttfamily std\+:\+:vector$<$~unsigned~int~$>$()} }\end{DoxyParamCaption})}
+void \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::add\+\_\+term (\begin{DoxyParamCaption}\item[{double}]{coefficient,  }\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&}]{independent\+\_\+field,  }\item[{const unsigned int}]{component = {\ttfamily 0},  }\item[{const \textbf{ std\+::vector}$<$ unsigned int $>$}]{derivatives = {\ttfamily \textbf{ std\+::vector}$<$~unsigned~int~$>$()} }\end{DoxyParamCaption})}
 
 Add a term to \mbox{\hyperlink{class_dependent_field_a463f490ef397b9b65112c94932afcd5c}{Dependent\+Field\+::terms\+\_\+interface}}.
 
@@ -281,7 +281,7 @@ double \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spaced
 \index{get\_independent\_fields\_interface@{get\_independent\_fields\_interface}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_independent\_fields\_interface()}{get\_independent\_fields\_interface()}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-std\+::set$<$const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$dim, spacedim$>$$\ast$$>$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::get\+\_\+independent\+\_\+fields\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\textbf{ std\+::set}$<$const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$dim, spacedim$>$$\ast$$>$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::get\+\_\+independent\+\_\+fields\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
 A set containing all interface related \mbox{\hyperlink{class_independent_field}{Independent\+Field}} objects currently involved in the definition of the \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}} 
@@ -291,7 +291,7 @@ A set containing all interface related \mbox{\hyperlink{class_independent_field}
 \index{get\_independent\_fields\_neighbors@{get\_independent\_fields\_neighbors}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_independent\_fields\_neighbors()}{get\_independent\_fields\_neighbors()}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-std\+::set$<$const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$dim+1, spacedim$>$$\ast$$>$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::get\+\_\+independent\+\_\+fields\+\_\+neighbors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\textbf{ std\+::set}$<$const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$dim+1, spacedim$>$$\ast$$>$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::get\+\_\+independent\+\_\+fields\+\_\+neighbors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
 A set containing all domain related \mbox{\hyperlink{class_independent_field}{Independent\+Field}} objects currently involved in the definition of the \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}} 
@@ -301,7 +301,7 @@ A set containing all domain related \mbox{\hyperlink{class_independent_field}{In
 \index{get\_independent\_scalars@{get\_independent\_scalars}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_independent\_scalars()}{get\_independent\_scalars()}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-std\+::set$<$const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$0, spacedim$>$$\ast$$>$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::get\+\_\+independent\+\_\+scalars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\textbf{ std\+::set}$<$const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$0, spacedim$>$$\ast$$>$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::get\+\_\+independent\+\_\+scalars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
 A set containing all \mbox{\hyperlink{class_independent_field_3_010_00_01spacedim_01_4}{Independent\+Field$<$0, spacedim$>$}} objects currently involved in the definition of the \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}} 
@@ -325,7 +325,7 @@ This methods returns \mbox{\hyperlink{class_dependent_field_a9c41e749b67a39b68a3
 \index{get\_terms\_independent\_scalars@{get\_terms\_independent\_scalars}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_terms\_independent\_scalars()}{get\_terms\_independent\_scalars()}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-const std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$0, spacedim$>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$0, spacedim$>$ $>$\& \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::get\+\_\+terms\+\_\+independent\+\_\+scalars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+const \textbf{ std\+::set}$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$0, spacedim$>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$0, spacedim$>$ $>$\& \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::get\+\_\+terms\+\_\+independent\+\_\+scalars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
 A const reference to \mbox{\hyperlink{class_dependent_field_a642147ff57d5412554508f293182c649}{Dependent\+Field\+::terms\+\_\+independent\+\_\+scalars}} 
@@ -335,7 +335,7 @@ A const reference to \mbox{\hyperlink{class_dependent_field_a642147ff57d54125545
 \index{get\_terms\_interface@{get\_terms\_interface}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_terms\_interface()}{get\_terms\_interface()}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-const std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$dim, spacedim$>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$dim, spacedim$>$ $>$\& \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::get\+\_\+terms\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+const \textbf{ std\+::set}$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$dim, spacedim$>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$dim, spacedim$>$ $>$\& \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::get\+\_\+terms\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
 A const reference to \mbox{\hyperlink{class_dependent_field_a463f490ef397b9b65112c94932afcd5c}{Dependent\+Field\+::terms\+\_\+interface}} 
@@ -345,7 +345,7 @@ A const reference to \mbox{\hyperlink{class_dependent_field_a463f490ef397b9b6511
 \index{get\_terms\_neighbor@{get\_terms\_neighbor}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_terms\_neighbor()}{get\_terms\_neighbor()}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-const std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$dim+1, spacedim$>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$dim+1, spacedim$>$ $>$\& \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::get\+\_\+terms\+\_\+neighbor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}}}]{side }\end{DoxyParamCaption}) const}
+const \textbf{ std\+::set}$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$dim+1, spacedim$>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$dim+1, spacedim$>$ $>$\& \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::get\+\_\+terms\+\_\+neighbor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}}}]{side }\end{DoxyParamCaption}) const}
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -432,28 +432,28 @@ The name of the dependent field, which is used to identify it in output, etc. \m
 \index{terms\_independent\_scalars@{terms\_independent\_scalars}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{terms\_independent\_scalars}{terms\_independent\_scalars}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$0, spacedim$>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$0, spacedim$>$ $>$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::terms\+\_\+independent\+\_\+scalars\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ std\+::set}$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$0, spacedim$>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$0, spacedim$>$ $>$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::terms\+\_\+independent\+\_\+scalars\hspace{0.3cm}{\ttfamily [private]}}
 
 This set contains all summands making up the term $\sum_{\iota \in I}c^\Sigma_{\nu\iota} C_\iota$ of the dependent field. \mbox{\Hypertarget{class_dependent_field_a463f490ef397b9b65112c94932afcd5c}\label{class_dependent_field_a463f490ef397b9b65112c94932afcd5c}} 
 \index{DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}!terms\_interface@{terms\_interface}}
 \index{terms\_interface@{terms\_interface}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{terms\_interface}{terms\_interface}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$dim, spacedim$>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$dim, spacedim$>$ $>$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::terms\+\_\+interface\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ std\+::set}$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$dim, spacedim$>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$dim, spacedim$>$ $>$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::terms\+\_\+interface\hspace{0.3cm}{\ttfamily [private]}}
 
 This set contains all summands making up the term $\sum_{\eta \in H} \left[ a^\Sigma_{\nu\eta} u^\Sigma_\eta + b^\Sigma_{\nu\eta i} \dfrac{\partial u^\Sigma_\eta}{\partial x_i} \right]$ of the dependent field. \mbox{\Hypertarget{class_dependent_field_a406b6490dcd17d80737500184131a3e7}\label{class_dependent_field_a406b6490dcd17d80737500184131a3e7}} 
 \index{DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}!terms\_neighbor\_minus@{terms\_neighbor\_minus}}
 \index{terms\_neighbor\_minus@{terms\_neighbor\_minus}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{terms\_neighbor\_minus}{terms\_neighbor\_minus}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$dim+1, spacedim$>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$dim+1, spacedim$>$ $>$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::terms\+\_\+neighbor\+\_\+minus\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ std\+::set}$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$dim+1, spacedim$>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$dim+1, spacedim$>$ $>$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::terms\+\_\+neighbor\+\_\+minus\hspace{0.3cm}{\ttfamily [private]}}
 
 This set contains all summands making up the term $\sum_{\epsilon \in E} \left[ a^-_{\nu\epsilon} (u^\Omega_\epsilon)^- + b^-_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^- \right]$ of the dependent field. \mbox{\Hypertarget{class_dependent_field_a3f7812cd53686afce899438ae999999a}\label{class_dependent_field_a3f7812cd53686afce899438ae999999a}} 
 \index{DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}!terms\_neighbor\_plus@{terms\_neighbor\_plus}}
 \index{terms\_neighbor\_plus@{terms\_neighbor\_plus}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{terms\_neighbor\_plus}{terms\_neighbor\_plus}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-std\+::set$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$dim+1, spacedim$>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$dim+1, spacedim$>$ $>$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::terms\+\_\+neighbor\+\_\+plus\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ std\+::set}$<$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$dim+1, spacedim$>$, \mbox{\hyperlink{struct_dependent_field_comparator_without_coefficient}{Dependent\+Field\+Comparator\+Without\+Coefficient}}$<$dim+1, spacedim$>$ $>$ \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::terms\+\_\+neighbor\+\_\+plus\hspace{0.3cm}{\ttfamily [private]}}
 
 This set contains all summands making up the term $\sum_{\epsilon \in E} \left[ a^+_{\nu\epsilon} (u^\Omega_\epsilon)^+ + b^+_{\nu\epsilon i} \left(\dfrac{\partial u^\Omega_\epsilon}{\partial x_i}\right)^+ \right]$ of the dependent field. 
 

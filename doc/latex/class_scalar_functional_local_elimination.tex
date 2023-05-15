@@ -19,17 +19,17 @@ Collaboration diagram for Scalar\+Functional\+Local\+Elimination$<$ dim, spacedi
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_scalar_functional_local_elimination__coll__graph}
+\includegraphics[width=349pt]{class_scalar_functional_local_elimination__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_scalar_functional_local_elimination_ad24025d5ac8d43d2e87479dbd9d70fa3}{Scalar\+Functional\+Local\+Elimination}} (const std\+::vector$<$ \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$ $\ast$ $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_a473e3bc585587839f7f7349f9a25bf28}{scalar\+\_\+functionals}}, const std\+::string \mbox{\hyperlink{class_scalar_functional_a4d184688053b3443d10e228e4a8eba60}{name}}=\char`\"{}Scalar\+Functional\+Local\+Elimination\char`\"{})
+\mbox{\hyperlink{class_scalar_functional_local_elimination_ad24025d5ac8d43d2e87479dbd9d70fa3}{Scalar\+Functional\+Local\+Elimination}} (const \textbf{ std\+::vector}$<$ \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$ $\ast$ $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_a473e3bc585587839f7f7349f9a25bf28}{scalar\+\_\+functionals}}, const std\+::string \mbox{\hyperlink{class_scalar_functional_a4d184688053b3443d10e228e4a8eba60}{name}}=\char`\"{}Scalar\+Functional\+Local\+Elimination\char`\"{})
 \item 
-virtual bool \mbox{\hyperlink{class_scalar_functional_local_elimination_a458ebe9d4709117e66fc1e03e220fbf7}{get\+\_\+h\+\_\+sigma}} (\textbf{ Vector}$<$ double $>$ \&\mbox{\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{e\+\_\+sigma}}, const std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&e\+\_\+sigma\+\_\+ref\+\_\+sets, \textbf{ Vector}$<$ double $>$ \&hidden\+\_\+vars, const \textbf{ Point}$<$ spacedim $>$ \&x, const \textbf{ Tensor}$<$ 1, spacedim $>$ \&n, double \&h\+\_\+sigma, \textbf{ Vector}$<$ double $>$ \&h\+\_\+sigma\+\_\+1, \textbf{ Full\+Matrix}$<$ double $>$ \&h\+\_\+sigma\+\_\+2, const std\+::tuple$<$ bool, bool, bool $>$ requested\+\_\+quantities) const
+virtual bool \mbox{\hyperlink{class_scalar_functional_local_elimination_a458ebe9d4709117e66fc1e03e220fbf7}{get\+\_\+h\+\_\+sigma}} (\textbf{ Vector}$<$ double $>$ \&\mbox{\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{e\+\_\+sigma}}, const \textbf{ std\+::vector}$<$ \textbf{ Vector}$<$ double $>$$>$ \&e\+\_\+sigma\+\_\+ref\+\_\+sets, \textbf{ Vector}$<$ double $>$ \&hidden\+\_\+vars, const \textbf{ Point}$<$ spacedim $>$ \&x, const \textbf{ Tensor}$<$ 1, spacedim $>$ \&\textbf{ n}, double \&h\+\_\+sigma, \textbf{ Vector}$<$ double $>$ \&h\+\_\+sigma\+\_\+1, \textbf{ Full\+Matrix}$<$ double $>$ \&h\+\_\+sigma\+\_\+2, const std\+::tuple$<$ bool, bool, bool $>$ requested\+\_\+quantities) const
 \item 
-virtual double \mbox{\hyperlink{class_scalar_functional_local_elimination_abd08e15318c711bd4fdb2a66d378460f}{get\+\_\+maximum\+\_\+step}} (const \textbf{ Vector}$<$ double $>$ \&\mbox{\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{e\+\_\+sigma}}, const std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&e\+\_\+sigma\+\_\+ref\+\_\+sets, const \textbf{ Vector}$<$ double $>$ \&delta\+\_\+e\+\_\+sigma, const \textbf{ Vector}$<$ double $>$ \&hidden\+\_\+vars, const \textbf{ Point}$<$ spacedim $>$ \&x, const \textbf{ Tensor}$<$ 1, spacedim $>$ \&n) const
+virtual double \mbox{\hyperlink{class_scalar_functional_local_elimination_abd08e15318c711bd4fdb2a66d378460f}{get\+\_\+maximum\+\_\+step}} (const \textbf{ Vector}$<$ double $>$ \&\mbox{\hyperlink{class_scalar_functional_a86662b03a63219227993a2c6c07aefc1}{e\+\_\+sigma}}, const \textbf{ std\+::vector}$<$ \textbf{ Vector}$<$ double $>$$>$ \&e\+\_\+sigma\+\_\+ref\+\_\+sets, const \textbf{ Vector}$<$ double $>$ \&delta\+\_\+e\+\_\+sigma, const \textbf{ Vector}$<$ double $>$ \&hidden\+\_\+vars, const \textbf{ Point}$<$ spacedim $>$ \&x, const \textbf{ Tensor}$<$ 1, spacedim $>$ \&\textbf{ n}) const
 \item 
 void \mbox{\hyperlink{class_scalar_functional_local_elimination_ae75a23326905e96e1787ef10fd8af930}{set\+\_\+safety\+\_\+distance}} (const double \mbox{\hyperlink{class_scalar_functional_local_elimination_a469c7e8629c32b215aba04c805617d9d}{safety\+\_\+distance}})
 \item 
@@ -50,13 +50,13 @@ void \mbox{\hyperlink{class_scalar_functional_local_elimination_ac1bb9770d8d5b60
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-const std\+::vector$<$ \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$ $\ast$ $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_a473e3bc585587839f7f7349f9a25bf28}{scalar\+\_\+functionals}}
+const \textbf{ std\+::vector}$<$ \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$ $\ast$ $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_a473e3bc585587839f7f7349f9a25bf28}{scalar\+\_\+functionals}}
 \item 
-std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_a7a7cbe368936cfb0224e7885a8959c4b}{map\+\_\+dependent\+\_\+fields}}
+\textbf{ std\+::vector}$<$ \textbf{ std\+::vector}$<$ unsigned int $>$ $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_a7a7cbe368936cfb0224e7885a8959c4b}{map\+\_\+dependent\+\_\+fields}}
 \item 
-std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_a1d72179de9c2d77068d090c1b483cd5a}{indices\+\_\+not\+\_\+eliminated\+\_\+dependent\+\_\+fields}}
+\textbf{ std\+::vector}$<$ unsigned int $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_a1d72179de9c2d77068d090c1b483cd5a}{indices\+\_\+not\+\_\+eliminated\+\_\+dependent\+\_\+fields}}
 \item 
-std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_a9a62464884767f3be49391e5ec7ec987}{indices\+\_\+locally\+\_\+eliminated\+\_\+dependent\+\_\+fields}}
+\textbf{ std\+::vector}$<$ unsigned int $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination_a9a62464884767f3be49391e5ec7ec987}{indices\+\_\+locally\+\_\+eliminated\+\_\+dependent\+\_\+fields}}
 \item 
 double \mbox{\hyperlink{class_scalar_functional_local_elimination_a469c7e8629c32b215aba04c805617d9d}{safety\+\_\+distance}} = 0.\+9
 \item 
@@ -96,7 +96,7 @@ An interface related scalar functional with functionality to eliminate local dep
 \index{ScalarFunctionalLocalElimination@{ScalarFunctionalLocalElimination}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{ScalarFunctionalLocalElimination()}{ScalarFunctionalLocalElimination()}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-\mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::\mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}} (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$ $\ast$ $>$}]{scalar\+\_\+functionals,  }\item[{const std\+::string}]{name = {\ttfamily \char`\"{}ScalarFunctionalLocalElimination$<$~dim,~spacedim~$>$\char`\"{}} }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::\mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}} (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::vector}$<$ \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ dim, spacedim $>$ $\ast$ $>$}]{scalar\+\_\+functionals,  }\item[{const std\+::string}]{name = {\ttfamily \char`\"{}ScalarFunctionalLocalElimination$<$~dim,~spacedim~$>$\char`\"{}} }\end{DoxyParamCaption})}
 
 The constructor of the class.
 
@@ -115,7 +115,7 @@ The constructor of the class.
 \index{get\_h\_sigma@{get\_h\_sigma}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_h\_sigma()}{get\_h\_sigma()}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-virtual bool \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::get\+\_\+h\+\_\+sigma (\begin{DoxyParamCaption}\item[{\textbf{ Vector}$<$ double $>$ \&}]{e\+\_\+sigma,  }\item[{const std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&}]{e\+\_\+sigma\+\_\+ref\+\_\+sets,  }\item[{\textbf{ Vector}$<$ double $>$ \&}]{hidden\+\_\+vars,  }\item[{const \textbf{ Point}$<$ spacedim $>$ \&}]{x,  }\item[{const \textbf{ Tensor}$<$ 1, spacedim $>$ \&}]{n,  }\item[{double \&}]{h\+\_\+sigma,  }\item[{\textbf{ Vector}$<$ double $>$ \&}]{h\+\_\+sigma\+\_\+1,  }\item[{\textbf{ Full\+Matrix}$<$ double $>$ \&}]{h\+\_\+sigma\+\_\+2,  }\item[{const std\+::tuple$<$ bool, bool, bool $>$}]{requested\+\_\+quantities }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+virtual bool \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::get\+\_\+h\+\_\+sigma (\begin{DoxyParamCaption}\item[{\textbf{ Vector}$<$ double $>$ \&}]{e\+\_\+sigma,  }\item[{const \textbf{ std\+::vector}$<$ \textbf{ Vector}$<$ double $>$$>$ \&}]{e\+\_\+sigma\+\_\+ref\+\_\+sets,  }\item[{\textbf{ Vector}$<$ double $>$ \&}]{hidden\+\_\+vars,  }\item[{const \textbf{ Point}$<$ spacedim $>$ \&}]{x,  }\item[{const \textbf{ Tensor}$<$ 1, spacedim $>$ \&}]{n,  }\item[{double \&}]{h\+\_\+sigma,  }\item[{\textbf{ Vector}$<$ double $>$ \&}]{h\+\_\+sigma\+\_\+1,  }\item[{\textbf{ Full\+Matrix}$<$ double $>$ \&}]{h\+\_\+sigma\+\_\+2,  }\item[{const std\+::tuple$<$ bool, bool, bool $>$}]{requested\+\_\+quantities }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
 \begin{DoxySeeAlso}{See also}
 \mbox{\hyperlink{class_scalar_functional_adb295fb739a743d5a1273025eb8dae72}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma}}
@@ -129,7 +129,7 @@ Implements \mbox{\hyperlink{class_scalar_functional_adb295fb739a743d5a1273025eb8
 \index{get\_maximum\_step@{get\_maximum\_step}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_maximum\_step()}{get\_maximum\_step()}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-virtual double \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::get\+\_\+maximum\+\_\+step (\begin{DoxyParamCaption}\item[{const \textbf{ Vector}$<$ double $>$ \&}]{e\+\_\+sigma,  }\item[{const std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&}]{e\+\_\+sigma\+\_\+ref\+\_\+sets,  }\item[{const \textbf{ Vector}$<$ double $>$ \&}]{delta\+\_\+e\+\_\+sigma,  }\item[{const \textbf{ Vector}$<$ double $>$ \&}]{hidden\+\_\+vars,  }\item[{const \textbf{ Point}$<$ spacedim $>$ \&}]{x,  }\item[{const \textbf{ Tensor}$<$ 1, spacedim $>$ \&}]{n }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+virtual double \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::get\+\_\+maximum\+\_\+step (\begin{DoxyParamCaption}\item[{const \textbf{ Vector}$<$ double $>$ \&}]{e\+\_\+sigma,  }\item[{const \textbf{ std\+::vector}$<$ \textbf{ Vector}$<$ double $>$$>$ \&}]{e\+\_\+sigma\+\_\+ref\+\_\+sets,  }\item[{const \textbf{ Vector}$<$ double $>$ \&}]{delta\+\_\+e\+\_\+sigma,  }\item[{const \textbf{ Vector}$<$ double $>$ \&}]{hidden\+\_\+vars,  }\item[{const \textbf{ Point}$<$ spacedim $>$ \&}]{x,  }\item[{const \textbf{ Tensor}$<$ 1, spacedim $>$ \&}]{n }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
 \begin{DoxySeeAlso}{See also}
 \mbox{\hyperlink{class_scalar_functional_ae4f5fbd69cabfda73cc2b30ae0263ca5}{Scalar\+Functional\+::get\+\_\+maximum\+\_\+step}}
@@ -213,21 +213,21 @@ Sets \mbox{\hyperlink{class_scalar_functional_local_elimination_a61f8cd4268582af
 \index{indices\_locally\_eliminated\_dependent\_fields@{indices\_locally\_eliminated\_dependent\_fields}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{indices\_locally\_eliminated\_dependent\_fields}{indices\_locally\_eliminated\_dependent\_fields}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-std\+::vector$<$unsigned int$>$ \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::indices\+\_\+locally\+\_\+eliminated\+\_\+dependent\+\_\+fields\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ std\+::vector}$<$unsigned int$>$ \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::indices\+\_\+locally\+\_\+eliminated\+\_\+dependent\+\_\+fields\hspace{0.3cm}{\ttfamily [private]}}
 
 This contains the dependent field indices of the locally eliminated dependent fields (in the indexing of the combined scalar functional) \mbox{\Hypertarget{class_scalar_functional_local_elimination_a1d72179de9c2d77068d090c1b483cd5a}\label{class_scalar_functional_local_elimination_a1d72179de9c2d77068d090c1b483cd5a}} 
 \index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!indices\_not\_eliminated\_dependent\_fields@{indices\_not\_eliminated\_dependent\_fields}}
 \index{indices\_not\_eliminated\_dependent\_fields@{indices\_not\_eliminated\_dependent\_fields}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{indices\_not\_eliminated\_dependent\_fields}{indices\_not\_eliminated\_dependent\_fields}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-std\+::vector$<$unsigned int$>$ \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::indices\+\_\+not\+\_\+eliminated\+\_\+dependent\+\_\+fields\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ std\+::vector}$<$unsigned int$>$ \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::indices\+\_\+not\+\_\+eliminated\+\_\+dependent\+\_\+fields\hspace{0.3cm}{\ttfamily [private]}}
 
 This contains the dependent field indices of the dependent fields which are not eliminated (in the indexing of the combined scalar functional) \mbox{\Hypertarget{class_scalar_functional_local_elimination_a7a7cbe368936cfb0224e7885a8959c4b}\label{class_scalar_functional_local_elimination_a7a7cbe368936cfb0224e7885a8959c4b}} 
 \index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!map\_dependent\_fields@{map\_dependent\_fields}}
 \index{map\_dependent\_fields@{map\_dependent\_fields}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{map\_dependent\_fields}{map\_dependent\_fields}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-std\+::vector$<$std\+::vector$<$unsigned int$>$ $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::map\+\_\+dependent\+\_\+fields\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ std\+::vector}$<$\textbf{ std\+::vector}$<$unsigned int$>$ $>$ \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::map\+\_\+dependent\+\_\+fields\hspace{0.3cm}{\ttfamily [private]}}
 
 This maps, for each underlying scalar functional, its dependent field indices to the dependent field indices of the combined scalar functional \mbox{\Hypertarget{class_scalar_functional_local_elimination_af814289c235283b9ce685c5aabb32b51}\label{class_scalar_functional_local_elimination_af814289c235283b9ce685c5aabb32b51}} 
 \index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!max\_cutbacks@{max\_cutbacks}}
@@ -262,7 +262,7 @@ The routines will return an error if the total increment to the local variables 
 \index{scalar\_functionals@{scalar\_functionals}!ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{scalar\_functionals}{scalar\_functionals}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-const std\+::vector$<$\mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$dim,spacedim$>$$\ast$$>$ \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::scalar\+\_\+functionals\hspace{0.3cm}{\ttfamily [private]}}
+const \textbf{ std\+::vector}$<$\mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$dim,spacedim$>$$\ast$$>$ \mbox{\hyperlink{class_scalar_functional_local_elimination}{Scalar\+Functional\+Local\+Elimination}}$<$ dim, spacedim $>$\+::scalar\+\_\+functionals\hspace{0.3cm}{\ttfamily [private]}}
 
 The scalar functionals which form this scalar functional (those scalar functionals are simply summed up) \mbox{\Hypertarget{class_scalar_functional_local_elimination_a5335c4ea520dfca402e0fb3155e94406}\label{class_scalar_functional_local_elimination_a5335c4ea520dfca402e0fb3155e94406}} 
 \index{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$@{ScalarFunctionalLocalElimination$<$ dim, spacedim $>$}!threshold\_residual@{threshold\_residual}}

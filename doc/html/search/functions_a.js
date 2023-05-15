@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['kdtree_12647',['KDTree',['https://dealii.org/9.0.0/doxygen/deal.II/classKDTree.html#a5206e20fe4f4f3fb26f7e21efbf54cce',1,'KDTree::KDTree()'],['https://dealii.org/9.0.0/doxygen/deal.II/classKDTree.html#a5206e20fe4f4f3fb26f7e21efbf54cce',1,'KDTree&lt; spacedim &gt;::KDTree()']]],
-  ['kdtree_5fdistance_12648',['kdtree_distance',['https://dealii.org/9.0.0/doxygen/deal.II/structKDTree_1_1PointCloudAdaptor.html#a0208fbe3f2b237c76d4588b76d8038b0',1,'KDTree::PointCloudAdaptor']]],
-  ['kdtree_5fget_5fbbox_12649',['kdtree_get_bbox',['https://dealii.org/9.0.0/doxygen/deal.II/structKDTree_1_1PointCloudAdaptor.html#ad07788a77d70c6b807979a28ba39aec3',1,'KDTree::PointCloudAdaptor']]],
-  ['kdtree_5fget_5fpoint_5fcount_12650',['kdtree_get_point_count',['https://dealii.org/9.0.0/doxygen/deal.II/structKDTree_1_1PointCloudAdaptor.html#ac944cd8c8bd6dc91d363de69c36488b7',1,'KDTree::PointCloudAdaptor']]],
-  ['kdtree_5fget_5fpt_12651',['kdtree_get_pt',['https://dealii.org/9.0.0/doxygen/deal.II/structKDTree_1_1PointCloudAdaptor.html#a6aa52d605b671bb55c425c197dd595c8',1,'KDTree::PointCloudAdaptor']]],
-  ['kill_5ffile_12652',['kill_file',['https://dealii.org/9.0.0/doxygen/deal.II/classSwappableVector.html#ab7534657f74442edca2275b53e2523ba',1,'SwappableVector']]],
-  ['king_5fordering_12653',['king_ordering',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDoFRenumbering_1_1boost.html#a7dae40bee2464606f71a81ddf85e1811',1,'DoFRenumbering::boost']]],
-  ['kinsol_12654',['KINSOL',['https://dealii.org/9.0.0/doxygen/deal.II/classSUNDIALS_1_1KINSOL.html#a9de79e5f94609dd3ad82a79030a8bb3b',1,'SUNDIALS::KINSOL']]],
-  ['kovasznay_12655',['Kovasznay',['https://dealii.org/9.0.0/doxygen/deal.II/classFunctions_1_1Kovasznay.html#a082166be0e076803fed98a61450e05a5',1,'Functions::Kovasznay']]]
+  ['kdtree_16480',['KDTree',['https://dealii.org/9.0.0/doxygen/deal.II/classKDTree.html#a3ec0c820e854b71385ec4c72a36b0f44',1,'KDTree::KDTree()'],['https://dealii.org/9.0.0/doxygen/deal.II/classKDTree.html#a3ec0c820e854b71385ec4c72a36b0f44',1,'KDTree&lt; spacedim &gt;::KDTree()']]],
+  ['kdtree_5fdistance_16481',['kdtree_distance',['https://dealii.org/9.0.0/doxygen/deal.II/structKDTree_1_1PointCloudAdaptor.html#a5e8820cc06f2a3b4ff27f2f0cf458233',1,'KDTree::PointCloudAdaptor']]],
+  ['kdtree_5fget_5fbbox_16482',['kdtree_get_bbox',['https://dealii.org/9.0.0/doxygen/deal.II/structKDTree_1_1PointCloudAdaptor.html#af9ee3022222808364bf2c405579e39e6',1,'KDTree::PointCloudAdaptor']]],
+  ['kdtree_5fget_5fpoint_5fcount_16483',['kdtree_get_point_count',['https://dealii.org/9.0.0/doxygen/deal.II/structKDTree_1_1PointCloudAdaptor.html#af3f15202589094ea3069cf98af65b99c',1,'KDTree::PointCloudAdaptor']]],
+  ['kdtree_5fget_5fpt_16484',['kdtree_get_pt',['https://dealii.org/9.0.0/doxygen/deal.II/structKDTree_1_1PointCloudAdaptor.html#a89b2046ed30b3a2d1a316e730d62519b',1,'KDTree::PointCloudAdaptor']]],
+  ['keep_5findependent_5fvalues_16485',['keep_independent_values',['https://dealii.org/9.0.0/doxygen/deal.II/structDifferentiation_1_1AD_1_1TapedDrivers.html#ad4f88e01c2bae722271f2b7abc841623',1,'Differentiation::AD::TapedDrivers::keep_independent_values() const'],['https://dealii.org/9.0.0/doxygen/deal.II/structDifferentiation_1_1AD_1_1TapedDrivers.html#ad4f88e01c2bae722271f2b7abc841623',1,'Differentiation::AD::TapedDrivers::keep_independent_values() const'],['https://dealii.org/9.0.0/doxygen/deal.II/structDifferentiation_1_1AD_1_1TapedDrivers.html#ad4f88e01c2bae722271f2b7abc841623',1,'TapedDrivers&lt; ad_type, scalar_type &gt;::keep_independent_values() const'],['https://dealii.org/9.0.0/doxygen/deal.II/structDifferentiation_1_1AD_1_1TapedDrivers.html#ad4f88e01c2bae722271f2b7abc841623',1,'TapedDrivers&lt; ad_type, scalar_type &gt;::keep_independent_values() const']]],
+  ['king_5fordering_16486',['king_ordering',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDoFRenumbering_1_1boost.html#a7dae40bee2464606f71a81ddf85e1811',1,'DoFRenumbering::boost']]],
+  ['kinsol_16487',['KINSOL',['https://dealii.org/9.0.0/doxygen/deal.II/classSUNDIALS_1_1KINSOL.html#a9de79e5f94609dd3ad82a79030a8bb3b',1,'SUNDIALS::KINSOL']]],
+  ['kovasznay_16488',['Kovasznay',['https://dealii.org/9.0.0/doxygen/deal.II/classFunctions_1_1Kovasznay.html#a082166be0e076803fed98a61450e05a5',1,'Functions::Kovasznay']]]
 ];

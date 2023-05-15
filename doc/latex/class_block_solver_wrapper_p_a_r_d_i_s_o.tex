@@ -27,11 +27,11 @@ Collaboration diagram for Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO\+:\nopagebre
 \item 
 \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a22f5bc2196681e319b323549a457178a}{$\sim$\+Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+SO}} ()
 \item 
-virtual void \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a73135d179e0618be550b9089c3c70689}{solve}} (const \mbox{\hyperlink{class_two_block_matrix}{Two\+Block\+Matrix}}$<$ \textbf{ dealii\+::\+Sparse\+Matrix}$<$ double $>$$>$ \&K\+\_\+stretched, \textbf{ dealii\+::\+Vector}$<$ double $>$ \&solution, const \textbf{ dealii\+::\+Block\+Vector}$<$ double $>$ \&f\+\_\+stretched, const bool symmetric=false)
+virtual void \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a73135d179e0618be550b9089c3c70689}{solve}} (const \mbox{\hyperlink{class_two_block_matrix}{Two\+Block\+Matrix}}$<$ \textbf{ dealii\+::\+Sparse\+Matrix}$<$ double $>$$>$ \&K\+\_\+stretched, \textbf{ dealii\+::\+Vector}$<$ double $>$ \&solution, const \textbf{ dealii\+::\+Block\+Vector}$<$ double $>$ \&f\+\_\+stretched, const bool \textbf{ symmetric}=false)
 \item 
 \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a8bb0292df53f83055f387c49f060499f}{Decl\+Exception2}} (Exc\+P\+A\+R\+D\+I\+S\+O\+Error, std\+::string, int,$<$$<$ \char`\"{}P\+A\+R\+D\+I\+SO routine \char`\"{}$<$$<$ arg1$<$$<$ \char`\"{} returned error status \char`\"{}$<$$<$ arg2$<$$<$ \char`\"{}.\char`\"{})
 \item 
-\mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_add4fbb653224be1348463d9bff990a9f}{Decl\+Exception1}} (Exc\+P\+A\+R\+D\+I\+S\+O\+Res, double,$<$$<$ \char`\"{}P\+A\+R\+D\+I\+SO residual too large\+: \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a7d2b9809d10bde8d8440a607522e383c}{res}} = \char`\"{}$<$$<$ arg1$<$$<$ \char`\"{}.\char`\"{})
+\mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_add4fbb653224be1348463d9bff990a9f}{Decl\+Exception1}} (Exc\+P\+A\+R\+D\+I\+S\+O\+Res, double,$<$$<$ \char`\"{}P\+A\+R\+D\+I\+SO \textbf{ residual} too large\+: \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a7d2b9809d10bde8d8440a607522e383c}{res}} = \char`\"{}$<$$<$ arg1$<$$<$ \char`\"{}.\char`\"{})
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -60,12 +60,12 @@ double \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a32db83d42ee6ba
 \item 
 bool \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ad8bf45c0568b751a2773a57a5b00ba5d}{use\+\_\+defaults}} = true
 \item 
-std\+::vector$<$ int $>$ $\ast$ \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a13bbf006d1fdf50f06535d9d7ab7434f}{perm}} = nullptr
+\textbf{ std\+::vector}$<$ int $>$ $\ast$ \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a13bbf006d1fdf50f06535d9d7ab7434f}{perm}} = nullptr
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a73460ba651207f3b8e86699f58db896f}{initialize\+\_\+matrix}} (const \textbf{ Sparse\+Matrix}$<$ double $>$ \&matrix)
+void \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a73460ba651207f3b8e86699f58db896f}{initialize\+\_\+matrix}} (const \textbf{ Sparse\+Matrix}$<$ double $>$ \&\textbf{ matrix})
 \item 
 void \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a53ca2b0fda79f7c29ab46b32469d058a}{analyze\+\_\+matrix}} ()
 \item 
@@ -92,11 +92,11 @@ void $\ast$ \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a4d1d5d988
 \item 
 int \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a0218d17deabfb2a7b8905b90ccb6ef46}{N}}
 \item 
-std\+::vector$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ad284b0a41b7e8f6ab2f58308dfad7c13}{Ap}}
+\textbf{ std\+::vector}$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ad284b0a41b7e8f6ab2f58308dfad7c13}{Ap}}
 \item 
-std\+::vector$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a20249115ffb23d1c0d35c22fa76a1257}{Ai}}
+\textbf{ std\+::vector}$<$ int $>$ \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a20249115ffb23d1c0d35c22fa76a1257}{Ai}}
 \item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ad32493c27639c20286aea67e702f3442}{Ax}}
+\textbf{ std\+::vector}$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_ad32493c27639c20286aea67e702f3442}{Ax}}
 \item 
 \textbf{ dealii\+::\+Vector}$<$ double $>$ \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_adbd0f34a5205de9e8e0c5eec7540d093}{C\+\_\+inv}}
 \item 
@@ -259,7 +259,7 @@ Multiply the inverse of A by {\ttfamily f} and store the result into {\ttfamily 
 \index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!Ai@{Ai}}
 \index{Ai@{Ai}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
 \doxysubsubsection{\texorpdfstring{Ai}{Ai}}
-{\footnotesize\ttfamily std\+::vector$<$int$>$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ai\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$int$>$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ai\hspace{0.3cm}{\ttfamily [private]}}
 
 Array storing the column indices of non-\/zero entries of A \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a3df0818f957b743717ce4bfd463ff8dd}} 
 \index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!analyze@{analyze}}
@@ -281,7 +281,7 @@ In case that scaling==1, the scaling of the matrix is only recomputed if \mbox{\
 \index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!Ap@{Ap}}
 \index{Ap@{Ap}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
 \doxysubsubsection{\texorpdfstring{Ap}{Ap}}
-{\footnotesize\ttfamily std\+::vector$<$int$>$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ap\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$int$>$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ap\hspace{0.3cm}{\ttfamily [private]}}
 
 Array saying which row starts where in \mbox{\hyperlink{class_block_solver_wrapper_p_a_r_d_i_s_o_a20249115ffb23d1c0d35c22fa76a1257}{Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ai}} \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_aba68acd666b7c5c41af207eb77db201c}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_aba68acd666b7c5c41af207eb77db201c}} 
 \index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!apply\_scaling@{apply\_scaling}}
@@ -296,7 +296,7 @@ whether to compute a scaling of the matrix during analysis\+:~\newline
 \index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!Ax@{Ax}}
 \index{Ax@{Ax}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
 \doxysubsubsection{\texorpdfstring{Ax}{Ax}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ax\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$double$>$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::\+Ax\hspace{0.3cm}{\ttfamily [private]}}
 
 Array storing the numerical values of the non-\/zero entries of the matrix A \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_adbd0f34a5205de9e8e0c5eec7540d093}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_adbd0f34a5205de9e8e0c5eec7540d093}} 
 \index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!C\_inv@{C\_inv}}
@@ -390,7 +390,7 @@ ordering method\+:~\newline
 \index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!perm@{perm}}
 \index{perm@{perm}!BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}}
 \doxysubsubsection{\texorpdfstring{perm}{perm}}
-{\footnotesize\ttfamily std\+::vector$<$int$>$$\ast$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::perm = nullptr}
+{\footnotesize\ttfamily \textbf{ std\+::vector}$<$int$>$$\ast$ Block\+Solver\+Wrapper\+P\+A\+R\+D\+I\+S\+O\+::perm = nullptr}
 
 user defined permutation vector \mbox{\Hypertarget{class_block_solver_wrapper_p_a_r_d_i_s_o_a5fa1782457ce43278374cc1d5395b1d6}\label{class_block_solver_wrapper_p_a_r_d_i_s_o_a5fa1782457ce43278374cc1d5395b1d6}} 
 \index{BlockSolverWrapperPARDISO@{BlockSolverWrapperPARDISO}!pivot\_perturbation@{pivot\_perturbation}}

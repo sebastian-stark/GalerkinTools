@@ -1,5 +1,6 @@
 <map id="TwoBlockMatrix&lt; MatrixType &gt;" name="TwoBlockMatrix&lt; MatrixType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,215,232,241"/>
-<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSparsityPattern.html" title=" " alt="" coords="57,81,180,108"/>
-<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="71,5,166,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,291,232,317"/>
+<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSparsityPattern.html" title=" " alt="" coords="57,157,180,184"/>
+<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSparsityPatternBase.html" title=" " alt="" coords="41,81,196,108"/>
+<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="71,5,166,32"/>
 </map>

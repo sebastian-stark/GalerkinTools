@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['y_7803',['y',['../class_linear_material_domain.html#a7ea9ab6930c0b0aa826e809ef245b0e2',1,'LinearMaterialDomain::y()'],['../class_linear_material_interface.html#a3864513d7662e4d1c91e606467befd59',1,'LinearMaterialInterface::y()']]],
-  ['y_5fvalues_7804',['y_values',['https://dealii.org/9.0.0/doxygen/deal.II/classHistogram.html#a87c3e303fa7fb56e73ac66edae21692e',1,'Histogram']]],
-  ['yp_7805',['yp',['https://dealii.org/9.0.0/doxygen/deal.II/classSUNDIALS_1_1IDA.html#ad5f050d35d2e4b45156eb9f251b674c5',1,'SUNDIALS::IDA']]],
-  ['yy_7806',['yy',['https://dealii.org/9.0.0/doxygen/deal.II/classSUNDIALS_1_1ARKode.html#a7cb0a977da89792f86c6346e9acfafb7',1,'SUNDIALS::ARKode::yy()'],['https://dealii.org/9.0.0/doxygen/deal.II/classSUNDIALS_1_1IDA.html#a9a9deee1422c35599ab2c27e2f205fa8',1,'SUNDIALS::IDA::yy()']]]
+  ['y_10250',['Y',['https://dealii.org/9.0.0/doxygen/deal.II/structinternal_1_1VectorOperations_1_1Dot.html#adbeabbd8bf84bc3b65fcc1540d9caab6',1,'internal::VectorOperations::Dot::Y()'],['../class_linear_material_domain.html#a7ea9ab6930c0b0aa826e809ef245b0e2',1,'LinearMaterialDomain::y()'],['../class_linear_material_interface.html#a3864513d7662e4d1c91e606467befd59',1,'LinearMaterialInterface::y()']]],
+  ['y_5fvalues_10251',['y_values',['https://dealii.org/9.0.0/doxygen/deal.II/classHistogram.html#a87c3e303fa7fb56e73ac66edae21692e',1,'Histogram']]],
+  ['yes_5ftype_10252',['yes_type',['https://dealii.org/9.0.0/doxygen/deal.II/structIsBlockMatrix_1_1yes__type.html',1,'IsBlockMatrix&lt; class &gt;::yes_type'],['https://dealii.org/9.0.0/doxygen/deal.II/structIsBlockVector_1_1yes__type.html',1,'IsBlockVector&lt; class &gt;::yes_type']]],
+  ['yp_10253',['yp',['https://dealii.org/9.0.0/doxygen/deal.II/classSUNDIALS_1_1IDA.html#ad5f050d35d2e4b45156eb9f251b674c5',1,'SUNDIALS::IDA']]],
+  ['yy_10254',['yy',['https://dealii.org/9.0.0/doxygen/deal.II/classSUNDIALS_1_1ARKode.html#a7cb0a977da89792f86c6346e9acfafb7',1,'SUNDIALS::ARKode::yy()'],['https://dealii.org/9.0.0/doxygen/deal.II/classSUNDIALS_1_1IDA.html#a9a9deee1422c35599ab2c27e2f205fa8',1,'SUNDIALS::IDA::yy()']]]
 ];

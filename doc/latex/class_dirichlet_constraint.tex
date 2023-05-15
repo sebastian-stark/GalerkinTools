@@ -25,7 +25,7 @@ Collaboration diagram for Dirichlet\+Constraint$<$ spacedim $>$\+:\nopagebreak
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_dirichlet_constraint_a14e75a7f8bcc8a18daa04a5c1164fe87}{Dirichlet\+Constraint}} (const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ \&\mbox{\hyperlink{class_dirichlet_constraint_abbd7945a973ed93d1d773307393ffde3}{independent\+\_\+field}}, const unsigned int \mbox{\hyperlink{class_dirichlet_constraint_a7e3c4d0e0906af1c81b88e05e41bdafc}{component}}, const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} \mbox{\hyperlink{class_dirichlet_constraint_ae049d107664d3bf23d287ec77545b6f3}{side}}, const std\+::set$<$ \textbf{ types\+::material\+\_\+id} $>$ \mbox{\hyperlink{class_dirichlet_constraint_a258b6ff11b206f966bb03943bb11f469}{domain\+\_\+of\+\_\+constraint}}, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_dirichlet_constraint_af22d2bca23999bdb4f2b67e8982d29c5}{constraint\+\_\+inhomogeneity}}=nullptr, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$\mbox{\hyperlink{class_dirichlet_constraint_a8793f0d41a9c6e88638d7cf5d52a6fdd}{independent\+\_\+scalar}}=nullptr, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_dirichlet_constraint_adea2dc6126a633b297eb7dfce832b9ef}{coefficient\+\_\+c}}=nullptr)
+\mbox{\hyperlink{class_dirichlet_constraint_a14e75a7f8bcc8a18daa04a5c1164fe87}{Dirichlet\+Constraint}} (const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ \&\mbox{\hyperlink{class_dirichlet_constraint_abbd7945a973ed93d1d773307393ffde3}{independent\+\_\+field}}, const unsigned int \mbox{\hyperlink{class_dirichlet_constraint_a7e3c4d0e0906af1c81b88e05e41bdafc}{component}}, const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} \mbox{\hyperlink{class_dirichlet_constraint_ae049d107664d3bf23d287ec77545b6f3}{side}}, const \textbf{ std\+::set}$<$ \textbf{ types\+::material\+\_\+id} $>$ \mbox{\hyperlink{class_dirichlet_constraint_a258b6ff11b206f966bb03943bb11f469}{domain\+\_\+of\+\_\+constraint}}, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_dirichlet_constraint_af22d2bca23999bdb4f2b67e8982d29c5}{constraint\+\_\+inhomogeneity}}=nullptr, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$\mbox{\hyperlink{class_dirichlet_constraint_a8793f0d41a9c6e88638d7cf5d52a6fdd}{independent\+\_\+scalar}}=nullptr, const \textbf{ Function}$<$ spacedim $>$ $\ast$const \mbox{\hyperlink{class_dirichlet_constraint_adea2dc6126a633b297eb7dfce832b9ef}{coefficient\+\_\+c}}=nullptr)
 \item 
 virtual \mbox{\hyperlink{class_dirichlet_constraint_ac6b6b7caf4694000486abff377fd1440}{$\sim$\+Dirichlet\+Constraint}} ()
 \item 
@@ -33,12 +33,12 @@ void \mbox{\hyperlink{class_dirichlet_constraint_abdfdde6ef50639152e2a82d54b1300
 \item 
 bool \mbox{\hyperlink{class_dirichlet_constraint_ad1741529befff8fca4af6ee82224abb3}{get\+\_\+constraint\+\_\+is\+\_\+active}} () const
 \item 
-void \mbox{\hyperlink{class_dirichlet_constraint_ab8c509170d5d36f778415b88bceee99d}{set\+\_\+time}} (const double time) const
+void \mbox{\hyperlink{class_dirichlet_constraint_ab8c509170d5d36f778415b88bceee99d}{set\+\_\+time}} (const double \textbf{ time}) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-const std\+::set$<$ \textbf{ types\+::material\+\_\+id} $>$ \mbox{\hyperlink{class_dirichlet_constraint_a258b6ff11b206f966bb03943bb11f469}{domain\+\_\+of\+\_\+constraint}}
+const \textbf{ std\+::set}$<$ \textbf{ types\+::material\+\_\+id} $>$ \mbox{\hyperlink{class_dirichlet_constraint_a258b6ff11b206f966bb03943bb11f469}{domain\+\_\+of\+\_\+constraint}}
 \item 
 const \textbf{ Smart\+Pointer}$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ $>$ \mbox{\hyperlink{class_dirichlet_constraint_abbd7945a973ed93d1d773307393ffde3}{independent\+\_\+field}}
 \item 
@@ -87,7 +87,7 @@ The \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}} class i
 \index{DirichletConstraint@{DirichletConstraint}!DirichletConstraint$<$ spacedim $>$@{DirichletConstraint$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{DirichletConstraint()}{DirichletConstraint()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ \&}]{independent\+\_\+field,  }\item[{const unsigned int}]{component,  }\item[{const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}}}]{side,  }\item[{const std\+::set$<$ \textbf{ types\+::material\+\_\+id} $>$}]{domain\+\_\+of\+\_\+constraint,  }\item[{const \textbf{ Function}$<$ spacedim $>$ $\ast$const}]{constraint\+\_\+inhomogeneity = {\ttfamily nullptr},  }\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$}]{independent\+\_\+scalar = {\ttfamily nullptr},  }\item[{const \textbf{ Function}$<$ spacedim $>$ $\ast$const}]{coefficient\+\_\+c = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ \&}]{independent\+\_\+field,  }\item[{const unsigned int}]{component,  }\item[{const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}}}]{side,  }\item[{const \textbf{ std\+::set}$<$ \textbf{ types\+::material\+\_\+id} $>$}]{domain\+\_\+of\+\_\+constraint,  }\item[{const \textbf{ Function}$<$ spacedim $>$ $\ast$const}]{constraint\+\_\+inhomogeneity = {\ttfamily nullptr},  }\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$}]{independent\+\_\+scalar = {\ttfamily nullptr},  }\item[{const \textbf{ Function}$<$ spacedim $>$ $\ast$const}]{coefficient\+\_\+c = {\ttfamily nullptr} }\end{DoxyParamCaption})}
 
 The constructor of the class
 
@@ -189,7 +189,7 @@ Bool indicating whether constraint is currently active \mbox{\Hypertarget{class_
 \index{domain\_of\_constraint@{domain\_of\_constraint}!DirichletConstraint$<$ spacedim $>$@{DirichletConstraint$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{domain\_of\_constraint}{domain\_of\_constraint}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-const std\+::set$<$\textbf{ types\+::material\+\_\+id}$>$ \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$\+::domain\+\_\+of\+\_\+constraint}
+const \textbf{ std\+::set}$<$\textbf{ types\+::material\+\_\+id}$>$ \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$\+::domain\+\_\+of\+\_\+constraint}
 
 \textbf{ types\+::material\+\_\+id}s determining the portions of the interface on which the constraint is applied \mbox{\Hypertarget{class_dirichlet_constraint_abbd7945a973ed93d1d773307393ffde3}\label{class_dirichlet_constraint_abbd7945a973ed93d1d773307393ffde3}} 
 \index{DirichletConstraint$<$ spacedim $>$@{DirichletConstraint$<$ spacedim $>$}!independent\_field@{independent\_field}}

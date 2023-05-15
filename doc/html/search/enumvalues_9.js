@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['plus_16686',['plus',['../triangulation__system_8h.html#a44f3c00e36c1d6e3c389ae693c09b435a772311abb4290d65c05c49d38c4da6fb',1,'triangulation_system.h']]],
-  ['plus_5fis_5ffiner_16687',['plus_is_finer',['../triangulation__system_8h.html#a4cfb8c5e21535951e919b6a6b1023af7aee243748f7ee1b44506873ec0b8ae191',1,'triangulation_system.h']]]
+  ['none_21811',['none',['https://dealii.org/9.0.0/doxygen/deal.II/classMatrixFree.html#a751b5f06534d52773eba384d2c866a15a334c4a4c42fdb79d7ebc3e73b517e6f8',1,'MatrixFree::none()'],['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1AD.html#acc1d0db17ec4125ac4e28f6ad2069b1ca334c4a4c42fdb79d7ebc3e73b517e6f8',1,'Differentiation::AD::none()']]]
 ];

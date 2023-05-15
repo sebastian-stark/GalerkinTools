@@ -1020,13 +1020,18 @@ BlockSolverWrapperMUMPS::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_str
 						A[d[k]] = K.diag_element(k) + tau;
 				}
 				factorize_matrix();
+				vmult(solution, f_stretched.block(0));
+				const double sol_f = solution * f_stretched.block(0);
+				cout << " Amount of descent = " << sol_f << endl;
+				if(sol_f > 0.0)
+					break;
+
 				cout << "  Number of non-positive pivots = " << infog[11] << endl;
 				if(infog[11] > 0)
 					tau = std::max(beta, tau * increase_tau);
 				else
 					break;
 			}
-
 		}
 		else
 		{
@@ -1047,12 +1052,12 @@ BlockSolverWrapperMUMPS::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_str
 		vmult(solution, f_stretched.block(0));
 
 		// check residual
-		Vector<double> res(f_stretched.block(0).size());
+/*		Vector<double> res(f_stretched.block(0).size());
 		K.vmult(res, solution);
 		const auto& f = f_stretched.block(0);
 		for(unsigned int m = 0; m < solution.size(); ++m)
 			res(m) = res(m) - f(m);
-//		cout << "MUMPS Residual = " << res.l2_norm() << endl;
+		cout << "MUMPS Residual = " << res.l2_norm() << endl;*/
 
 		return;
 	}

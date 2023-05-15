@@ -3,19 +3,19 @@
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{namespace_auxiliary_abe796c1529d11eed08fd05bca82f3002}{compute\+\_\+ldr}} (\textbf{ Full\+Matrix}$<$ double $>$ \&\textbf{ C}, \textbf{ Vector}$<$ double $>$ \&D, std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&\textbf{ L}, std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&R)
+int \mbox{\hyperlink{namespace_auxiliary_abe796c1529d11eed08fd05bca82f3002}{compute\+\_\+ldr}} (\textbf{ Full\+Matrix}$<$ double $>$ \&\textbf{ C}, \textbf{ Vector}$<$ double $>$ \&D, \textbf{ std\+::vector}$<$ \textbf{ Vector}$<$ double $>$$>$ \&\textbf{ L}, \textbf{ std\+::vector}$<$ \textbf{ Vector}$<$ double $>$$>$ \&R)
 \item 
-void \mbox{\hyperlink{namespace_auxiliary_ad3c42d209f0ba8e9d4ce305060634bf1}{convert\+\_\+local\+\_\+indices\+\_\+to\+\_\+global\+\_\+indices}} (const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global)
+void \mbox{\hyperlink{namespace_auxiliary_ad3c42d209f0ba8e9d4ce305060634bf1}{convert\+\_\+local\+\_\+indices\+\_\+to\+\_\+global\+\_\+indices}} (const \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local, \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global, const \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global)
 \item 
-void \mbox{\hyperlink{namespace_auxiliary_a1d90ebc8738df3d8c70b540034137019}{combine\+\_\+dof\+\_\+indices}} (const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+interface, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+minus, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+plus, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+C, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+interface\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+minus\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+plus\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+\+C\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+combined)
+void \mbox{\hyperlink{namespace_auxiliary_a1d90ebc8738df3d8c70b540034137019}{combine\+\_\+dof\+\_\+indices}} (const \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+interface, const \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+minus, const \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+plus, const \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+C, \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+interface\+\_\+dof\+\_\+indices\+\_\+combined, \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+minus\+\_\+dof\+\_\+indices\+\_\+combined, \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+plus\+\_\+dof\+\_\+indices\+\_\+combined, \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+\+C\+\_\+dof\+\_\+indices\+\_\+combined, \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+combined)
 \item 
 void \mbox{\hyperlink{namespace_auxiliary_aca5fe5966aef4ba2293fb44095bfd86c}{add\+\_\+to\+\_\+index\+\_\+set}} (const \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} \&dof\+\_\+renumbering, const \textbf{ Index\+Set} \&in, \textbf{ Index\+Set} \&out)
 \item 
-void \mbox{\hyperlink{namespace_auxiliary_aa6148bcbaf5e3003717b4dd2a4da15b3}{renumber\+\_\+constraints}} (Affine\+Constraints$<$ double $>$ \&constraint\+\_\+matrix, const \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} \&dof\+\_\+renumbering=\mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}}(), const bool close=true)
+void \mbox{\hyperlink{namespace_auxiliary_aa6148bcbaf5e3003717b4dd2a4da15b3}{renumber\+\_\+constraints}} (\textbf{ Affine\+Constraints}$<$ double $>$ \&constraint\+\_\+matrix, const \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} \&dof\+\_\+renumbering=\mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}}(), const bool close=true)
 \item 
 {\footnotesize template$<$unsigned int spacedim$>$ }\\void \mbox{\hyperlink{namespace_auxiliary_a4261fc726ff965166f3f53242918acea}{compute\+\_\+dof\+\_\+renumbering\+\_\+contiguous}} (const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&dof\+\_\+handler\+\_\+system, \mbox{\hyperlink{class_do_f_renumbering_offset}{Do\+F\+Renumbering\+Offset}} \&dof\+\_\+renumbering\+\_\+offset)
 \item 
-{\footnotesize template$<$unsigned int spacedim$>$ }\\void \mbox{\hyperlink{namespace_auxiliary_a072f85e6d745ae3c532bb0612f4bd3ce}{compute\+\_\+map\+\_\+dofs}} (const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&dhs\+\_\+1, const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&dhs\+\_\+2, std\+::vector$<$ unsigned int $>$ \&map\+\_\+dofs)
+{\footnotesize template$<$unsigned int spacedim$>$ }\\void \mbox{\hyperlink{namespace_auxiliary_a072f85e6d745ae3c532bb0612f4bd3ce}{compute\+\_\+map\+\_\+dofs}} (const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&dhs\+\_\+1, const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&dhs\+\_\+2, \textbf{ std\+::vector}$<$ unsigned int $>$ \&map\+\_\+dofs)
 \item 
 void \mbox{\hyperlink{namespace_auxiliary_a59c01a6511bffd7442693e86cd194ef1}{split\+\_\+vector}} (const \textbf{ Vector}$<$ double $>$ \&in, \textbf{ Vector}$<$ double $>$ \&out\+\_\+0, \textbf{ Vector}$<$ double $>$ \&out\+\_\+1, const unsigned int size\+\_\+1)
 \item 
@@ -23,7 +23,7 @@ void \mbox{\hyperlink{namespace_auxiliary_af746a1d08b1135a3684fc990f7b1384d}{spl
 \item 
 bool \mbox{\hyperlink{namespace_auxiliary_ad0ff28386be7b54b3487ae36e5a074fa}{communicate\+\_\+bool}} (const bool local\+\_\+bool, const M\+P\+I\+\_\+\+Comm \&mpi\+\_\+communicator)
 \item 
-{\footnotesize template$<$int dim, int spacedim$>$ }\\std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{namespace_auxiliary_aaa9fb90b2f2308f766b8130578ab9c39}{get\+\_\+n\+\_\+locally\+\_\+owned\+\_\+dofs\+\_\+per\+\_\+processor}} (const \textbf{ Do\+F\+Handler}$<$ dim, spacedim $>$ \&dof\+\_\+handler)
+{\footnotesize template$<$int dim, int spacedim$>$ }\\\textbf{ std\+::vector}$<$ unsigned int $>$ \mbox{\hyperlink{namespace_auxiliary_aaa9fb90b2f2308f766b8130578ab9c39}{get\+\_\+n\+\_\+locally\+\_\+owned\+\_\+dofs\+\_\+per\+\_\+processor}} (const \textbf{ Do\+F\+Handler}$<$ dim, spacedim $>$ \&dof\+\_\+handler)
 \end{DoxyCompactItemize}
 
 
@@ -51,7 +51,7 @@ It is advantageous if the incoming index set is compressed.
 \index{Auxiliary@{Auxiliary}!combine\_dof\_indices@{combine\_dof\_indices}}
 \index{combine\_dof\_indices@{combine\_dof\_indices}!Auxiliary@{Auxiliary}}
 \doxysubsubsection{\texorpdfstring{combine\_dof\_indices()}{combine\_dof\_indices()}}
-{\footnotesize\ttfamily void Auxiliary\+::combine\+\_\+dof\+\_\+indices (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+global\+\_\+interface,  }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+global\+\_\+minus,  }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+global\+\_\+plus,  }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+global\+\_\+C,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+interface\+\_\+dof\+\_\+indices\+\_\+combined,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+minus\+\_\+dof\+\_\+indices\+\_\+combined,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+plus\+\_\+dof\+\_\+indices\+\_\+combined,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+\+C\+\_\+dof\+\_\+indices\+\_\+combined,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+global\+\_\+combined }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Auxiliary\+::combine\+\_\+dof\+\_\+indices (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+global\+\_\+interface,  }\item[{const \textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+global\+\_\+minus,  }\item[{const \textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+global\+\_\+plus,  }\item[{const \textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+global\+\_\+C,  }\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+interface\+\_\+dof\+\_\+indices\+\_\+combined,  }\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+minus\+\_\+dof\+\_\+indices\+\_\+combined,  }\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+plus\+\_\+dof\+\_\+indices\+\_\+combined,  }\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+\+C\+\_\+dof\+\_\+indices\+\_\+combined,  }\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+global\+\_\+combined }\end{DoxyParamCaption})}
 
 \mbox{\hyperlink{namespace_auxiliary}{Auxiliary}} method to get a combined dof indexing at an interface cell (which comprises dof indices of the interface cell, the adjacent domain cells, and the relevant independent scalars).
 
@@ -116,7 +116,7 @@ Return a \mbox{\hyperlink{class_do_f_renumbering_offset}{Do\+F\+Renumbering\+Off
 \index{Auxiliary@{Auxiliary}!compute\_ldr@{compute\_ldr}}
 \index{compute\_ldr@{compute\_ldr}!Auxiliary@{Auxiliary}}
 \doxysubsubsection{\texorpdfstring{compute\_ldr()}{compute\_ldr()}}
-{\footnotesize\ttfamily int Auxiliary\+::compute\+\_\+ldr (\begin{DoxyParamCaption}\item[{\textbf{ Full\+Matrix}$<$ double $>$ \&}]{C,  }\item[{\textbf{ Vector}$<$ double $>$ \&}]{D,  }\item[{std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&}]{L,  }\item[{std\+::vector$<$ \textbf{ Vector}$<$ double $>$$>$ \&}]{R }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int Auxiliary\+::compute\+\_\+ldr (\begin{DoxyParamCaption}\item[{\textbf{ Full\+Matrix}$<$ double $>$ \&}]{C,  }\item[{\textbf{ Vector}$<$ double $>$ \&}]{D,  }\item[{\textbf{ std\+::vector}$<$ \textbf{ Vector}$<$ double $>$$>$ \&}]{L,  }\item[{\textbf{ std\+::vector}$<$ \textbf{ Vector}$<$ double $>$$>$ \&}]{R }\end{DoxyParamCaption})}
 
 A method decomposing a matrix according to $\boldsymbol{C}=\boldsymbol{L}\boldsymbol{D}\boldsymbol{R}^\top$ such that $\boldsymbol{R}=\boldsymbol{L}$ for symmetric matrices $\boldsymbol{C}$, and $\boldsymbol{D}$ diagonal with entries either {\ttfamily -\/1} or {\ttfamily 1}.
 
@@ -138,7 +138,7 @@ Internally, the method is based on a singular value decomposition as provided by
 \index{compute\_map\_dofs@{compute\_map\_dofs}!Auxiliary@{Auxiliary}}
 \doxysubsubsection{\texorpdfstring{compute\_map\_dofs()}{compute\_map\_dofs()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void Auxiliary\+::compute\+\_\+map\+\_\+dofs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&}]{dhs\+\_\+1,  }\item[{const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&}]{dhs\+\_\+2,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{map\+\_\+dofs }\end{DoxyParamCaption})}
+void Auxiliary\+::compute\+\_\+map\+\_\+dofs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&}]{dhs\+\_\+1,  }\item[{const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&}]{dhs\+\_\+2,  }\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{map\+\_\+dofs }\end{DoxyParamCaption})}
 
 Compute a map between the dofs of {\ttfamily dhs\+\_\+1} and the dofs of {\ttfamily dhs\+\_\+2}. This function requires that the triangulation underlying the dof handlers is based on the same mesh, that the partitioning of the triangulations matches, and that the same finite elements are used.
 
@@ -161,7 +161,7 @@ This function does not scale because the entire map is computed on every process
 \index{Auxiliary@{Auxiliary}!convert\_local\_indices\_to\_global\_indices@{convert\_local\_indices\_to\_global\_indices}}
 \index{convert\_local\_indices\_to\_global\_indices@{convert\_local\_indices\_to\_global\_indices}!Auxiliary@{Auxiliary}}
 \doxysubsubsection{\texorpdfstring{convert\_local\_indices\_to\_global\_indices()}{convert\_local\_indices\_to\_global\_indices()}}
-{\footnotesize\ttfamily void Auxiliary\+::convert\+\_\+local\+\_\+indices\+\_\+to\+\_\+global\+\_\+indices (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+global,  }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Auxiliary\+::convert\+\_\+local\+\_\+indices\+\_\+to\+\_\+global\+\_\+indices (\begin{DoxyParamCaption}\item[{const \textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local,  }\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+global,  }\item[{const \textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global }\end{DoxyParamCaption})}
 
 Auxiliary method converting local dof indices into global ones
 
@@ -179,7 +179,7 @@ Auxiliary method converting local dof indices into global ones
 \index{get\_n\_locally\_owned\_dofs\_per\_processor@{get\_n\_locally\_owned\_dofs\_per\_processor}!Auxiliary@{Auxiliary}}
 \doxysubsubsection{\texorpdfstring{get\_n\_locally\_owned\_dofs\_per\_processor()}{get\_n\_locally\_owned\_dofs\_per\_processor()}}
 {\footnotesize\ttfamily template$<$int dim, int spacedim$>$ \\
-std\+::vector$<$unsigned int$>$ Auxiliary\+::get\+\_\+n\+\_\+locally\+\_\+owned\+\_\+dofs\+\_\+per\+\_\+processor (\begin{DoxyParamCaption}\item[{const \textbf{ Do\+F\+Handler}$<$ dim, spacedim $>$ \&}]{dof\+\_\+handler }\end{DoxyParamCaption})}
+\textbf{ std\+::vector}$<$unsigned int$>$ Auxiliary\+::get\+\_\+n\+\_\+locally\+\_\+owned\+\_\+dofs\+\_\+per\+\_\+processor (\begin{DoxyParamCaption}\item[{const \textbf{ Do\+F\+Handler}$<$ dim, spacedim $>$ \&}]{dof\+\_\+handler }\end{DoxyParamCaption})}
 
 Auxiliary function extracting the number of locally owned dofs for each processor from a dof handler.
 
@@ -195,7 +195,7 @@ The vector with the locally owned dofs for each processor
 \index{Auxiliary@{Auxiliary}!renumber\_constraints@{renumber\_constraints}}
 \index{renumber\_constraints@{renumber\_constraints}!Auxiliary@{Auxiliary}}
 \doxysubsubsection{\texorpdfstring{renumber\_constraints()}{renumber\_constraints()}}
-{\footnotesize\ttfamily void Auxiliary\+::renumber\+\_\+constraints (\begin{DoxyParamCaption}\item[{Affine\+Constraints$<$ double $>$ \&}]{constraint\+\_\+matrix,  }\item[{const \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} \&}]{dof\+\_\+renumbering = {\ttfamily \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}}()},  }\item[{const bool}]{close = {\ttfamily true} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Auxiliary\+::renumber\+\_\+constraints (\begin{DoxyParamCaption}\item[{\textbf{ Affine\+Constraints}$<$ double $>$ \&}]{constraint\+\_\+matrix,  }\item[{const \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} \&}]{dof\+\_\+renumbering = {\ttfamily \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}}()},  }\item[{const bool}]{close = {\ttfamily true} }\end{DoxyParamCaption})}
 
 Function renumbering constraints according to the renumbering scheme provided by {\ttfamily dof\+\_\+renumbering}.
 
