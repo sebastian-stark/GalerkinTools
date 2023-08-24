@@ -9,7 +9,7 @@
 # This may run with older versions, it is not tested however
 cmake_minimum_required(VERSION 3.16)
 
-project(GalerkinTools VERSION 0.1.0
+project(galerkin_tools VERSION 0.1.0
                       DESCRIPTION "A set of tools based on deal.II for automatic assembly of finite element systems using the Galerkin method"
                       LANGUAGES CXX)
 
