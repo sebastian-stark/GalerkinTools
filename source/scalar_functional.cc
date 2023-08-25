@@ -18,6 +18,7 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <math.h>
+#include <limits>
 
 #include <galerkin_tools/scalar_functional.h>
 #include <deal.II/lac/lapack_full_matrix.h>
@@ -250,7 +251,7 @@ template<unsigned int dim, unsigned int spacedim>
 		}
 
 		// call all scalar functionals
-		double max_step = DBL_MAX;
+		double max_step = numeric_limits<double>::max();
 		for(unsigned int sf = 0; sf < N_sf; ++sf)
 		{
 			double max_step_;
@@ -541,7 +542,7 @@ ScalarFunctional<spacedim, spacedim>::get_maximum_step(	const Vector<double>& 		
 														const Point<spacedim>& 			/*x*/)
 const
 {
-	return DBL_MAX;
+	return numeric_limits<double>::max();
 }
 
 template<unsigned int spacedim>
@@ -555,7 +556,7 @@ ScalarFunctional<spacedim, spacedim>::get_maximum_step(	const Vector<double>& 		
 const
 {
 	Assert(false, ExcMessage("This function should never be called. This indicates a bug!"));
-	return DBL_MAX;
+	return numeric_limits<double>::max();
 }
 
 template<unsigned int spacedim>
@@ -701,7 +702,7 @@ ScalarFunctional<dim, spacedim>::get_maximum_step(	const Vector<double>& 			/*e_
 													const Tensor<1, spacedim>&		/*n*/)
 const
 {
-	return DBL_MAX;
+	return numeric_limits<double>::max();
 }
 
 template<unsigned int dim, unsigned int spacedim>
@@ -714,7 +715,7 @@ ScalarFunctional<dim, spacedim>::get_maximum_step(	const Vector<double>& 				/*e
 const
 {
 	Assert(false, ExcMessage("This function should never be called. This indicates a bug!"));
-	return DBL_MAX;
+	return numeric_limits<double>::max();
 }
 
 template<unsigned int dim, unsigned int spacedim>

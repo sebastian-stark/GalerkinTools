@@ -21,6 +21,7 @@
 
 #include <math.h>
 #include <fstream>
+#include <limits>
 
 #include <deal.II/numerics/data_out.h>
 #include <deal.II/dofs/dof_tools.h>
@@ -3102,7 +3103,7 @@ const
 {
 
 	double max_step_local;
-	double max_step_global = DBL_MAX;
+	double max_step_global = numeric_limits<double>::max();
 
 	Assert( solution.size() == system_size(), ExcMessage("The solution vector has not the correct size!"));
 	for(const auto& solution_ref : solution_ref_sets)

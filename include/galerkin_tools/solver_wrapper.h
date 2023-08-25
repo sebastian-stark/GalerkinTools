@@ -33,7 +33,15 @@
 #include <galerkin_tools/two_block_matrix.h>
 
 #include <umfpack.h>
+
+#ifdef DEAL_II_WITH_PETSC
+#ifdef DEAL_II_PETSC_WITH_MUMPS
+#ifdef DEAL_II_WITH_MPI
 #include <dmumps_c.h>
+#endif
+#endif
+#endif
+
 
 DEAL_II_NAMESPACE_OPEN
 GALERKIN_TOOLS_NAMESPACE_OPEN
