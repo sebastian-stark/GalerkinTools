@@ -21,17 +21,17 @@ SET(_target_src
 )
 
 #link against lapacke and include header lapacke.h
-FIND_LIBRARY(LAPACKE_LIBRARY lapacke HINTS ${LAPACKE_DIR} $ENV{LAPACKE_DIR} PATH_SUFFIXES lib)
-FIND_PATH(LAPACKE_INSTALL_PATH_HEADERS NAMES lapacke.h HINTS ${LAPACKE_DIR} $ENV{LAPACKE_DIR} PATH_SUFFIXES include include/lapacke)
-IF( (${LAPACKE_LIBRARY} MATCHES "LAPACKE_LIBRARY-NOTFOUND") OR (${LAPACKE_INSTALL_PATH_HEADERS} MATCHES "LAPACKE_INSTALL_PATH_HEADERS-NOTFOUND") )
-  MESSAGE(FATAL_ERROR "\n"
-    "*** Could not locate lapacke ***\n\n"
-    "You may want to either pass a flag -DLAPACKE_DIR=/path/to/lapacke to cmake\n"
-    "or set an environment variable \"LAPACKE_DIR\" that contains this path.")
-ELSE()
-  LINK_LIBRARIES(${LAPACKE_LIBRARY})
-  INCLUDE_DIRECTORIES(${LAPACKE_INSTALL_PATH_HEADERS})
-ENDIF()
+#FIND_LIBRARY(LAPACKE_LIBRARY lapacke HINTS ${LAPACKE_DIR} $ENV{LAPACKE_DIR} PATH_SUFFIXES lib)
+#FIND_PATH(LAPACKE_INSTALL_PATH_HEADERS NAMES lapacke.h HINTS ${LAPACKE_DIR} $ENV{LAPACKE_DIR} PATH_SUFFIXES include include/lapacke)
+#IF( (${LAPACKE_LIBRARY} MATCHES "LAPACKE_LIBRARY-NOTFOUND") OR (${LAPACKE_INSTALL_PATH_HEADERS} MATCHES "LAPACKE_INSTALL_PATH_HEADERS-NOTFOUND") )
+#  MESSAGE(FATAL_ERROR "\n"
+#    "*** Could not locate lapacke ***\n\n"
+#    "You may want to either pass a flag -DLAPACKE_DIR=/path/to/lapacke to cmake\n"
+#    "or set an environment variable \"LAPACKE_DIR\" that contains this path.")
+#ELSE()
+#  LINK_LIBRARIES(${LAPACKE_LIBRARY})
+#  INCLUDE_DIRECTORIES(${LAPACKE_INSTALL_PATH_HEADERS})
+#ENDIF()
 
 #find PARDISO
 IF( DEFINED ENV{PARDISO_LIBRARY} )

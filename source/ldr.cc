@@ -23,7 +23,13 @@
 
 #include <deal.II/base/exceptions.h>
 
-#include <lapacke.h>
+//#include <lapacke.h>
+
+
+extern "C"
+{
+	void dgesvd_(char*,char*,int*,int*,double*,int*,double*, double*, int*, double*, int*, double*, int*, int*);
+}
 
 using namespace std;
 
@@ -38,28 +44,33 @@ Auxiliary::compute_ldr(	FullMatrix<double>& 			C,
 {
 
 	//setup
-	int matrix_layout=LAPACK_ROW_MAJOR;
 	char jobu='A';
 	char jobvt='A';
-	lapack_int m=C.size()[0];
-	lapack_int n=C.size()[1];
+	int m=C.size()[0];
+	int n=C.size()[1];
 	unique_ptr<double[]> a(new double[m*n]);
 	int lda=m;
 	unique_ptr<double[]> s(new double[m]);
 	unique_ptr<double[]> u(new double[m*m]);
-	lapack_int ldu=m;
+	int ldu=m;
 	unique_ptr<double[]> vt(new double[m*m]);
-	lapack_int ldvt=m;
-	unique_ptr<double[]> superb(new double[m-1]);
+	int ldvt=m;
+//	unique_ptr<double[]> superb(new double[m-1]);
+	int lwork = 10*m;
+	unique_ptr<double[]> work(new double[lwork]);
+	int error_code = 0;
 
 	for(int i1=0; i1<m; i1++)
 		for(int i2=0; i2<m; i2++)
-			a[i1*m+i2]=C(i1,i2);
+//			a[i1*m+i2]=C(i1,i2);
+			a[i1*m+i2]=C(i2,i1);
 
 	Assert(n==m, ExcMessage("Matrix not square!"));
-
+	
 	//perform decomposition
-	int error_code=LAPACKE_dgesvd(matrix_layout, jobu, jobvt, m, n, a.get(), lda, s.get(), u.get(), ldu, vt.get(), ldvt, superb.get());
+//	int error_code=LAPACKE_dgesvd(matrix_layout, jobu, jobvt, m, n, a.get(), lda, s.get(), u.get(), ldu, vt.get(), ldvt, superb.get());
+	dgesvd_(&jobu, &jobvt, &m, &n, a.get(), &lda, s.get(), u.get(), &ldu, vt.get(), &ldvt, work.get(), &lwork, &error_code);
+
 	Assert(error_code==0, ExcMessage("Something has went wrong in singular value decomposition LAPACKE_dgesvd!"));
 
 	//transfer results into relevant data structures
@@ -71,8 +82,10 @@ Auxiliary::compute_ldr(	FullMatrix<double>& 			C,
 		R[i1].reinit(m);
 		D[i1]=s[i1];
 		for(int i2=0; i2<m; i2++){
-			L[i1][i2]=u[i1*m+i2];
-			R[i1][i2]=vt[i2*m+i1];
+			L[i1][i2]=u[i2*m+i1];
+			R[i1][i2]=vt[i1*m+i2];
+//			L[i1][i2]=u[i1*m+i2];
+//			R[i1][i2]=vt[i2*m+i1];
 		}
 	}
 
