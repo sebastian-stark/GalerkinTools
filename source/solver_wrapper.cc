@@ -868,6 +868,140 @@ BlockSolverWrapperPARDISO::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_s
 #ifdef DEAL_II_WITH_MPI
 
 void
+SolverWrapperMUMPS::initialize_matrix(	const SparseMatrix<double>& matrix)
+{
+	Assert(matrix.m() == matrix.n(), ExcNotQuadratic());
+
+	irn.resize(matrix.n_nonzero_elements());
+	jcn.resize(matrix.n_nonzero_elements());
+	A.resize(matrix.n_nonzero_elements());
+	d.resize(matrix.m());
+
+	id.n = matrix.m();
+	id.a = A.data();
+	id.nnz = matrix.n_nonzero_elements();
+	id.irn = irn.data();
+	id.jcn = jcn.data();
+
+	int counter = 0;
+	for (unsigned int row = 0; row < matrix.m(); ++row)
+	{
+		for(auto p = matrix.begin(row); p != matrix.end(row); ++p)
+		{
+			if(p->row() == p->column())
+				d[p->row()] = counter;
+
+			irn[counter] = p->row() + 1;
+			jcn[counter] = p->column() + 1;
+			if( (id.sym != 0) && (p->row() != p->column()))
+				A[counter] = 0.5 * std::real(p->value());
+			else
+				A[counter] = std::real(p->value());
+			++counter;
+		}
+	}
+
+	return;
+}
+
+void
+SolverWrapperMUMPS::initialize_matrix(	vector<int>&	irn,
+										vector<int>&	jcn,
+										vector<double>&	A,
+										unsigned int	n)
+{
+	Assert(false, ExcMessage("Method not implemented"));
+
+	id.n = n;
+	id.a = A.data();
+	id.nnz = irn.size();
+	id.irn = irn.data();
+	id.jcn = jcn.data();
+
+	// Todo for proper implementation vector d needs to be filled here -> if this is implemented, assertion can be removed
+
+	return;
+}
+
+void
+SolverWrapperMUMPS::analyze_matrix()
+{
+	if(analyze < 2)
+	{
+		id.job = 1;
+		dmumps_c(&id);
+	}
+
+	// Matrix was only analyzed in this step
+	if(analyze == 1)
+		analyze = 2;
+
+	return;
+}
+
+void
+SolverWrapperMUMPS::factorize_matrix()
+{
+	id.job = 2;
+	dmumps_c(&id);
+
+	return;
+}
+
+void
+SolverWrapperMUMPS::vmult(	Vector<double>& 		x,
+							const Vector<double>&	f )
+{
+	x = f;
+	id.rhs = x.data();
+
+	id.job = 3;
+	dmumps_c(&id);
+
+	return;
+}
+
+void
+SolverWrapperMUMPS::solve(	const SparseMatrix<double>&	K,
+ 	 	 	 	 			Vector<double>&				solution,
+							const Vector<double>&		f,
+							const bool 					/*symmetric*/)
+{
+
+//	cout << f_stretched.block(0).l2_norm() << endl;
+//	AssertThrow(false, ExcMessage("Stop"));
+
+	initialize_matrix(K);
+	analyze_matrix();
+	factorize_matrix();
+
+	vmult(solution, f);
+	return;
+}
+
+
+SolverWrapperMUMPS::SolverWrapperMUMPS(int sym)
+{
+	id.job = -1;
+	id.par = 1;
+	id.sym = sym;
+	id.comm_fortran = -987654;
+	dmumps_c(&id);
+	icntl = id.icntl;
+	cntl = id.cntl;
+	info = id.info;
+	infog = id.infog;
+}
+
+SolverWrapperMUMPS::~SolverWrapperMUMPS()
+{
+	id.job = -2;
+	dmumps_c(&id);
+}
+
+
+
+void
 BlockSolverWrapperMUMPS::initialize_matrix(	const SparseMatrix<double>& matrix)
 {
 	Assert(matrix.m() == matrix.n(), ExcNotQuadratic());

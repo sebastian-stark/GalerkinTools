@@ -1878,6 +1878,22 @@ public:
 	const;
 
 	/**
+	 * Return a map between locations and corresponding global dof indices
+	 *
+	 * @param[in]	u_omega		Domain related independent field for which the map is to be computed
+	 *
+	 * @param[in]	component	Component of the domain related independent field for which the map is to be computed
+	 *
+	 * @return					map between locations and corresponding global dof indices
+	 *
+	 * @todo					Implement also for interface related independent fields
+	 */
+	std::map<Point<spacedim>, unsigned int, std::function<bool(const Point<spacedim>&, const Point<spacedim>&)> >
+	get_map_position_dof_index_u_omega(	const IndependentField<spacedim, spacedim>& u_omega,
+										const unsigned int component)
+	const;
+
+	/**
 	 * @return		The size of the stretched finite element system
 	 */
 	unsigned int

@@ -115,6 +115,7 @@ public:
 
 };
 
+
 /**
  * A SolverWrapper for the direct solver from UMFPACK for the case of a TwoBlockMatrix using the UMFPACK interface of deal.II
  */
@@ -502,6 +503,183 @@ public:
 #ifdef DEAL_II_WITH_PETSC
 #ifdef DEAL_II_PETSC_WITH_MUMPS
 #ifdef DEAL_II_WITH_MPI
+
+/**
+ * A SolverWrapper for the MUMPS solver (only for sequential use).
+ *
+ */
+class SolverWrapperMUMPS : public SolverWrapper<dealii::Vector<double>, dealii::Vector<double>, dealii::SparseMatrix<double>, SparsityPattern>
+{
+private:
+
+	/**
+	 * The row indices
+	 */
+	std::vector<int>
+	irn = std::vector<int>();
+
+	/**
+	 * The column indices
+	 */
+	std::vector<int>
+	jcn = std::vector<int>();
+
+	/**
+	 * Vector storing the indices of the diagonals
+	 */
+	std::vector<int>
+	d = std::vector<int>();
+
+
+	/**
+	 * Array storing the numerical values of the non-zero entries of the matrix A,
+	 * A[i] is A(irn[i], jcn[i])
+	 */
+	std::vector<double>
+	A = std::vector<double>();
+
+public:
+
+	/**
+	 * Sets the data structures storing the matrix up.
+	 *
+	 * @param[in]	matrix		The matrix A
+	 */
+	virtual
+	void
+	initialize_matrix(	const SparseMatrix<double>& matrix);
+
+	/**
+	 * Sets the data structures storing the matrix up from raw data.
+	 *
+	 * @param[in]	irn		row indices
+	 *
+	 * @param[in]	jcn		column indices
+	 *
+	 * @param[in]	A		values, A[i] corresponds to A(irn[i], jcn[j])
+	 *
+	 * @param[in]	n		size of matrix
+	 */
+	void
+	initialize_matrix(	std::vector<int>&		irn,
+						std::vector<int>&		jcn,
+						std::vector<double>&	A,
+						unsigned int			n);
+
+	/**
+	 * This function analyses the given matrix.
+	 * Whether this function does anything depends upon the value of BlockSolverWrapperMUMPS::analyze.
+	 */
+	virtual
+	void
+	analyze_matrix();
+
+	/**
+	 * This function factorizes the matrix.
+	 */
+	virtual
+	void
+	factorize_matrix();
+
+	/**
+	 * Multiply the inverse of A by @p f and store the result into @p x. I.e., solve Ax=f for x.
+	 * This uses the factors computed by BlockSolverWrapperMUMPS::factorize_matrix().
+	 *
+	 * @param[out]	x	solution
+	 * @param[in]	f	rhs
+	 */
+	virtual
+	void
+	vmult(	Vector<double>& 		x,
+			const Vector<double>&	f);
+
+	/**
+	 * The main data structure of MUMPS
+	 */
+	DMUMPS_STRUC_C
+	id;
+
+	/**
+	 * integer control array of MUMPS
+	 */
+	int*
+	icntl = nullptr;
+
+	/**
+	 * real control array of MUMPS
+	 */
+	double*
+	cntl = nullptr;
+
+	/**
+	 * info array of MUMPS
+	 */
+	int*
+	info = nullptr;
+
+	/**
+	 * infog array of MUMPS
+	 */
+	int*
+	infog = nullptr;
+
+	/**
+	 * Key indicating when to analyze the matrix structure:<br>
+	 * 0 - before each factorization (default)<br>
+	 * 1 - only before the next factorization (afterwards, BlockSolverWrapperMUMPS::analyze will be set to 2)<br>
+	 * >=2 - do not recompute
+	 *
+	 * @warning		The user must ensure that BlockSolverWrapperMUMPS::analyze=0 or BlockSolverWrapperMUMPS::analyze=1
+	 * 				whenever the sparsity pattern of the matrix has changed (or during the first call). Currently, no internal checking is performed.
+	 */
+	unsigned int
+	analyze = 0;
+
+	/**
+	 * This will use algorithm 3.3 from Nocedal and Wright: Numerical Optimization, 2nd Edition to ensure that the factorized matrix is p.d. The setting is only valid if sym = 1 has been passed in the constructor.
+	 * Furthermore, the approach is currently only implemented for the case that only the (0,0)-block of the TwoBlockMatrix exists.
+	 */
+	bool
+	modify_on_negative_pivot = false;
+
+	/**
+	 * Parameter beta of algorithm 3.3 from Nocedal and Wright: Numerical Optimization, 2nd Edition; see also BlockSolverWrapperMUMPS::modify_on_negative_pivot
+	 */
+	double
+	beta = 1e-3;
+
+	/**
+	 * Increase-factor for tau between two loops in algorithm 3.3 from Nocedal and Wright: Numerical Optimization, 2nd Edition; see also BlockSolverWrapperMUMPS::modify_on_negative_pivot
+	 */
+	double
+	increase_tau = 2.0;
+
+	/**
+	 * Constructor
+	 *
+	 * @param[in]	sym		SYM parameter of MUMPS
+	 */
+	SolverWrapperMUMPS(int sym = 0);
+
+	/**
+	 * Destructor.
+	 */
+	~SolverWrapperMUMPS();
+
+	/**
+	 * @copydoc SolverWrapper::solve
+	 */
+	virtual
+	void
+	solve(	const dealii::SparseMatrix<double>&	K,
+			dealii::Vector<double>&				solution,
+			const  dealii::Vector<double>&		f,
+			const bool							symmetric = false);
+
+	DeclException2(	MUMPSError,
+					std::string, int,
+					<< "MUMPS routine " << arg1 << " returned error status " << arg2 << ".");
+};
 
 /**
  * A SolverWrapper for the MUMPS solver (only for sequential use).

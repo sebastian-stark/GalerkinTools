@@ -22,6 +22,7 @@
 #include <math.h>
 #include <fstream>
 #include <limits>
+#include <functional>
 
 #include <deal.II/numerics/data_out.h>
 #include <deal.II/dofs/dof_tools.h>
@@ -4619,6 +4620,57 @@ const
 {
 	return global_component_indices_u_sigma.at(&u_sigma);
 }
+
+bool
+operator<(const Point<2, double>& p1, const Point<2, double>& p2)
+{
+	//if(spacedim == 2)
+	//return tie(coefficient, independent_field, component, derivatives) < tie(dependent_field_2.coefficient, dependent_field_2.independent_field, dependent_field_2.component, dependent_field_2.derivatives);
+	return true;
+}
+
+template<unsigned int spacedim>
+map<Point<spacedim>, unsigned int, std::function<bool(const Point<spacedim>&, const Point<spacedim>&)> >
+AssemblyHelper<spacedim>::get_map_position_dof_index_u_omega(	const IndependentField<spacedim, spacedim>& u_omega,
+																const unsigned int component)
+const
+{
+	auto cmp = 	[](const Point<spacedim>& p1, const Point<spacedim>& p2)
+				{
+					if(spacedim == 1)
+						return tie(p1[0]) < tie(p2[0]);
+					else if(spacedim == 2)
+						return tie(p1[0], p1[1]) < tie(p2[0], p2[1]);
+					else if(spacedim == 3)
+						return tie(p1[0], p1[1], p1[2]) < tie(p2[0], p2[1], p2[2]);
+				};
+	std::map<Point<spacedim>, unsigned int, std::function<bool(const Point<spacedim>&, const Point<spacedim>&)> > map_position_dof_index(cmp);
+
+	const unsigned int global_component_index = get_u_omega_global_component_index(u_omega) + component;
+
+	Point<spacedim> support_point, unit_support_point_domain;
+
+	for(const auto& domain_cell : dof_handler_system.domain_active_iterators())
+	{
+		vector<unsigned int> dof_indices_local_global(domain_cell->get_fe().dofs_per_cell);
+		domain_cell.get_dof_indices(dof_indices_local_global);
+
+		if(!domain_cell->is_artificial())
+		{
+			const unsigned int fe_system_id = material_id_to_fe_system_id_domain.at(domain_cell->material_id());
+
+			const auto& shapefuns = components_to_shapefuns_domain[fe_system_id][global_component_index];
+			for(const auto& shapefun : shapefuns)
+			{
+				unit_support_point_domain = domain_cell->get_fe().unit_support_point(shapefun);
+				support_point = mapping_domain->transform_unit_to_real_cell(domain_cell, unit_support_point_domain);
+				map_position_dof_index[support_point] = dof_indices_local_global[shapefun];
+			}
+		}
+	}
+	return map_position_dof_index;
+}
+
 
 template<unsigned int spacedim>
 unsigned int
