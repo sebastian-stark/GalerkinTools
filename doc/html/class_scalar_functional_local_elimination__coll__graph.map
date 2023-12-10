@@ -1,8 +1,7 @@
 <map id="ScalarFunctionalLocalElimination&lt; dim, spacedim &gt;" name="ScalarFunctionalLocalElimination&lt; dim, spacedim &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,408,243,449"/>
-<area shape="rect" id="node2" href="$class_scalar_functional.html" title=" " alt="" coords="37,317,211,359"/>
-<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="55,221,150,247"/>
-<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="175,213,364,255"/>
-<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTensor.html" title=" " alt="" coords="193,109,345,151"/>
-<area shape="rect" id="node6" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTensor.html" title=" " alt="" coords="199,5,339,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="31,276,269,317"/>
+<area shape="rect" id="node2" href="$class_scalar_functional.html" title=" " alt="" coords="63,185,237,227"/>
+<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="5,5,100,32"/>
+<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classQuadrature.html" title=" " alt="" coords="75,89,225,115"/>
+<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="250,81,439,123"/>
 </map>

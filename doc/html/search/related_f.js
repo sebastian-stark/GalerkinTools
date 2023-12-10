@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['sum_21944',['sum',['https://dealii.org/9.0.0/doxygen/deal.II/group__Exceptions.html#ga9b7cc79151e928ea71a124bdebc02833',1,'SparseMatrix::sum()'],['https://dealii.org/9.0.0/doxygen/deal.II/group__Exceptions.html#ga9b7cc79151e928ea71a124bdebc02833',1,'SparseMatrix&lt; double &gt;::sum()']]],
-  ['unit_5fsymmetric_5ftensor_21945',['unit_symmetric_tensor',['https://dealii.org/9.0.0/doxygen/deal.II/classSymmetricTensor.html#a1e8821eb23f5416543aa98cf4e0f1aab',1,'SymmetricTensor::unit_symmetric_tensor()'],['https://dealii.org/9.0.0/doxygen/deal.II/classSymmetricTensor.html#a1e8821eb23f5416543aa98cf4e0f1aab',1,'SymmetricTensor&lt; 2, dim &gt;::unit_symmetric_tensor()'],['https://dealii.org/9.0.0/doxygen/deal.II/classSymmetricTensor.html#a1e8821eb23f5416543aa98cf4e0f1aab',1,'SymmetricTensor&lt; 2, spacedim &gt;::unit_symmetric_tensor()'],['https://dealii.org/9.0.0/doxygen/deal.II/classSymmetricTensor.html#a1e8821eb23f5416543aa98cf4e0f1aab',1,'SymmetricTensor&lt; 4, dim &gt;::unit_symmetric_tensor()']]]
+  ['sum_24774',['sum',['https://dealii.org/9.0.0/doxygen/deal.II/classSparseMatrix.html#a3500e4b06ef59cd4b6e0eec5f4797c90',1,'SparseMatrix']]]
 ];

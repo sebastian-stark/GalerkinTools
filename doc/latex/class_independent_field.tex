@@ -19,7 +19,7 @@ Collaboration diagram for Independent\+Field$<$ dim, spacedim $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=327pt]{class_independent_field__coll__graph}
+\includegraphics[width=312pt]{class_independent_field__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -158,8 +158,8 @@ If this is true, the independent field is assumed to be local. In this case, the
 
 
 \begin{DoxyItemize}
-\item The independent field must be discretized by an \textbf{ F\+E\+\_\+\+D\+G\+Q\+Arbitrary\+Nodes} of deal.\+II.
-\item The quadrature points used for the integration process of the scalar functionals involving the independent field must coincide with the support points of the used \textbf{ F\+E\+\_\+\+D\+G\+Q\+Arbitrary\+Nodes}.
+\item The independent field must be discretized by an \textbf{ FE\+\_\+\+DGQArbitrary\+Nodes} of deal.\+II.
+\item The quadrature points used for the integration process of the scalar functionals involving the independent field must coincide with the support points of the used \textbf{ FE\+\_\+\+DGQArbitrary\+Nodes}.
 \item All scalar functionals involving the independent field must be primitive.
 \item The independent field must not be associated with constraints.
 \end{DoxyItemize}
@@ -196,7 +196,7 @@ A string with a unique name for the \mbox{\hyperlink{class_independent_field}{In
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
 const \textbf{ std\+::set}$<$\textbf{ types\+::material\+\_\+id}$>$ \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$\+::non\+\_\+zero\+\_\+regions}
 
-A set of \textbf{ types\+::material\+\_\+id} indicating on which domain/interface portions the independent fields represented by the \mbox{\hyperlink{class_independent_field}{Independent\+Field}} object are non-\/zero. On all cells of the triangulation having a \textbf{ types\+::material\+\_\+id} listed in \mbox{\hyperlink{class_independent_field_a4e09e114870c0b3761bc2e32916e5850}{Independent\+Field\+::non\+\_\+zero\+\_\+regions}}, the finite element \mbox{\hyperlink{class_independent_field_a1c583665b7710bd3b815b03ba026b6d3}{Independent\+Field\+::fe}} will be used for discretization. In contrast, on a cell with a material id not listed in \mbox{\hyperlink{class_independent_field_a4e09e114870c0b3761bc2e32916e5850}{Independent\+Field\+::non\+\_\+zero\+\_\+regions}}, the independent fields are assumed to be zero and are \char`\"{}discretized\char`\"{} by \mbox{\hyperlink{class_independent_field_a7b19ea8c30d72cf27f05669de61f30a8}{Independent\+Field\+::n\+\_\+components}} copies of \textbf{ F\+E\+\_\+\+Nothing}. 
+A set of \textbf{ types\+::material\+\_\+id} indicating on which domain/interface portions the independent fields represented by the \mbox{\hyperlink{class_independent_field}{Independent\+Field}} object are non-\/zero. On all cells of the triangulation having a \textbf{ types\+::material\+\_\+id} listed in \mbox{\hyperlink{class_independent_field_a4e09e114870c0b3761bc2e32916e5850}{Independent\+Field\+::non\+\_\+zero\+\_\+regions}}, the finite element \mbox{\hyperlink{class_independent_field_a1c583665b7710bd3b815b03ba026b6d3}{Independent\+Field\+::fe}} will be used for discretization. In contrast, on a cell with a material id not listed in \mbox{\hyperlink{class_independent_field_a4e09e114870c0b3761bc2e32916e5850}{Independent\+Field\+::non\+\_\+zero\+\_\+regions}}, the independent fields are assumed to be zero and are \char`\"{}discretized\char`\"{} by \mbox{\hyperlink{class_independent_field_a7b19ea8c30d72cf27f05669de61f30a8}{Independent\+Field\+::n\+\_\+components}} copies of \textbf{ FE\+\_\+\+Nothing}. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

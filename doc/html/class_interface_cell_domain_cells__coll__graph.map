@@ -1,7 +1,6 @@
 <map id="InterfaceCellDomainCells&lt; spacedim &gt;" name="InterfaceCellDomainCells&lt; spacedim &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="960,30,1148,71"/>
-<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="655,5,750,32"/>
-<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTriaIterator.html" title=" " alt="" coords="624,69,781,96"/>
-<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTriaRawIterator.html" title=" " alt="" coords="389,69,575,96"/>
-<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classMatrixTableIterators_1_1Accessor.html" title=" " alt="" coords="5,47,280,118"/>
+<area shape="rect" id="node1" title=" " alt="" coords="9,229,197,271"/>
+<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="5,103,100,130"/>
+<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTriaIterator.html" title=" " alt="" coords="124,96,299,137"/>
+<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTriaRawIterator.html" title=" " alt="" coords="110,5,313,47"/>
 </map>

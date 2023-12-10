@@ -1,4 +1,4 @@
-\hypertarget{class_f_e_values_interface}{}\doxysection{F\+E\+Values\+Interface$<$ spacedim $>$ Class Template Reference}
+\hypertarget{class_f_e_values_interface}{}\doxysection{FEValues\+Interface$<$ spacedim $>$ Class Template Reference}
 \label{class_f_e_values_interface}\index{FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 
 
@@ -6,7 +6,7 @@
 
 
 
-Collaboration diagram for F\+E\+Values\+Interface$<$ spacedim $>$\+:\nopagebreak
+Collaboration diagram for FEValues\+Interface$<$ spacedim $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,7 +16,7 @@ Collaboration diagram for F\+E\+Values\+Interface$<$ spacedim $>$\+:\nopagebreak
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_f_e_values_interface_ae48863eabc0754e1cc033143fcd2d443}{F\+E\+Values\+Interface}} (const \textbf{ Mapping}$<$ spacedim-\/1, spacedim $>$ \&mapping\+\_\+interface, const \textbf{ Mapping}$<$ spacedim, spacedim $>$ \&mapping\+\_\+domain, const \textbf{ Finite\+Element}$<$ spacedim-\/1, spacedim $>$ \&fe\+\_\+interface, const \textbf{ Finite\+Element}$<$ spacedim, spacedim $>$ \&fe\+\_\+domain\+\_\+minus, const \textbf{ Finite\+Element}$<$ spacedim, spacedim $>$ \&fe\+\_\+domain\+\_\+plus, const \textbf{ Quadrature}$<$ spacedim-\/1 $>$ \&quadrature, const \textbf{ Update\+Flags} update\+\_\+flags\+\_\+interface, const \textbf{ Update\+Flags} update\+\_\+flags\+\_\+domain\+\_\+minus, const \textbf{ Update\+Flags} update\+\_\+flags\+\_\+domain\+\_\+plus)
+\mbox{\hyperlink{class_f_e_values_interface_ae48863eabc0754e1cc033143fcd2d443}{FEValues\+Interface}} (const \textbf{ Mapping}$<$ spacedim-\/1, spacedim $>$ \&mapping\+\_\+interface, const \textbf{ Mapping}$<$ spacedim, spacedim $>$ \&mapping\+\_\+domain, const \textbf{ Finite\+Element}$<$ spacedim-\/1, spacedim $>$ \&fe\+\_\+interface, const \textbf{ Finite\+Element}$<$ spacedim, spacedim $>$ \&fe\+\_\+domain\+\_\+minus, const \textbf{ Finite\+Element}$<$ spacedim, spacedim $>$ \&fe\+\_\+domain\+\_\+plus, const \textbf{ Quadrature}$<$ spacedim-\/1 $>$ \&quadrature, const \textbf{ Update\+Flags} update\+\_\+flags\+\_\+interface, const \textbf{ Update\+Flags} update\+\_\+flags\+\_\+domain\+\_\+minus, const \textbf{ Update\+Flags} update\+\_\+flags\+\_\+domain\+\_\+plus)
 \item 
 void \mbox{\hyperlink{class_f_e_values_interface_a334ed0ef179516854690e7e3fa273aa0}{reinit}} (const \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$ \&interface\+\_\+cell\+\_\+domain\+\_\+cells)
 \item 
@@ -24,9 +24,9 @@ void \mbox{\hyperlink{class_f_e_values_interface_a875a17d471069ddb97cbd8e6f7aba2
 \item 
 const \textbf{ Quadrature}$<$ spacedim-\/1 $>$ \& \mbox{\hyperlink{class_f_e_values_interface_abbaae0efa290c18b4ecfabc90b151136}{get\+\_\+quadrature}} () const
 \item 
-const \textbf{ F\+E\+Values}$<$ spacedim-\/1, spacedim $>$ \& \mbox{\hyperlink{class_f_e_values_interface_a15a3cc642c056496b79e41732f7012c4}{get\+\_\+fe\+\_\+values\+\_\+interface}} () const
+const \textbf{ FEValues}$<$ spacedim-\/1, spacedim $>$ \& \mbox{\hyperlink{class_f_e_values_interface_a15a3cc642c056496b79e41732f7012c4}{get\+\_\+fe\+\_\+values\+\_\+interface}} () const
 \item 
-const \textbf{ F\+E\+Face\+Values\+Base}$<$ spacedim, spacedim $>$ \& \mbox{\hyperlink{class_f_e_values_interface_a85aeb4a21ad21576d2d550f2d57f3a00}{get\+\_\+fe\+\_\+values\+\_\+domain}} (const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} \&interface\+\_\+side) const
+const \textbf{ FEFace\+Values\+Base}$<$ spacedim, spacedim $>$ \& \mbox{\hyperlink{class_f_e_values_interface_a85aeb4a21ad21576d2d550f2d57f3a00}{get\+\_\+fe\+\_\+values\+\_\+domain}} (const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} \&interface\+\_\+side) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -38,27 +38,27 @@ const unsigned int \mbox{\hyperlink{class_f_e_values_interface_a100afc348b15432f
 \item 
 \mbox{\hyperlink{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7}{Interface\+Refinement\+Case}} \mbox{\hyperlink{class_f_e_values_interface_a4a14b4fa181df533a6c7e7971fad5c4e}{initialized\+\_\+interface\+\_\+refinement\+\_\+case}}
 \item 
-const \textbf{ F\+E\+Face\+Values\+Base}$<$ spacedim, spacedim $>$ $\ast$ \mbox{\hyperlink{class_f_e_values_interface_a48f1a887c14615d665408f156d879980}{initialized\+\_\+fe\+\_\+values\+\_\+domain\+\_\+minus}} = nullptr
+const \textbf{ FEFace\+Values\+Base}$<$ spacedim, spacedim $>$ $\ast$ \mbox{\hyperlink{class_f_e_values_interface_a48f1a887c14615d665408f156d879980}{initialized\+\_\+fe\+\_\+values\+\_\+domain\+\_\+minus}} = nullptr
 \item 
-const \textbf{ F\+E\+Face\+Values\+Base}$<$ spacedim, spacedim $>$ $\ast$ \mbox{\hyperlink{class_f_e_values_interface_ab1f7524d517a79cd5e4adbd43017f415}{initialized\+\_\+fe\+\_\+values\+\_\+domain\+\_\+plus}} = nullptr
+const \textbf{ FEFace\+Values\+Base}$<$ spacedim, spacedim $>$ $\ast$ \mbox{\hyperlink{class_f_e_values_interface_ab1f7524d517a79cd5e4adbd43017f415}{initialized\+\_\+fe\+\_\+values\+\_\+domain\+\_\+plus}} = nullptr
 \item 
-\textbf{ F\+E\+Values}$<$ spacedim-\/1, spacedim $>$ \mbox{\hyperlink{class_f_e_values_interface_a75f4ee97ebaefa2d1ded52c445953473}{fe\+\_\+values\+\_\+interface}}
+\textbf{ FEValues}$<$ spacedim-\/1, spacedim $>$ \mbox{\hyperlink{class_f_e_values_interface_a75f4ee97ebaefa2d1ded52c445953473}{fe\+\_\+values\+\_\+interface}}
 \item 
-\textbf{ F\+E\+Face\+Values}$<$ spacedim, spacedim $>$ \mbox{\hyperlink{class_f_e_values_interface_a1ce4354bfe2e852fdc5b7917614404a7}{fe\+\_\+face\+\_\+values\+\_\+domain\+\_\+minus}}
+\textbf{ FEFace\+Values}$<$ spacedim, spacedim $>$ \mbox{\hyperlink{class_f_e_values_interface_a1ce4354bfe2e852fdc5b7917614404a7}{fe\+\_\+face\+\_\+values\+\_\+domain\+\_\+minus}}
 \item 
-\textbf{ F\+E\+Face\+Values}$<$ spacedim, spacedim $>$ \mbox{\hyperlink{class_f_e_values_interface_a6d6820b66a2694d327238c6b3c7fb30c}{fe\+\_\+face\+\_\+values\+\_\+domain\+\_\+plus}}
+\textbf{ FEFace\+Values}$<$ spacedim, spacedim $>$ \mbox{\hyperlink{class_f_e_values_interface_a6d6820b66a2694d327238c6b3c7fb30c}{fe\+\_\+face\+\_\+values\+\_\+domain\+\_\+plus}}
 \item 
-\textbf{ F\+E\+Subface\+Values}$<$ spacedim, spacedim $>$ \mbox{\hyperlink{class_f_e_values_interface_abe003c242c807dd162c396d812bbfe77}{fe\+\_\+subface\+\_\+values\+\_\+domain\+\_\+minus}}
+\textbf{ FESubface\+Values}$<$ spacedim, spacedim $>$ \mbox{\hyperlink{class_f_e_values_interface_abe003c242c807dd162c396d812bbfe77}{fe\+\_\+subface\+\_\+values\+\_\+domain\+\_\+minus}}
 \item 
-\textbf{ F\+E\+Subface\+Values}$<$ spacedim, spacedim $>$ \mbox{\hyperlink{class_f_e_values_interface_a184e705efd975db536299ad619585a65}{fe\+\_\+subface\+\_\+values\+\_\+domain\+\_\+plus}}
+\textbf{ FESubface\+Values}$<$ spacedim, spacedim $>$ \mbox{\hyperlink{class_f_e_values_interface_a184e705efd975db536299ad619585a65}{fe\+\_\+subface\+\_\+values\+\_\+domain\+\_\+plus}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$unsigned int spacedim$>$\newline
-class F\+E\+Values\+Interface$<$ spacedim $>$}
+class FEValues\+Interface$<$ spacedim $>$}
 
-This class collects the different \textbf{ F\+E\+Values}, \textbf{ F\+E\+Face\+Values}, and \textbf{ F\+E\+Subface\+Values} objects needed for cells at the interface. The situation there is a bit tricky, because, the domain cells adjacent to the interface cell may be refined differently, thus requiring either an \textbf{ F\+E\+Face\+Values} or \textbf{ F\+E\+Subface\+Values} object. This class makes sure that always the correct objects are used. 
+This class collects the different \textbf{ FEValues}, \textbf{ FEFace\+Values}, and \textbf{ FESubface\+Values} objects needed for cells at the interface. The situation there is a bit tricky, because, the domain cells adjacent to the interface cell may be refined differently, thus requiring either an \textbf{ FEFace\+Values} or \textbf{ FESubface\+Values} object. This class makes sure that always the correct objects are used. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_f_e_values_interface_ae48863eabc0754e1cc033143fcd2d443}\label{class_f_e_values_interface_ae48863eabc0754e1cc033143fcd2d443}} 
@@ -66,7 +66,7 @@ This class collects the different \textbf{ F\+E\+Values}, \textbf{ F\+E\+Face\+V
 \index{FEValuesInterface@{FEValuesInterface}!FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{FEValuesInterface()}{FEValuesInterface()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}} (\begin{DoxyParamCaption}\item[{const \textbf{ Mapping}$<$ spacedim-\/1, spacedim $>$ \&}]{mapping\+\_\+interface,  }\item[{const \textbf{ Mapping}$<$ spacedim, spacedim $>$ \&}]{mapping\+\_\+domain,  }\item[{const \textbf{ Finite\+Element}$<$ spacedim-\/1, spacedim $>$ \&}]{fe\+\_\+interface,  }\item[{const \textbf{ Finite\+Element}$<$ spacedim, spacedim $>$ \&}]{fe\+\_\+domain\+\_\+minus,  }\item[{const \textbf{ Finite\+Element}$<$ spacedim, spacedim $>$ \&}]{fe\+\_\+domain\+\_\+plus,  }\item[{const \textbf{ Quadrature}$<$ spacedim-\/1 $>$ \&}]{quadrature,  }\item[{const \textbf{ Update\+Flags}}]{update\+\_\+flags\+\_\+interface,  }\item[{const \textbf{ Update\+Flags}}]{update\+\_\+flags\+\_\+domain\+\_\+minus,  }\item[{const \textbf{ Update\+Flags}}]{update\+\_\+flags\+\_\+domain\+\_\+plus }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}} (\begin{DoxyParamCaption}\item[{const \textbf{ Mapping}$<$ spacedim-\/1, spacedim $>$ \&}]{mapping\+\_\+interface,  }\item[{const \textbf{ Mapping}$<$ spacedim, spacedim $>$ \&}]{mapping\+\_\+domain,  }\item[{const \textbf{ Finite\+Element}$<$ spacedim-\/1, spacedim $>$ \&}]{fe\+\_\+interface,  }\item[{const \textbf{ Finite\+Element}$<$ spacedim, spacedim $>$ \&}]{fe\+\_\+domain\+\_\+minus,  }\item[{const \textbf{ Finite\+Element}$<$ spacedim, spacedim $>$ \&}]{fe\+\_\+domain\+\_\+plus,  }\item[{const \textbf{ Quadrature}$<$ spacedim-\/1 $>$ \&}]{quadrature,  }\item[{const \textbf{ Update\+Flags}}]{update\+\_\+flags\+\_\+interface,  }\item[{const \textbf{ Update\+Flags}}]{update\+\_\+flags\+\_\+domain\+\_\+minus,  }\item[{const \textbf{ Update\+Flags}}]{update\+\_\+flags\+\_\+domain\+\_\+plus }\end{DoxyParamCaption})}
 
 The constructor of the class
 
@@ -99,32 +99,32 @@ The constructor of the class
 \index{get\_fe\_values\_domain@{get\_fe\_values\_domain}!FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_fe\_values\_domain()}{get\_fe\_values\_domain()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-const \textbf{ F\+E\+Face\+Values\+Base}$<$spacedim,spacedim$>$\& \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$\+::get\+\_\+fe\+\_\+values\+\_\+domain (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} \&}]{interface\+\_\+side }\end{DoxyParamCaption}) const}
+const \textbf{ FEFace\+Values\+Base}$<$spacedim,spacedim$>$\& \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$\+::get\+\_\+fe\+\_\+values\+\_\+domain (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} \&}]{interface\+\_\+side }\end{DoxyParamCaption}) const}
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em interface\+\_\+side} & Either \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}}\+:\+:{\ttfamily minus} or \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}}\+:\+:{\ttfamily plus} depending on the side of the interface for which the \textbf{ F\+E\+Face\+Values} or \textbf{ F\+E\+Subface\+Values} is required\\
+\mbox{\texttt{ in}}  & {\em interface\+\_\+side} & Either \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}}\+:\+:{\ttfamily minus} or \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}}\+:\+:{\ttfamily plus} depending on the side of the interface for which the \textbf{ FEFace\+Values} or \textbf{ FESubface\+Values} is required\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The presently initialized \textbf{ F\+E\+Face\+Values} or \textbf{ F\+E\+Subface\+Values} object for domain cells on the minus or plus side of the interface 
+The presently initialized \textbf{ FEFace\+Values} or \textbf{ FESubface\+Values} object for domain cells on the minus or plus side of the interface 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_f_e_values_interface_a15a3cc642c056496b79e41732f7012c4}\label{class_f_e_values_interface_a15a3cc642c056496b79e41732f7012c4}} 
 \index{FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}!get\_fe\_values\_interface@{get\_fe\_values\_interface}}
 \index{get\_fe\_values\_interface@{get\_fe\_values\_interface}!FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_fe\_values\_interface()}{get\_fe\_values\_interface()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-const \textbf{ F\+E\+Values}$<$spacedim-\/1,spacedim$>$\& \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$\+::get\+\_\+fe\+\_\+values\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+const \textbf{ FEValues}$<$spacedim-\/1,spacedim$>$\& \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$\+::get\+\_\+fe\+\_\+values\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
-The presently initialized \textbf{ F\+E\+Values} object for interface cells 
+The presently initialized \textbf{ FEValues} object for interface cells 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_f_e_values_interface_abbaae0efa290c18b4ecfabc90b151136}\label{class_f_e_values_interface_abbaae0efa290c18b4ecfabc90b151136}} 
 \index{FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}!get\_quadrature@{get\_quadrature}}
 \index{get\_quadrature@{get\_quadrature}!FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_quadrature()}{get\_quadrature()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-const \textbf{ Quadrature}$<$spacedim-\/1$>$\& \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$\+::get\+\_\+quadrature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+const \textbf{ Quadrature}$<$spacedim-\/1$>$\& \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$\+::get\+\_\+quadrature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
 \textbf{ Quadrature} scheme in use 
@@ -134,9 +134,9 @@ const \textbf{ Quadrature}$<$spacedim-\/1$>$\& \mbox{\hyperlink{class_f_e_values
 \index{reinit@{reinit}!FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{reinit()}{reinit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$\+::reinit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}}$<$ spacedim $>$ \&}]{interface\+\_\+cell\+\_\+domain\+\_\+cells }\end{DoxyParamCaption})}
+void \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$\+::reinit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}}$<$ spacedim $>$ \&}]{interface\+\_\+cell\+\_\+domain\+\_\+cells }\end{DoxyParamCaption})}
 
-Initialize the object with an \mbox{\hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}}. This initializes the required \textbf{ F\+E\+Values}, \textbf{ F\+E\+Face\+Values}, and \textbf{ F\+E\+Subface\+Values} objects. However, note that the {\ttfamily interface\+\_\+cell\+\_\+domain\+\_\+cells} does not contain any dof information. Therefore, the \textbf{ F\+E\+Values}, \textbf{ F\+E\+Face\+Values}, and \textbf{ F\+E\+Subface\+Values} don\textquotesingle{}t have the information to compute any values which require knowledge of the dof values.
+Initialize the object with an \mbox{\hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}}. This initializes the required \textbf{ FEValues}, \textbf{ FEFace\+Values}, and \textbf{ FESubface\+Values} objects. However, note that the {\ttfamily interface\+\_\+cell\+\_\+domain\+\_\+cells} does not contain any dof information. Therefore, the \textbf{ FEValues}, \textbf{ FEFace\+Values}, and \textbf{ FESubface\+Values} don\textquotesingle{}t have the information to compute any values which require knowledge of the dof values.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -148,9 +148,9 @@ Initialize the object with an \mbox{\hyperlink{class_interface_cell_domain_cells
 \index{reinit@{reinit}!FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{reinit()}{reinit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$\+::reinit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$ \&}]{interface\+\_\+cell\+\_\+domain\+\_\+cells }\end{DoxyParamCaption})}
+void \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$\+::reinit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$ \&}]{interface\+\_\+cell\+\_\+domain\+\_\+cells }\end{DoxyParamCaption})}
 
-Initialize the object with an \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}. This initializes the required \textbf{ F\+E\+Values}, \textbf{ F\+E\+Face\+Values}, and \textbf{ F\+E\+Subface\+Values} objects.
+Initialize the object with an \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}. This initializes the required \textbf{ FEValues}, \textbf{ FEFace\+Values}, and \textbf{ FESubface\+Values} objects.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -165,63 +165,63 @@ Initialize the object with an \mbox{\hyperlink{class_interface_cell_domain_cells
 \index{fe\_face\_values\_domain\_minus@{fe\_face\_values\_domain\_minus}!FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{fe\_face\_values\_domain\_minus}{fe\_face\_values\_domain\_minus}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\textbf{ F\+E\+Face\+Values}$<$spacedim, spacedim$>$ \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$\+::fe\+\_\+face\+\_\+values\+\_\+domain\+\_\+minus\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ FEFace\+Values}$<$spacedim, spacedim$>$ \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$\+::fe\+\_\+face\+\_\+values\+\_\+domain\+\_\+minus\hspace{0.3cm}{\ttfamily [private]}}
 
-The \textbf{ F\+E\+Face\+Values} object for the domain cell face on the minus side (this is used in case the minus side is refined to the same degree as the interface cell) \mbox{\Hypertarget{class_f_e_values_interface_a6d6820b66a2694d327238c6b3c7fb30c}\label{class_f_e_values_interface_a6d6820b66a2694d327238c6b3c7fb30c}} 
+The \textbf{ FEFace\+Values} object for the domain cell face on the minus side (this is used in case the minus side is refined to the same degree as the interface cell) \mbox{\Hypertarget{class_f_e_values_interface_a6d6820b66a2694d327238c6b3c7fb30c}\label{class_f_e_values_interface_a6d6820b66a2694d327238c6b3c7fb30c}} 
 \index{FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}!fe\_face\_values\_domain\_plus@{fe\_face\_values\_domain\_plus}}
 \index{fe\_face\_values\_domain\_plus@{fe\_face\_values\_domain\_plus}!FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{fe\_face\_values\_domain\_plus}{fe\_face\_values\_domain\_plus}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\textbf{ F\+E\+Face\+Values}$<$spacedim, spacedim$>$ \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$\+::fe\+\_\+face\+\_\+values\+\_\+domain\+\_\+plus\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ FEFace\+Values}$<$spacedim, spacedim$>$ \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$\+::fe\+\_\+face\+\_\+values\+\_\+domain\+\_\+plus\hspace{0.3cm}{\ttfamily [private]}}
 
-The \textbf{ F\+E\+Face\+Values} object for the domain cell face on the plus side (this is used in case the plus side is refined to the same degree as the interface cell) \mbox{\Hypertarget{class_f_e_values_interface_abe003c242c807dd162c396d812bbfe77}\label{class_f_e_values_interface_abe003c242c807dd162c396d812bbfe77}} 
+The \textbf{ FEFace\+Values} object for the domain cell face on the plus side (this is used in case the plus side is refined to the same degree as the interface cell) \mbox{\Hypertarget{class_f_e_values_interface_abe003c242c807dd162c396d812bbfe77}\label{class_f_e_values_interface_abe003c242c807dd162c396d812bbfe77}} 
 \index{FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}!fe\_subface\_values\_domain\_minus@{fe\_subface\_values\_domain\_minus}}
 \index{fe\_subface\_values\_domain\_minus@{fe\_subface\_values\_domain\_minus}!FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{fe\_subface\_values\_domain\_minus}{fe\_subface\_values\_domain\_minus}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\textbf{ F\+E\+Subface\+Values}$<$spacedim, spacedim$>$ \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$\+::fe\+\_\+subface\+\_\+values\+\_\+domain\+\_\+minus\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ FESubface\+Values}$<$spacedim, spacedim$>$ \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$\+::fe\+\_\+subface\+\_\+values\+\_\+domain\+\_\+minus\hspace{0.3cm}{\ttfamily [private]}}
 
-The \textbf{ F\+E\+Subface\+Values} object for the domain cell face on the minus side (this is used in case the minus side is coarser than the interface cell) \mbox{\Hypertarget{class_f_e_values_interface_a184e705efd975db536299ad619585a65}\label{class_f_e_values_interface_a184e705efd975db536299ad619585a65}} 
+The \textbf{ FESubface\+Values} object for the domain cell face on the minus side (this is used in case the minus side is coarser than the interface cell) \mbox{\Hypertarget{class_f_e_values_interface_a184e705efd975db536299ad619585a65}\label{class_f_e_values_interface_a184e705efd975db536299ad619585a65}} 
 \index{FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}!fe\_subface\_values\_domain\_plus@{fe\_subface\_values\_domain\_plus}}
 \index{fe\_subface\_values\_domain\_plus@{fe\_subface\_values\_domain\_plus}!FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{fe\_subface\_values\_domain\_plus}{fe\_subface\_values\_domain\_plus}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\textbf{ F\+E\+Subface\+Values}$<$spacedim, spacedim$>$ \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$\+::fe\+\_\+subface\+\_\+values\+\_\+domain\+\_\+plus\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ FESubface\+Values}$<$spacedim, spacedim$>$ \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$\+::fe\+\_\+subface\+\_\+values\+\_\+domain\+\_\+plus\hspace{0.3cm}{\ttfamily [private]}}
 
-The \textbf{ F\+E\+Subface\+Values} object for the domain cell face on the plus side (this is used in case the plus side is coarser than the interface cell) \mbox{\Hypertarget{class_f_e_values_interface_a75f4ee97ebaefa2d1ded52c445953473}\label{class_f_e_values_interface_a75f4ee97ebaefa2d1ded52c445953473}} 
+The \textbf{ FESubface\+Values} object for the domain cell face on the plus side (this is used in case the plus side is coarser than the interface cell) \mbox{\Hypertarget{class_f_e_values_interface_a75f4ee97ebaefa2d1ded52c445953473}\label{class_f_e_values_interface_a75f4ee97ebaefa2d1ded52c445953473}} 
 \index{FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}!fe\_values\_interface@{fe\_values\_interface}}
 \index{fe\_values\_interface@{fe\_values\_interface}!FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{fe\_values\_interface}{fe\_values\_interface}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\textbf{ F\+E\+Values}$<$spacedim-\/1, spacedim$>$ \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$\+::fe\+\_\+values\+\_\+interface\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ FEValues}$<$spacedim-\/1, spacedim$>$ \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$\+::fe\+\_\+values\+\_\+interface\hspace{0.3cm}{\ttfamily [private]}}
 
-The \textbf{ F\+E\+Values} object for the interface cell \mbox{\Hypertarget{class_f_e_values_interface_a48f1a887c14615d665408f156d879980}\label{class_f_e_values_interface_a48f1a887c14615d665408f156d879980}} 
+The \textbf{ FEValues} object for the interface cell \mbox{\Hypertarget{class_f_e_values_interface_a48f1a887c14615d665408f156d879980}\label{class_f_e_values_interface_a48f1a887c14615d665408f156d879980}} 
 \index{FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}!initialized\_fe\_values\_domain\_minus@{initialized\_fe\_values\_domain\_minus}}
 \index{initialized\_fe\_values\_domain\_minus@{initialized\_fe\_values\_domain\_minus}!FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{initialized\_fe\_values\_domain\_minus}{initialized\_fe\_values\_domain\_minus}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-const \textbf{ F\+E\+Face\+Values\+Base}$<$spacedim, spacedim$>$$\ast$ \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$\+::initialized\+\_\+fe\+\_\+values\+\_\+domain\+\_\+minus = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+const \textbf{ FEFace\+Values\+Base}$<$spacedim, spacedim$>$$\ast$ \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$\+::initialized\+\_\+fe\+\_\+values\+\_\+domain\+\_\+minus = nullptr\hspace{0.3cm}{\ttfamily [private]}}
 
-The \textbf{ F\+E\+Face\+Values} or \textbf{ F\+E\+Subface\+Values} object currently in use for the domain cell on the minus side of the interface \mbox{\Hypertarget{class_f_e_values_interface_ab1f7524d517a79cd5e4adbd43017f415}\label{class_f_e_values_interface_ab1f7524d517a79cd5e4adbd43017f415}} 
+The \textbf{ FEFace\+Values} or \textbf{ FESubface\+Values} object currently in use for the domain cell on the minus side of the interface \mbox{\Hypertarget{class_f_e_values_interface_ab1f7524d517a79cd5e4adbd43017f415}\label{class_f_e_values_interface_ab1f7524d517a79cd5e4adbd43017f415}} 
 \index{FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}!initialized\_fe\_values\_domain\_plus@{initialized\_fe\_values\_domain\_plus}}
 \index{initialized\_fe\_values\_domain\_plus@{initialized\_fe\_values\_domain\_plus}!FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{initialized\_fe\_values\_domain\_plus}{initialized\_fe\_values\_domain\_plus}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-const \textbf{ F\+E\+Face\+Values\+Base}$<$spacedim, spacedim$>$$\ast$ \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$\+::initialized\+\_\+fe\+\_\+values\+\_\+domain\+\_\+plus = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+const \textbf{ FEFace\+Values\+Base}$<$spacedim, spacedim$>$$\ast$ \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$\+::initialized\+\_\+fe\+\_\+values\+\_\+domain\+\_\+plus = nullptr\hspace{0.3cm}{\ttfamily [private]}}
 
-The \textbf{ F\+E\+Face\+Values} or \textbf{ F\+E\+Subface\+Values} object currently in use for the domain cell on the minus side of the interface \mbox{\Hypertarget{class_f_e_values_interface_a4a14b4fa181df533a6c7e7971fad5c4e}\label{class_f_e_values_interface_a4a14b4fa181df533a6c7e7971fad5c4e}} 
+The \textbf{ FEFace\+Values} or \textbf{ FESubface\+Values} object currently in use for the domain cell on the minus side of the interface \mbox{\Hypertarget{class_f_e_values_interface_a4a14b4fa181df533a6c7e7971fad5c4e}\label{class_f_e_values_interface_a4a14b4fa181df533a6c7e7971fad5c4e}} 
 \index{FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}!initialized\_interface\_refinement\_case@{initialized\_interface\_refinement\_case}}
 \index{initialized\_interface\_refinement\_case@{initialized\_interface\_refinement\_case}!FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{initialized\_interface\_refinement\_case}{initialized\_interface\_refinement\_case}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\mbox{\hyperlink{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7}{Interface\+Refinement\+Case}} \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$\+::initialized\+\_\+interface\+\_\+refinement\+\_\+case\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\hyperlink{triangulation__system_8h_a4cfb8c5e21535951e919b6a6b1023af7}{Interface\+Refinement\+Case}} \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$\+::initialized\+\_\+interface\+\_\+refinement\+\_\+case\hspace{0.3cm}{\ttfamily [private]}}
 
-The refinement case at the interface cell with which the \textbf{ F\+E\+Values} objects are initialized currently. \mbox{\Hypertarget{class_f_e_values_interface_a100afc348b15432f9e241ff56ebffa8d}\label{class_f_e_values_interface_a100afc348b15432f9e241ff56ebffa8d}} 
+The refinement case at the interface cell with which the \textbf{ FEValues} objects are initialized currently. \mbox{\Hypertarget{class_f_e_values_interface_a100afc348b15432f9e241ff56ebffa8d}\label{class_f_e_values_interface_a100afc348b15432f9e241ff56ebffa8d}} 
 \index{FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}!n\_quadrature\_points@{n\_quadrature\_points}}
 \index{n\_quadrature\_points@{n\_quadrature\_points}!FEValuesInterface$<$ spacedim $>$@{FEValuesInterface$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{n\_quadrature\_points}{n\_quadrature\_points}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-const unsigned int \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$\+::n\+\_\+quadrature\+\_\+points}
+const unsigned int \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$\+::n\+\_\+quadrature\+\_\+points}
 
 The number of quadrature points 
 

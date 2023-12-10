@@ -1,7 +1,5 @@
 <map id="IndependentField&lt; dim, spacedim &gt;" name="IndependentField&lt; dim, spacedim &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,317,183,359"/>
-<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="25,221,120,247"/>
-<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="145,213,334,255"/>
-<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTensor.html" title=" " alt="" coords="163,109,315,151"/>
-<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTensor.html" title=" " alt="" coords="169,5,309,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="47,109,224,151"/>
+<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="5,13,100,39"/>
+<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="125,5,314,47"/>
 </map>

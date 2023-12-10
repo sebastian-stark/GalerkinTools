@@ -671,9 +671,9 @@ public:
 	 */
 	virtual
 	void
-	solve(	const dealii::SparseMatrix<double>&	K,
+	solve(	const dealii::SparseMatrix<double>&	K_stretched,
 			dealii::Vector<double>&				solution,
-			const  dealii::Vector<double>&		f,
+			const  dealii::Vector<double>&		f_stretched,
 			const bool							symmetric = false);
 
 	DeclException2(	MUMPSError,

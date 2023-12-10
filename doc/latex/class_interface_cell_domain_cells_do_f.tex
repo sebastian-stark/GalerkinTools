@@ -27,35 +27,35 @@ Collaboration diagram for Interface\+Cell\+Domain\+Cells\+DoF$<$ spacedim $>$\+:
 \item 
 typedef \textbf{ Tria\+Iterator}$<$ \textbf{ Cell\+Accessor}$<$ spacedim-\/1, spacedim $>$ $>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a55783857b93a31baac5a6e6ee3dad22f}{Interface\+Cell}}
 \item 
-typedef \textbf{ Do\+F\+Handler}$<$ spacedim-\/1, spacedim $>$\+::\textbf{ cell\+\_\+iterator} \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_ac24e469237fddaf0310a5f818ba13afd}{Interface\+Cell\+DoF}}
+typedef \textbf{ Do\+FHandler}$<$ spacedim-\/1, spacedim $>$\+::cell\+\_\+iterator \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_ac24e469237fddaf0310a5f818ba13afd}{Interface\+Cell\+DoF}}
 \item 
 typedef \textbf{ Tria\+Iterator}$<$ \textbf{ Cell\+Accessor}$<$ spacedim, spacedim $>$ $>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a0d0b12a444adb340e1ffc2dd23d77902}{Domain\+Cell}}
 \item 
-typedef \textbf{ Do\+F\+Handler}$<$ spacedim, spacedim $>$\+::\textbf{ cell\+\_\+iterator} \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a78225607ebf9880311f4fdeb30c5a89d}{Domain\+Cell\+DoF}}
+typedef \textbf{ Do\+FHandler}$<$ spacedim, spacedim $>$\+::cell\+\_\+iterator \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a78225607ebf9880311f4fdeb30c5a89d}{Domain\+Cell\+DoF}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a79a88327d88717a2c3381fe7131b435d}{Interface\+Cell\+Domain\+Cells\+DoF}} (const \mbox{\hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}}$<$ spacedim $>$ \&interface\+\_\+cell\+\_\+domain\+\_\+cells, const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&dof\+\_\+handler\+\_\+system)
+\mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a79a88327d88717a2c3381fe7131b435d}{Interface\+Cell\+Domain\+Cells\+DoF}} (const \mbox{\hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}}$<$ spacedim $>$ \&interface\+\_\+cell\+\_\+domain\+\_\+cells, const \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}$<$ spacedim $>$ \&dof\+\_\+handler\+\_\+system)
 \item 
 \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a090e1536777928b78dff7fa7b1021a1e}{$\sim$\+Interface\+Cell\+Domain\+Cells\+DoF}} ()
 \item 
 std\+::tuple$<$ const \textbf{ types\+::material\+\_\+id}, const \textbf{ types\+::material\+\_\+id}, const \textbf{ types\+::material\+\_\+id} $>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a4823f0f9c791b61d6fb75699952464e5}{get\+\_\+material\+\_\+ids}} () const
 \item 
-void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_ab6ff11f2adfa7cd1fd13a2d3e9b3b130}{get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface}} (\textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global, \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+minus, \textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+plus) const
+void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_ab6ff11f2adfa7cd1fd13a2d3e9b3b130}{get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface}} (std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+minus, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+plus) const
 \item 
-void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a69d8ac580b83b2469ba1cc611bb5776b}{get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface}} (\textbf{ std\+::vector}$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global) const
+void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a69d8ac580b83b2469ba1cc611bb5776b}{get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface}} (std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+local\+\_\+global) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-const \mbox{\hyperlink{class_interface_cell_do_f_iterator}{Interface\+Cell\+Do\+F\+Iterator}}$<$ spacedim $>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a5fe7922af91545598d89c77ba42a59da}{interface\+\_\+cell}}
+const \mbox{\hyperlink{class_interface_cell_do_f_iterator}{Interface\+Cell\+Do\+FIterator}}$<$ spacedim $>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a5fe7922af91545598d89c77ba42a59da}{interface\+\_\+cell}}
 \item 
-const \mbox{\hyperlink{class_domain_cell_do_f_iterator}{Domain\+Cell\+Do\+F\+Iterator}}$<$ spacedim $>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_ac8c84df4298d2d5be54dc8bf81e48c4b}{domain\+\_\+cell\+\_\+minus}}
+const \mbox{\hyperlink{class_domain_cell_do_f_iterator}{Domain\+Cell\+Do\+FIterator}}$<$ spacedim $>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_ac8c84df4298d2d5be54dc8bf81e48c4b}{domain\+\_\+cell\+\_\+minus}}
 \item 
 const unsigned int \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a01fc12497d44b06c7a325ea8f0b2ad28}{face\+\_\+minus}}
 \item 
-const \mbox{\hyperlink{class_domain_cell_do_f_iterator}{Domain\+Cell\+Do\+F\+Iterator}}$<$ spacedim $>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a8fd9dbd3a1e53023ecca7917b004bab1}{domain\+\_\+cell\+\_\+plus}}
+const \mbox{\hyperlink{class_domain_cell_do_f_iterator}{Domain\+Cell\+Do\+FIterator}}$<$ spacedim $>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a8fd9dbd3a1e53023ecca7917b004bab1}{domain\+\_\+cell\+\_\+plus}}
 \item 
 const unsigned int \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_afcb7abea75dfc6e310493a6ff9aadcf6}{face\+\_\+plus}}
 \item 
@@ -94,7 +94,7 @@ A convenience typedef for a deal.\+II \textbf{ Tria\+Iterator} referring to a do
 \index{DomainCellDoF@{DomainCellDoF}!InterfaceCellDomainCellsDoF$<$ spacedim $>$@{InterfaceCellDomainCellsDoF$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{DomainCellDoF}{DomainCellDoF}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-typedef \textbf{ Do\+F\+Handler}$<$spacedim, spacedim$>$\+::\textbf{ cell\+\_\+iterator} \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a78225607ebf9880311f4fdeb30c5a89d}{Domain\+Cell\+DoF}}}
+typedef \textbf{ Do\+FHandler}$<$spacedim, spacedim$>$\+::cell\+\_\+iterator \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a78225607ebf9880311f4fdeb30c5a89d}{Domain\+Cell\+DoF}}}
 
 A convenience typedef for a deal.\+II cell iterator referring to a domain cell (with dof information) \mbox{\Hypertarget{class_interface_cell_domain_cells_do_f_a55783857b93a31baac5a6e6ee3dad22f}\label{class_interface_cell_domain_cells_do_f_a55783857b93a31baac5a6e6ee3dad22f}} 
 \index{InterfaceCellDomainCellsDoF$<$ spacedim $>$@{InterfaceCellDomainCellsDoF$<$ spacedim $>$}!InterfaceCell@{InterfaceCell}}
@@ -108,7 +108,7 @@ A convenience typedef for a deal.\+II \textbf{ Tria\+Iterator} referring to an i
 \index{InterfaceCellDoF@{InterfaceCellDoF}!InterfaceCellDomainCellsDoF$<$ spacedim $>$@{InterfaceCellDomainCellsDoF$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{InterfaceCellDoF}{InterfaceCellDoF}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-typedef \textbf{ Do\+F\+Handler}$<$spacedim-\/1, spacedim$>$\+::\textbf{ cell\+\_\+iterator} \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_interface_cell_domain_cells_do_f_ac24e469237fddaf0310a5f818ba13afd}{Interface\+Cell\+DoF}}}
+typedef \textbf{ Do\+FHandler}$<$spacedim-\/1, spacedim$>$\+::cell\+\_\+iterator \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_interface_cell_domain_cells_do_f_ac24e469237fddaf0310a5f818ba13afd}{Interface\+Cell\+DoF}}}
 
 A convenience typedef for a deal.\+II cell iterator referring to an interface cell (with dof information) 
 
@@ -118,15 +118,15 @@ A convenience typedef for a deal.\+II cell iterator referring to an interface ce
 \index{InterfaceCellDomainCellsDoF@{InterfaceCellDomainCellsDoF}!InterfaceCellDomainCellsDoF$<$ spacedim $>$@{InterfaceCellDomainCellsDoF$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{InterfaceCellDomainCellsDoF()}{InterfaceCellDomainCellsDoF()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}}$<$ spacedim $>$ \&}]{interface\+\_\+cell\+\_\+domain\+\_\+cells,  }\item[{const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&}]{dof\+\_\+handler\+\_\+system }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}}$<$ spacedim $>$ \&}]{interface\+\_\+cell\+\_\+domain\+\_\+cells,  }\item[{const \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}$<$ spacedim $>$ \&}]{dof\+\_\+handler\+\_\+system }\end{DoxyParamCaption})}
 
-This constructor constructs an \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}} object from a corresponding \mbox{\hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}} object and the \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}.
+This constructor constructs an \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}} object from a corresponding \mbox{\hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}} object and the \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}.
 
 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em interface\+\_\+cell\+\_\+domain\+\_\+cells} & \mbox{\hyperlink{class_interface_cell_domain_cells}{Interface\+Cell\+Domain\+Cells}} object \\
 \hline
-\mbox{\texttt{ in}}  & {\em dof\+\_\+handler\+\_\+system} & the \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}} \\
+\mbox{\texttt{ in}}  & {\em dof\+\_\+handler\+\_\+system} & the \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_interface_cell_domain_cells_do_f_a090e1536777928b78dff7fa7b1021a1e}\label{class_interface_cell_domain_cells_do_f_a090e1536777928b78dff7fa7b1021a1e}} 
@@ -144,7 +144,7 @@ The destructor of \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Inter
 \index{get\_dof\_indices\_local\_global\_interface@{get\_dof\_indices\_local\_global\_interface}!InterfaceCellDomainCellsDoF$<$ spacedim $>$@{InterfaceCellDomainCellsDoF$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_indices\_local\_global\_interface()}{get\_dof\_indices\_local\_global\_interface()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface (\begin{DoxyParamCaption}\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global }\end{DoxyParamCaption}) const}
 
 Method to get the map between local and global dof indices related to the interface cell \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a5fe7922af91545598d89c77ba42a59da}{Interface\+Cell\+Domain\+Cells\+Do\+F\+::interface\+\_\+cell}}.
 
@@ -158,7 +158,7 @@ Method to get the map between local and global dof indices related to the interf
 \index{get\_dof\_indices\_local\_global\_interface@{get\_dof\_indices\_local\_global\_interface}!InterfaceCellDomainCellsDoF$<$ spacedim $>$@{InterfaceCellDomainCellsDoF$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_indices\_local\_global\_interface()}{get\_dof\_indices\_local\_global\_interface()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface (\begin{DoxyParamCaption}\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global,  }\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+minus,  }\item[{\textbf{ std\+::vector}$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+plus }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+interface (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+minus,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices\+\_\+local\+\_\+global\+\_\+plus }\end{DoxyParamCaption}) const}
 
 Method to get the maps between local and global dof indices related to the interface cell \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a5fe7922af91545598d89c77ba42a59da}{Interface\+Cell\+Domain\+Cells\+Do\+F\+::interface\+\_\+cell}} and the neighboring domain cells \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_ac8c84df4298d2d5be54dc8bf81e48c4b}{Interface\+Cell\+Domain\+Cells\+Do\+F\+::domain\+\_\+cell\+\_\+minus}} and \mbox{\hyperlink{class_interface_cell_domain_cells_do_f_a8fd9dbd3a1e53023ecca7917b004bab1}{Interface\+Cell\+Domain\+Cells\+Do\+F\+::domain\+\_\+cell\+\_\+plus}}.
 
@@ -189,7 +189,7 @@ If the interface cell is actually at the boundary, the third member of the tuple
 \index{domain\_cell\_minus@{domain\_cell\_minus}!InterfaceCellDomainCellsDoF$<$ spacedim $>$@{InterfaceCellDomainCellsDoF$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{domain\_cell\_minus}{domain\_cell\_minus}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-const \mbox{\hyperlink{class_domain_cell_do_f_iterator}{Domain\+Cell\+Do\+F\+Iterator}}$<$spacedim$>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::domain\+\_\+cell\+\_\+minus}
+const \mbox{\hyperlink{class_domain_cell_do_f_iterator}{Domain\+Cell\+Do\+FIterator}}$<$spacedim$>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::domain\+\_\+cell\+\_\+minus}
 
 A deal.\+II iterator with dof information to the domain cell adjacent to the interface cell on the minus side.
 
@@ -198,7 +198,7 @@ A deal.\+II iterator with dof information to the domain cell adjacent to the int
 \index{domain\_cell\_plus@{domain\_cell\_plus}!InterfaceCellDomainCellsDoF$<$ spacedim $>$@{InterfaceCellDomainCellsDoF$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{domain\_cell\_plus}{domain\_cell\_plus}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-const \mbox{\hyperlink{class_domain_cell_do_f_iterator}{Domain\+Cell\+Do\+F\+Iterator}}$<$spacedim$>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::domain\+\_\+cell\+\_\+plus}
+const \mbox{\hyperlink{class_domain_cell_do_f_iterator}{Domain\+Cell\+Do\+FIterator}}$<$spacedim$>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::domain\+\_\+cell\+\_\+plus}
 
 A deal.\+II iterator with dof information to the domain cell adjacent to the interface cell on the plus side.
 
@@ -221,7 +221,7 @@ The face number of the face of the domain cell on the plus side lying on the int
 \index{interface\_cell@{interface\_cell}!InterfaceCellDomainCellsDoF$<$ spacedim $>$@{InterfaceCellDomainCellsDoF$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{interface\_cell}{interface\_cell}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-const \mbox{\hyperlink{class_interface_cell_do_f_iterator}{Interface\+Cell\+Do\+F\+Iterator}}$<$spacedim$>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::interface\+\_\+cell}
+const \mbox{\hyperlink{class_interface_cell_do_f_iterator}{Interface\+Cell\+Do\+FIterator}}$<$spacedim$>$ \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$\+::interface\+\_\+cell}
 
 A deal.\+II iterator with dof information to the interface cell \mbox{\Hypertarget{class_interface_cell_domain_cells_do_f_aebb7e5f13d079fc83f98f67bcfcc6de3}\label{class_interface_cell_domain_cells_do_f_aebb7e5f13d079fc83f98f67bcfcc6de3}} 
 \index{InterfaceCellDomainCellsDoF$<$ spacedim $>$@{InterfaceCellDomainCellsDoF$<$ spacedim $>$}!refinement\_case@{refinement\_case}}

@@ -27,13 +27,13 @@ Collaboration diagram for parallel\+::Two\+Block\+Matrix$<$ Matrix\+Type $>$\+:\
 \item 
 \mbox{\hyperlink{classparallel_1_1_two_block_matrix_a93990616301e671f9a967fbc49029674}{Two\+Block\+Matrix}} ()=default
 \item 
-\mbox{\hyperlink{classparallel_1_1_two_block_matrix_afa9b3f1c3d74a211c334c8f6e59b52f6}{Two\+Block\+Matrix}} (const \mbox{\hyperlink{class_two_block_sparsity_pattern}{Two\+Block\+Sparsity\+Pattern}} \&sp, const \textbf{ Index\+Set} \&locally\+\_\+owned\+\_\+indices, const M\+P\+I\+\_\+\+Comm mpi\+\_\+communicator=M\+P\+I\+\_\+\+C\+O\+M\+M\+\_\+\+W\+O\+R\+LD)
+\mbox{\hyperlink{classparallel_1_1_two_block_matrix_afa9b3f1c3d74a211c334c8f6e59b52f6}{Two\+Block\+Matrix}} (const \mbox{\hyperlink{class_two_block_sparsity_pattern}{Two\+Block\+Sparsity\+Pattern}} \&sp, const \textbf{ Index\+Set} \&locally\+\_\+owned\+\_\+indices, const MPI\+\_\+\+Comm mpi\+\_\+communicator=MPI\+\_\+\+COMM\+\_\+\+WORLD)
 \item 
-void \mbox{\hyperlink{classparallel_1_1_two_block_matrix_a0e112695034c69aa8a430efd9e7c37ef}{reinit}} (const \mbox{\hyperlink{class_two_block_sparsity_pattern}{Two\+Block\+Sparsity\+Pattern}} \&sp, const \textbf{ Index\+Set} \&locally\+\_\+owned\+\_\+indices, const M\+P\+I\+\_\+\+Comm mpi\+\_\+communicator=M\+P\+I\+\_\+\+C\+O\+M\+M\+\_\+\+W\+O\+R\+LD)
+void \mbox{\hyperlink{classparallel_1_1_two_block_matrix_a0e112695034c69aa8a430efd9e7c37ef}{reinit}} (const \mbox{\hyperlink{class_two_block_sparsity_pattern}{Two\+Block\+Sparsity\+Pattern}} \&sp, const \textbf{ Index\+Set} \&locally\+\_\+owned\+\_\+indices, const MPI\+\_\+\+Comm mpi\+\_\+communicator=MPI\+\_\+\+COMM\+\_\+\+WORLD)
 \item 
-dealii\+::\+Galerkin\+Tools\+::parallel\+::\+Two\+Block\+Matrix$<$ \textbf{ Matrix\+Type} $>$ \& \mbox{\hyperlink{classparallel_1_1_two_block_matrix_a8e2ba56ebc9ee5ad1fe7b1d8604e9669}{operator=}} (const double \textbf{ value})
+dealii\+::\+Galerkin\+Tools\+::parallel\+::\+Two\+Block\+Matrix$<$ Matrix\+Type $>$ \& \mbox{\hyperlink{classparallel_1_1_two_block_matrix_a8e2ba56ebc9ee5ad1fe7b1d8604e9669}{operator=}} (const double value)
 \item 
-const M\+P\+I\+\_\+\+Comm \& \mbox{\hyperlink{classparallel_1_1_two_block_matrix_add0cc2ee49d139e1dbc5554fd62dd5f5}{get\+\_\+communicator}} () const
+const MPI\+\_\+\+Comm \& \mbox{\hyperlink{classparallel_1_1_two_block_matrix_add0cc2ee49d139e1dbc5554fd62dd5f5}{get\+\_\+communicator}} () const
 \end{DoxyCompactItemize}
 
 
@@ -56,14 +56,14 @@ The parallel version of \mbox{\hyperlink{class_two_block_matrix}{Two\+Block\+Mat
 \index{TwoBlockMatrix@{TwoBlockMatrix}!parallel::TwoBlockMatrix$<$ MatrixType $>$@{parallel::TwoBlockMatrix$<$ MatrixType $>$}}
 \doxysubsubsection{\texorpdfstring{TwoBlockMatrix()}{TwoBlockMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$class Matrix\+Type $>$ \\
-\mbox{\hyperlink{classparallel_1_1_two_block_matrix}{parallel\+::\+Two\+Block\+Matrix}}$<$ \textbf{ Matrix\+Type} $>$\+::\mbox{\hyperlink{classparallel_1_1_two_block_matrix}{Two\+Block\+Matrix}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+\mbox{\hyperlink{classparallel_1_1_two_block_matrix}{parallel\+::\+Two\+Block\+Matrix}}$<$ Matrix\+Type $>$\+::\mbox{\hyperlink{classparallel_1_1_two_block_matrix}{Two\+Block\+Matrix}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
 \mbox{\Hypertarget{classparallel_1_1_two_block_matrix_afa9b3f1c3d74a211c334c8f6e59b52f6}\label{classparallel_1_1_two_block_matrix_afa9b3f1c3d74a211c334c8f6e59b52f6}} 
 \index{parallel::TwoBlockMatrix$<$ MatrixType $>$@{parallel::TwoBlockMatrix$<$ MatrixType $>$}!TwoBlockMatrix@{TwoBlockMatrix}}
 \index{TwoBlockMatrix@{TwoBlockMatrix}!parallel::TwoBlockMatrix$<$ MatrixType $>$@{parallel::TwoBlockMatrix$<$ MatrixType $>$}}
 \doxysubsubsection{\texorpdfstring{TwoBlockMatrix()}{TwoBlockMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$class Matrix\+Type $>$ \\
-\mbox{\hyperlink{classparallel_1_1_two_block_matrix}{parallel\+::\+Two\+Block\+Matrix}}$<$ \textbf{ Matrix\+Type} $>$\+::\mbox{\hyperlink{classparallel_1_1_two_block_matrix}{Two\+Block\+Matrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_two_block_sparsity_pattern}{Two\+Block\+Sparsity\+Pattern}} \&}]{sp,  }\item[{const \textbf{ Index\+Set} \&}]{locally\+\_\+owned\+\_\+indices,  }\item[{const M\+P\+I\+\_\+\+Comm}]{mpi\+\_\+communicator = {\ttfamily MPI\+\_\+COMM\+\_\+WORLD} }\end{DoxyParamCaption})}
+\mbox{\hyperlink{classparallel_1_1_two_block_matrix}{parallel\+::\+Two\+Block\+Matrix}}$<$ Matrix\+Type $>$\+::\mbox{\hyperlink{classparallel_1_1_two_block_matrix}{Two\+Block\+Matrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_two_block_sparsity_pattern}{Two\+Block\+Sparsity\+Pattern}} \&}]{sp,  }\item[{const \textbf{ Index\+Set} \&}]{locally\+\_\+owned\+\_\+indices,  }\item[{const MPI\+\_\+\+Comm}]{mpi\+\_\+communicator = {\ttfamily MPI\+\_\+COMM\+\_\+WORLD} }\end{DoxyParamCaption})}
 
 Constructor for the parallel case
 
@@ -73,7 +73,7 @@ Constructor for the parallel case
 \hline
 \mbox{\texttt{ in}}  & {\em locally\+\_\+owned\+\_\+indices} & The locally owned rows of \mbox{\hyperlink{class_two_block_matrix_a91b02f00cf56b398e1624227e6efc8c6}{Two\+Block\+Matrix\+::A}}\\
 \hline
-\mbox{\texttt{ in}}  & {\em mpi\+\_\+communicator} & The M\+PI communicator to be used \\
+\mbox{\texttt{ in}}  & {\em mpi\+\_\+communicator} & The MPI communicator to be used \\
 \hline
 \end{DoxyParams}
 
@@ -84,7 +84,7 @@ Constructor for the parallel case
 \index{get\_communicator@{get\_communicator}!parallel::TwoBlockMatrix$<$ MatrixType $>$@{parallel::TwoBlockMatrix$<$ MatrixType $>$}}
 \doxysubsubsection{\texorpdfstring{get\_communicator()}{get\_communicator()}}
 {\footnotesize\ttfamily template$<$class Matrix\+Type $>$ \\
-const M\+P\+I\+\_\+\+Comm\& \mbox{\hyperlink{classparallel_1_1_two_block_matrix}{parallel\+::\+Two\+Block\+Matrix}}$<$ \textbf{ Matrix\+Type} $>$\+::get\+\_\+communicator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+const MPI\+\_\+\+Comm\& \mbox{\hyperlink{classparallel_1_1_two_block_matrix}{parallel\+::\+Two\+Block\+Matrix}}$<$ Matrix\+Type $>$\+::get\+\_\+communicator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
 The mpi communicator 
@@ -94,7 +94,7 @@ The mpi communicator
 \index{operator=@{operator=}!parallel::TwoBlockMatrix$<$ MatrixType $>$@{parallel::TwoBlockMatrix$<$ MatrixType $>$}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
 {\footnotesize\ttfamily template$<$class Matrix\+Type $>$ \\
-dealii\+::\+Galerkin\+Tools\+::parallel\+::\+Two\+Block\+Matrix$<$\textbf{ Matrix\+Type}$>$\& \mbox{\hyperlink{classparallel_1_1_two_block_matrix}{parallel\+::\+Two\+Block\+Matrix}}$<$ \textbf{ Matrix\+Type} $>$\+::operator= (\begin{DoxyParamCaption}\item[{const double}]{value }\end{DoxyParamCaption})}
+dealii\+::\+Galerkin\+Tools\+::parallel\+::\+Two\+Block\+Matrix$<$Matrix\+Type$>$\& \mbox{\hyperlink{classparallel_1_1_two_block_matrix}{parallel\+::\+Two\+Block\+Matrix}}$<$ Matrix\+Type $>$\+::operator= (\begin{DoxyParamCaption}\item[{const double}]{value }\end{DoxyParamCaption})}
 
 Function setting all elements of the matrix to {\ttfamily value} 
 
@@ -108,7 +108,7 @@ Function setting all elements of the matrix to {\ttfamily value}
 \index{reinit@{reinit}!parallel::TwoBlockMatrix$<$ MatrixType $>$@{parallel::TwoBlockMatrix$<$ MatrixType $>$}}
 \doxysubsubsection{\texorpdfstring{reinit()}{reinit()}}
 {\footnotesize\ttfamily template$<$class Matrix\+Type $>$ \\
-void \mbox{\hyperlink{classparallel_1_1_two_block_matrix}{parallel\+::\+Two\+Block\+Matrix}}$<$ \textbf{ Matrix\+Type} $>$\+::reinit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_two_block_sparsity_pattern}{Two\+Block\+Sparsity\+Pattern}} \&}]{sp,  }\item[{const \textbf{ Index\+Set} \&}]{locally\+\_\+owned\+\_\+indices,  }\item[{const M\+P\+I\+\_\+\+Comm}]{mpi\+\_\+communicator = {\ttfamily MPI\+\_\+COMM\+\_\+WORLD} }\end{DoxyParamCaption})}
+void \mbox{\hyperlink{classparallel_1_1_two_block_matrix}{parallel\+::\+Two\+Block\+Matrix}}$<$ Matrix\+Type $>$\+::reinit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_two_block_sparsity_pattern}{Two\+Block\+Sparsity\+Pattern}} \&}]{sp,  }\item[{const \textbf{ Index\+Set} \&}]{locally\+\_\+owned\+\_\+indices,  }\item[{const MPI\+\_\+\+Comm}]{mpi\+\_\+communicator = {\ttfamily MPI\+\_\+COMM\+\_\+WORLD} }\end{DoxyParamCaption})}
 
 Reinitialize the object
 
@@ -118,7 +118,7 @@ Reinitialize the object
 \hline
 \mbox{\texttt{ in}}  & {\em locally\+\_\+owned\+\_\+indices} & The locally owned rows of \mbox{\hyperlink{class_two_block_matrix_a91b02f00cf56b398e1624227e6efc8c6}{Two\+Block\+Matrix\+::A}}\\
 \hline
-\mbox{\texttt{ in}}  & {\em mpi\+\_\+communicator} & The M\+PI communicator to be used \\
+\mbox{\texttt{ in}}  & {\em mpi\+\_\+communicator} & The MPI communicator to be used \\
 \hline
 \end{DoxyParams}
 

@@ -1,11 +1,10 @@
 <map id="AssemblyHelper&lt; spacedim &gt;" name="AssemblyHelper&lt; spacedim &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="861,165,1084,192"/>
-<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="473,5,637,61"/>
-<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTensor.html" title=" " alt="" coords="241,54,393,95"/>
-<area shape="rect" id="node9" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="467,85,644,141"/>
-<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTensor.html" title=" " alt="" coords="5,54,145,95"/>
-<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classConditionalOStream.html" title=" " alt="" coords="479,165,632,192"/>
-<area shape="rect" id="node6" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classhp_1_1FECollection.html" title=" " alt="" coords="451,217,660,258"/>
-<area shape="rect" id="node7" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="270,260,365,287"/>
-<area shape="rect" id="node8" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classhp_1_1FECollection.html" title=" " alt="" coords="453,282,658,323"/>
+<area shape="rect" id="node1" title=" " alt="" coords="828,144,1051,171"/>
+<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="440,5,604,61"/>
+<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classConditionalOStream.html" title=" " alt="" coords="445,85,599,112"/>
+<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classhp_1_1FECollection.html" title=" " alt="" coords="417,137,627,178"/>
+<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classhp_1_1Collection.html" title=" " alt="" coords="149,177,368,204"/>
+<area shape="rect" id="node7" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classhp_1_1FECollection.html" title=" " alt="" coords="419,202,625,243"/>
+<area shape="rect" id="node6" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="5,177,100,204"/>
+<area shape="rect" id="node8" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="433,268,611,324"/>
 </map>

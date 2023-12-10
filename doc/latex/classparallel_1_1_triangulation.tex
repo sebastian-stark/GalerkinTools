@@ -10,7 +10,7 @@ Inheritance diagram for parallel\+::Triangulation$<$ dim, spacedim $>$\+:\nopage
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=250pt]{classparallel_1_1_triangulation__inherit__graph}
+\includegraphics[width=350pt]{classparallel_1_1_triangulation__inherit__graph}
 \end{center}
 \end{figure}
 
@@ -25,7 +25,7 @@ Collaboration diagram for parallel\+::Triangulation$<$ dim, spacedim $>$\+:\nopa
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classparallel_1_1_triangulation_abd6ed252f25fe0342e85e7a00aaf9fe3}{Triangulation}} (M\+P\+I\+\_\+\+Comm mpi\+\_\+communicator)
+\mbox{\hyperlink{classparallel_1_1_triangulation_abd6ed252f25fe0342e85e7a00aaf9fe3}{Triangulation}} (MPI\+\_\+\+Comm mpi\+\_\+communicator)
 \item 
 void \mbox{\hyperlink{classparallel_1_1_triangulation_ae058708cfbddedd508afce57b6e3b284}{finalize\+\_\+subdomain\+\_\+assignment}} ()
 \item 
@@ -56,7 +56,7 @@ This class derives from \textbf{ parallel\+::distributed\+::\+Triangulation} and
 \index{Triangulation@{Triangulation}!parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{Triangulation()}{Triangulation()}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim = dim$>$ \\
-\mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Triangulation}}$<$ dim, spacedim $>$\+::\mbox{\hyperlink{classparallel_1_1_triangulation}{Triangulation}} (\begin{DoxyParamCaption}\item[{M\+P\+I\+\_\+\+Comm}]{mpi\+\_\+communicator }\end{DoxyParamCaption})}
+\mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Triangulation}}$<$ dim, spacedim $>$\+::\mbox{\hyperlink{classparallel_1_1_triangulation}{Triangulation}} (\begin{DoxyParamCaption}\item[{MPI\+\_\+\+Comm}]{mpi\+\_\+communicator }\end{DoxyParamCaption})}
 
 
 
@@ -75,12 +75,20 @@ This function must be called after any change of the subdomain ids in order to m
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim = dim$>$ \\
 virtual bool \mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Triangulation}}$<$ dim, spacedim $>$\+::is\+\_\+multilevel\+\_\+hierarchy\+\_\+constructed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Return if multilevel hierarchy is supported and has been constructed (here always false). \mbox{\Hypertarget{classparallel_1_1_triangulation_ab7745a3a3f606c6526f60038303b1453}\label{classparallel_1_1_triangulation_ab7745a3a3f606c6526f60038303b1453}} 
+Return if multilevel hierarchy is supported and has been constructed (here always false). 
+
+Reimplemented in \textbf{ parallel\+::\+Distributed\+Triangulation\+Base$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::\+Triangulation\+Base$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::distributed\+::\+Triangulation$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::fullydistributed\+::\+Triangulation$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::shared\+::\+Triangulation$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::distributed\+::\+Triangulation$<$ 1, spacedim $>$}, \textbf{ parallel\+::distributed\+::\+Triangulation$<$ dim $>$}, and \textbf{ parallel\+::\+Distributed\+Triangulation\+Base$<$ 1, spacedim $>$}.
+
+\mbox{\Hypertarget{classparallel_1_1_triangulation_ab7745a3a3f606c6526f60038303b1453}\label{classparallel_1_1_triangulation_ab7745a3a3f606c6526f60038303b1453}} 
 \index{parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}!load@{load}}
 \index{load@{load}!parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim = dim$>$ \\
 virtual void \mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Triangulation}}$<$ dim, spacedim $>$\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \textbf{ parallel\+::\+Distributed\+Triangulation\+Base$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::\+Distributed\+Triangulation\+Base$<$ 1, spacedim $>$}, \textbf{ parallel\+::distributed\+::\+Triangulation$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::fullydistributed\+::\+Triangulation$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::distributed\+::\+Triangulation$<$ 1, spacedim $>$}, and \textbf{ parallel\+::distributed\+::\+Triangulation$<$ dim $>$}.
 
 \mbox{\Hypertarget{classparallel_1_1_triangulation_a843b296ec1cff052b49efb02ff02681f}\label{classparallel_1_1_triangulation_a843b296ec1cff052b49efb02ff02681f}} 
 \index{parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}!load@{load}}
@@ -89,6 +97,10 @@ virtual void \mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Tri
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim = dim$>$ \\
 virtual void \mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Triangulation}}$<$ dim, spacedim $>$\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename,  }\item[{const bool}]{autopartition }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
+
+
+Reimplemented in \textbf{ parallel\+::\+Distributed\+Triangulation\+Base$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::\+Distributed\+Triangulation\+Base$<$ 1, spacedim $>$}, \textbf{ parallel\+::distributed\+::\+Triangulation$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::fullydistributed\+::\+Triangulation$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::distributed\+::\+Triangulation$<$ 1, spacedim $>$}, and \textbf{ parallel\+::distributed\+::\+Triangulation$<$ dim $>$}.
+
 \mbox{\Hypertarget{classparallel_1_1_triangulation_ad722763b534f5ec0b8a768c07ab6f6d9}\label{classparallel_1_1_triangulation_ad722763b534f5ec0b8a768c07ab6f6d9}} 
 \index{parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}!save@{save}}
 \index{save@{save}!parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}}
@@ -96,12 +108,20 @@ virtual void \mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Tri
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim = dim$>$ \\
 virtual void \mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Triangulation}}$<$ dim, spacedim $>$\+::save (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
+
+
+Reimplemented in \textbf{ parallel\+::\+Distributed\+Triangulation\+Base$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::distributed\+::\+Triangulation$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::fullydistributed\+::\+Triangulation$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::distributed\+::\+Triangulation$<$ 1, spacedim $>$}, \textbf{ parallel\+::distributed\+::\+Triangulation$<$ dim $>$}, and \textbf{ parallel\+::\+Distributed\+Triangulation\+Base$<$ 1, spacedim $>$}.
+
 \mbox{\Hypertarget{classparallel_1_1_triangulation_a9fe60e2814d4d9a5993db43daaf7f64b}\label{classparallel_1_1_triangulation_a9fe60e2814d4d9a5993db43daaf7f64b}} 
 \index{parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}!update\_cell\_relations@{update\_cell\_relations}}
 \index{update\_cell\_relations@{update\_cell\_relations}!parallel::Triangulation$<$ dim, spacedim $>$@{parallel::Triangulation$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{update\_cell\_relations()}{update\_cell\_relations()}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim = dim$>$ \\
 virtual void \mbox{\hyperlink{classparallel_1_1_triangulation}{parallel\+::\+Triangulation}}$<$ dim, spacedim $>$\+::update\+\_\+cell\+\_\+relations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \textbf{ parallel\+::\+Distributed\+Triangulation\+Base$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::\+Distributed\+Triangulation\+Base$<$ 1, spacedim $>$}, \textbf{ parallel\+::distributed\+::\+Triangulation$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::fullydistributed\+::\+Triangulation$<$ int dim, int spacedim $>$}, \textbf{ parallel\+::distributed\+::\+Triangulation$<$ 1, spacedim $>$}, and \textbf{ parallel\+::distributed\+::\+Triangulation$<$ dim $>$}.
 
 
 

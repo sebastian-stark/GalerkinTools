@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['sacado_5fdfad_21821',['sacado_dfad',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1AD.html#acc1d0db17ec4125ac4e28f6ad2069b1ca3616da751c767b07051278ed7d81c0dc',1,'Differentiation::AD']]],
-  ['sacado_5fdfad_5fdfad_21822',['sacado_dfad_dfad',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1AD.html#acc1d0db17ec4125ac4e28f6ad2069b1ca31c59c1a501105f4291d9a492c4465f7',1,'Differentiation::AD']]],
-  ['sacado_5frad_21823',['sacado_rad',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1AD.html#acc1d0db17ec4125ac4e28f6ad2069b1ca7357c9c1f0fcfc795fc7e8d7156cc5cf',1,'Differentiation::AD']]],
-  ['sacado_5frad_5fdfad_21824',['sacado_rad_dfad',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1AD.html#acc1d0db17ec4125ac4e28f6ad2069b1cae9e37a2183d416cffa4b1e69c2ef264a',1,'Differentiation::AD']]]
+  ['open_24624',['open',['https://dealii.org/9.0.0/doxygen/deal.II/classHDF5_1_1File.html#ac3dc680d4e4ca3dd7139085c5056ff5fa7cef8a734855777c2a9d0caf42666e69',1,'HDF5::File::open()'],['https://dealii.org/9.0.0/doxygen/deal.II/classHDF5_1_1Group.html#ab373a6f243a36925b2b75f83184bfee0a7cef8a734855777c2a9d0caf42666e69',1,'HDF5::File::open()'],['https://dealii.org/9.0.0/doxygen/deal.II/classHDF5_1_1Group.html#ab373a6f243a36925b2b75f83184bfee0a7cef8a734855777c2a9d0caf42666e69',1,'HDF5::Group::open()']]],
+  ['optimize_5faggressive_24625',['optimize_aggressive',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1SD.html#af920b6488de218dea94f25b94ad08842af08a168a64482d29e6ce023ab222a083',1,'Differentiation::SD']]],
+  ['optimize_5fall_24626',['optimize_all',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1SD.html#af920b6488de218dea94f25b94ad08842a1ad0cce13bc606ad6742e9841ccdfe15',1,'Differentiation::SD']]],
+  ['optimize_5fcse_24627',['optimize_cse',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1SD.html#af920b6488de218dea94f25b94ad08842a3df84265620315a025367510c90d0474',1,'Differentiation::SD']]],
+  ['optimize_5fdefault_24628',['optimize_default',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1SD.html#af920b6488de218dea94f25b94ad08842abea01b791a14888764e22d110f6ea97f',1,'Differentiation::SD']]],
+  ['outside_24629',['outside',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceNonMatching.html#a1bfa77fdc53dc7bf833ff01c4f7967daac30163615770c8b2b8873288e828de41',1,'NonMatching']]]
 ];

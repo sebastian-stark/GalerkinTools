@@ -1,12 +1,10 @@
 <map id="PointConstraint&lt; spacedim, spacedim &gt;" name="PointConstraint&lt; spacedim, spacedim &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="923,130,1127,171"/>
-<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="547,5,642,32"/>
-<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="500,57,689,98"/>
-<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTensor.html" title=" " alt="" coords="259,130,411,171"/>
-<area shape="rect" id="node6" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="485,123,704,179"/>
-<area shape="rect" id="node10" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="513,203,677,259"/>
-<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTensor.html" title=" " alt="" coords="5,130,145,171"/>
-<area shape="rect" id="node7" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classPoint.html" title=" " alt="" coords="521,283,669,309"/>
-<area shape="rect" id="node8" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTensor.html" title=" " alt="" coords="241,283,428,309"/>
-<area shape="rect" id="node9" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTensor.html" title=" " alt="" coords="5,275,145,317"/>
+<area shape="rect" id="node1" title=" " alt="" coords="945,130,1149,171"/>
+<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="570,5,665,32"/>
+<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="523,57,712,98"/>
+<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="508,123,727,179"/>
+<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classPoint.html" title=" " alt="" coords="543,203,691,229"/>
+<area shape="rect" id="node6" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTensor.html" title=" " alt="" coords="241,195,459,237"/>
+<area shape="rect" id="node7" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTensor.html" title=" " alt="" coords="5,195,145,237"/>
+<area shape="rect" id="node8" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="535,253,699,309"/>
 </map>

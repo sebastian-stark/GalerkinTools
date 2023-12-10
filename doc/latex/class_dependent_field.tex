@@ -9,9 +9,9 @@
 \item 
 \mbox{\hyperlink{class_dependent_field_a5a47b8f5b0e51b29bf6f3ca6e18fda9c}{Dependent\+Field}} (const std\+::string \mbox{\hyperlink{class_dependent_field_a698b255f131279d1edb97b3c525153a0}{name}})
 \item 
-void \mbox{\hyperlink{class_dependent_field_a0726cab14197769ad07bd8f071e395ea}{add\+\_\+term}} (double coefficient, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&independent\+\_\+field, const unsigned int component=0, const \textbf{ std\+::vector}$<$ unsigned int $>$ derivatives=\textbf{ std\+::vector}$<$ unsigned int $>$())
+void \mbox{\hyperlink{class_dependent_field_a0726cab14197769ad07bd8f071e395ea}{add\+\_\+term}} (double coefficient, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&independent\+\_\+field, const unsigned int component=0, const std\+::vector$<$ unsigned int $>$ derivatives=std\+::vector$<$ unsigned int $>$())
 \item 
-void \mbox{\hyperlink{class_dependent_field_a852ed477f6ee71ad85a6690d4a5e56fe}{add\+\_\+term}} (double coefficient, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim+1, spacedim $>$ \&independent\+\_\+field, const unsigned int component, const \textbf{ std\+::vector}$<$ unsigned int $>$ derivatives, const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} side)
+void \mbox{\hyperlink{class_dependent_field_a852ed477f6ee71ad85a6690d4a5e56fe}{add\+\_\+term}} (double coefficient, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim+1, spacedim $>$ \&independent\+\_\+field, const unsigned int component, const std\+::vector$<$ unsigned int $>$ derivatives, const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} side)
 \item 
 void \mbox{\hyperlink{class_dependent_field_acb8979c891a45ed7326eb47df41c0129}{add\+\_\+term}} (double coefficient, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim+1, spacedim $>$ \&independent\+\_\+field, const unsigned int component, const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}} side)
 \item 
@@ -151,7 +151,7 @@ It is currently not allowed to add the same term (i.\+e. with the same {\ttfamil
 \index{add\_term@{add\_term}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{add\_term()}{add\_term()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::add\+\_\+term (\begin{DoxyParamCaption}\item[{double}]{coefficient,  }\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim+1, spacedim $>$ \&}]{independent\+\_\+field,  }\item[{const unsigned int}]{component,  }\item[{const \textbf{ std\+::vector}$<$ unsigned int $>$}]{derivatives,  }\item[{const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}}}]{side }\end{DoxyParamCaption})}
+void \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::add\+\_\+term (\begin{DoxyParamCaption}\item[{double}]{coefficient,  }\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim+1, spacedim $>$ \&}]{independent\+\_\+field,  }\item[{const unsigned int}]{component,  }\item[{const std\+::vector$<$ unsigned int $>$}]{derivatives,  }\item[{const \mbox{\hyperlink{triangulation__system_8h_a44f3c00e36c1d6e3c389ae693c09b435}{Interface\+Side}}}]{side }\end{DoxyParamCaption})}
 
 Add a term to \mbox{\hyperlink{class_dependent_field_a3f7812cd53686afce899438ae999999a}{Dependent\+Field\+::terms\+\_\+neighbor\+\_\+plus}} or \mbox{\hyperlink{class_dependent_field_a406b6490dcd17d80737500184131a3e7}{Dependent\+Field\+::terms\+\_\+neighbor\+\_\+minus}}.
 
@@ -227,7 +227,7 @@ It is currently not allowed to add the same term (i.\+e. with the same {\ttfamil
 \index{add\_term@{add\_term}!DependentField$<$ dim, spacedim $>$@{DependentField$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{add\_term()}{add\_term()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::add\+\_\+term (\begin{DoxyParamCaption}\item[{double}]{coefficient,  }\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&}]{independent\+\_\+field,  }\item[{const unsigned int}]{component = {\ttfamily 0},  }\item[{const \textbf{ std\+::vector}$<$ unsigned int $>$}]{derivatives = {\ttfamily \textbf{ std\+::vector}$<$~unsigned~int~$>$()} }\end{DoxyParamCaption})}
+void \mbox{\hyperlink{class_dependent_field}{Dependent\+Field}}$<$ dim, spacedim $>$\+::add\+\_\+term (\begin{DoxyParamCaption}\item[{double}]{coefficient,  }\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&}]{independent\+\_\+field,  }\item[{const unsigned int}]{component = {\ttfamily 0},  }\item[{const std\+::vector$<$ unsigned int $>$}]{derivatives = {\ttfamily std\+:\+:vector$<$~unsigned~int~$>$()} }\end{DoxyParamCaption})}
 
 Add a term to \mbox{\hyperlink{class_dependent_field_a463f490ef397b9b65112c94932afcd5c}{Dependent\+Field\+::terms\+\_\+interface}}.
 

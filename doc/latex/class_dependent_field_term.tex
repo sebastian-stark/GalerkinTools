@@ -16,7 +16,7 @@ Collaboration diagram for Dependent\+Field\+Term$<$ dim, spacedim $>$\+:\nopageb
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_dependent_field_term_a149a09f602b0baadba9033d6a8da448c}{Dependent\+Field\+Term}} (const double \mbox{\hyperlink{class_dependent_field_term_a59a9183a32ac55fb728f3797b68a9f8f}{coefficient}}, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&\mbox{\hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{independent\+\_\+field}}, const unsigned int \mbox{\hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{component}}=0, const \textbf{ std\+::vector}$<$ unsigned int $>$ \mbox{\hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{derivatives}}=\textbf{ std\+::vector}$<$ unsigned int $>$())
+\mbox{\hyperlink{class_dependent_field_term_a149a09f602b0baadba9033d6a8da448c}{Dependent\+Field\+Term}} (const double \mbox{\hyperlink{class_dependent_field_term_a59a9183a32ac55fb728f3797b68a9f8f}{coefficient}}, const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&\mbox{\hyperlink{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}{independent\+\_\+field}}, const unsigned int \mbox{\hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{component}}=0, const std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{derivatives}}=std\+::vector$<$ unsigned int $>$())
 \item 
 double \mbox{\hyperlink{class_dependent_field_term_a7f7b45969b939cfead095d2681d2f612}{first\+\_\+derivative}} () const
 \item 
@@ -35,7 +35,7 @@ const \textbf{ Smart\+Pointer}$<$ const \mbox{\hyperlink{class_independent_field
 \item 
 const unsigned int \mbox{\hyperlink{class_dependent_field_term_ac6f3ac40d4ee2c8b9f9bbdfa34079b74}{component}}
 \item 
-const \textbf{ std\+::vector}$<$ unsigned int $>$ \mbox{\hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{derivatives}}
+const std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_dependent_field_term_af09c5452c3e8e71e9ee99db304b90135}{derivatives}}
 \end{DoxyCompactItemize}
 
 
@@ -62,7 +62,7 @@ In particular, the function $f$ may either be a domain related independent field
 \index{DependentFieldTerm@{DependentFieldTerm}!DependentFieldTerm$<$ dim, spacedim $>$@{DependentFieldTerm$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{DependentFieldTerm()}{DependentFieldTerm()}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-\mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$\+::\mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}} (\begin{DoxyParamCaption}\item[{const double}]{coefficient,  }\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&}]{independent\+\_\+field,  }\item[{const unsigned int}]{component = {\ttfamily 0},  }\item[{const \textbf{ std\+::vector}$<$ unsigned int $>$}]{derivatives = {\ttfamily \textbf{ std\+::vector}$<$~unsigned~int~$>$()} }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$\+::\mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}} (\begin{DoxyParamCaption}\item[{const double}]{coefficient,  }\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ dim, spacedim $>$ \&}]{independent\+\_\+field,  }\item[{const unsigned int}]{component = {\ttfamily 0},  }\item[{const std\+::vector$<$ unsigned int $>$}]{derivatives = {\ttfamily std\+:\+:vector$<$~unsigned~int~$>$()} }\end{DoxyParamCaption})}
 
 The constructor of the class.
 
@@ -156,7 +156,7 @@ A component of the (possibly vector valued) \mbox{\hyperlink{class_independent_f
 \index{derivatives@{derivatives}!DependentFieldTerm$<$ dim, spacedim $>$@{DependentFieldTerm$<$ dim, spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{derivatives}{derivatives}}
 {\footnotesize\ttfamily template$<$unsigned int dim, unsigned int spacedim$>$ \\
-const \textbf{ std\+::vector}$<$unsigned int$>$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$\+::derivatives}
+const std\+::vector$<$unsigned int$>$ \mbox{\hyperlink{class_dependent_field_term}{Dependent\+Field\+Term}}$<$ dim, spacedim $>$\+::derivatives}
 
 A list of the spatial derivatives. The first element in the vector is $i_0$, the second element the derivative $i_1$, etc. The length of the vector is thus equal to the number of derivatives $N$; and in the special case that there are no derivatives, this vector will have the size zero. \mbox{\Hypertarget{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}\label{class_dependent_field_term_a89d1c3fea36e6fe105232097a321e095}} 
 \index{DependentFieldTerm$<$ dim, spacedim $>$@{DependentFieldTerm$<$ dim, spacedim $>$}!independent\_field@{independent\_field}}

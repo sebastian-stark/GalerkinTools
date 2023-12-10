@@ -1626,6 +1626,18 @@ public:
 													const double							epsilon = 1e-8)
 	const;
 
+	/**
+	 * This distributes the dofs. It can be called by the user to renumber the dofs.
+	 *
+	 * @param[in]	renumbering_domain		New dof indices on the domain
+	 *
+	 * @param[in]	renumbering_interface	New dof indices on the interface
+	 */
+	void
+	distribute_dofs(const std::vector<unsigned int>& renumbering_domain,
+					const std::vector<unsigned int>& renumbering_interface);
+
+
 ///@}
 
 
@@ -1875,22 +1887,6 @@ public:
 	 */
 	unsigned int
 	get_u_sigma_global_component_index(const IndependentField<spacedim-1, spacedim>& u_sigma)
-	const;
-
-	/**
-	 * Return a map between locations and corresponding global dof indices
-	 *
-	 * @param[in]	u_omega		Domain related independent field for which the map is to be computed
-	 *
-	 * @param[in]	component	Component of the domain related independent field for which the map is to be computed
-	 *
-	 * @return					map between locations and corresponding global dof indices
-	 *
-	 * @todo					Implement also for interface related independent fields
-	 */
-	std::map<Point<spacedim>, unsigned int, std::function<bool(const Point<spacedim>&, const Point<spacedim>&)> >
-	get_map_position_dof_index_u_omega(	const IndependentField<spacedim, spacedim>& u_omega,
-										const unsigned int component)
 	const;
 
 	/**

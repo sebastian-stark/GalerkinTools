@@ -1,0 +1,291 @@
+\hypertarget{class_solver_wrapper_m_u_m_p_s}{}\doxysection{Solver\+Wrapper\+MUMPS Class Reference}
+\label{class_solver_wrapper_m_u_m_p_s}\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+
+
+{\ttfamily \#include $<$solver\+\_\+wrapper.\+h$>$}
+
+
+
+Inheritance diagram for Solver\+Wrapper\+MUMPS\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_solver_wrapper_m_u_m_p_s__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Solver\+Wrapper\+MUMPS\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_solver_wrapper_m_u_m_p_s__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_aac0b071a4afe90f575f48283f321e9aa}{initialize\+\_\+matrix}} (const \textbf{ Sparse\+Matrix}$<$ double $>$ \&\textbf{ matrix})
+\item 
+void \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_ac0e555858181fc6111d6302137f0a235}{initialize\+\_\+matrix}} (std\+::vector$<$ int $>$ \&\mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_aa1de27d7f99bd632d6a13b6d587bfe48}{irn}}, std\+::vector$<$ int $>$ \&\mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_a697d2583ca34837591a09a896dd62060}{jcn}}, std\+::vector$<$ double $>$ \&\mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_a67a4f5d3f503d51d0f52ad9c14fe578a}{A}}, unsigned int n)
+\item 
+virtual void \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_a0be6cc138caf0deb9b1066071edfbb80}{analyze\+\_\+matrix}} ()
+\item 
+virtual void \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_ab9ecf7772664524d9de206744441ba80}{factorize\+\_\+matrix}} ()
+\item 
+virtual void \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_acdb8d522bd9816425d86e813d603f875}{vmult}} (\textbf{ Vector}$<$ double $>$ \&x, const \textbf{ Vector}$<$ double $>$ \&f)
+\item 
+\mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_a394f287e0761996554eed430366c8019}{Solver\+Wrapper\+MUMPS}} (int sym=0)
+\item 
+\mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_a23ef40e6c3316b9dedaea66893e3bb29}{$\sim$\+Solver\+Wrapper\+MUMPS}} ()
+\item 
+virtual void \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_ab76c71fc7d8c8f0d7c796bc78e5bdb37}{solve}} (const \textbf{ dealii\+::\+Sparse\+Matrix}$<$ double $>$ \&K\+\_\+stretched, \textbf{ dealii\+::\+Vector}$<$ double $>$ \&solution, const \textbf{ dealii\+::\+Vector}$<$ double $>$ \&f\+\_\+stretched, const bool \textbf{ symmetric}=false)
+\item 
+\mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_a878271784082d91184b16780bab52906}{Decl\+Exception2}} (MUMPSError, std\+::string, int,$<$$<$ \char`\"{}MUMPS routine \char`\"{}$<$$<$ arg1$<$$<$ \char`\"{} returned error status \char`\"{}$<$$<$ arg2$<$$<$ \char`\"{}.\char`\"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+DMUMPS\+\_\+\+STRUC\+\_\+C \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_a919a0be0fa6173351786e0abe565359c}{id}}
+\item 
+int $\ast$ \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_a246f1e553cda5741eede8b97cb658388}{icntl}} = nullptr
+\item 
+double $\ast$ \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_a2d2a35a782b91b320f93e0962baee788}{cntl}} = nullptr
+\item 
+int $\ast$ \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_aeddd611d2a3287054fc3926ba7c700b8}{info}} = nullptr
+\item 
+int $\ast$ \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_ac66bb7798313f6da855617807981e529}{infog}} = nullptr
+\item 
+unsigned int \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_a1bd59a48f0ed4485dd4d67b810bfd701}{analyze}} = 0
+\item 
+bool \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_aac357825a24e2c32f550abe5b3cfea8c}{modify\+\_\+on\+\_\+negative\+\_\+pivot}} = false
+\item 
+double \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_accf7454076e059b9ea1500e305c98cdb}{beta}} = 1\textbf{ e}-\/3
+\item 
+double \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_a3882696d9c08572c742978f6ac5de65c}{increase\+\_\+tau}} = 2.\+0
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_aa1de27d7f99bd632d6a13b6d587bfe48}{irn}} = std\+::vector$<$int$>$()
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_a697d2583ca34837591a09a896dd62060}{jcn}} = std\+::vector$<$int$>$()
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_a3a9bacf003d721ff3200688063818548}{d}} = std\+::vector$<$int$>$()
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_a67a4f5d3f503d51d0f52ad9c14fe578a}{A}} = std\+::vector$<$double$>$()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \mbox{\hyperlink{class_solver_wrapper}{Solver\+Wrapper}} for the MUMPS solver (only for sequential use). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_a394f287e0761996554eed430366c8019}\label{class_solver_wrapper_m_u_m_p_s_a394f287e0761996554eed430366c8019}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{SolverWrapperMUMPS()}{SolverWrapperMUMPS()}}
+{\footnotesize\ttfamily Solver\+Wrapper\+MUMPS\+::\+Solver\+Wrapper\+MUMPS (\begin{DoxyParamCaption}\item[{int}]{sym = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Constructor
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sym} & SYM parameter of MUMPS \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_a23ef40e6c3316b9dedaea66893e3bb29}\label{class_solver_wrapper_m_u_m_p_s_a23ef40e6c3316b9dedaea66893e3bb29}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!````~SolverWrapperMUMPS@{$\sim$SolverWrapperMUMPS}}
+\index{````~SolverWrapperMUMPS@{$\sim$SolverWrapperMUMPS}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{$\sim$SolverWrapperMUMPS()}{~SolverWrapperMUMPS()}}
+{\footnotesize\ttfamily Solver\+Wrapper\+MUMPS\+::$\sim$\+Solver\+Wrapper\+MUMPS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_a0be6cc138caf0deb9b1066071edfbb80}\label{class_solver_wrapper_m_u_m_p_s_a0be6cc138caf0deb9b1066071edfbb80}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!analyze\_matrix@{analyze\_matrix}}
+\index{analyze\_matrix@{analyze\_matrix}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{analyze\_matrix()}{analyze\_matrix()}}
+{\footnotesize\ttfamily virtual void Solver\+Wrapper\+MUMPS\+::analyze\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function analyses the given matrix. Whether this function does anything depends upon the value of \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a8be8b4fb9d6a6ebf7184327b5121f1e5}{Block\+Solver\+Wrapper\+MUMPS\+::analyze}}. \mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_a878271784082d91184b16780bab52906}\label{class_solver_wrapper_m_u_m_p_s_a878271784082d91184b16780bab52906}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!DeclException2@{DeclException2}}
+\index{DeclException2@{DeclException2}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{DeclException2()}{DeclException2()}}
+{\footnotesize\ttfamily Solver\+Wrapper\+MUMPS\+::\+Decl\+Exception2 (\begin{DoxyParamCaption}\item[{MUMPSError}]{,  }\item[{std\+::string}]{,  }\item[{int}]{,  }\item[{$<$$<$ \char`\"{}MUMPS routine \char`\"{}$<$$<$ arg1$<$$<$ \char`\"{} returned error status \char`\"{}$<$$<$ arg2$<$$<$ \char`\"{}.\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_ab9ecf7772664524d9de206744441ba80}\label{class_solver_wrapper_m_u_m_p_s_ab9ecf7772664524d9de206744441ba80}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!factorize\_matrix@{factorize\_matrix}}
+\index{factorize\_matrix@{factorize\_matrix}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{factorize\_matrix()}{factorize\_matrix()}}
+{\footnotesize\ttfamily virtual void Solver\+Wrapper\+MUMPS\+::factorize\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function factorizes the matrix. \mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_aac0b071a4afe90f575f48283f321e9aa}\label{class_solver_wrapper_m_u_m_p_s_aac0b071a4afe90f575f48283f321e9aa}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!initialize\_matrix@{initialize\_matrix}}
+\index{initialize\_matrix@{initialize\_matrix}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{initialize\_matrix()}{initialize\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Solver\+Wrapper\+MUMPS\+::initialize\+\_\+matrix (\begin{DoxyParamCaption}\item[{const \textbf{ Sparse\+Matrix}$<$ double $>$ \&}]{matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the data structures storing the matrix up.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em matrix} & The matrix A \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_ac0e555858181fc6111d6302137f0a235}\label{class_solver_wrapper_m_u_m_p_s_ac0e555858181fc6111d6302137f0a235}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!initialize\_matrix@{initialize\_matrix}}
+\index{initialize\_matrix@{initialize\_matrix}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{initialize\_matrix()}{initialize\_matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Solver\+Wrapper\+MUMPS\+::initialize\+\_\+matrix (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{irn,  }\item[{std\+::vector$<$ int $>$ \&}]{jcn,  }\item[{std\+::vector$<$ double $>$ \&}]{A,  }\item[{unsigned int}]{n }\end{DoxyParamCaption})}
+
+Sets the data structures storing the matrix up from raw data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em irn} & row indices\\
+\hline
+\mbox{\texttt{ in}}  & {\em jcn} & column indices\\
+\hline
+\mbox{\texttt{ in}}  & {\em A} & values, A\mbox{[}i\mbox{]} corresponds to A(irn\mbox{[}i\mbox{]}, jcn\mbox{[}j\mbox{]})\\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & size of matrix \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_ab76c71fc7d8c8f0d7c796bc78e5bdb37}\label{class_solver_wrapper_m_u_m_p_s_ab76c71fc7d8c8f0d7c796bc78e5bdb37}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!solve@{solve}}
+\index{solve@{solve}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily virtual void Solver\+Wrapper\+MUMPS\+::solve (\begin{DoxyParamCaption}\item[{const \textbf{ dealii\+::\+Sparse\+Matrix}$<$ double $>$ \&}]{K\+\_\+stretched,  }\item[{\textbf{ dealii\+::\+Vector}$<$ double $>$ \&}]{solution,  }\item[{const \textbf{ dealii\+::\+Vector}$<$ double $>$ \&}]{f\+\_\+stretched,  }\item[{const bool}]{symmetric = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+
+
+The solve function for the system of linear equations in the stretched form
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em K\+\_\+stretched} & The stretched system\+\_\+matrix\\
+\hline
+\mbox{\texttt{ out}}  & {\em solution} & The stretched solution vector\\
+\hline
+\mbox{\texttt{ in}}  & {\em f\+\_\+stretched} & The stretched right hand side vector\\
+\hline
+\mbox{\texttt{ in}}  & {\em symmetric} & A bool indicating whether {\ttfamily system\+\_\+matrix} is symmetric \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_solver_wrapper_a509594953f388e594bfdde5b927ece35}{Solver\+Wrapper$<$ dealii\+::\+Vector$<$ double $>$, dealii\+::\+Vector$<$ double $>$, dealii\+::\+Sparse\+Matrix$<$ double $>$, Sparsity\+Pattern $>$}}.
+
+\mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_acdb8d522bd9816425d86e813d603f875}\label{class_solver_wrapper_m_u_m_p_s_acdb8d522bd9816425d86e813d603f875}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!vmult@{vmult}}
+\index{vmult@{vmult}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{vmult()}{vmult()}}
+{\footnotesize\ttfamily virtual void Solver\+Wrapper\+MUMPS\+::vmult (\begin{DoxyParamCaption}\item[{\textbf{ Vector}$<$ double $>$ \&}]{x,  }\item[{const \textbf{ Vector}$<$ double $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Multiply the inverse of A by {\ttfamily f} and store the result into {\ttfamily x}. I.\+e., solve Ax=f for x. This uses the factors computed by \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a39b279f0e0f1c0ecb30702763719d433}{Block\+Solver\+Wrapper\+MUMPS\+::factorize\+\_\+matrix()}}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em x} & solution \\
+\hline
+\mbox{\texttt{ in}}  & {\em f} & rhs \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_a67a4f5d3f503d51d0f52ad9c14fe578a}\label{class_solver_wrapper_m_u_m_p_s_a67a4f5d3f503d51d0f52ad9c14fe578a}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!A@{A}}
+\index{A@{A}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{A}{A}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Solver\+Wrapper\+MUMPS\+::A = std\+::vector$<$double$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+Array storing the numerical values of the non-\/zero entries of the matrix A, A\mbox{[}i\mbox{]} is A(irn\mbox{[}i\mbox{]}, jcn\mbox{[}i\mbox{]}) \mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_a1bd59a48f0ed4485dd4d67b810bfd701}\label{class_solver_wrapper_m_u_m_p_s_a1bd59a48f0ed4485dd4d67b810bfd701}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!analyze@{analyze}}
+\index{analyze@{analyze}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{analyze}{analyze}}
+{\footnotesize\ttfamily unsigned int Solver\+Wrapper\+MUMPS\+::analyze = 0}
+
+Key indicating when to analyze the matrix structure\+:~\newline
+ 0 -\/ before each factorization (default)~\newline
+ 1 -\/ only before the next factorization (afterwards, \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a8be8b4fb9d6a6ebf7184327b5121f1e5}{Block\+Solver\+Wrapper\+MUMPS\+::analyze}} will be set to 2)~\newline
+ $>$=2 -\/ do not recompute
+
+\begin{DoxyWarning}{Warning}
+The user must ensure that \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a8be8b4fb9d6a6ebf7184327b5121f1e5}{Block\+Solver\+Wrapper\+MUMPS\+::analyze}}=0 or \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_a8be8b4fb9d6a6ebf7184327b5121f1e5}{Block\+Solver\+Wrapper\+MUMPS\+::analyze}}=1 whenever the sparsity pattern of the matrix has changed (or during the first call). Currently, no internal checking is performed. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_accf7454076e059b9ea1500e305c98cdb}\label{class_solver_wrapper_m_u_m_p_s_accf7454076e059b9ea1500e305c98cdb}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!beta@{beta}}
+\index{beta@{beta}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{beta}{beta}}
+{\footnotesize\ttfamily double Solver\+Wrapper\+MUMPS\+::beta = 1\textbf{ e}-\/3}
+
+Parameter beta of algorithm 3.\+3 from Nocedal and Wright\+: Numerical Optimization, 2nd Edition; see also \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_ab22891ea06bef2419ef6190aa99e7bf3}{Block\+Solver\+Wrapper\+MUMPS\+::modify\+\_\+on\+\_\+negative\+\_\+pivot}} \mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_a2d2a35a782b91b320f93e0962baee788}\label{class_solver_wrapper_m_u_m_p_s_a2d2a35a782b91b320f93e0962baee788}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!cntl@{cntl}}
+\index{cntl@{cntl}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{cntl}{cntl}}
+{\footnotesize\ttfamily double$\ast$ Solver\+Wrapper\+MUMPS\+::cntl = nullptr}
+
+real control array of MUMPS \mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_a3a9bacf003d721ff3200688063818548}\label{class_solver_wrapper_m_u_m_p_s_a3a9bacf003d721ff3200688063818548}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!d@{d}}
+\index{d@{d}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{d}{d}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Solver\+Wrapper\+MUMPS\+::d = std\+::vector$<$int$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\textbf{ Vector} storing the indices of the diagonals \mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_a246f1e553cda5741eede8b97cb658388}\label{class_solver_wrapper_m_u_m_p_s_a246f1e553cda5741eede8b97cb658388}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!icntl@{icntl}}
+\index{icntl@{icntl}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{icntl}{icntl}}
+{\footnotesize\ttfamily int$\ast$ Solver\+Wrapper\+MUMPS\+::icntl = nullptr}
+
+integer control array of MUMPS \mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_a919a0be0fa6173351786e0abe565359c}\label{class_solver_wrapper_m_u_m_p_s_a919a0be0fa6173351786e0abe565359c}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!id@{id}}
+\index{id@{id}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily DMUMPS\+\_\+\+STRUC\+\_\+C Solver\+Wrapper\+MUMPS\+::id}
+
+The main data structure of MUMPS \mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_a3882696d9c08572c742978f6ac5de65c}\label{class_solver_wrapper_m_u_m_p_s_a3882696d9c08572c742978f6ac5de65c}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!increase\_tau@{increase\_tau}}
+\index{increase\_tau@{increase\_tau}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{increase\_tau}{increase\_tau}}
+{\footnotesize\ttfamily double Solver\+Wrapper\+MUMPS\+::increase\+\_\+tau = 2.\+0}
+
+Increase-\/factor for tau between two loops in algorithm 3.\+3 from Nocedal and Wright\+: Numerical Optimization, 2nd Edition; see also \mbox{\hyperlink{class_block_solver_wrapper_m_u_m_p_s_ab22891ea06bef2419ef6190aa99e7bf3}{Block\+Solver\+Wrapper\+MUMPS\+::modify\+\_\+on\+\_\+negative\+\_\+pivot}} \mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_aeddd611d2a3287054fc3926ba7c700b8}\label{class_solver_wrapper_m_u_m_p_s_aeddd611d2a3287054fc3926ba7c700b8}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!info@{info}}
+\index{info@{info}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{info}{info}}
+{\footnotesize\ttfamily int$\ast$ Solver\+Wrapper\+MUMPS\+::info = nullptr}
+
+info array of MUMPS \mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_ac66bb7798313f6da855617807981e529}\label{class_solver_wrapper_m_u_m_p_s_ac66bb7798313f6da855617807981e529}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!infog@{infog}}
+\index{infog@{infog}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{infog}{infog}}
+{\footnotesize\ttfamily int$\ast$ Solver\+Wrapper\+MUMPS\+::infog = nullptr}
+
+infog array of MUMPS \mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_aa1de27d7f99bd632d6a13b6d587bfe48}\label{class_solver_wrapper_m_u_m_p_s_aa1de27d7f99bd632d6a13b6d587bfe48}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!irn@{irn}}
+\index{irn@{irn}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{irn}{irn}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Solver\+Wrapper\+MUMPS\+::irn = std\+::vector$<$int$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+The row indices \mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_a697d2583ca34837591a09a896dd62060}\label{class_solver_wrapper_m_u_m_p_s_a697d2583ca34837591a09a896dd62060}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!jcn@{jcn}}
+\index{jcn@{jcn}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{jcn}{jcn}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Solver\+Wrapper\+MUMPS\+::jcn = std\+::vector$<$int$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+The column indices \mbox{\Hypertarget{class_solver_wrapper_m_u_m_p_s_aac357825a24e2c32f550abe5b3cfea8c}\label{class_solver_wrapper_m_u_m_p_s_aac357825a24e2c32f550abe5b3cfea8c}} 
+\index{SolverWrapperMUMPS@{SolverWrapperMUMPS}!modify\_on\_negative\_pivot@{modify\_on\_negative\_pivot}}
+\index{modify\_on\_negative\_pivot@{modify\_on\_negative\_pivot}!SolverWrapperMUMPS@{SolverWrapperMUMPS}}
+\doxysubsubsection{\texorpdfstring{modify\_on\_negative\_pivot}{modify\_on\_negative\_pivot}}
+{\footnotesize\ttfamily bool Solver\+Wrapper\+MUMPS\+::modify\+\_\+on\+\_\+negative\+\_\+pivot = false}
+
+This will use algorithm 3.\+3 from Nocedal and Wright\+: Numerical Optimization, 2nd Edition to ensure that the factorized matrix is p.\+d. The setting is only valid if sym = 1 has been passed in the constructor. Furthermore, the approach is currently only implemented for the case that only the (0,0)-\/block of the \mbox{\hyperlink{class_two_block_matrix}{Two\+Block\+Matrix}} exists. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/sst/code/\+Galerkin\+Tools/\+Galerkin\+Tools/include/galerkin\+\_\+tools/\mbox{\hyperlink{solver__wrapper_8h}{solver\+\_\+wrapper.\+h}}\end{DoxyCompactItemize}

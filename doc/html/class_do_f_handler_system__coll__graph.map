@@ -1,9 +1,7 @@
 <map id="DoFHandlerSystem&lt; spacedim &gt;" name="DoFHandlerSystem&lt; spacedim &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="908,78,1149,105"/>
-<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="560,5,717,47"/>
-<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTensor.html" title=" " alt="" coords="241,49,393,91"/>
-<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="559,71,719,127"/>
-<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTensor.html" title=" " alt="" coords="5,49,145,91"/>
-<area shape="rect" id="node6" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classIndexSet.html" title=" " alt="" coords="599,197,678,223"/>
-<area shape="rect" id="node7" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classThreads_1_1Mutex.html" title=" " alt="" coords="256,197,379,223"/>
+<area shape="rect" id="node1" title=" " alt="" coords="643,86,884,113"/>
+<area shape="rect" id="node2" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="295,5,452,47"/>
+<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSmartPointer.html" title=" " alt="" coords="293,71,453,127"/>
+<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classIndexSet.html" title=" " alt="" coords="334,205,413,231"/>
+<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classThreads_1_1Mutex.html" title=" " alt="" coords="5,205,128,231"/>
 </map>

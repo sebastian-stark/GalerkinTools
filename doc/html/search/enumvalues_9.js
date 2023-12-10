@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['none_21811',['none',['https://dealii.org/9.0.0/doxygen/deal.II/classMatrixFree.html#a751b5f06534d52773eba384d2c866a15a334c4a4c42fdb79d7ebc3e73b517e6f8',1,'MatrixFree::none()'],['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1AD.html#acc1d0db17ec4125ac4e28f6ad2069b1ca334c4a4c42fdb79d7ebc3e73b517e6f8',1,'Differentiation::AD::none()']]]
+  ['jacobi_24603',['Jacobi',['https://dealii.org/9.0.0/doxygen/deal.II/structPETScWrappers_1_1PreconditionBoomerAMG_1_1AdditionalData.html#a5d92688a1fdd10088cddaf971b84e987a2ba38a7b398cfd9360591c3a1a25ba39',1,'PETScWrappers::PreconditionBoomerAMG::AdditionalData']]]
 ];

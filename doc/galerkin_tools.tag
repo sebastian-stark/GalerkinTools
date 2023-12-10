@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
-<tagfile>
+<tagfile doxygen_version="1.9.1">
   <compound kind="file">
     <name>mainpage.dox</name>
     <path>/home/sst/code/GalerkinTools/GalerkinTools/doc/</path>
@@ -33,7 +33,6 @@
     <name>dof_handler_system.h</name>
     <path>/home/sst/code/GalerkinTools/GalerkinTools/include/galerkin_tools/</path>
     <filename>dof__handler__system_8h.html</filename>
-    <class kind="class">DoFHandlerSystem</class>
     <class kind="class">InterfaceCellDoFIterator</class>
     <class kind="class">DomainCellDoFIterator</class>
     <class kind="class">InterfaceCellDomainCellsDoF</class>
@@ -104,6 +103,7 @@
     <class kind="class">SolverWrapperPETSc</class>
     <class kind="class">SolverWrapperPETScIterative</class>
     <class kind="class">BlockSolverWrapperPARDISO</class>
+    <class kind="class">SolverWrapperMUMPS</class>
     <class kind="class">BlockSolverWrapperMUMPS</class>
     <class kind="class">BlockSolverWrapperUMFPACK2</class>
     <class kind="class">BlockSolverWrapperMA57</class>
@@ -427,6 +427,13 @@
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>ac54f45f37a38426db1b5f85eccc7b3e9</anchor>
       <arglist>(const VectorType &amp;solution, const std::vector&lt; const VectorType * &gt; solution_ref_sets, const std::string detailed_printout_file=&quot;&quot;, const double epsilon=1e-8) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>distribute_dofs</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>af1d2938f5c1a40ace48bc86a0a91eb44</anchor>
+      <arglist>(const std::vector&lt; unsigned int &gt; &amp;renumbering_domain, const std::vector&lt; unsigned int &gt; &amp;renumbering_interface)</arglist>
     </member>
     <member kind="function">
       <type>std::pair&lt; const std::string, const std::string &gt;</type>
@@ -1813,6 +1820,13 @@
       <anchorfile>class_assembly_helper.html</anchorfile>
       <anchor>ac54f45f37a38426db1b5f85eccc7b3e9</anchor>
       <arglist>(const VectorType &amp;solution, const std::vector&lt; const VectorType * &gt; solution_ref_sets, const std::string detailed_printout_file=&quot;&quot;, const double epsilon=1e-8) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>distribute_dofs</name>
+      <anchorfile>class_assembly_helper.html</anchorfile>
+      <anchor>af1d2938f5c1a40ace48bc86a0a91eb44</anchor>
+      <arglist>(const std::vector&lt; unsigned int &gt; &amp;renumbering_domain, const std::vector&lt; unsigned int &gt; &amp;renumbering_interface)</arglist>
     </member>
     <member kind="function">
       <type>std::pair&lt; const std::string, const std::string &gt;</type>
@@ -3361,8 +3375,8 @@
       <type>void</type>
       <name>distribute_dofs</name>
       <anchorfile>class_do_f_handler_system.html</anchorfile>
-      <anchor>ac6e0950ae9d140b0a9185bcfffe167d6</anchor>
-      <arglist>(const hp::FECollection&lt; spacedim, spacedim &gt; &amp;fe_collection_domain, const hp::FECollection&lt; spacedim-1, spacedim &gt; &amp;fe_collection_interface, const unsigned int n_additional_dofs=0)</arglist>
+      <anchor>a1a3f87726392121bf4b88e9adf09cbc7</anchor>
+      <arglist>(const hp::FECollection&lt; spacedim, spacedim &gt; &amp;fe_collection_domain, const hp::FECollection&lt; spacedim-1, spacedim &gt; &amp;fe_collection_interface, const unsigned int n_additional_dofs=0, const std::vector&lt; unsigned int &gt; &amp;renumbering_domain=std::vector&lt; unsigned int &gt;(), const std::vector&lt; unsigned int &gt; &amp;renumbering_interface=std::vector&lt; unsigned int &gt;())</arglist>
     </member>
     <member kind="function">
       <type>std::vector&lt; InterfaceCellDomainCellsDoF&lt; spacedim &gt; &gt;::iterator</type>
@@ -5410,6 +5424,165 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>SolverWrapperMUMPS</name>
+    <filename>class_solver_wrapper_m_u_m_p_s.html</filename>
+    <base>SolverWrapper&lt; dealii::Vector&lt; double &gt;, dealii::Vector&lt; double &gt;, dealii::SparseMatrix&lt; double &gt;, SparsityPattern &gt;</base>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>initialize_matrix</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>aac0b071a4afe90f575f48283f321e9aa</anchor>
+      <arglist>(const SparseMatrix&lt; double &gt; &amp;matrix)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>initialize_matrix</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>ac0e555858181fc6111d6302137f0a235</anchor>
+      <arglist>(std::vector&lt; int &gt; &amp;irn, std::vector&lt; int &gt; &amp;jcn, std::vector&lt; double &gt; &amp;A, unsigned int n)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>analyze_matrix</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a0be6cc138caf0deb9b1066071edfbb80</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>factorize_matrix</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>ab9ecf7772664524d9de206744441ba80</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>vmult</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>acdb8d522bd9816425d86e813d603f875</anchor>
+      <arglist>(Vector&lt; double &gt; &amp;x, const Vector&lt; double &gt; &amp;f)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>SolverWrapperMUMPS</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a394f287e0761996554eed430366c8019</anchor>
+      <arglist>(int sym=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~SolverWrapperMUMPS</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a23ef40e6c3316b9dedaea66893e3bb29</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>solve</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>ab76c71fc7d8c8f0d7c796bc78e5bdb37</anchor>
+      <arglist>(const dealii::SparseMatrix&lt; double &gt; &amp;K_stretched, dealii::Vector&lt; double &gt; &amp;solution, const dealii::Vector&lt; double &gt; &amp;f_stretched, const bool symmetric=false)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>DeclException2</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a878271784082d91184b16780bab52906</anchor>
+      <arglist>(MUMPSError, std::string, int,&lt;&lt; &quot;MUMPS routine &quot;&lt;&lt; arg1&lt;&lt; &quot; returned error status &quot;&lt;&lt; arg2&lt;&lt; &quot;.&quot;)</arglist>
+    </member>
+    <member kind="variable">
+      <type>DMUMPS_STRUC_C</type>
+      <name>id</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a919a0be0fa6173351786e0abe565359c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int *</type>
+      <name>icntl</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a246f1e553cda5741eede8b97cb658388</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double *</type>
+      <name>cntl</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a2d2a35a782b91b320f93e0962baee788</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int *</type>
+      <name>info</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>aeddd611d2a3287054fc3926ba7c700b8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int *</type>
+      <name>infog</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>ac66bb7798313f6da855617807981e529</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>unsigned int</type>
+      <name>analyze</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a1bd59a48f0ed4485dd4d67b810bfd701</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>modify_on_negative_pivot</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>aac357825a24e2c32f550abe5b3cfea8c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>beta</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>accf7454076e059b9ea1500e305c98cdb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>increase_tau</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a3882696d9c08572c742978f6ac5de65c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; int &gt;</type>
+      <name>irn</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>aa1de27d7f99bd632d6a13b6d587bfe48</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; int &gt;</type>
+      <name>jcn</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a697d2583ca34837591a09a896dd62060</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; int &gt;</type>
+      <name>d</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a3a9bacf003d721ff3200688063818548</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; double &gt;</type>
+      <name>A</name>
+      <anchorfile>class_solver_wrapper_m_u_m_p_s.html</anchorfile>
+      <anchor>a67a4f5d3f503d51d0f52ad9c14fe578a</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>SolverWrapperPETSc</name>
     <filename>class_solver_wrapper_p_e_t_sc.html</filename>
     <base>SolverWrapper&lt; dealii::LinearAlgebra::distributed::Vector&lt; double &gt;, dealii::PETScWrappers::MPI::BlockVector, parallel::TwoBlockMatrix&lt; dealii::PETScWrappers::MPI::SparseMatrix &gt;, TwoBlockSparsityPattern &gt;</base>
@@ -6020,6 +6193,46 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>parallel::TwoBlockMatrix</name>
+    <filename>classparallel_1_1_two_block_matrix.html</filename>
+    <templarg></templarg>
+    <member kind="function">
+      <type></type>
+      <name>TwoBlockMatrix</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a93990616301e671f9a967fbc49029674</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TwoBlockMatrix</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>afa9b3f1c3d74a211c334c8f6e59b52f6</anchor>
+      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reinit</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a0e112695034c69aa8a430efd9e7c37ef</anchor>
+      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
+    </member>
+    <member kind="function">
+      <type>dealii::GalerkinTools::parallel::TwoBlockMatrix&lt; MatrixType &gt; &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>a8e2ba56ebc9ee5ad1fe7b1d8604e9669</anchor>
+      <arglist>(const double value)</arglist>
+    </member>
+    <member kind="function">
+      <type>const MPI_Comm &amp;</type>
+      <name>get_communicator</name>
+      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
+      <anchor>add0cc2ee49d139e1dbc5554fd62dd5f5</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>TwoBlockMatrix</name>
     <filename>class_two_block_matrix.html</filename>
     <templarg></templarg>
@@ -6267,46 +6480,6 @@
       <anchorfile>class_two_block_matrix.html</anchorfile>
       <anchor>a7d63b4c4c1e499c9f9913444dc5fd6b6</anchor>
       <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>parallel::TwoBlockMatrix</name>
-    <filename>classparallel_1_1_two_block_matrix.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type></type>
-      <name>TwoBlockMatrix</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a93990616301e671f9a967fbc49029674</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>TwoBlockMatrix</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>afa9b3f1c3d74a211c334c8f6e59b52f6</anchor>
-      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reinit</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a0e112695034c69aa8a430efd9e7c37ef</anchor>
-      <arglist>(const TwoBlockSparsityPattern &amp;sp, const IndexSet &amp;locally_owned_indices, const MPI_Comm mpi_communicator=MPI_COMM_WORLD)</arglist>
-    </member>
-    <member kind="function">
-      <type>dealii::GalerkinTools::parallel::TwoBlockMatrix&lt; MatrixType &gt; &amp;</type>
-      <name>operator=</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>a8e2ba56ebc9ee5ad1fe7b1d8604e9669</anchor>
-      <arglist>(const double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>const MPI_Comm &amp;</type>
-      <name>get_communicator</name>
-      <anchorfile>classparallel_1_1_two_block_matrix.html</anchorfile>
-      <anchor>add0cc2ee49d139e1dbc5554fd62dd5f5</anchor>
-      <arglist>() const</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -6600,6 +6773,6 @@
   <compound kind="page">
     <name>index</name>
     <title>GalerkinTools library</title>
-    <filename>index</filename>
+    <filename>index.html</filename>
   </compound>
 </tagfile>

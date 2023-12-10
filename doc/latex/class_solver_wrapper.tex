@@ -1,4 +1,4 @@
-\hypertarget{class_solver_wrapper}{}\doxysection{Solver\+Wrapper$<$ Solution\+Vector\+Type, R\+H\+S\+Vector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$ Class Template Reference}
+\hypertarget{class_solver_wrapper}{}\doxysection{Solver\+Wrapper$<$ Solution\+Vector\+Type, RHSVector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$ Class Template Reference}
 \label{class_solver_wrapper}\index{SolverWrapper$<$ SolutionVectorType, RHSVectorType, MatrixType, SparsityPatternType $>$@{SolverWrapper$<$ SolutionVectorType, RHSVectorType, MatrixType, SparsityPatternType $>$}}
 
 
@@ -6,7 +6,7 @@
 
 
 
-Inheritance diagram for Solver\+Wrapper$<$ Solution\+Vector\+Type, R\+H\+S\+Vector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$\+:\nopagebreak
+Inheritance diagram for Solver\+Wrapper$<$ Solution\+Vector\+Type, RHSVector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,7 +15,7 @@ Inheritance diagram for Solver\+Wrapper$<$ Solution\+Vector\+Type, R\+H\+S\+Vect
 \end{figure}
 
 
-Collaboration diagram for Solver\+Wrapper$<$ Solution\+Vector\+Type, R\+H\+S\+Vector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$\+:\nopagebreak
+Collaboration diagram for Solver\+Wrapper$<$ Solution\+Vector\+Type, RHSVector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,15 +25,15 @@ Collaboration diagram for Solver\+Wrapper$<$ Solution\+Vector\+Type, R\+H\+S\+Ve
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \mbox{\hyperlink{class_solver_wrapper_a509594953f388e594bfdde5b927ece35}{solve}} (const \textbf{ Matrix\+Type} \&K\+\_\+stretched, Solution\+Vector\+Type \&solution, const R\+H\+S\+Vector\+Type \&f\+\_\+stretched, const bool \textbf{ symmetric})=0
+virtual void \mbox{\hyperlink{class_solver_wrapper_a509594953f388e594bfdde5b927ece35}{solve}} (const Matrix\+Type \&K\+\_\+stretched, Solution\+Vector\+Type \&solution, const RHSVector\+Type \&f\+\_\+stretched, const bool \textbf{ symmetric})=0
 \item 
 virtual \mbox{\hyperlink{class_solver_wrapper_a738e65e298fb0b13327e853fc9683b6d}{$\sim$\+Solver\+Wrapper}} ()
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\subsubsection*{template$<$class Solution\+Vector\+Type, class R\+H\+S\+Vector\+Type, class Matrix\+Type, class Sparsity\+Pattern\+Type$>$\newline
-class Solver\+Wrapper$<$ Solution\+Vector\+Type, R\+H\+S\+Vector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$}
+\subsubsection*{template$<$class Solution\+Vector\+Type, class RHSVector\+Type, class Matrix\+Type, class Sparsity\+Pattern\+Type$>$\newline
+class Solver\+Wrapper$<$ Solution\+Vector\+Type, RHSVector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$}
 
 This class essentially wraps some functions related to the solver used for the problem and the corresponding data types into a common interface.
 
@@ -43,7 +43,7 @@ The \mbox{\hyperlink{class_solver_wrapper}{Solver\+Wrapper}} class inherits from
 \begin{DoxyTemplParams}{Template Parameters}
 {\em Solution\+Vector\+Type} & The type used for the solution vector\\
 \hline
-{\em R\+H\+S\+Vector\+Type} & The type used for the right hand side\\
+{\em RHSVector\+Type} & The type used for the right hand side\\
 \hline
 {\em Matrix\+Type} & The type used for the system matrix\\
 \hline
@@ -57,8 +57,8 @@ The \mbox{\hyperlink{class_solver_wrapper}{Solver\+Wrapper}} class inherits from
 \index{SolverWrapper$<$ SolutionVectorType, RHSVectorType, MatrixType, SparsityPatternType $>$@{SolverWrapper$<$ SolutionVectorType, RHSVectorType, MatrixType, SparsityPatternType $>$}!````~SolverWrapper@{$\sim$SolverWrapper}}
 \index{````~SolverWrapper@{$\sim$SolverWrapper}!SolverWrapper$<$ SolutionVectorType, RHSVectorType, MatrixType, SparsityPatternType $>$@{SolverWrapper$<$ SolutionVectorType, RHSVectorType, MatrixType, SparsityPatternType $>$}}
 \doxysubsubsection{\texorpdfstring{$\sim$SolverWrapper()}{~SolverWrapper()}}
-{\footnotesize\ttfamily template$<$class Solution\+Vector\+Type , class R\+H\+S\+Vector\+Type , class Matrix\+Type , class Sparsity\+Pattern\+Type $>$ \\
-virtual \mbox{\hyperlink{class_solver_wrapper}{Solver\+Wrapper}}$<$ Solution\+Vector\+Type, R\+H\+S\+Vector\+Type, \textbf{ Matrix\+Type}, Sparsity\+Pattern\+Type $>$\+::$\sim$\mbox{\hyperlink{class_solver_wrapper}{Solver\+Wrapper}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily template$<$class Solution\+Vector\+Type , class RHSVector\+Type , class Matrix\+Type , class Sparsity\+Pattern\+Type $>$ \\
+virtual \mbox{\hyperlink{class_solver_wrapper}{Solver\+Wrapper}}$<$ Solution\+Vector\+Type, RHSVector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$\+::$\sim$\mbox{\hyperlink{class_solver_wrapper}{Solver\+Wrapper}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 The destructor of \mbox{\hyperlink{class_solver_wrapper}{Solver\+Wrapper}} essentially checks before destruction that the \mbox{\hyperlink{class_solver_wrapper}{Solver\+Wrapper}} object is not used by other objects. If this is the case, the program will be aborted. 
 
@@ -67,8 +67,8 @@ The destructor of \mbox{\hyperlink{class_solver_wrapper}{Solver\+Wrapper}} essen
 \index{SolverWrapper$<$ SolutionVectorType, RHSVectorType, MatrixType, SparsityPatternType $>$@{SolverWrapper$<$ SolutionVectorType, RHSVectorType, MatrixType, SparsityPatternType $>$}!solve@{solve}}
 \index{solve@{solve}!SolverWrapper$<$ SolutionVectorType, RHSVectorType, MatrixType, SparsityPatternType $>$@{SolverWrapper$<$ SolutionVectorType, RHSVectorType, MatrixType, SparsityPatternType $>$}}
 \doxysubsubsection{\texorpdfstring{solve()}{solve()}}
-{\footnotesize\ttfamily template$<$class Solution\+Vector\+Type , class R\+H\+S\+Vector\+Type , class Matrix\+Type , class Sparsity\+Pattern\+Type $>$ \\
-virtual void \mbox{\hyperlink{class_solver_wrapper}{Solver\+Wrapper}}$<$ Solution\+Vector\+Type, R\+H\+S\+Vector\+Type, \textbf{ Matrix\+Type}, Sparsity\+Pattern\+Type $>$\+::solve (\begin{DoxyParamCaption}\item[{const \textbf{ Matrix\+Type} \&}]{K\+\_\+stretched,  }\item[{Solution\+Vector\+Type \&}]{solution,  }\item[{const R\+H\+S\+Vector\+Type \&}]{f\+\_\+stretched,  }\item[{const bool}]{symmetric }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily template$<$class Solution\+Vector\+Type , class RHSVector\+Type , class Matrix\+Type , class Sparsity\+Pattern\+Type $>$ \\
+virtual void \mbox{\hyperlink{class_solver_wrapper}{Solver\+Wrapper}}$<$ Solution\+Vector\+Type, RHSVector\+Type, Matrix\+Type, Sparsity\+Pattern\+Type $>$\+::solve (\begin{DoxyParamCaption}\item[{const Matrix\+Type \&}]{K\+\_\+stretched,  }\item[{Solution\+Vector\+Type \&}]{solution,  }\item[{const RHSVector\+Type \&}]{f\+\_\+stretched,  }\item[{const bool}]{symmetric }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 The solve function for the system of linear equations in the stretched form
 
@@ -85,7 +85,7 @@ The solve function for the system of linear equations in the stretched form
 \end{DoxyParams}
 
 
-Implemented in \mbox{\hyperlink{class_solver_wrapper_p_e_t_sc_iterative_ade08d6ee2dfb5a6900f99edd8d12fd86}{Solver\+Wrapper\+P\+E\+T\+Sc\+Iterative}}, \mbox{\hyperlink{class_solver_wrapper_p_e_t_sc_a0b4a570ebbfba3dd2fcf116b3f32948b}{Solver\+Wrapper\+P\+E\+T\+Sc}}, and \mbox{\hyperlink{class_solver_wrapper_u_m_f_p_a_c_k_a68f5e2055270d172a4ffdf4a8a4f536e}{Solver\+Wrapper\+U\+M\+F\+P\+A\+CK}}.
+Implemented in \mbox{\hyperlink{class_solver_wrapper_p_e_t_sc_iterative_ade08d6ee2dfb5a6900f99edd8d12fd86}{Solver\+Wrapper\+PETSc\+Iterative}}, \mbox{\hyperlink{class_solver_wrapper_p_e_t_sc_a0b4a570ebbfba3dd2fcf116b3f32948b}{Solver\+Wrapper\+PETSc}}, \mbox{\hyperlink{class_solver_wrapper_m_u_m_p_s_ab76c71fc7d8c8f0d7c796bc78e5bdb37}{Solver\+Wrapper\+MUMPS}}, and \mbox{\hyperlink{class_solver_wrapper_u_m_f_p_a_c_k_a68f5e2055270d172a4ffdf4a8a4f536e}{Solver\+Wrapper\+UMFPACK}}.
 
 
 
