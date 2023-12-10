@@ -950,10 +950,13 @@ SolverWrapperMUMPS::factorize_matrix()
 
 void
 SolverWrapperMUMPS::vmult(	Vector<double>& 		x,
-							const Vector<double>&	f )
+							const Vector<double>&	f,
+							const unsigned int		N_rhs)
 {
 	x = f;
 	id.rhs = x.data();
+	id.nrhs = N_rhs;
+	id.lrhs = id.n;
 
 	id.job = 3;
 	dmumps_c(&id);

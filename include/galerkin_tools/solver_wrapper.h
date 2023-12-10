@@ -585,13 +585,15 @@ public:
 	 * Multiply the inverse of A by @p f and store the result into @p x. I.e., solve Ax=f for x.
 	 * This uses the factors computed by BlockSolverWrapperMUMPS::factorize_matrix().
 	 *
-	 * @param[out]	x	solution
-	 * @param[in]	f	rhs
+	 * @param[out]	x		solution
+	 * @param[in]	f		rhs
+	 * @param[in]	N_rhs	number of right hand sides (consecutively stored in x and f)
 	 */
 	virtual
 	void
 	vmult(	Vector<double>& 		x,
-			const Vector<double>&	f);
+			const Vector<double>&	f,
+			const unsigned int		N_rhs = 1);
 
 	/**
 	 * The main data structure of MUMPS
@@ -879,12 +881,6 @@ class BlockSolverWrapperUMFPACK2 : public SolverWrapper<dealii::Vector<double>, 
 private:
 
 	/**
-	 * Control array for the solver routines.
-	 */
-	std::vector<double>
-	control = std::vector<double>(UMFPACK_CONTROL);
-
-	/**
 	 * Info array for the solver routines.
 	 */
 	std::vector<double>
@@ -926,6 +922,9 @@ private:
 	std::vector<double>
 	Ax;
 
+
+public:
+
 	/**
 	 * Sets the data structures storing the matrix up (BlockSolverWrapperUMFPACK2::Ap, BlockSolverWrapperUMFPACK2::Ai, BlockSolverWrapperUMFPACK2::Ax).
 	 *
@@ -960,12 +959,17 @@ private:
 	vmult(	Vector<double>& 		x,
 			const Vector<double>&	f);
 
-public:
 
 	/**
 	 * Destructor.
 	 */
 	~BlockSolverWrapperUMFPACK2();
+
+	/**
+	 * Control array for the solver routines.
+	 */
+	std::vector<double>
+	control = std::vector<double>(UMFPACK_CONTROL);
 
 	/**
 	 * Key indicating when to analyze the matrix structure:<br>
