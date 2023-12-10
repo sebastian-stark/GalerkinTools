@@ -1,28 +1,32 @@
 #######################################################################
 #                                                                     #
-# CMake script for configuration of galerkin_tools library            #
+# CMake script for configuration of GalerkinTools library             #
 #                                                                     #
 # Usage: cmake -DCMAKE_INSTALL_PREFIX=/installation/path /source/path #
 #                                                                     #
 #######################################################################
 
-CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
-PROJECT(galerkin_tools VERSION 1.0.0)
+# This may run with older versions, it is not tested however
+cmake_minimum_required(VERSION 3.16)
+
+project(galerkin_tools VERSION 0.1.0
+                      DESCRIPTION "A set of tools based on deal.II for automatic assembly of finite element systems using the Galerkin method"
+                      LANGUAGES CXX)
 
 #locate deal.II
-FIND_PACKAGE(deal.II 9.1.0 QUIET
+FIND_PACKAGE(deal.II 9.4.0 QUIET
   HINTS ${deal.II_DIR} ${DEAL_II_DIR} ../ ../../ $ENV{DEAL_II_DIR}
   )
 IF(NOT ${deal.II_FOUND})
   MESSAGE(FATAL_ERROR "\n"
     "*** Could not locate a (sufficiently recent) version of deal.II. ***\n\n"
+    "The version of deal.II required is 9.4.0. Higher versions may work. However, they are not tested yet.\n"
     "You may want to either pass a flag -DDEAL_II_DIR=/path/to/deal.II to cmake\n"
     "or set an environment variable \"DEAL_II_DIR\" that contains this path."
     )
 ENDIF()
 
 #define paths for installation of libraries and headers of library galerkin_tools
-INCLUDE(GNUInstallDirs)
 SET(GALERKIN_TOOLS_INSTALL_PATH_LIBRARIES ${CMAKE_INSTALL_PREFIX}/lib)
 SET(GALERKIN_TOOLS_INSTALL_PATH_HEADERS ${CMAKE_INSTALL_PREFIX}/include)
 
@@ -49,7 +53,7 @@ GET_PROPERTY(GALERKIN_TOOLS_LINK_FLAGS_RELEASE GLOBAL PROPERTY GALERKIN_TOOLS_LI
 INCLUDE_DIRECTORIES(${GALERKIN_TOOLS_INCLUDE_DIRECTORIES})
 SET(TEST_LIBRARIES_DEBUG ${GALERKIN_TOOLS_LIBRARIES_DEBUG})
 SET(TEST_LIBRARIES_RELEASE ${GALERKIN_TOOLS_LIBRARIES_RELEASE})
-#set compile and link flags
+#set compile and link flags (use those of deal.II)
 SET(DEAL_II_CXX_FLAGS "")
 SET(DEAL_II_USER_DEFINITIONS "")
 SET(DEAL_II_LINKER_FLAGS "")

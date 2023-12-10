@@ -21,6 +21,8 @@
 
 #include <math.h>
 #include <fstream>
+#include <limits>
+#include <functional>
 
 #include <deal.II/numerics/data_out.h>
 #include <deal.II/dofs/dof_tools.h>
@@ -533,9 +535,9 @@ pout(cout, this_proc == 0)
 			}
 			for(const auto independent_field : independent_fields_domain_check_scalar_functional)
 			{
-				if(independent_field->is_local)
+				if(independent_field->is_locally_eliminated)
 				{
-					Assert(independent_fields_domain_check.find(independent_field) == independent_fields_domain_check.end(), ExcMessage("A local independent field can enter only a single scalar functional!"));
+					Assert(independent_fields_domain_check.find(independent_field) == independent_fields_domain_check.end(), ExcMessage("A locally eliminated independent field can enter only a single scalar functional!"));
 					independent_fields_domain_check.insert(independent_field);
 				}
 			}
@@ -554,9 +556,9 @@ pout(cout, this_proc == 0)
 			}
 			for(const auto independent_field : independent_fields_interface_check_scalar_functional)
 			{
-				if(independent_field->is_local)
+				if(independent_field->is_locally_eliminated)
 				{
-					Assert(independent_fields_interface_check.find(independent_field) == independent_fields_interface_check.end(), ExcMessage("A local independent field can enter only a single scalar functional!"));
+					Assert(independent_fields_interface_check.find(independent_field) == independent_fields_interface_check.end(), ExcMessage("A locally eliminated independent field can enter only a single scalar functional!"));
 					independent_fields_interface_check.insert(independent_field);
 				}
 			}
@@ -698,30 +700,36 @@ pout(cout, this_proc == 0)
 		}
 	}
 
-/****************************************************************************************
- * converting the dependent field definitions into a format suitable 					*
- * for assembly of the finite element system                         					*
- * member variables initialized: coupled_dof_indices_scalar_functionals_domain			*
- *								 coupled_dof_indices_scalar_functionals_interface		*
- *								 coupled_dof_indices_scalar_functionals_interface_minus	*
- *								 coupled_dof_indices_scalar_functionals_interface_plus	*
- *								 coupled_C_indices_scalar_functionals_domain			*
- *								 coupled_C_indices_scalar_functionals_interface			*
- *								 a_omega												*
- *								 b_omega												*
- *								 c_omega												*
- *								 d_omega												*
- *								 a_sigma												*
- *								 b_sigma												*
- *								 a_minus												*
- *								 b_minus												*
- *								 a_plus													*
- *								 b_plus													*
- *								 c_sigma												*
- *								 d_sigma												*
- ****************************************************************************************/
+/****************************************************************************************************
+ * converting the dependent field definitions into a format suitable 								*
+ * for assembly of the finite element system                         								*
+ * member variables initialized: coupled_dof_indices_scalar_functionals_domain						*
+ * 								 coupled_dof_indices_scalar_functionals_domain_not_local			*
+ * 								 coupled_dof_indices_scalar_functionals_domain_local				*
+ * 								 coupled_dof_indices_scalar_functionals_domain_locally_eliminated	*
+ * 								 has_local_locally_eliminated_dofs_domain							*
+ * 								 correspondence_e_omega_locally_eliminated							*
+ *								 coupled_dof_indices_scalar_functionals_interface					*
+ *								 coupled_dof_indices_scalar_functionals_interface_minus				*
+ *								 coupled_dof_indices_scalar_functionals_interface_plus				*
+ *								 coupled_C_indices_scalar_functionals_domain						*
+ *								 coupled_C_indices_scalar_functionals_interface						*
+ *								 a_omega															*
+ *								 b_omega															*
+ *								 c_omega															*
+ *								 d_omega															*
+ *								 a_sigma															*
+ *								 b_sigma															*
+ *								 a_minus															*
+ *								 b_minus															*
+ *								 a_plus																*
+ *								 b_plus																*
+ *								 c_sigma															*
+ *								 d_sigma															*
+ ****************************************************************************************************/
 
 	convert_dependent_fields_to_shapefunctions();
+
 
 /*****************************************************************************************************
  * distribute dof's and make sure that dof's are redistributed after any change of the triangulation *
@@ -771,6 +779,16 @@ AssemblyHelper<spacedim>::~AssemblyHelper()
 }
 
 template<unsigned int spacedim>
+struct PointComparator
+{
+	bool operator()(const Point<spacedim>& p1, const Point<spacedim>& p2)
+	const
+	{
+	    return make_tuple(spacedim < 1 ? 0.0 : p1[0], spacedim < 2 ? 0.0 : p1[1], spacedim < 3 ? 0.0 : p1[2]) < make_tuple(spacedim < 1 ? 0.0 : p2[0], spacedim < 2 ? 0.0 : p2[1], spacedim < 3 ? 0.0 : p2[2]);
+    }
+};
+
+template<unsigned int spacedim>
 void
 AssemblyHelper<spacedim>::convert_dependent_fields_to_shapefunctions()
 {
@@ -787,10 +805,12 @@ AssemblyHelper<spacedim>::convert_dependent_fields_to_shapefunctions()
 	b_omega.resize(n_domain_portions);
 	c_omega.resize(n_domain_portions);
 	d_omega.resize(n_domain_portions);
-	e_omega_local.resize(n_domain_portions);
+	correspondence_e_omega_locally_eliminated.resize(n_domain_portions);
 	coupled_dof_indices_scalar_functionals_domain.resize(n_domain_portions);
 	coupled_dof_indices_scalar_functionals_domain_local.resize(n_domain_portions);
-	coupled_dof_indices_scalar_functionals_domain_nonlocal.resize(n_domain_portions);
+	coupled_dof_indices_scalar_functionals_domain_locally_eliminated.resize(n_domain_portions);
+	coupled_dof_indices_scalar_functionals_domain_not_local.resize(n_domain_portions);
+	has_local_locally_eliminated_dofs_domain.resize(n_domain_portions);
 	coupled_C_indices_scalar_functionals_domain.resize(n_domain_portions);
 
 	for(const auto& internal_index_material_id_n : internal_index_to_material_id_domain)
@@ -804,31 +824,29 @@ AssemblyHelper<spacedim>::convert_dependent_fields_to_shapefunctions()
 		b_omega[internal_index].resize(n_scalar_functionals);
 		c_omega[internal_index].resize(n_scalar_functionals);
 		d_omega[internal_index].resize(n_scalar_functionals);
-		e_omega_local[internal_index].resize(n_scalar_functionals);
+		correspondence_e_omega_locally_eliminated[internal_index].resize(n_scalar_functionals);
 
 		for(unsigned int scalar_functional_n = 0; scalar_functional_n < n_scalar_functionals; ++scalar_functional_n)
 		{
-			set<unsigned int> coupled_dofs_omega, coupled_dofs_omega_local, coupled_dofs_omega_nonlocal, coupled_dofs_C;
+			set<unsigned int> coupled_dofs_omega, coupled_dofs_omega_local, coupled_dofs_omega_locally_eliminated, coupled_dofs_omega_not_local, coupled_dofs_C;
 			const unsigned int n_dependent_fields = scalar_functionals_domain[internal_index][scalar_functional_n]->e_omega.size();
 
 			a_omega[internal_index][scalar_functional_n].resize(n_dependent_fields);
 			b_omega[internal_index][scalar_functional_n].resize(n_dependent_fields);
 			c_omega[internal_index][scalar_functional_n].resize(n_dependent_fields);
 			d_omega[internal_index][scalar_functional_n].resize(n_dependent_fields);
-			e_omega_local[internal_index][scalar_functional_n].resize(n_dependent_fields);
 
 			for(unsigned int dependent_field_n = 0; dependent_field_n < n_dependent_fields; ++dependent_field_n)
 			{
 				//a_omega and b_omega
 				const auto& terms_domain = scalar_functionals_domain[internal_index][scalar_functional_n]->e_omega[dependent_field_n].get_terms_domain();
-				const auto is_locally_eliminated = scalar_functionals_domain[internal_index][scalar_functional_n]->e_omega[dependent_field_n].get_is_locally_eliminated();
-				map<unsigned int, const double> a_;
+				map<unsigned int, const tuple<double,bool,bool>> a_;
 				map<pair<const unsigned int, const unsigned int>, const double> b_;
 				for(const auto& term : terms_domain)
 				{
 					const unsigned int global_component_index = global_component_indices_u_omega.at(term.independent_field) + term.component;
 					if(term.n_derivatives() == 0)
-						a_.insert(make_pair(global_component_index, term.coefficient));
+						a_.insert(make_pair(global_component_index, make_tuple(term.coefficient, term.independent_field->is_local, term.independent_field->is_locally_eliminated)));
 					else if(term.n_derivatives() == 1)
 						b_.insert(make_pair(make_pair(global_component_index, term.derivatives[0]), term.coefficient));
 					else
@@ -837,16 +855,18 @@ AssemblyHelper<spacedim>::convert_dependent_fields_to_shapefunctions()
 
 				for(const auto& term_a_n : a_)
 				{
-					a_omega[internal_index][scalar_functional_n][dependent_field_n].push_back(make_tuple(term_a_n.second, term_a_n.first, vector<unsigned int>()));
+					a_omega[internal_index][scalar_functional_n][dependent_field_n].push_back(make_tuple(get<0>(term_a_n.second), term_a_n.first, vector<unsigned int>()));
 					const auto& shapefuns = components_to_shapefuns_domain[fe_system_id][term_a_n.first];
 					for(unsigned int shapefun_n = 0; shapefun_n < shapefuns.size(); ++shapefun_n)
 					{
 						get<2>(a_omega[internal_index][scalar_functional_n][dependent_field_n].back()).push_back(shapefuns[shapefun_n]);
 						coupled_dofs_omega.insert(shapefuns[shapefun_n]);
-						if(is_locally_eliminated)
+						if(get<2>(term_a_n.second))
+							coupled_dofs_omega_locally_eliminated.insert(shapefuns[shapefun_n]);
+						else if(get<1>(term_a_n.second))
 							coupled_dofs_omega_local.insert(shapefuns[shapefun_n]);
-						else
-							coupled_dofs_omega_nonlocal.insert(shapefuns[shapefun_n]);
+						if(!get<1>(term_a_n.second) && !get<2>(term_a_n.second))
+							coupled_dofs_omega_not_local.insert(shapefuns[shapefun_n]);
 					}
 				}
 				for(const auto& term_b_n : b_)
@@ -857,10 +877,7 @@ AssemblyHelper<spacedim>::convert_dependent_fields_to_shapefunctions()
 					{
 						get<3>(b_omega[internal_index][scalar_functional_n][dependent_field_n].back()).push_back(shapefuns[shapefun_n]);
 						coupled_dofs_omega.insert(shapefuns[shapefun_n]);
-						if(is_locally_eliminated)
-							coupled_dofs_omega_local.insert(shapefuns[shapefun_n]);
-						else
-							coupled_dofs_omega_nonlocal.insert(shapefuns[shapefun_n]);
+						coupled_dofs_omega_not_local.insert(shapefuns[shapefun_n]);
 					}
 				}
 
@@ -880,23 +897,55 @@ AssemblyHelper<spacedim>::convert_dependent_fields_to_shapefunctions()
 
 				//d_omega
 				d_omega[internal_index][scalar_functional_n][dependent_field_n] = scalar_functionals_domain[internal_index][scalar_functional_n]->e_omega[dependent_field_n].get_constant();
-				e_omega_local[internal_index][scalar_functional_n][dependent_field_n] = scalar_functionals_domain[internal_index][scalar_functional_n]->e_omega[dependent_field_n].get_is_locally_eliminated();
 			}
 
 			//set up coupled_dof_indices_scalar_functionals_domain (and, for temporary use, the inverse thereof)
 			coupled_dof_indices_scalar_functionals_domain[internal_index].resize(n_scalar_functionals);
 			coupled_dof_indices_scalar_functionals_domain_local[internal_index].resize(n_scalar_functionals);
-			coupled_dof_indices_scalar_functionals_domain_nonlocal[internal_index].resize(n_scalar_functionals);
+			coupled_dof_indices_scalar_functionals_domain_locally_eliminated[internal_index].resize(n_scalar_functionals);
+			coupled_dof_indices_scalar_functionals_domain_not_local[internal_index].resize(n_scalar_functionals);
+			has_local_locally_eliminated_dofs_domain[internal_index].resize(n_scalar_functionals);
 			map<unsigned int, unsigned int>  dof_indices_cell_to_dof_indices_scalar_functional_domain;
 			for(const auto& coupled_dof_n : coupled_dofs_omega)
 			{
 				coupled_dof_indices_scalar_functionals_domain[internal_index][scalar_functional_n].push_back(coupled_dof_n);
-				dof_indices_cell_to_dof_indices_scalar_functional_domain[coupled_dof_n]=coupled_dof_indices_scalar_functionals_domain[internal_index][scalar_functional_n].size()-1;
+				dof_indices_cell_to_dof_indices_scalar_functional_domain[coupled_dof_n] = coupled_dof_indices_scalar_functionals_domain[internal_index][scalar_functional_n].size()-1;
 			}
+
+			const auto scalar_functional = scalar_functionals_domain[internal_index][scalar_functional_n];
+			const auto& q_points = scalar_functional->quadrature.get_points();
+			map<Point<spacedim>, unsigned int, PointComparator<spacedim>> map_q_point_index;
+			for(unsigned int m = 0; m < q_points.size(); ++m)
+				map_q_point_index.insert(make_pair(q_points[m], m));
+			const auto& fe = fe_values_domain[internal_index][scalar_functional_n]->get_fe();
+			coupled_dof_indices_scalar_functionals_domain_local[internal_index][scalar_functional_n].resize(q_points.size());
+			coupled_dof_indices_scalar_functionals_domain_locally_eliminated[internal_index][scalar_functional_n].resize(q_points.size());
+			if(coupled_dofs_omega_local.size() > 0)
+				has_local_locally_eliminated_dofs_domain[internal_index][scalar_functional_n].first = true;
+			else
+				has_local_locally_eliminated_dofs_domain[internal_index][scalar_functional_n].first = false;
+			if(coupled_dofs_omega_locally_eliminated.size() > 0)
+				has_local_locally_eliminated_dofs_domain[internal_index][scalar_functional_n].second = true;
+			else
+				has_local_locally_eliminated_dofs_domain[internal_index][scalar_functional_n].second = false;
 			for(const auto& coupled_dof_n : coupled_dofs_omega_local)
-				coupled_dof_indices_scalar_functionals_domain_local[internal_index][scalar_functional_n].push_back(coupled_dof_n);
-			for(const auto& coupled_dof_n : coupled_dofs_omega_nonlocal)
-				coupled_dof_indices_scalar_functionals_domain_nonlocal[internal_index][scalar_functional_n].push_back(coupled_dof_n);
+			{
+				Assert((map_q_point_index.find(fe.unit_support_point(coupled_dof_n)) != map_q_point_index.end()), ExcMessage("Could not associate a local dof with a corresponding quadrature point!"));
+				coupled_dof_indices_scalar_functionals_domain_local[internal_index][scalar_functional_n][map_q_point_index[fe.unit_support_point(coupled_dof_n)]].first.push_back(coupled_dof_n);
+				coupled_dof_indices_scalar_functionals_domain_local[internal_index][scalar_functional_n][map_q_point_index[fe.unit_support_point(coupled_dof_n)]].second.push_back(dof_indices_cell_to_dof_indices_scalar_functional_domain[coupled_dof_n]);
+			}
+			for(const auto& coupled_dof_n : coupled_dofs_omega_locally_eliminated)
+			{
+				Assert((map_q_point_index.find(fe.unit_support_point(coupled_dof_n)) != map_q_point_index.end()), ExcMessage("Could not associate a locally eliminated dof with a corresponding quadrature point!"));
+				coupled_dof_indices_scalar_functionals_domain_locally_eliminated[internal_index][scalar_functional_n][map_q_point_index[fe.unit_support_point(coupled_dof_n)]].first.push_back(coupled_dof_n);
+				coupled_dof_indices_scalar_functionals_domain_locally_eliminated[internal_index][scalar_functional_n][map_q_point_index[fe.unit_support_point(coupled_dof_n)]].second.push_back(dof_indices_cell_to_dof_indices_scalar_functional_domain[coupled_dof_n]);
+			}
+
+			for(const auto& coupled_dof_n : coupled_dofs_omega_not_local)
+			{
+				coupled_dof_indices_scalar_functionals_domain_not_local[internal_index][scalar_functional_n].first.push_back(coupled_dof_n);
+				coupled_dof_indices_scalar_functionals_domain_not_local[internal_index][scalar_functional_n].second.push_back(dof_indices_cell_to_dof_indices_scalar_functional_domain[coupled_dof_n]);
+			}
 
 			//set up coupled_C_indices_scalar_functionals_domain (and, for temporary use, the inverse thereof)
 			coupled_C_indices_scalar_functionals_domain[internal_index].resize(n_scalar_functionals);
@@ -919,6 +968,47 @@ AssemblyHelper<spacedim>::convert_dependent_fields_to_shapefunctions()
 				for(auto& c_omega_n : c_omega[internal_index][scalar_functional_n][dependent_field_n])
 					get<1>(c_omega_n) = dof_indices_C_to_dof_indices_scalar_functional_domain[get<1>(c_omega_n)];
 			}
+
+			for(unsigned int dependent_field_n = 0; dependent_field_n < a_omega[internal_index][scalar_functional_n].size(); ++dependent_field_n)
+			{
+				if(scalar_functionals_domain[internal_index][scalar_functional_n]->e_omega[dependent_field_n].get_is_locally_eliminated())
+				{
+					Assert( (a_omega[internal_index][scalar_functional_n][dependent_field_n].size() == 1), ExcMessage("A locally eliminated dependent field can only contain a single term"));
+					for(unsigned int q = 0; q < q_points.size(); ++q)
+					{
+						unsigned int correspondence_counter = 0;
+						for(const auto dof_on_q_point : coupled_dof_indices_scalar_functionals_domain_locally_eliminated[internal_index][scalar_functional_n][q].second)
+						{
+							for(const auto dof_dependent_field : get<2>(a_omega[internal_index][scalar_functional_n][dependent_field_n][0]))
+							{
+								if(dof_on_q_point == dof_dependent_field)
+								{
+									correspondence_e_omega_locally_eliminated[internal_index][scalar_functional_n][dependent_field_n].push_back(dof_on_q_point);
+									correspondence_counter++;
+								}
+							}
+						}
+						Assert(correspondence_counter == 1, ExcMessage("There must be exactly one dof corresponding to a dependent field for each quadrature point"));
+					}
+				}
+			}
+/*			cout << "*** internal index " << internal_index << ", scalar functional " << scalar_functional_n << "(" << scalar_functionals_domain[internal_index][scalar_functional_n]->name << ") ***" << endl;
+			for(const auto df: correspondence_e_omega_locally_eliminated[internal_index][scalar_functional_n])
+			{
+				cout << "df " << df.first << endl;
+				for(const auto dof_index : df.second)
+					cout << "   " << dof_index << endl;
+			}
+			for(const auto t : coupled_dof_indices_scalar_functionals_domain_local[internal_index][scalar_functional_n])
+			{
+				cout << "  ";
+				for(unsigned int dof = 0; dof < t.second.size(); ++dof)
+				{
+					cout << t.second[dof] << "(" << t.first[dof] << ")"  << ", ";
+				}
+				cout << endl;
+			}*/
+
 		}
 	}
 
@@ -1167,7 +1257,6 @@ AssemblyHelper<spacedim>::convert_dependent_fields_to_shapefunctions()
 			}
 		}
 	}
-
 	return;
 }
 
@@ -1669,9 +1758,11 @@ const
 	unsigned int internal_index = 0;
 
 	//global dof indices coupling on the cell for a particular scalar functional
-	vector<unsigned int> dof_indices_global, dof_indices_global_local_fields;
-	dof_indices_global.reserve(fe_collection_domain.max_dofs_per_cell() + global_indices_C.size());
-	dof_indices_global_local_fields.reserve(fe_collection_domain.max_dofs_per_cell() + global_indices_C.size());
+	vector<unsigned int> coupled_dof_indices_not_local_global, coupled_dof_indices_locally_eliminated_global, coupled_dof_indices_local_global;
+	coupled_dof_indices_not_local_global.reserve(fe_collection_domain.max_dofs_per_cell() + global_indices_C.size());
+	coupled_dof_indices_locally_eliminated_global.reserve(fe_collection_domain.max_dofs_per_cell() + global_indices_C.size());
+	coupled_dof_indices_local_global.reserve(fe_collection_domain.max_dofs_per_cell() + global_indices_C.size());
+
 
 	//mapping between local dof indices and global ones (dof_indices_local_global[i] is the global dof index corresponding to the local dof index i)
 	vector<unsigned int> dof_indices_local_global;
@@ -1682,8 +1773,8 @@ const
 	dof_handler_system.get_dof_indices(dof_indices_local_global_C);
 
 	//global dof indices of C's for a particular scalar functional
-	vector<unsigned int> dof_indices_global_C;
-	dof_indices_global_C.reserve(global_indices_C.size());
+	vector<unsigned int> coupled_dof_indices_C_global;
+	coupled_dof_indices_C_global.reserve(global_indices_C.size());
 
 	//the actual loop over the cells
 	for(const auto& domain_cell : dof_handler_system.domain_active_iterators())
@@ -1705,34 +1796,45 @@ const
 			for(unsigned int scalar_functional_n = 0; scalar_functional_n < scalar_functionals_domain[internal_index].size(); ++scalar_functional_n)
 			{
 				//this contains the local dof indices coupling on the domain cell for the scalar functional under consideration
-				const auto& coupled_dof_indices_local = coupled_dof_indices_scalar_functionals_domain_nonlocal[internal_index][scalar_functional_n];
-				const auto& coupled_dof_indices_local_local_fields = coupled_dof_indices_scalar_functionals_domain_local[internal_index][scalar_functional_n];
+				const auto& coupled_dof_indices_not_local = coupled_dof_indices_scalar_functionals_domain_not_local[internal_index][scalar_functional_n].first;
 
 				//this contains the local C indices coupling on the domain cell for the scalar functional under consideration
-				const auto& coupled_dof_indices_local_C = coupled_C_indices_scalar_functionals_domain[internal_index][scalar_functional_n];
+				const auto& coupled_dof_indices_C = coupled_C_indices_scalar_functionals_domain[internal_index][scalar_functional_n];
 
 				//map the local dof indices to the global ones
-				Auxiliary::convert_local_indices_to_global_indices(coupled_dof_indices_local, dof_indices_global, dof_indices_local_global);
-				if(coupled_dof_indices_local_local_fields.size() > 0)
-					Auxiliary::convert_local_indices_to_global_indices(coupled_dof_indices_local_local_fields, dof_indices_global_local_fields, dof_indices_local_global);
-				Auxiliary::convert_local_indices_to_global_indices(coupled_dof_indices_local_C, dof_indices_global_C, dof_indices_local_global_C);
+				Auxiliary::convert_local_indices_to_global_indices(coupled_dof_indices_not_local, coupled_dof_indices_not_local_global, dof_indices_local_global);
+				Auxiliary::convert_local_indices_to_global_indices(coupled_dof_indices_C, coupled_dof_indices_C_global, dof_indices_local_global_C);
 
 				//append the global dof indices of the C's
-				if(coupled_dof_indices_local_C.size() > 0)
-					for(const auto& dof_index_global_C : dof_indices_global_C)
-						dof_indices_global.push_back(dof_index_global_C);
+				if(coupled_dof_indices_C.size() > 0)
+					for(const auto& dof_index_global_C : coupled_dof_indices_C_global)
+						coupled_dof_indices_not_local_global.push_back(dof_index_global_C);
 
 				//add the entries to the sparsity pattern
-				if(dof_indices_global.size() > 0)
-					constraints.add_entries_local_to_global(dof_indices_global, dsp_K, false);
+				if(coupled_dof_indices_not_local.size() > 0)
+					constraints.add_entries_local_to_global(coupled_dof_indices_not_local_global, dsp_K, false);
 
-				for(const auto& dof : dof_indices_global_local_fields)
-					dsp_K.add(dof, dof);
+				// add entries for local dofs
+				for(const auto& coupled_dof_indices_local_q_point : coupled_dof_indices_scalar_functionals_domain_local[internal_index][scalar_functional_n])
+				{
+					Auxiliary::convert_local_indices_to_global_indices(coupled_dof_indices_local_q_point.first, coupled_dof_indices_local_global, dof_indices_local_global);
+					constraints.add_entries_local_to_global(coupled_dof_indices_local_global, dsp_K, false);
+					constraints.add_entries_local_to_global(coupled_dof_indices_local_global, coupled_dof_indices_not_local_global, dsp_K, false);
+					constraints.add_entries_local_to_global(coupled_dof_indices_not_local_global, coupled_dof_indices_local_global, dsp_K, false);
+				}
+
+				// add entries for locally eliminated dofs
+				for(const auto& coupled_dof_indices_locally_eliminated_q_point : coupled_dof_indices_scalar_functionals_domain_locally_eliminated[internal_index][scalar_functional_n])
+				{
+					Auxiliary::convert_local_indices_to_global_indices(coupled_dof_indices_locally_eliminated_q_point.first, coupled_dof_indices_locally_eliminated_global, dof_indices_local_global);
+					for(const auto& dof : coupled_dof_indices_locally_eliminated_global)
+						dsp_K.add(dof, dof);
+				}
 
 				//if the scalar functional enters non-primitively in one or more of the contributions to the total potential
 				//set the respective entries in coupled_due_to_nonprimitivity to true (the entries will be added to the sparsity pattern later)
 				if(scalar_functionals_domain_nonprimitive_indices.find(scalar_functionals_domain[internal_index][scalar_functional_n]) != scalar_functionals_domain_nonprimitive_indices.end())
-					for(const auto& dof_index :  dof_indices_global)
+					for(const auto& dof_index :  coupled_dof_indices_not_local_global)
 						coupled_due_to_nonprimitivity.add_index(dof_index);
 			}
 		}
@@ -1747,7 +1849,8 @@ const
 																											numbers::invalid_material_id,
 																											numbers::invalid_material_id);
 	//global dof indices coupling on the interface cell for a particular scalar functional
-	dof_indices_global.reserve(fe_collection_interface.max_dofs_per_cell());
+	vector<unsigned int> coupled_dof_indices_global;
+	coupled_dof_indices_global.reserve(fe_collection_interface.max_dofs_per_cell());
 
 	//global dof indices coupling on - side for a particular scalar functional
 	vector<unsigned int> dof_indices_global_minus;
@@ -1776,7 +1879,7 @@ const
 	vector<unsigned int> dof_indices_plus_dof_indices_combined;
 	dof_indices_plus_dof_indices_combined.reserve(fe_collection_domain.max_dofs_per_cell());
 
-	//defined such that dof_indices_global_combined[dof_indices_C_dof_indices_combined[i]] = dof_indices_global_C[i]
+	//defined such that dof_indices_global_combined[dof_indices_C_dof_indices_combined[i]] = coupled_dof_indices_C_global[i]
 	vector<unsigned int> dof_indices_C_dof_indices_combined;
 	dof_indices_C_dof_indices_combined.reserve(global_indices_C.size());
 
@@ -1827,16 +1930,16 @@ const
 				const vector<unsigned int>& dof_indices_local_C = coupled_C_indices_scalar_functionals_interface[internal_index][scalar_functional_n];
 
 				//map the local dof indices to the global ones
-				Auxiliary::convert_local_indices_to_global_indices(coupled_dof_indices_local, dof_indices_global, dof_indices_local_global);
+				Auxiliary::convert_local_indices_to_global_indices(coupled_dof_indices_local, coupled_dof_indices_global, dof_indices_local_global);
 				Auxiliary::convert_local_indices_to_global_indices(coupled_dof_indices_local_minus, dof_indices_global_minus, dof_indices_local_global_minus);
 				Auxiliary::convert_local_indices_to_global_indices(coupled_dof_indices_local_plus, dof_indices_global_plus, dof_indices_local_global_plus);
-				Auxiliary::convert_local_indices_to_global_indices(dof_indices_local_C, dof_indices_global_C, dof_indices_local_global_C);
+				Auxiliary::convert_local_indices_to_global_indices(dof_indices_local_C, coupled_dof_indices_C_global, dof_indices_local_global_C);
 
 				//assemble combined dof indices
-				Auxiliary::combine_dof_indices(	dof_indices_global,
+				Auxiliary::combine_dof_indices(	coupled_dof_indices_global,
 												dof_indices_global_minus,
 												dof_indices_global_plus,
-												dof_indices_global_C,
+												coupled_dof_indices_C_global,
 												dof_indices_interface_dof_indices_combined,
 												dof_indices_minus_dof_indices_combined,
 												dof_indices_plus_dof_indices_combined,
@@ -2130,8 +2233,10 @@ const
 	unsigned int internal_index = 0;
 
 	//global dof indices coupling on the cell for a particular scalar functional
-	vector<unsigned int> dof_indices_global;
+	vector<unsigned int> dof_indices_global, dof_indices_global_red, local_dof_indices_global;
 	dof_indices_global.reserve(fe_collection_domain.max_dofs_per_cell() + global_indices_C.size());
+	dof_indices_global_red.reserve(fe_collection_domain.max_dofs_per_cell() + global_indices_C.size());
+	local_dof_indices_global.reserve(fe_collection_domain.max_dofs_per_cell() + global_indices_C.size());
 
 	//mapping between local dof indices and global ones (dof_indices_local_global[i] is the global dof index corresponding to the local dof index i)
 	vector<unsigned int> dof_indices_local_global;
@@ -2168,7 +2273,7 @@ const
 	vector<Vector<double>> e_omega_ref_sets(solution_ref_sets.size());
 
 	//matrix for derivatives of dependent variables w.r.t. local dof's
-	FullMatrix<double> de_omega_dsol_T;
+	FullMatrix<double> de_omega_dsol_T, de_omega_dsol_T_red, de_omega_dsol_local_T;
 
 	//value of a scalar functional
 	double h_omega;
@@ -2183,13 +2288,13 @@ const
 	FullMatrix<double> h_omega_2_de_omega_dsol_T;
 
 	//rhs contribution associated with a particular scalar functional on a cell
-	Vector<double> f_cell;
+	Vector<double> f_cell, f2;
 
 	//this dummy vector will be required during assembly to take the effect of constraint inhomogeneities into account
 	Vector<double> rhs_cell_dummy;
 
 	//system matrix contribution associated with a particular scalar functional on a cell
-	FullMatrix<double> K_cell;
+	FullMatrix<double> K_cell, K12, K21, K22;
 
 	//contribution of a particular scalar functional on a cell to the lower left block of the system matrix
 	//(these are the rows related to the handling of the scalar functionals entering the total potential non-primitively)
@@ -2198,14 +2303,6 @@ const
 	//contribution of a particular scalar functional on a cell to the upper right block of the system matrix
 	//(these are the columns related to the handling of the scalar functionals entering the total potential non-primitively)
 	FullMatrix<double> L_U_cell;
-
-	// local field elimination
-	vector<unsigned int> local_fields, nonlocal_fields;
-	vector<bool> is_local_field;
-	vector<unsigned int> set_local_fields;
-	FullMatrix<double> K_cell_red;
-	Vector<double> f_cell_red;
-	vector<unsigned int> dof_indices_global_red_nonlocal, dof_indices_global_red_local;
 
 	//the actual loop over the cells
 	for(const auto& domain_cell : dof_handler_system.domain_active_iterators())
@@ -2258,14 +2355,6 @@ const
 				for(const auto& dof_index_global_C : dof_indices_global_C)
 					dof_indices_global.push_back(dof_index_global_C);
 
-				//initialize F and K to correct size
-				//attention: F and K are not only assembled cell-wise, but also scalar functional wise,
-				//			 therefore, the initialization cannot be done outside this loop
-				if(assemble_rhs)
-					f_cell.reinit(dof_indices_global.size());
-				if(assemble_matrix)
-					K_cell.reinit(dof_indices_global.size(), dof_indices_global.size());
-
 				//get a pointer to the scalar functional under consideration and its nonprimitive_index and primitive_index
 				const auto scalar_functional = scalar_functionals_domain[internal_index][scalar_functional_n];
 				const auto index_pair = get_scalar_functional_indices(scalar_functional);
@@ -2280,58 +2369,41 @@ const
 				if(assemble_rhs)
 					h_omega_1.reinit(e_omega.size());
 				if(assemble_matrix)
-				{
 					h_omega_2.reinit(e_omega.size(), e_omega.size());
-					h_omega_2_de_omega_dsol_T.reinit(e_omega.size(), f_cell.size());
-				}
 
 				//get JxW values and quadrature points
 				const auto& JxW = fe_values_domain[internal_index][scalar_functional_n]->get_JxW_values();
 				const auto& q_points = fe_values_domain[internal_index][scalar_functional_n]->get_quadrature_points();
 
-				// check for presence of local fields
-				// TODO: Many of the information regarding the local fields can be gathered upfront!
-				is_local_field.resize(dof_indices_global.size());
-				for(auto is_local_field_ : is_local_field)
-					is_local_field_ = false;
-				set_local_fields.clear();
-				for(unsigned int e_omega_m = 0; e_omega_m < e_omega.size(); ++e_omega_m)
-				{
-					if(this->e_omega_local[internal_index][scalar_functional_n][e_omega_m])
-						set_local_fields.push_back(e_omega_m);
-				}
+				//initialize F and K to correct size
+				//attention: F and K are not only assembled cell-wise, but also scalar functional wise,
+				//			 therefore, the initialization cannot be done outside this loop
+				const unsigned int N_dofs_not_local = coupled_dof_indices_scalar_functionals_domain_not_local[internal_index][scalar_functional_n].first.size() + coupled_C_indices_scalar_functionals_domain[internal_index][scalar_functional_n].size();
+				if(assemble_rhs)
+					f_cell.reinit(N_dofs_not_local);
+				if(assemble_matrix)
+					K_cell.reinit(N_dofs_not_local, N_dofs_not_local);
 
+				// compute reduced set of non-local dofs in case there a local dofs
+				const bool has_local_dofs = has_local_locally_eliminated_dofs_domain[internal_index][scalar_functional_n].first;
+				const bool has_locally_eliminated_dofs = has_local_locally_eliminated_dofs_domain[internal_index][scalar_functional_n].second;
+				if(has_local_dofs || has_locally_eliminated_dofs)
+				{
+					dof_indices_global_red.resize(0);
+					for(const unsigned int dof : coupled_dof_indices_scalar_functionals_domain_not_local[internal_index][scalar_functional_n].second)
+						dof_indices_global_red.push_back(dof_indices_global[dof]);
+					for(const auto& dof_index_global_C : dof_indices_global_C)
+						dof_indices_global_red.push_back(dof_index_global_C);
+				}
 				if(nonprimitive_index > -1)
-					Assert( (set_local_fields.size() == 0), ExcMessage("Scalar functionals entering the total potential non-primitively cannot be associated with local dependent fields!"));
+					Assert( ((has_local_dofs == false) && (has_locally_eliminated_dofs == false)), ExcMessage("Scalar functionals entering the total potential non-primitively cannot be associated with local dependent or locally eliminated dependent fields!"));
+
 
 				//loop over integration points
 				for(unsigned int q_point = 0; q_point < scalar_functional->quadrature.size(); ++q_point)
 				{
 					//compute dependent variables
-					compute_e_omega(internal_index, scalar_functional_n, q_point, solution_local, solution_local_C, e_omega, de_omega_dsol_T, assemble_rhs || (set_local_fields.size() > 0));
-
-					// detect relation between local fields and corresponding dof indices
-					// this works as follows: it is assumed that quadrature points align with support points of the local independent fields and that local dependent fields always equal the corresponding dependent field
-					//                        -> de_omega_dsol_T is 1.0 for respective dofs
-					vector<unsigned int> local_field_indices;
-					for(const auto& local_field : set_local_fields)
-					{
-						for(unsigned int m = 0; m < dof_indices_global.size(); ++m)
-						{
-							if(fabs(de_omega_dsol_T(m, local_field)) > 0.5)
-							{
-								local_field_indices.push_back(m);
-								is_local_field[m] = true;
-#ifdef DEBUG
-								const Point<spacedim> unit_support_point = domain_cell->get_fe().unit_support_point(dof_indices_local[m]);
-								const Point<spacedim> quadrature_point = scalar_functional->quadrature.get_points()[q_point];
-								Assert(unit_support_point.distance(quadrature_point) < 1e-14, ExcMessage("Was not able to relate dependent fields locally to dof indices. This can be a bug or it may also be that the support points associated with a local independent field do not coincide with the corresponding quadrature points. Check that the quadrature scheme used is consistent with the support point locations of the finite element used for the local field."));
-#endif
-								break;
-							}
-						}
-					}
-					Assert(local_field_indices.size() == set_local_fields.size(), ExcMessage("Was not able to relate dependent fields locally to dof indices. This can be a bug or it may also be that the support points of a local independent field do not coincide with the corresponding quadrature points. Check that the quadrature scheme used is consistent with the support point locations of the finite element used for the local field."));
+					compute_e_omega(internal_index, scalar_functional_n, q_point, solution_local, solution_local_C, e_omega, de_omega_dsol_T, assemble_rhs);
 
 					//compute reference values of dependent variables
 					for(unsigned int ref_set=0; ref_set<solution_ref_sets.size(); ++ref_set)
@@ -2345,6 +2417,7 @@ const
 					const auto& x = q_points[q_point];
 
 					//evaluate the integrand of the scalar functional and its derivatives w.r.t. the independent variables
+					scalar_functional->set_q_point_id(domain_cell->id().to_string() + Utilities::to_string(q_point));
 					if(scalar_functional->get_h_omega(e_omega, e_omega_ref_sets, hidden_vars, x, h_omega, h_omega_1, h_omega_2, requested_quantities))
 						error = true;
 
@@ -2359,45 +2432,120 @@ const
 							h_omega_2 *= 2.0 * numbers::PI * x[0];
 					}
 
-#ifdef DEBUG
-					if(get<1>(requested_quantities))
-					{
-						for(const auto& local_field : set_local_fields)
-							Assert(h_omega_1[local_field] == 0.0, ExcMessage("The gradient of a scalar functional w.r.t. a local dependent field must always be 0.0!"));
-					}
-#endif
-
-					// write local solution of dependent fields
-					for(unsigned int m = 0; m < local_field_indices.size(); ++m)
-						(*local_solution)[ dof_indices_global[ local_field_indices[m] ] ] = e_omega[ set_local_fields[m] ];
-
 					//add contribution to the value of the scalar functional if it enters the total potential primitively
 					//(values of scalar functionals entering the total potential non-primitively have been computed earlier
 					// and need not be taken into account again)
 					if(compute_potential && (primitive_index > -1))
 						primitive_scalar_functionals_values[primitive_index] += JxW[q_point]*h_omega;
-
-					//add contributions to f_cell and K_cell
 					if(assemble_rhs)
-					{
 						h_omega_1 *= JxW[q_point];
-						de_omega_dsol_T.vmult(f_cell, h_omega_1, true);
-					}
 					if(assemble_matrix)
-					{
 						h_omega_2 *= JxW[q_point];
-						h_omega_2.mTmult(h_omega_2_de_omega_dsol_T, de_omega_dsol_T);
-						de_omega_dsol_T.mmult(K_cell, h_omega_2_de_omega_dsol_T, true);
+
+					// take care of locally eliminated fields
+					const auto& locally_eliminated_dof_indices = coupled_dof_indices_scalar_functionals_domain_locally_eliminated[internal_index][scalar_functional_n][q_point].second;
+					for(const auto& correspondence : correspondence_e_omega_locally_eliminated[internal_index][scalar_functional_n])
+						(*local_solution)[ dof_indices_global[ correspondence.second[q_point] ] ] = e_omega[correspondence.first];
+					if(assemble_rhs && assemble_matrix)
+					{
+						for(const auto dof : locally_eliminated_dof_indices)
+							K.add(dof_indices_global[dof], dof_indices_global[dof], 1.0);
+					}
+
+					// reduce de_omega_dsol_T to nonlocal fields if necessaryy
+					if(has_local_dofs || has_locally_eliminated_dofs)
+					{
+						const auto& not_local_dof_indices = coupled_dof_indices_scalar_functionals_domain_not_local[internal_index][scalar_functional_n].second;
+						de_omega_dsol_T_red.reinit(dof_indices_global_red.size(), e_omega.size());
+						for(unsigned int m = 0; m < not_local_dof_indices.size(); ++m)
+							for(unsigned int n = 0; n < e_omega.size(); ++n)
+								de_omega_dsol_T_red(m, n) =  de_omega_dsol_T(not_local_dof_indices[m], n);
+						for(unsigned int m = 0; m < dof_indices_global_C.size(); ++m)
+							for(unsigned int n = 0; n < e_omega.size(); ++n)
+								de_omega_dsol_T_red(dof_indices_global_red.size()-1-m, n) =  de_omega_dsol_T(dof_indices_global.size()-1-m, n);
+					}
+
+					// take care of local dofs
+					if(has_local_dofs)
+					{
+						const auto& local_dof_indices = coupled_dof_indices_scalar_functionals_domain_local[internal_index][scalar_functional_n][q_point].second;
+						de_omega_dsol_local_T.reinit(local_dof_indices.size(), e_omega.size());
+						local_dof_indices_global.resize(local_dof_indices.size());
+						for(unsigned int m = 0; m < local_dof_indices.size(); ++m)
+							local_dof_indices_global[m] = dof_indices_global[local_dof_indices[m]];
+						for(unsigned int m = 0; m < local_dof_indices.size(); ++m)
+							for(unsigned int n = 0; n < e_omega.size(); ++n)
+								de_omega_dsol_local_T(m, n) =  de_omega_dsol_T(local_dof_indices[m], n);
+						if(assemble_rhs)
+						{
+							f2.reinit(local_dof_indices_global.size());
+							de_omega_dsol_local_T.vmult(f2, h_omega_1);
+							f2 *= -dPi_dH_omega_H_sigma_primitive[primitive_index];
+							if(!assemble_matrix)
+								constraints.distribute_local_to_global(f2, local_dof_indices_global, f);
+						}
+						if(assemble_matrix)
+						{
+							K12.reinit(dof_indices_global_red.size(), local_dof_indices_global.size());
+							K21.reinit(local_dof_indices_global.size(), dof_indices_global_red.size());
+							K22.reinit(local_dof_indices_global.size(), local_dof_indices_global.size());
+
+							// K12
+							h_omega_2_de_omega_dsol_T.reinit(e_omega.size(), local_dof_indices_global.size());
+							h_omega_2.mTmult(h_omega_2_de_omega_dsol_T, de_omega_dsol_local_T);
+							if(N_dofs_not_local > 0)
+							{
+								de_omega_dsol_T_red.mmult(K12, h_omega_2_de_omega_dsol_T);
+								K12 *= dPi_dH_omega_H_sigma_primitive[primitive_index];
+								constraints.distribute_local_to_global(K12, dof_indices_global_red, local_dof_indices_global, K);
+							}
+
+							// K22
+							de_omega_dsol_local_T.mmult(K22, h_omega_2_de_omega_dsol_T);
+							K22 *= dPi_dH_omega_H_sigma_primitive[primitive_index];
+							constraints.distribute_local_to_global(K22, f2, local_dof_indices_global, K, f, false);
+
+							// K21
+							if(N_dofs_not_local > 0)
+							{
+								h_omega_2_de_omega_dsol_T.reinit(e_omega.size(), dof_indices_global_red.size());
+								h_omega_2.mTmult(h_omega_2_de_omega_dsol_T, de_omega_dsol_T_red);
+								de_omega_dsol_local_T.mmult(K21, h_omega_2_de_omega_dsol_T);
+								K21 *= dPi_dH_omega_H_sigma_primitive[primitive_index];
+								constraints.distribute_local_to_global(K21, local_dof_indices_global, dof_indices_global_red, K);
+							}
+
+							Assert(assemble_rhs, ExcMessage("If the matrix is assembled, it is always necessary to assemble the rhs as well!"));
+						}
+					}
+
+					if(N_dofs_not_local > 0)
+					{
+						//add contributions which are written cell-wise to f_cell and K_cell
+						if(assemble_rhs)
+						{
+							if(has_local_dofs || has_locally_eliminated_dofs)
+								de_omega_dsol_T_red.vmult(f_cell, h_omega_1, true);
+							else
+								de_omega_dsol_T.vmult(f_cell, h_omega_1, true);
+						}
+						if(assemble_matrix)
+						{
+							if(has_local_dofs || has_locally_eliminated_dofs)
+							{
+								h_omega_2_de_omega_dsol_T.reinit(e_omega.size(), dof_indices_global_red.size());
+								h_omega_2.mTmult(h_omega_2_de_omega_dsol_T, de_omega_dsol_T_red);
+								de_omega_dsol_T_red.mmult(K_cell, h_omega_2_de_omega_dsol_T, true);
+							}
+							else
+							{
+								h_omega_2_de_omega_dsol_T.reinit(e_omega.size(), dof_indices_global.size());
+								h_omega_2.mTmult(h_omega_2_de_omega_dsol_T, de_omega_dsol_T);
+								de_omega_dsol_T.mmult(K_cell, h_omega_2_de_omega_dsol_T, true);
+							}
+						}
 					}
 				}
-
-				scalar_functional->modify_K_cell_f_cell(domain_cell,
-														K_cell,
-														f_cell,
-														solution_local,
-														solution_local_C,
-														this->coupled_dof_indices_scalar_functionals_domain[internal_index][scalar_functional_n],
-														this->coupled_C_indices_scalar_functionals_domain[internal_index][scalar_functional_n]);
 
 				//additional work to do for scalar functionals entering the total potential non-primitively
 				//(lower left and upper right part of stretched system matrix)
@@ -2424,72 +2572,34 @@ const
 					constraints.distribute_local_to_global(rhs_cell_dummy, dof_indices_global, nonlinear_scalar_functional_indices, f, L_U_cell);
 				}
 
-				//scale rhs_cell and K_cell according to derivative of total potential contribution w.r.t. scalar functional
-				if(assemble_rhs)
+				if(N_dofs_not_local > 0)
 				{
-					if(nonprimitive_index>-1)
-						f_cell *= dPi_dH_omega_H_sigma_C_nonprimitive[nonprimitive_index];
-					else
-						f_cell *= dPi_dH_omega_H_sigma_primitive[primitive_index];
-				}
-				if(assemble_matrix)
-				{
-					if(nonprimitive_index>-1)
-						K_cell *= dPi_dH_omega_H_sigma_C_nonprimitive[nonprimitive_index];
-					else
-						K_cell *= dPi_dH_omega_H_sigma_primitive[primitive_index];
-				}
+					//scale rhs_cell and K_cell according to derivative of total potential contribution w.r.t. scalar functional
+					if(assemble_rhs)
+					{
+						if(nonprimitive_index>-1)
+							f_cell *= dPi_dH_omega_H_sigma_C_nonprimitive[nonprimitive_index];
+						else
+							f_cell *= dPi_dH_omega_H_sigma_primitive[primitive_index];
+					}
+					if(assemble_matrix)
+					{
+						if(nonprimitive_index>-1)
+							K_cell *= dPi_dH_omega_H_sigma_C_nonprimitive[nonprimitive_index];
+						else
+							K_cell *= dPi_dH_omega_H_sigma_primitive[primitive_index];
+					}
 
-				//rhs is negative of gradient
-				//(up to this point the contribution of the scalar functional on the cell to the gradient has been computed)
-				if(assemble_rhs)
+					//rhs is negative of gradient
+					//(up to this point the contribution of the scalar functional on the cell to the gradient has been computed)
+					if(assemble_rhs)
 					f_cell *= -1.0;
 
-				if(set_local_fields.size() > 0)
-				{
-					local_fields.clear();
-					nonlocal_fields.clear();
-					for(unsigned int m = 0; m < is_local_field.size(); ++ m)
-					{
-						if(is_local_field[m])
-							local_fields.push_back(m);
-						else
-							nonlocal_fields.push_back(m);
-					}
-					K_cell_red.reinit(nonlocal_fields.size(), nonlocal_fields.size(), false);
-					f_cell_red.reinit(nonlocal_fields.size(), false);
-					dof_indices_global_red_nonlocal.resize(nonlocal_fields.size());
-					dof_indices_global_red_local.resize(local_fields.size());
-					for(unsigned int m = 0; m < nonlocal_fields.size(); ++m)
-					{
-						dof_indices_global_red_nonlocal[m] = dof_indices_global[nonlocal_fields[m]];
-						f_cell_red[m] = f_cell[nonlocal_fields[m]];
-						for(unsigned int n = 0; n < nonlocal_fields.size(); ++n)
-							K_cell_red(m, n) = K_cell(nonlocal_fields[m], nonlocal_fields[n]);
-					}
-					for(unsigned int m = 0; m < local_fields.size(); ++m)
-						dof_indices_global_red_local[m] = dof_indices_global[local_fields[m]];
-
-				}
-
-				//distribute local contributions to global f and K
-				if(assemble_rhs && assemble_matrix)
-				{
-					if(set_local_fields.size() > 0)
-					{
-						constraints.distribute_local_to_global(K_cell_red, f_cell_red, dof_indices_global_red_nonlocal, K, f, false);
-						for(unsigned int m = 0; m < dof_indices_global_red_local.size(); ++m)
-							K.add(dof_indices_global_red_local[m], dof_indices_global_red_local[m], 1.0);
-					}
-					else
-						constraints.distribute_local_to_global(K_cell, f_cell, dof_indices_global, K, f, false);
-				}
-				else if(assemble_rhs)
-				{
-					if(set_local_fields.size() > 0)
-						constraints.distribute_local_to_global(f_cell_red, dof_indices_global_red_nonlocal, f);
-					else
-						constraints.distribute_local_to_global(f_cell, dof_indices_global, f);
+					//distribute local contributions to global f and K
+					if(assemble_rhs && assemble_matrix)
+						constraints.distribute_local_to_global(K_cell, f_cell, (has_local_dofs || has_locally_eliminated_dofs) ? dof_indices_global_red : dof_indices_global, K, f, false);
+					else if(assemble_rhs)
+						constraints.distribute_local_to_global(f_cell, (has_local_dofs || has_locally_eliminated_dofs) ? dof_indices_global_red : dof_indices_global, f);
 				}
 			}
 		}
@@ -2752,6 +2862,7 @@ const
 					const auto& n = normals[q_point];
 
 					//evaluate the integrand of the scalar functional and its derivatives w.r.t. the independent variables
+					scalar_functional->set_q_point_id(interface_cell_domain_cells.interface_cell->id().to_string() + Utilities::to_string(q_point));
 					if(scalar_functional->get_h_sigma(e_sigma, e_sigma_ref_sets, hidden_vars, x, n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities))
 						error = true;
 
@@ -2933,7 +3044,7 @@ const
 		}
 
 		//loop over the total potential contributions
-		for(const auto total_potential_contribution : total_potential.total_potential_contributions)
+		for(const auto& total_potential_contribution : total_potential.total_potential_contributions)
 		{
 			//only work to do if total_potential_contribution is primitive (the non-primitive contributions have been added in the very beginning)
 			if(total_potential_contribution->is_primitive)
@@ -2993,7 +3104,7 @@ const
 {
 
 	double max_step_local;
-	double max_step_global = DBL_MAX;
+	double max_step_global = numeric_limits<double>::max();
 
 	Assert( solution.size() == system_size(), ExcMessage("The solution vector has not the correct size!"));
 	for(const auto& solution_ref : solution_ref_sets)
@@ -4501,7 +4612,6 @@ const
 	return global_component_indices_u_omega.at(&u_omega);
 }
 
-
 template<unsigned int spacedim>
 unsigned int
 AssemblyHelper<spacedim>::get_u_sigma_global_component_index(const IndependentField<spacedim-1, spacedim>& u_sigma)
@@ -4749,6 +4859,15 @@ template<unsigned int spacedim>
 void
 AssemblyHelper<spacedim>::distribute_dofs()
 {
+	distribute_dofs(std::vector<unsigned int>(), std::vector<unsigned int>());
+}
+
+
+template<unsigned int spacedim>
+void
+AssemblyHelper<spacedim>::distribute_dofs(	const vector<unsigned int>& renumbering_domain,
+											const vector<unsigned int>& renumbering_interface)
+{
 	for(const auto& cell : dof_handler_system.domain_active_iterators())
 	{
 		if(cell->is_locally_owned())
@@ -4765,7 +4884,7 @@ AssemblyHelper<spacedim>::distribute_dofs()
 			interface_cell_domain_cell.interface_cell->set_active_fe_index(material_id_to_fe_system_id_interface[interface_cell_domain_cell.interface_cell->material_id()]);
 		}
 	}
-	dof_handler_system.distribute_dofs(fe_collection_domain, fe_collection_interface, C.size());
+	dof_handler_system.distribute_dofs(fe_collection_domain, fe_collection_interface, C.size(), renumbering_domain, renumbering_interface);
 }
 
 template<unsigned int spacedim>
@@ -5184,6 +5303,7 @@ const
 					const auto& x = q_points[q_point];
 
 					//evaluate the integrand of the scalar functional
+					scalar_functional->set_q_point_id(domain_cell->id().to_string() + Utilities::to_string(q_point));
 					if(scalar_functional->get_h_omega(e_omega, e_omega_ref_sets, hidden_vars, x, h_omega, h_omega_1, h_omega_2, requested_quantities))
 						error = true;
 
@@ -5427,6 +5547,7 @@ const
 					const auto& n = normals[q_point];
 
 					//evaluate the integrand of the scalar functional
+					scalar_functional->set_q_point_id(interface_cell_domain_cells.interface_cell->id().to_string() + Utilities::to_string(q_point));
 					if(scalar_functional->get_h_sigma(e_sigma, e_sigma_ref_sets, hidden_vars, x, n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities))
 						error = true;
 
@@ -5480,7 +5601,8 @@ void
 AssemblyHelper<spacedim>::call_scalar_functionals(	const VectorType&											solution,
 													const vector<const VectorType*>&							solution_ref_sets,
 													const set<const ScalarFunctional<spacedim, spacedim>*>&		scalar_functionals_domain_to_call,
-													const set<const ScalarFunctional<spacedim-1, spacedim>*>&	scalar_functionals_interface_to_call)
+													const set<const ScalarFunctional<spacedim-1, spacedim>*>&	scalar_functionals_interface_to_call,
+													const bool													call_all_functionals)
 const
 {
 
@@ -5571,7 +5693,7 @@ const
 			{
 
 				const auto scalar_functional = scalar_functionals_domain[internal_index][scalar_functional_n];
-				if(scalar_functionals_domain_to_call.find(scalar_functional) == scalar_functionals_domain_to_call.end())
+				if((!call_all_functionals) && (scalar_functionals_domain_to_call.find(scalar_functional) == scalar_functionals_domain_to_call.end()))
 					continue;
 
 				//this contains the local dof indices coupling on the domain cell for the scalar functional under consideration
@@ -5622,6 +5744,7 @@ const
 					//the location of the quadrature point in real space
 					const auto& x = q_points[q_point];
 
+					scalar_functional->set_q_point_id(domain_cell->id().to_string() + Utilities::to_string(q_point));
 					scalar_functional->get_h_omega(e_omega, e_omega_ref_sets, hidden_vars, x, h_omega, h_omega_1, h_omega_2, requested_quantities);
 
 					// take radial symmetry into account if requested
@@ -5757,7 +5880,7 @@ const
 			for(unsigned int scalar_functional_n = 0; scalar_functional_n < scalar_functionals_interface[internal_index].size(); ++scalar_functional_n)
 			{
 				const auto scalar_functional = scalar_functionals_interface[internal_index][scalar_functional_n];
-				if(scalar_functionals_interface_to_call.find(scalar_functional) == scalar_functionals_interface_to_call.end())
+				if((!call_all_functionals) && (scalar_functionals_interface_to_call.find(scalar_functional) == scalar_functionals_interface_to_call.end()))
 					continue;
 
 				//this contains the local dof indices coupling on the interface cell for the scalar functional under consideration
@@ -5856,6 +5979,7 @@ const
 					const auto& n = normals[q_point];
 
 					//evaluate the integrand of the scalar functional
+					scalar_functional->set_q_point_id(interface_cell_domain_cells.interface_cell->id().to_string() + Utilities::to_string(q_point));
 					scalar_functional->get_h_sigma(e_sigma, e_sigma_ref_sets, hidden_vars, x, n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities);
 
 					// take radial symmetry into account if requested
@@ -6004,7 +6128,8 @@ void
 AssemblyHelper<2>::call_scalar_functionals<Vector<double>>(	const Vector<double>&,
 															const vector<const Vector<double>*>&,
 															const set<const ScalarFunctional<2, 2>*>&,
-															const set<const ScalarFunctional<1, 2>*>&)
+															const set<const ScalarFunctional<1, 2>*>&,
+															const bool)
 const;
 
 template
@@ -6012,7 +6137,8 @@ void
 AssemblyHelper<3>::call_scalar_functionals<Vector<double>>(	const Vector<double>&,
 															const vector<const Vector<double>*>&,
 															const set<const ScalarFunctional<3, 3>*>&,
-															const set<const ScalarFunctional<2, 3>*>&)
+															const set<const ScalarFunctional<2, 3>*>&,
+															const bool)
 const;
 
 #ifdef DEAL_II_WITH_MPI
@@ -6021,7 +6147,8 @@ void
 AssemblyHelper<2>::call_scalar_functionals<LinearAlgebra::distributed::Vector<double>>(	const LinearAlgebra::distributed::Vector<double>&,
 																						const vector<const LinearAlgebra::distributed::Vector<double>*>&,
 																						const set<const ScalarFunctional<2, 2>*>&,
-																						const set<const ScalarFunctional<1, 2>*>&)
+																						const set<const ScalarFunctional<1, 2>*>&,
+																						const bool)
 const;
 
 template
@@ -6029,7 +6156,8 @@ void
 AssemblyHelper<3>::call_scalar_functionals<LinearAlgebra::distributed::Vector<double>>(	const LinearAlgebra::distributed::Vector<double>&,
 																						const vector<const LinearAlgebra::distributed::Vector<double>*>&,
 																						const set<const ScalarFunctional<3, 3>*>&,
-																						const set<const ScalarFunctional<2, 3>*>&)
+																						const set<const ScalarFunctional<2, 3>*>&,
+																						const bool)
 const;
 #endif // DEAL_II_WITH_MPI
 

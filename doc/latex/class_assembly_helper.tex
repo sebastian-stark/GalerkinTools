@@ -16,36 +16,38 @@ Collaboration diagram for Assembly\+Helper$<$ spacedim $>$\+:\nopagebreak
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_assembly_helper_ae164448dcc5e9e8d2849c354212d6df5}{Assembly\+Helper}} (const \mbox{\hyperlink{class_total_potential}{Total\+Potential}}$<$ spacedim $>$ \&\mbox{\hyperlink{class_assembly_helper_a748eed9d73b7437a4bf2dcd73108790b}{total\+\_\+potential}}, \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}}$<$ spacedim $>$ \&\mbox{\hyperlink{class_assembly_helper_add08a8a7bb9c9325fcc7d92bfce525d4}{tria\+\_\+system}}, const \textbf{ Mapping}$<$ spacedim, spacedim $>$ \&\mbox{\hyperlink{class_assembly_helper_a3fbb49461000dea8f64266f830709fad}{mapping\+\_\+domain}}, const \textbf{ Mapping}$<$ spacedim-\/1, spacedim $>$ \&\mbox{\hyperlink{class_assembly_helper_a055fde6217c18e62cd80188d0130c201}{mapping\+\_\+interface}}, const std\+::set$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$ $>$ \&independent\+\_\+scalars=std\+::set$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$ $>$())
+\mbox{\hyperlink{class_assembly_helper_ae164448dcc5e9e8d2849c354212d6df5}{Assembly\+Helper}} (const \mbox{\hyperlink{class_total_potential}{Total\+Potential}}$<$ spacedim $>$ \&\mbox{\hyperlink{class_assembly_helper_a748eed9d73b7437a4bf2dcd73108790b}{total\+\_\+potential}}, \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}}$<$ spacedim $>$ \&\mbox{\hyperlink{class_assembly_helper_add08a8a7bb9c9325fcc7d92bfce525d4}{tria\+\_\+system}}, const \textbf{ Mapping}$<$ spacedim, spacedim $>$ \&\mbox{\hyperlink{class_assembly_helper_a3fbb49461000dea8f64266f830709fad}{mapping\+\_\+domain}}, const \textbf{ Mapping}$<$ spacedim-\/1, spacedim $>$ \&\mbox{\hyperlink{class_assembly_helper_a055fde6217c18e62cd80188d0130c201}{mapping\+\_\+interface}}, const \textbf{ std\+::set}$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$ $>$ \&independent\+\_\+scalars=\textbf{ std\+::set}$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$ $>$())
 \item 
 \mbox{\hyperlink{class_assembly_helper_ac82eca7b04aedf772028c6ff77245e9b}{$\sim$\+Assembly\+Helper}} ()
 \end{DoxyCompactItemize}
 \begin{Indent}\textbf{ Methods for assembly of the finite element system}\par
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$class Vector\+Type $>$ }\\void \mbox{\hyperlink{class_assembly_helper_a4043c993c8902ad5d3045a13ed42e6f8}{get\+\_\+initial\+\_\+fields\+\_\+vector}} (\textbf{ Vector\+Type} \&initial\+\_\+fields, const Affine\+Constraints$<$ double $>$ $\ast$constraints=nullptr) const
+{\footnotesize template$<$class Vector\+Type $>$ }\\void \mbox{\hyperlink{class_assembly_helper_a4043c993c8902ad5d3045a13ed42e6f8}{get\+\_\+initial\+\_\+fields\+\_\+vector}} (Vector\+Type \&initial\+\_\+fields, const \textbf{ Affine\+Constraints}$<$ double $>$ $\ast$constraints=nullptr) const
 \item 
-void \mbox{\hyperlink{class_assembly_helper_a40e7eb10c5dbd5358597f38291b90d85}{make\+\_\+dirichlet\+\_\+constraints}} (Affine\+Constraints$<$ double $>$ \&constraint\+\_\+matrix, const std\+::vector$<$ const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ $\ast$ $>$ \&dirichlet\+\_\+constraints, const Affine\+Constraints$<$ double $>$ \&constraints\+\_\+ignore=Affine\+Constraints$<$ double $>$()) const
+void \mbox{\hyperlink{class_assembly_helper_a40e7eb10c5dbd5358597f38291b90d85}{make\+\_\+dirichlet\+\_\+constraints}} (\textbf{ Affine\+Constraints}$<$ double $>$ \&constraint\+\_\+matrix, const std\+::vector$<$ const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ $\ast$ $>$ \&dirichlet\+\_\+constraints, const \textbf{ Affine\+Constraints}$<$ double $>$ \&constraints\+\_\+ignore=\textbf{ Affine\+Constraints}$<$ double $>$()) const
 \item 
-void \mbox{\hyperlink{class_assembly_helper_a5b2d6681755428d4abfe718e54e3c322}{make\+\_\+dirichlet\+\_\+constraints}} (Affine\+Constraints$<$ double $>$ \&constraint\+\_\+matrix, const std\+::vector$<$ const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ $\ast$ $>$ \&dirichlet\+\_\+constraints, const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&point\+\_\+constraints\+\_\+omega, const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&point\+\_\+constraints\+\_\+sigma, const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ 0, spacedim $>$ $\ast$ $>$ \&point\+\_\+constraints\+\_\+C, const Affine\+Constraints$<$ double $>$ \&constraints\+\_\+ignore=Affine\+Constraints$<$ double $>$()) const
+void \mbox{\hyperlink{class_assembly_helper_a5b2d6681755428d4abfe718e54e3c322}{make\+\_\+dirichlet\+\_\+constraints}} (\textbf{ Affine\+Constraints}$<$ double $>$ \&constraint\+\_\+matrix, const std\+::vector$<$ const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ $\ast$ $>$ \&dirichlet\+\_\+constraints, const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&point\+\_\+constraints\+\_\+omega, const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&point\+\_\+constraints\+\_\+sigma, const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ 0, spacedim $>$ $\ast$ $>$ \&point\+\_\+constraints\+\_\+C, const \textbf{ Affine\+Constraints}$<$ double $>$ \&constraints\+\_\+ignore=\textbf{ Affine\+Constraints}$<$ double $>$()) const
 \item 
-{\footnotesize template$<$class Sparsity\+Pattern\+Type $>$ }\\void \mbox{\hyperlink{class_assembly_helper_a60a2aa2aa08149682feca02e458232d4}{generate\+\_\+sparsity\+\_\+pattern\+\_\+by\+\_\+simulation}} (Sparsity\+Pattern\+Type \&dsp\+\_\+K, const Affine\+Constraints$<$ double $>$ \&constraints) const
+{\footnotesize template$<$class Sparsity\+Pattern\+Type $>$ }\\void \mbox{\hyperlink{class_assembly_helper_a60a2aa2aa08149682feca02e458232d4}{generate\+\_\+sparsity\+\_\+pattern\+\_\+by\+\_\+simulation}} (Sparsity\+Pattern\+Type \&dsp\+\_\+K, const \textbf{ Affine\+Constraints}$<$ double $>$ \&constraints) const
 \item 
-{\footnotesize template$<$class Solution\+Vector\+Type , class R\+H\+S\+Vector\+Type , class Matrix\+Type $>$ }\\bool \mbox{\hyperlink{class_assembly_helper_a5146802e9d7d4bc5df7fe35909da3e44}{assemble\+\_\+system}} (const Solution\+Vector\+Type \&solution, const std\+::vector$<$ const Solution\+Vector\+Type $\ast$ $>$ solution\+\_\+ref\+\_\+sets, const Affine\+Constraints$<$ double $>$ \&constraints, double \&potential\+\_\+value, R\+H\+S\+Vector\+Type \&f, Matrix\+Type \&K, const std\+::tuple$<$ bool, bool, bool $>$ requested\+\_\+quantities=std\+::make\+\_\+tuple(true, true, true), std\+::map$<$ unsigned int, double $>$ $\ast$local\+\_\+solution=nullptr) const
+{\footnotesize template$<$class Solution\+Vector\+Type , class RHSVector\+Type , class Matrix\+Type $>$ }\\bool \mbox{\hyperlink{class_assembly_helper_a5146802e9d7d4bc5df7fe35909da3e44}{assemble\+\_\+system}} (const Solution\+Vector\+Type \&solution, const std\+::vector$<$ const Solution\+Vector\+Type $\ast$ $>$ solution\+\_\+ref\+\_\+sets, const \textbf{ Affine\+Constraints}$<$ double $>$ \&constraints, double \&potential\+\_\+value, RHSVector\+Type \&f, Matrix\+Type \&\textbf{ K}, const std\+::tuple$<$ bool, bool, bool $>$ requested\+\_\+quantities=std\+::make\+\_\+tuple(true, true, true), std\+::map$<$ unsigned int, double $>$ $\ast$local\+\_\+solution=nullptr) const
 \item 
-{\footnotesize template$<$class Vector\+Type $>$ }\\bool \mbox{\hyperlink{class_assembly_helper_acf6ef2dced66e223684e5df97182f428}{get\+\_\+nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values}} (const \textbf{ Vector\+Type} \&solution, const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$ solution\+\_\+ref\+\_\+sets, std\+::map$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim, spacedim $>$ $\ast$, double $>$ \&nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values\+\_\+domain, std\+::map$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim-\/1, spacedim $>$ $\ast$, double $>$ \&nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values\+\_\+interface) const
+{\footnotesize template$<$class Vector\+Type $>$ }\\bool \mbox{\hyperlink{class_assembly_helper_acf6ef2dced66e223684e5df97182f428}{get\+\_\+nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values}} (const Vector\+Type \&solution, const std\+::vector$<$ const Vector\+Type $\ast$ $>$ solution\+\_\+ref\+\_\+sets, std\+::map$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim, spacedim $>$ $\ast$, double $>$ \&nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values\+\_\+domain, std\+::map$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim-\/1, spacedim $>$ $\ast$, double $>$ \&nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values\+\_\+interface) const
 \item 
-{\footnotesize template$<$class Vector\+Type $>$ }\\void \mbox{\hyperlink{class_assembly_helper_a2940850798972b003cf33d37e705490e}{call\+\_\+scalar\+\_\+functionals}} (const \textbf{ Vector\+Type} \&solution, const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$ \&solution\+\_\+ref\+\_\+sets, const std\+::set$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&scalar\+\_\+functionals\+\_\+domain\+\_\+to\+\_\+call, const std\+::set$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&scalar\+\_\+functionals\+\_\+interface\+\_\+to\+\_\+call) const
+{\footnotesize template$<$class Vector\+Type $>$ }\\void \mbox{\hyperlink{class_assembly_helper_a60af8e484b7663e5fe5595a6e0e07693}{call\+\_\+scalar\+\_\+functionals}} (const Vector\+Type \&solution, const std\+::vector$<$ const Vector\+Type $\ast$ $>$ \&solution\+\_\+ref\+\_\+sets, const \textbf{ std\+::set}$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&scalar\+\_\+functionals\+\_\+domain\+\_\+to\+\_\+call, const \textbf{ std\+::set}$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&scalar\+\_\+functionals\+\_\+interface\+\_\+to\+\_\+call, const bool call\+\_\+all\+\_\+functionals=false) const
 \item 
-{\footnotesize template$<$class Vector\+Type $>$ }\\double \mbox{\hyperlink{class_assembly_helper_a310594206df2622027fdc48e84600bf7}{get\+\_\+maximum\+\_\+step\+\_\+length}} (const \textbf{ Vector\+Type} \&solution, const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$ solution\+\_\+ref\+\_\+sets, const \textbf{ Vector\+Type} \&delta\+\_\+solution) const
+{\footnotesize template$<$class Vector\+Type $>$ }\\double \mbox{\hyperlink{class_assembly_helper_a310594206df2622027fdc48e84600bf7}{get\+\_\+maximum\+\_\+step\+\_\+length}} (const Vector\+Type \&solution, const std\+::vector$<$ const Vector\+Type $\ast$ $>$ solution\+\_\+ref\+\_\+sets, const Vector\+Type \&delta\+\_\+solution) const
 \item 
-{\footnotesize template$<$class Vector\+Type $>$ }\\void \mbox{\hyperlink{class_assembly_helper_ac54f45f37a38426db1b5f85eccc7b3e9}{compare\+\_\+derivatives\+\_\+with\+\_\+numerical\+\_\+derivatives}} (const \textbf{ Vector\+Type} \&solution, const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$ solution\+\_\+ref\+\_\+sets, const std\+::string detailed\+\_\+printout\+\_\+file=\char`\"{}\char`\"{}, const double \textbf{ epsilon}=1\textbf{ e}-\/8) const
+{\footnotesize template$<$class Vector\+Type $>$ }\\void \mbox{\hyperlink{class_assembly_helper_ac54f45f37a38426db1b5f85eccc7b3e9}{compare\+\_\+derivatives\+\_\+with\+\_\+numerical\+\_\+derivatives}} (const Vector\+Type \&solution, const std\+::vector$<$ const Vector\+Type $\ast$ $>$ solution\+\_\+ref\+\_\+sets, const std\+::string detailed\+\_\+printout\+\_\+file=\char`\"{}\char`\"{}, const double \textbf{ epsilon}=1\textbf{ e}-\/8) const
+\item 
+void \mbox{\hyperlink{class_assembly_helper_af1d2938f5c1a40ace48bc86a0a91eb44}{distribute\+\_\+dofs}} (const std\+::vector$<$ unsigned int $>$ \&renumbering\+\_\+domain, const std\+::vector$<$ unsigned int $>$ \&renumbering\+\_\+interface)
 \end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}\textbf{ Methods for writing output}\par
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$class Vector\+Type $>$ }\\std\+::pair$<$ const std\+::string, const std\+::string $>$ \mbox{\hyperlink{class_assembly_helper_a6120d66724f518dcfcdc30a89df01c23}{write\+\_\+output\+\_\+independent\+\_\+fields}} (const \textbf{ Vector\+Type} \&solution, const std\+::string file\+\_\+name\+\_\+domain, const std\+::string file\+\_\+name\+\_\+interface, const unsigned int file\+\_\+index=0, const std\+::vector$<$ dealii\+::\+Smart\+Pointer$<$ const dealii\+::\+Data\+Postprocessor$<$ spacedim $>$$>$$>$ \&dp\+\_\+domain=std\+::vector$<$ dealii\+::\+Smart\+Pointer$<$ const dealii\+::\+Data\+Postprocessor$<$ spacedim $>$$>$$>$(), const std\+::vector$<$ dealii\+::\+Smart\+Pointer$<$ const dealii\+::\+Data\+Postprocessor$<$ spacedim $>$$>$$>$ \&dp\+\_\+interface=std\+::vector$<$ dealii\+::\+Smart\+Pointer$<$ const dealii\+::\+Data\+Postprocessor$<$ spacedim $>$$>$$>$(), const unsigned int n\+\_\+subdivisions=1) const
+{\footnotesize template$<$class Vector\+Type $>$ }\\std\+::pair$<$ const std\+::string, const std\+::string $>$ \mbox{\hyperlink{class_assembly_helper_a6120d66724f518dcfcdc30a89df01c23}{write\+\_\+output\+\_\+independent\+\_\+fields}} (const Vector\+Type \&solution, const std\+::string file\+\_\+name\+\_\+domain, const std\+::string file\+\_\+name\+\_\+interface, const unsigned int file\+\_\+index=0, const std\+::vector$<$ dealii\+::\+Smart\+Pointer$<$ const dealii\+::\+Data\+Postprocessor$<$ spacedim $>$$>$$>$ \&dp\+\_\+domain=std\+::vector$<$ dealii\+::\+Smart\+Pointer$<$ const dealii\+::\+Data\+Postprocessor$<$ spacedim $>$$>$$>$(), const std\+::vector$<$ dealii\+::\+Smart\+Pointer$<$ const dealii\+::\+Data\+Postprocessor$<$ spacedim $>$$>$$>$ \&dp\+\_\+interface=std\+::vector$<$ dealii\+::\+Smart\+Pointer$<$ const dealii\+::\+Data\+Postprocessor$<$ spacedim $>$$>$$>$(), const unsigned int n\+\_\+subdivisions=1) const
 \item 
 void \mbox{\hyperlink{class_assembly_helper_a6a6f8ff7c1a8910d84beb7761b5c821b}{print\+\_\+assembly\+\_\+helper\+\_\+definition}} (const bool detailed\+\_\+printout\+\_\+shapefuns=true) const
 \end{DoxyCompactItemize}
@@ -53,9 +55,9 @@ void \mbox{\hyperlink{class_assembly_helper_a6a6f8ff7c1a8910d84beb7761b5c821b}{p
 \begin{Indent}\textbf{ Methods for comparing solutions}\par
 {\em These methods are essentially intended for studies of the convergence behavior. Two types of methods are offered. The first allows comparison with a different numerical solution obtained on a differently refined mesh; and the second allows comparison with an analytical solution. }\begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$class Vector\+Type $>$ }\\std\+::pair$<$ const double, const double $>$ \mbox{\hyperlink{class_assembly_helper_a94bb821b6258eab0bb3a9046b6d9158a}{compute\+\_\+distance\+\_\+to\+\_\+other\+\_\+solution}} (const \textbf{ Vector\+Type} \&solution, const \textbf{ Vector\+Type} \&other\+\_\+solution, const \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$ \&other\+\_\+assembly\+\_\+helper, const \textbf{ Quadrature}$<$ spacedim $>$ quadrature\+\_\+domain, const \textbf{ Quadrature}$<$ spacedim-\/1 $>$ quadrature\+\_\+interface, const \textbf{ Vector\+Tools\+::\+Norm\+Type} norm\+\_\+type=Vector\+Tools\+::\+Norm\+Type\+::\+L2\+\_\+norm, const \textbf{ Component\+Mask} component\+\_\+mask\+\_\+domain=\textbf{ Component\+Mask}(), const \textbf{ Component\+Mask} component\+\_\+mask\+\_\+interface=\textbf{ Component\+Mask}(), const double exponent=2.\+0, const \textbf{ Vector}$<$ double $>$ scaling\+\_\+domain=\textbf{ dealii\+::\+Vector}$<$ double $>$(), const \textbf{ Vector}$<$ double $>$ scaling\+\_\+interface=\textbf{ dealii\+::\+Vector}$<$ double $>$()) const
+{\footnotesize template$<$class Vector\+Type $>$ }\\std\+::pair$<$ const double, const double $>$ \mbox{\hyperlink{class_assembly_helper_a94bb821b6258eab0bb3a9046b6d9158a}{compute\+\_\+distance\+\_\+to\+\_\+other\+\_\+solution}} (const Vector\+Type \&solution, const Vector\+Type \&other\+\_\+solution, const \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$ \&other\+\_\+assembly\+\_\+helper, const \textbf{ Quadrature}$<$ spacedim $>$ quadrature\+\_\+domain, const \textbf{ Quadrature}$<$ spacedim-\/1 $>$ quadrature\+\_\+interface, const \textbf{ Vector\+Tools\+::\+Norm\+Type} norm\+\_\+type=\textbf{ Vector\+Tools\+::\+Norm\+Type\+::\+L2\+\_\+norm}, const \textbf{ Component\+Mask} component\+\_\+mask\+\_\+domain=\textbf{ Component\+Mask}(), const \textbf{ Component\+Mask} component\+\_\+mask\+\_\+interface=\textbf{ Component\+Mask}(), const double exponent=2.\+0, const \textbf{ Vector}$<$ double $>$ scaling\+\_\+domain=\textbf{ dealii\+::\+Vector}$<$ double $>$(), const \textbf{ Vector}$<$ double $>$ scaling\+\_\+interface=\textbf{ dealii\+::\+Vector}$<$ double $>$()) const
 \item 
-{\footnotesize template$<$class Vector\+Type $>$ }\\std\+::pair$<$ const double, const double $>$ \mbox{\hyperlink{class_assembly_helper_a0e96514d9d023949eb07d95b5a2214c4}{compute\+\_\+distance\+\_\+to\+\_\+exact\+\_\+solution}} (const \textbf{ Vector\+Type} \&solution, const \textbf{ Function}$<$ spacedim $>$ \&exact\+\_\+solution\+\_\+domain, const \textbf{ Function}$<$ spacedim $>$ \&exact\+\_\+solution\+\_\+interface, const \textbf{ Quadrature}$<$ spacedim $>$ quadrature\+\_\+domain, const \textbf{ Quadrature}$<$ spacedim-\/1 $>$ quadrature\+\_\+interface, const \textbf{ Vector\+Tools\+::\+Norm\+Type} norm\+\_\+type=Vector\+Tools\+::\+Norm\+Type\+::\+L2\+\_\+norm, const \textbf{ Component\+Mask} component\+\_\+mask\+\_\+domain=\textbf{ Component\+Mask}(), const \textbf{ Component\+Mask} component\+\_\+mask\+\_\+interface=\textbf{ Component\+Mask}(), const double exponent=2.\+0) const
+{\footnotesize template$<$class Vector\+Type $>$ }\\std\+::pair$<$ const double, const double $>$ \mbox{\hyperlink{class_assembly_helper_a0e96514d9d023949eb07d95b5a2214c4}{compute\+\_\+distance\+\_\+to\+\_\+exact\+\_\+solution}} (const Vector\+Type \&solution, const \textbf{ Function}$<$ spacedim $>$ \&exact\+\_\+solution\+\_\+domain, const \textbf{ Function}$<$ spacedim $>$ \&exact\+\_\+solution\+\_\+interface, const \textbf{ Quadrature}$<$ spacedim $>$ quadrature\+\_\+domain, const \textbf{ Quadrature}$<$ spacedim-\/1 $>$ quadrature\+\_\+interface, const \textbf{ Vector\+Tools\+::\+Norm\+Type} norm\+\_\+type=\textbf{ Vector\+Tools\+::\+Norm\+Type\+::\+L2\+\_\+norm}, const \textbf{ Component\+Mask} component\+\_\+mask\+\_\+domain=\textbf{ Component\+Mask}(), const \textbf{ Component\+Mask} component\+\_\+mask\+\_\+interface=\textbf{ Component\+Mask}(), const double exponent=2.\+0) const
 \end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}\textbf{ Methods for querying information about the Assembly\+Helper object.}\par
@@ -65,9 +67,9 @@ const \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}}$<$ sp
 \item 
 \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}}$<$ spacedim $>$ \& \mbox{\hyperlink{class_assembly_helper_a16f9d21a79922d4879e37916b414f7d0}{get\+\_\+triangulation\+\_\+system}} ()
 \item 
-const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \& \mbox{\hyperlink{class_assembly_helper_a095623df46217c89ee8e786f6e8a3034}{get\+\_\+dof\+\_\+handler\+\_\+system}} () const
+const \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}$<$ spacedim $>$ \& \mbox{\hyperlink{class_assembly_helper_a095623df46217c89ee8e786f6e8a3034}{get\+\_\+dof\+\_\+handler\+\_\+system}} () const
 \item 
-\mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \& \mbox{\hyperlink{class_assembly_helper_a04523eef6062ced8c88d4c093b65df3d}{get\+\_\+dof\+\_\+handler\+\_\+system}} ()
+\mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}$<$ spacedim $>$ \& \mbox{\hyperlink{class_assembly_helper_a04523eef6062ced8c88d4c093b65df3d}{get\+\_\+dof\+\_\+handler\+\_\+system}} ()
 \item 
 std\+::map$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ $\ast$, const unsigned int $>$ \mbox{\hyperlink{class_assembly_helper_a39d6fed5b90cee2e2e972e294ececffb}{get\+\_\+u\+\_\+omega\+\_\+global\+\_\+component\+\_\+indices}} () const
 \item 
@@ -93,9 +95,9 @@ const std\+::vector$<$ \textbf{ Index\+Set} $>$ \mbox{\hyperlink{class_assembly_
 \item 
 const std\+::vector$<$ \textbf{ Index\+Set} $>$ \mbox{\hyperlink{class_assembly_helper_af1a81fd16e7692501189d9c0bd96bc2d}{get\+\_\+locally\+\_\+owned\+\_\+indices\+\_\+blocks}} () const
 \item 
-unsigned int \mbox{\hyperlink{class_assembly_helper_ad798d22d994c4c18a05503ae9db4b408}{get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+omega}} (const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ $\ast$\mbox{\hyperlink{class_assembly_helper_a1952a054a839a7a683ca108013e7d976}{u\+\_\+omega}}, const unsigned int component, const \textbf{ Point}$<$ spacedim $>$ p, const std\+::set$<$ unsigned int $>$ ignore\+\_\+dofs=std\+::set$<$ unsigned int $>$()) const
+unsigned int \mbox{\hyperlink{class_assembly_helper_ad798d22d994c4c18a05503ae9db4b408}{get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+omega}} (const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ $\ast$\mbox{\hyperlink{class_assembly_helper_a1952a054a839a7a683ca108013e7d976}{u\+\_\+omega}}, const unsigned int component, const \textbf{ Point}$<$ spacedim $>$ p, const \textbf{ std\+::set}$<$ unsigned int $>$ ignore\+\_\+dofs=\textbf{ std\+::set}$<$ unsigned int $>$()) const
 \item 
-unsigned int \mbox{\hyperlink{class_assembly_helper_a256dc4f0fc5c62f130d75734ea94249f}{get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+sigma}} (const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim-\/1, spacedim $>$ $\ast$\mbox{\hyperlink{class_assembly_helper_a696fe649b3503561235aa1ccbf2ddeef}{u\+\_\+sigma}}, const unsigned int component, const \textbf{ Point}$<$ spacedim $>$ p, const std\+::set$<$ unsigned int $>$ ignore\+\_\+dofs=std\+::set$<$ unsigned int $>$()) const
+unsigned int \mbox{\hyperlink{class_assembly_helper_a256dc4f0fc5c62f130d75734ea94249f}{get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+sigma}} (const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim-\/1, spacedim $>$ $\ast$\mbox{\hyperlink{class_assembly_helper_a696fe649b3503561235aa1ccbf2ddeef}{u\+\_\+sigma}}, const unsigned int component, const \textbf{ Point}$<$ spacedim $>$ p, const \textbf{ std\+::set}$<$ unsigned int $>$ ignore\+\_\+dofs=\textbf{ std\+::set}$<$ unsigned int $>$()) const
 \item 
 void \mbox{\hyperlink{class_assembly_helper_ab0dabb84cc4a0497dbeb73a9eec3071d}{print\+\_\+dof\+\_\+information}} (const unsigned int dof\+\_\+index) const
 \end{DoxyCompactItemize}
@@ -122,15 +124,15 @@ void \mbox{\hyperlink{class_assembly_helper_a1c187fbb8171d6a1ff2ff6344cb454ed}{i
 \item 
 void \mbox{\hyperlink{class_assembly_helper_a953859cc4cd745a1b51fdec5418be682}{distribute\+\_\+dofs}} ()
 \item 
-void \mbox{\hyperlink{class_assembly_helper_a95639ce05d10d6aa37ea6ae5962753e2}{initialize\+\_\+fe\+\_\+values\+\_\+domain}} (const typename \textbf{ Do\+F\+Handler}$<$ spacedim, spacedim $>$\+::\textbf{ active\+\_\+cell\+\_\+iterator} \&cell, const unsigned int internal\+\_\+index, const bool nonprimitive=false) const
+void \mbox{\hyperlink{class_assembly_helper_a95639ce05d10d6aa37ea6ae5962753e2}{initialize\+\_\+fe\+\_\+values\+\_\+domain}} (const typename \textbf{ Do\+FHandler}$<$ spacedim, spacedim $>$\+::active\+\_\+cell\+\_\+iterator \&cell, const unsigned int internal\+\_\+index, const bool nonprimitive=false) const
 \item 
 void \mbox{\hyperlink{class_assembly_helper_a223bbebe8a1f0aa09a53ee19257b927e}{initialize\+\_\+fe\+\_\+values\+\_\+interface}} (const \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$ \&interface\+\_\+cell\+\_\+domain\+\_\+cells, const unsigned int internal\+\_\+index, const bool nonprimitive=false) const
 \item 
-void \mbox{\hyperlink{class_assembly_helper_a5e29275d9ec1c479375707fbc670bc8c}{compute\+\_\+e\+\_\+omega}} (const unsigned int internal\+\_\+index, const unsigned int scalar\+\_\+functional\+\_\+index, const unsigned int q\+\_\+point, const \textbf{ Vector}$<$ double $>$ \&solution\+\_\+u\+\_\+omega, const \textbf{ Vector}$<$ double $>$ \&solution\+\_\+C, \textbf{ Vector}$<$ double $>$ \&e\+\_\+omega, \textbf{ Full\+Matrix}$<$ double $>$ \&de\+\_\+omega\+\_\+dsol\+\_\+T, const bool compute\+\_\+derivative=true, const bool ignore\+\_\+constants=false) const
+void \mbox{\hyperlink{class_assembly_helper_a5e29275d9ec1c479375707fbc670bc8c}{compute\+\_\+e\+\_\+omega}} (const unsigned int internal\+\_\+index, const unsigned int scalar\+\_\+functional\+\_\+index, const unsigned int q\+\_\+point, const \textbf{ Vector}$<$ double $>$ \&solution\+\_\+u\+\_\+omega, const \textbf{ Vector}$<$ double $>$ \&solution\+\_\+C, \textbf{ Vector}$<$ double $>$ \&e\+\_\+omega, \textbf{ Full\+Matrix}$<$ double $>$ \&de\+\_\+omega\+\_\+dsol\+\_\+T, const bool \textbf{ compute\+\_\+derivative}=true, const bool ignore\+\_\+constants=false) const
 \item 
-void \mbox{\hyperlink{class_assembly_helper_a1906ba80994e8bb136ccf466fd7611d5}{compute\+\_\+e\+\_\+sigma}} (const unsigned int internal\+\_\+index, const unsigned int scalar\+\_\+functional\+\_\+index, const unsigned int q\+\_\+point, const \textbf{ Vector}$<$ double $>$ \&solution\+\_\+u\+\_\+sigma, const \textbf{ Vector}$<$ double $>$ \&solution\+\_\+u\+\_\+omega\+\_\+minus, const \textbf{ Vector}$<$ double $>$ \&solution\+\_\+u\+\_\+omega\+\_\+plus, const \textbf{ Vector}$<$ double $>$ \&solution\+\_\+C, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+interface\+\_\+dof\+\_\+indices\+\_\+combined, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+minus\+\_\+dof\+\_\+indices\+\_\+combined, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+plus\+\_\+dof\+\_\+indices\+\_\+combined, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+\+C\+\_\+dof\+\_\+indices\+\_\+combined, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+combined, \textbf{ Vector}$<$ double $>$ \&e\+\_\+sigma, \textbf{ Full\+Matrix}$<$ double $>$ \&de\+\_\+sigma\+\_\+dsol\+\_\+T, const bool compute\+\_\+derivative=true, const bool ignore\+\_\+constants=false) const
+void \mbox{\hyperlink{class_assembly_helper_a1906ba80994e8bb136ccf466fd7611d5}{compute\+\_\+e\+\_\+sigma}} (const unsigned int internal\+\_\+index, const unsigned int scalar\+\_\+functional\+\_\+index, const unsigned int q\+\_\+point, const \textbf{ Vector}$<$ double $>$ \&solution\+\_\+u\+\_\+sigma, const \textbf{ Vector}$<$ double $>$ \&solution\+\_\+u\+\_\+omega\+\_\+minus, const \textbf{ Vector}$<$ double $>$ \&solution\+\_\+u\+\_\+omega\+\_\+plus, const \textbf{ Vector}$<$ double $>$ \&solution\+\_\+C, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+interface\+\_\+dof\+\_\+indices\+\_\+combined, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+minus\+\_\+dof\+\_\+indices\+\_\+combined, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+plus\+\_\+dof\+\_\+indices\+\_\+combined, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+\+C\+\_\+dof\+\_\+indices\+\_\+combined, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+combined, \textbf{ Vector}$<$ double $>$ \&e\+\_\+sigma, \textbf{ Full\+Matrix}$<$ double $>$ \&de\+\_\+sigma\+\_\+dsol\+\_\+T, const bool \textbf{ compute\+\_\+derivative}=true, const bool ignore\+\_\+constants=false) const
 \item 
-{\footnotesize template$<$class Vector\+Type $>$ }\\bool \mbox{\hyperlink{class_assembly_helper_abe88d8ccfd69bbfcfc56551c5c7d67e9}{get\+\_\+nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values}} (const \textbf{ Vector\+Type} \&solution, const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$ solution\+\_\+ref\+\_\+sets, \textbf{ Vector}$<$ double $>$ \&nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values) const
+{\footnotesize template$<$class Vector\+Type $>$ }\\bool \mbox{\hyperlink{class_assembly_helper_abe88d8ccfd69bbfcfc56551c5c7d67e9}{get\+\_\+nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values}} (const Vector\+Type \&solution, const std\+::vector$<$ const Vector\+Type $\ast$ $>$ solution\+\_\+ref\+\_\+sets, \textbf{ Vector}$<$ double $>$ \&nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values) const
 \item 
 std\+::pair$<$ const int, const int $>$ \mbox{\hyperlink{class_assembly_helper_a2778924ff66c8ad8695f0cd3da5ced9f}{get\+\_\+scalar\+\_\+functional\+\_\+indices}} (const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim, spacedim $>$ $\ast$scalar\+\_\+functional) const
 \item 
@@ -138,7 +140,7 @@ std\+::pair$<$ const int, const int $>$ \mbox{\hyperlink{class_assembly_helper_a
 \item 
 void \mbox{\hyperlink{class_assembly_helper_ae339631f070dbe766d84697cd9229134}{get\+\_\+dof\+\_\+indices\+\_\+C}} (std\+::vector$<$ unsigned int $>$ \&global\+\_\+dof\+\_\+indices\+\_\+C) const
 \item 
-void \mbox{\hyperlink{class_assembly_helper_a8a6d7a10dfa2b88ef6f2a974124b0ad5}{make\+\_\+dirichlet\+\_\+constraints\+\_\+recursion}} (const typename \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}}$<$ spacedim $>$\+::Domain\+Cell \&domain\+\_\+cell, const unsigned int face, const std\+::vector$<$ unsigned int $>$ \&shapefuns, const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ \&constraint, Affine\+Constraints$<$ double $>$ \&constraint\+\_\+matrix, const Affine\+Constraints$<$ double $>$ \&constraints\+\_\+ignore) const
+void \mbox{\hyperlink{class_assembly_helper_a8a6d7a10dfa2b88ef6f2a974124b0ad5}{make\+\_\+dirichlet\+\_\+constraints\+\_\+recursion}} (const typename \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}}$<$ spacedim $>$\+::Domain\+Cell \&domain\+\_\+cell, const unsigned int face, const std\+::vector$<$ unsigned int $>$ \&shapefuns, const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ \&constraint, \textbf{ Affine\+Constraints}$<$ double $>$ \&constraint\+\_\+matrix, const \textbf{ Affine\+Constraints}$<$ double $>$ \&constraints\+\_\+ignore) const
 \end{DoxyCompactItemize}
 \end{Indent}
 \doxysubsection*{Private Attributes}
@@ -163,17 +165,17 @@ std\+::map$<$ std\+::tuple$<$ const \textbf{ types\+::material\+\_\+id}, const \
 \end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}\textbf{ Finite elements and dof handling}\par
-{\em These members comprise the finite elements to be used on the respective domain and interface portions as well as the \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}} (which contains all dof information). }\begin{DoxyCompactItemize}
+{\em These members comprise the finite elements to be used on the respective domain and interface portions as well as the \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}} (which contains all dof information). }\begin{DoxyCompactItemize}
 \item 
-\textbf{ hp\+::\+F\+E\+Collection}$<$ spacedim, spacedim $>$ \mbox{\hyperlink{class_assembly_helper_af3803b0aad9853e6bf018c70be41e791}{fe\+\_\+collection\+\_\+domain}}
+\textbf{ hp\+::\+FECollection}$<$ spacedim, spacedim $>$ \mbox{\hyperlink{class_assembly_helper_af3803b0aad9853e6bf018c70be41e791}{fe\+\_\+collection\+\_\+domain}}
 \item 
-\textbf{ hp\+::\+F\+E\+Collection}$<$ spacedim-\/1, spacedim $>$ \mbox{\hyperlink{class_assembly_helper_a8b4d224a9ecd2e926a8860829874d2a1}{fe\+\_\+collection\+\_\+interface}}
+\textbf{ hp\+::\+FECollection}$<$ spacedim-\/1, spacedim $>$ \mbox{\hyperlink{class_assembly_helper_a8b4d224a9ecd2e926a8860829874d2a1}{fe\+\_\+collection\+\_\+interface}}
 \item 
 std\+::map$<$ \textbf{ types\+::material\+\_\+id}, unsigned int $>$ \mbox{\hyperlink{class_assembly_helper_a3045f80801fc31920efd161a268aae8e}{material\+\_\+id\+\_\+to\+\_\+fe\+\_\+system\+\_\+id\+\_\+domain}}
 \item 
 std\+::map$<$ \textbf{ types\+::material\+\_\+id}, unsigned int $>$ \mbox{\hyperlink{class_assembly_helper_a5fea54137e3c1c5a514e39c9b2ad7926}{material\+\_\+id\+\_\+to\+\_\+fe\+\_\+system\+\_\+id\+\_\+interface}}
 \item 
-\mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \mbox{\hyperlink{class_assembly_helper_a885e660c749e91a35e3279643ebcd87f}{dof\+\_\+handler\+\_\+system}}
+\mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}$<$ spacedim $>$ \mbox{\hyperlink{class_assembly_helper_a885e660c749e91a35e3279643ebcd87f}{dof\+\_\+handler\+\_\+system}}
 \end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}\textbf{ Members re-\/organizing Assembly\+Helper\+::total\+\_\+potential}\par
@@ -227,9 +229,15 @@ std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ unsigned int
 \item 
 std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_a1a26b40224e3f04e5168accc91486493}{coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain}}
 \item 
-std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_aa9fc6d318c2f7a2eab5097b6a76c9083}{coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+local}}
+std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ std\+::vector$<$ unsigned int $>$, std\+::vector$<$ unsigned int $>$ $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_a08edb01ba4c8d721862fb060860137d4}{coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+local}}
 \item 
-std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_a6b7242925e5a0be85830ed7eae581442}{coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+nonlocal}}
+std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ std\+::vector$<$ unsigned int $>$, std\+::vector$<$ unsigned int $>$ $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_a52d69b234032d5194e87e9b7e5fef759}{coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+locally\+\_\+eliminated}}
+\item 
+std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ std\+::vector$<$ unsigned int $>$, std\+::vector$<$ unsigned int $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_abcef951309d147d892660da4f62532d3}{coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+not\+\_\+local}}
+\item 
+std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ bool, bool $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_a092a86e3bce3038ac36483338afca487}{has\+\_\+local\+\_\+locally\+\_\+eliminated\+\_\+dofs\+\_\+domain}}
+\item 
+std\+::vector$<$ std\+::vector$<$ std\+::map$<$ unsigned int, std\+::vector$<$ unsigned int $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_a509326b1521d7979d55dd9b811beac52}{correspondence\+\_\+e\+\_\+omega\+\_\+locally\+\_\+eliminated}}
 \item 
 std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ unsigned int $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_ab346e146cf91fb7a0688076551b37355}{coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+interface}}
 \item 
@@ -248,8 +256,6 @@ std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ std\+::tuple
 std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ std\+::tuple$<$ const double, unsigned int $>$ $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_a75e6f76c0b12b91c5feb230251f0137f}{c\+\_\+omega}}
 \item 
 std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ double $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_ad93b109608d4425d318434e01cb6246c}{d\+\_\+omega}}
-\item 
-std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_a547c7d4ffd7379860f15095d494b1d68}{e\+\_\+omega\+\_\+local}}
 \item 
 std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ std\+::tuple$<$ const double, const unsigned int, std\+::vector$<$ unsigned int $>$ $>$ $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_aa266cc07e9670319481da52d633d2583}{a\+\_\+sigma}}
 \item 
@@ -270,20 +276,20 @@ std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ double $>$ $>$ $>$ \mbox{\hyp
 std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ bool $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_a16aa77ea3867740a280fd50f5578adfc}{e\+\_\+sigma\+\_\+local}}
 \end{DoxyCompactItemize}
 \end{Indent}
-\begin{Indent}\textbf{ Members containing the F\+E\+Values, F\+E\+Face\+Values, and F\+E\+Subface\+Values objects needed during assembly}\par
-{\em These data structures make sure that the \textbf{ F\+E\+Values}, \textbf{ F\+E\+Face\+Values}, and \textbf{ F\+E\+Subface\+Values} objects are re-\/used wherever possible and that only those objects are reinitialized for which this is really necessary when a new cell is visited. }\begin{DoxyCompactItemize}
+\begin{Indent}\textbf{ Members containing the FEValues, FEFace\+Values, and FESubface\+Values objects needed during assembly}\par
+{\em These data structures make sure that the \textbf{ FEValues}, \textbf{ FEFace\+Values}, and \textbf{ FESubface\+Values} objects are re-\/used wherever possible and that only those objects are reinitialized for which this is really necessary when a new cell is visited. }\begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \textbf{ F\+E\+Values}$<$ spacedim, spacedim $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_a904a24f53b66e1c1ef89f1bb7989eb32}{fe\+\_\+values\+\_\+domain}}
+std\+::vector$<$ std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \textbf{ FEValues}$<$ spacedim, spacedim $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_a904a24f53b66e1c1ef89f1bb7989eb32}{fe\+\_\+values\+\_\+domain}}
 \item 
-std\+::vector$<$ std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_ae1e2643696005415d78421882ca80e8e}{fe\+\_\+values\+\_\+interface}}
+std\+::vector$<$ std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_ae1e2643696005415d78421882ca80e8e}{fe\+\_\+values\+\_\+interface}}
 \item 
-std\+::vector$<$ std\+::set$<$ std\+::shared\+\_\+ptr$<$ \textbf{ F\+E\+Values}$<$ spacedim, spacedim $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_a28b58551c6afc68c7beaaa2604bc6e92}{fe\+\_\+values\+\_\+domain\+\_\+reinit}}
+std\+::vector$<$ \textbf{ std\+::set}$<$ std\+::shared\+\_\+ptr$<$ \textbf{ FEValues}$<$ spacedim, spacedim $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_a28b58551c6afc68c7beaaa2604bc6e92}{fe\+\_\+values\+\_\+domain\+\_\+reinit}}
 \item 
-std\+::vector$<$ std\+::set$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_ac9789c5a00867744dd906b85580e3091}{fe\+\_\+values\+\_\+interface\+\_\+reinit}}
+std\+::vector$<$ \textbf{ std\+::set}$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_ac9789c5a00867744dd906b85580e3091}{fe\+\_\+values\+\_\+interface\+\_\+reinit}}
 \item 
-std\+::vector$<$ std\+::set$<$ std\+::shared\+\_\+ptr$<$ \textbf{ F\+E\+Values}$<$ spacedim, spacedim $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_a3c592ef0a148753891cc3e03fd08324c}{fe\+\_\+values\+\_\+domain\+\_\+reinit\+\_\+nonprimitive}}
+std\+::vector$<$ \textbf{ std\+::set}$<$ std\+::shared\+\_\+ptr$<$ \textbf{ FEValues}$<$ spacedim, spacedim $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_a3c592ef0a148753891cc3e03fd08324c}{fe\+\_\+values\+\_\+domain\+\_\+reinit\+\_\+nonprimitive}}
 \item 
-std\+::vector$<$ std\+::set$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$ spacedim $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_afaa20027ee539ca8d9c40c317127e471}{fe\+\_\+values\+\_\+interface\+\_\+reinit\+\_\+nonprimitive}}
+std\+::vector$<$ \textbf{ std\+::set}$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$ spacedim $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper_afaa20027ee539ca8d9c40c317127e471}{fe\+\_\+values\+\_\+interface\+\_\+reinit\+\_\+nonprimitive}}
 \end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}\textbf{ Miscellaneous members}\par
@@ -299,7 +305,7 @@ const unsigned int \mbox{\hyperlink{class_assembly_helper_a2aad83ae1bfe5338794cf
 \item 
 const unsigned int \mbox{\hyperlink{class_assembly_helper_a87945d87baf37637673fd124b3803fd5}{n\+\_\+procs}}
 \item 
-\textbf{ Conditional\+O\+Stream} \mbox{\hyperlink{class_assembly_helper_a717eb6ebc7c62fe00063edcf264f3ecc}{pout}}
+\textbf{ Conditional\+OStream} \mbox{\hyperlink{class_assembly_helper_a717eb6ebc7c62fe00063edcf264f3ecc}{pout}}
 \item 
 double \mbox{\hyperlink{class_assembly_helper_aa37920e596dca3985e6d28b9d4e3d882}{quadrature\+\_\+point\+\_\+alignment\+\_\+tol}} = 1\textbf{ e}-\/8
 \item 
@@ -314,7 +320,7 @@ class Assembly\+Helper$<$ spacedim $>$}
 
 The \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}} class puts it all together and provides with methods for assembly of the finite element system.
 
-Essentially, an \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}} object is a combination of a \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}} object (which includes the definition of the domain portions and interface portions), a \mbox{\hyperlink{class_total_potential}{Total\+Potential}} object, a corresponding \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}} object, and mapping objects defining the mapping to be used on the domain and on the interface.
+Essentially, an \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}} object is a combination of a \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}} object (which includes the definition of the domain portions and interface portions), a \mbox{\hyperlink{class_total_potential}{Total\+Potential}} object, a corresponding \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}} object, and mapping objects defining the mapping to be used on the domain and on the interface.
 
 Large part of the class rearranges the data involved in the problem definition in a way which is suitable for efficient assembly.
 
@@ -339,7 +345,7 @@ Large part of the class rearranges the data involved in the problem definition i
 \index{AssemblyHelper@{AssemblyHelper}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{AssemblyHelper()}{AssemblyHelper()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_total_potential}{Total\+Potential}}$<$ spacedim $>$ \&}]{total\+\_\+potential,  }\item[{\mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}}$<$ spacedim $>$ \&}]{tria\+\_\+system,  }\item[{const \textbf{ Mapping}$<$ spacedim, spacedim $>$ \&}]{mapping\+\_\+domain,  }\item[{const \textbf{ Mapping}$<$ spacedim-\/1, spacedim $>$ \&}]{mapping\+\_\+interface,  }\item[{const std\+::set$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$ $>$ \&}]{independent\+\_\+scalars = {\ttfamily std\+:\+:set$<$~const~\mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$~0,~spacedim~$>$~$\ast$~$>$()} }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::\mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_total_potential}{Total\+Potential}}$<$ spacedim $>$ \&}]{total\+\_\+potential,  }\item[{\mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}}$<$ spacedim $>$ \&}]{tria\+\_\+system,  }\item[{const \textbf{ Mapping}$<$ spacedim, spacedim $>$ \&}]{mapping\+\_\+domain,  }\item[{const \textbf{ Mapping}$<$ spacedim-\/1, spacedim $>$ \&}]{mapping\+\_\+interface,  }\item[{const \textbf{ std\+::set}$<$ const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ 0, spacedim $>$ $\ast$ $>$ \&}]{independent\+\_\+scalars = {\ttfamily \textbf{ std\+::set}$<$~const~\mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$~0,~spacedim~$>$~$\ast$~$>$()} }\end{DoxyParamCaption})}
 
 The constructor of the class.
 
@@ -371,8 +377,8 @@ Destructor. The main task of the destructor is to release the memory allocated f
 \index{assemble\_system@{assemble\_system}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{assemble\_system()}{assemble\_system()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-template$<$class Solution\+Vector\+Type , class R\+H\+S\+Vector\+Type , class Matrix\+Type $>$ \\
-bool \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::assemble\+\_\+system (\begin{DoxyParamCaption}\item[{const Solution\+Vector\+Type \&}]{solution,  }\item[{const std\+::vector$<$ const Solution\+Vector\+Type $\ast$ $>$}]{solution\+\_\+ref\+\_\+sets,  }\item[{const Affine\+Constraints$<$ double $>$ \&}]{constraints,  }\item[{double \&}]{potential\+\_\+value,  }\item[{R\+H\+S\+Vector\+Type \&}]{f,  }\item[{Matrix\+Type \&}]{K,  }\item[{const std\+::tuple$<$ bool, bool, bool $>$}]{requested\+\_\+quantities = {\ttfamily std\+:\+:make\+\_\+tuple(true,~true,~true)},  }\item[{std\+::map$<$ unsigned int, double $>$ $\ast$}]{local\+\_\+solution = {\ttfamily nullptr} }\end{DoxyParamCaption}) const}
+template$<$class Solution\+Vector\+Type , class RHSVector\+Type , class Matrix\+Type $>$ \\
+bool \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::assemble\+\_\+system (\begin{DoxyParamCaption}\item[{const Solution\+Vector\+Type \&}]{solution,  }\item[{const std\+::vector$<$ const Solution\+Vector\+Type $\ast$ $>$}]{solution\+\_\+ref\+\_\+sets,  }\item[{const \textbf{ Affine\+Constraints}$<$ double $>$ \&}]{constraints,  }\item[{double \&}]{potential\+\_\+value,  }\item[{RHSVector\+Type \&}]{f,  }\item[{Matrix\+Type \&}]{K,  }\item[{const std\+::tuple$<$ bool, bool, bool $>$}]{requested\+\_\+quantities = {\ttfamily std\+:\+:make\+\_\+tuple(true,~true,~true)},  }\item[{std\+::map$<$ unsigned int, double $>$ $\ast$}]{local\+\_\+solution = {\ttfamily nullptr} }\end{DoxyParamCaption}) const}
 
 This method performs the actual assembly of the following (stretched) finite element system\+: \begin{equation*} \boldsymbol{K}^\mathrm{s} \Delta \boldsymbol{\hat u}^\mathrm{s} = -\boldsymbol{f}^\mathrm{s} \end{equation*}
 
@@ -407,20 +413,20 @@ Note that the finite element system returned will not ensure that the constraine
 \begin{DoxyTemplParams}{Template Parameters}
 {\em Solution\+Vector\+Type} & The type used for {\ttfamily solution} and {\ttfamily solution\+\_\+ref\+\_\+sets} (in parallel this vector type must permit read access to ghosted entries while write access is not required)\\
 \hline
-{\em R\+H\+S\+Vector\+Type} & The type used for {\ttfamily f} (in parallel this vector type must permit write access to ghosted entries while read access is not required)\\
+{\em RHSVector\+Type} & The type used for {\ttfamily f} (in parallel this vector type must permit write access to ghosted entries while read access is not required)\\
 \hline
 {\em Matrix\+Type} & The type used for {\ttfamily K} \\
 \hline
 \end{DoxyTemplParams}
 \begin{DoxyRefDesc}{Todo}
 \item[\mbox{\hyperlink{todo__todo000006}{Todo}}]The treatment of local fields and locally eliminated fields needs to be completely revised! \end{DoxyRefDesc}
-\mbox{\Hypertarget{class_assembly_helper_a2940850798972b003cf33d37e705490e}\label{class_assembly_helper_a2940850798972b003cf33d37e705490e}} 
+\mbox{\Hypertarget{class_assembly_helper_a60af8e484b7663e5fe5595a6e0e07693}\label{class_assembly_helper_a60af8e484b7663e5fe5595a6e0e07693}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!call\_scalar\_functionals@{call\_scalar\_functionals}}
 \index{call\_scalar\_functionals@{call\_scalar\_functionals}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{call\_scalar\_functionals()}{call\_scalar\_functionals()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 template$<$class Vector\+Type $>$ \\
-void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::call\+\_\+scalar\+\_\+functionals (\begin{DoxyParamCaption}\item[{const \textbf{ Vector\+Type} \&}]{solution,  }\item[{const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$ \&}]{solution\+\_\+ref\+\_\+sets,  }\item[{const std\+::set$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&}]{scalar\+\_\+functionals\+\_\+domain\+\_\+to\+\_\+call,  }\item[{const std\+::set$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&}]{scalar\+\_\+functionals\+\_\+interface\+\_\+to\+\_\+call }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::call\+\_\+scalar\+\_\+functionals (\begin{DoxyParamCaption}\item[{const Vector\+Type \&}]{solution,  }\item[{const std\+::vector$<$ const Vector\+Type $\ast$ $>$ \&}]{solution\+\_\+ref\+\_\+sets,  }\item[{const \textbf{ std\+::set}$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&}]{scalar\+\_\+functionals\+\_\+domain\+\_\+to\+\_\+call,  }\item[{const \textbf{ std\+::set}$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&}]{scalar\+\_\+functionals\+\_\+interface\+\_\+to\+\_\+call,  }\item[{const bool}]{call\+\_\+all\+\_\+functionals = {\ttfamily false} }\end{DoxyParamCaption}) const}
 
 Method simply calling the \mbox{\hyperlink{class_scalar_functional_3_01spacedim_00_01spacedim_01_4_a8665cb5b5a57ad22217e4c112845d43b}{Scalar\+Functional$<$spacedim, spacedim$>$\+::get\+\_\+h\+\_\+omega()}} and \mbox{\hyperlink{class_scalar_functional_adb295fb739a743d5a1273025eb8dae72}{Scalar\+Functional\+::get\+\_\+h\+\_\+sigma()}} functions with the solution {\ttfamily solution} and the reference solution {\ttfamily solution\+\_\+ref\+\_\+sets}, without doing any assembly of the finite element system.
 
@@ -434,6 +440,8 @@ Method simply calling the \mbox{\hyperlink{class_scalar_functional_3_01spacedim_
 \hline
 \mbox{\texttt{ in}}  & {\em scalar\+\_\+functionals\+\_\+interface\+\_\+to\+\_\+call} & interface-\/related scalar functionals to be evaluated\\
 \hline
+\mbox{\texttt{ in}}  & {\em call\+\_\+all\+\_\+functionals} & If this is set to true, all scalar functionals involved in the total potential are called irrespective of what is given in {\ttfamily scalar\+\_\+functionals\+\_\+domain\+\_\+to\+\_\+call} and {\ttfamily scalar\+\_\+functionals\+\_\+interface\+\_\+to\+\_\+call}.\\
+\hline
 \end{DoxyParams}
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -446,7 +454,7 @@ Method simply calling the \mbox{\hyperlink{class_scalar_functional_3_01spacedim_
 \doxysubsubsection{\texorpdfstring{compare\_derivatives\_with\_numerical\_derivatives()}{compare\_derivatives\_with\_numerical\_derivatives()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 template$<$class Vector\+Type $>$ \\
-void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::compare\+\_\+derivatives\+\_\+with\+\_\+numerical\+\_\+derivatives (\begin{DoxyParamCaption}\item[{const \textbf{ Vector\+Type} \&}]{solution,  }\item[{const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$}]{solution\+\_\+ref\+\_\+sets,  }\item[{const std\+::string}]{detailed\+\_\+printout\+\_\+file = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const double}]{epsilon = {\ttfamily 1\textbf{ e}-\/8} }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::compare\+\_\+derivatives\+\_\+with\+\_\+numerical\+\_\+derivatives (\begin{DoxyParamCaption}\item[{const Vector\+Type \&}]{solution,  }\item[{const std\+::vector$<$ const Vector\+Type $\ast$ $>$}]{solution\+\_\+ref\+\_\+sets,  }\item[{const std\+::string}]{detailed\+\_\+printout\+\_\+file = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const double}]{epsilon = {\ttfamily 1\textbf{ e}-\/8} }\end{DoxyParamCaption}) const}
 
 This method compares the finite element system obtained with \mbox{\hyperlink{class_assembly_helper_a5146802e9d7d4bc5df7fe35909da3e44}{Assembly\+Helper\+::assemble\+\_\+system()}} with numerically computed equivalents.
 
@@ -475,7 +483,7 @@ For comparison of the finite element systems, the dense system $\left( \boldsymb
 \doxysubsubsection{\texorpdfstring{compute\_distance\_to\_exact\_solution()}{compute\_distance\_to\_exact\_solution()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 template$<$class Vector\+Type $>$ \\
-std\+::pair$<$const double, const double$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::compute\+\_\+distance\+\_\+to\+\_\+exact\+\_\+solution (\begin{DoxyParamCaption}\item[{const \textbf{ Vector\+Type} \&}]{solution,  }\item[{const \textbf{ Function}$<$ spacedim $>$ \&}]{exact\+\_\+solution\+\_\+domain,  }\item[{const \textbf{ Function}$<$ spacedim $>$ \&}]{exact\+\_\+solution\+\_\+interface,  }\item[{const \textbf{ Quadrature}$<$ spacedim $>$}]{quadrature\+\_\+domain,  }\item[{const \textbf{ Quadrature}$<$ spacedim-\/1 $>$}]{quadrature\+\_\+interface,  }\item[{const \textbf{ Vector\+Tools\+::\+Norm\+Type}}]{norm\+\_\+type = {\ttfamily VectorTools\+:\+:NormType\+:\+:L2\+\_\+norm},  }\item[{const \textbf{ Component\+Mask}}]{component\+\_\+mask\+\_\+domain = {\ttfamily \textbf{ Component\+Mask}()},  }\item[{const \textbf{ Component\+Mask}}]{component\+\_\+mask\+\_\+interface = {\ttfamily \textbf{ Component\+Mask}()},  }\item[{const double}]{exponent = {\ttfamily 2.0} }\end{DoxyParamCaption}) const}
+std\+::pair$<$const double, const double$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::compute\+\_\+distance\+\_\+to\+\_\+exact\+\_\+solution (\begin{DoxyParamCaption}\item[{const Vector\+Type \&}]{solution,  }\item[{const \textbf{ Function}$<$ spacedim $>$ \&}]{exact\+\_\+solution\+\_\+domain,  }\item[{const \textbf{ Function}$<$ spacedim $>$ \&}]{exact\+\_\+solution\+\_\+interface,  }\item[{const \textbf{ Quadrature}$<$ spacedim $>$}]{quadrature\+\_\+domain,  }\item[{const \textbf{ Quadrature}$<$ spacedim-\/1 $>$}]{quadrature\+\_\+interface,  }\item[{const \textbf{ Vector\+Tools\+::\+Norm\+Type}}]{norm\+\_\+type = {\ttfamily \textbf{ Vector\+Tools\+::\+Norm\+Type\+::\+L2\+\_\+norm}},  }\item[{const \textbf{ Component\+Mask}}]{component\+\_\+mask\+\_\+domain = {\ttfamily \textbf{ Component\+Mask}()},  }\item[{const \textbf{ Component\+Mask}}]{component\+\_\+mask\+\_\+interface = {\ttfamily \textbf{ Component\+Mask}()},  }\item[{const double}]{exponent = {\ttfamily 2.0} }\end{DoxyParamCaption}) const}
 
 Function computing the \char`\"{}distance\char`\"{} of the solution vector {\ttfamily solution} to an exact solution.
 
@@ -513,7 +521,7 @@ The value of the norm computed on the domain and the interface, respectively
 \doxysubsubsection{\texorpdfstring{compute\_distance\_to\_other\_solution()}{compute\_distance\_to\_other\_solution()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 template$<$class Vector\+Type $>$ \\
-std\+::pair$<$const double, const double$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::compute\+\_\+distance\+\_\+to\+\_\+other\+\_\+solution (\begin{DoxyParamCaption}\item[{const \textbf{ Vector\+Type} \&}]{solution,  }\item[{const \textbf{ Vector\+Type} \&}]{other\+\_\+solution,  }\item[{const \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$ \&}]{other\+\_\+assembly\+\_\+helper,  }\item[{const \textbf{ Quadrature}$<$ spacedim $>$}]{quadrature\+\_\+domain,  }\item[{const \textbf{ Quadrature}$<$ spacedim-\/1 $>$}]{quadrature\+\_\+interface,  }\item[{const \textbf{ Vector\+Tools\+::\+Norm\+Type}}]{norm\+\_\+type = {\ttfamily VectorTools\+:\+:NormType\+:\+:L2\+\_\+norm},  }\item[{const \textbf{ Component\+Mask}}]{component\+\_\+mask\+\_\+domain = {\ttfamily \textbf{ Component\+Mask}()},  }\item[{const \textbf{ Component\+Mask}}]{component\+\_\+mask\+\_\+interface = {\ttfamily \textbf{ Component\+Mask}()},  }\item[{const double}]{exponent = {\ttfamily 2.0},  }\item[{const \textbf{ Vector}$<$ double $>$}]{scaling\+\_\+domain = {\ttfamily \textbf{ dealii\+::\+Vector}$<$~double~$>$()},  }\item[{const \textbf{ Vector}$<$ double $>$}]{scaling\+\_\+interface = {\ttfamily \textbf{ dealii\+::\+Vector}$<$~double~$>$()} }\end{DoxyParamCaption}) const}
+std\+::pair$<$const double, const double$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::compute\+\_\+distance\+\_\+to\+\_\+other\+\_\+solution (\begin{DoxyParamCaption}\item[{const Vector\+Type \&}]{solution,  }\item[{const Vector\+Type \&}]{other\+\_\+solution,  }\item[{const \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$ \&}]{other\+\_\+assembly\+\_\+helper,  }\item[{const \textbf{ Quadrature}$<$ spacedim $>$}]{quadrature\+\_\+domain,  }\item[{const \textbf{ Quadrature}$<$ spacedim-\/1 $>$}]{quadrature\+\_\+interface,  }\item[{const \textbf{ Vector\+Tools\+::\+Norm\+Type}}]{norm\+\_\+type = {\ttfamily \textbf{ Vector\+Tools\+::\+Norm\+Type\+::\+L2\+\_\+norm}},  }\item[{const \textbf{ Component\+Mask}}]{component\+\_\+mask\+\_\+domain = {\ttfamily \textbf{ Component\+Mask}()},  }\item[{const \textbf{ Component\+Mask}}]{component\+\_\+mask\+\_\+interface = {\ttfamily \textbf{ Component\+Mask}()},  }\item[{const double}]{exponent = {\ttfamily 2.0},  }\item[{const \textbf{ Vector}$<$ double $>$}]{scaling\+\_\+domain = {\ttfamily \textbf{ dealii\+::\+Vector}$<$~double~$>$()},  }\item[{const \textbf{ Vector}$<$ double $>$}]{scaling\+\_\+interface = {\ttfamily \textbf{ dealii\+::\+Vector}$<$~double~$>$()} }\end{DoxyParamCaption}) const}
 
 Function computing the \char`\"{}distance\char`\"{} of the solution vector {\ttfamily solution} of this \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}} to the solution {\ttfamily other\+\_\+solution} of another \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}} object (the Assembly\+Helpers must be the same apart from the mesh refinement, in particular they must be based on the same coarse mesh).
 
@@ -562,7 +570,7 @@ void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\
 
 Method to compute the dependent fields on the domain ( $e^\Omega_\lambda$) and the derivatives w.\+r.\+t. the relevant dofs at a quadrature point.
 
-It is assumed that all quantities except {\ttfamily de\+\_\+omega\+\_\+dsol\+\_\+T} have the correct size when passed in and that the required \textbf{ F\+E\+Values} objects are properly initialized.
+It is assumed that all quantities except {\ttfamily de\+\_\+omega\+\_\+dsol\+\_\+T} have the correct size when passed in and that the required \textbf{ FEValues} objects are properly initialized.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -594,7 +602,7 @@ void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\
 
 Method to compute the dependent fields on the domain ( $e^\Sigma_\nu$) and the derivatives w.\+r.\+t. the relevant dofs at a quadrature point.
 
-It is assumed that all quantities except {\ttfamily de\+\_\+sigma\+\_\+dsol\+\_\+T} have the correct size when passed in and that the required \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}} objects are properly initialized.
+It is assumed that all quantities except {\ttfamily de\+\_\+sigma\+\_\+dsol\+\_\+T} have the correct size when passed in and that the required \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}} objects are properly initialized.
 
 The indexing of dofs used here is a bit awkward, but is necessary to treat duplicate dofs on the minus and the plus side. See \mbox{\hyperlink{namespace_auxiliary_a1d90ebc8738df3d8c70b540034137019}{Auxiliary\+::combine\+\_\+dof\+\_\+indices()}} for further information.
 
@@ -643,17 +651,33 @@ void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\
 This function converts the dependent field definitions into a format suitable for assembly of the finite element system (essentially by defining how each dependent field is related to the shape functions and, possibly, the derivatives thereof). This member initializes the following member variables\+: \mbox{\hyperlink{class_assembly_helper_a1a26b40224e3f04e5168accc91486493}{Assembly\+Helper\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain}}, \mbox{\hyperlink{class_assembly_helper_ab346e146cf91fb7a0688076551b37355}{Assembly\+Helper\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+interface}}, \mbox{\hyperlink{class_assembly_helper_a12299d82365553a21fef8529c8fe8a17}{Assembly\+Helper\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+interface\+\_\+minus}}, \mbox{\hyperlink{class_assembly_helper_af07bb528fdd350e9b467b08dc44a03e7}{Assembly\+Helper\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+interface\+\_\+plus}}, \mbox{\hyperlink{class_assembly_helper_a0edd25820c92a25ae87fc240f4916804}{Assembly\+Helper\+::coupled\+\_\+\+C\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain}}, \mbox{\hyperlink{class_assembly_helper_a311e176038ee2b7ca0719abb384ca57b}{Assembly\+Helper\+::coupled\+\_\+\+C\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+interface}}, \mbox{\hyperlink{class_assembly_helper_a13fef9096e5fc7b1e922ea78d7aa2c28}{Assembly\+Helper\+::a\+\_\+omega}}, \mbox{\hyperlink{class_assembly_helper_a5fbb532e798c2427af5285c2df10c9f4}{Assembly\+Helper\+::b\+\_\+omega}}, \mbox{\hyperlink{class_assembly_helper_a75e6f76c0b12b91c5feb230251f0137f}{Assembly\+Helper\+::c\+\_\+omega}}, \mbox{\hyperlink{class_assembly_helper_ad93b109608d4425d318434e01cb6246c}{Assembly\+Helper\+::d\+\_\+omega}}, \mbox{\hyperlink{class_assembly_helper_aa266cc07e9670319481da52d633d2583}{Assembly\+Helper\+::a\+\_\+sigma}}, \mbox{\hyperlink{class_assembly_helper_af58c9a1c7093edc306070913aa1b9be2}{Assembly\+Helper\+::b\+\_\+sigma}}, \mbox{\hyperlink{class_assembly_helper_a4461be378c9be0364ca23153c367d24c}{Assembly\+Helper\+::a\+\_\+minus}}, \mbox{\hyperlink{class_assembly_helper_a6f51f8b4dfdae385a2e2fe2dd9e66cdb}{Assembly\+Helper\+::b\+\_\+minus}}, \mbox{\hyperlink{class_assembly_helper_a8eb513a6239d94cc0f1a6a01a037c572}{Assembly\+Helper\+::a\+\_\+plus}}, \mbox{\hyperlink{class_assembly_helper_ab09dd07d3ec596525be83f8f5859bef7}{Assembly\+Helper\+::b\+\_\+plus}}, \mbox{\hyperlink{class_assembly_helper_ab3d4370661ba726010ee687ef0e98140}{Assembly\+Helper\+::c\+\_\+sigma}}, \mbox{\hyperlink{class_assembly_helper_a48d7d677120eb1c84b4983f470246e02}{Assembly\+Helper\+::d\+\_\+sigma}}. \mbox{\Hypertarget{class_assembly_helper_a953859cc4cd745a1b51fdec5418be682}\label{class_assembly_helper_a953859cc4cd745a1b51fdec5418be682}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!distribute\_dofs@{distribute\_dofs}}
 \index{distribute\_dofs@{distribute\_dofs}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
-\doxysubsubsection{\texorpdfstring{distribute\_dofs()}{distribute\_dofs()}}
+\doxysubsubsection{\texorpdfstring{distribute\_dofs()}{distribute\_dofs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::distribute\+\_\+dofs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-This distributes the dofs. This function is called automatically after construction of an \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}} object as well as after a change of the mesh. It makes sure that the active fe indices are updated before distributing the dofs. \mbox{\Hypertarget{class_assembly_helper_a60a2aa2aa08149682feca02e458232d4}\label{class_assembly_helper_a60a2aa2aa08149682feca02e458232d4}} 
+This distributes the dofs. This function is called automatically after construction of an \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}} object as well as after a change of the mesh. It makes sure that the active fe indices are updated before distributing the dofs. \mbox{\Hypertarget{class_assembly_helper_af1d2938f5c1a40ace48bc86a0a91eb44}\label{class_assembly_helper_af1d2938f5c1a40ace48bc86a0a91eb44}} 
+\index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!distribute\_dofs@{distribute\_dofs}}
+\index{distribute\_dofs@{distribute\_dofs}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{distribute\_dofs()}{distribute\_dofs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::distribute\+\_\+dofs (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ unsigned int $>$ \&}]{renumbering\+\_\+domain,  }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{renumbering\+\_\+interface }\end{DoxyParamCaption})}
+
+This distributes the dofs. It can be called by the user to renumber the dofs.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em renumbering\+\_\+domain} & New dof indices on the domain\\
+\hline
+\mbox{\texttt{ in}}  & {\em renumbering\+\_\+interface} & New dof indices on the interface \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_assembly_helper_a60a2aa2aa08149682feca02e458232d4}\label{class_assembly_helper_a60a2aa2aa08149682feca02e458232d4}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!generate\_sparsity\_pattern\_by\_simulation@{generate\_sparsity\_pattern\_by\_simulation}}
 \index{generate\_sparsity\_pattern\_by\_simulation@{generate\_sparsity\_pattern\_by\_simulation}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{generate\_sparsity\_pattern\_by\_simulation()}{generate\_sparsity\_pattern\_by\_simulation()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 template$<$class Sparsity\+Pattern\+Type $>$ \\
-void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::generate\+\_\+sparsity\+\_\+pattern\+\_\+by\+\_\+simulation (\begin{DoxyParamCaption}\item[{Sparsity\+Pattern\+Type \&}]{dsp\+\_\+K,  }\item[{const Affine\+Constraints$<$ double $>$ \&}]{constraints }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::generate\+\_\+sparsity\+\_\+pattern\+\_\+by\+\_\+simulation (\begin{DoxyParamCaption}\item[{Sparsity\+Pattern\+Type \&}]{dsp\+\_\+K,  }\item[{const \textbf{ Affine\+Constraints}$<$ double $>$ \&}]{constraints }\end{DoxyParamCaption}) const}
 
 Generate the current sparsity pattern by simulation of the assembly process, thereby taking into account the particular structure of the total potential function.
 
@@ -678,31 +702,31 @@ The sparsity pattern must be initialized correctly outside this function. For th
 \index{get\_dof\_handler\_system@{get\_dof\_handler\_system}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_handler\_system()}{get\_dof\_handler\_system()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$spacedim$>$\& \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+handler\+\_\+system (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}$<$spacedim$>$\& \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+handler\+\_\+system (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Function returning the \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}. This function does return a non-\/const reference and can, therefore, for example be used for reordering of dof indices if desired.
+Function returning the \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}. This function does return a non-\/const reference and can, therefore, for example be used for reordering of dof indices if desired.
 
 \begin{DoxyReturn}{Returns}
-the \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}} \mbox{\hyperlink{class_assembly_helper_a885e660c749e91a35e3279643ebcd87f}{Assembly\+Helper\+::dof\+\_\+handler\+\_\+system}} 
+the \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}} \mbox{\hyperlink{class_assembly_helper_a885e660c749e91a35e3279643ebcd87f}{Assembly\+Helper\+::dof\+\_\+handler\+\_\+system}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_assembly_helper_a095623df46217c89ee8e786f6e8a3034}\label{class_assembly_helper_a095623df46217c89ee8e786f6e8a3034}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!get\_dof\_handler\_system@{get\_dof\_handler\_system}}
 \index{get\_dof\_handler\_system@{get\_dof\_handler\_system}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_handler\_system()}{get\_dof\_handler\_system()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$spacedim$>$\& \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+handler\+\_\+system (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+const \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}$<$spacedim$>$\& \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+handler\+\_\+system (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Function returning the \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}
+Function returning the \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}
 
 \begin{DoxyReturn}{Returns}
-the \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}} \mbox{\hyperlink{class_assembly_helper_a885e660c749e91a35e3279643ebcd87f}{Assembly\+Helper\+::dof\+\_\+handler\+\_\+system}} 
+the \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}} \mbox{\hyperlink{class_assembly_helper_a885e660c749e91a35e3279643ebcd87f}{Assembly\+Helper\+::dof\+\_\+handler\+\_\+system}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_assembly_helper_ad798d22d994c4c18a05503ae9db4b408}\label{class_assembly_helper_ad798d22d994c4c18a05503ae9db4b408}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!get\_dof\_index\_at\_point\_omega@{get\_dof\_index\_at\_point\_omega}}
 \index{get\_dof\_index\_at\_point\_omega@{get\_dof\_index\_at\_point\_omega}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_index\_at\_point\_omega()}{get\_dof\_index\_at\_point\_omega()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-unsigned int \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+omega (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ $\ast$}]{u\+\_\+omega,  }\item[{const unsigned int}]{component,  }\item[{const \textbf{ Point}$<$ spacedim $>$}]{p,  }\item[{const std\+::set$<$ unsigned int $>$}]{ignore\+\_\+dofs = {\ttfamily std\+:\+:set$<$~unsigned~int~$>$()} }\end{DoxyParamCaption}) const}
+unsigned int \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+omega (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ $\ast$}]{u\+\_\+omega,  }\item[{const unsigned int}]{component,  }\item[{const \textbf{ Point}$<$ spacedim $>$}]{p,  }\item[{const \textbf{ std\+::set}$<$ unsigned int $>$}]{ignore\+\_\+dofs = {\ttfamily \textbf{ std\+::set}$<$~unsigned~int~$>$()} }\end{DoxyParamCaption}) const}
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -723,7 +747,7 @@ global dof index of {\ttfamily component} of {\ttfamily u\+\_\+omega} at point {
 \index{get\_dof\_index\_at\_point\_sigma@{get\_dof\_index\_at\_point\_sigma}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{get\_dof\_index\_at\_point\_sigma()}{get\_dof\_index\_at\_point\_sigma()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-unsigned int \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+sigma (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim-\/1, spacedim $>$ $\ast$}]{u\+\_\+sigma,  }\item[{const unsigned int}]{component,  }\item[{const \textbf{ Point}$<$ spacedim $>$}]{p,  }\item[{const std\+::set$<$ unsigned int $>$}]{ignore\+\_\+dofs = {\ttfamily std\+:\+:set$<$~unsigned~int~$>$()} }\end{DoxyParamCaption}) const}
+unsigned int \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+dof\+\_\+index\+\_\+at\+\_\+point\+\_\+sigma (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim-\/1, spacedim $>$ $\ast$}]{u\+\_\+sigma,  }\item[{const unsigned int}]{component,  }\item[{const \textbf{ Point}$<$ spacedim $>$}]{p,  }\item[{const \textbf{ std\+::set}$<$ unsigned int $>$}]{ignore\+\_\+dofs = {\ttfamily \textbf{ std\+::set}$<$~unsigned~int~$>$()} }\end{DoxyParamCaption}) const}
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -774,7 +798,7 @@ the global dof index corresponding to {\ttfamily independent\+\_\+scalar}
 \doxysubsubsection{\texorpdfstring{get\_initial\_fields\_vector()}{get\_initial\_fields\_vector()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 template$<$class Vector\+Type $>$ \\
-void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+initial\+\_\+fields\+\_\+vector (\begin{DoxyParamCaption}\item[{\textbf{ Vector\+Type} \&}]{initial\+\_\+fields,  }\item[{const Affine\+Constraints$<$ double $>$ $\ast$}]{constraints = {\ttfamily nullptr} }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+initial\+\_\+fields\+\_\+vector (\begin{DoxyParamCaption}\item[{Vector\+Type \&}]{initial\+\_\+fields,  }\item[{const \textbf{ Affine\+Constraints}$<$ double $>$ $\ast$}]{constraints = {\ttfamily nullptr} }\end{DoxyParamCaption}) const}
 
 Method returning the global initial fields vector (i.\+e., a vector containing the initial dof values) as defined by \mbox{\hyperlink{class_independent_field_a274c902785d2937a6065f7e09f3976c3}{Independent\+Field\+::initial\+\_\+vals}} and \mbox{\hyperlink{class_independent_field_3_010_00_01spacedim_01_4_a8c4c434806dadc5b885102322e27357c}{Independent\+Field$<$0, spacedim$>$\+::initial\+\_\+value}}. The vector has the format $\begin{pmatrix} \boldsymbol{u}^\mathrm{initial} \\ \boldsymbol{0} \end{pmatrix}$. Here, $\boldsymbol{u}^\mathrm{initial}$ contains the initial dof values, with the dofs of \mbox{\hyperlink{class_assembly_helper_a885e660c749e91a35e3279643ebcd87f}{Assembly\+Helper\+::dof\+\_\+handler\+\_\+system}} being first, followed by the independent scalar dofs (i.\+e., the size of $\boldsymbol{u}^\mathrm{initial}$ is \mbox{\hyperlink{class_assembly_helper_a885e660c749e91a35e3279643ebcd87f}{Assembly\+Helper\+::dof\+\_\+handler\+\_\+system}}.\mbox{\hyperlink{class_do_f_handler_system_a649873cd660a9888cd4ff29c35b1df2a}{n\+\_\+dofs\+\_\+domain() }} + \mbox{\hyperlink{class_assembly_helper_a885e660c749e91a35e3279643ebcd87f}{Assembly\+Helper\+::dof\+\_\+handler\+\_\+system}}.\mbox{\hyperlink{class_do_f_handler_system_ab0157b6d29707c6657d21610f2bfe05d}{n\+\_\+dofs\+\_\+interface() }} + \mbox{\hyperlink{class_assembly_helper_aa5234a46be82cfe7d92678169d38f326}{Assembly\+Helper\+::C}}{\ttfamily }.size()). The $\boldsymbol{0}$ vector corresponds to the additional lines in the finite element system associated with the scalar functionals and independent scalars entering the total potential non-\/primitively (i.\+e., it has size \mbox{\hyperlink{class_assembly_helper_af7bcfc1db651535a7aefc6071a81e124}{Assembly\+Helper\+::n\+\_\+scalar\+\_\+functionals\+\_\+nonprimitive}} + \mbox{\hyperlink{class_assembly_helper_aa5234a46be82cfe7d92678169d38f326}{Assembly\+Helper\+::C}}{\ttfamily }.size()). Note, in this context, that the independent scalars always enter the total potential non-\/primitively.
 
@@ -839,7 +863,7 @@ Same as \mbox{\hyperlink{class_assembly_helper_a30584e0ed1b2564e9b66ce9cecae40c7
 \doxysubsubsection{\texorpdfstring{get\_maximum\_step\_length()}{get\_maximum\_step\_length()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 template$<$class Vector\+Type $>$ \\
-double \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+maximum\+\_\+step\+\_\+length (\begin{DoxyParamCaption}\item[{const \textbf{ Vector\+Type} \&}]{solution,  }\item[{const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$}]{solution\+\_\+ref\+\_\+sets,  }\item[{const \textbf{ Vector\+Type} \&}]{delta\+\_\+solution }\end{DoxyParamCaption}) const}
+double \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+maximum\+\_\+step\+\_\+length (\begin{DoxyParamCaption}\item[{const Vector\+Type \&}]{solution,  }\item[{const std\+::vector$<$ const Vector\+Type $\ast$ $>$}]{solution\+\_\+ref\+\_\+sets,  }\item[{const Vector\+Type \&}]{delta\+\_\+solution }\end{DoxyParamCaption}) const}
 
 Method determining the maximum permissible step length into a certain direction.
 
@@ -886,7 +910,7 @@ unsigned int \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ space
 \doxysubsubsection{\texorpdfstring{get\_nonprimitive\_scalar\_functional\_values()}{get\_nonprimitive\_scalar\_functional\_values()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 template$<$class Vector\+Type $>$ \\
-bool \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values (\begin{DoxyParamCaption}\item[{const \textbf{ Vector\+Type} \&}]{solution,  }\item[{const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$}]{solution\+\_\+ref\+\_\+sets,  }\item[{std\+::map$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim, spacedim $>$ $\ast$, double $>$ \&}]{nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values\+\_\+domain,  }\item[{std\+::map$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim-\/1, spacedim $>$ $\ast$, double $>$ \&}]{nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values\+\_\+interface }\end{DoxyParamCaption}) const}
+bool \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values (\begin{DoxyParamCaption}\item[{const Vector\+Type \&}]{solution,  }\item[{const std\+::vector$<$ const Vector\+Type $\ast$ $>$}]{solution\+\_\+ref\+\_\+sets,  }\item[{std\+::map$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim, spacedim $>$ $\ast$, double $>$ \&}]{nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values\+\_\+domain,  }\item[{std\+::map$<$ const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$ spacedim-\/1, spacedim $>$ $\ast$, double $>$ \&}]{nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values\+\_\+interface }\end{DoxyParamCaption}) const}
 
 Method computing the values of the scalar functionals entering non-\/primitively into the total potential
 
@@ -915,7 +939,7 @@ Method computing the values of the scalar functionals entering non-\/primitively
 \doxysubsubsection{\texorpdfstring{get\_nonprimitive\_scalar\_functional\_values()}{get\_nonprimitive\_scalar\_functional\_values()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 template$<$class Vector\+Type $>$ \\
-bool \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values (\begin{DoxyParamCaption}\item[{const \textbf{ Vector\+Type} \&}]{solution,  }\item[{const std\+::vector$<$ const \textbf{ Vector\+Type} $\ast$ $>$}]{solution\+\_\+ref\+\_\+sets,  }\item[{\textbf{ Vector}$<$ double $>$ \&}]{nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+bool \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values (\begin{DoxyParamCaption}\item[{const Vector\+Type \&}]{solution,  }\item[{const std\+::vector$<$ const Vector\+Type $\ast$ $>$}]{solution\+\_\+ref\+\_\+sets,  }\item[{\textbf{ Vector}$<$ double $>$ \&}]{nonprimitive\+\_\+scalar\+\_\+functional\+\_\+values }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
 
 Method computing the values of the scalar functionals entering non-\/primitively into the total potential
 
@@ -1003,7 +1027,7 @@ the \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}} \mbox{\
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 unsigned int \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+u\+\_\+omega\+\_\+global\+\_\+component\+\_\+index (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim, spacedim $>$ \&}]{u\+\_\+omega }\end{DoxyParamCaption}) const}
 
-Compute the global component index (in the domain related \textbf{ F\+E\+System}) of the first component of {\ttfamily u\+\_\+omega} 
+Compute the global component index (in the domain related \textbf{ FESystem}) of the first component of {\ttfamily u\+\_\+omega} 
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1021,7 +1045,7 @@ global component index
 std\+::map$<$const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$spacedim, spacedim$>$$\ast$, const unsigned int$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+u\+\_\+omega\+\_\+global\+\_\+component\+\_\+indices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
-map between domain related \mbox{\hyperlink{class_independent_field}{Independent\+Field}} objects and the global component indices (in the \textbf{ F\+E\+System}) of the first components of the respective \mbox{\hyperlink{class_independent_field}{Independent\+Field}} objects 
+map between domain related \mbox{\hyperlink{class_independent_field}{Independent\+Field}} objects and the global component indices (in the \textbf{ FESystem}) of the first components of the respective \mbox{\hyperlink{class_independent_field}{Independent\+Field}} objects 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_assembly_helper_a4ad9cb7482bfc3ce527ad7639a8d5843}\label{class_assembly_helper_a4ad9cb7482bfc3ce527ad7639a8d5843}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!get\_u\_sigma\_global\_component\_index@{get\_u\_sigma\_global\_component\_index}}
@@ -1030,7 +1054,7 @@ map between domain related \mbox{\hyperlink{class_independent_field}{Independent
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 unsigned int \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+u\+\_\+sigma\+\_\+global\+\_\+component\+\_\+index (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$ spacedim-\/1, spacedim $>$ \&}]{u\+\_\+sigma }\end{DoxyParamCaption}) const}
 
-Compute the global component index (in the interface related \textbf{ F\+E\+System}) of the first component of {\ttfamily u\+\_\+sigma} 
+Compute the global component index (in the interface related \textbf{ FESystem}) of the first component of {\ttfamily u\+\_\+sigma} 
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1048,16 +1072,16 @@ global component index
 std\+::map$<$const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$spacedim-\/1, spacedim$>$$\ast$, const unsigned int$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::get\+\_\+u\+\_\+sigma\+\_\+global\+\_\+component\+\_\+indices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
-map between interface related \mbox{\hyperlink{class_independent_field}{Independent\+Field}} objects and the global component indices (in the \textbf{ F\+E\+System}) of the first components of the respective \mbox{\hyperlink{class_independent_field}{Independent\+Field}} objects 
+map between interface related \mbox{\hyperlink{class_independent_field}{Independent\+Field}} objects and the global component indices (in the \textbf{ FESystem}) of the first components of the respective \mbox{\hyperlink{class_independent_field}{Independent\+Field}} objects 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_assembly_helper_a95639ce05d10d6aa37ea6ae5962753e2}\label{class_assembly_helper_a95639ce05d10d6aa37ea6ae5962753e2}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!initialize\_fe\_values\_domain@{initialize\_fe\_values\_domain}}
 \index{initialize\_fe\_values\_domain@{initialize\_fe\_values\_domain}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{initialize\_fe\_values\_domain()}{initialize\_fe\_values\_domain()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::initialize\+\_\+fe\+\_\+values\+\_\+domain (\begin{DoxyParamCaption}\item[{const typename \textbf{ Do\+F\+Handler}$<$ spacedim, spacedim $>$\+::\textbf{ active\+\_\+cell\+\_\+iterator} \&}]{cell,  }\item[{const unsigned int}]{internal\+\_\+index,  }\item[{const bool}]{nonprimitive = {\ttfamily false} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::initialize\+\_\+fe\+\_\+values\+\_\+domain (\begin{DoxyParamCaption}\item[{const typename \textbf{ Do\+FHandler}$<$ spacedim, spacedim $>$\+::active\+\_\+cell\+\_\+iterator \&}]{cell,  }\item[{const unsigned int}]{internal\+\_\+index,  }\item[{const bool}]{nonprimitive = {\ttfamily false} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
 
-Method to initialize the required \textbf{ F\+E\+Values} objects for assembly of the contribution of a domain cell to the finite element system.
+Method to initialize the required \textbf{ FEValues} objects for assembly of the contribution of a domain cell to the finite element system.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1065,7 +1089,7 @@ Method to initialize the required \textbf{ F\+E\+Values} objects for assembly of
 \hline
 \mbox{\texttt{ in}}  & {\em internal\+\_\+index} & The internal index of the domain portion the domain cell belongs to. In principle, the function could determine the {\ttfamily internal\+\_\+index} from {\ttfamily cell}. However, typically it is already known when the function is called and therefore it is passed here as an argument.\\
 \hline
-\mbox{\texttt{ in}}  & {\em nonprimitive} & if {\ttfamily true\+:} initialize only those \textbf{ F\+E\+Values} objects needed for evaluation of the scalar functionals entering non-\/primitively into the total potential \\
+\mbox{\texttt{ in}}  & {\em nonprimitive} & if {\ttfamily true\+:} initialize only those \textbf{ FEValues} objects needed for evaluation of the scalar functionals entering non-\/primitively into the total potential \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_assembly_helper_a223bbebe8a1f0aa09a53ee19257b927e}\label{class_assembly_helper_a223bbebe8a1f0aa09a53ee19257b927e}} 
@@ -1075,7 +1099,7 @@ Method to initialize the required \textbf{ F\+E\+Values} objects for assembly of
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::initialize\+\_\+fe\+\_\+values\+\_\+interface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_interface_cell_domain_cells_do_f}{Interface\+Cell\+Domain\+Cells\+DoF}}$<$ spacedim $>$ \&}]{interface\+\_\+cell\+\_\+domain\+\_\+cells,  }\item[{const unsigned int}]{internal\+\_\+index,  }\item[{const bool}]{nonprimitive = {\ttfamily false} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
 
-Method to initialize the required \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}} objects for assembly of the contribution of an interface cell (and the neighboring domain cells) to the finite element system.
+Method to initialize the required \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}} objects for assembly of the contribution of an interface cell (and the neighboring domain cells) to the finite element system.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -1083,7 +1107,7 @@ Method to initialize the required \mbox{\hyperlink{class_f_e_values_interface}{F
 \hline
 \mbox{\texttt{ in}}  & {\em internal\+\_\+index} & The internal index of the interface (sub)portion the interface cell belongs to. In principle, the function could determine the {\ttfamily internal\+\_\+index} from {\ttfamily interface\+\_\+cell\+\_\+domain\+\_\+cell}. However, typically it is already known when the function is called and therefore it is passed here as an argument.\\
 \hline
-\mbox{\texttt{ in}}  & {\em nonprimitive} & if {\ttfamily true\+:} initialize only those \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}} objects needed for evaluation of the scalar functionals entering non-\/primitively into the total potential \\
+\mbox{\texttt{ in}}  & {\em nonprimitive} & if {\ttfamily true\+:} initialize only those \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}} objects needed for evaluation of the scalar functionals entering non-\/primitively into the total potential \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_assembly_helper_a1c187fbb8171d6a1ff2ff6344cb454ed}\label{class_assembly_helper_a1c187fbb8171d6a1ff2ff6344cb454ed}} 
@@ -1103,7 +1127,7 @@ At present the transfer of hidden variables upon mesh refinement is not implemen
 \index{make\_dirichlet\_constraints@{make\_dirichlet\_constraints}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{make\_dirichlet\_constraints()}{make\_dirichlet\_constraints()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::make\+\_\+dirichlet\+\_\+constraints (\begin{DoxyParamCaption}\item[{Affine\+Constraints$<$ double $>$ \&}]{constraint\+\_\+matrix,  }\item[{const std\+::vector$<$ const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ $\ast$ $>$ \&}]{dirichlet\+\_\+constraints,  }\item[{const Affine\+Constraints$<$ double $>$ \&}]{constraints\+\_\+ignore = {\ttfamily AffineConstraints$<$~double~$>$()} }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::make\+\_\+dirichlet\+\_\+constraints (\begin{DoxyParamCaption}\item[{\textbf{ Affine\+Constraints}$<$ double $>$ \&}]{constraint\+\_\+matrix,  }\item[{const std\+::vector$<$ const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ $\ast$ $>$ \&}]{dirichlet\+\_\+constraints,  }\item[{const \textbf{ Affine\+Constraints}$<$ double $>$ \&}]{constraints\+\_\+ignore = {\ttfamily \textbf{ Affine\+Constraints}$<$~double~$>$()} }\end{DoxyParamCaption}) const}
 
 Method generating Dirichlet type constraints on domain related independent fields on interfaces.
 
@@ -1117,7 +1141,7 @@ Method generating Dirichlet type constraints on domain related independent field
 \hline
 \end{DoxyParams}
 \begin{DoxyWarning}{Warning}
-The constraint matrix will be cleared before the constraints are written. This means that if you have other constraints, it will be necessary to merge the constraint matrices. The {\ttfamily local\+\_\+lines} property will be set to what \mbox{\hyperlink{class_do_f_handler_system_af5e18e9200d2137f01c35a19e0890739}{Do\+F\+Handler\+System\+::get\+\_\+locally\+\_\+relevant\+\_\+dofs()}} of the object \mbox{\hyperlink{class_assembly_helper_a885e660c749e91a35e3279643ebcd87f}{Assembly\+Helper\+::dof\+\_\+handler\+\_\+system}} returns.
+The constraint matrix will be cleared before the constraints are written. This means that if you have other constraints, it will be necessary to merge the constraint matrices. The {\ttfamily local\+\_\+lines} property will be set to what \mbox{\hyperlink{class_do_f_handler_system_af5e18e9200d2137f01c35a19e0890739}{Do\+FHandler\+System\+::get\+\_\+locally\+\_\+relevant\+\_\+dofs()}} of the object \mbox{\hyperlink{class_assembly_helper_a885e660c749e91a35e3279643ebcd87f}{Assembly\+Helper\+::dof\+\_\+handler\+\_\+system}} returns.
 
 Domain related independent fields can only be directly constrained using this method if they are discretized based on finite elements having support points! Attempting to constrain independent fields discretized in terms of elements not having support points with this function will have no effect. 
 \end{DoxyWarning}
@@ -1126,7 +1150,7 @@ Domain related independent fields can only be directly constrained using this me
 \index{make\_dirichlet\_constraints@{make\_dirichlet\_constraints}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{make\_dirichlet\_constraints()}{make\_dirichlet\_constraints()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::make\+\_\+dirichlet\+\_\+constraints (\begin{DoxyParamCaption}\item[{Affine\+Constraints$<$ double $>$ \&}]{constraint\+\_\+matrix,  }\item[{const std\+::vector$<$ const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ $\ast$ $>$ \&}]{dirichlet\+\_\+constraints,  }\item[{const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&}]{point\+\_\+constraints\+\_\+omega,  }\item[{const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&}]{point\+\_\+constraints\+\_\+sigma,  }\item[{const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ 0, spacedim $>$ $\ast$ $>$ \&}]{point\+\_\+constraints\+\_\+C,  }\item[{const Affine\+Constraints$<$ double $>$ \&}]{constraints\+\_\+ignore = {\ttfamily AffineConstraints$<$~double~$>$()} }\end{DoxyParamCaption}) const}
+void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::make\+\_\+dirichlet\+\_\+constraints (\begin{DoxyParamCaption}\item[{\textbf{ Affine\+Constraints}$<$ double $>$ \&}]{constraint\+\_\+matrix,  }\item[{const std\+::vector$<$ const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ $\ast$ $>$ \&}]{dirichlet\+\_\+constraints,  }\item[{const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ spacedim, spacedim $>$ $\ast$ $>$ \&}]{point\+\_\+constraints\+\_\+omega,  }\item[{const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ spacedim-\/1, spacedim $>$ $\ast$ $>$ \&}]{point\+\_\+constraints\+\_\+sigma,  }\item[{const std\+::vector$<$ const \mbox{\hyperlink{class_point_constraint}{Point\+Constraint}}$<$ 0, spacedim $>$ $\ast$ $>$ \&}]{point\+\_\+constraints\+\_\+C,  }\item[{const \textbf{ Affine\+Constraints}$<$ double $>$ \&}]{constraints\+\_\+ignore = {\ttfamily \textbf{ Affine\+Constraints}$<$~double~$>$()} }\end{DoxyParamCaption}) const}
 
 An extended method generating Dirichlet type constraints on domain related independent fields on interfaces as well as point-\/wise Dirichlet type constraints.
 
@@ -1146,7 +1170,7 @@ An extended method generating Dirichlet type constraints on domain related indep
 \hline
 \end{DoxyParams}
 \begin{DoxyWarning}{Warning}
-The constraint matrix will be cleared before the constraints are written. This means that if you have other constraints, it will be necessary to merge the constraint matrices. The {\ttfamily local\+\_\+lines} property will be set to what \mbox{\hyperlink{class_do_f_handler_system_af5e18e9200d2137f01c35a19e0890739}{Do\+F\+Handler\+System\+::get\+\_\+locally\+\_\+relevant\+\_\+dofs()}} of the object \mbox{\hyperlink{class_assembly_helper_a885e660c749e91a35e3279643ebcd87f}{Assembly\+Helper\+::dof\+\_\+handler\+\_\+system}} returns.
+The constraint matrix will be cleared before the constraints are written. This means that if you have other constraints, it will be necessary to merge the constraint matrices. The {\ttfamily local\+\_\+lines} property will be set to what \mbox{\hyperlink{class_do_f_handler_system_af5e18e9200d2137f01c35a19e0890739}{Do\+FHandler\+System\+::get\+\_\+locally\+\_\+relevant\+\_\+dofs()}} of the object \mbox{\hyperlink{class_assembly_helper_a885e660c749e91a35e3279643ebcd87f}{Assembly\+Helper\+::dof\+\_\+handler\+\_\+system}} returns.
 
 Domain related independent fields can only be directly constrained using this method if they are discretized based on finite elements having support points! Attempting to constrain independent fields discretized in terms of elements not having support points with this function will have no effect. 
 \end{DoxyWarning}
@@ -1155,7 +1179,7 @@ Domain related independent fields can only be directly constrained using this me
 \index{make\_dirichlet\_constraints\_recursion@{make\_dirichlet\_constraints\_recursion}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{make\_dirichlet\_constraints\_recursion()}{make\_dirichlet\_constraints\_recursion()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::make\+\_\+dirichlet\+\_\+constraints\+\_\+recursion (\begin{DoxyParamCaption}\item[{const typename \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}}$<$ spacedim $>$\+::Domain\+Cell \&}]{domain\+\_\+cell,  }\item[{const unsigned int}]{face,  }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{shapefuns,  }\item[{const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ \&}]{constraint,  }\item[{Affine\+Constraints$<$ double $>$ \&}]{constraint\+\_\+matrix,  }\item[{const Affine\+Constraints$<$ double $>$ \&}]{constraints\+\_\+ignore }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+void \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::make\+\_\+dirichlet\+\_\+constraints\+\_\+recursion (\begin{DoxyParamCaption}\item[{const typename \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}}$<$ spacedim $>$\+::Domain\+Cell \&}]{domain\+\_\+cell,  }\item[{const unsigned int}]{face,  }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{shapefuns,  }\item[{const \mbox{\hyperlink{class_dirichlet_constraint}{Dirichlet\+Constraint}}$<$ spacedim $>$ \&}]{constraint,  }\item[{\textbf{ Affine\+Constraints}$<$ double $>$ \&}]{constraint\+\_\+matrix,  }\item[{const \textbf{ Affine\+Constraints}$<$ double $>$ \&}]{constraints\+\_\+ignore }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
 
 Auxiliary function for creation of Dirichlet constraints
 
@@ -1246,7 +1270,7 @@ The size of the stretched finite element system
 \doxysubsubsection{\texorpdfstring{write\_output\_independent\_fields()}{write\_output\_independent\_fields()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 template$<$class Vector\+Type $>$ \\
-std\+::pair$<$const std\+::string, const std\+::string$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::write\+\_\+output\+\_\+independent\+\_\+fields (\begin{DoxyParamCaption}\item[{const \textbf{ Vector\+Type} \&}]{solution,  }\item[{const std\+::string}]{file\+\_\+name\+\_\+domain,  }\item[{const std\+::string}]{file\+\_\+name\+\_\+interface,  }\item[{const unsigned int}]{file\+\_\+index = {\ttfamily 0},  }\item[{const std\+::vector$<$ dealii\+::\+Smart\+Pointer$<$ const dealii\+::\+Data\+Postprocessor$<$ spacedim $>$$>$$>$ \&}]{dp\+\_\+domain = {\ttfamily std\+:\+:vector$<$~dealii\+:\+:SmartPointer$<$~const~dealii\+:\+:DataPostprocessor$<$~spacedim~$>$$>$$>$()},  }\item[{const std\+::vector$<$ dealii\+::\+Smart\+Pointer$<$ const dealii\+::\+Data\+Postprocessor$<$ spacedim $>$$>$$>$ \&}]{dp\+\_\+interface = {\ttfamily std\+:\+:vector$<$~dealii\+:\+:SmartPointer$<$~const~dealii\+:\+:DataPostprocessor$<$~spacedim~$>$$>$$>$()},  }\item[{const unsigned int}]{n\+\_\+subdivisions = {\ttfamily 1} }\end{DoxyParamCaption}) const}
+std\+::pair$<$const std\+::string, const std\+::string$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::write\+\_\+output\+\_\+independent\+\_\+fields (\begin{DoxyParamCaption}\item[{const Vector\+Type \&}]{solution,  }\item[{const std\+::string}]{file\+\_\+name\+\_\+domain,  }\item[{const std\+::string}]{file\+\_\+name\+\_\+interface,  }\item[{const unsigned int}]{file\+\_\+index = {\ttfamily 0},  }\item[{const std\+::vector$<$ dealii\+::\+Smart\+Pointer$<$ const dealii\+::\+Data\+Postprocessor$<$ spacedim $>$$>$$>$ \&}]{dp\+\_\+domain = {\ttfamily std\+:\+:vector$<$~dealii\+:\+:SmartPointer$<$~const~dealii\+:\+:DataPostprocessor$<$~spacedim~$>$$>$$>$()},  }\item[{const std\+::vector$<$ dealii\+::\+Smart\+Pointer$<$ const dealii\+::\+Data\+Postprocessor$<$ spacedim $>$$>$$>$ \&}]{dp\+\_\+interface = {\ttfamily std\+:\+:vector$<$~dealii\+:\+:SmartPointer$<$~const~dealii\+:\+:DataPostprocessor$<$~spacedim~$>$$>$$>$()},  }\item[{const unsigned int}]{n\+\_\+subdivisions = {\ttfamily 1} }\end{DoxyParamCaption}) const}
 
 Function to write dof output to $\ast$.vtu files (one for the domain and one for the interface). This only writes the dofs on the domain and the interface to the file; the independent scalars are currently not included in the output.
 
@@ -1411,14 +1435,14 @@ std\+::vector$<$std\+::pair$<$std\+::string, unsigned int$>$ $>$ \mbox{\hyperlin
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 std\+::vector$<$std\+::vector$<$std\+::vector$<$unsigned int$>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::components\+\_\+to\+\_\+shapefuns\+\_\+domain\hspace{0.3cm}{\ttfamily [private]}}
 
-Mapping between global components of domain related \textbf{ F\+E\+System}\textquotesingle{}s (which are stored in \mbox{\hyperlink{class_assembly_helper_af3803b0aad9853e6bf018c70be41e791}{Assembly\+Helper\+::fe\+\_\+collection\+\_\+domain}}) and local shape function indices. \mbox{\hyperlink{class_assembly_helper_a0bdb6e2e2f9623f3f10dfa2ebe8e234c}{Assembly\+Helper\+::components\+\_\+to\+\_\+shapefuns\+\_\+domain}}\mbox{[}{\ttfamily i}\mbox{]}\mbox{[}{\ttfamily j}\mbox{]} contains the local shape function indices of shape functions contributing to the global component {\ttfamily j} of the {\ttfamily i-\/th} \textbf{ F\+E\+System} in \mbox{\hyperlink{class_assembly_helper_af3803b0aad9853e6bf018c70be41e791}{Assembly\+Helper\+::fe\+\_\+collection\+\_\+domain}}. \mbox{\Hypertarget{class_assembly_helper_ae92560183f1d2060265f0744a84f0349}\label{class_assembly_helper_ae92560183f1d2060265f0744a84f0349}} 
+Mapping between global components of domain related \textbf{ FESystem}\textquotesingle{}s (which are stored in \mbox{\hyperlink{class_assembly_helper_af3803b0aad9853e6bf018c70be41e791}{Assembly\+Helper\+::fe\+\_\+collection\+\_\+domain}}) and local shape function indices. \mbox{\hyperlink{class_assembly_helper_a0bdb6e2e2f9623f3f10dfa2ebe8e234c}{Assembly\+Helper\+::components\+\_\+to\+\_\+shapefuns\+\_\+domain}}\mbox{[}{\ttfamily i}\mbox{]}\mbox{[}{\ttfamily j}\mbox{]} contains the local shape function indices of shape functions contributing to the global component {\ttfamily j} of the {\ttfamily i-\/th} \textbf{ FESystem} in \mbox{\hyperlink{class_assembly_helper_af3803b0aad9853e6bf018c70be41e791}{Assembly\+Helper\+::fe\+\_\+collection\+\_\+domain}}. \mbox{\Hypertarget{class_assembly_helper_ae92560183f1d2060265f0744a84f0349}\label{class_assembly_helper_ae92560183f1d2060265f0744a84f0349}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!components\_to\_shapefuns\_domain\_facewise@{components\_to\_shapefuns\_domain\_facewise}}
 \index{components\_to\_shapefuns\_domain\_facewise@{components\_to\_shapefuns\_domain\_facewise}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{components\_to\_shapefuns\_domain\_facewise}{components\_to\_shapefuns\_domain\_facewise}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 std\+::vector$<$std\+::vector$<$std\+::vector$<$std\+::vector$<$unsigned int$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::components\+\_\+to\+\_\+shapefuns\+\_\+domain\+\_\+facewise\hspace{0.3cm}{\ttfamily [private]}}
 
-This member is similar to \mbox{\hyperlink{class_assembly_helper_a0bdb6e2e2f9623f3f10dfa2ebe8e234c}{Assembly\+Helper\+::components\+\_\+to\+\_\+shapefuns\+\_\+domain}}. However, the information is additionally broken down in cell faces. In particular, \mbox{\hyperlink{class_assembly_helper_ae92560183f1d2060265f0744a84f0349}{Assembly\+Helper\+::components\+\_\+to\+\_\+shapefuns\+\_\+domain\+\_\+facewise}}\mbox{[}{\ttfamily i}\mbox{]}\mbox{[}{\ttfamily j}\mbox{]}\mbox{[}{\ttfamily k}\mbox{]} contains the indices of shape functions related to the global component {\ttfamily j} of the {\ttfamily i-\/th} \textbf{ F\+E\+System} in \mbox{\hyperlink{class_assembly_helper_af3803b0aad9853e6bf018c70be41e791}{Assembly\+Helper\+::fe\+\_\+collection\+\_\+domain}} which have support on face {\ttfamily k}.
+This member is similar to \mbox{\hyperlink{class_assembly_helper_a0bdb6e2e2f9623f3f10dfa2ebe8e234c}{Assembly\+Helper\+::components\+\_\+to\+\_\+shapefuns\+\_\+domain}}. However, the information is additionally broken down in cell faces. In particular, \mbox{\hyperlink{class_assembly_helper_ae92560183f1d2060265f0744a84f0349}{Assembly\+Helper\+::components\+\_\+to\+\_\+shapefuns\+\_\+domain\+\_\+facewise}}\mbox{[}{\ttfamily i}\mbox{]}\mbox{[}{\ttfamily j}\mbox{]}\mbox{[}{\ttfamily k}\mbox{]} contains the indices of shape functions related to the global component {\ttfamily j} of the {\ttfamily i-\/th} \textbf{ FESystem} in \mbox{\hyperlink{class_assembly_helper_af3803b0aad9853e6bf018c70be41e791}{Assembly\+Helper\+::fe\+\_\+collection\+\_\+domain}} which have support on face {\ttfamily k}.
 
 It is noted that not all shape functions included in \mbox{\hyperlink{class_assembly_helper_a0bdb6e2e2f9623f3f10dfa2ebe8e234c}{Assembly\+Helper\+::components\+\_\+to\+\_\+shapefuns\+\_\+domain}}\mbox{[}{\ttfamily i}\mbox{]}\mbox{[}{\ttfamily j}\mbox{]} may be present in \mbox{\hyperlink{class_assembly_helper_ae92560183f1d2060265f0744a84f0349}{Assembly\+Helper\+::components\+\_\+to\+\_\+shapefuns\+\_\+domain\+\_\+facewise}}\mbox{[}{\ttfamily i}\mbox{]}\mbox{[}{\ttfamily j}\mbox{]} because there may be shape functions which don\textquotesingle{}t have support on a face or which are not associated with support points at all.
 
@@ -1429,7 +1453,7 @@ The main use of this data structure is to facilitate the assembly of Dirichlet t
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 std\+::vector$<$std\+::vector$<$std\+::vector$<$unsigned int$>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::components\+\_\+to\+\_\+shapefuns\+\_\+interface\hspace{0.3cm}{\ttfamily [private]}}
 
-Mapping between global components of interface related \textbf{ F\+E\+System}\textquotesingle{}s (which are stored in \mbox{\hyperlink{class_assembly_helper_a8b4d224a9ecd2e926a8860829874d2a1}{Assembly\+Helper\+::fe\+\_\+collection\+\_\+interface}}) and local shape function indices. \mbox{\hyperlink{class_assembly_helper_abcad51e64347fc3141d2840a2835b46c}{Assembly\+Helper\+::components\+\_\+to\+\_\+shapefuns\+\_\+interface}}\mbox{[}{\ttfamily i}\mbox{]}\mbox{[}{\ttfamily j}\mbox{]} contains the local shape function indices of shape functions contributing to the global component {\ttfamily j} of the {\ttfamily i-\/th} \textbf{ F\+E\+System} in \mbox{\hyperlink{class_assembly_helper_a8b4d224a9ecd2e926a8860829874d2a1}{Assembly\+Helper\+::fe\+\_\+collection\+\_\+interface}}. \mbox{\Hypertarget{class_assembly_helper_aceaf7ba62dfe0fa06ecb15ee8c14da34}\label{class_assembly_helper_aceaf7ba62dfe0fa06ecb15ee8c14da34}} 
+Mapping between global components of interface related \textbf{ FESystem}\textquotesingle{}s (which are stored in \mbox{\hyperlink{class_assembly_helper_a8b4d224a9ecd2e926a8860829874d2a1}{Assembly\+Helper\+::fe\+\_\+collection\+\_\+interface}}) and local shape function indices. \mbox{\hyperlink{class_assembly_helper_abcad51e64347fc3141d2840a2835b46c}{Assembly\+Helper\+::components\+\_\+to\+\_\+shapefuns\+\_\+interface}}\mbox{[}{\ttfamily i}\mbox{]}\mbox{[}{\ttfamily j}\mbox{]} contains the local shape function indices of shape functions contributing to the global component {\ttfamily j} of the {\ttfamily i-\/th} \textbf{ FESystem} in \mbox{\hyperlink{class_assembly_helper_a8b4d224a9ecd2e926a8860829874d2a1}{Assembly\+Helper\+::fe\+\_\+collection\+\_\+interface}}. \mbox{\Hypertarget{class_assembly_helper_aceaf7ba62dfe0fa06ecb15ee8c14da34}\label{class_assembly_helper_aceaf7ba62dfe0fa06ecb15ee8c14da34}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!contributions\_scalar\_functionals\_domain\_total\_potential@{contributions\_scalar\_functionals\_domain\_total\_potential}}
 \index{contributions\_scalar\_functionals\_domain\_total\_potential@{contributions\_scalar\_functionals\_domain\_total\_potential}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{contributions\_scalar\_functionals\_domain\_total\_potential}{contributions\_scalar\_functionals\_domain\_total\_potential}}
@@ -1443,7 +1467,16 @@ Map between domain related scalar functionals and a vector of pairs of (\char`\"
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 std\+::map$<$\textbf{ Smart\+Pointer}$<$const \mbox{\hyperlink{class_scalar_functional}{Scalar\+Functional}}$<$spacedim-\/1, spacedim$>$ $>$, std\+::vector$<$std\+::pair$<$const unsigned int, const unsigned int$>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::contributions\+\_\+scalar\+\_\+functionals\+\_\+interface\+\_\+total\+\_\+potential\hspace{0.3cm}{\ttfamily [private]}}
 
-Map between interface related scalar functionals and a vector of pairs of (\char`\"{}contribution to total potential\char`\"{}, \char`\"{}scalar functional index within contribution to total potential\char`\"{}), where \char`\"{}contribution to total potential\char`\"{} is an index into \mbox{\hyperlink{class_total_potential_a5a14ce0e2fabf8116566aa67fb11db35}{Total\+Potential\+::total\+\_\+potential\+\_\+contributions}} and \char`\"{}scalar functional index within contribution to total potential\char`\"{} is an index into \mbox{\hyperlink{class_total_potential_contribution_aac404e3a8493d9170541e34bd96673d3}{Total\+Potential\+Contribution\+::\+H\+\_\+sigma}} (but shifted by the size of \mbox{\hyperlink{class_total_potential_contribution_a15191539345978a3d0c7293bd7ecaa91}{Total\+Potential\+Contribution\+::\+H\+\_\+omega}}). This member essentially describes how an interface related scalar functional factors into the \mbox{\hyperlink{class_total_potential}{Total\+Potential}} \mbox{\Hypertarget{class_assembly_helper_a0edd25820c92a25ae87fc240f4916804}\label{class_assembly_helper_a0edd25820c92a25ae87fc240f4916804}} 
+Map between interface related scalar functionals and a vector of pairs of (\char`\"{}contribution to total potential\char`\"{}, \char`\"{}scalar functional index within contribution to total potential\char`\"{}), where \char`\"{}contribution to total potential\char`\"{} is an index into \mbox{\hyperlink{class_total_potential_a5a14ce0e2fabf8116566aa67fb11db35}{Total\+Potential\+::total\+\_\+potential\+\_\+contributions}} and \char`\"{}scalar functional index within contribution to total potential\char`\"{} is an index into \mbox{\hyperlink{class_total_potential_contribution_aac404e3a8493d9170541e34bd96673d3}{Total\+Potential\+Contribution\+::\+H\+\_\+sigma}} (but shifted by the size of \mbox{\hyperlink{class_total_potential_contribution_a15191539345978a3d0c7293bd7ecaa91}{Total\+Potential\+Contribution\+::\+H\+\_\+omega}}). This member essentially describes how an interface related scalar functional factors into the \mbox{\hyperlink{class_total_potential}{Total\+Potential}} \mbox{\Hypertarget{class_assembly_helper_a509326b1521d7979d55dd9b811beac52}\label{class_assembly_helper_a509326b1521d7979d55dd9b811beac52}} 
+\index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!correspondence\_e\_omega\_locally\_eliminated@{correspondence\_e\_omega\_locally\_eliminated}}
+\index{correspondence\_e\_omega\_locally\_eliminated@{correspondence\_e\_omega\_locally\_eliminated}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{correspondence\_e\_omega\_locally\_eliminated}{correspondence\_e\_omega\_locally\_eliminated}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+std\+::vector$<$std\+::vector$<$std\+::map$<$unsigned int, std\+::vector$<$unsigned int$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::correspondence\+\_\+e\+\_\+omega\+\_\+locally\+\_\+eliminated\hspace{0.3cm}{\ttfamily [private]}}
+
+This member contains information about which dof index in the scalar functional related indexing corresponds to a locally eliminated dependent field on a particular quadrature point.
+
+\mbox{\hyperlink{class_assembly_helper_a509326b1521d7979d55dd9b811beac52}{Assembly\+Helper\+::correspondence\+\_\+e\+\_\+omega\+\_\+locally\+\_\+eliminated}}\mbox{[}{\ttfamily u}\mbox{]}\mbox{[}{\ttfamily v}\mbox{]}\mbox{[}{\ttfamily k}\mbox{]} contains a vector of pairs corresponding to the {\ttfamily k-\/th} dependent field of the {\ttfamily v-\/th} scalar functional on the domain portion with internal index {\ttfamily u}. The vector element {\ttfamily q} contains the relevant scalar functional related index for the quadrature point {\ttfamily q}. \mbox{\Hypertarget{class_assembly_helper_a0edd25820c92a25ae87fc240f4916804}\label{class_assembly_helper_a0edd25820c92a25ae87fc240f4916804}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!coupled\_C\_indices\_scalar\_functionals\_domain@{coupled\_C\_indices\_scalar\_functionals\_domain}}
 \index{coupled\_C\_indices\_scalar\_functionals\_domain@{coupled\_C\_indices\_scalar\_functionals\_domain}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{coupled\_C\_indices\_scalar\_functionals\_domain}{coupled\_C\_indices\_scalar\_functionals\_domain}}
@@ -1484,21 +1517,38 @@ This member contains information about the shape functions coupling for a certai
 
 \mbox{\hyperlink{class_assembly_helper_a1a26b40224e3f04e5168accc91486493}{Assembly\+Helper\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain}}\mbox{[}{\ttfamily u}\mbox{]}\mbox{[}{\ttfamily v}\mbox{]} contains all (cell related) dof indices which couple for the {\ttfamily v-\/th} scalar functional on the domain portion with internal index {\ttfamily u} (the ordering of the scalar functionals on the domain portion with internal index {\ttfamily u} is given by \mbox{\hyperlink{class_assembly_helper_aa6fa619e4c2582e95950e878cd06628e}{Assembly\+Helper\+::scalar\+\_\+functionals\+\_\+domain}}\mbox{[}{\ttfamily u}\mbox{]}).
 
-Using this data structure it is e.\+g. possible to make sure that only those entries are included in the sparsity pattern which are really needed. As an example, consider the case that there are two domain related scalar functionals $H^\Omega_1[e^\Omega_1(u^\Omega_1, u^\Omega_2)]$ and $H^\Omega_2[e^\Omega_2(u^\Omega_2, u^\Omega_3)]$. For this case, the shape functions related to $u^\Omega_1$ will couple to those related to $u^\Omega_2$; and the shape functions related to $u^\Omega_2$ will couple to those related to $u^\Omega_3$; however there is no coupling between $u^\Omega_1$ and $u^\Omega_3$. The standard approach of assuming that all shape functions living on a certain cell couple would miss this subtlety and allocate entries in the finite element system matrix which are always zero. However, by using the scalar functional related shape function indexing provided by the member \mbox{\hyperlink{class_assembly_helper_a1a26b40224e3f04e5168accc91486493}{Assembly\+Helper\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain}} this is avoided. \mbox{\Hypertarget{class_assembly_helper_aa9fc6d318c2f7a2eab5097b6a76c9083}\label{class_assembly_helper_aa9fc6d318c2f7a2eab5097b6a76c9083}} 
+Using this data structure it is e.\+g. possible to make sure that only those entries are included in the sparsity pattern which are really needed. As an example, consider the case that there are two domain related scalar functionals $H^\Omega_1[e^\Omega_1(u^\Omega_1, u^\Omega_2)]$ and $H^\Omega_2[e^\Omega_2(u^\Omega_2, u^\Omega_3)]$. For this case, the shape functions related to $u^\Omega_1$ will couple to those related to $u^\Omega_2$; and the shape functions related to $u^\Omega_2$ will couple to those related to $u^\Omega_3$; however there is no coupling between $u^\Omega_1$ and $u^\Omega_3$. The standard approach of assuming that all shape functions living on a certain cell couple would miss this subtlety and allocate entries in the finite element system matrix which are always zero. However, by using the scalar functional related shape function indexing provided by the member \mbox{\hyperlink{class_assembly_helper_a1a26b40224e3f04e5168accc91486493}{Assembly\+Helper\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain}} this is avoided. \mbox{\Hypertarget{class_assembly_helper_a08edb01ba4c8d721862fb060860137d4}\label{class_assembly_helper_a08edb01ba4c8d721862fb060860137d4}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!coupled\_dof\_indices\_scalar\_functionals\_domain\_local@{coupled\_dof\_indices\_scalar\_functionals\_domain\_local}}
 \index{coupled\_dof\_indices\_scalar\_functionals\_domain\_local@{coupled\_dof\_indices\_scalar\_functionals\_domain\_local}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{coupled\_dof\_indices\_scalar\_functionals\_domain\_local}{coupled\_dof\_indices\_scalar\_functionals\_domain\_local}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$std\+::vector$<$std\+::vector$<$unsigned int$>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+local\hspace{0.3cm}{\ttfamily [private]}}
+std\+::vector$<$std\+::vector$<$std\+::vector$<$std\+::pair$<$std\+::vector$<$unsigned int$>$,std\+::vector$<$unsigned int$>$ $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+local\hspace{0.3cm}{\ttfamily [private]}}
 
-Essentially the same as \mbox{\hyperlink{class_assembly_helper_a1a26b40224e3f04e5168accc91486493}{Assembly\+Helper\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain}}. However, only dofs related to local independent field are included \mbox{\Hypertarget{class_assembly_helper_a6b7242925e5a0be85830ed7eae581442}\label{class_assembly_helper_a6b7242925e5a0be85830ed7eae581442}} 
-\index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!coupled\_dof\_indices\_scalar\_functionals\_domain\_nonlocal@{coupled\_dof\_indices\_scalar\_functionals\_domain\_nonlocal}}
-\index{coupled\_dof\_indices\_scalar\_functionals\_domain\_nonlocal@{coupled\_dof\_indices\_scalar\_functionals\_domain\_nonlocal}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
-\doxysubsubsection{\texorpdfstring{coupled\_dof\_indices\_scalar\_functionals\_domain\_nonlocal}{coupled\_dof\_indices\_scalar\_functionals\_domain\_nonlocal}}
+coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+local\mbox{[}{\ttfamily u}\mbox{]}\mbox{[}{\ttfamily v}\mbox{]}\mbox{[}{\ttfamily q}\mbox{]}.first contains all local dof indices in the cell-\/related indexing, which couple for the {\ttfamily v-\/th} scalar functional on the domain portion with internal index {\ttfamily u} at the quadrature point {\ttfamily q}.
+
+coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+local\mbox{[}{\ttfamily u}\mbox{]}\mbox{[}{\ttfamily v}\mbox{]}\mbox{[}{\ttfamily q}\mbox{]}.second contains all local dof indices in the scalar-\/functional-\/related indexing, which couple for the {\ttfamily v-\/th} scalar functional on the domain portion with internal index {\ttfamily u} at the quadrature point {\ttfamily q}.
+
+The same elements in the two vectors of the pair contain dof indices corresponding to each other. \mbox{\Hypertarget{class_assembly_helper_a52d69b234032d5194e87e9b7e5fef759}\label{class_assembly_helper_a52d69b234032d5194e87e9b7e5fef759}} 
+\index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!coupled\_dof\_indices\_scalar\_functionals\_domain\_locally\_eliminated@{coupled\_dof\_indices\_scalar\_functionals\_domain\_locally\_eliminated}}
+\index{coupled\_dof\_indices\_scalar\_functionals\_domain\_locally\_eliminated@{coupled\_dof\_indices\_scalar\_functionals\_domain\_locally\_eliminated}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{coupled\_dof\_indices\_scalar\_functionals\_domain\_locally\_eliminated}{coupled\_dof\_indices\_scalar\_functionals\_domain\_locally\_eliminated}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$std\+::vector$<$std\+::vector$<$unsigned int$>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+nonlocal\hspace{0.3cm}{\ttfamily [private]}}
+std\+::vector$<$std\+::vector$<$std\+::vector$<$std\+::pair$<$std\+::vector$<$unsigned int$>$,std\+::vector$<$unsigned int$>$ $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+locally\+\_\+eliminated\hspace{0.3cm}{\ttfamily [private]}}
 
-Essentially the same as \mbox{\hyperlink{class_assembly_helper_a1a26b40224e3f04e5168accc91486493}{Assembly\+Helper\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain}}. However, only dofs related to nonlocal independent field are included \mbox{\Hypertarget{class_assembly_helper_ab346e146cf91fb7a0688076551b37355}\label{class_assembly_helper_ab346e146cf91fb7a0688076551b37355}} 
+coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+locally\+\_\+eliminated\mbox{[}{\ttfamily u}\mbox{]}\mbox{[}{\ttfamily v}\mbox{]}\mbox{[}{\ttfamily q}\mbox{]}.first contains all locally eliminated dof indices in the cell-\/related indexing, which couple for the {\ttfamily v-\/th} scalar functional on the domain portion with internal index {\ttfamily u} at the quadrature point {\ttfamily q}.
+
+coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+locally\+\_\+eliminated\mbox{[}{\ttfamily u}\mbox{]}\mbox{[}{\ttfamily v}\mbox{]}\mbox{[}{\ttfamily q}\mbox{]}.second contains all locally eliminated dof indices in the scalar-\/functional-\/related indexing, which couple for the {\ttfamily v-\/th} scalar functional on the domain portion with internal index {\ttfamily u} at the quadrature point {\ttfamily q}.
+
+The same elements in the two vectors of the pair contain dof indices corresponding to each other. \mbox{\Hypertarget{class_assembly_helper_abcef951309d147d892660da4f62532d3}\label{class_assembly_helper_abcef951309d147d892660da4f62532d3}} 
+\index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!coupled\_dof\_indices\_scalar\_functionals\_domain\_not\_local@{coupled\_dof\_indices\_scalar\_functionals\_domain\_not\_local}}
+\index{coupled\_dof\_indices\_scalar\_functionals\_domain\_not\_local@{coupled\_dof\_indices\_scalar\_functionals\_domain\_not\_local}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{coupled\_dof\_indices\_scalar\_functionals\_domain\_not\_local}{coupled\_dof\_indices\_scalar\_functionals\_domain\_not\_local}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+std\+::vector$<$std\+::vector$<$std\+::pair$<$std\+::vector$<$unsigned int$>$,std\+::vector$<$unsigned int$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+not\+\_\+local\hspace{0.3cm}{\ttfamily [private]}}
+
+coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+not\+\_\+local\mbox{[}{\ttfamily u}\mbox{]}\mbox{[}{\ttfamily v}\mbox{]}.first contains all non-\/local dof indices in the cell-\/related indexing, which couple for the {\ttfamily v-\/th} scalar functional on the domain portion with internal index {\ttfamily u}.
+
+coupled\+\_\+dof\+\_\+indices\+\_\+scalar\+\_\+functionals\+\_\+domain\+\_\+not\+\_\+local\mbox{[}{\ttfamily u}\mbox{]}\mbox{[}{\ttfamily v}\mbox{]}\mbox{[}{\ttfamily q}\mbox{]}.second contains all non-\/local dof indices in the scalar-\/functional-\/related indexing, which couple for the {\ttfamily v-\/th} scalar functional on the domain portion with internal index {\ttfamily u}. \mbox{\Hypertarget{class_assembly_helper_ab346e146cf91fb7a0688076551b37355}\label{class_assembly_helper_ab346e146cf91fb7a0688076551b37355}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!coupled\_dof\_indices\_scalar\_functionals\_interface@{coupled\_dof\_indices\_scalar\_functionals\_interface}}
 \index{coupled\_dof\_indices\_scalar\_functionals\_interface@{coupled\_dof\_indices\_scalar\_functionals\_interface}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{coupled\_dof\_indices\_scalar\_functionals\_interface}{coupled\_dof\_indices\_scalar\_functionals\_interface}}
@@ -1561,18 +1611,9 @@ This member contains information about the constant terms $d^\Sigma_\nu$ of doma
 \index{dof\_handler\_system@{dof\_handler\_system}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{dof\_handler\_system}{dof\_handler\_system}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$spacedim$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::dof\+\_\+handler\+\_\+system\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}$<$spacedim$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::dof\+\_\+handler\+\_\+system\hspace{0.3cm}{\ttfamily [private]}}
 
-The \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}} \mbox{\Hypertarget{class_assembly_helper_a547c7d4ffd7379860f15095d494b1d68}\label{class_assembly_helper_a547c7d4ffd7379860f15095d494b1d68}} 
-\index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!e\_omega\_local@{e\_omega\_local}}
-\index{e\_omega\_local@{e\_omega\_local}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
-\doxysubsubsection{\texorpdfstring{e\_omega\_local}{e\_omega\_local}}
-{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$std\+::vector$<$std\+::vector$<$bool$>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::e\+\_\+omega\+\_\+local\hspace{0.3cm}{\ttfamily [private]}}
-
-This member contains information about whether the dependent field is local.
-
-\mbox{\hyperlink{class_assembly_helper_a547c7d4ffd7379860f15095d494b1d68}{Assembly\+Helper\+::e\+\_\+omega\+\_\+local}}\mbox{[}{\ttfamily u}\mbox{]}\mbox{[}{\ttfamily v}\mbox{]}\mbox{[}{\ttfamily k}\mbox{]} contains whether the {\ttfamily k-\/th} dependent field of the {\ttfamily v-\/th} scalar functional on the domain portion with internal index {\ttfamily u} is local. \mbox{\Hypertarget{class_assembly_helper_a16aa77ea3867740a280fd50f5578adfc}\label{class_assembly_helper_a16aa77ea3867740a280fd50f5578adfc}} 
+The \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}} \mbox{\Hypertarget{class_assembly_helper_a16aa77ea3867740a280fd50f5578adfc}\label{class_assembly_helper_a16aa77ea3867740a280fd50f5578adfc}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!e\_sigma\_local@{e\_sigma\_local}}
 \index{e\_sigma\_local@{e\_sigma\_local}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{e\_sigma\_local}{e\_sigma\_local}}
@@ -1586,73 +1627,73 @@ This member contains information about whether the dependent field is local.
 \index{fe\_collection\_domain@{fe\_collection\_domain}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{fe\_collection\_domain}{fe\_collection\_domain}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\textbf{ hp\+::\+F\+E\+Collection}$<$spacedim, spacedim$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+collection\+\_\+domain\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ hp\+::\+FECollection}$<$spacedim, spacedim$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+collection\+\_\+domain\hspace{0.3cm}{\ttfamily [private]}}
 
-\textbf{ hp\+::\+F\+E\+Collection} to be used on domain. This contains the finite element systems to be used for different domain portions identified by different \textbf{ types\+::material\+\_\+id}s.
+\textbf{ hp\+::\+FECollection} to be used on domain. This contains the finite element systems to be used for different domain portions identified by different \textbf{ types\+::material\+\_\+id}s.
 
 The components of the finite element systems are sorted according to \mbox{\hyperlink{class_assembly_helper_a6dae4b6ae7934eaec1ad7baff258ce6e}{Assembly\+Helper\+::global\+\_\+component\+\_\+indices\+\_\+u\+\_\+omega}}. \mbox{\Hypertarget{class_assembly_helper_a8b4d224a9ecd2e926a8860829874d2a1}\label{class_assembly_helper_a8b4d224a9ecd2e926a8860829874d2a1}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!fe\_collection\_interface@{fe\_collection\_interface}}
 \index{fe\_collection\_interface@{fe\_collection\_interface}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{fe\_collection\_interface}{fe\_collection\_interface}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\textbf{ hp\+::\+F\+E\+Collection}$<$spacedim-\/1, spacedim$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+collection\+\_\+interface\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ hp\+::\+FECollection}$<$spacedim-\/1, spacedim$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+collection\+\_\+interface\hspace{0.3cm}{\ttfamily [private]}}
 
-\textbf{ hp\+::\+F\+E\+Collection} for interface. This contains the finite element systems to be used for different interface portions identified by different \textbf{ types\+::material\+\_\+id}s.
+\textbf{ hp\+::\+FECollection} for interface. This contains the finite element systems to be used for different interface portions identified by different \textbf{ types\+::material\+\_\+id}s.
 
 The components of the finite element systems are sorted according to \mbox{\hyperlink{class_assembly_helper_a992a53a1fcac8a393ca53fb8d504bdfe}{Assembly\+Helper\+::global\+\_\+component\+\_\+indices\+\_\+u\+\_\+sigma}}. \mbox{\Hypertarget{class_assembly_helper_a904a24f53b66e1c1ef89f1bb7989eb32}\label{class_assembly_helper_a904a24f53b66e1c1ef89f1bb7989eb32}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!fe\_values\_domain@{fe\_values\_domain}}
 \index{fe\_values\_domain@{fe\_values\_domain}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{fe\_values\_domain}{fe\_values\_domain}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$std\+::vector$<$std\+::shared\+\_\+ptr$<$\textbf{ F\+E\+Values}$<$spacedim, spacedim$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+values\+\_\+domain\hspace{0.3cm}{\ttfamily [private]}}
+std\+::vector$<$std\+::vector$<$std\+::shared\+\_\+ptr$<$\textbf{ FEValues}$<$spacedim, spacedim$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+values\+\_\+domain\hspace{0.3cm}{\ttfamily [private]}}
 
-\textbf{ F\+E\+Values} objects needed for evaluation of scalar functionals on domain cells.
+\textbf{ FEValues} objects needed for evaluation of scalar functionals on domain cells.
 
 \mbox{\hyperlink{class_assembly_helper_a904a24f53b66e1c1ef89f1bb7989eb32}{Assembly\+Helper\+::fe\+\_\+values\+\_\+domain}}\mbox{[}{\ttfamily u}\mbox{]}\mbox{[}{\ttfamily v}\mbox{]} is used for the evaluation of the {\ttfamily v-\/th} scalar functional on the domain portion with internal index {\ttfamily u}.
 
-Using a shared pointer here allows to re-\/use \textbf{ F\+E\+Values} objects if there are several scalar functionals defined on a certain domain portion and the integration of two or more of these scalar functionals is done based on the same quadrature rule. \mbox{\Hypertarget{class_assembly_helper_a28b58551c6afc68c7beaaa2604bc6e92}\label{class_assembly_helper_a28b58551c6afc68c7beaaa2604bc6e92}} 
+Using a shared pointer here allows to re-\/use \textbf{ FEValues} objects if there are several scalar functionals defined on a certain domain portion and the integration of two or more of these scalar functionals is done based on the same quadrature rule. \mbox{\Hypertarget{class_assembly_helper_a28b58551c6afc68c7beaaa2604bc6e92}\label{class_assembly_helper_a28b58551c6afc68c7beaaa2604bc6e92}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!fe\_values\_domain\_reinit@{fe\_values\_domain\_reinit}}
 \index{fe\_values\_domain\_reinit@{fe\_values\_domain\_reinit}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{fe\_values\_domain\_reinit}{fe\_values\_domain\_reinit}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$std\+::set$<$std\+::shared\+\_\+ptr$<$\textbf{ F\+E\+Values}$<$spacedim, spacedim$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+values\+\_\+domain\+\_\+reinit\hspace{0.3cm}{\ttfamily [private]}}
+std\+::vector$<$\textbf{ std\+::set}$<$std\+::shared\+\_\+ptr$<$\textbf{ FEValues}$<$spacedim, spacedim$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+values\+\_\+domain\+\_\+reinit\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\hyperlink{class_assembly_helper_a28b58551c6afc68c7beaaa2604bc6e92}{Assembly\+Helper\+::fe\+\_\+values\+\_\+domain\+\_\+reinit}}\mbox{[}{\ttfamily i}\mbox{]} contains the \textbf{ F\+E\+Values} objects for the domain portion with internal index {\ttfamily i}, which are actually needed when a particular cell of this domain portion is visited. By using this data structure, multiple initializations of \textbf{ F\+E\+Values} objects with the same cell are avoided. \mbox{\Hypertarget{class_assembly_helper_a3c592ef0a148753891cc3e03fd08324c}\label{class_assembly_helper_a3c592ef0a148753891cc3e03fd08324c}} 
+\mbox{\hyperlink{class_assembly_helper_a28b58551c6afc68c7beaaa2604bc6e92}{Assembly\+Helper\+::fe\+\_\+values\+\_\+domain\+\_\+reinit}}\mbox{[}{\ttfamily i}\mbox{]} contains the \textbf{ FEValues} objects for the domain portion with internal index {\ttfamily i}, which are actually needed when a particular cell of this domain portion is visited. By using this data structure, multiple initializations of \textbf{ FEValues} objects with the same cell are avoided. \mbox{\Hypertarget{class_assembly_helper_a3c592ef0a148753891cc3e03fd08324c}\label{class_assembly_helper_a3c592ef0a148753891cc3e03fd08324c}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!fe\_values\_domain\_reinit\_nonprimitive@{fe\_values\_domain\_reinit\_nonprimitive}}
 \index{fe\_values\_domain\_reinit\_nonprimitive@{fe\_values\_domain\_reinit\_nonprimitive}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{fe\_values\_domain\_reinit\_nonprimitive}{fe\_values\_domain\_reinit\_nonprimitive}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$std\+::set$<$std\+::shared\+\_\+ptr$<$\textbf{ F\+E\+Values}$<$spacedim, spacedim$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+values\+\_\+domain\+\_\+reinit\+\_\+nonprimitive\hspace{0.3cm}{\ttfamily [private]}}
+std\+::vector$<$\textbf{ std\+::set}$<$std\+::shared\+\_\+ptr$<$\textbf{ FEValues}$<$spacedim, spacedim$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+values\+\_\+domain\+\_\+reinit\+\_\+nonprimitive\hspace{0.3cm}{\ttfamily [private]}}
 
-The same as \mbox{\hyperlink{class_assembly_helper_a28b58551c6afc68c7beaaa2604bc6e92}{Assembly\+Helper\+::fe\+\_\+values\+\_\+domain\+\_\+reinit}}, but only contains those \textbf{ F\+E\+Values} objects needed for evaluation of scalar functionals entering non-\/primitively into the total potential \mbox{\Hypertarget{class_assembly_helper_ae1e2643696005415d78421882ca80e8e}\label{class_assembly_helper_ae1e2643696005415d78421882ca80e8e}} 
+The same as \mbox{\hyperlink{class_assembly_helper_a28b58551c6afc68c7beaaa2604bc6e92}{Assembly\+Helper\+::fe\+\_\+values\+\_\+domain\+\_\+reinit}}, but only contains those \textbf{ FEValues} objects needed for evaluation of scalar functionals entering non-\/primitively into the total potential \mbox{\Hypertarget{class_assembly_helper_ae1e2643696005415d78421882ca80e8e}\label{class_assembly_helper_ae1e2643696005415d78421882ca80e8e}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!fe\_values\_interface@{fe\_values\_interface}}
 \index{fe\_values\_interface@{fe\_values\_interface}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{fe\_values\_interface}{fe\_values\_interface}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$spacedim$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+values\+\_\+interface\hspace{0.3cm}{\ttfamily [private]}}
+std\+::vector$<$std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$spacedim$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+values\+\_\+interface\hspace{0.3cm}{\ttfamily [private]}}
 
-\textbf{ F\+E\+Values} objects needed for evaluation of scalar functionals on interface cells
+\textbf{ FEValues} objects needed for evaluation of scalar functionals on interface cells
 
 \mbox{\hyperlink{class_assembly_helper_ae1e2643696005415d78421882ca80e8e}{Assembly\+Helper\+::fe\+\_\+values\+\_\+interface}}\mbox{[}{\ttfamily u}\mbox{]}\mbox{[}{\ttfamily v}\mbox{]} is used for the evaluation of the {\ttfamily v-\/th} scalar functional on the interface (sub)portion with internal index {\ttfamily u}.
 
 \begin{DoxyNote}{Note}
-Using a shared pointers here allows to re-\/use \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}} objects, see also the note to \mbox{\hyperlink{class_assembly_helper_a904a24f53b66e1c1ef89f1bb7989eb32}{Assembly\+Helper\+::fe\+\_\+values\+\_\+domain}} 
+Using a shared pointers here allows to re-\/use \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}} objects, see also the note to \mbox{\hyperlink{class_assembly_helper_a904a24f53b66e1c1ef89f1bb7989eb32}{Assembly\+Helper\+::fe\+\_\+values\+\_\+domain}} 
 \end{DoxyNote}
 \mbox{\Hypertarget{class_assembly_helper_ac9789c5a00867744dd906b85580e3091}\label{class_assembly_helper_ac9789c5a00867744dd906b85580e3091}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!fe\_values\_interface\_reinit@{fe\_values\_interface\_reinit}}
 \index{fe\_values\_interface\_reinit@{fe\_values\_interface\_reinit}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{fe\_values\_interface\_reinit}{fe\_values\_interface\_reinit}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$std\+::set$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$spacedim$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+values\+\_\+interface\+\_\+reinit\hspace{0.3cm}{\ttfamily [private]}}
+std\+::vector$<$\textbf{ std\+::set}$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$spacedim$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+values\+\_\+interface\+\_\+reinit\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\hyperlink{class_assembly_helper_ac9789c5a00867744dd906b85580e3091}{Assembly\+Helper\+::fe\+\_\+values\+\_\+interface\+\_\+reinit}}\mbox{[}{\ttfamily i}\mbox{]} contains the \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}} objects for the interface (sub)portion with internal index {\ttfamily i}, which are actually needed when a particular cell of this interface (sub)portion is visited. By using this data structure, multiple initializations of \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}} objects with the same cell are avoided. \mbox{\Hypertarget{class_assembly_helper_afaa20027ee539ca8d9c40c317127e471}\label{class_assembly_helper_afaa20027ee539ca8d9c40c317127e471}} 
+\mbox{\hyperlink{class_assembly_helper_ac9789c5a00867744dd906b85580e3091}{Assembly\+Helper\+::fe\+\_\+values\+\_\+interface\+\_\+reinit}}\mbox{[}{\ttfamily i}\mbox{]} contains the \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}} objects for the interface (sub)portion with internal index {\ttfamily i}, which are actually needed when a particular cell of this interface (sub)portion is visited. By using this data structure, multiple initializations of \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}} objects with the same cell are avoided. \mbox{\Hypertarget{class_assembly_helper_afaa20027ee539ca8d9c40c317127e471}\label{class_assembly_helper_afaa20027ee539ca8d9c40c317127e471}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!fe\_values\_interface\_reinit\_nonprimitive@{fe\_values\_interface\_reinit\_nonprimitive}}
 \index{fe\_values\_interface\_reinit\_nonprimitive@{fe\_values\_interface\_reinit\_nonprimitive}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{fe\_values\_interface\_reinit\_nonprimitive}{fe\_values\_interface\_reinit\_nonprimitive}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-std\+::vector$<$std\+::set$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}}$<$spacedim$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+values\+\_\+interface\+\_\+reinit\+\_\+nonprimitive\hspace{0.3cm}{\ttfamily [private]}}
+std\+::vector$<$\textbf{ std\+::set}$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}}$<$spacedim$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::fe\+\_\+values\+\_\+interface\+\_\+reinit\+\_\+nonprimitive\hspace{0.3cm}{\ttfamily [private]}}
 
-The same as \mbox{\hyperlink{class_assembly_helper_ac9789c5a00867744dd906b85580e3091}{Assembly\+Helper\+::fe\+\_\+values\+\_\+interface\+\_\+reinit}}, but only contains those \mbox{\hyperlink{class_f_e_values_interface}{F\+E\+Values\+Interface}} objects needed for evaluation of scalar functionals entering non-\/primitively into the total potential \mbox{\Hypertarget{class_assembly_helper_a6dae4b6ae7934eaec1ad7baff258ce6e}\label{class_assembly_helper_a6dae4b6ae7934eaec1ad7baff258ce6e}} 
+The same as \mbox{\hyperlink{class_assembly_helper_ac9789c5a00867744dd906b85580e3091}{Assembly\+Helper\+::fe\+\_\+values\+\_\+interface\+\_\+reinit}}, but only contains those \mbox{\hyperlink{class_f_e_values_interface}{FEValues\+Interface}} objects needed for evaluation of scalar functionals entering non-\/primitively into the total potential \mbox{\Hypertarget{class_assembly_helper_a6dae4b6ae7934eaec1ad7baff258ce6e}\label{class_assembly_helper_a6dae4b6ae7934eaec1ad7baff258ce6e}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!global\_component\_indices\_u\_omega@{global\_component\_indices\_u\_omega}}
 \index{global\_component\_indices\_u\_omega@{global\_component\_indices\_u\_omega}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{global\_component\_indices\_u\_omega}{global\_component\_indices\_u\_omega}}
@@ -1673,7 +1714,16 @@ Map between interface related \mbox{\hyperlink{class_independent_field}{Independ
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 std\+::map$<$\textbf{ Smart\+Pointer}$<$const \mbox{\hyperlink{class_independent_field}{Independent\+Field}}$<$0, spacedim$>$ $>$, const unsigned int$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::global\+\_\+indices\+\_\+C\hspace{0.3cm}{\ttfamily [private]}}
 
-Map between independent scalars and \char`\"{}global indices\char`\"{} for the independent scalars. This is essentially the inverse of the member \mbox{\hyperlink{class_assembly_helper_aa5234a46be82cfe7d92678169d38f326}{Assembly\+Helper\+::C}} (in that the global index corresponding to a certain independent scalar is the index into \mbox{\hyperlink{class_assembly_helper_aa5234a46be82cfe7d92678169d38f326}{Assembly\+Helper\+::C}} containing this independent scalar). \mbox{\Hypertarget{class_assembly_helper_a3fbb49461000dea8f64266f830709fad}\label{class_assembly_helper_a3fbb49461000dea8f64266f830709fad}} 
+Map between independent scalars and \char`\"{}global indices\char`\"{} for the independent scalars. This is essentially the inverse of the member \mbox{\hyperlink{class_assembly_helper_aa5234a46be82cfe7d92678169d38f326}{Assembly\+Helper\+::C}} (in that the global index corresponding to a certain independent scalar is the index into \mbox{\hyperlink{class_assembly_helper_aa5234a46be82cfe7d92678169d38f326}{Assembly\+Helper\+::C}} containing this independent scalar). \mbox{\Hypertarget{class_assembly_helper_a092a86e3bce3038ac36483338afca487}\label{class_assembly_helper_a092a86e3bce3038ac36483338afca487}} 
+\index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!has\_local\_locally\_eliminated\_dofs\_domain@{has\_local\_locally\_eliminated\_dofs\_domain}}
+\index{has\_local\_locally\_eliminated\_dofs\_domain@{has\_local\_locally\_eliminated\_dofs\_domain}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
+\doxysubsubsection{\texorpdfstring{has\_local\_locally\_eliminated\_dofs\_domain}{has\_local\_locally\_eliminated\_dofs\_domain}}
+{\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
+std\+::vector$<$std\+::vector$<$std\+::pair$<$bool,bool$>$ $>$ $>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::has\+\_\+local\+\_\+locally\+\_\+eliminated\+\_\+dofs\+\_\+domain\hspace{0.3cm}{\ttfamily [private]}}
+
+has\+\_\+local\+\_\+locally\+\_\+eliminated\+\_\+dofs\mbox{[}{\ttfamily u}\mbox{]}\mbox{[}{\ttfamily v}\mbox{]}.first indicates whether there are local dofs for the {\ttfamily v-\/th} scalar functional on the domain portion with internal index {\ttfamily u}.
+
+has\+\_\+local\+\_\+locally\+\_\+eliminated\+\_\+dofs\mbox{[}{\ttfamily u}\mbox{]}\mbox{[}{\ttfamily v}\mbox{]}.second indicates whether there are locally eliminated dofs for the {\ttfamily v-\/th} scalar functional on the domain portion with internal index {\ttfamily u}. \mbox{\Hypertarget{class_assembly_helper_a3fbb49461000dea8f64266f830709fad}\label{class_assembly_helper_a3fbb49461000dea8f64266f830709fad}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!mapping\_domain@{mapping\_domain}}
 \index{mapping\_domain@{mapping\_domain}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{mapping\_domain}{mapping\_domain}}
@@ -1749,7 +1799,7 @@ Number of scalar functionals entering primitively into the total potential. This
 \index{pout@{pout}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{pout}{pout}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-\textbf{ Conditional\+O\+Stream} \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::pout\hspace{0.3cm}{\ttfamily [private]}}
+\textbf{ Conditional\+OStream} \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::pout\hspace{0.3cm}{\ttfamily [private]}}
 
 Stream used for standard output to screen (makes sure that output is printed only on one processor in parallel) \mbox{\Hypertarget{class_assembly_helper_aa37920e596dca3985e6d28b9d4e3d882}\label{class_assembly_helper_aa37920e596dca3985e6d28b9d4e3d882}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!quadrature\_point\_alignment\_tol@{quadrature\_point\_alignment\_tol}}
@@ -1835,7 +1885,7 @@ The total potential $\Pi$ \mbox{\Hypertarget{class_assembly_helper_a228cec028ab5
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
 std\+::vector$<$boost\+::signals2\+::connection$>$ \mbox{\hyperlink{class_assembly_helper}{Assembly\+Helper}}$<$ spacedim $>$\+::tria\+\_\+listeners\hspace{0.3cm}{\ttfamily [private]}}
 
-A list of connections with which this object connects to the \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}} \mbox{\hyperlink{class_do_f_handler_system_a06d93193cb47591db138cd8f41953796}{Do\+F\+Handler\+System\+::tria\+\_\+system}} to get notice when it changes. \mbox{\Hypertarget{class_assembly_helper_add08a8a7bb9c9325fcc7d92bfce525d4}\label{class_assembly_helper_add08a8a7bb9c9325fcc7d92bfce525d4}} 
+A list of connections with which this object connects to the \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}} \mbox{\hyperlink{class_do_f_handler_system_a06d93193cb47591db138cd8f41953796}{Do\+FHandler\+System\+::tria\+\_\+system}} to get notice when it changes. \mbox{\Hypertarget{class_assembly_helper_add08a8a7bb9c9325fcc7d92bfce525d4}\label{class_assembly_helper_add08a8a7bb9c9325fcc7d92bfce525d4}} 
 \index{AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}!tria\_system@{tria\_system}}
 \index{tria\_system@{tria\_system}!AssemblyHelper$<$ spacedim $>$@{AssemblyHelper$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{tria\_system}{tria\_system}}

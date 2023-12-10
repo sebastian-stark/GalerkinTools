@@ -9,21 +9,21 @@ void \mbox{\hyperlink{namespace_auxiliary_ad3c42d209f0ba8e9d4ce305060634bf1}{con
 \item 
 void \mbox{\hyperlink{namespace_auxiliary_a1d90ebc8738df3d8c70b540034137019}{combine\+\_\+dof\+\_\+indices}} (const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+interface, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+minus, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+plus, const std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+C, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+interface\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+minus\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+plus\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+\+C\+\_\+dof\+\_\+indices\+\_\+combined, std\+::vector$<$ unsigned int $>$ \&dof\+\_\+indices\+\_\+global\+\_\+combined)
 \item 
-void \mbox{\hyperlink{namespace_auxiliary_aca5fe5966aef4ba2293fb44095bfd86c}{add\+\_\+to\+\_\+index\+\_\+set}} (const \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} \&dof\+\_\+renumbering, const \textbf{ Index\+Set} \&in, \textbf{ Index\+Set} \&out)
+void \mbox{\hyperlink{namespace_auxiliary_aca5fe5966aef4ba2293fb44095bfd86c}{add\+\_\+to\+\_\+index\+\_\+set}} (const \mbox{\hyperlink{class_do_f_renumbering}{Do\+FRenumbering}} \&dof\+\_\+renumbering, const \textbf{ Index\+Set} \&in, \textbf{ Index\+Set} \&out)
 \item 
-void \mbox{\hyperlink{namespace_auxiliary_aa6148bcbaf5e3003717b4dd2a4da15b3}{renumber\+\_\+constraints}} (Affine\+Constraints$<$ double $>$ \&constraint\+\_\+matrix, const \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} \&dof\+\_\+renumbering=\mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}}(), const bool close=true)
+void \mbox{\hyperlink{namespace_auxiliary_aa6148bcbaf5e3003717b4dd2a4da15b3}{renumber\+\_\+constraints}} (\textbf{ Affine\+Constraints}$<$ double $>$ \&constraint\+\_\+matrix, const \mbox{\hyperlink{class_do_f_renumbering}{Do\+FRenumbering}} \&dof\+\_\+renumbering=\mbox{\hyperlink{class_do_f_renumbering}{Do\+FRenumbering}}(), const bool close=true)
 \item 
-{\footnotesize template$<$unsigned int spacedim$>$ }\\void \mbox{\hyperlink{namespace_auxiliary_a4261fc726ff965166f3f53242918acea}{compute\+\_\+dof\+\_\+renumbering\+\_\+contiguous}} (const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&dof\+\_\+handler\+\_\+system, \mbox{\hyperlink{class_do_f_renumbering_offset}{Do\+F\+Renumbering\+Offset}} \&dof\+\_\+renumbering\+\_\+offset)
+{\footnotesize template$<$unsigned int spacedim$>$ }\\void \mbox{\hyperlink{namespace_auxiliary_a4261fc726ff965166f3f53242918acea}{compute\+\_\+dof\+\_\+renumbering\+\_\+contiguous}} (const \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}$<$ spacedim $>$ \&dof\+\_\+handler\+\_\+system, \mbox{\hyperlink{class_do_f_renumbering_offset}{Do\+FRenumbering\+Offset}} \&dof\+\_\+renumbering\+\_\+offset)
 \item 
-{\footnotesize template$<$unsigned int spacedim$>$ }\\void \mbox{\hyperlink{namespace_auxiliary_a072f85e6d745ae3c532bb0612f4bd3ce}{compute\+\_\+map\+\_\+dofs}} (const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&dhs\+\_\+1, const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&dhs\+\_\+2, std\+::vector$<$ unsigned int $>$ \&map\+\_\+dofs)
+{\footnotesize template$<$unsigned int spacedim$>$ }\\void \mbox{\hyperlink{namespace_auxiliary_a072f85e6d745ae3c532bb0612f4bd3ce}{compute\+\_\+map\+\_\+dofs}} (const \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}$<$ spacedim $>$ \&dhs\+\_\+1, const \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}$<$ spacedim $>$ \&dhs\+\_\+2, std\+::vector$<$ unsigned int $>$ \&map\+\_\+dofs)
 \item 
 void \mbox{\hyperlink{namespace_auxiliary_a59c01a6511bffd7442693e86cd194ef1}{split\+\_\+vector}} (const \textbf{ Vector}$<$ double $>$ \&in, \textbf{ Vector}$<$ double $>$ \&out\+\_\+0, \textbf{ Vector}$<$ double $>$ \&out\+\_\+1, const unsigned int size\+\_\+1)
 \item 
 void \mbox{\hyperlink{namespace_auxiliary_af746a1d08b1135a3684fc990f7b1384d}{split\+\_\+matrix}} (const \textbf{ Full\+Matrix}$<$ double $>$ \&in, \textbf{ Full\+Matrix}$<$ double $>$ \&out\+\_\+00, \textbf{ Full\+Matrix}$<$ double $>$ \&out\+\_\+01, \textbf{ Full\+Matrix}$<$ double $>$ \&out\+\_\+10, \textbf{ Full\+Matrix}$<$ double $>$ \&out\+\_\+11, const unsigned int size\+\_\+1)
 \item 
-bool \mbox{\hyperlink{namespace_auxiliary_ad0ff28386be7b54b3487ae36e5a074fa}{communicate\+\_\+bool}} (const bool local\+\_\+bool, const M\+P\+I\+\_\+\+Comm \&mpi\+\_\+communicator)
+bool \mbox{\hyperlink{namespace_auxiliary_ad0ff28386be7b54b3487ae36e5a074fa}{communicate\+\_\+bool}} (const bool local\+\_\+bool, const MPI\+\_\+\+Comm \&mpi\+\_\+communicator)
 \item 
-{\footnotesize template$<$int dim, int spacedim$>$ }\\std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{namespace_auxiliary_aaa9fb90b2f2308f766b8130578ab9c39}{get\+\_\+n\+\_\+locally\+\_\+owned\+\_\+dofs\+\_\+per\+\_\+processor}} (const \textbf{ Do\+F\+Handler}$<$ dim, spacedim $>$ \&dof\+\_\+handler)
+{\footnotesize template$<$int dim, int spacedim$>$ }\\std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{namespace_auxiliary_aaa9fb90b2f2308f766b8130578ab9c39}{get\+\_\+n\+\_\+locally\+\_\+owned\+\_\+dofs\+\_\+per\+\_\+processor}} (const \textbf{ Do\+FHandler}$<$ dim, spacedim $>$ \&dof\+\_\+handler)
 \end{DoxyCompactItemize}
 
 
@@ -32,15 +32,15 @@ bool \mbox{\hyperlink{namespace_auxiliary_ad0ff28386be7b54b3487ae36e5a074fa}{com
 \index{Auxiliary@{Auxiliary}!add\_to\_index\_set@{add\_to\_index\_set}}
 \index{add\_to\_index\_set@{add\_to\_index\_set}!Auxiliary@{Auxiliary}}
 \doxysubsubsection{\texorpdfstring{add\_to\_index\_set()}{add\_to\_index\_set()}}
-{\footnotesize\ttfamily void Auxiliary\+::add\+\_\+to\+\_\+index\+\_\+set (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} \&}]{dof\+\_\+renumbering,  }\item[{const \textbf{ Index\+Set} \&}]{in,  }\item[{\textbf{ Index\+Set} \&}]{out }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Auxiliary\+::add\+\_\+to\+\_\+index\+\_\+set (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_do_f_renumbering}{Do\+FRenumbering}} \&}]{dof\+\_\+renumbering,  }\item[{const \textbf{ Index\+Set} \&}]{in,  }\item[{\textbf{ Index\+Set} \&}]{out }\end{DoxyParamCaption})}
 
-This function takes the indices from the index set {\ttfamily in}, renumbers them according to the \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} object provided, and adds them to the \textbf{ Index\+Set} {\ttfamily out}. Of course, this requires that the size of the \textbf{ Index\+Set} {\ttfamily out} is such that it can accommodate the renumbered indices.
+This function takes the indices from the index set {\ttfamily in}, renumbers them according to the \mbox{\hyperlink{class_do_f_renumbering}{Do\+FRenumbering}} object provided, and adds them to the \textbf{ Index\+Set} {\ttfamily out}. Of course, this requires that the size of the \textbf{ Index\+Set} {\ttfamily out} is such that it can accommodate the renumbered indices.
 
 It is advantageous if the incoming index set is compressed.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em dof\+\_\+renumbering} & The \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} object\\
+\mbox{\texttt{ in}}  & {\em dof\+\_\+renumbering} & The \mbox{\hyperlink{class_do_f_renumbering}{Do\+FRenumbering}} object\\
 \hline
 \mbox{\texttt{ in}}  & {\em in} & The indices to be renumbered\\
 \hline
@@ -82,7 +82,7 @@ This method eliminates duplicate dof\textquotesingle{}s on the + and -\/ side of
 \index{Auxiliary@{Auxiliary}!communicate\_bool@{communicate\_bool}}
 \index{communicate\_bool@{communicate\_bool}!Auxiliary@{Auxiliary}}
 \doxysubsubsection{\texorpdfstring{communicate\_bool()}{communicate\_bool()}}
-{\footnotesize\ttfamily bool Auxiliary\+::communicate\+\_\+bool (\begin{DoxyParamCaption}\item[{const bool}]{local\+\_\+bool,  }\item[{const M\+P\+I\+\_\+\+Comm \&}]{mpi\+\_\+communicator }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Auxiliary\+::communicate\+\_\+bool (\begin{DoxyParamCaption}\item[{const bool}]{local\+\_\+bool,  }\item[{const MPI\+\_\+\+Comm \&}]{mpi\+\_\+communicator }\end{DoxyParamCaption})}
 
 Auxiliary function communicating a bool such that the result is {\ttfamily true} on all processors if the bool is {\ttfamily true} on one of the processors.
 
@@ -90,7 +90,7 @@ Auxiliary function communicating a bool such that the result is {\ttfamily true}
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em local\+\_\+bool} & The local value\\
 \hline
-\mbox{\texttt{ in}}  & {\em mpi\+\_\+communicator} & The M\+PI communicator\\
+\mbox{\texttt{ in}}  & {\em mpi\+\_\+communicator} & The MPI communicator\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -101,15 +101,15 @@ The global bool
 \index{compute\_dof\_renumbering\_contiguous@{compute\_dof\_renumbering\_contiguous}!Auxiliary@{Auxiliary}}
 \doxysubsubsection{\texorpdfstring{compute\_dof\_renumbering\_contiguous()}{compute\_dof\_renumbering\_contiguous()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void Auxiliary\+::compute\+\_\+dof\+\_\+renumbering\+\_\+contiguous (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&}]{dof\+\_\+handler\+\_\+system,  }\item[{\mbox{\hyperlink{class_do_f_renumbering_offset}{Do\+F\+Renumbering\+Offset}} \&}]{dof\+\_\+renumbering\+\_\+offset }\end{DoxyParamCaption})}
+void Auxiliary\+::compute\+\_\+dof\+\_\+renumbering\+\_\+contiguous (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}$<$ spacedim $>$ \&}]{dof\+\_\+handler\+\_\+system,  }\item[{\mbox{\hyperlink{class_do_f_renumbering_offset}{Do\+FRenumbering\+Offset}} \&}]{dof\+\_\+renumbering\+\_\+offset }\end{DoxyParamCaption})}
 
-Return a \mbox{\hyperlink{class_do_f_renumbering_offset}{Do\+F\+Renumbering\+Offset}} object for a \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}} such that the renumbered dofs are contiguous on each processor. Of course, the renumbering has to be recomputed after every distribution of dofs. The implementation currently requires that the domain related and interface related dof handlers of the \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}} are both associated with a contiguous dof numbering on each processor.
+Return a \mbox{\hyperlink{class_do_f_renumbering_offset}{Do\+FRenumbering\+Offset}} object for a \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}} such that the renumbered dofs are contiguous on each processor. Of course, the renumbering has to be recomputed after every distribution of dofs. The implementation currently requires that the domain related and interface related dof handlers of the \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}} are both associated with a contiguous dof numbering on each processor.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em dof\+\_\+handler\+\_\+system} & The \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}} for which the renumbering is to be done\\
+\mbox{\texttt{ in}}  & {\em dof\+\_\+handler\+\_\+system} & The \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}} for which the renumbering is to be done\\
 \hline
-\mbox{\texttt{ out}}  & {\em dof\+\_\+renumbering\+\_\+offset} & The resulting \mbox{\hyperlink{class_do_f_renumbering_offset}{Do\+F\+Renumbering\+Offset}} object \\
+\mbox{\texttt{ out}}  & {\em dof\+\_\+renumbering\+\_\+offset} & The resulting \mbox{\hyperlink{class_do_f_renumbering_offset}{Do\+FRenumbering\+Offset}} object \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{namespace_auxiliary_abe796c1529d11eed08fd05bca82f3002}\label{namespace_auxiliary_abe796c1529d11eed08fd05bca82f3002}} 
@@ -120,7 +120,7 @@ Return a \mbox{\hyperlink{class_do_f_renumbering_offset}{Do\+F\+Renumbering\+Off
 
 A method decomposing a matrix according to $\boldsymbol{C}=\boldsymbol{L}\boldsymbol{D}\boldsymbol{R}^\top$ such that $\boldsymbol{R}=\boldsymbol{L}$ for symmetric matrices $\boldsymbol{C}$, and $\boldsymbol{D}$ diagonal with entries either {\ttfamily -\/1} or {\ttfamily 1}.
 
-Internally, the method is based on a singular value decomposition as provided by the L\+A\+P\+A\+CK library (to interface to L\+A\+P\+A\+CK, the L\+A\+P\+A\+C\+KE function {\ttfamily L\+A\+P\+A\+C\+K\+E\+\_\+dgesvd} is used).
+Internally, the method is based on a singular value decomposition as provided by the LAPACK library (to interface to LAPACK, the LAPACKE function {\ttfamily LAPACKE\+\_\+dgesvd} is used).
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -138,7 +138,7 @@ Internally, the method is based on a singular value decomposition as provided by
 \index{compute\_map\_dofs@{compute\_map\_dofs}!Auxiliary@{Auxiliary}}
 \doxysubsubsection{\texorpdfstring{compute\_map\_dofs()}{compute\_map\_dofs()}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-void Auxiliary\+::compute\+\_\+map\+\_\+dofs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&}]{dhs\+\_\+1,  }\item[{const \mbox{\hyperlink{class_do_f_handler_system}{Do\+F\+Handler\+System}}$<$ spacedim $>$ \&}]{dhs\+\_\+2,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{map\+\_\+dofs }\end{DoxyParamCaption})}
+void Auxiliary\+::compute\+\_\+map\+\_\+dofs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}$<$ spacedim $>$ \&}]{dhs\+\_\+1,  }\item[{const \mbox{\hyperlink{class_do_f_handler_system}{Do\+FHandler\+System}}$<$ spacedim $>$ \&}]{dhs\+\_\+2,  }\item[{std\+::vector$<$ unsigned int $>$ \&}]{map\+\_\+dofs }\end{DoxyParamCaption})}
 
 Compute a map between the dofs of {\ttfamily dhs\+\_\+1} and the dofs of {\ttfamily dhs\+\_\+2}. This function requires that the triangulation underlying the dof handlers is based on the same mesh, that the partitioning of the triangulations matches, and that the same finite elements are used.
 
@@ -179,7 +179,7 @@ Auxiliary method converting local dof indices into global ones
 \index{get\_n\_locally\_owned\_dofs\_per\_processor@{get\_n\_locally\_owned\_dofs\_per\_processor}!Auxiliary@{Auxiliary}}
 \doxysubsubsection{\texorpdfstring{get\_n\_locally\_owned\_dofs\_per\_processor()}{get\_n\_locally\_owned\_dofs\_per\_processor()}}
 {\footnotesize\ttfamily template$<$int dim, int spacedim$>$ \\
-std\+::vector$<$unsigned int$>$ Auxiliary\+::get\+\_\+n\+\_\+locally\+\_\+owned\+\_\+dofs\+\_\+per\+\_\+processor (\begin{DoxyParamCaption}\item[{const \textbf{ Do\+F\+Handler}$<$ dim, spacedim $>$ \&}]{dof\+\_\+handler }\end{DoxyParamCaption})}
+std\+::vector$<$unsigned int$>$ Auxiliary\+::get\+\_\+n\+\_\+locally\+\_\+owned\+\_\+dofs\+\_\+per\+\_\+processor (\begin{DoxyParamCaption}\item[{const \textbf{ Do\+FHandler}$<$ dim, spacedim $>$ \&}]{dof\+\_\+handler }\end{DoxyParamCaption})}
 
 Auxiliary function extracting the number of locally owned dofs for each processor from a dof handler.
 
@@ -195,7 +195,7 @@ The vector with the locally owned dofs for each processor
 \index{Auxiliary@{Auxiliary}!renumber\_constraints@{renumber\_constraints}}
 \index{renumber\_constraints@{renumber\_constraints}!Auxiliary@{Auxiliary}}
 \doxysubsubsection{\texorpdfstring{renumber\_constraints()}{renumber\_constraints()}}
-{\footnotesize\ttfamily void Auxiliary\+::renumber\+\_\+constraints (\begin{DoxyParamCaption}\item[{Affine\+Constraints$<$ double $>$ \&}]{constraint\+\_\+matrix,  }\item[{const \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} \&}]{dof\+\_\+renumbering = {\ttfamily \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}}()},  }\item[{const bool}]{close = {\ttfamily true} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Auxiliary\+::renumber\+\_\+constraints (\begin{DoxyParamCaption}\item[{\textbf{ Affine\+Constraints}$<$ double $>$ \&}]{constraint\+\_\+matrix,  }\item[{const \mbox{\hyperlink{class_do_f_renumbering}{Do\+FRenumbering}} \&}]{dof\+\_\+renumbering = {\ttfamily \mbox{\hyperlink{class_do_f_renumbering}{Do\+FRenumbering}}()},  }\item[{const bool}]{close = {\ttfamily true} }\end{DoxyParamCaption})}
 
 Function renumbering constraints according to the renumbering scheme provided by {\ttfamily dof\+\_\+renumbering}.
 

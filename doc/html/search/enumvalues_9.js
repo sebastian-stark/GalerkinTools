@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['plus_16670',['plus',['../triangulation__system_8h.html#a44f3c00e36c1d6e3c389ae693c09b435a772311abb4290d65c05c49d38c4da6fb',1,'triangulation_system.h']]],
-  ['plus_5fis_5ffiner_16671',['plus_is_finer',['../triangulation__system_8h.html#a4cfb8c5e21535951e919b6a6b1023af7aee243748f7ee1b44506873ec0b8ae191',1,'triangulation_system.h']]]
+  ['jacobi_24603',['Jacobi',['https://dealii.org/9.0.0/doxygen/deal.II/structPETScWrappers_1_1PreconditionBoomerAMG_1_1AdditionalData.html#a5d92688a1fdd10088cddaf971b84e987a2ba38a7b398cfd9360591c3a1a25ba39',1,'PETScWrappers::PreconditionBoomerAMG::AdditionalData']]]
 ];

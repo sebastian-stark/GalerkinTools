@@ -1,10 +1,8 @@
 <map id="LinearMaterialInterface&lt; spacedim &gt;" name="LinearMaterialInterface&lt; spacedim &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="911,64,1085,105"/>
-<area shape="rect" id="node2" title=" " alt="" coords="624,5,849,47"/>
-<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classFullMatrix.html" title=" " alt="" coords="656,71,817,98"/>
-<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTable.html" title=" " alt="" coords="416,71,563,98"/>
-<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTableBase.html" title=" " alt="" coords="223,71,367,98"/>
-<area shape="rect" id="node6" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="19,81,114,107"/>
-<area shape="rect" id="node7" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classVector.html" title=" " alt="" coords="225,122,364,149"/>
-<area shape="rect" id="node8" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classThreads_1_1Mutex.html" title=" " alt="" coords="5,139,128,166"/>
+<area shape="rect" id="node1" title=" " alt="" coords="493,64,668,105"/>
+<area shape="rect" id="node2" title=" " alt="" coords="207,5,432,47"/>
+<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classFullMatrix.html" title=" " alt="" coords="239,71,400,98"/>
+<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classTable.html" title=" " alt="" coords="5,71,157,98"/>
+<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classVector.html" title=" " alt="" coords="250,122,389,149"/>
+<area shape="rect" id="node6" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classSubscriptor.html" title=" " alt="" coords="34,122,129,149"/>
 </map>

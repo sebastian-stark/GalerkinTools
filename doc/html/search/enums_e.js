@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['tasksparallelscheme_16644',['TasksParallelScheme',['https://dealii.org/9.0.0/doxygen/deal.II/group__matrixfree.html#ga5b3198735af965d2fc5019543263f927',1,'MatrixFree::AdditionalData::TasksParallelScheme()'],['https://dealii.org/9.0.0/doxygen/deal.II/group__matrixfree.html#ga5b3198735af965d2fc5019543263f927',1,'TasksParallelScheme()(Global Namespace)']]],
-  ['textoutputformat_16645',['TextOutputFormat',['https://dealii.org/9.0.0/doxygen/deal.II/group__textoutput.html#ga84255fd53f3c75dcbdc4706079d56d8a',1,'TableHandler::TextOutputFormat()'],['https://dealii.org/9.0.0/doxygen/deal.II/group__textoutput.html#ga84255fd53f3c75dcbdc4706079d56d8a',1,'TextOutputFormat()(Global Namespace)']]]
+  ['ratemode_24521',['RateMode',['https://dealii.org/9.0.0/doxygen/deal.II/classConvergenceTable.html#ae1ef1c23deebd739950f52b0740ecaab',1,'ConvergenceTable']]],
+  ['relaxationtype_24522',['RelaxationType',['https://dealii.org/9.0.0/doxygen/deal.II/structPETScWrappers_1_1PreconditionBoomerAMG_1_1AdditionalData.html#a5d92688a1fdd10088cddaf971b84e987',1,'PETScWrappers::PreconditionBoomerAMG::AdditionalData']]],
+  ['runge_5fkutta_5fmethod_24523',['runge_kutta_method',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceTimeStepping.html#abff97b5326e452552f108a379dd6cff4',1,'TimeStepping']]]
 ];

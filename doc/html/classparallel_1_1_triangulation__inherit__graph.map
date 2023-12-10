@@ -1,0 +1,12 @@
+<map id="parallel::Triangulation&lt; dim, spacedim &gt;" name="parallel::Triangulation&lt; dim, spacedim &gt;">
+<area shape="rect" id="node1" title=" " alt="" coords="280,125,444,167"/>
+<area shape="rect" id="node3" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classparallel_1_1TriangulationBase.html" title=" " alt="" coords="492,125,688,167"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,125,232,167"/>
+<area shape="rect" id="node4" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classparallel_1_1DistributedTriangulationBase.html" title=" " alt="" coords="736,24,972,65"/>
+<area shape="rect" id="node6" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classparallel_1_1DistributedTriangulationBase.html" title=" " alt="" coords="736,125,972,167"/>
+<area shape="rect" id="node10" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classparallel_1_1shared_1_1Triangulation.html" title=" " alt="" coords="746,191,962,232"/>
+<area shape="rect" id="node5" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classparallel_1_1distributed_1_1Triangulation_3_011_00_01spacedim_01_4.html" title=" " alt="" coords="1020,5,1244,47"/>
+<area shape="rect" id="node7" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classparallel_1_1distributed_1_1Triangulation.html" title=" " alt="" coords="1047,71,1217,112"/>
+<area shape="rect" id="node8" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classparallel_1_1distributed_1_1Triangulation.html" title=" " alt="" coords="1053,137,1211,193"/>
+<area shape="rect" id="node9" href="/home/sst/code/GalerkinTools/GalerkinTools/doc/deal.tag$classparallel_1_1fullydistributed_1_1Triangulation.html" title=" " alt="" coords="1042,217,1222,273"/>
+</map>

@@ -23,6 +23,8 @@
 #include <deal.II/lac/sparse_direct.h>
 #include <deal.II/lac/petsc_precondition.h>
 
+#include <limits>
+
 using namespace std;
 
 DEAL_II_NAMESPACE_OPEN
@@ -198,7 +200,7 @@ SolverWrapperPETSc::solve(	const parallel::TwoBlockMatrix<PETScWrappers::MPI::Sp
 		for(const auto m : solution_petsc.locally_owned_elements())
 			res_petsc(m) = res_petsc(m) - f_(m);
 		res_petsc.compress(VectorOperation::insert);
-		cout << "MUMPS Residual = " << res_petsc.l2_norm() << endl;
+		//cout << "MUMPS Residual = " << res_petsc.l2_norm() << endl;
 
 		return;
 	}
@@ -866,13 +868,14 @@ BlockSolverWrapperPARDISO::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_s
 #ifdef DEAL_II_WITH_MPI
 
 void
-BlockSolverWrapperMUMPS::initialize_matrix(	const SparseMatrix<double>& matrix)
+SolverWrapperMUMPS::initialize_matrix(	const SparseMatrix<double>& matrix)
 {
 	Assert(matrix.m() == matrix.n(), ExcNotQuadratic());
 
 	irn.resize(matrix.n_nonzero_elements());
 	jcn.resize(matrix.n_nonzero_elements());
 	A.resize(matrix.n_nonzero_elements());
+	d.resize(matrix.m());
 
 	id.n = matrix.m();
 	id.a = A.data();
@@ -885,6 +888,143 @@ BlockSolverWrapperMUMPS::initialize_matrix(	const SparseMatrix<double>& matrix)
 	{
 		for(auto p = matrix.begin(row); p != matrix.end(row); ++p)
 		{
+			if(p->row() == p->column())
+				d[p->row()] = counter;
+
+			irn[counter] = p->row() + 1;
+			jcn[counter] = p->column() + 1;
+			if( (id.sym != 0) && (p->row() != p->column()))
+				A[counter] = 0.5 * std::real(p->value());
+			else
+				A[counter] = std::real(p->value());
+			++counter;
+		}
+	}
+
+	return;
+}
+
+void
+SolverWrapperMUMPS::initialize_matrix(	vector<int>&	irn,
+										vector<int>&	jcn,
+										vector<double>&	A,
+										unsigned int	n)
+{
+	Assert(false, ExcMessage("Method not implemented"));
+
+	id.n = n;
+	id.a = A.data();
+	id.nnz = irn.size();
+	id.irn = irn.data();
+	id.jcn = jcn.data();
+
+	// Todo for proper implementation vector d needs to be filled here -> if this is implemented, assertion can be removed
+
+	return;
+}
+
+void
+SolverWrapperMUMPS::analyze_matrix()
+{
+	if(analyze < 2)
+	{
+		id.job = 1;
+		dmumps_c(&id);
+	}
+
+	// Matrix was only analyzed in this step
+	if(analyze == 1)
+		analyze = 2;
+
+	return;
+}
+
+void
+SolverWrapperMUMPS::factorize_matrix()
+{
+	id.job = 2;
+	dmumps_c(&id);
+
+	return;
+}
+
+void
+SolverWrapperMUMPS::vmult(	Vector<double>& 		x,
+							const Vector<double>&	f )
+{
+	x = f;
+	id.rhs = x.data();
+
+	id.job = 3;
+	dmumps_c(&id);
+
+	return;
+}
+
+void
+SolverWrapperMUMPS::solve(	const SparseMatrix<double>&	K,
+ 	 	 	 	 			Vector<double>&				solution,
+							const Vector<double>&		f,
+							const bool 					/*symmetric*/)
+{
+
+//	cout << f_stretched.block(0).l2_norm() << endl;
+//	AssertThrow(false, ExcMessage("Stop"));
+
+	initialize_matrix(K);
+	analyze_matrix();
+	factorize_matrix();
+
+	vmult(solution, f);
+	return;
+}
+
+
+SolverWrapperMUMPS::SolverWrapperMUMPS(int sym)
+{
+	id.job = -1;
+	id.par = 1;
+	id.sym = sym;
+	id.comm_fortran = -987654;
+	dmumps_c(&id);
+	icntl = id.icntl;
+	cntl = id.cntl;
+	info = id.info;
+	infog = id.infog;
+}
+
+SolverWrapperMUMPS::~SolverWrapperMUMPS()
+{
+	id.job = -2;
+	dmumps_c(&id);
+}
+
+
+
+void
+BlockSolverWrapperMUMPS::initialize_matrix(	const SparseMatrix<double>& matrix)
+{
+	Assert(matrix.m() == matrix.n(), ExcNotQuadratic());
+
+	irn.resize(matrix.n_nonzero_elements());
+	jcn.resize(matrix.n_nonzero_elements());
+	A.resize(matrix.n_nonzero_elements());
+	d.resize(matrix.m());
+
+	id.n = matrix.m();
+	id.a = A.data();
+	id.nnz = matrix.n_nonzero_elements();
+	id.irn = irn.data();
+	id.jcn = jcn.data();
+
+	int counter = 0;
+	for (unsigned int row = 0; row < matrix.m(); ++row)
+	{
+		for(auto p = matrix.begin(row); p != matrix.end(row); ++p)
+		{
+			if(p->row() == p->column())
+				d[p->row()] = counter;
+
 			irn[counter] = p->row() + 1;
 			jcn[counter] = p->column() + 1;
 			if( (id.sym != 0) && (p->row() != p->column()))
@@ -904,12 +1044,16 @@ BlockSolverWrapperMUMPS::initialize_matrix(	vector<int>&	irn,
 											vector<double>&	A,
 											unsigned int	n)
 {
+	Assert(false, ExcMessage("Method not implemented"));
 
 	id.n = n;
 	id.a = A.data();
 	id.nnz = irn.size();
 	id.irn = irn.data();
 	id.jcn = jcn.data();
+
+	// Todo for proper implementation vector d needs to be filled here -> if this is implemented, assertion can be removed
+
 	return;
 }
 
@@ -958,7 +1102,7 @@ BlockSolverWrapperMUMPS::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_str
 								const bool 									/*symmetric*/)
 {
 
-	cout << f_stretched.block(0).l2_norm() << endl;
+//	cout << f_stretched.block(0).l2_norm() << endl;
 //	AssertThrow(false, ExcMessage("Stop"));
 
 	//matrix sub blocks
@@ -975,9 +1119,58 @@ BlockSolverWrapperMUMPS::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_str
 	// initialize solver, analyze and factorize
 	if(size_f > 0)
 	{
+
 		initialize_matrix(K);
 		analyze_matrix();
-		factorize_matrix();
+
+
+		if(modify_on_negative_pivot)
+		{
+			Assert((size_w == 0), ExcMessage("Modification in the case of negative pivots for matrices which are not p.d. is currently only implemented for block matrices having only a (0,0)-block."));
+			Assert((id.sym == 1), ExcMessage("Modification in the case of negative pivots for matrices requires that sym = 1 in constructor."));
+			icntl[12] = 1;
+			icntl[23] = 0;
+
+			// algorithm 3.3 from Nocedal and Wright: Numerical Optimization, 2nd Edition
+
+			// compute minimum diagonal element
+			double min_aii = numeric_limits<double>::max();
+			for(unsigned int k = 0; k < size_f; ++k)
+			{
+				if(A[d[k]] < min_aii)
+					min_aii = A[d[k]];
+			}
+
+			// determine initial value for tau
+			double tau = min_aii <= 0.0 ? -min_aii + beta : 0.0;
+
+			// factorization loop
+			for(;;)
+			{
+				cout <<  "  Factor with tau = " << tau << endl;
+				if(tau > 0.0)
+				{
+					for(unsigned int k = 0; k < size_f; ++k)
+						A[d[k]] = K.diag_element(k) + tau;
+				}
+				factorize_matrix();
+				vmult(solution, f_stretched.block(0));
+				const double sol_f = solution * f_stretched.block(0);
+				cout << " Amount of descent = " << sol_f << endl;
+				if(sol_f > 0.0)
+					break;
+
+				cout << "  Number of non-positive pivots = " << infog[11] << endl;
+				if(infog[11] > 0)
+					tau = std::max(beta, tau * increase_tau);
+				else
+					break;
+			}
+		}
+		else
+		{
+			factorize_matrix();
+		}
 	}
 
 	// if one of the blocks is zero sized, solve directly with the other and return
@@ -993,12 +1186,12 @@ BlockSolverWrapperMUMPS::solve(const TwoBlockMatrix<SparseMatrix<double>>&	K_str
 		vmult(solution, f_stretched.block(0));
 
 		// check residual
-		Vector<double> res(f_stretched.block(0).size());
+/*		Vector<double> res(f_stretched.block(0).size());
 		K.vmult(res, solution);
 		const auto& f = f_stretched.block(0);
 		for(unsigned int m = 0; m < solution.size(); ++m)
 			res(m) = res(m) - f(m);
-		cout << "MUMPS Residual = " << res.l2_norm() << endl;
+		cout << "MUMPS Residual = " << res.l2_norm() << endl;*/
 
 		return;
 	}
@@ -1075,6 +1268,8 @@ BlockSolverWrapperMUMPS::BlockSolverWrapperMUMPS(int sym)
 	dmumps_c(&id);
 	icntl = id.icntl;
 	cntl = id.cntl;
+	info = id.info;
+	infog = id.infog;
 }
 
 BlockSolverWrapperMUMPS::~BlockSolverWrapperMUMPS()

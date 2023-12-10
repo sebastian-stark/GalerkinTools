@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['values_16648',['values',['https://dealii.org/9.0.0/doxygen/deal.II/group__Vectors.html#ga40c50779cd14ba89bbf0bd9b4561964c',1,'VectorOperation::values()'],['https://dealii.org/9.0.0/doxygen/deal.II/group__Vectors.html#ga40c50779cd14ba89bbf0bd9b4561964c',1,'values()(Global Namespace)']]],
-  ['vectortype_16649',['VectorType',['https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff',1,'DataOutStack::VectorType()'],['https://dealii.org/9.0.0/doxygen/deal.II/group__output.html#gaf6742de875351b15832c89eaafd6bbff',1,'VectorType()(Global Namespace)']]],
-  ['vertexkind_16650',['VertexKind',['https://dealii.org/9.0.0/doxygen/deal.II/group__Accessors.html#gaf9a139ec66689faa8d919b29d4364a30',1,'TriaAccessor&lt; 0, 1, spacedim &gt;::VertexKind()'],['https://dealii.org/9.0.0/doxygen/deal.II/group__Accessors.html#gaf9a139ec66689faa8d919b29d4364a30',1,'VertexKind()(Global Namespace)']]]
+  ['tasksparallelscheme_24534',['TasksParallelScheme',['https://dealii.org/9.0.0/doxygen/deal.II/structMatrixFree_1_1AdditionalData.html#a5b3198735af965d2fc5019543263f927',1,'MatrixFree::AdditionalData::TasksParallelScheme()'],['https://dealii.org/9.0.0/doxygen/deal.II/structinternal_1_1MatrixFreeFunctions_1_1TaskInfo.html#a262bea64ec193764b22635454f978f9f',1,'internal::MatrixFreeFunctions::TaskInfo::TasksParallelScheme()']]],
+  ['textoutputformat_24535',['TextOutputFormat',['https://dealii.org/9.0.0/doxygen/deal.II/classTableHandler.html#a84255fd53f3c75dcbdc4706079d56d8a',1,'ConvergenceTable::TextOutputFormat()'],['https://dealii.org/9.0.0/doxygen/deal.II/classTableHandler.html#a84255fd53f3c75dcbdc4706079d56d8a',1,'TableHandler::TextOutputFormat()']]]
 ];

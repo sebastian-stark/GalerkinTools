@@ -55,7 +55,7 @@ void \mbox{\hyperlink{classparallel_1_1_triangulation_system_ae214de5a3053ae320a
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-M\+P\+I\+\_\+\+Comm \mbox{\hyperlink{classparallel_1_1_triangulation_system_aff7cdcf04d5a4fb633d714130da893b0}{mpi\+\_\+communicator}}
+MPI\+\_\+\+Comm \mbox{\hyperlink{classparallel_1_1_triangulation_system_aff7cdcf04d5a4fb633d714130da893b0}{mpi\+\_\+communicator}}
 \end{DoxyCompactItemize}
 
 
@@ -172,7 +172,7 @@ virtual void \mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+
 This internal function takes care that the interface mesh is updated after any refinement/coarsening of the domain cells. The underlying mechanism is that the method is attached to the domain triangulation during construction of the \mbox{\hyperlink{classparallel_1_1_triangulation_system}{Triangulation\+System}}; and it will always be called immediately after the domain mesh has been refined.
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000017}{Todo}}]This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000016}{Todo}}]This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. \end{DoxyRefDesc}
 \mbox{\Hypertarget{classparallel_1_1_triangulation_system_a79e9789e83e12900c85cf8de0644271f}\label{classparallel_1_1_triangulation_system_a79e9789e83e12900c85cf8de0644271f}} 
 \index{parallel::TriangulationSystem$<$ spacedim $>$@{parallel::TriangulationSystem$<$ spacedim $>$}!pre\_refinement\_domain@{pre\_refinement\_domain}}
 \index{pre\_refinement\_domain@{pre\_refinement\_domain}!parallel::TriangulationSystem$<$ spacedim $>$@{parallel::TriangulationSystem$<$ spacedim $>$}}
@@ -183,7 +183,7 @@ virtual void \mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+
 In parallel, this function does nothing except triggering the \mbox{\hyperlink{class_triangulation_system_ad3b16b86e7cbe4800fb5a40114cbc5fb}{Triangulation\+System\+::pre\+\_\+refinement()}} signal.
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000016}{Todo}}]This function will have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000015}{Todo}}]This function will have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. \end{DoxyRefDesc}
 \mbox{\Hypertarget{classparallel_1_1_triangulation_system_ae214de5a3053ae320a1eb6d879f03b43}\label{classparallel_1_1_triangulation_system_ae214de5a3053ae320a1eb6d879f03b43}} 
 \index{parallel::TriangulationSystem$<$ spacedim $>$@{parallel::TriangulationSystem$<$ spacedim $>$}!update\_interface\_subdomain\_ids@{update\_interface\_subdomain\_ids}}
 \index{update\_interface\_subdomain\_ids@{update\_interface\_subdomain\_ids}!parallel::TriangulationSystem$<$ spacedim $>$@{parallel::TriangulationSystem$<$ spacedim $>$}}
@@ -219,9 +219,9 @@ If a file name is left empty, the corresponding meshes will not be written.
 \index{mpi\_communicator@{mpi\_communicator}!parallel::TriangulationSystem$<$ spacedim $>$@{parallel::TriangulationSystem$<$ spacedim $>$}}
 \doxysubsubsection{\texorpdfstring{mpi\_communicator}{mpi\_communicator}}
 {\footnotesize\ttfamily template$<$unsigned int spacedim$>$ \\
-M\+P\+I\+\_\+\+Comm \mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}}$<$ spacedim $>$\+::mpi\+\_\+communicator\hspace{0.3cm}{\ttfamily [private]}}
+MPI\+\_\+\+Comm \mbox{\hyperlink{classparallel_1_1_triangulation_system}{parallel\+::\+Triangulation\+System}}$<$ spacedim $>$\+::mpi\+\_\+communicator\hspace{0.3cm}{\ttfamily [private]}}
 
-M\+PI communicator 
+MPI communicator 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

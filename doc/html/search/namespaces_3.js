@@ -1,10 +1,25 @@
 var searchData=
 [
-  ['cellsimilarity_9377',['CellSimilarity',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceCellSimilarity.html',1,'']]],
-  ['chunksparsematrixiterators_9378',['ChunkSparseMatrixIterators',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceChunkSparseMatrixIterators.html',1,'']]],
-  ['chunksparsitypatterniterators_9379',['ChunkSparsityPatternIterators',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceChunkSparsityPatternIterators.html',1,'']]],
-  ['constraintmatrix_9380',['ConstraintMatrix',['https://dealii.org/9.0.0/doxygen/deal.II/structConstraintMatrix_1_1ConstraintLine.html',1,'']]],
-  ['cudawrappers_9381',['CUDAWrappers',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceCUDAWrappers.html',1,'']]],
-  ['internal_9382',['internal',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceCUDAWrappers_1_1internal.html',1,'CUDAWrappers']]],
-  ['matrixfree_9383',['MatrixFree',['https://dealii.org/9.0.0/doxygen/deal.II/structCUDAWrappers_1_1MatrixFree_1_1Data.html',1,'CUDAWrappers']]]
+  ['ad_13864',['AD',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1AD.html',1,'Differentiation']]],
+  ['assembler_13865',['Assembler',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDerivativeApproximation_1_1internal_1_1Assembler.html',1,'DerivativeApproximation::internal::Assembler'],['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDoFTools_1_1internal_1_1Assembler.html',1,'DoFTools::internal::Assembler']]],
+  ['boost_13866',['boost',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDoFRenumbering_1_1boost.html',1,'DoFRenumbering']]],
+  ['boosttypes_13867',['boosttypes',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDoFRenumbering_1_1boost_1_1boosttypes.html',1,'DoFRenumbering::boost']]],
+  ['datacomponentinterpretation_13868',['DataComponentInterpretation',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDataComponentInterpretation.html',1,'']]],
+  ['dataoutbase_13869',['DataOutBase',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDataOutBase.html',1,'']]],
+  ['dataoutbaseimplementation_13870',['DataOutBaseImplementation',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDataOutBaseImplementation.html',1,'']]],
+  ['datapostprocessorinputs_13871',['DataPostprocessorInputs',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDataPostprocessorInputs.html',1,'']]],
+  ['datapostprocessors_13872',['DataPostprocessors',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDataPostprocessors.html',1,'']]],
+  ['deal_5fii_5fexceptions_13873',['deal_II_exceptions',['https://dealii.org/9.0.0/doxygen/deal.II/namespacedeal__II__exceptions.html',1,'']]],
+  ['dealii_13874',['dealii',['https://dealii.org/9.0.0/doxygen/deal.II/namespacedealii.html',1,'']]],
+  ['derivativeapproximation_13875',['DerivativeApproximation',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDerivativeApproximation.html',1,'']]],
+  ['differentiation_13876',['Differentiation',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation.html',1,'']]],
+  ['dofhandler_13877',['DoFHandler',['https://dealii.org/9.0.0/doxygen/deal.II/structDoFHandler_1_1ActiveFEIndexTransfer.html',1,'']]],
+  ['dofrenumbering_13878',['DoFRenumbering',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDoFRenumbering.html',1,'']]],
+  ['doftools_13879',['DoFTools',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDoFTools.html',1,'']]],
+  ['dynamicsparsitypatterniterators_13880',['DynamicSparsityPatternIterators',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDynamicSparsityPatternIterators.html',1,'']]],
+  ['internal_13881',['internal',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDerivativeApproximation_1_1internal.html',1,'DerivativeApproximation::internal'],['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1AD_1_1internal.html',1,'Differentiation::AD::internal'],['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1SD_1_1internal.html',1,'Differentiation::SD::internal'],['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1SD_1_1types_1_1internal.html',1,'Differentiation::SD::types::internal'],['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDoFRenumbering_1_1boost_1_1internal.html',1,'DoFRenumbering::boost::internal'],['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDoFRenumbering_1_1internal.html',1,'DoFRenumbering::internal'],['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDoFTools_1_1internal.html',1,'DoFTools::internal']]],
+  ['internals_13882',['internals',['https://dealii.org/9.0.0/doxygen/deal.II/namespacedeal__II__exceptions_1_1internals.html',1,'deal_II_exceptions']]],
+  ['sd_13883',['SD',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1SD.html',1,'Differentiation']]],
+  ['types_13884',['types',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1SD_1_1types.html',1,'Differentiation::SD']]],
+  ['utilities_13885',['Utilities',['https://dealii.org/9.0.0/doxygen/deal.II/namespaceDifferentiation_1_1SD_1_1Utilities.html',1,'Differentiation::SD']]]
 ];

@@ -182,12 +182,21 @@ template<unsigned int spacedim>
 void
 DoFHandlerSystem<spacedim>::distribute_dofs(const hp::FECollection<spacedim, spacedim>&		fe_collection_domain,
 											const hp::FECollection<spacedim-1, spacedim>&	fe_collection_interface,
-											const unsigned int								n_additional_dofs)
+											const unsigned int								n_additional_dofs,
+											const vector<unsigned int>& 					renumbering_domain,
+											const vector<unsigned int>& 					renumbering_interface)
 {
 	const auto this_proc_n_procs = tria_system->get_this_proc_n_procs();
-	dof_handler_domain->distribute_dofs(fe_collection_domain);
 
+	dof_handler_domain->distribute_dofs(fe_collection_domain);
 	dof_handler_interface->distribute_dofs(fe_collection_interface);
+	Assert((renumbering_domain.size() == 0) || (renumbering_domain.size() == dof_handler_domain->n_locally_owned_dofs()), ExcMessage("If a renumbering is supplied, the size if the renumbering vector must match the number of locally owned dofs!!"));
+	Assert((renumbering_interface.size() == 0) || (renumbering_interface.size() == dof_handler_interface->n_locally_owned_dofs()), ExcMessage("If a renumbering is supplied, the size if the renumbering vector must match the number of locally owned dofs!!"));
+	if(renumbering_domain.size() == dof_handler_domain->n_locally_owned_dofs())
+		dof_handler_domain->renumber_dofs(renumbering_domain);
+	if(renumbering_interface.size() == dof_handler_interface->n_locally_owned_dofs())
+		dof_handler_interface->renumber_dofs(renumbering_interface);
+
 	dof_indices_C.resize(n_additional_dofs);
 	locally_owned_dof_indices_C.reserve(n_additional_dofs);
 	const unsigned int offset = n_dofs_domain() + n_dofs_interface();

@@ -67,6 +67,19 @@ GALERKIN_TOOLS_NAMESPACE_OPEN
 template<unsigned int dim, unsigned int spacedim>
 class ScalarFunctional : public Subscriptor
 {
+	/**
+	 * make AssemblyHelper a friend (needed to allow for telling ScalarFunctional, which cell and which quadrature point is currently operated on
+	 */
+	template<unsigned int p> friend class AssemblyHelper;
+
+protected:
+
+	/**
+	 * this is set to a unique identifier of the currently active quadrature point
+	 */
+	mutable
+	std::string
+	q_point_id = "";
 
 public:
 
@@ -308,6 +321,16 @@ public:
 	const;
 
 	/**
+	 * set ScalarFunctional::q_point_id
+	 *
+	 * @param[in]	q_point_id ScalarFunctional::q_point_id
+	 */
+	virtual
+	void
+	set_q_point_id(std::string q_point_id)
+	const;
+
+	/**
 	 * The destructor of ScalarFunctional essentially checks before destruction that the
 	 * ScalarFunctional object is not used by other objects. If this is the case, the program
 	 * will be aborted.
@@ -341,6 +364,19 @@ public:
 template<unsigned int spacedim>
 class ScalarFunctional<spacedim, spacedim> : public Subscriptor
 {
+	/**
+	 * make AssemblyHelper a friend (needed to allow for telling ScalarFunctional, which cell and which quadrature point is currently operated on
+	 */
+	template<unsigned int p> friend class AssemblyHelper;
+
+protected:
+
+	/**
+	 * this is set to a unique identifier of the currently active quadrature point
+	 */
+	mutable
+	std::string
+	q_point_id = "";
 
 public:
 
@@ -539,36 +575,6 @@ public:
 	const;
 
 	/**
-	 * This allows for manually manipulating the contribution (related to this scalar functional) of a certain domain cell to the global finite element matrix and rhs.
-	 *
-	 * @param[in]		domain_cell												Reference to the cell
-	 *
-	 * @param[inout]	K_cell													The cell matrix. This matrix is indexed by the scalar functional related indexing (indices related to cells come first followed by indices related to independent scalars).
-	 *
-	 * @param[inout]	f_cell													The cell rhs. This vector is indexed by the scalar functional related indexing (indices related to cells come first followed by indices related to independent scalars).
-	 *
-	 * @param[in]		solution												The local solution vector (ordering according to scalar_functional_indices_to_cell_shapefuns)
-	 *
-	 * @param[in]		solution_C												The local solution vector for the independent scalars (ordering according to scalar_functional_indices_to_independent_scalar_indices)
-	 *
-	 * @param[in]		scalar_functional_indices_to_cell_shapefuns				This relates the scalar functional related indices to the cell shape function indices. In particular, the i-th component of this vector is the cell shape function
-	 * 																			corresponding to the i-th scalar functional related index.
-	 *
-	 * @param[in]		scalar_functional_indices_to_independent_scalar_indices	This relates the scalar functional related indices to the independent scalar indices. In particular, the i-th component of this vector is the independent scalar index
-	 * 																			corresponding to the (n_dofs_cell + i)-th scalar functional related index, where n_dofs_cell is the number of cell related shape functions for this scalar functional.
-	 */
-	virtual
-	void
-	modify_K_cell_f_cell(	const DomainCellDoFIterator<spacedim>&	domain_cell,
-							FullMatrix<double>&						K_cell,
-							Vector<double>&							f_cell,
-							const Vector<double>&					solution,
-							const Vector<double>&					solution_C,
-							const std::vector<unsigned int>&		scalar_functional_indices_to_cell_shapefuns,
-							const std::vector<unsigned int>&		scalar_functional_indices_to_independent_scalar_indices)
-	const;
-
-	/**
 	 * %Function comparing the computed derivatives of the integrand \f$h^\Omega_\rho\f$ provided by ScalarFunctional<spacedim, spacedim>::get_h_omega()
  	 * with corresponding numerically computed finite difference based derivatives.
  	 *
@@ -604,6 +610,16 @@ public:
 													const Point<spacedim>& 				x,
 													const std::string 					detailed_printout_file = "",
 													const double 						epsilon = 1e-8)
+	const;
+
+	/**
+	 * set ScalarFunctional<spacedim, spacedim>::q_point_id
+	 *
+	 * @param[in]	q_point_id ScalarFunctional<spacedim, spacedim>::q_point_id
+	 */
+	virtual
+	void
+	set_q_point_id(std::string q_point_id)
 	const;
 
 	/**
@@ -660,21 +676,34 @@ private:
 	 * boundary of the domain of admissibility is decreased by @p safety_distance at most during a single iteration (1.0 would correspond to no safety distance at all).
 	 * This is used to avoid ill-conditioning problems resulting from a too quick approach of the
 	 * boundary of the domain of admissibility.
-	 *
-	 * Additionally, the routines will return an error if the total increment to the local variables (between the initial state and the result of the Newton-Raphson iteration)
-	 * is such that the "distance" between the local solution and the boundary of the domain of admissibility is decreased by more than safety_distance.
 	 */
 	double
 	safety_distance = 0.9;
+
+	/**
+	 * The routines will return an error if the total increment to the local variables (between the initial state and the result of the Newton-Raphson iteration)
+	 * is such that the "distance" between the local solution and the boundary of the domain of admissibility is decreased by more than safety_distance.
+	 */
+	double
+	safety_distance_step = 1.0;
 
 	/**
 	 * The threshold for the residual to be used during the Newton-Raphson iteration.
 	 *
 	 * The Hessian of the first Newton-Raphson step is used to determine a scaling for the residual such that each element of the residual is divided by the maximum norm of the corresponding row of the Hessian.
 	 * The Newton-Raphson is terminated if the 2-norm of the (scaled) residual is less then sqrt(N)*threshold_residual, with N being the number of local dependent fields.
+	 * If the value given here is negative, the convergence check is not performed.
 	 */
 	double
 	threshold_residual = 1e-10;
+
+	/**
+	 * The threshold for the step-size (in the infinity norm) to be used during the Newton-Raphson iteration.
+	 *
+	 * If the value given here is negative, the convergence check is not performed.
+	 */
+	double
+	threshold_step_size = -1.0;
 
 	/**
 	 * maximum number of Newton-Raphson iterations
@@ -749,10 +778,22 @@ public:
 	set_safety_distance(const double safety_distance);
 
 	/**
+	 * Sets ScalarFunctionalLocalElimination::safety_step
+	 */
+	void
+	set_safety_distance_step(const double safety_step);
+
+	/**
 	 * Sets ScalarFunctionalLocalElimination::threshold_residual
 	 */
 	void
 	set_threshold_residual(const double threshold_residual);
+
+	/**
+	 * Sets ScalarFunctionalLocalElimination::threshold_step_size
+	 */
+	void
+	set_threshold_step_size(const double threshold_step_size);
 
 	/**
 	 * Sets ScalarFunctionalLocalElimination::max_iter
@@ -771,6 +812,18 @@ public:
 	 */
 	void
 	set_use_line_search(const bool use_line_search);
+
+	/**
+	 * set ScalarFunctional::q_point_id of all scalar functionals of ScalarFunctionalLocalElimination::scalar_functionals
+	 *
+	 * @param[in]	q_point_id ScalarFunctional::q_point_id
+	 */
+	void
+	set_q_point_id(std::string q_point_id)
+	const
+	override
+	final;
+
 };
 
 /**
@@ -819,21 +872,34 @@ private:
 	 * boundary of the domain of admissibility is decreased by @p safety_distance at most during a single iteration (1.0 would correspond to no safety distance at all).
 	 * This is used to avoid ill-conditioning problems resulting from a too quick approach of the
 	 * boundary of the domain of admissibility.
-	 *
-	 * Additionally, the routines will return an error if the total increment to the local variables (between the initial state and the result of the Newton-Raphson iteration)
-	 * is such that the "distance" between the local solution and the boundary of the domain of admissibility is decreased by more than safety_distance.
 	 */
 	double
 	safety_distance = 0.9;
+
+	/**
+	 * The routines will return an error if the total increment to the local variables (between the initial state and the result of the Newton-Raphson iteration)
+	 * is such that the "distance" between the local solution and the boundary of the domain of admissibility is decreased by more than safety_distance.
+	 */
+	double
+	safety_distance_step = 0.9;
 
 	/**
 	 * The threshold for the residual to be used during the Newton-Raphson iteration.
 	 *
 	 * The Hessian of the first Newton-Raphson step is used to determine a scaling for the residual such that each element of the residual is divided by the maximum norm of the corresponding row of the Hessian.
 	 * The Newton-Raphson is terminated if the 2-norm of the (scaled) residual is less then sqrt(N)*threshold_residual, with N being the number of local dependent fields.
+	 * If the value given here is negative, the convergence check is not performed.
 	 */
 	double
 	threshold_residual = 1e-10;
+
+	/**
+	 * The threshold for the step-size (in the infinity norm) to be used during the Newton-Raphson iteration.
+	 *
+	 * If the value given here is negative, the convergence check is not performed.
+	 */
+	double
+	threshold_step_size = -1.0;
 
 	/**
 	 * maximum number of Newton-Raphson iterations
@@ -906,11 +972,22 @@ public:
 	set_safety_distance(const double safety_distance);
 
 	/**
-	 * Sets ScalarFunctionalLocalElimination<spacedim,spacedim>::threshold_residual
+	 * Sets ScalarFunctionalLocalElimination<spacedim,spacedim>::safety_step
+	 */
+	void
+	set_safety_distance_step(const double safety_step);
+
+	/**
+	 * Sets ScalarFunctionalLocalElimination::threshold_residual
 	 */
 	void
 	set_threshold_residual(const double threshold_residual);
 
+	/**
+	 * Sets ScalarFunctionalLocalElimination::threshold_step_size
+	 */
+	void
+	set_threshold_step_size(const double threshold_step_size);
 
 	/**
 	 * Sets ScalarFunctionalLocalElimination<spacedim,spacedim>::max_iter
@@ -929,6 +1006,17 @@ public:
 	 */
 	void
 	set_use_line_search(const bool use_line_search);
+
+	/**
+	 * set ScalarFunctional<spacedim,spacedim>::q_point_id of all scalar functionals of ScalarFunctionalLocalElimination<spacedim,spacedim>::scalar_functionals
+	 *
+	 * @param[in]	q_point_id ScalarFunctional<spacedim,spacedim>::q_point_id
+	 */
+	void
+	set_q_point_id(std::string q_point_id)
+	const
+	override
+	final;
 
 };
 

@@ -19,7 +19,7 @@ Collaboration diagram for Triangulation\+System$<$ spacedim $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_triangulation_system__coll__graph}
+\includegraphics[width=324pt]{class_triangulation_system__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Types}
@@ -325,7 +325,7 @@ void \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}}$<$ spa
 Function to execute coarsening and refinement. This method does nothing but calling the deal.\+II function \mbox{\hyperlink{class_triangulation_system_a62be2563cc8d810a71941e15490f9840}{execute\+\_\+coarsening\+\_\+and\+\_\+refinement()}} on the domain mesh, which will in turn trigger refinement of the interface by \mbox{\hyperlink{class_triangulation_system_ae1862e6da3157dc8d539fdc0439e9f48}{Triangulation\+System\+::pre\+\_\+refinement\+\_\+domain()}} and \mbox{\hyperlink{class_triangulation_system_a8435489384095f687363d200ccfce628}{Triangulation\+System\+::post\+\_\+refinement\+\_\+domain()}}.
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000015}{Todo}}]This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000014}{Todo}}]This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_triangulation_system_a4214cf789cf39910305db9fe554249a0}\label{class_triangulation_system_a4214cf789cf39910305db9fe554249a0}} 
 \index{TriangulationSystem$<$ spacedim $>$@{TriangulationSystem$<$ spacedim $>$}!generate\_active\_interface\_cells\_domain\_cells@{generate\_active\_interface\_cells\_domain\_cells}}
 \index{generate\_active\_interface\_cells\_domain\_cells@{generate\_active\_interface\_cells\_domain\_cells}!TriangulationSystem$<$ spacedim $>$@{TriangulationSystem$<$ spacedim $>$}}
@@ -487,7 +487,7 @@ virtual void \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}
 This internal function takes care that the interface cells are refined/coarsened after any refinement of the domain cells. The underlying mechanism is that the method is attached to the domain triangulation during construction of the \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}}; and it will always be called immediately after the domain mesh has been refined.
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000014}{Todo}}]This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000013}{Todo}}]This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_triangulation_system_ae1862e6da3157dc8d539fdc0439e9f48}\label{class_triangulation_system_ae1862e6da3157dc8d539fdc0439e9f48}} 
 \index{TriangulationSystem$<$ spacedim $>$@{TriangulationSystem$<$ spacedim $>$}!pre\_refinement\_domain@{pre\_refinement\_domain}}
 \index{pre\_refinement\_domain@{pre\_refinement\_domain}!TriangulationSystem$<$ spacedim $>$@{TriangulationSystem$<$ spacedim $>$}}
@@ -498,7 +498,7 @@ virtual void \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}
 This function takes care that the interface cells are appropriately marked for refinement/coarsening if the domain mesh is going to be refined. The underlying mechanism is that the method is attached to the domain triangulation during construction of the \mbox{\hyperlink{class_triangulation_system}{Triangulation\+System}}; and it will always be called immediately before the domain mesh is actually refined (i.\+e., after all refinement flags of the domain mesh have been checked for consistency and mesh smoothing has been performed).
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000013}{Todo}}]This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000012}{Todo}}]This function will also have to be involved in the transfer of hidden variables between meshes. However, this is not implemented yet, meaning that hidden variables can currently not be combined with mesh refinement during the computation. \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_triangulation_system_aca3dc94f1006a603f56ac12c730ae242}\label{class_triangulation_system_aca3dc94f1006a603f56ac12c730ae242}} 
 \index{TriangulationSystem$<$ spacedim $>$@{TriangulationSystem$<$ spacedim $>$}!push\_tria\_listeners\_to\_end@{push\_tria\_listeners\_to\_end}}
 \index{push\_tria\_listeners\_to\_end@{push\_tria\_listeners\_to\_end}!TriangulationSystem$<$ spacedim $>$@{TriangulationSystem$<$ spacedim $>$}}

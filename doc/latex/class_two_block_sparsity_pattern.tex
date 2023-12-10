@@ -32,7 +32,7 @@ unsigned int \mbox{\hyperlink{class_two_block_sparsity_pattern_a800e2b70b07117cd
 \item 
 void \mbox{\hyperlink{class_two_block_sparsity_pattern_ab3787657efc568999fbf24cb5208d46b}{add}} (const unsigned int i, const unsigned int j)
 \item 
-{\footnotesize template$<$typename Forward\+Iterator $>$ }\\void \mbox{\hyperlink{class_two_block_sparsity_pattern_a97c69542e0e22e5653c8b4f7b4275635}{add\+\_\+entries}} (const unsigned int row, Forward\+Iterator begin, Forward\+Iterator end, const bool indices\+\_\+are\+\_\+sorted=true)
+{\footnotesize template$<$typename Forward\+Iterator $>$ }\\void \mbox{\hyperlink{class_two_block_sparsity_pattern_a97c69542e0e22e5653c8b4f7b4275635}{add\+\_\+entries}} (const unsigned int row, Forward\+Iterator \textbf{ begin}, Forward\+Iterator \textbf{ end}, const bool indices\+\_\+are\+\_\+sorted=true)
 \item 
 void \mbox{\hyperlink{class_two_block_sparsity_pattern_a051b557d53ca8367228b7829c55d4af5}{finalize}} ()
 \item 
@@ -46,7 +46,7 @@ const \textbf{ Sparsity\+Pattern} \& \mbox{\hyperlink{class_two_block_sparsity_p
 \item 
 bool \mbox{\hyperlink{class_two_block_sparsity_pattern_a642806909b31d0cb75ca4831563c8269}{exists}} (const unsigned int i, const unsigned int j) const
 \item 
-void \mbox{\hyperlink{class_two_block_sparsity_pattern_a61ef6e3f3325cffcfc1d25efc41886b0}{distribute}} (const \textbf{ Index\+Set} \&locally\+\_\+owned\+\_\+indices, const M\+P\+I\+\_\+\+Comm mpi\+\_\+communicator)
+void \mbox{\hyperlink{class_two_block_sparsity_pattern_a61ef6e3f3325cffcfc1d25efc41886b0}{distribute}} (const \textbf{ Index\+Set} \&locally\+\_\+owned\+\_\+indices, const MPI\+\_\+\+Comm mpi\+\_\+communicator)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -150,7 +150,7 @@ Add a number of entries to a row of the sparsity pattern
 \index{TwoBlockSparsityPattern@{TwoBlockSparsityPattern}!distribute@{distribute}}
 \index{distribute@{distribute}!TwoBlockSparsityPattern@{TwoBlockSparsityPattern}}
 \doxysubsubsection{\texorpdfstring{distribute()}{distribute()}}
-{\footnotesize\ttfamily void Two\+Block\+Sparsity\+Pattern\+::distribute (\begin{DoxyParamCaption}\item[{const \textbf{ Index\+Set} \&}]{locally\+\_\+owned\+\_\+indices,  }\item[{const M\+P\+I\+\_\+\+Comm}]{mpi\+\_\+communicator }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Two\+Block\+Sparsity\+Pattern\+::distribute (\begin{DoxyParamCaption}\item[{const \textbf{ Index\+Set} \&}]{locally\+\_\+owned\+\_\+indices,  }\item[{const MPI\+\_\+\+Comm}]{mpi\+\_\+communicator }\end{DoxyParamCaption})}
 
 This function makes sure that all processors know about all their entries
 
@@ -158,7 +158,7 @@ This function makes sure that all processors know about all their entries
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em locally\+\_\+owned\+\_\+indices} & The locally owned indices on this processor\\
 \hline
-\mbox{\texttt{ in}}  & {\em mpi\+\_\+communicator} & The M\+PI communicator \\
+\mbox{\texttt{ in}}  & {\em mpi\+\_\+communicator} & The MPI communicator \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_two_block_sparsity_pattern_a642806909b31d0cb75ca4831563c8269}\label{class_two_block_sparsity_pattern_a642806909b31d0cb75ca4831563c8269}} 

@@ -566,11 +566,17 @@ public:
 	 *
 	 * @param[in]	n_additional_dofs		A number of additional dofs to be included in the DoFHandlerSystem, which
 	 * 										are not related to a mesh
+	 *
+	 * @param[in]	renumbering_domain		Renumering of dof indices on the domain
+	 *
+	 * @param[in]	renumbering_interface	Renumering of dof indices on the interface
 	 */
 	void
 	distribute_dofs(const hp::FECollection<spacedim, spacedim>&		fe_collection_domain,
 					const hp::FECollection<spacedim-1, spacedim>&	fe_collection_interface,
-					const unsigned int								n_additional_dofs = 0);
+					const unsigned int								n_additional_dofs = 0,
+					const std::vector<unsigned int>& 				renumbering_domain = std::vector<unsigned int>(),
+					const std::vector<unsigned int>& 				renumbering_interface = std::vector<unsigned int>());
 
 	/**
 	 * @return	An iterator (with dof information) to the first active interface cell. Note that this is not

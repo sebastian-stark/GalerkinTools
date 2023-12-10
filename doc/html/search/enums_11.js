@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['whicheigenvalues_16651',['WhichEigenvalues',['https://dealii.org/9.0.0/doxygen/deal.II/classArpackSolver.html#ad8d0a4392fc4cd6f45eaa8a16bf18a7c',1,'ArpackSolver::WhichEigenvalues()'],['https://dealii.org/9.0.0/doxygen/deal.II/classPArpackSolver.html#a61e6ecc371924100bc132fba84bc9b67',1,'PArpackSolver::WhichEigenvalues()']]]
+  ['updateflags_24536',['UpdateFlags',['https://dealii.org/9.0.0/doxygen/deal.II/group__feaccess.html#gaa94b67d2fdcc390690c523f28019e52f',1,]]],
+  ['userdatatype_24537',['UserDataType',['https://dealii.org/9.0.0/doxygen/deal.II/classinternal_1_1TriangulationImplementation_1_1TriaObjects.html#a9775aeca5733c8d321aee3298c9bd9ab',1,'internal::TriangulationImplementation::TriaObjects']]]
 ];

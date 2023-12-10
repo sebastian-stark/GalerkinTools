@@ -1,4 +1,4 @@
-\hypertarget{class_do_f_renumbering}{}\doxysection{Do\+F\+Renumbering Class Reference}
+\hypertarget{class_do_f_renumbering}{}\doxysection{Do\+FRenumbering Class Reference}
 \label{class_do_f_renumbering}\index{DoFRenumbering@{DoFRenumbering}}
 
 
@@ -6,7 +6,7 @@
 
 
 
-Inheritance diagram for Do\+F\+Renumbering\+:\nopagebreak
+Inheritance diagram for Do\+FRenumbering\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,7 +15,7 @@ Inheritance diagram for Do\+F\+Renumbering\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Do\+F\+Renumbering\+:\nopagebreak
+Collaboration diagram for Do\+FRenumbering\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -29,7 +29,7 @@ virtual void \mbox{\hyperlink{class_do_f_renumbering_a3dd9e72a14b3078a9f823222ea
 \item 
 virtual std\+::vector$<$ std\+::pair$<$ const unsigned int, const unsigned int $>$ $>$ \mbox{\hyperlink{class_do_f_renumbering_a39be83786966bdce332a902104993c74}{convert\+\_\+range}} (const unsigned int range\+\_\+begin, const unsigned int range\+\_\+end) const
 \item 
-virtual \mbox{\hyperlink{class_do_f_renumbering_a0443d7cb614fa161e4201ff7a6bdf541}{$\sim$\+Do\+F\+Renumbering}} ()
+virtual \mbox{\hyperlink{class_do_f_renumbering_a0443d7cb614fa161e4201ff7a6bdf541}{$\sim$\+Do\+FRenumbering}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
@@ -37,7 +37,7 @@ virtual \mbox{\hyperlink{class_do_f_renumbering_a0443d7cb614fa161e4201ff7a6bdf54
 \doxysubsection{Detailed Description}
 This class is intended to describe a renumbering of dof indices
 
-The class inherits from \textbf{ Subscriptor} in order to be able to check that \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} objects are only destroyed when they are not needed anymore by other objects.
+The class inherits from \textbf{ Subscriptor} in order to be able to check that \mbox{\hyperlink{class_do_f_renumbering}{Do\+FRenumbering}} objects are only destroyed when they are not needed anymore by other objects.
 
 The default implementation does no renumbering. 
 
@@ -46,16 +46,16 @@ The default implementation does no renumbering.
 \index{DoFRenumbering@{DoFRenumbering}!````~DoFRenumbering@{$\sim$DoFRenumbering}}
 \index{````~DoFRenumbering@{$\sim$DoFRenumbering}!DoFRenumbering@{DoFRenumbering}}
 \doxysubsubsection{\texorpdfstring{$\sim$DoFRenumbering()}{~DoFRenumbering()}}
-{\footnotesize\ttfamily virtual Do\+F\+Renumbering\+::$\sim$\+Do\+F\+Renumbering (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual Do\+FRenumbering\+::$\sim$\+Do\+FRenumbering (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-The destructor of \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} essentially checks before destruction that the \mbox{\hyperlink{class_do_f_renumbering}{Do\+F\+Renumbering}} object is not used by other objects. If this is the case, the program will be aborted. 
+The destructor of \mbox{\hyperlink{class_do_f_renumbering}{Do\+FRenumbering}} essentially checks before destruction that the \mbox{\hyperlink{class_do_f_renumbering}{Do\+FRenumbering}} object is not used by other objects. If this is the case, the program will be aborted. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_do_f_renumbering_a3dd9e72a14b3078a9f823222eacd162c}\label{class_do_f_renumbering_a3dd9e72a14b3078a9f823222eacd162c}} 
 \index{DoFRenumbering@{DoFRenumbering}!convert\_dof\_indices@{convert\_dof\_indices}}
 \index{convert\_dof\_indices@{convert\_dof\_indices}!DoFRenumbering@{DoFRenumbering}}
 \doxysubsubsection{\texorpdfstring{convert\_dof\_indices()}{convert\_dof\_indices()}}
-{\footnotesize\ttfamily virtual void Do\+F\+Renumbering\+::convert\+\_\+dof\+\_\+indices (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual void Do\+FRenumbering\+::convert\+\_\+dof\+\_\+indices (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{dof\+\_\+indices }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
 This function renumbers the incoming dof indices
 
@@ -66,13 +66,13 @@ This function renumbers the incoming dof indices
 \end{DoxyParams}
 
 
-Reimplemented in \mbox{\hyperlink{class_do_f_renumbering_offset_a11744a010a6502ae0aa9bac11c7ff3f0}{Do\+F\+Renumbering\+Offset}}.
+Reimplemented in \mbox{\hyperlink{class_do_f_renumbering_offset_a11744a010a6502ae0aa9bac11c7ff3f0}{Do\+FRenumbering\+Offset}}.
 
 \mbox{\Hypertarget{class_do_f_renumbering_a39be83786966bdce332a902104993c74}\label{class_do_f_renumbering_a39be83786966bdce332a902104993c74}} 
 \index{DoFRenumbering@{DoFRenumbering}!convert\_range@{convert\_range}}
 \index{convert\_range@{convert\_range}!DoFRenumbering@{DoFRenumbering}}
 \doxysubsubsection{\texorpdfstring{convert\_range()}{convert\_range()}}
-{\footnotesize\ttfamily virtual std\+::vector$<$std\+::pair$<$const unsigned int, const unsigned int$>$ $>$ Do\+F\+Renumbering\+::convert\+\_\+range (\begin{DoxyParamCaption}\item[{const unsigned int}]{range\+\_\+begin,  }\item[{const unsigned int}]{range\+\_\+end }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual std\+::vector$<$std\+::pair$<$const unsigned int, const unsigned int$>$ $>$ Do\+FRenumbering\+::convert\+\_\+range (\begin{DoxyParamCaption}\item[{const unsigned int}]{range\+\_\+begin,  }\item[{const unsigned int}]{range\+\_\+end }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
 Converts a contiguous range \mbox{[}{\ttfamily range\+\_\+begin}, {\ttfamily range\+\_\+end}\mbox{]} of indices into one or several contiguous ranges in the new numbering
 
@@ -88,7 +88,7 @@ A vector with one or several ranges.
 \end{DoxyReturn}
 
 
-Reimplemented in \mbox{\hyperlink{class_do_f_renumbering_offset_adef238432ea7b8100c3d4d0e008a9f72}{Do\+F\+Renumbering\+Offset}}.
+Reimplemented in \mbox{\hyperlink{class_do_f_renumbering_offset_adef238432ea7b8100c3d4d0e008a9f72}{Do\+FRenumbering\+Offset}}.
 
 
 

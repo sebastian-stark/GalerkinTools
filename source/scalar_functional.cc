@@ -18,6 +18,7 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <math.h>
+#include <limits>
 
 #include <galerkin_tools/scalar_functional.h>
 #include <deal.II/lac/lapack_full_matrix.h>
@@ -94,10 +95,11 @@ template<unsigned int dim, unsigned int spacedim>
 				const vector<ScalarFunctional<dim,spacedim>*>&			scalar_functionals,
 				const vector<std::vector<unsigned int>>&				map_dependent_fields,
 				const vector<unsigned int>&								indices_nonlocal_dependent_fields,
-				const vector<unsigned int>&								indices_local_dependent_fields)
+				const vector<unsigned int>&								indices_local_dependent_fields,
+				const bool												no_computation = false)
 	{
 
-		const tuple<bool, bool, bool> requested_quantities = make_tuple(true, true, true);
+		const tuple<bool, bool, bool> requested_quantities = no_computation ? make_tuple(false, false, false) : make_tuple(true, true, true);
 
 		// copy data into scalar functional wise data structures
 		const unsigned int N_sf = scalar_functionals.size();
@@ -113,7 +115,8 @@ template<unsigned int dim, unsigned int spacedim>
 			const unsigned int N_df = (spacedim == dim) ? scalar_functionals[sf]->e_omega.size() : scalar_functionals[sf]->e_sigma.size();
 			const unsigned int N_hv = scalar_functionals[sf]->n_hidden;
 			e_sf[sf].reinit(N_df);
-			e_ref_sets_sf[sf].resize(scalar_functionals[sf]->n_ref_sets);
+			//e_ref_sets_sf[sf].resize(scalar_functionals[sf]->n_ref_sets);
+			e_ref_sets_sf[sf].resize(e_ref_sets.size());
 			for(auto& ref_set : e_ref_sets_sf[sf])
 				ref_set.reinit(N_df);
 			hidden_vars_sf[sf].reinit(N_hv);
@@ -149,6 +152,10 @@ template<unsigned int dim, unsigned int spacedim>
 			}
 		}
 
+		// nothing to do if there is nothing requested
+		if(no_computation)
+			return false;
+
 		// copy data into combined data structures
 		counter_hv = 0;
 		h = 0.0;
@@ -160,6 +167,7 @@ template<unsigned int dim, unsigned int spacedim>
 			const unsigned int N_hv = scalar_functionals[sf]->n_hidden;
 
 			h += h_sf[sf];
+
 			for(unsigned int df = 0; df < N_df; ++df)
 				h_1[map_dependent_fields[sf][df]] += h_1_sf[sf][df];
 
@@ -221,7 +229,8 @@ template<unsigned int dim, unsigned int spacedim>
 			const unsigned int N_hv = scalar_functionals[sf]->n_hidden;
 			delta_e_sf[sf].reinit(N_df);
 			e_sf[sf].reinit(N_df);
-			e_ref_sets_sf[sf].resize(scalar_functionals[sf]->n_ref_sets);
+//			e_ref_sets_sf[sf].resize(scalar_functionals[sf]->n_ref_sets);
+			e_ref_sets_sf[sf].resize(e_ref_sets.size());
 			for(auto& ref_set : e_ref_sets_sf[sf])
 				ref_set.reinit(N_df);
 			hidden_vars_sf[sf].reinit(N_hv);
@@ -242,7 +251,7 @@ template<unsigned int dim, unsigned int spacedim>
 		}
 
 		// call all scalar functionals
-		double max_step = DBL_MAX;
+		double max_step = numeric_limits<double>::max();
 		for(unsigned int sf = 0; sf < N_sf; ++sf)
 		{
 			double max_step_;
@@ -267,13 +276,14 @@ template<unsigned int dim, unsigned int spacedim>
 			double& 												h,
 			Vector<double>& 										h_1,
 			FullMatrix<double>& 									h_2,
-			const tuple<bool, bool, bool>							/*requested_quantities*/,
+			const tuple<bool, bool, bool>							requested_quantities,
 			const vector<ScalarFunctional<dim,spacedim>*>&			scalar_functionals,
 			const vector<std::vector<unsigned int>>&				map_dependent_fields,
 			const vector<unsigned int>&								indices_nonlocal_dependent_fields,
 			const vector<unsigned int>&								indices_local_dependent_fields,
 			const double&											safety_distance,
 			const double&											threshold_residual,
+			const double&											threshold_step_size,
 			const unsigned int&										max_iter,
 			const unsigned int&										max_cutbacks,
 			const bool&												use_line_search)
@@ -283,10 +293,21 @@ template<unsigned int dim, unsigned int spacedim>
 		LAPACKFullMatrix<double> AA(NA), AB(NA, NB), BA(NB, NA), BB(NB);
 		Vector<double> f_A(NA), f_B(NB), delta_A(NA), delta_e(NA + NB), scaling(NA), f_A_scaled(NA);
 
-		// compute the system and determine solution increment for local dependent fields
-		if(get_system<dim, spacedim>(e, e_ref_sets, hidden_vars, x, n, h, h_1, h_2, f_A, f_B, AA, AB, BA, BB, scalar_functionals, map_dependent_fields, indices_nonlocal_dependent_fields, indices_local_dependent_fields))
-			return true;
 
+		if((get<0>(requested_quantities) == false) && (get<1>(requested_quantities) == false) && (get<2>(requested_quantities) == false))
+		{
+			// nothing to do if nothing is requested. Just make sure that the scalar functionals are called once.
+			get_system<dim, spacedim>(e, e_ref_sets, hidden_vars, x, n, h, h_1, h_2, f_A, f_B, AA, AB, BA, BB, scalar_functionals, map_dependent_fields, indices_nonlocal_dependent_fields, indices_local_dependent_fields, true);
+			return false;
+		}
+		else
+		{
+			// compute the system and determine solution increment for local dependent fields
+			if(get_system<dim, spacedim>(e, e_ref_sets, hidden_vars, x, n, h, h_1, h_2, f_A, f_B, AA, AB, BA, BB, scalar_functionals, map_dependent_fields, indices_nonlocal_dependent_fields, indices_local_dependent_fields), false)
+			{
+				return true;
+			}
+		}
 
 		if(NA > 0)
 		{
@@ -306,10 +327,6 @@ template<unsigned int dim, unsigned int spacedim>
 			double residual_old = 0.0;
 			for(;;)
 			{
-				// check residual
-				if(residual < sqrt(NA) * threshold_residual)
-					break;
-
 				// determine increment to solution
 				AA.compute_lu_factorization();
 				delta_A = f_A;
@@ -343,7 +360,7 @@ template<unsigned int dim, unsigned int spacedim>
 						break;
 
 					// also don't line search in the first iteration or if the residual has decreased
-					if( (iter == 0) || (residual < residual_old) )
+					if( (iter == 0) || ((threshold_step_size > 0.0) && (delta_A.linfty_norm() < threshold_step_size)) || (residual < residual_old) )
 						break;
 					else
 					{
@@ -362,8 +379,31 @@ template<unsigned int dim, unsigned int spacedim>
 					}
 				}
 
+
 				residual_old = residual;
 				++iter;
+
+				// check convergence
+				bool converged_by_residual = true;
+				if(threshold_residual > 0.0)
+				{
+					if(!(residual < sqrt(NA) * threshold_residual))
+						converged_by_residual = false;
+				}
+
+				bool converged_by_step_size = true;
+				double step_size = 0.0;
+				if(threshold_step_size > 0.0)
+				{
+					step_size = delta_A.linfty_norm();
+					if(!(fabs(step_size) < threshold_step_size))
+						converged_by_step_size = false;
+				}
+
+				if(converged_by_residual && converged_by_step_size)
+				{
+					break;
+				}
 
 				if(iter > max_iter)
 				{
@@ -399,6 +439,14 @@ template<unsigned int dim, unsigned int spacedim>
 	}
 
 
+}
+
+template<unsigned int spacedim>
+void
+ScalarFunctional<spacedim, spacedim>::set_q_point_id(string q_point_id)
+const
+{
+	this->q_point_id = q_point_id;
 }
 
 template<unsigned int spacedim>
@@ -438,6 +486,14 @@ const
 {
 	Assert(false, ExcMessage("This function should never be called. This indicates a bug!"));
 	return true;
+}
+
+template<unsigned int dim, unsigned int spacedim>
+void
+ScalarFunctional<dim, spacedim>::set_q_point_id(string q_point_id)
+const
+{
+	this->q_point_id = q_point_id;
 }
 
 template<unsigned int dim, unsigned int spacedim>
@@ -486,7 +542,7 @@ ScalarFunctional<spacedim, spacedim>::get_maximum_step(	const Vector<double>& 		
 														const Point<spacedim>& 			/*x*/)
 const
 {
-	return DBL_MAX;
+	return numeric_limits<double>::max();
 }
 
 template<unsigned int spacedim>
@@ -500,22 +556,8 @@ ScalarFunctional<spacedim, spacedim>::get_maximum_step(	const Vector<double>& 		
 const
 {
 	Assert(false, ExcMessage("This function should never be called. This indicates a bug!"));
-	return DBL_MAX;
+	return numeric_limits<double>::max();
 }
-
-template<unsigned int spacedim>
-void
-ScalarFunctional<spacedim, spacedim>::modify_K_cell_f_cell(	const DomainCellDoFIterator<spacedim>&	/*domain_cell*/,
-															FullMatrix<double>&						/*K_cell*/,
-															Vector<double>&							/*f_cell*/,
-															const Vector<double>&					/*solution*/,
-															const Vector<double>&					/*solution_C*/,
-															const std::vector<unsigned int>&		/*scalar_functional_indices_to_cell_shapefuns*/,
-															const std::vector<unsigned int>&		/*scalar_functional_indices_to_independent_scalar_indices*/)
-const
-{
-}
-
 
 template<unsigned int spacedim>
 void
@@ -660,7 +702,7 @@ ScalarFunctional<dim, spacedim>::get_maximum_step(	const Vector<double>& 			/*e_
 													const Tensor<1, spacedim>&		/*n*/)
 const
 {
-	return DBL_MAX;
+	return numeric_limits<double>::max();
 }
 
 template<unsigned int dim, unsigned int spacedim>
@@ -673,7 +715,7 @@ ScalarFunctional<dim, spacedim>::get_maximum_step(	const Vector<double>& 				/*e
 const
 {
 	Assert(false, ExcMessage("This function should never be called. This indicates a bug!"));
-	return DBL_MAX;
+	return numeric_limits<double>::max();
 }
 
 template<unsigned int dim, unsigned int spacedim>
@@ -825,6 +867,16 @@ ScalarFunctional<dim,spacedim>::~ScalarFunctional()
 }
 
 template<unsigned int spacedim>
+void
+ScalarFunctionalLocalElimination<spacedim, spacedim>::set_q_point_id(string q_point_id)
+const
+{
+	this->q_point_id = q_point_id;
+	for(const auto sf : scalar_functionals)
+		sf->set_q_point_id(q_point_id);
+}
+
+template<unsigned int spacedim>
 ScalarFunctionalLocalElimination<spacedim, spacedim>::ScalarFunctionalLocalElimination(	const vector<ScalarFunctional<spacedim,spacedim>*>	scalar_functionals,
 																						const string 										name)
 :
@@ -872,36 +924,40 @@ const
 {
 	Vector<double> e_old = e_omega;
 	Vector<double> hidden_vars_old = hidden_vars;
-	bool error = Implementation::get_h<spacedim, spacedim>(e_omega, e_omega_ref_sets, hidden_vars, x, nullptr, h_omega, h_omega_1, h_omega_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_not_eliminated_dependent_fields, indices_locally_eliminated_dependent_fields, safety_distance, threshold_residual, max_iter, max_cutbacks, use_line_search);
-	if(!error)
-	{
-		Vector<double> de = e_omega;
-		for(unsigned int m = 0; m < de.size(); ++m)
-			de[m] = de[m] - e_old[m];
+	bool error = Implementation::get_h<spacedim, spacedim>(e_omega, e_omega_ref_sets, hidden_vars, x, nullptr, h_omega, h_omega_1, h_omega_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_not_eliminated_dependent_fields, indices_locally_eliminated_dependent_fields, safety_distance, threshold_residual, threshold_step_size, max_iter, max_cutbacks, use_line_search);
 
-		const double max_step = get_maximum_step(e_old, e_omega_ref_sets, de, hidden_vars_old, x);
-		if(max_step < 1.0/safety_distance)
-		{
-//			cout << "Error in ScalarFunctionalLocalElimination due to too quick approach of the boundary of admissibility" << endl;
-			error = true;
-		}
-	}
-	else
+	if((get<0>(requested_quantities) != false) || (get<1>(requested_quantities) != false) || (get<2>(requested_quantities) != false))
 	{
-//		cout << "Error in ScalarFunctionalLocalElimination due to non-convergence of Newton-Raphson iteration" << endl;
-
-		/*
-		cout << "e_omega" << " " << "e_omega_ref" << endl;
-		for(unsigned int m = 0; m < e_omega.size(); ++m)
-			printf("%- 1.16e %- 1.16e\n", e_omega[m], e_omega_ref_sets[0][m]);
-		cout << endl;
-		cout << "hidden vars" << endl;
-		for(unsigned int m = 0; m < hidden_vars.size(); ++m)
+		if(!error)
 		{
-			printf("%- 1.16e\n", hidden_vars[m]);
+			Vector<double> de = e_omega;
+			for(unsigned int m = 0; m < de.size(); ++m)
+				de[m] = de[m] - e_old[m];
+
+			const double max_step = get_maximum_step(e_old, e_omega_ref_sets, de, hidden_vars_old, x);
+			if(max_step < 1.0/safety_distance_step)
+			{
+				cout << "Error in ScalarFunctionalLocalElimination due to too quick approach of the boundary of admissibility" << endl;
+				error = true;
+			}
 		}
-		cout << endl;
-		 */
+		else
+		{
+	//		cout << "Error in ScalarFunctionalLocalElimination due to non-convergence of Newton-Raphson iteration" << endl;
+
+			/*
+			cout << "e_omega" << " " << "e_omega_ref" << endl;
+			for(unsigned int m = 0; m < e_omega.size(); ++m)
+				printf("%- 1.16e %- 1.16e\n", e_omega[m], e_omega_ref_sets[0][m]);
+			cout << endl;
+			cout << "hidden vars" << endl;
+			for(unsigned int m = 0; m < hidden_vars.size(); ++m)
+			{
+				printf("%- 1.16e\n", hidden_vars[m]);
+			}
+			cout << endl;
+			 */
+		}
 	}
 	return error;
 }
@@ -929,10 +985,26 @@ ScalarFunctionalLocalElimination<spacedim, spacedim>::set_safety_distance(const 
 
 template<unsigned int spacedim>
 void
+ScalarFunctionalLocalElimination<spacedim, spacedim>::set_safety_distance_step(const double safety_distance_step)
+{
+	Assert(safety_distance_step <= 1.0, ExcMessage("Safety distance for step must be <= 1.0"));
+	Assert(safety_distance_step> 0.0, ExcMessage("Safety must be larger than 0.0"));
+	this->safety_distance_step = safety_distance_step;
+}
+
+
+template<unsigned int spacedim>
+void
 ScalarFunctionalLocalElimination<spacedim, spacedim>::set_threshold_residual(const double threshold_residual)
 {
-	Assert(threshold_residual > 0.0, ExcMessage("Threshold for residual must be greater than 0"));
 	this->threshold_residual = threshold_residual;
+}
+
+template<unsigned int spacedim>
+void
+ScalarFunctionalLocalElimination<spacedim, spacedim>::set_threshold_step_size(const double threshold_step_size)
+{
+	this->threshold_step_size = threshold_step_size;
 }
 
 template<unsigned int spacedim>
@@ -954,6 +1026,16 @@ void
 ScalarFunctionalLocalElimination<spacedim, spacedim>::set_use_line_search(const bool use_line_search)
 {
 	this->use_line_search = use_line_search;
+}
+
+template<unsigned int dim, unsigned int spacedim>
+void
+ScalarFunctionalLocalElimination<dim, spacedim>::set_q_point_id(string q_point_id)
+const
+{
+	this->q_point_id = q_point_id;
+	for(const auto sf : scalar_functionals)
+		sf->set_q_point_id(q_point_id);
 }
 
 template<unsigned int dim, unsigned int spacedim>
@@ -1006,35 +1088,38 @@ const
 {
 	Vector<double> e_old = e_sigma;
 	Vector<double> hidden_vars_old = hidden_vars;
-	bool error = Implementation::get_h<dim, spacedim>(e_sigma, e_sigma_ref_sets, hidden_vars, x, &n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_not_eliminated_dependent_fields, indices_locally_eliminated_dependent_fields, safety_distance, threshold_residual, max_iter, max_cutbacks, use_line_search);
-	if(!error)
+	bool error = Implementation::get_h<dim, spacedim>(e_sigma, e_sigma_ref_sets, hidden_vars, x, &n, h_sigma, h_sigma_1, h_sigma_2, requested_quantities, scalar_functionals, map_dependent_fields, indices_not_eliminated_dependent_fields, indices_locally_eliminated_dependent_fields, safety_distance, threshold_residual, threshold_step_size, max_iter, max_cutbacks, use_line_search);
+	if((get<0>(requested_quantities) != false) || (get<1>(requested_quantities) != false) || (get<2>(requested_quantities) != false))
 	{
-		Vector<double> de = e_sigma;
-		for(unsigned int m = 0; m < de.size(); ++m)
-			de[m] = de[m] - e_old[m];
-		const double max_step = get_maximum_step(e_old, e_sigma_ref_sets, de, hidden_vars_old, x, n);
-		if(max_step < 1.0/safety_distance)
+		if(!error)
 		{
-//			cout << "Error in ScalarFunctionalLocalElimination due to too quick approach of the boundary of admissibility" << endl;
-			error = true;
+			Vector<double> de = e_sigma;
+			for(unsigned int m = 0; m < de.size(); ++m)
+				de[m] = de[m] - e_old[m];
+			const double max_step = get_maximum_step(e_old, e_sigma_ref_sets, de, hidden_vars_old, x, n);
+			if(max_step < 1.0/safety_distance_step)
+			{
+				cout << "Error in ScalarFunctionalLocalElimination due to too quick approach of the boundary of admissibility" << endl;
+				error = true;
+			}
 		}
-	}
-	else
-	{
-//		cout << "Error in ScalarFunctionalLocalElimination due to non-convergence of Newton-Raphson iteration" << endl;
+		else
+		{
+	//		cout << "Error in ScalarFunctionalLocalElimination due to non-convergence of Newton-Raphson iteration" << endl;
 
-		/*
-		cout << "e_omega" << " " << "e_omega_ref" << endl;
-		for(unsigned int m = 0; m < e_omega.size(); ++m)
-			printf("%- 1.16e %- 1.16e\n", e_omega[m], e_omega_ref_sets[0][m]);
-		cout << endl;
-		cout << "hidden vars" << endl;
-		for(unsigned int m = 0; m < hidden_vars.size(); ++m)
-		{
-			printf("%- 1.16e\n", hidden_vars[m]);
+			/*
+			cout << "e_omega" << " " << "e_omega_ref" << endl;
+			for(unsigned int m = 0; m < e_omega.size(); ++m)
+				printf("%- 1.16e %- 1.16e\n", e_omega[m], e_omega_ref_sets[0][m]);
+			cout << endl;
+			cout << "hidden vars" << endl;
+			for(unsigned int m = 0; m < hidden_vars.size(); ++m)
+			{
+				printf("%- 1.16e\n", hidden_vars[m]);
+			}
+			cout << endl;
+			 */
 		}
-		cout << endl;
-		 */
 	}
 	return error;
 
@@ -1064,11 +1149,28 @@ ScalarFunctionalLocalElimination<dim, spacedim>::set_safety_distance(const doubl
 
 template<unsigned int dim, unsigned int spacedim>
 void
+ScalarFunctionalLocalElimination<dim, spacedim>::set_safety_distance_step(const double safety_distance_step)
+{
+	Assert(safety_distance_step <= 1.0, ExcMessage("Safety distance for step must be <= 1.0"));
+	Assert(safety_distance_step> 0.0, ExcMessage("Safety must be larger than 0.0"));
+	this->safety_distance_step = safety_distance_step;
+}
+
+
+template<unsigned int dim, unsigned int spacedim>
+void
 ScalarFunctionalLocalElimination<dim, spacedim>::set_threshold_residual(const double threshold_residual)
 {
-	Assert(threshold_residual > 0.0, ExcMessage("Threshold for residual must be greater than 0"));
 	this->threshold_residual = threshold_residual;
 }
+
+template<unsigned int dim, unsigned int spacedim>
+void
+ScalarFunctionalLocalElimination<dim, spacedim>::set_threshold_step_size(const double threshold_step_size)
+{
+	this->threshold_step_size = threshold_step_size;
+}
+
 
 template<unsigned int dim, unsigned int spacedim>
 void

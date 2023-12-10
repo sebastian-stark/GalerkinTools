@@ -1,12 +1,21 @@
 var searchData=
 [
-  ['named_5fselection_2ecc_10240',['named_selection.cc',['https://dealii.org/9.0.0/doxygen/deal.II/named__selection_8cc.html',1,'']]],
-  ['named_5fselection_2eh_10241',['named_selection.h',['https://dealii.org/9.0.0/doxygen/deal.II/named__selection_8h.html',1,'']]],
-  ['namespace_5fdealii_2eh_10242',['namespace_dealii.h',['https://dealii.org/9.0.0/doxygen/deal.II/namespace__dealii_8h.html',1,'']]],
-  ['newton_2eh_10243',['newton.h',['https://dealii.org/9.0.0/doxygen/deal.II/newton_8h.html',1,'']]],
-  ['notation_2eh_10244',['notation.h',['https://dealii.org/9.0.0/doxygen/deal.II/notation_8h.html',1,'']]],
-  ['number_5fcache_2ecc_10245',['number_cache.cc',['https://dealii.org/9.0.0/doxygen/deal.II/number__cache_8cc.html',1,'']]],
-  ['number_5fcache_2eh_10246',['number_cache.h',['https://dealii.org/9.0.0/doxygen/deal.II/number__cache_8h.html',1,'']]],
-  ['numbers_2eh_10247',['numbers.h',['https://dealii.org/9.0.0/doxygen/deal.II/numbers_8h.html',1,'']]],
-  ['numerical_5falgorithms_2eh_10248',['numerical_algorithms.h',['https://dealii.org/9.0.0/doxygen/deal.II/numerical__algorithms_8h.html',1,'']]]
+  ['n_5fvector_2ecc_14876',['n_vector.cc',['https://dealii.org/9.0.0/doxygen/deal.II/n__vector_8cc.html',1,'']]],
+  ['n_5fvector_2eh_14877',['n_vector.h',['https://dealii.org/9.0.0/doxygen/deal.II/n__vector_8h.html',1,'']]],
+  ['named_5fselection_2ecc_14878',['named_selection.cc',['https://dealii.org/9.0.0/doxygen/deal.II/named__selection_8cc.html',1,'']]],
+  ['named_5fselection_2eh_14879',['named_selection.h',['https://dealii.org/9.0.0/doxygen/deal.II/named__selection_8h.html',1,'']]],
+  ['namespace_5fdealii_2eh_14880',['namespace_dealii.h',['https://dealii.org/9.0.0/doxygen/deal.II/namespace__dealii_8h.html',1,'']]],
+  ['navierstokes_5ftrbdf2_5fdg_2eh_14881',['NavierStokes_TRBDF2_DG.h',['https://dealii.org/9.0.0/doxygen/deal.II/NavierStokes__TRBDF2__DG_8h.html',1,'']]],
+  ['ndarray_2eh_14882',['ndarray.h',['https://dealii.org/9.0.0/doxygen/deal.II/ndarray_8h.html',1,'']]],
+  ['newton_2eh_14883',['newton.h',['https://dealii.org/9.0.0/doxygen/deal.II/newton_8h.html',1,'']]],
+  ['nonlinear_2eh_14884',['nonlinear.h',['https://dealii.org/9.0.0/doxygen/deal.II/nonlinear_8h.html',1,'']]],
+  ['nonlinear_5fporoviscoelasticity_2eh_14885',['Nonlinear_PoroViscoelasticity.h',['https://dealii.org/9.0.0/doxygen/deal.II/Nonlinear__PoroViscoelasticity_8h.html',1,'']]],
+  ['notation_2eh_14886',['notation.h',['https://dealii.org/9.0.0/doxygen/deal.II/notation_8h.html',1,'']]],
+  ['nox_2ecc_14887',['nox.cc',['https://dealii.org/9.0.0/doxygen/deal.II/nox_8cc.html',1,'']]],
+  ['nox_2eh_14888',['nox.h',['https://dealii.org/9.0.0/doxygen/deal.II/nox_8h.html',1,'']]],
+  ['number_5fcache_2ecc_14889',['number_cache.cc',['https://dealii.org/9.0.0/doxygen/deal.II/number__cache_8cc.html',1,'']]],
+  ['number_5fcache_2eh_14890',['number_cache.h',['https://dealii.org/9.0.0/doxygen/deal.II/number__cache_8h.html',1,'']]],
+  ['numbers_2ecc_14891',['numbers.cc',['https://dealii.org/9.0.0/doxygen/deal.II/numbers_8cc.html',1,'']]],
+  ['numbers_2eh_14892',['numbers.h',['https://dealii.org/9.0.0/doxygen/deal.II/numbers_8h.html',1,'']]],
+  ['numerical_5falgorithms_2eh_14893',['numerical_algorithms.h',['https://dealii.org/9.0.0/doxygen/deal.II/numerical__algorithms_8h.html',1,'']]]
 ];
